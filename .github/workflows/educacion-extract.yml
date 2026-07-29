@@ -1,0 +1,43 @@
+name: educacion-extract
+
+# Descarga y transforma sin tocar producción (§4.2).
+# Cadencia mensual: Educabase y Eurostat publican con retraso variable por
+# indicador, así que en vez de estimar la fecha se sondea una vez al mes. Una
+# ejecución sin novedad no genera ruido; solo se detecta antes la publicación.
+
+on:
+  schedule:
+    - cron: "0 5 10 * *"       # día 10, 05:00 UTC
+  workflow_dispatch:
+
+jobs:
+  extract:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: ./.github/actions/setup-python-pipeline
+        with:
+          python-version: "3.12"
+          requirements: "Educación/requirements.txt"
+
+      - name: Extracción + QA
+        working-directory: "Educación/1_extraccion"
+        run: python main.py --qa
+
+      - name: Transformación + QA
+        working-directory: "Educación/2_transformacion"
+        run: python transformacion.py --qa
+
+      - name: Subir salidas para inspección
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: educacion-raw
+          path: |
+            Educación/1_extraccion/data/raw/**
+            Educación/1_extraccion/data/logs/**
+            Educación/2_transformacion/data/**
+          if-no-files-found: warn

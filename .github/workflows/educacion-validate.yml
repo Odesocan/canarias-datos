@@ -1,0 +1,58 @@
+name: educacion-validate
+
+# Gate previo a producción (§4.2): recorre el pipeline entero SIN escribir en
+# Supabase, igual que presupuestos-validate.yml.
+#
+# Educación no versiona sus salidas intermedias (ver Educación/.gitignore: son
+# regenerables), así que el checkout está vacío de datos y la validación tiene
+# que partir de la extracción. Es el mismo motivo por el que Presupuestos corre
+# su maestro completo con --with-db=false.
+
+on:
+  pull_request:
+    paths:
+      - "Educación/**"
+      - ".github/workflows/educacion-validate.yml"
+  push:
+    branches: [main]
+    paths: ["Educación/**"]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: ./.github/actions/setup-python-pipeline
+        with:
+          python-version: "3.12"
+          requirements: "Educación/requirements.txt"
+
+      - name: Extracción + QA
+        working-directory: "Educación/1_extraccion"
+        run: python main.py --qa
+
+      - name: Transformación + QA
+        working-directory: "Educación/2_transformacion"
+        run: python transformacion.py --qa
+
+      - name: Modelado + QA
+        working-directory: "Educación/3_modelado"
+        run: python modelado.py --qa
+
+      # Sin --with-db: valida y exporta en local, no abre conexión a Supabase.
+      - name: Carga en seco + QA
+        working-directory: "Educación/4_carga"
+        run: python carga.py --qa
+
+      - name: Subir salidas de la validación
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: educacion-validate
+          path: |
+            Educación/4_carga/data/**
+            Educación/4_carga/reports/**
+          if-no-files-found: warn

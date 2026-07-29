@@ -1,0 +1,43 @@
+name: empleo-extract
+
+# Descarga y transforma sin tocar producción (§4.2).
+# Cadencia mensual pese a que las fuentes son mixtas: la EPA y la ETCL son
+# trimestrales y la EAES anual. Un sondeo mensual cubre las tres sin tener que
+# codificar tres calendarios distintos, y detecta cada publicación en ≤30 días.
+# extraer.py omite por su cuenta las vías sin prerrequisitos (p. ej. afiliación,
+# que necesita Excel depositados a mano en fuentes_seg_social/).
+
+on:
+  schedule:
+    - cron: "0 5 20 * *"       # día 20, 05:00 UTC
+  workflow_dispatch:
+
+jobs:
+  extract:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: ./.github/actions/setup-python-pipeline
+        with:
+          python-version: "3.12"
+          requirements: "Empleo/1_extraccion/requirements.txt"
+
+      - name: Extracción
+        working-directory: "Empleo/1_extraccion"
+        run: python extraer.py
+
+      - name: QA de extracción
+        working-directory: "Empleo/1_extraccion"
+        run: python qa_extraccion.py
+
+      - name: Subir salidas para inspección
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: empleo-raw
+          path: |
+            Empleo/1_extraccion/salida/**
+          if-no-files-found: warn
