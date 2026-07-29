@@ -1,0 +1,54 @@
+name: sanidad-deploy
+
+# El único workflow de Sanidad que escribe en la Supabase de producción (§4.2),
+# y el único que pasa --with-db.
+#
+# La carga de Sanidad usa TRUNCATE + append en lugar de DROP + CREATE, así que
+# preserva estructura, RLS, políticas y grants creados por esquema_sanidad.sql
+# (Sanidad/4_carga/carga.R). No necesita el arreglo de RLS que sí requirieron
+# Salud mental y Vivienda.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "Sanidad/4_carga/**"
+      - "Sanidad/00_maestro.R"
+      - ".github/workflows/sanidad-deploy.yml"
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    environment: production
+
+    env:
+      SUPABASE_HOST: ${{ secrets.SUPABASE_HOST }}
+      SUPABASE_PORT: ${{ secrets.SUPABASE_PORT }}
+      SUPABASE_DBNAME: ${{ secrets.SUPABASE_DBNAME }}
+      SUPABASE_USER: ${{ secrets.SUPABASE_USER }}
+      SUPABASE_PASS: ${{ secrets.SUPABASE_PASS }}
+      SUPABASE_SCHEMA: ${{ secrets.SUPABASE_SCHEMA }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: ./.github/actions/setup-r-pipeline
+        with:
+          extra-packages: "forecast httr httr2 jsonlite"
+
+      - name: Pipeline completo con carga a Supabase
+        working-directory: Sanidad
+        run: Rscript 00_maestro.R --steps=extraccion,transformacion,modelado,carga --with-db
+
+      - name: Subir salidas de la carga
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: sanidad-deploy
+          path: |
+            Sanidad/3_modelado/qa/**
+            Sanidad/4_carga/global_sanidad.csv
+            Sanidad/4_carga/gen_sanidad.csv
+          if-no-files-found: warn
