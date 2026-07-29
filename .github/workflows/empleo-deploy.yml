@@ -4,11 +4,12 @@ name: empleo-deploy
 # `environment: production` permite exigir revisor en GitHub antes de que se
 # escriba nada. Sin reglas de protección configuradas, no altera la ejecución.
 #
-# SECRETO ADICIONAL: a diferencia del resto de áreas, cargar_supabase.py no lee
-# SUPABASE_HOST/PORT/... sino una cadena de conexión única en SUPABASE_DB_URL.
-# Es la convención que ya documenta Empleo/4_carga/README.md; hay que darla de
-# alta como secreto del repositorio. El script no admite alternativa: aborta con
-# "Falta SUPABASE_DB_URL" si no la encuentra.
+# CONEXIÓN: cargar_supabase.py espera SUPABASE_DB_URL, una cadena única, mientras
+# que el resto de áreas usan SUPABASE_HOST/PORT/DBNAME/USER/PASS. Como todas
+# apuntan a la misma base y el mismo esquema, la cadena se compone a partir de
+# esos secretos con .github/scripts/supabase_dsn.py y NO hace falta dar de alta
+# un secreto nuevo. Si aun así existe SUPABASE_DB_URL como secreto, tiene
+# prioridad y se usa tal cual.
 #
 # La carga es atómica (TRUNCATE + INSERT de las dos tablas en una sola
 # transacción), así que la web nunca ve una tabla vacía o a medias. No recrea
@@ -30,6 +31,12 @@ jobs:
     environment: production
 
     env:
+      SUPABASE_HOST: ${{ secrets.SUPABASE_HOST }}
+      SUPABASE_PORT: ${{ secrets.SUPABASE_PORT }}
+      SUPABASE_DBNAME: ${{ secrets.SUPABASE_DBNAME }}
+      SUPABASE_USER: ${{ secrets.SUPABASE_USER }}
+      SUPABASE_PASS: ${{ secrets.SUPABASE_PASS }}
+      # Opcional: si existe, se usa tal cual en lugar de componerla.
       SUPABASE_DB_URL: ${{ secrets.SUPABASE_DB_URL }}
 
     steps:
@@ -40,19 +47,22 @@ jobs:
           python-version: "3.12"
           requirements: "Empleo/4_carga/requirements.txt"
 
-      - name: Comprobar el secreto de conexión
-        run: |
-          if [ -z "${SUPABASE_DB_URL}" ]; then
-            echo "::error::Falta el secreto SUPABASE_DB_URL (cadena de conexión Postgres)."
-            echo "Formato documentado en Empleo/4_carga/README.md."
-            exit 1
-          fi
-
-      # Primero en seco: si el contrato de datos falla, no se abre transacción.
+      # Primero en seco: --dry-run sale antes de leer las credenciales, así que
+      # si el contrato de datos falla no se llega ni a componer la conexión.
       - name: Validación previa
         working-directory: "Empleo/4_carga"
         run: python cargar_supabase.py --no-prep --dry-run
 
       - name: Carga a Supabase
         working-directory: "Empleo/4_carga"
-        run: python cargar_supabase.py --no-prep
+        run: |
+          set -euo pipefail
+          if [ -z "${SUPABASE_DB_URL}" ]; then
+            SUPABASE_DB_URL="$(python3 "${GITHUB_WORKSPACE}/.github/scripts/supabase_dsn.py")"
+          fi
+          # Enmascara la cadena completa: cubre también el caso en que la
+          # contraseña lleve comillas simples o barras invertidas y, al escaparse,
+          # deje de coincidir literalmente con el secreto ya enmascarado.
+          echo "::add-mask::${SUPABASE_DB_URL}"
+          export SUPABASE_DB_URL
+          python cargar_supabase.py --no-prep

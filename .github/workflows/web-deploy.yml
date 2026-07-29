@@ -1,0 +1,75 @@
+name: web-deploy
+
+# Publica canarias-en-datos-web en GitHub Pages (§6).
+#
+# Es un flujo INDEPENDIENTE de los pipelines de datos, y a propósito: la web lee
+# Supabase en tiempo real, así que un dato nuevo se ve en la siguiente carga de
+# página sin re-desplegar. La única razón para re-desplegar es que cambie el
+# código de core/ o topics/ — de ahí el filtro por paths.
+#
+# NO SE PUBLICA NADA HASTA QUE ALGUIEN ACTIVE PAGES. Este workflow solo tiene
+# efecto cuando GitHub Pages está habilitado en los ajustes del repositorio
+# (Settings → Pages → Source: GitHub Actions). Mientras no lo esté,
+# configure-pages falla y no se despliega nada. Esa activación es manual y
+# deliberada: es el punto en que el sitio pasa a ser público.
+#
+# Antes de activarlo conviene tener presente que core/config.js expone la anon
+# key, que es pública por diseño, y que el control de acceso real lo impone RLS
+# sobre las tablas — verificado por .github/workflows/rls-audit.yml.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "canarias-en-datos-web/**"
+      - ".github/workflows/web-deploy.yml"
+  workflow_dispatch:
+
+# Solo un despliegue a la vez. No se cancela el que esté en curso: abortar a
+# mitad puede dejar Pages sirviendo una versión incompleta.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Comprobar que las temáticas declaradas existen
+        run: |
+          set -euo pipefail
+          cd canarias-en-datos-web
+          fallos=0
+          # Cada slug con ready:true en el MANIFEST necesita su topics/<slug>.js;
+          # si falta, la botonera ofrece un botón que revienta al pulsarlo.
+          for slug in $(grep -oE 'slug: "[a-z-]+",[[:space:]]*label: "[^"]*",[[:space:]]*ready: true' index.html \
+                        | grep -oE 'slug: "[a-z-]+"' | cut -d'"' -f2); do
+            if [ ! -f "topics/${slug}.js" ]; then
+              echo "::error::El MANIFEST marca '${slug}' como ready pero falta topics/${slug}.js"
+              fallos=$((fallos + 1))
+            else
+              echo "OK  ${slug} -> topics/${slug}.js"
+            fi
+          done
+          [ "$fallos" -eq 0 ]
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: canarias-en-datos-web
+
+      - id: deployment
+        uses: actions/deploy-pages@v4

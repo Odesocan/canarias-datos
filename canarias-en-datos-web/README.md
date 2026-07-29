@@ -23,11 +23,25 @@ canarias-en-datos-web/
 ## Estado del plan
 
 - [x] **Fase 1 — Scaffolding** (directorios, config, placeholder HTML)
-- [ ] **Fase 2 — Motor agnóstico** (`core/engine.js`)
-- [ ] **Fase 3 — Shell** (botonera dinámica + estado en URL)
-- [ ] **Fase 4 — Config de Vivienda** (`topics/vivienda.js`)
-- [ ] **Fase 5 — Stub de una temática solo-global** (validar que el motor oculta la escena "género")
-- [ ] **Fase 6 — Deploy a GitHub Pages** (cuenta `Cristianodesocan`)
+- [x] **Fase 2 — Motor agnóstico** (`core/engine.js`): mapa coroplético, evolución,
+      género y metodología, con descarga de CSV y periodos de cadencia mixta.
+- [x] **Fase 3 — Shell**: botonera generada desde el `MANIFEST` de `index.html`,
+      con `?tematica=<slug>` en la URL (`pushState` + `popstate`).
+- [x] **Fase 4 — Config de Vivienda** (`topics/vivienda.js`)
+- [~] **Fase 5 — Temática solo-global**: `topics/presupuestos.js` declara
+      `genderTable: null`, pero hoy no se puede validar contra él porque el área
+      está en cuarentena y su render falla (ver más abajo).
+- [ ] **Fase 6 — Deploy a GitHub Pages**: `.github/workflows/web-deploy.yml` está
+      escrito, pero **Pages no está habilitado**, así que no publica nada. Se
+      activa en Settings → Pages → Source: GitHub Actions.
+
+### Temáticas activas
+
+Seis, todas leyendo de Supabase: Dependencia, Educación, Empleo, Salud mental,
+Sanidad y Vivienda. Desactivadas en el `MANIFEST`: Comunicación y Migraciones
+(fuera de alcance) y **Presupuestos**, en cuarentena mientras se resuelve la
+asignación de programas presupuestarios a conceptos. Su temática además falla al
+renderizar (`renderContext`, `core/engine.js`), pendiente de diagnóstico.
 
 ## Seguridad y credenciales
 
@@ -40,11 +54,27 @@ canarias-en-datos-web/
 
 ## Requisitos de datos
 
-- Schema `canendatos`: tablas `ced_<tematica>_global` y opcionalmente
-  `ced_<tematica>_gen` (brecha de género).
+- Schema `canendatos`. Conviven **tres formas de tabla**, y el motor las admite
+  todas:
+  - `ced_<tematica>_global` + `ced_<tematica>_gen` — Dependencia, Educación,
+    Empleo y Vivienda.
+  - `global_<tematica>` + `gen_<tematica>` — Sanidad, que no sigue el prefijo
+    `ced_`.
+  - **Una sola tabla** con la columna `genero` incluyendo `'total'` — Salud
+    mental (`ced_saludmental`). Se declara poniendo `globalTable` y `genderTable`
+    al mismo nombre; el motor detecta la igualdad y parte las filas. Sin eso, las
+    filas de hombres y mujeres contaminarían la serie global sin dar error.
+  - `genderTable: null` para temáticas sin brecha de género: el motor oculta la
+    escena "género".
 - Schema `geodesocan`: tabla `ccaa` con columna `geom` (geometrías CCAA).
+  **Hoy devuelve HTTP 400** para todas las temáticas y el motor cae al fallback
+  de `GEO_FALLBACK`; los mapas se dibujan igual. Pendiente de revisar.
 - Las tablas deben tener **RLS con política `SELECT` para el rol `anon`**,
-  si no la web no verá datos.
+  si no la web no verá datos. Lo verifica `.github/workflows/rls-audit.yml`,
+  que falla si alguna tabla queda sin RLS o con permisos de escritura para `anon`.
+
+Cada slug marcado `ready: true` en el `MANIFEST` de `index.html` necesita su
+`topics/<slug>.js`; `web-deploy.yml` lo comprueba antes de publicar.
 
 ## Desarrollo local
 
