@@ -1,0 +1,34 @@
+Package: presupuestos
+Title: ODESOCAN — Pipeline Presupuestos Autonómicos
+Version: 0.2.0
+Authors@R: c(person("Cristian", "C.P.V.", email = "investigacion@odesocan.org", role = c("aut","cre")))
+Description: Pipeline de extracción, transformación, modelado y carga de
+    presupuestos iniciales aprobados de las CCAA para Canarias en Datos.
+License: file LICENSE
+Encoding: UTF-8
+Imports:
+    optparse,
+    glue,
+    yaml,
+    httr,
+    httr2,
+    fs,
+    digest,
+    dplyr,
+    tidyr,
+    tibble,
+    purrr,
+    readr,
+    readxl,
+    writexl,
+    jsonlite,
+    stringi,
+    stringdist,
+    DBI,
+    RPostgres,
+    rvest,
+    xml2
+Suggests:
+    prophet,
+    arrow,
+    testthat

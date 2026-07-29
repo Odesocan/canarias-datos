@@ -1,0 +1,123 @@
+# ccaa/ast/correspondencias.yml — Principado de Asturias
+#
+# Códigos de PROGRAMA reales de la clasificación funcional asturiana
+# (tomo_I.pdf — DISTRIBUCIÓN DEL GASTO POR SECCIONES, PROGRAMAS Y CAPÍTULOS).
+# El extractor emite el código de programa (3-4 dígitos + letra: 411C, 422A,
+# 313D, ...). El matcher admite prefijos con sufijo '*'.
+#
+# Revisado 2026-05-21: la versión anterior usaba códigos genéricos de 3
+# dígitos ('311','312','421',...) que NO coinciden con la nomenclatura
+# asturiana, y forzaba asignaciones erróneas (313A→salud_mental,
+# 313C cooperación al desarrollo→discapacidad, 313G→discapacidad).
+# Mapeo nuevo: sólo programas identificables con seguridad a los 13
+# conceptos §1.6 del cuaderno. Asturias no desglosa dependencia /
+# discapacidad / salud_mental como programas propios (están dentro de
+# programas genéricos 313* de servicios sociales) — se dejan sin mapear
+# antes que asignarlos mal.
+conceptos:
+  sanidad:
+    codigos:
+    - 411*      # dirección e infraestructuras sanitarias
+    - 412*      # salud pública
+    - 413*      # prestaciones sanitarias, calidad, atención sociosanitaria
+    - 443C      # protección de la salud
+    keywords:
+    - sanitaria
+    - salud publica
+    - salud pública
+  educacion:
+    codigos:
+    - 421*      # dirección y administración educativa
+    - 422*      # infantil, primaria, secundaria, FP, universidades, idiomas
+    - 423*      # servicios complementarios
+    keywords:
+    - educativa
+  soberania:
+    codigos:
+    - 711*      # dirección agraria, desarrollo rural
+    - 712*      # producciones agrícolas y pesqueras
+    - 531*      # desarrollo forestal y mejora de estructuras agrarias
+    keywords:
+    - agraria
+    - pesquera
+  direccion:
+    codigos:
+    - 111*      # actividad legislativa, control externo del sector público
+    - 112*      # alto asesoramiento, vicepresidencia, gabinete
+    # 2026-05-26: ampliados con códigos vistos en ast/2024-2026
+    - 121*      # dirección y servicios generales, empleo público, sistemas
+    - 125*      # colaboración con entidades locales, política territorial
+    - 126*      # parque móvil, agenda 2030, reto demográfico, gastos centrales
+    - 141*      # admón de justicia
+    - 142*      # servicios de justicia
+    - 311B      # dirección y servicios generales (bienestar social)
+    # 2026-07-20: 313E «GESTIÓN DE SERVICIOS SOCIALES» RETIRADO de direccion.
+    # El concepto canónico `direccion` es "Dirección política" (alta dirección /
+    # órganos institucionales), no la gestión operativa de un servicio finalista.
+    # 313E es el mayor programa de prestación de servicios sociales de la
+    # Consejería 20 (252 M en 2024, 2,64 B en 2015-2026) y estaba inflando
+    # artificialmente el concepto. Pasa a NULL estructural, junto con el resto
+    # del bloque 313x (ver limitaciones-ast.md §313x).
+    - 511A      # dirección y servicios generales (infraestructuras)
+    - 511F      # obras, servicios y cooperación local
+    - 611*      # dirección y servicios generales (hacienda)
+    - 612*      # economía, programación, control interno, tesorería, patrimonio
+    - 613*      # política tributaria
+    - 632*      # política financiera, préstamos a entidades locales
+    - 633*      # imprevistos y funciones no clasificadas
+    - 721A      # dirección y servicios generales (industria)
+    keywords:
+    - actividad legislativa
+    - alto asesoramiento
+    - direccion y servicios
+    - dirección y servicios
+  vivienda:
+    codigos:
+    - 431*      # promoción y administración de la vivienda
+    keywords:
+    - vivienda
+  empleo:
+    codigos:
+    - 322*      # trabajo, relaciones laborales, fomento del autoempleo
+    keywords:
+    - relaciones laborales
+    - autoempleo
+  idi:
+    codigos:
+    - 541*      # investigación y desarrollo tecnológico
+    keywords:
+    - desarrollo tecnologico
+    - desarrollo tecnológico
+  dependencia:
+    codigos: []
+    keywords:
+    - dependencia
+    - atencion a la dependencia
+    - atención a la dependencia
+  discapacidad:
+    codigos: []
+    keywords:
+    - discapacidad
+    - diversidad funcional
+  salud_mental:
+    codigos: []
+    keywords:
+    - salud mental
+  diversidad:
+    codigos:
+    - 323D      # diversidad sexual y derechos LGTBI
+    keywords:
+    - lgtbi
+    - lgbti
+  turismo:
+    codigos:
+    - 751*      # coordinación y promoción del turismo
+    keywords:
+    - turismo
+  igualdad:
+    codigos:
+    - 323B      # políticas de igualdad entre mujeres y hombres
+    keywords:
+    - igualdad entre mujeres
+    - violencia de genero
+    - violencia de género

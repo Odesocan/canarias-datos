@@ -1,0 +1,1146 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>CED · Dependencia · Canarias en Datos</title>
+<script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+</head>
+<body>
+
+<div id="ced-dependencia-d3"
+     class="ced-dependencia-d3"
+     data-supabase-url="https://kdpsjutsgvghdtzoskkg.supabase.co"
+     data-supabase-key="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImtkcHNqdXRzZ3ZnaGR0em9za2tnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjUxOTE3MzEsImV4cCI6MjA4MDc2NzczMX0.1W2H42tPmOSvVWPd65jS3m13k_M3gH_X1ifysTKppPo"
+     data-supabase-schema="canendatos"
+     data-supabase-global="ced_dependencia_global"
+     data-supabase-gen="ced_dependencia_gen"
+     data-geo-schema="geodesocan"
+     data-geo-table="ccaa"
+     data-geo-name-col="name"
+     data-geo-geom-col="geom"
+     data-csv-global="../4_carga/ced_dependencia_global.csv"
+     data-csv-gen="../4_carga/ced_dependencia_gen.csv"
+     data-geojson-url="https://gisco-services.ec.europa.eu/distribution/v2/nuts/geojson/NUTS_RG_01M_2021_4326_LEVL_2.geojson">
+  <style>
+    /* ================================================================
+       Paleta Dependencia (coral / cuidados)
+       ================================================================ */
+    #ced-dependencia-d3 {
+      --ced-bg:#fdf7f4; --ced-surface:#fff; --ced-ink:#1d1612; --ced-muted:#7a5a52;
+      --ced-line:#ecd5cc; --ced-soft:#fbe8e0;
+      --ced-coral:#f06d4f; --ced-coral-dark:#b8472f; --ced-coral-deep:#6e1f1a;
+      --ced-teal:#0c8b8b; --ced-teal-soft:#d4f0f0;
+      --ced-shadow:0 16px 40px rgba(110,31,26,.10);
+      width:100%; max-width:100%; overflow-x:hidden; color:var(--ced-ink);
+      font-family:Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      letter-spacing:0; background:var(--ced-bg); padding:24px 18px 36px;
+    }
+    #ced-dependencia-d3, #ced-dependencia-d3 * { box-sizing:border-box; }
+    #ced-dependencia-d3 button, #ced-dependencia-d3 select { font:inherit; }
+    #ced-dependencia-d3 .ced-header { background:var(--ced-surface); border:1px solid var(--ced-line); border-radius:10px; overflow:hidden; }
+    #ced-dependencia-d3 .ced-header-inner { padding:22px 24px 18px; display:grid; grid-template-columns:minmax(0,1fr) auto; gap:18px; align-items:end; }
+    #ced-dependencia-d3 .ced-eyebrow { color:var(--ced-coral-dark); font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.06em; }
+    #ced-dependencia-d3 h2 { margin:5px 0 6px; font-size:clamp(28px,3.6vw,46px); line-height:1.05; font-weight:760; color:var(--ced-ink); padding:0; }
+    #ced-dependencia-d3 .ced-lead { max-width:790px; color:var(--ced-muted); font-size:15px; line-height:1.55; }
+    #ced-dependencia-d3 .ced-actions { display:flex; gap:10px; align-items:center; justify-content:flex-end; flex-wrap:wrap; }
+    #ced-dependencia-d3 .ced-btn { border:1px solid var(--ced-line); background:var(--ced-surface); color:var(--ced-ink); min-height:38px; padding:0 14px; border-radius:7px; cursor:pointer; display:inline-flex; align-items:center; gap:8px; white-space:nowrap; font-weight:600; }
+    #ced-dependencia-d3 .ced-btn.is-primary { background:var(--ced-coral); border-color:var(--ced-coral); color:#fff; }
+    #ced-dependencia-d3 .ced-btn:hover { box-shadow:0 4px 10px rgba(184,71,47,.18); }
+    #ced-dependencia-d3 .ced-toolbar { padding:14px 24px; display:flex; gap:14px; flex-wrap:wrap; align-items:center; border-top:1px solid var(--ced-line); }
+    #ced-dependencia-d3 .ced-control { display:grid; gap:5px; }
+    #ced-dependencia-d3 .ced-control label { color:var(--ced-muted); font-size:11px; font-weight:650; text-transform:uppercase; letter-spacing:.05em; }
+    #ced-dependencia-d3 select { min-height:38px; border:1px solid var(--ced-line); border-radius:7px; background:var(--ced-surface); color:var(--ced-ink); padding:0 30px 0 10px; min-width:200px; }
+    #ced-dependencia-d3 .ced-main { padding:20px 0 0; display:grid; grid-template-columns:300px minmax(0,1fr); gap:20px; }
+    #ced-dependencia-d3 .ced-story-nav { display:grid; gap:10px; align-self:start; position:sticky; top:12px; }
+    #ced-dependencia-d3 .ced-story-step { border:1px solid var(--ced-line); border-left:4px solid transparent; background:var(--ced-surface); border-radius:8px; text-align:left; padding:14px; cursor:pointer; color:var(--ced-ink); font-family:inherit; }
+    #ced-dependencia-d3 .ced-story-step.is-active { border-left-color:var(--ced-coral); box-shadow:var(--ced-shadow); }
+    #ced-dependencia-d3 .ced-story-step strong { display:block; font-size:14px; margin-bottom:4px; }
+    #ced-dependencia-d3 .ced-story-step span { display:block; color:var(--ced-muted); font-size:12.5px; line-height:1.45; }
+    #ced-dependencia-d3 .ced-stage { min-width:0; display:grid; gap:16px; }
+    #ced-dependencia-d3 .ced-kpi-row { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:10px; }
+    #ced-dependencia-d3 .ced-kpi { background:var(--ced-surface); border:1px solid var(--ced-line); border-radius:8px; padding:13px 14px; }
+    #ced-dependencia-d3 .ced-kpi-label { color:var(--ced-muted); font-size:11px; line-height:1.25; min-height:30px; text-transform:uppercase; letter-spacing:.04em; font-weight:650; }
+    #ced-dependencia-d3 .ced-kpi-value { margin-top:8px; font-size:24px; line-height:1; font-weight:760; color:var(--ced-coral-deep); }
+    #ced-dependencia-d3 .ced-kpi-note { margin-top:6px; color:var(--ced-muted); font-size:12px; }
+    #ced-dependencia-d3 .ced-panel { background:var(--ced-surface); border:1px solid var(--ced-line); border-radius:10px; box-shadow:var(--ced-shadow); overflow:hidden; }
+    #ced-dependencia-d3 .ced-panel-head { padding:16px 18px 10px; display:flex; justify-content:space-between; gap:14px; align-items:flex-start; border-bottom:1px solid var(--ced-line); }
+    #ced-dependencia-d3 .ced-panel-title { font-size:18px; font-weight:760; margin:0 0 4px; }
+    #ced-dependencia-d3 .ced-panel-sub { color:var(--ced-muted); font-size:13px; line-height:1.45; }
+    #ced-dependencia-d3 .ced-badge { color:var(--ced-coral-deep); background:var(--ced-soft); border:1px solid var(--ced-coral); border-radius:999px; padding:5px 9px; font-size:11px; font-weight:700; white-space:nowrap; text-transform:uppercase; letter-spacing:.03em; }
+    #ced-dependencia-d3 .ced-chart-wrap { min-height:460px; padding:14px 16px 18px; }
+    #ced-dependencia-d3 .ced-method-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; padding:16px; }
+    #ced-dependencia-d3 .ced-method-grid[hidden] { display:none; }
+    #ced-dependencia-d3 .ced-method-item { border:1px solid var(--ced-line); border-radius:8px; padding:13px; background:#fffaf8; }
+    #ced-dependencia-d3 .ced-method-item h3 { margin:0 0 6px; font-size:14px; color:var(--ced-coral-deep); }
+    #ced-dependencia-d3 .ced-method-item p { margin:0; color:var(--ced-muted); font-size:13px; line-height:1.5; }
+    #ced-dependencia-d3 .ced-source-strip { border-top:1px solid var(--ced-line); padding:12px 16px; color:var(--ced-muted); font-size:12px; display:flex; flex-wrap:wrap; gap:8px 18px; justify-content:space-between; background:#fffaf8; }
+    #ced-dependencia-d3 .ced-axis text { fill:var(--ced-muted); font-size:11.5px; }
+    #ced-dependencia-d3 .ced-axis path, #ced-dependencia-d3 .ced-axis line { stroke:var(--ced-line); }
+    #ced-dependencia-d3 .ced-grid line { stroke:var(--ced-soft); }
+    #ced-dependencia-d3 svg { width:100%; height:auto; display:block; overflow:visible; }
+    #ced-dependencia-d3 .ced-map-region { transition:fill .15s ease, stroke-width .15s ease; cursor:pointer; }
+    #ced-dependencia-d3 .ced-map-region:hover { stroke:var(--ced-ink); stroke-width:2px; }
+    #ced-dependencia-d3 .ced-tooltip { position:fixed; z-index:999999; pointer-events:none; background:rgba(29,22,18,.96); color:white; padding:10px 12px; border-radius:7px; font-size:12px; line-height:1.45; opacity:0; transform:translate(-50%, calc(-100% - 10px)); min-width:160px; box-shadow:0 10px 30px rgba(0,0,0,.25); }
+    #ced-dependencia-d3 .ced-tooltip strong { display:block; font-size:13px; margin-bottom:3px; color:white; }
+    #ced-dependencia-d3 .ced-tooltip-metric { display:block; margin:1px 0 4px; color:#ffd9c8; font-size:11px; line-height:1.25; font-weight:600; }
+    #ced-dependencia-d3 .ced-tooltip-value { display:block; margin:5px 0 4px; color:white; font-size:20px; line-height:1.1; font-weight:800; text-align:center; }
+    #ced-dependencia-d3 .ced-tooltip-extra { display:block; color:#f5d4c5; font-size:11px; margin-top:4px; }
+    #ced-dependencia-d3 .ced-loading { color:var(--ced-muted); padding:24px; }
+    #ced-dependencia-d3 .ced-legend { display:flex; gap:14px; align-items:center; flex-wrap:wrap; padding:6px 0 0; font-size:12px; color:var(--ced-muted); }
+    #ced-dependencia-d3 .ced-legend-swatch { display:inline-block; width:14px; height:14px; border-radius:3px; margin-right:6px; vertical-align:middle; }
+    #ced-dependencia-d3 .ced-disclaimer-strip { background:#fff5b8; border:1px solid #f0d96a; color:#5a4400; padding:10px 14px; border-radius:7px; font-size:13px; line-height:1.5; margin-bottom:12px; }
+    @media (max-width:980px) {
+      #ced-dependencia-d3 .ced-header-inner, #ced-dependencia-d3 .ced-main { grid-template-columns:1fr; }
+      #ced-dependencia-d3 .ced-story-nav { position:static; grid-template-columns:repeat(2,minmax(0,1fr)); }
+      #ced-dependencia-d3 .ced-kpi-row, #ced-dependencia-d3 .ced-method-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+    }
+    @media (max-width:640px) {
+      #ced-dependencia-d3 .ced-kpi-row, #ced-dependencia-d3 .ced-method-grid { grid-template-columns:1fr; }
+    }
+  </style>
+
+  <section class="ced-header">
+    <div class="ced-header-inner">
+      <div>
+        <div class="ced-eyebrow">Canarias en Datos · CED-03 Dependencia</div>
+        <h2>El derecho a los cuidados, contado como una historia de cobertura, limbo y feminización.</h2>
+        <div class="ced-lead">Pieza D3 conectada al pipeline ETL del Observatorio: cobertura del SAAD relativizada por Población Potencialmente Dependiente, los tres limbos de la dependencia (grado, PIA y prestaciones), tiempos de espera, mix de prestaciones y feminización del cuidado informal. Todos los indicadores PPD-relativizados se expresan como porcentaje de la PPD. Serie mensual desde enero de 2023 con proyección 6 meses adelante.</div>
+      </div>
+      <div class="ced-actions">
+        <button class="ced-btn" type="button" data-ced-method>Metodología</button>
+        <button class="ced-btn is-primary" type="button" data-ced-download>Descargar CSV</button>
+      </div>
+    </div>
+    <div class="ced-toolbar">
+      <div class="ced-control"><label>Indicador</label><select data-ced-metric></select></div>
+      <div class="ced-control"><label>Periodo</label><select data-ced-period></select></div>
+      <div class="ced-control"><label>Género</label><select data-ced-gender>
+        <option value="total">Total</option>
+        <option value="hombre">Hombres</option>
+        <option value="mujer">Mujeres</option>
+      </select></div>
+    </div>
+  </section>
+
+  <div class="ced-main">
+    <nav class="ced-story-nav" aria-label="Capítulos narrativos">
+      <button class="ced-story-step is-active" data-ced-step="context" type="button"><strong>1. Situar Canarias</strong><span>Mapa coroplético comparando Canarias con el resto de comunidades para el indicador y mes seleccionados.</span></button>
+      <button class="ced-story-step" data-ced-step="evolution" type="button"><strong>2. Evolución</strong><span>Serie mensual desde 2023, con proyección 6 meses adelante en línea discontinua.</span></button>
+      <button class="ced-story-step" data-ced-step="gender" type="button"><strong>3. Género (estimación)</strong><span>Comparación mujeres-hombres por comunidad. Estimación indicativa según cuaderno §6.3.</span></button>
+      <button class="ced-story-step" data-ced-step="method" type="button"><strong>4. Cómo se construye</strong><span>Fuentes IMSERSO, denominador PPD, palanca de género, automatización mensual.</span></button>
+    </nav>
+    <section class="ced-stage">
+      <div class="ced-kpi-row" data-ced-kpis></div>
+      <section class="ced-panel">
+        <div class="ced-panel-head">
+          <div>
+            <div class="ced-panel-title" data-ced-title>Situar Canarias</div>
+            <div class="ced-panel-sub" data-ced-sub>Cargando datos…</div>
+          </div>
+          <div class="ced-badge" data-ced-badge>Pipeline ETL</div>
+        </div>
+        <div class="ced-chart-wrap" data-ced-chart>
+          <div class="ced-loading">Cargando ced_dependencia_global…</div>
+        </div>
+        <div class="ced-method-grid" data-ced-method-grid hidden>
+          <div class="ced-method-item">
+            <h3>Fuente de datos</h3>
+            <p>Estadísticas mensuales del <strong>SAAD</strong> publicadas por el IMSERSO en formato xlsx desde 2023. El pipeline procesa 7 hojas operativas: solicitudes, beneficiarios, dictámenes, pendientes de resolución y prestación, tiempos de espera y perfil del cuidador por CCAA.</p>
+          </div>
+          <div class="ced-method-item">
+            <h3>Denominador PPD</h3>
+            <p>Los indicadores con sufijo <code>(% PPD)</code> se relativizan respecto a la <strong>Población Potencialmente Dependiente</strong> (≥65 años + 16-64 con discapacidad). Fuente primaria: <code>general.censo_ppd</code>. Fallback: hoja <code>22solcasaadpot</code>. El dato se almacena ya como porcentaje de la PPD (sin transformaciones de display en el cliente).</p>
+          </div>
+          <div class="ced-method-item">
+            <h3>Los tres limbos de la dependencia</h3>
+            <p>El flujo administrativo del SAAD encadena tres cuellos de botella, todos relativizados a la PPD: <strong>limbo del grado</strong> (personas sin dictamen, sheet 10pendResol), <strong>limbo del PIA</strong> (con dictamen pero sin Programa Individual de Atención, sheet 10pendPrest) y <strong>limbo de las prestaciones</strong> (con derecho reconocido pero sin prestación efectiva, derivado como <code>total_der_prest − pers_benef_prest</code>).</p>
+          </div>
+          <div class="ced-method-item">
+            <h3>Perspectiva de género</h3>
+            <p>El IMSERSO no publica solicitudes, pendientes ni tiempos por sexo. Sólo el perfil del cuidador (61aperfcuidadorCCAA) cruza CCAA × género. La tabla <code>ced_dependencia_gen</code> aplica este ratio como factor de escala, marcado <code>origen_genero='estimado'</code>. <strong>Es una aproximación, no datos oficiales desagregados.</strong></p>
+          </div>
+          <div class="ced-method-item">
+            <h3>Proyección 6 meses</h3>
+            <p>Se compara <strong>ARIMA · ETS · Random Forest · XGBoost</strong> con validación cruzada temporal rolling-origin (3 folds, NMAE) y se aplica el algoritmo con menor error global. Prophet se descarta por defecto al tener NMAE ~4× peor en series mensuales cortas. El horizonte se limita a 6 meses porque, con la serie observada actual (~36 meses desde 2023), proyecciones más largas tienden a una linealización poco informativa. La proyección se renderiza en <em>línea discontinua</em>.</p>
+          </div>
+          <div class="ced-method-item">
+            <h3>Actualización mensual</h3>
+            <p>El IMSERSO publica con 6-8 semanas de desfase. El pipeline corre el día 5 de cada mes vía <strong>GitHub Actions</strong>. Carga atómica a Supabase (staging + RENAME + reinstalación de índices únicos y RLS): el dashboard nunca lee tabla en estado intermedio.</p>
+          </div>
+        </div>
+        <div class="ced-source-strip">
+          <span>Fuente: IMSERSO · Estadísticas mensuales SAAD · Cuaderno metodológico v2 (29-04-2026)</span>
+          <span data-ced-coverage>Cobertura: cargando…</span>
+        </div>
+      </section>
+    </section>
+  </div>
+  <div class="ced-tooltip" data-ced-tooltip></div>
+
+<script>
+(function(){
+  "use strict";
+  const root = document.getElementById("ced-dependencia-d3");
+  if (!root) return;
+
+  const MAP_PALETTE = ["#fbe8e0", "#f6c2ad", "#f29478", "#e8633e", "#b8472f", "#6e1f1a"];
+
+  // Convención de etiquetas: las variables relativizadas a la Población
+  // Potencialmente Dependiente llevan "(% PPD)" en el label visible.
+  // Los datos ya vienen como porcentaje (×100) desde el pipeline, por lo que
+  // ya no se aplica displayFactor.
+  const VARIABLES = {
+    cobertura_pct_ppd: {
+      label: "Cobertura efectiva (% PPD)", short: "Cobertura",
+      unit: "% de la PPD", format: d3.format(".2f"), suffix: " %", min: 0, hasGender: true
+    },
+    solicitudes_pct_ppd: {
+      label: "Solicitudes acumuladas (% PPD)", short: "Solicitudes",
+      unit: "% de la PPD", format: d3.format(".2f"), suffix: " %", min: 0, hasGender: true
+    },
+    pct_mujeres_benef: {
+      label: "Mujeres en expedientes (%)", short: "% mujeres",
+      unit: "% expedientes activos", format: d3.format(".1f"), suffix: " %", min: 0, max: 100, hasGender: false
+    },
+    limbo_grado_pct_ppd: {
+      label: "Limbo del grado (% PPD)", short: "Limbo grado",
+      unit: "% de la PPD", format: d3.format(".2f"), suffix: " %", min: 0, hasGender: true
+    },
+    limbo_pia_pct_ppd: {
+      label: "Limbo del PIA (% PPD)", short: "Limbo PIA",
+      unit: "% de la PPD", format: d3.format(".2f"), suffix: " %", min: 0, hasGender: true
+    },
+    limbo_prestaciones_pct_ppd: {
+      label: "Limbo de las prestaciones (% PPD)", short: "Limbo prestaciones",
+      unit: "% de la PPD", format: d3.format(".2f"), suffix: " %", min: 0, hasGender: true
+    },
+    tiempo_espera_total_dias: {
+      label: "Tiempo de espera total (días)", short: "Días espera",
+      unit: "días desde solicitud hasta prestación", format: d3.format(",.0f"), suffix: " días", min: 0, hasGender: false
+    },
+    pct_pecef: {
+      label: "Cuidados familiares — PECEF (% prestaciones)", short: "% PECEF",
+      unit: "% sobre total prestaciones", format: d3.format(".1f"), suffix: " %", min: 0, max: 100, hasGender: false
+    },
+    pct_atencion_residencial: {
+      label: "Atención residencial (% prestaciones)", short: "% residencial",
+      unit: "% sobre total prestaciones", format: d3.format(".1f"), suffix: " %", min: 0, max: 100, hasGender: false
+    },
+    ratio_prest_x_benef: {
+      label: "Intensidad de atención (prestaciones por persona)", short: "Intensidad",
+      unit: "prestaciones por beneficiario", format: d3.format(".2f"), suffix: "", min: 0, hasGender: false
+    },
+    pct_grado3: {
+      label: "Gran dependencia — Grado III (% derecho a prestación)", short: "% Grado III",
+      unit: "% sobre resoluciones de grado", format: d3.format(".1f"), suffix: " %", min: 0, max: 100, hasGender: false
+    }
+  };
+
+  const NUTS_FOR_CCAA = {
+    "Andalucía": "ES61", "Aragón": "ES24", "Principado de Asturias": "ES12",
+    "Islas Baleares": "ES53", "Canarias": "ES70", "Cantabria": "ES13",
+    "Castilla y León": "ES41", "Castilla-La Mancha": "ES42", "Cataluña": "ES51",
+    "Comunidad Valenciana": "ES52", "Extremadura": "ES43", "Galicia": "ES11",
+    "Comunidad de Madrid": "ES30", "Región de Murcia": "ES62",
+    "Comunidad Foral de Navarra": "ES22", "País Vasco": "ES21", "La Rioja": "ES23"
+  };
+
+  const state = {
+    metric: "limbo_pia_pct_ppd",
+    gender: "total",
+    period: null,
+    step: "context",
+    rowsGlobal: [],
+    rowsGen: [],
+    geo: null,
+    lastRealPeriod: null
+  };
+
+  const $ = sel => root.querySelector(sel);
+  const $$ = sel => Array.from(root.querySelectorAll(sel));
+  const tooltip = $("[data-ced-tooltip]");
+
+  function showTip(html, evt) {
+    tooltip.innerHTML = html;
+    tooltip.style.left = evt.clientX + "px";
+    tooltip.style.top  = evt.clientY + "px";
+    tooltip.style.opacity = 1;
+  }
+  function moveTip(evt) {
+    tooltip.style.left = evt.clientX + "px";
+    tooltip.style.top  = evt.clientY + "px";
+  }
+  function hideTip() { tooltip.style.opacity = 0; }
+
+  function periodKey(value) {
+    if (!value) return null;
+    const s = String(value);
+    if (/^\d{4}-\d{2}/.test(s)) return s.slice(0, 7);
+    const d = new Date(s);
+    if (Number.isFinite(+d)) return d.toISOString().slice(0, 7);
+    return null;
+  }
+  function periodLabel(key) {
+    if (!key) return "";
+    const [y, m] = key.split("-").map(Number);
+    const meses = ["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre"];
+    return `${meses[m-1]} ${y}`;
+  }
+  function periodToDate(key) {
+    return new Date(key + "-01T00:00:00Z");
+  }
+
+  const NUMERIC_FIELDS = Object.keys(VARIABLES);
+
+  function displayValue(cfg, value) {
+    if (value == null || Number.isNaN(value)) return null;
+    return value * (cfg.displayFactor || 1);
+  }
+
+  function formatValue(cfg, value, empty = "—") {
+    const shown = displayValue(cfg, value);
+    return shown == null ? empty : cfg.format(shown) + cfg.suffix;
+  }
+
+  function formatDelta(cfg, value, empty = "—") {
+    const shown = displayValue(cfg, value);
+    return shown == null ? empty : `${shown >= 0 ? "+" : ""}${cfg.format(shown)}${cfg.suffix}`;
+  }
+
+  function clampMetricValue(cfg, value) {
+    if (value == null || Number.isNaN(value)) return value;
+    let out = value;
+    if (Number.isFinite(cfg.min)) out = Math.max(cfg.min, out);
+    if (Number.isFinite(cfg.max)) out = Math.min(cfg.max, out);
+    return out;
+  }
+
+  function parseRow(d) {
+    const out = {
+      ccaa: d.ccaa,
+      origen: d.origen || "real",
+      genero: d.genero || null,
+      origen_genero: d.origen_genero || null,
+      periodo: periodKey(d.fecha || d.periodo)
+    };
+    NUMERIC_FIELDS.forEach(k => {
+      const v = d[k];
+      if (v == null || v === "" || v === "NA") out[k] = null;
+      else out[k] = clampMetricValue(VARIABLES[k], +String(v).replace(",", "."));
+    });
+    return out;
+  }
+
+  async function fetchSupabase(table) {
+    const url = root.dataset.supabaseUrl;
+    const key = root.dataset.supabaseKey;
+    const schema = root.dataset.supabaseSchema || "canendatos";
+    if (!url || !key) throw new Error("Supabase no configurado");
+    const pageSize = 1000;
+    const all = [];
+    for (let offset = 0; ; offset += pageSize) {
+      const resp = await fetch(
+        `${url}/rest/v1/${encodeURIComponent(table)}?select=*&limit=${pageSize}&offset=${offset}`,
+        { headers: {
+            apikey: key, Authorization: `Bearer ${key}`, "Accept-Profile": schema
+          } }
+      );
+      if (!resp.ok) {
+        const txt = await resp.text();
+        throw new Error(`Supabase ${resp.status} en ${table}: ${txt}`);
+      }
+      const page = await resp.json();
+      all.push(...page);
+      if (page.length < pageSize) break;
+    }
+    return all.map(parseRow);
+  }
+
+  async function fetchCsv(url) {
+    return d3.dsv(";", url, parseRow);
+  }
+
+  async function loadData() {
+    const tableGlobal = root.dataset.supabaseGlobal || "ced_dependencia_global";
+    const tableGen    = root.dataset.supabaseGen    || "ced_dependencia_gen";
+    const csvGlobal   = root.getAttribute("data-csv-global");
+    const csvGen      = root.getAttribute("data-csv-gen");
+
+    let rowsGlobal = [], rowsGen = [], src = "csv";
+    if (root.dataset.supabaseUrl && root.dataset.supabaseKey) {
+      try {
+        rowsGlobal = await fetchSupabase(tableGlobal);
+        rowsGen    = await fetchSupabase(tableGen).catch(() => []);
+        if (rowsGlobal.length > 0) src = "supabase";
+      } catch (err) {
+        console.warn("CED Dependencia: Supabase falló, fallback a CSV", err);
+      }
+    }
+    if (rowsGlobal.length === 0) {
+      try {
+        rowsGlobal = await fetchCsv(csvGlobal);
+        rowsGen    = await fetchCsv(csvGen).catch(() => []);
+      } catch (err) {
+        $("[data-ced-chart]").innerHTML =
+          `<div class="ced-loading">No se pudo cargar los datos. ${err}</div>`;
+        throw err;
+      }
+    }
+    root.dataset.cedSource = src;
+    return { rowsGlobal, rowsGen };
+  }
+
+  // Normaliza el nombre que ven los matchers a la forma canónica usada por
+  // NUTS_FOR_CCAA y por la columna `ccaa` de ced_dependencia_global. Cubre dos
+  // familias de variantes:
+  //   (a) IMSERSO oficial con coma: "Asturias, Principado de", etc.
+  //   (b) geodesocan.ccaa.name (sin tildes, formas cortas): "Asturias",
+  //       "Madrid", "Pais Vasco", "Castilla-Leon", "Andalucia"...
+  // Ceuta y Melilla viven como geometrías SEPARADAS en geodesocan pero
+  // se publican AGREGADAS en los datos del SAAD; se pintan ambas con el
+  // mismo valor del agregado.
+  function canonicalCcaaName(raw) {
+    if (!raw) return null;
+    const map = {
+      // Variantes IMSERSO con coma
+      "Asturias, Principado de": "Principado de Asturias",
+      "Balears, Illes":           "Islas Baleares",
+      "Illes Balears":            "Islas Baleares",
+      "Castilla - La Mancha":     "Castilla-La Mancha",
+      "Catalunya":                "Cataluña",
+      "Comunitat Valenciana":     "Comunidad Valenciana",
+      "Madrid, Comunidad de":     "Comunidad de Madrid",
+      "Murcia, Región de":        "Región de Murcia",
+      "Navarra, Comunidad Foral de": "Comunidad Foral de Navarra",
+      "Rioja, La":                "La Rioja",
+      // Variantes geodesocan.ccaa.name (sin tildes / formas cortas)
+      "Andalucia":                "Andalucía",
+      "Aragon":                   "Aragón",
+      "Asturias":                 "Principado de Asturias",
+      "Baleares":                 "Islas Baleares",
+      "Castilla-Leon":            "Castilla y León",
+      "Castilla Leon":            "Castilla y León",
+      "Castilla y Leon":          "Castilla y León",
+      "Ceuta":                    "Ceuta y Melilla",
+      "Melilla":                  "Ceuta y Melilla",
+      "Madrid":                   "Comunidad de Madrid",
+      "Murcia":                   "Región de Murcia",
+      "Navarra":                  "Comunidad Foral de Navarra",
+      "Pais Vasco":               "País Vasco",
+      "Valencia":                 "Comunidad Valenciana"
+    };
+    return map[raw] || raw;
+  }
+
+  // Carga geometria preferentemente desde geodesocan.ccaa (Supabase) y, si
+  // falla, cae a NUTS-2 de Eurostat. Devuelve {type, features} con
+  // properties.CCAA_CANON ya normalizado.
+  async function loadGeo() {
+    const sbUrl = root.dataset.supabaseUrl;
+    const sbKey = root.dataset.supabaseKey;
+    const geoSchema = root.dataset.geoSchema || "geodesocan";
+    const geoTable  = root.dataset.geoTable  || "ccaa";
+    const nameCol   = root.dataset.geoNameCol || "ccaa";
+    const geomCol   = root.dataset.geoGeomCol || "geom";
+
+    if (sbUrl && sbKey) {
+      try {
+        const url = `${sbUrl}/rest/v1/${encodeURIComponent(geoTable)}?select=${encodeURIComponent(nameCol)},${encodeURIComponent(geomCol)}`;
+        const resp = await fetch(url, {
+          headers: {
+            apikey: sbKey,
+            Authorization: `Bearer ${sbKey}`,
+            "Accept-Profile": geoSchema
+          }
+        });
+        if (resp.ok) {
+          const rows = await resp.json();
+          const features = rows
+            .map(r => {
+              const geometry = typeof r[geomCol] === "string" ? JSON.parse(r[geomCol]) : r[geomCol];
+              const ccaaCanon = canonicalCcaaName(r[nameCol]);
+              return geometry ? {
+                type: "Feature",
+                properties: { CCAA_CANON: ccaaCanon, NAME_LATN: ccaaCanon },
+                geometry
+              } : null;
+            })
+            .filter(Boolean);
+          if (features.length > 0) {
+            return { type: "FeatureCollection", features, source: "geodesocan" };
+          }
+        } else {
+          console.warn(`CED Dependencia: geodesocan ${resp.status}`);
+        }
+      } catch (err) {
+        console.warn("CED Dependencia: geodesocan falló, fallback a Eurostat", err);
+      }
+    }
+
+    try {
+      const url = root.getAttribute("data-geojson-url");
+      const geo = await d3.json(url);
+      geo.features = (geo.features || [])
+        .filter(f => /^ES\d{2}$/.test(f.properties.NUTS_ID || f.properties.id))
+        .map(f => ({ ...f, properties: { ...f.properties, CCAA_CANON: canonicalCcaaName(
+          Object.keys(NUTS_FOR_CCAA).find(k => NUTS_FOR_CCAA[k] === (f.properties.NUTS_ID || f.properties.id))
+        ) || null }}));
+      geo.source = "eurostat-nuts";
+      return geo;
+    } catch {
+      return null;
+    }
+  }
+
+  function initToolbar() {
+    const sel = $("[data-ced-metric]");
+    Object.entries(VARIABLES).forEach(([k, v]) => {
+      const opt = document.createElement("option");
+      opt.value = k; opt.textContent = v.label;
+      sel.appendChild(opt);
+    });
+    sel.value = state.metric;
+    sel.addEventListener("change", () => { state.metric = sel.value; render(); });
+
+    $("[data-ced-gender]").addEventListener("change", e => {
+      state.gender = e.target.value; render();
+    });
+
+    $$("[data-ced-step]").forEach(btn => {
+      btn.addEventListener("click", () => {
+        state.step = btn.dataset.cedStep;
+        $$("[data-ced-step]").forEach(b => b.classList.remove("is-active"));
+        btn.classList.add("is-active");
+        render();
+      });
+    });
+
+    $("[data-ced-method]").addEventListener("click", () => {
+      state.step = "method";
+      $$("[data-ced-step]").forEach(b => b.classList.toggle("is-active", b.dataset.cedStep === "method"));
+      render();
+    });
+
+    $("[data-ced-download]").addEventListener("click", downloadCsv);
+  }
+
+  function initPeriodSelector() {
+    const periods = Array.from(new Set(state.rowsGlobal.map(r => r.periodo).filter(Boolean))).sort();
+    const sel = $("[data-ced-period]");
+    sel.innerHTML = "";
+    periods.forEach(p => {
+      const row = state.rowsGlobal.find(r => r.periodo === p);
+      const tag = row && row.origen === "proyeccion" ? " (proyección)" : "";
+      const opt = document.createElement("option");
+      opt.value = p; opt.textContent = periodLabel(p) + tag;
+      sel.appendChild(opt);
+    });
+    const realPeriods = periods.filter(p => {
+      const row = state.rowsGlobal.find(r => r.periodo === p);
+      return row && row.origen !== "proyeccion";
+    });
+    state.lastRealPeriod = realPeriods.length ? realPeriods[realPeriods.length - 1] : periods[periods.length - 1];
+    state.period = state.lastRealPeriod;
+    sel.value = state.period;
+    sel.addEventListener("change", () => { state.period = sel.value; render(); });
+  }
+
+  function rowsForView() {
+    if (state.gender === "total") return state.rowsGlobal;
+    return state.rowsGen.filter(r => r.genero === state.gender);
+  }
+
+  function isGenderApplicable() {
+    return state.gender === "total" || VARIABLES[state.metric].hasGender;
+  }
+
+  function stateMean(metric, period) {
+    const rs = rowsForView().filter(r =>
+      r.periodo === period && r.ccaa !== "Media Estatal" && r[metric] != null
+    );
+    if (rs.length === 0) return null;
+    return d3.mean(rs, r => r[metric]);
+  }
+
+  function stateSeries(metric) {
+    const periods = Array.from(new Set(state.rowsGlobal.map(r => r.periodo))).sort();
+    return periods
+      .map(p => ({ periodo: p, value: stateMean(metric, p) }))
+      .filter(d => d.value != null);
+  }
+
+  function renderKpis() {
+    const cfg = VARIABLES[state.metric];
+    const rows = rowsForView().filter(r => r.periodo === state.period && r[state.metric] != null);
+    const natValue = stateMean(state.metric, state.period);
+    const can = rows.find(r => r.ccaa === "Canarias");
+    const ccaaOnly = rows.filter(r => r.ccaa !== "Media Estatal");
+    const sorted = ccaaOnly.slice().sort((a,b) => d3.ascending(a[state.metric], b[state.metric]));
+    const lo = sorted[0]; const hi = sorted[sorted.length - 1];
+    const isProj = can && can.origen === "proyeccion";
+
+    const cards = [
+      {
+        label: `Media estatal · ${periodLabel(state.period)}`,
+        value: formatValue(cfg, natValue),
+        note: `${cfg.unit} · media simple CCAA`
+      },
+      {
+        label: `Canarias · ${periodLabel(state.period)}${isProj ? " (proy.)" : ""}`,
+        value: formatValue(cfg, can ? can[state.metric] : null),
+        note: can && natValue != null && can[state.metric] != null
+          ? `${formatDelta(cfg, can[state.metric] - natValue)} vs media estatal`
+          : ""
+      },
+      { label: "Mínimo CCAA", value: lo ? formatValue(cfg, lo[state.metric]) : "—", note: lo ? lo.ccaa : "" },
+      { label: "Máximo CCAA", value: hi ? formatValue(cfg, hi[state.metric]) : "—", note: hi ? hi.ccaa : "" }
+    ];
+
+    const cont = $("[data-ced-kpis]");
+    cont.innerHTML = cards.map(c => `
+      <div class="ced-kpi">
+        <div class="ced-kpi-label">${c.label}</div>
+        <div class="ced-kpi-value">${c.value}</div>
+        <div class="ced-kpi-note">${c.note || ""}</div>
+      </div>`).join("");
+  }
+
+  function renderMap() {
+    const cfg = VARIABLES[state.metric];
+    const wrap = $("[data-ced-chart]");
+    wrap.innerHTML = "";
+
+    if (!isGenderApplicable()) {
+      wrap.innerHTML = `<div class="ced-loading">El indicador <strong>${cfg.label}</strong> es un ratio estructural y no se desagrega por género (cuaderno §6.3). Selecciona Total para ver el mapa.</div>`;
+      return;
+    }
+
+    if (!state.geo) {
+      wrap.innerHTML = `<div class="ced-loading">No se pudo cargar la geometría. Mostrando ranking.</div>`;
+      renderRanking(wrap);
+      return;
+    }
+
+    const w = wrap.clientWidth || 720;
+    const h = 480;
+    const margin = { top: 14, right: 20, bottom: 58, left: 20 };
+    const svg = d3.select(wrap).append("svg").attr("viewBox", `0 0 ${w} ${h}`);
+
+    const periodRows = rowsForView().filter(r => r.periodo === state.period && r[state.metric] != null);
+    const valueByCcaa = new Map(periodRows.map(r => [canonicalCcaaName(r.ccaa), r]));
+    const getCcaa = f => f.properties.CCAA_CANON || canonicalCcaaName(f.properties.NAME_LATN || f.properties.NUTS_NAME);
+
+    const mainlandFeatures = state.geo.features.filter(f => getCcaa(f) !== "Canarias" && getCcaa(f));
+    const canFeature = state.geo.features.find(f => getCcaa(f) === "Canarias");
+    const mainland = { type: "FeatureCollection", features: mainlandFeatures };
+
+    const projection = d3.geoMercator()
+      .fitExtent([[margin.left, margin.top], [w - margin.right, h - margin.bottom]], mainland);
+    const path = d3.geoPath(projection);
+
+    const values = periodRows.map(r => r[state.metric]).filter(Number.isFinite);
+    const extent = d3.extent(values);
+    const uniqueValues = Array.from(new Set(values));
+    const color = uniqueValues.length > 1
+      ? d3.scaleQuantile().domain(values).range(MAP_PALETTE)
+      : () => MAP_PALETTE[Math.floor(MAP_PALETTE.length / 2)];
+
+    function fillFor(ccaa) {
+      const row = valueByCcaa.get(ccaa);
+      return row ? color(row[state.metric]) : "#f0e8e3";
+    }
+
+    function tooltipFor(ccaa, evt) {
+      const row = valueByCcaa.get(ccaa);
+      const v = row ? row[state.metric] : null;
+      const isProj = row && row.origen === "proyeccion";
+      const html = `
+        <strong>${ccaa}</strong>
+        <span class="ced-tooltip-metric">${cfg.short} · ${periodLabel(state.period)}</span>
+        <span class="ced-tooltip-value">${formatValue(cfg, v)}</span>
+        ${row ? `<span class="ced-tooltip-extra">${isProj ? "Proyección" : "Dato real"}${row.origen_genero === "estimado" ? " · género estimado" : ""}</span>` : ""}
+      `;
+      showTip(html, evt);
+    }
+
+    const mainlandPaths = svg.append("g").selectAll("path")
+      .data(mainlandFeatures).join("path")
+      .attr("class", "ced-map-region")
+      .attr("data-ccaa", d => getCcaa(d) || "")
+      .attr("d", path)
+      .attr("fill", d => fillFor(getCcaa(d)))
+      .attr("stroke", "#fff").attr("stroke-width", 0.7)
+      .on("mousemove", function(evt, d) {
+        const ccaa = getCcaa(d);
+        if (ccaa) tooltipFor(ccaa, evt);
+      })
+      .on("mouseleave", hideTip);
+
+    let canRegion = null;
+    if (canFeature) {
+      const canBounds = path.bounds(canFeature);
+      const canW = Math.max(1, canBounds[1][0] - canBounds[0][0]);
+      const canH = Math.max(1, canBounds[1][1] - canBounds[0][1]);
+      const desiredW = Math.min(150, Math.max(92, w * 0.15));
+      const canScale = desiredW / canW;
+      const targetX = margin.left + w * 0.04;
+      const targetY = h - margin.bottom - Math.max(78, canH * canScale * 0.7);
+      const tx = targetX - canBounds[0][0] * canScale;
+      const ty = targetY - canBounds[0][1] * canScale;
+      const canG = svg.append("g").attr("transform", `translate(${tx},${ty}) scale(${canScale})`);
+      canRegion = canG.append("path")
+        .datum(canFeature)
+        .attr("class", "ced-map-region")
+        .attr("data-ccaa", "Canarias")
+        .attr("d", path)
+        .attr("fill", fillFor("Canarias"))
+        .attr("stroke", "#0c8b8b")
+        .attr("stroke-width", 1.6 / canScale)
+        .on("mousemove", evt => tooltipFor("Canarias", evt))
+        .on("mouseleave", hideTip);
+      svg.append("text")
+        .attr("x", targetX + desiredW / 2).attr("y", targetY - 8)
+        .attr("text-anchor", "middle").attr("fill", "#0c8b8b")
+        .attr("font-size", 12).attr("font-weight", 800).text("Canarias");
+    }
+
+    function highlightMembers(names) {
+      const sel = new Set(names);
+      mainlandPaths
+        .attr("opacity", d => sel.has(getCcaa(d)) ? 1 : 0.16)
+        .attr("stroke", d => sel.has(getCcaa(d)) ? "#1d1612" : "#fff")
+        .attr("stroke-width", d => sel.has(getCcaa(d)) ? 1.8 : 0.7);
+      if (canRegion) {
+        canRegion
+          .attr("opacity", sel.has("Canarias") ? 1 : 0.16)
+          .attr("stroke", sel.has("Canarias") ? "#1d1612" : "#0c8b8b");
+      }
+    }
+
+    function resetHighlight() {
+      mainlandPaths.attr("opacity", 1).attr("stroke", "#fff").attr("stroke-width", 0.7);
+      if (canRegion) canRegion.attr("opacity", 1).attr("stroke", "#0c8b8b");
+    }
+
+    const legendW = Math.min(360, w - 70);
+    const legendX = w - legendW - 20;
+    const legendY = h - 36;
+    const legendColors = uniqueValues.length > 1 ? MAP_PALETTE : [MAP_PALETTE[Math.floor(MAP_PALETTE.length / 2)]];
+    const bins = legendColors.map((c, i) => {
+      const range = color.invertExtent ? color.invertExtent(c) : extent;
+      const members = periodRows.filter(r => color(r[state.metric]) === c).sort((a,b) => d3.descending(a[state.metric], b[state.metric]));
+      return { color: c, index: i, min: range[0] ?? extent[0], max: range[1] ?? extent[1], members };
+    });
+
+    const segW = legendW / legendColors.length;
+    svg.append("g").selectAll("rect.ced-legend-seg")
+      .data(bins).join("rect")
+      .attr("class", "ced-legend-seg")
+      .attr("x", (d, i) => legendX + i * segW).attr("y", legendY)
+      .attr("width", Math.ceil(segW)).attr("height", 12)
+      .attr("rx", (d, i) => i === 0 || i === bins.length - 1 ? 4 : 0)
+      .attr("fill", d => d.color).attr("cursor", "pointer")
+      .on("mousemove", function(evt, d) {
+        const names = d.members.map(r => r.ccaa);
+        highlightMembers(names);
+        d3.select(this).attr("stroke", "#1d1612").attr("stroke-width", 1.4);
+        const list = names.length ? names.join(", ") : "Sin comunidades en este tramo";
+        showTip(`
+          <strong>Tramo ${d.index + 1} / ${bins.length}</strong>
+          <span class="ced-tooltip-metric">${cfg.short} · ${periodLabel(state.period)}</span>
+          <span class="ced-tooltip-value">${formatValue(cfg, d.min)} – ${formatValue(cfg, d.max)}</span>
+          <span class="ced-tooltip-extra">${list}</span>
+        `, evt);
+      })
+      .on("mouseleave", function() {
+        d3.select(this).attr("stroke", null).attr("stroke-width", null);
+        resetHighlight(); hideTip();
+      });
+
+    svg.append("text").attr("x", legendX).attr("y", legendY - 7)
+      .attr("font-size", 11).attr("fill", "#7a5a52").text(`${cfg.short} (${cfg.unit})`);
+    svg.append("text").attr("x", legendX + legendW).attr("y", legendY - 7)
+      .attr("text-anchor", "end").attr("font-size", 10).attr("fill", "#7a5a52")
+      .text(uniqueValues.length > 1 ? "cuantiles" : "valor único");
+    svg.append("text").attr("x", legendX).attr("y", legendY + 26)
+      .attr("font-size", 10).attr("fill", "#7a5a52")
+      .text(formatValue(cfg, extent[0], ""));
+    svg.append("text").attr("x", legendX + legendW).attr("y", legendY + 26)
+      .attr("text-anchor", "end").attr("font-size", 10).attr("fill", "#7a5a52")
+      .text(formatValue(cfg, extent[1], ""));
+  }
+
+  function renderRanking(wrap) {
+    const cfg = VARIABLES[state.metric];
+    const rows = rowsForView()
+      .filter(r => r.periodo === state.period && r.ccaa !== "Media Estatal" && r[state.metric] != null)
+      .sort((a,b) => d3.descending(a[state.metric], b[state.metric]));
+    const w = wrap.clientWidth || 720;
+    const h = Math.max(360, rows.length * 24 + 40);
+    const m = {top:14, right:80, bottom:14, left:160};
+    const svg = d3.select(wrap).append("svg").attr("viewBox", `0 0 ${w} ${h}`);
+    const x = d3.scaleLinear().domain([0, d3.max(rows, r => r[state.metric])]).nice().range([m.left, w - m.right]);
+    const y = d3.scaleBand().domain(rows.map(r => r.ccaa)).range([m.top, h - m.bottom]).padding(0.18);
+
+    svg.append("g").selectAll("rect").data(rows).join("rect")
+      .attr("x", x(0)).attr("y", r => y(r.ccaa))
+      .attr("height", y.bandwidth())
+      .attr("width", r => x(r[state.metric]) - x(0))
+      .attr("fill", r => r.ccaa === "Canarias" ? "#0c8b8b" : "#f06d4f")
+      .attr("opacity", r => r.origen === "proyeccion" ? 0.6 : 1);
+    svg.append("g").attr("transform", `translate(${m.left},0)`).call(d3.axisLeft(y).tickSize(0)).attr("class","ced-axis");
+    svg.append("g").selectAll("text.value").data(rows).join("text")
+      .attr("class","value")
+      .attr("x", r => x(r[state.metric]) + 6)
+      .attr("y", r => y(r.ccaa) + y.bandwidth()/2 + 4)
+      .attr("font-size", 11.5).attr("fill", "#1d1612")
+      .text(r => formatValue(cfg, r[state.metric]));
+  }
+
+  function renderEvolution() {
+    const cfg = VARIABLES[state.metric];
+    const wrap = $("[data-ced-chart]");
+    wrap.innerHTML = "";
+
+    if (!isGenderApplicable()) {
+      wrap.innerHTML = `<div class="ced-loading">El indicador <strong>${cfg.label}</strong> es un ratio estructural y no se desagrega por género (cuaderno §6.3). Selecciona Total para ver la evolución.</div>`;
+      return;
+    }
+
+    const w = wrap.clientWidth || 720;
+    const h = 460;
+    const m = { top: 24, right: 150, bottom: 42, left: 58 };
+    const all = rowsForView().filter(r => r[state.metric] != null && r.ccaa !== "Media Estatal");
+    if (all.length === 0) {
+      wrap.innerHTML = `<div class="ced-loading">No hay datos disponibles para este indicador.</div>`;
+      return;
+    }
+    const series = Array.from(d3.group(all, r => r.ccaa), ([ccaa, vals]) => ({
+      ccaa, values: vals.slice().sort((a,b) => a.periodo.localeCompare(b.periodo))
+    }));
+    const stateLine = stateSeries(state.metric);
+
+    const svg = d3.select(wrap).append("svg").attr("viewBox", `0 0 ${w} ${h}`);
+    const x = d3.scaleTime().domain(d3.extent(all, r => periodToDate(r.periodo))).range([m.left, w - m.right]);
+    const y = d3.scaleLinear().domain([0, d3.max(all, r => r[state.metric])]).nice().range([h - m.bottom, m.top]);
+
+    const lineReal = d3.line()
+      .defined(d => d[state.metric] != null && d.origen !== "proyeccion")
+      .x(d => x(periodToDate(d.periodo))).y(d => y(d[state.metric]));
+    const lineProj = d3.line()
+      .defined(d => d[state.metric] != null)
+      .x(d => x(periodToDate(d.periodo))).y(d => y(d[state.metric]));
+    const stateLineGen = d3.line()
+      .x(d => x(periodToDate(d.periodo))).y(d => y(d.value));
+
+    svg.append("g").attr("class","ced-grid").attr("transform", `translate(${m.left},0)`)
+      .call(d3.axisLeft(y).ticks(5).tickSize(-(w - m.left - m.right)).tickFormat(""))
+      .call(g => g.select(".domain").remove());
+    svg.append("g").attr("class","ced-axis").attr("transform", `translate(0,${h-m.bottom})`)
+      .call(d3.axisBottom(x).ticks(8).tickFormat(d3.timeFormat("%b %Y")));
+    svg.append("g").attr("class","ced-axis").attr("transform", `translate(${m.left},0)`)
+      .call(d3.axisLeft(y).ticks(5).tickFormat(d => cfg.format(displayValue(cfg, d))));
+    svg.append("text").attr("x", m.left).attr("y", 14)
+      .attr("fill", "#7a5a52").attr("font-size", 12).text(`${cfg.short} (${cfg.unit})`);
+
+    if (state.lastRealPeriod) {
+      const splitX = x(periodToDate(state.lastRealPeriod));
+      svg.append("rect")
+        .attr("x", splitX).attr("y", m.top)
+        .attr("width", Math.max(0, w - m.right - splitX)).attr("height", h - m.bottom - m.top)
+        .attr("fill", "#fff5b8").attr("opacity", 0.35);
+      svg.append("text")
+        .attr("x", splitX + 6).attr("y", m.top + 12)
+        .attr("font-size", 11).attr("fill", "#5a4400").attr("font-weight", 700)
+        .text("Proyección 12 meses");
+    }
+
+    const lineLayer = svg.append("g");
+    const stateLayer = svg.append("g");
+    const labelLayer = svg.append("g");
+    const hitLayer = svg.append("g");
+
+    if (stateLine.length > 1) {
+      stateLayer.append("path")
+        .datum(stateLine).attr("class", "ced-line-state").attr("d", stateLineGen)
+        .attr("fill", "none").attr("stroke", "#1d1612")
+        .attr("stroke-width", 1.6).attr("stroke-dasharray", "4 3");
+    }
+
+    series.forEach(s => {
+      const isCan = s.ccaa === "Canarias";
+      const colorReal = isCan ? "#0c8b8b" : "#b8472f";
+      const widthReal = isCan ? 3 : 1.4;
+      const opacityOther = isCan ? 1 : 0.4;
+      lineLayer.append("path")
+        .datum(s.values)
+        .attr("class", "ced-series").attr("data-ccaa", s.ccaa)
+        .attr("d", lineReal).attr("fill", "none")
+        .attr("stroke", colorReal).attr("stroke-width", widthReal).attr("opacity", opacityOther);
+      const realLast = s.values.filter(d => d.origen !== "proyeccion").slice(-1)[0];
+      const projVals = s.values.filter(d => d.origen === "proyeccion");
+      const bridge = realLast ? [realLast, ...projVals] : projVals;
+      if (bridge.length > 1) {
+        lineLayer.append("path")
+          .datum(bridge)
+          .attr("class", "ced-series").attr("data-ccaa", s.ccaa)
+          .attr("d", lineProj).attr("fill", "none")
+          .attr("stroke", colorReal).attr("stroke-width", widthReal)
+          .attr("stroke-dasharray", "5 4").attr("opacity", opacityOther);
+      }
+    });
+
+    function highlight(name, event) {
+      lineLayer.selectAll("path.ced-series")
+        .attr("opacity", function() { return this.dataset.ccaa === name ? 1 : 0.08; })
+        .attr("stroke-width", function() {
+          const isCan = this.dataset.ccaa === "Canarias";
+          return this.dataset.ccaa === name ? (isCan ? 3.6 : 3) : (isCan ? 3 : 1);
+        })
+        .attr("stroke", function() {
+          if (this.dataset.ccaa === name) return "#0c8b8b";
+          return this.dataset.ccaa === "Canarias" ? "#0c8b8b" : "#ecd5cc";
+        });
+      labelLayer.selectAll("*").remove();
+      const selected = series.find(d => d.ccaa === name);
+      if (!selected) return;
+      const last = selected.values[selected.values.length - 1];
+      labelLayer.append("text")
+        .attr("x", x(periodToDate(last.periodo)) + 8).attr("y", y(last[state.metric]))
+        .attr("dy", "0.35em").attr("text-anchor", "start")
+        .attr("fill", "#0c8b8b").attr("font-size", 13).attr("font-weight", 800)
+        .text(name);
+      selected.values.forEach(d => {
+        labelLayer.append("circle")
+          .attr("cx", x(periodToDate(d.periodo))).attr("cy", y(d[state.metric])).attr("r", 3.5)
+          .attr("fill", d.origen === "proyeccion" ? "#fff" : "#0c8b8b")
+          .attr("stroke", "#0c8b8b").attr("stroke-width", 1.4);
+      });
+      const svgEl = wrap.querySelector("svg");
+      const [mx] = d3.pointer(event, svgEl);
+      const nearest = d3.least(selected.values, d => Math.abs(x(periodToDate(d.periodo)) - mx));
+      if (nearest) {
+        showTip(`
+          <strong>${name} · ${periodLabel(nearest.periodo)}</strong>
+          <span class="ced-tooltip-metric">${cfg.short} (${nearest.origen === "proyeccion" ? "proyección" : "real"})</span>
+          <span class="ced-tooltip-value">${formatValue(cfg, nearest[state.metric])}</span>
+        `, event);
+      }
+    }
+
+    function reset() {
+      lineLayer.selectAll("path.ced-series")
+        .attr("opacity", function() { return this.dataset.ccaa === "Canarias" ? 1 : 0.4; })
+        .attr("stroke-width", function() { return this.dataset.ccaa === "Canarias" ? 3 : 1.4; })
+        .attr("stroke", function() { return this.dataset.ccaa === "Canarias" ? "#0c8b8b" : "#b8472f"; });
+      labelLayer.selectAll("*").remove();
+      const can = series.find(d => d.ccaa === "Canarias");
+      if (can) {
+        const last = can.values[can.values.length - 1];
+        labelLayer.append("text")
+          .attr("x", x(periodToDate(last.periodo)) + 8).attr("y", y(last[state.metric]))
+          .attr("dy", "0.35em").attr("text-anchor", "start")
+          .attr("fill", "#0c8b8b").attr("font-size", 13).attr("font-weight", 800)
+          .text("Canarias");
+      }
+      hideTip();
+    }
+
+    hitLayer.selectAll("path.ced-line-hit").data(series).join("path")
+      .attr("class", "ced-line-hit")
+      .attr("d", d => lineProj(d.values))
+      .attr("fill", "none").attr("stroke", "transparent").attr("stroke-width", 14)
+      .style("cursor", "pointer")
+      .on("mousemove", (event, d) => highlight(d.ccaa, event))
+      .on("mouseleave", reset);
+
+    reset();
+
+    const lg = d3.select(wrap).append("div").attr("class","ced-legend");
+    lg.html(`
+      <span><span class="ced-legend-swatch" style="background:#0c8b8b"></span>Canarias</span>
+      <span><span class="ced-legend-swatch" style="background:#1d1612"></span>Media estatal calculada (--)</span>
+      <span><span class="ced-legend-swatch" style="background:#b8472f;opacity:.4"></span>Otras CCAA</span>
+      <span><span class="ced-legend-swatch" style="background:#fff5b8"></span>Zona de proyección</span>
+      <span style="color:#7a5a52">Pasa el ratón por una línea para aislarla</span>
+    `);
+  }
+
+  function renderGender() {
+    const cfg = VARIABLES[state.metric];
+    const wrap = $("[data-ced-chart]");
+    wrap.innerHTML = "";
+
+    if (!cfg.hasGender) {
+      wrap.innerHTML = `
+        <div class="ced-disclaimer-strip">
+          <strong>Indicador no desagregable.</strong> ${cfg.label} es un ratio estructural calculado sobre cada comunidad y mes (no aplica desagregación de género). Cuaderno §4.
+        </div>
+        <div class="ced-loading">Selecciona uno de los indicadores absolutos relativizados (cobertura, solicitudes, pendientes) para ver la estimación de género.</div>
+      `;
+      return;
+    }
+
+    const yr = state.period;
+    const all = state.rowsGen.filter(r => r.periodo === yr && r.ccaa !== "Media Estatal" && r[state.metric] != null);
+    const byCcaa = d3.group(all, r => r.ccaa);
+    const rows = Array.from(byCcaa, ([ccaa, vs]) => {
+      const hRow = vs.find(r => r.genero === "hombre");
+      const mRow = vs.find(r => r.genero === "mujer");
+      if (!hRow || !mRow) return null;
+      return {
+        ccaa, men: hRow[state.metric], women: mRow[state.metric],
+        gap: mRow[state.metric] - hRow[state.metric], origen: hRow.origen
+      };
+    }).filter(Boolean).sort((a,b) => d3.descending(Math.abs(a.gap), Math.abs(b.gap)));
+
+    if (rows.length === 0) {
+      wrap.innerHTML = `<div class="ced-loading">No hay datos por género para ${cfg.label} en ${periodLabel(yr)}.</div>`;
+      return;
+    }
+
+    const disclaimer = document.createElement("div");
+    disclaimer.className = "ced-disclaimer-strip";
+    disclaimer.innerHTML = `<strong>Estimación indicativa.</strong> El IMSERSO no publica este indicador desagregado por sexo. La proporción mujer/hombre se aproxima aplicando el ratio del perfil del cuidador por CCAA (cuaderno §6.3). No equivale a datos oficiales desagregados.`;
+    wrap.appendChild(disclaimer);
+
+    const w = wrap.clientWidth || 720;
+    const h = Math.max(460, rows.length * 30 + 80);
+    const m = { top: 38, right: 118, bottom: 42, left: 170 };
+    const svg = d3.select(wrap).append("svg").attr("viewBox", `0 0 ${w} ${h}`);
+    const ext = d3.extent(rows.flatMap(r => [r.men, r.women]));
+    const x = d3.scaleLinear().domain(ext).nice().range([m.left, w - m.right]);
+    const y = d3.scaleBand().domain(rows.map(r => r.ccaa)).range([m.top, h - m.bottom]).padding(0.36);
+
+    svg.append("g").attr("class","ced-grid").attr("transform", `translate(0,${h-m.bottom})`)
+      .call(d3.axisBottom(x).ticks(5).tickSize(-(h - m.top - m.bottom)).tickFormat(""))
+      .call(g => g.select(".domain").remove());
+    svg.append("g").attr("class","ced-axis").attr("transform", `translate(0,${h-m.bottom})`)
+      .call(d3.axisBottom(x).ticks(5).tickFormat(d => cfg.format(displayValue(cfg, d))));
+    svg.append("g").attr("class","ced-axis").attr("transform", `translate(${m.left},0)`)
+      .call(d3.axisLeft(y).tickSize(0))
+      .call(g => g.select(".domain").remove());
+
+    const rowLayer = svg.append("g");
+    const rowGroups = rowLayer.selectAll("g.ced-gender-row").data(rows).join("g")
+      .attr("class", "ced-gender-row").attr("cursor", "pointer");
+
+    rowGroups.append("line")
+      .attr("x1", r => x(r.men)).attr("x2", r => x(r.women))
+      .attr("y1", r => y(r.ccaa) + y.bandwidth()/2)
+      .attr("y2", r => y(r.ccaa) + y.bandwidth()/2)
+      .attr("stroke", r => r.ccaa === "Canarias" ? "#1d1612" : "#ecd5cc")
+      .attr("stroke-width", r => r.ccaa === "Canarias" ? 2.6 : 1.7);
+
+    rowGroups.append("circle").attr("class","ced-men-dot")
+      .attr("cx", r => x(r.men)).attr("cy", r => y(r.ccaa) + y.bandwidth()/2)
+      .attr("r", r => r.ccaa === "Canarias" ? 5.5 : 4.2).attr("fill", "#f06d4f");
+    rowGroups.append("circle").attr("class","ced-women-dot")
+      .attr("cx", r => x(r.women)).attr("cy", r => y(r.ccaa) + y.bandwidth()/2)
+      .attr("r", r => r.ccaa === "Canarias" ? 5.5 : 4.2).attr("fill", "#0c8b8b");
+
+    rowGroups.append("text")
+      .attr("x", w - m.right + 12)
+      .attr("y", r => y(r.ccaa) + y.bandwidth()/2)
+      .attr("dy", "0.35em")
+      .attr("fill", r => r.ccaa === "Canarias" ? "#6e1f1a" : "#7a5a52")
+      .attr("font-weight", r => r.ccaa === "Canarias" ? 800 : 500)
+      .attr("font-size", 12)
+      .text(r => formatDelta(cfg, r.gap));
+
+    rowGroups.append("rect")
+      .attr("x", m.left).attr("y", r => y(r.ccaa) - 4)
+      .attr("width", w - m.left - m.right + 100).attr("height", y.bandwidth() + 8)
+      .attr("fill", "transparent")
+      .on("mousemove", function(evt, d) {
+        rowGroups.attr("opacity", r => r.ccaa === d.ccaa ? 1 : 0.22);
+        const g = d3.select(this.parentNode); g.raise();
+        g.select("line").attr("stroke", "#0c8b8b").attr("stroke-width", 3.2);
+        g.selectAll("circle").attr("r", 6);
+        showTip(`
+          <strong>${d.ccaa}</strong>
+          <span class="ced-tooltip-metric">${cfg.short} · ${periodLabel(yr)} · estimación</span>
+          <span class="ced-tooltip-value">Brecha ${formatDelta(cfg, d.gap)}</span>
+          <span class="ced-tooltip-extra">Mujeres: ${formatValue(cfg, d.women)}</span>
+          <span class="ced-tooltip-extra">Hombres: ${formatValue(cfg, d.men)}</span>
+        `, evt);
+      })
+      .on("mouseleave", function() {
+        rowGroups.attr("opacity", 1);
+        rowGroups.select("line")
+          .attr("stroke", r => r.ccaa === "Canarias" ? "#1d1612" : "#ecd5cc")
+          .attr("stroke-width", r => r.ccaa === "Canarias" ? 2.6 : 1.7);
+        rowGroups.select(".ced-men-dot").attr("r", r => r.ccaa === "Canarias" ? 5.5 : 4.2);
+        rowGroups.select(".ced-women-dot").attr("r", r => r.ccaa === "Canarias" ? 5.5 : 4.2);
+        hideTip();
+      });
+
+    svg.append("circle").attr("cx", m.left).attr("cy", 18).attr("r", 4).attr("fill", "#f06d4f");
+    svg.append("text").attr("x", m.left + 9).attr("y", 22).attr("font-size", 12).attr("fill", "#7a5a52").text("Hombres");
+    svg.append("circle").attr("cx", m.left + 90).attr("cy", 18).attr("r", 4).attr("fill", "#0c8b8b");
+    svg.append("text").attr("x", m.left + 99).attr("y", 22).attr("font-size", 12).attr("fill", "#7a5a52").text("Mujeres");
+  }
+
+  function renderMethod() {
+    const wrap = $("[data-ced-chart]");
+    wrap.innerHTML = "";
+    $("[data-ced-method-grid]").hidden = false;
+  }
+
+  function downloadCsv() {
+    const url = root.getAttribute("data-csv-global");
+    const a = document.createElement("a");
+    a.href = url; a.download = "ced_dependencia_global.csv";
+    document.body.appendChild(a); a.click(); a.remove();
+  }
+
+  function render() {
+    const cfg = VARIABLES[state.metric];
+    const titles = {
+      context:  { t:"Situar Canarias",      s:`Mapa coroplético · ${cfg.label} · ${periodLabel(state.period)} · género: ${state.gender}` },
+      evolution:{ t:"Evolución mensual",    s:`Serie temporal de ${cfg.label} · género: ${state.gender}` },
+      gender:   { t:"Brecha de género (estimación)", s:`${cfg.label} por CCAA · ${periodLabel(state.period)} · estimación indicativa §6.3` },
+      method:   { t:"Cómo se construye",    s:"Pipeline ETL · IMSERSO + censo PPD · multi-algoritmo (ARIMA/ETS/RF/XGBoost)" }
+    };
+    $("[data-ced-title]").textContent = titles[state.step].t;
+    $("[data-ced-sub]").textContent   = titles[state.step].s;
+    const sourceBadge = root.dataset.cedSource === "supabase" ? " · Supabase" : root.dataset.cedSource === "csv" ? " · CSV" : "";
+    const isProj = state.period && state.lastRealPeriod && state.period > state.lastRealPeriod;
+    $("[data-ced-badge]").textContent = state.step === "method"
+      ? "Documentación"
+      : `${periodLabel(state.period)}${isProj ? " · proyección" : ""}${sourceBadge}`;
+    $("[data-ced-method-grid]").hidden = state.step !== "method";
+
+    const periods = Array.from(new Set(state.rowsGlobal.map(r => r.periodo))).sort();
+    if (periods.length > 0 && state.lastRealPeriod) {
+      const ccaaCount = new Set(state.rowsGlobal.map(r => r.ccaa).filter(c => c !== "Media Estatal")).size;
+      $("[data-ced-coverage]").textContent =
+        `Cobertura: ${ccaaCount} CCAA · ${periodLabel(periods[0])} → ${periodLabel(state.lastRealPeriod)} (real) · proyección hasta ${periodLabel(periods[periods.length-1])}`;
+    }
+
+    renderKpis();
+    if (state.step === "context")   renderMap();
+    if (state.step === "evolution") renderEvolution();
+    if (state.step === "gender")    renderGender();
+    if (state.step === "method")    renderMethod();
+  }
+
+  document.addEventListener("mousemove", moveTip);
+
+  initToolbar();
+  Promise.all([loadData(), loadGeo()]).then(([data, geo]) => {
+    state.rowsGlobal = data.rowsGlobal;
+    state.rowsGen    = data.rowsGen;
+    state.geo = geo;
+    initPeriodSelector();
+    render();
+  }).catch(err => {
+    console.error("CED Dependencia: bootstrap falló", err);
+  });
+
+})();
+</script>
+</div>
+</body>
+</html>

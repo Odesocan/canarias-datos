@@ -1,0 +1,90 @@
+[
+  {
+    "slug": "epa_tasa_paro",
+    "filas": 15600,
+    "missing": 15,
+    "missing_fuera_ceuta_melilla": 0,
+    "outliers": 2,
+    "fuera_de_rango": 0,
+    "submuestra_cm": 1560,
+    "territorios": 20
+  },
+  {
+    "slug": "epa_tasa_actividad",
+    "filas": 15600,
+    "missing": 0,
+    "missing_fuera_ceuta_melilla": 0,
+    "outliers": 26,
+    "fuera_de_rango": 0,
+    "submuestra_cm": 1560,
+    "territorios": 20
+  },
+  {
+    "slug": "epa_tasa_empleo",
+    "filas": 15600,
+    "missing": 2,
+    "missing_fuera_ceuta_melilla": 0,
+    "outliers": 0,
+    "fuera_de_rango": 0,
+    "submuestra_cm": 1560,
+    "territorios": 20
+  },
+  {
+    "slug": "epa_tiempo_busqueda",
+    "filas": 31200,
+    "missing": 304,
+    "missing_fuera_ceuta_melilla": 10,
+    "outliers": 21,
+    "fuera_de_rango": 0,
+    "submuestra_cm": 3120,
+    "territorios": 20
+  },
+  {
+    "slug": "epa_tipo_contrato",
+    "filas": 23400,
+    "missing": 0,
+    "missing_fuera_ceuta_melilla": 0,
+    "outliers": 25,
+    "fuera_de_rango": 0,
+    "submuestra_cm": 2340,
+    "territorios": 20
+  },
+  {
+    "slug": "epa_tipo_jornada",
+    "filas": 23400,
+    "missing": 0,
+    "missing_fuera_ceuta_melilla": 0,
+    "outliers": 0,
+    "fuera_de_rango": 0,
+    "submuestra_cm": 2340,
+    "territorios": 20
+  },
+  {
+    "slug": "etcl_tiempo_trabajo",
+    "filas": 70200,
+    "missing": 0,
+    "missing_fuera_ceuta_melilla": 0,
+    "outliers": 423,
+    "fuera_de_rango": 0,
+    "submuestra_cm": 0,
+    "territorios": 18
+  },
+  {
+    "slug": "eaes_ganancia_ccaa",
+    "filas": 4860,
+    "missing": 0,
+    "missing_fuera_ceuta_melilla": 0,
+    "outliers": 17,
+    "fuera_de_rango": 0,
+    "submuestra_cm": 0,
+    "territorios": 18
+  },
+  {
+    "slug": "alquiler_ccaa_anual",
+    "filas": 315,
+    "missing": 0,
+    "anyos_parciales": 32,
+    "fuera_de_rango": 0,
+    "territorios": 19
+  }
+]

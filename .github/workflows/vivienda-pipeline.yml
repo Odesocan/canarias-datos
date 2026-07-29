@@ -1,0 +1,91 @@
+name: Vivienda Pipeline
+
+on:
+  workflow_dispatch:
+  schedule:
+    # GitHub Actions usa UTC: 05:00 UTC = 05:00 en Canarias en invierno y 06:00 en verano.
+    # Se ejecuta el día 5 de cada mes para dar margen a la publicación mensual de Idealista.
+    - cron: "0 5 5 * *"
+
+jobs:
+  vivienda:
+    runs-on: ubuntu-latest
+    timeout-minutes: 240
+
+    env:
+      CED_DB_HOST: ${{ secrets.SUPABASE_HOST }}
+      CED_DB_PORT: ${{ secrets.SUPABASE_PORT }}
+      CED_DB_NAME: ${{ secrets.SUPABASE_DBNAME }}
+      CED_DB_USER: ${{ secrets.SUPABASE_USER }}
+      CED_DB_PASSWORD: ${{ secrets.SUPABASE_PASS }}
+      CED_DB_SCHEMA: ${{ secrets.SUPABASE_SCHEMA }}
+      CED_PYTHON_BIN: python3
+      CED_PROJECTION_TARGET_YEAR: "2026"
+      CED_MODEL_VALIDATION_YEARS: "3"
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Setup Chrome
+        uses: browser-actions/setup-chrome@v1
+
+      - name: Install Python scraping dependencies
+        run: |
+          python3 -m pip install --upgrade pip
+          python3 -m pip install -r "Vivienda/fuentes/scrapings/alquiler_historico_ccaa/requirements.txt"
+
+      - name: Setup R
+        uses: r-lib/actions/setup-r@v2
+        with:
+          use-public-rspm: true
+
+      - name: Install system dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libcurl4-openssl-dev libssl-dev libxml2-dev libpq-dev
+
+      - name: Install R packages
+        run: |
+          Rscript -e 'install.packages(c("DBI","RPostgres","dplyr","forecast","glue","ineapir","janitor","lubridate","prophet","purrr","ranger","readr","readxl","stringr","tibble","tidyr","writexl","xgboost"), repos = "https://cloud.r-project.org")'
+
+      - name: Run Vivienda pipeline
+        run: |
+          WITH_DB=false
+          if [ -n "${CED_DB_HOST}" ] && [ -n "${CED_DB_USER}" ] && [ -n "${CED_DB_PASSWORD}" ] && [ -n "${CED_DB_NAME}" ]; then
+            WITH_DB=true
+          fi
+          Rscript "Vivienda/00_maestro.R" --steps=scraping,extraccion,transformacion,modelado,carga --run-scraping=true --with-db="${WITH_DB}"
+
+      - name: Upload raw Idealista data
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: vivienda-idealista-raw
+          path: |
+            Vivienda/fuentes/raw/idealista/*.csv
+            Vivienda/fuentes/scrapings/alquiler_historico_ccaa/data/processed/*.csv
+            Vivienda/fuentes/scrapings/alquiler_historico_ccaa/data/raw/*.json
+            Vivienda/fuentes/scrapings/alquiler_historico_ccaa/data/logs/*.log
+          if-no-files-found: ignore
+
+      - name: Upload Vivienda outputs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: vivienda-outputs
+          path: |
+            Vivienda/1_extraccion/*.rds
+            Vivienda/2_transformacion/*.rds
+            Vivienda/3_modelado/*.rds
+            Vivienda/3_modelado/seleccion_algoritmo_proyeccion_*.csv
+            Vivienda/4_carga/ced_vivienda_global.csv
+            Vivienda/4_carga/ced_vivienda_global.xlsx
+            Vivienda/4_carga/ced_vivienda_gen.csv
+            Vivienda/4_carga/ced_vivienda_gen.xlsx
+          if-no-files-found: ignore

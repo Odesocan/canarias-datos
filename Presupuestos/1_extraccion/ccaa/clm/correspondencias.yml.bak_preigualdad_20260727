@@ -1,0 +1,241 @@
+conceptos:
+  sanidad:
+    codigos:
+    - '311'
+    - '312'
+    - '411'
+    - '412'
+    - '510'
+    - 312A
+    - 312B
+    - 312C
+    - 412A
+    - 412B
+    - 412C
+    - 412D
+    - 412E
+    - 412G
+    - 312*
+    - 412*
+    keywords:
+    - sanidad
+    - sanitario
+    - sanitaria
+    - sescam
+    - servicio cántabro de salud
+    - servicio canario salud
+    - servicio andaluz salud
+    - atención primaria
+    - atencion primaria
+    - atención especializada
+    - atencion especializada
+    - salud pública
+    - salud publica
+    - salud
+    - asistencia sanitaria
+    - hospital
+  educacion:
+    codigos:
+    - '321'
+    - '322'
+    - '421'
+    - '422'
+    - '423'
+    - 321A
+    - 322A
+    - 322B
+    - 322C
+    - 422A
+    - 423A
+    - 421*
+    - 422*
+    - 423*
+    - 321*
+    - 322*
+    keywords:
+    - educación
+    - educacion
+    - enseñanza
+    - enseñanzas
+    - ensenanza
+    - universidad
+    - universidades
+    - becas
+  soberania:
+    codigos:
+    - '531'
+    - '710'
+    - '711'
+    - '712'
+    - '713'
+    - '714'
+    - '715'
+    - 711A
+    - 712A
+    - 713A
+    - 71*
+    keywords:
+    - agricultura
+    - ganadería
+    - ganaderia
+    - pesca
+    - alimentación
+    - alimentacion
+    - desarrollo rural
+    - medio rural
+  direccion:
+    # REDEFINIDO 2026-07-27 — Direccion politica (altos cargos del ejecutivo).
+    # Antes era un cajon de sastre: deuda, justicia, tributos, transferencias a
+    # entes locales, informatica, medios y parlamentos. Referencia: programa 912A
+    # de Canarias 'Direccion Politica y Gobierno', replicado en cada consejeria.
+    # Perimetro: ejecutivo estricto (presidencia, vicepresidencia, gabinetes, alta
+    # direccion). EXCLUIDOS parlamento, control externo, defensorias, consejos
+    # consultivos y transparencia. Keywords VACIAS a proposito: mapeo por codigo
+    # exacto para que no vuelva a capturar por texto. Ver logs/progreso.md.
+    # 112A DIRECCION Y SERVICIOS GENERALES DE LA PRESIDENCIA (12/12, 12,8-21,8 M).
+    # Castilla-La Mancha no separa la direccion politica del ejecutivo por debajo de este
+    # nivel: es el programa mas estrecho disponible.
+    codigos:
+    - '112A'
+    keywords: []
+  vivienda:
+    codigos:
+    - '261'
+    - '431'
+    - '432'
+    - '451'
+    - 261A
+    - 431A
+    - 432A
+    - 432B
+    - 431*
+    keywords:
+    - vivienda
+    - urbanismo
+    - habitatge
+    - etxebizitza
+  empleo:
+    codigos:
+    - '241'
+    - '230'
+    - 241A
+    - 241*
+    # FIX 2026-07-02: FP para el empleo. En 2024 el programa 324A se renombró de
+    # "FP PARA EL EMPLEO" (casaba keyword) a "FP EN EL ÁMBITO LABORAL" (no casa) →
+    # empleo perdía ~90 M€/año. Se mapea por código exacto (robusto al renombrado).
+    - 324A
+    - 324B
+    keywords:
+    - empleo
+    - fomento del empleo
+    - inserción laboral
+    - insercion laboral
+    - ocupación
+    - ocupacion
+  idi:
+    codigos:
+    - '463'
+    - '467'
+    - '542'
+    - '561'
+    - '720'
+    - 463A
+    - 542*
+    keywords:
+    - investigación
+    - investigacion
+    - innovación
+    - innovacion
+    - desarrollo tecnológico
+    - desarrollo tecnologico
+  dependencia:
+    codigos:
+    - 231D
+    - 232D
+    - 232G
+    - 313D
+    - 252D
+    - 313B
+    keywords:
+    - dependencia
+    - autonomía personal
+    - autonomia personal
+    - atención a la dependencia
+    - atencion a la dependencia
+    - mayores
+  discapacidad:
+    codigos:
+    - 231C
+    - 232C
+    - 313C
+    - 313G
+    - '314'
+    keywords:
+    - discapacidad
+    - diversidad funcional
+    - discapacitat
+  salud_mental:
+    codigos:
+    # FIX 2026-07-02: RETIRADOS 313A "Programas sociales básicos" (97-101 M) y
+    # 313E "Atención al menor" (57-66 M) — NO son salud mental, fabricaban el
+    # concepto con SS generales/protección de menores. 313E→diversidad (menor).
+    # salud_mental de CLM queda vía 312D/412I + keywords (drogodependencias real).
+    - '414'
+    - '514'
+    - 312D
+    - 412I
+    keywords:
+    - salud mental
+    - drogodependencias
+    - adicciones
+  diversidad:
+    # REDEFINIDO 2026-07-27 — Diversidad (LGTBI, migraciones, etnias), per Cuaderno
+    # Metodologico tablas 4/14. Antes cajon de sastre: inclusion social
+    # generica, infancia/familia, cooperacion al desarrollo, deporte, cultura,
+    # patrimonio, idioma. Ver logs/progreso.md.
+    # Retirado 313E 'Atencion y Acompanamiento al Menor' (era el 100% del concepto, 59 M):
+    # atencion a la infancia, no diversidad. Tambien retirado 313B 'Prevencion y Apoyo a
+    # las Familias' (9,3 M): no es diversidad y ademas la raiz ya lo reclama para
+    # `dependencia` (ccaa.Castilla-La Mancha.dependencia, gana por score) — dejarlo aqui
+    # solo confundia. Castilla-La Mancha no tiene programa propio de LGTBI/migracion/
+    # etnias identificable — NULL estructural.
+    codigos:
+    - '232B'
+    - '234'
+    - '266'
+    keywords:
+    - 'lgtbi'
+    - 'lgbti'
+    - 'migracion'
+    - 'migración'
+    - 'interculturalidad'
+    - 'gitano'
+  turismo:
+    codigos:
+    # FIX 2026-07-02: RETIRADOS '432'/'432A' "Gestión del urbanismo" (10-15 M) —
+    # es urbanismo (ya en vivienda), no turismo; colisión de código exacto.
+    - '751'
+    - '761'
+    - '730'
+    - 75*
+    keywords:
+    - turismo
+    - hostelería
+    - hosteleria
+  igualdad:
+    codigos:
+    - '232'
+    - '323'
+    - '920'
+    - 323A
+    - 323B
+    - 232*
+    - 323*
+    keywords:
+    - igualdad
+    - mujer
+    - violencia de género
+    - violencia de genero
+    - promoción de la igualdad
+    - promocion de la igualdad
+    - instituto de la mujer

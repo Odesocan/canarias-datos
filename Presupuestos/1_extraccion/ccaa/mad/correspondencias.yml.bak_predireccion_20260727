@@ -1,0 +1,136 @@
+conceptos:
+  sanidad:
+    codigos: []
+    keywords:
+    - sanidad
+    - sanitario
+    - sanitaria
+    - servicio madrileño de salud
+    - servicio madrileno de salud
+    - salud digital
+    - salud publica
+    - salud pública
+    - hospital
+  educacion:
+    codigos: []
+    keywords:
+    - educación
+    - educacion
+    - enseñanza
+    - ensenanza
+    - universidad
+    - universidades
+    - becas
+    - investigación universitaria
+    - investigacion universitaria
+  soberania:
+    codigos: []
+    keywords:
+    - agricultura
+    - ganadería
+    - ganaderia
+    - pesca
+    - desarrollo rural
+    - medio rural
+    - alimentación
+    - alimentacion
+  direccion:
+    codigos: []
+    keywords:
+    - asamblea
+    - presidencia
+    - cámara de cuentas
+    - camara de cuentas
+    - comisión jurídica asesora
+    - comision juridica asesora
+    - alta dirección
+    - alta direccion
+    - función pública
+    - funcion publica
+    - intervención general
+    - intervencion general
+    - s.g.t.
+    - secretaría general técnica
+    - secretaria general tecnica
+  vivienda:
+    codigos: []
+    keywords:
+    - vivienda
+    - urbanismo
+    - habitatge
+  empleo:
+    codigos: []
+    keywords:
+    - empleo
+    - inserción laboral
+    - insercion laboral
+    - fomento del empleo
+    - ocupación
+    - ocupacion
+  idi:
+    codigos: []
+    keywords:
+    - investigación
+    - investigacion
+    - innovación
+    - innovacion
+    - desarrollo tecnológico
+    - desarrollo tecnologico
+    - ciencia
+  dependencia:
+    codigos: []
+    keywords:
+    - dependencia
+    - atención al mayor
+    - atencion al mayor
+    - autonomía personal
+    - autonomia personal
+    - mayores
+    # FIX 2026-07-02: los centros madrileños se renombran por época y no casaban
+    # "mayores": "D.G. DEL MAYOR" (297M), "D.G. DE SERVICIOS SOCIALES" (393M),
+    # "SERVICIO REGIONAL DE BIENESTAR SOCIAL"/"AGENCIA MADRILEÑA DE ATENCIÓN SOCIAL"
+    # (274-515M) iban a NULL → dependencia infravalorada en años antiguos.
+    - del mayor
+    - servicios sociales
+    - bienestar social
+    - atención social
+    - atencion social
+  discapacidad:
+    codigos: []
+    keywords:
+    - discapacidad
+    - diversidad funcional
+  salud_mental:
+    codigos: []
+    keywords:
+    - salud mental
+    - drogodependencias
+    - adicciones
+  diversidad:
+    codigos: []
+    keywords:
+    - lgtbi
+    - lgbti
+    - migración
+    - migracion
+    - migrante
+    - interculturalidad
+    - convivencia
+    - gitano
+    # FIX 2026-07-02: "D.G. DE INFANCIA, FAMILIA Y FOMENTO DE LA NATALIDAD" (235M)
+    - infancia
+    - familia
+  turismo:
+    codigos: []
+    keywords:
+    - turismo
+    - hostelería
+    - hosteleria
+  igualdad:
+    codigos: []
+    keywords:
+    - igualdad
+    - mujer
+    - violencia de género
+    - violencia de genero
+    - instituto de la mujer

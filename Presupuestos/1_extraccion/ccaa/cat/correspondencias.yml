@@ -1,0 +1,204 @@
+conceptos:
+  sanidad:
+    # 411/412 (entrega ICS) EXCLUIDOS: doble conteo con la transferencia interna
+    # 415 (= presupuesto consolidado de CatSalut). El extractor cat ya los filtra;
+    # se quitan aquí por coherencia. Sanidad catalana = 415 + 414/419. Fix 2026-07-01.
+    codigos:
+    - '311'
+    - '312'
+    - '510'
+    - '414'
+    - '31'
+    - '413'
+    - '415'
+    - '419'
+    keywords:
+    - sanidad
+    - salud publica
+    - servicio canario salud
+    - servicio andaluz salud
+    - atencion primaria
+    - atencion especializada
+    - sanitaria
+    - osasun
+  educacion:
+    codigos:
+    - '321'
+    - '322'
+    - '421'
+    - '422'
+    - '423'
+    - '426'
+    - '42'
+    - '424'
+    - '425'
+    keywords:
+    - educacion
+    - ensenanza
+    - ensenyament
+    - hezkuntza
+  soberania:
+    # '412' era un BUG (atenció especialitzada de SALUT, no soberanía alimentaria).
+    # Retirado 2026-07-01.
+    codigos:
+    - '531'
+    - '710'
+    - '711'
+    - '712'
+    - '335'
+    - '611'
+    - '612'
+    - '613'
+    - '614'
+    - '616'
+    keywords:
+    - agricultura
+    - ganaderia
+    - pesca
+    - alimentacion
+    - nekazaritza
+    - soberania alimentaria
+  direccion:
+    # REDEFINIDO 2026-07-27 — Direccion politica (altos cargos del ejecutivo).
+    # Antes era un cajon de sastre: deuda, justicia, tributos, transferencias a
+    # entes locales, informatica, medios y parlamentos. Referencia: programa 912A
+    # de Canarias 'Direccion Politica y Gobierno', replicado en cada consejeria.
+    # Perimetro: ejecutivo estricto (presidencia, vicepresidencia, gabinetes, alta
+    # direccion). EXCLUIDOS parlamento, control externo, defensorias, consejos
+    # consultivos y transparencia. Keywords VACIAS a proposito: mapeo por codigo
+    # exacto para que no vuelva a capturar por texto. Ver logs/progreso.md.
+    # 112 IMPULS I COORDINACIO DE L'ACCIO DE GOVERN (12/12, 0,1-3,5 M). Sale de direccion
+    # el 911 DEUTE PUBLIC (9.350 M), que era el 62 % del concepto.
+    codigos:
+    - '112'
+    keywords: []
+  vivienda:
+    codigos:
+    - '261'
+    - '431'
+    - '451'
+    - '51'
+    keywords:
+    - vivienda
+    - habitatge
+    - etxebizitza
+  empleo:
+    codigos:
+    - '241'
+    - '322'
+    - '230'
+    - '331'
+    - '333'
+    keywords:
+    - empleo
+    - ocupacio
+    - enplegua
+    - fomento del empleo
+  idi:
+    codigos:
+    - '463'
+    - '467'
+    - '542'
+    - '561'
+    - '720'
+    - '562'
+    - '56'
+    - '532'
+    - '571'
+    - '572'
+    - '573'
+    - '574'
+    - '661'
+    keywords:
+    - investigacion
+    - innovacion
+    - i d i
+    - desarrollo tecnologico
+  dependencia:
+    codigos:
+    - 231D
+    - 232D
+    - 232G
+    - 313D
+    - 252D
+    - '313'
+    - '315'
+    keywords:
+    - dependencia
+    - mendekotasun
+    - atencion a la dependencia
+  discapacidad:
+    codigos:
+    - 231C
+    - 232C
+    - 313C
+    - 313G
+    - '314'
+    keywords:
+    - discapacidad
+    - diversidad funcional
+    - discapacitat
+  salud_mental:
+    codigos:
+    - 313A
+    - 313E
+    - '414'
+    - '514'
+    - 312D
+    - 412I
+    keywords:
+    - salud mental
+    - salut mental
+    - buru osasun
+  diversidad:
+    # REDEFINIDO 2026-07-27 — Diversidad (LGTBI, migraciones, etnias), per Cuaderno
+    # Metodologico tablas 4/14. Antes cajon de sastre: inclusion social
+    # generica, infancia/familia, cooperacion al desarrollo, deporte, cultura,
+    # patrimonio, idioma. Ver logs/progreso.md.
+    # Retirado 317 'Inclusio Social i Lluita contra Pobresa' (820 M, 92% del concepto):
+    # lucha contra la pobreza generica, no diversidad. Se queda 316 'Igualtat i Respecte a
+    # la Diversitat' (78 M/anio).
+    codigos:
+    - '232B'
+    - '234'
+    - '313B'
+    - '266'
+    - '316'
+    keywords:
+    - 'lgtbi'
+    - 'lgbti'
+    - 'migracion'
+    - 'migración'
+    - 'interculturalidad'
+    - 'gitano'
+  turismo:
+    codigos:
+    - '432'
+    - 432A
+    - '751'
+    - '761'
+    - '730'
+    - '651'
+    keywords:
+    - turismo
+    - turisme
+    - turismoa
+  igualdad:
+    # REDEFINIDO 2026-07-27 — Igualdad: Instituto de la Mujer / programa Igualdad-VG, per
+    # Cuaderno Metodologico tablas 4/14. Antes capturaba programas de JUVENTUD
+    # (mismo prefijo 232/323 que igualdad en el esquema funcional de varias
+    # CCAA, pero '...A' es juventud y '...B' es mujer/igualdad). Ver logs/progreso.md.
+    # Cambiado de ['232','323','920','233'] a '322': 232 es 'Cooperacio al
+    # Desenvolupament' (47,7 M, cooperacion internacional) y 323 es 'Accio Civica i
+    # Voluntariat' (4,9 M) — NINGUNO de los dos es igualdad. El programa real es 322
+    # 'Politiques de Dones' (7,3-15,2 M/anio, 12/12 anios), que estaba mal etiquetado como
+    # empleo. Corregido tambien en la raiz.
+    codigos:
+    - '322'
+    keywords:
+    - 'igualdad'
+    - 'igualtat'
+    - 'mujer'
+    - 'dona'
+    - 'violencia de genero'
+    - 'berdintasun'

@@ -1,0 +1,213 @@
+conceptos:
+  sanidad:
+    # 411/412 (entrega ICS) EXCLUIDOS: doble conteo con la transferencia interna
+    # 415 (= presupuesto consolidado de CatSalut). El extractor cat ya los filtra;
+    # se quitan aquí por coherencia. Sanidad catalana = 415 + 414/419. Fix 2026-07-01.
+    codigos:
+    - '311'
+    - '312'
+    - '510'
+    - '414'
+    - '31'
+    - '413'
+    - '415'
+    - '419'
+    keywords:
+    - sanidad
+    - salud publica
+    - servicio canario salud
+    - servicio andaluz salud
+    - atencion primaria
+    - atencion especializada
+    - sanitaria
+    - osasun
+  educacion:
+    codigos:
+    - '321'
+    - '322'
+    - '421'
+    - '422'
+    - '423'
+    - '426'
+    - '42'
+    - '424'
+    - '425'
+    keywords:
+    - educacion
+    - ensenanza
+    - ensenyament
+    - hezkuntza
+  soberania:
+    # '412' era un BUG (atenció especialitzada de SALUT, no soberanía alimentaria).
+    # Retirado 2026-07-01.
+    codigos:
+    - '531'
+    - '710'
+    - '711'
+    - '712'
+    - '335'
+    - '611'
+    - '612'
+    - '613'
+    - '614'
+    - '616'
+    keywords:
+    - agricultura
+    - ganaderia
+    - pesca
+    - alimentacion
+    - nekazaritza
+    - soberania alimentaria
+  direccion:
+    codigos:
+    - '010'
+    - '111'
+    - '112'
+    - '911'
+    - '912'
+    - '921'
+    - '113'
+    - '114'
+    - '115'
+    - '121'
+    - '122'
+    - '124'
+    - '125'
+    - '126'
+    - '131'
+    - '132'
+    - '211'
+    - '212'
+    - '213'
+    - '214'
+    - '215'
+    - '231'
+    - '533'
+    - '584'
+    - '671'
+    - '672'
+    - '713'
+    - '811'
+    keywords:
+    - presidencia
+    - alta direccion
+    - parlamento
+    - cortes
+    - gobierno
+  vivienda:
+    codigos:
+    - '261'
+    - '431'
+    - '451'
+    - '51'
+    keywords:
+    - vivienda
+    - habitatge
+    - etxebizitza
+  empleo:
+    codigos:
+    - '241'
+    - '322'
+    - '230'
+    - '331'
+    - '333'
+    keywords:
+    - empleo
+    - ocupacio
+    - enplegua
+    - fomento del empleo
+  idi:
+    codigos:
+    - '463'
+    - '467'
+    - '542'
+    - '561'
+    - '720'
+    - '562'
+    - '56'
+    - '532'
+    - '571'
+    - '572'
+    - '573'
+    - '574'
+    - '661'
+    keywords:
+    - investigacion
+    - innovacion
+    - i d i
+    - desarrollo tecnologico
+  dependencia:
+    codigos:
+    - 231D
+    - 232D
+    - 232G
+    - 313D
+    - 252D
+    - '313'
+    - '315'
+    keywords:
+    - dependencia
+    - mendekotasun
+    - atencion a la dependencia
+  discapacidad:
+    codigos:
+    - 231C
+    - 232C
+    - 313C
+    - 313G
+    - '314'
+    keywords:
+    - discapacidad
+    - diversidad funcional
+    - discapacitat
+  salud_mental:
+    codigos:
+    - 313A
+    - 313E
+    - '414'
+    - '514'
+    - 312D
+    - 412I
+    keywords:
+    - salud mental
+    - salut mental
+    - buru osasun
+  diversidad:
+    codigos:
+    - 232B
+    - '234'
+    - 313B
+    - '266'
+    - '316'
+    - '317'
+    keywords:
+    - lgtbi
+    - lgbti
+    - migracion
+    - interculturalidad
+    - gitano
+  turismo:
+    codigos:
+    - '432'
+    - 432A
+    - '751'
+    - '761'
+    - '730'
+    - '651'
+    keywords:
+    - turismo
+    - turisme
+    - turismoa
+  igualdad:
+    codigos:
+    - '232'
+    - '323'
+    - '920'
+    - '233'
+    keywords:
+    - igualdad
+    - mujer
+    - violencia de genero
+    - berdintasun
+    - emakume
+    - instituto de la mujer

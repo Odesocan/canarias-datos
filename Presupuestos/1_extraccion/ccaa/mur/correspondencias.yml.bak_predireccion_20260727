@@ -1,0 +1,197 @@
+conceptos:
+  sanidad:
+    codigos:
+    - 311*       # planificación e ordenación sanitaria
+    - 312*       # atención primaria + especializada
+    - 411*       # planificación sanitaria
+    - 412*       # asistencia sanitaria
+    - 413*       # salud pública
+    - 510*       # legacy mapping otras CCAA
+    - 412A
+    - 412B
+    - 412C
+    keywords:
+    - sanidad
+    - salud publica
+    - servicio murciano salud
+    - servicio canario salud
+    - servicio andaluz salud
+    - atencion primaria
+    - atencion especializada
+    - sanitaria
+    - osasun
+    - salud
+  educacion:
+    codigos:
+    - 321*       # admin educativa
+    - 322*       # formación profesional → empleo casi siempre
+    - 421*       # ed. infantil/primaria
+    - 422*       # ed. secundaria + universitaria
+    - 423*       # universidades
+    - 421A
+    - 422F
+    keywords:
+    - educacion
+    - ensenanza
+    - ensenyament
+    - hezkuntza
+  soberania:
+    codigos:
+    - 412*       # agricultura/ganadería en algunas CCAA
+    - 531*       # estructuras agrarias
+    - 710*       # política agroalimentaria
+    - 711*
+    - 712*
+    - 713*
+    - 714*
+    keywords:
+    - agricultura
+    - ganaderia
+    - pesca
+    - alimentacion
+    - nekazaritza
+    - soberania alimentaria
+  direccion:
+    codigos:
+    - 010*       # deuda pública (Murcia 011A)
+    - 011*
+    - 111*       # asamblea regional
+    - 112*       # servicios generales / dirección
+    - 121*       # personal y función pública
+    - 122*
+    - 124*       # asistencia y coordinación municipal (Murcia)
+    - 126*       # transparencia / participación
+    - 223*       # protección civil / emergencias (servicios públicos grales)
+    - 444*       # cooperación local (Murcia 444A)
+    - 551C       # estadística regional (servicio transversal)
+    - 611*       # dirección y servicios generales hacienda (Murcia 611A)
+    - 612*       # hacienda: programación, presupuestación, contabilidad,
+                 # patrimonio, fondos europeos, MRR, contratación
+    - 631*       # tesoro público regional
+    - 633*       # fondo global recursos presupuestarios
+    - 911*       # gobierno
+    - 912*       # alta dirección
+    - 921*
+    keywords:
+    - presidencia
+    - alta direccion
+    - parlamento
+    - asamblea regional
+    - cortes
+    - gobierno
+    - consejo juridico
+    - secretaria general
+    - hacienda
+    - tesoro
+    - intervencion general
+    - contratacion centralizada
+    - fondos europeos
+    - patrimonio de la comunidad
+  vivienda:
+    codigos:
+    - 261*       # urbanismo + vivienda
+    - 431*
+    - 451*
+    - 431A
+    keywords:
+    - vivienda
+    - habitatge
+    - etxebizitza
+  empleo:
+    codigos:
+    - 241*       # fomento del empleo
+    - 322*       # formación/empleo
+    - 230*
+    keywords:
+    - empleo
+    - ocupacio
+    - enplegua
+    - fomento del empleo
+  idi:
+    codigos:
+    - 463*       # I+D+i sanitaria
+    - 467*       # I+D
+    - 542*
+    - 561*
+    - 720*
+    - 542A
+    keywords:
+    - investigacion
+    - innovacion
+    - i d i
+    - desarrollo tecnologico
+  dependencia:
+    codigos:
+    - 231D
+    - 232D
+    - 232G
+    - 313D
+    - 313G       # personas mayores (Murcia IMAS 51.03)
+    - 252D
+    keywords:
+    - dependencia
+    - mendekotasun
+    - atencion a la dependencia
+    - personas mayores
+    - mayores
+  discapacidad:
+    codigos:
+    - 231C
+    - 232C
+    - 313C
+    - '314'
+    - 313F
+    keywords:
+    - discapacidad
+    - diversidad funcional
+    - discapacitat
+  salud_mental:
+    codigos:
+    - 313A
+    - 313E
+    - 414*
+    - 514*
+    - 312D
+    - 412I
+    - 412B
+    keywords:
+    - salud mental
+    - salut mental
+    - buru osasun
+    - drogodependencia
+  diversidad:
+    codigos:
+    - 232B
+    - '234'
+    - 313B
+    - 266*
+    keywords:
+    - lgtbi
+    - lgbti
+    - migracion
+    - interculturalidad
+    - gitano
+  turismo:
+    codigos:
+    - 432*       # turismo + cultura ligado
+    - 432A
+    - 751*       # promoción turística
+    - 761*
+    - 730*
+    keywords:
+    - turismo
+    - turisme
+    - turismoa
+  igualdad:
+    codigos:
+    - 232*       # igualdad + violencia de género
+    - 323*
+    - 920*
+    - 323A
+    keywords:
+    - igualdad
+    - mujer
+    - violencia de genero
+    - berdintasun
+    - emakume
+    - instituto de la mujer

@@ -1,0 +1,188 @@
+ccaa,nombre,anio,total_hacienda_b,total_auto_b,ratio,flag
+and,Andalucía,2015,29.626,37.967,1.282,OK
+and,Andalucía,2016,31.29,40.371,1.29,OK
+and,Andalucía,2017,33.245,28.186,0.848,OK
+and,Andalucía,2018,34.769,29.687,0.854,OK
+and,Andalucía,2019,36.501,29.775,0.816,OK
+and,Andalucía,2020,38.546,49.58,1.286,OK
+and,Andalucía,2021,40.188,55.826,1.389,OK
+and,Andalucía,2022,40.402,34.994,0.866,OK
+and,Andalucía,2023,45.604,37.754,0.828,OK
+and,Andalucía,2024,46.753,38.365,0.821,OK
+and,Andalucía,2025,48.872,40.425,0.827,OK
+ara,Aragón,2015,5.254,5.587,1.063,OK
+ara,Aragón,2016,5.13,5.496,1.071,OK
+ara,Aragón,2017,5.577,5.963,1.069,OK
+ara,Aragón,2018,6.162,6.579,1.068,OK
+ara,Aragón,2019,6.162,6.579,1.068,OK
+ara,Aragón,2020,6.467,6.893,1.066,OK
+ara,Aragón,2021,7.454,7.883,1.058,OK
+ara,Aragón,2022,7.444,7.883,1.059,OK
+ara,Aragón,2023,8.25,8.73,1.058,OK
+ara,Aragón,2024,8.546,9.13,1.068,OK
+ara,Aragón,2025,8.546,9.13,1.068,OK
+ast,Asturias,2015,3.959,5.133,1.297,OK
+ast,Asturias,2016,3.954,3.537,0.895,OK
+ast,Asturias,2017,4.226,3.656,0.865,OK
+ast,Asturias,2018,4.213,3.822,0.907,OK
+ast,Asturias,2019,4.524,3.916,0.866,OK
+ast,Asturias,2020,4.757,4.041,0.849,OK
+ast,Asturias,2021,5.238,4.47,0.853,OK
+ast,Asturias,2022,5.354,4.637,0.866,OK
+ast,Asturias,2023,5.968,5.202,0.872,OK
+ast,Asturias,2024,6.349,5.44,0.857,OK
+ast,Asturias,2025,6.664,5.753,0.863,OK
+bal,Baleares,2015,4.036,4.011,0.994,OK
+bal,Baleares,2016,4.241,4.218,0.995,OK
+bal,Baleares,2017,4.668,4.647,0.995,OK
+bal,Baleares,2018,5.009,3.864,0.771,OK
+bal,Baleares,2019,5.458,4.258,0.78,OK
+bal,Baleares,2020,5.893,4.582,0.778,OK
+bal,Baleares,2021,5.882,4.614,0.784,OK
+bal,Baleares,2022,6.398,6.368,0.995,OK
+bal,Baleares,2023,7.133,7.087,0.994,OK
+bal,Baleares,2024,7.321,7.114,0.972,OK
+bal,Baleares,2025,7.469,6.35,0.85,OK
+can,Canarias,2015,6.901,5.899,0.855,OK
+can,Canarias,2016,7.265,5.937,0.817,OK
+can,Canarias,2017,7.339,6.306,0.859,OK
+can,Canarias,2018,8.273,7.0,0.846,OK
+can,Canarias,2019,8.833,7.512,0.85,OK
+can,Canarias,2020,9.603,7.699,0.802,OK
+can,Canarias,2021,9.531,8.045,0.844,OK
+can,Canarias,2022,9.974,8.609,0.863,OK
+can,Canarias,2023,11.059,9.701,0.877,OK
+can,Canarias,2024,11.971,10.746,0.898,OK
+can,Canarias,2025,12.343,11.109,0.9,OK
+cat,Cataluña,2015,32.618,32.483,0.996,OK
+cat,Cataluña,2016,32.608,33.645,1.032,OK
+cat,Cataluña,2017,34.164,33.937,0.993,OK
+cat,Cataluña,2018,34.121,33.937,0.995,OK
+cat,Cataluña,2019,34.119,38.082,1.116,OK
+cat,Cataluña,2020,42.323,42.073,0.994,OK
+cat,Cataluña,2021,42.323,42.073,0.994,OK
+cat,Cataluña,2022,49.012,48.753,0.995,OK
+cat,Cataluña,2023,51.808,51.526,0.995,OK
+cat,Cataluña,2024,51.828,51.537,0.994,OK
+cat,Cataluña,2025,50.605,51.537,1.018,OK
+clm,Cast.-La Mancha,2015,8.206,6.945,0.846,OK
+clm,Cast.-La Mancha,2016,8.42,7.114,0.845,OK
+clm,Cast.-La Mancha,2017,8.941,7.406,0.828,OK
+clm,Cast.-La Mancha,2018,9.219,7.61,0.825,OK
+clm,Cast.-La Mancha,2019,9.219,7.61,0.825,OK
+clm,Cast.-La Mancha,2020,10.505,8.093,0.77,OK
+clm,Cast.-La Mancha,2021,12.102,9.667,0.799,OK
+clm,Cast.-La Mancha,2022,12.274,12.261,0.999,OK
+clm,Cast.-La Mancha,2023,12.432,12.419,0.999,OK
+clm,Cast.-La Mancha,2024,12.473,12.473,1.0,OK
+clm,Cast.-La Mancha,2025,12.716,12.716,1.0,OK
+cnt,Cantabria,2015,2.501,2.514,1.006,OK
+cnt,Cantabria,2016,2.465,2.479,1.006,OK
+cnt,Cantabria,2017,2.603,2.617,1.006,OK
+cnt,Cantabria,2018,2.731,2.742,1.004,OK
+cnt,Cantabria,2019,2.854,2.868,1.005,OK
+cnt,Cantabria,2020,2.888,2.903,1.005,OK
+cnt,Cantabria,2021,3.078,3.095,1.005,OK
+cnt,Cantabria,2022,3.343,3.361,1.005,OK
+cnt,Cantabria,2023,3.507,3.525,1.005,OK
+cnt,Cantabria,2024,3.548,3.569,1.006,OK
+cnt,Cantabria,2025,3.756,3.791,1.009,OK
+cym,Cast. y León,2015,9.921,9.921,1.0,OK
+cym,Cast. y León,2016,9.844,9.844,1.0,OK
+cym,Cast. y León,2017,10.293,10.293,1.0,OK
+cym,Cast. y León,2018,10.859,10.859,1.0,OK
+cym,Cast. y León,2019,10.785,10.859,1.007,OK
+cym,Cast. y León,2020,10.753,10.859,1.01,OK
+cym,Cast. y León,2021,12.291,12.291,1.0,OK
+cym,Cast. y León,2022,12.291,12.291,1.0,OK
+cym,Cast. y León,2023,13.81,13.81,1.0,OK
+cym,Cast. y León,2024,14.562,14.562,1.0,OK
+cym,Cast. y León,2025,14.562,14.562,1.0,OK
+ext,Extremadura,2015,5.366,5.366,1.0,OK
+ext,Extremadura,2016,5.197,5.197,1.0,OK
+ext,Extremadura,2017,5.172,5.172,1.0,OK
+ext,Extremadura,2018,5.434,5.434,1.0,OK
+ext,Extremadura,2019,5.798,5.798,1.0,OK
+ext,Extremadura,2020,6.006,6.007,1.0,OK
+ext,Extremadura,2021,6.424,6.424,1.0,OK
+ext,Extremadura,2022,7.0,6.985,0.998,OK
+ext,Extremadura,2023,7.781,7.781,1.0,OK
+ext,Extremadura,2024,8.127,8.127,1.0,OK
+ext,Extremadura,2025,8.098,8.127,1.004,OK
+gal,Galicia,2015,9.79,9.549,0.975,OK
+gal,Galicia,2016,10.31,10.097,0.979,OK
+gal,Galicia,2017,11.029,10.608,0.962,OK
+gal,Galicia,2018,10.724,10.521,0.981,OK
+gal,Galicia,2019,11.544,11.337,0.982,OK
+gal,Galicia,2020,11.822,11.594,0.981,OK
+gal,Galicia,2021,13.397,13.183,0.984,OK
+gal,Galicia,2022,13.118,11.848,0.903,OK
+gal,Galicia,2023,14.167,12.847,0.907,OK
+gal,Galicia,2024,14.815,13.486,0.91,OK
+gal,Galicia,2025,15.741,14.186,0.901,OK
+lar,La Rioja,2015,1.287,1.284,0.998,OK
+lar,La Rioja,2016,1.337,1.334,0.998,OK
+lar,La Rioja,2017,1.456,1.453,0.998,OK
+lar,La Rioja,2018,1.519,1.303,0.858,OK
+lar,La Rioja,2019,1.488,1.533,1.03,OK
+lar,La Rioja,2020,1.575,1.556,0.988,OK
+lar,La Rioja,2021,1.891,1.809,0.957,OK
+lar,La Rioja,2022,1.95,1.824,0.935,OK
+lar,La Rioja,2023,1.909,1.732,0.907,OK
+lar,La Rioja,2024,1.974,1.947,0.987,OK
+lar,La Rioja,2025,2.115,2.014,0.952,OK
+mad,Madrid,2015,20.853,20.853,1.0,OK
+mad,Madrid,2016,20.14,20.14,1.0,OK
+mad,Madrid,2017,20.504,20.504,1.0,OK
+mad,Madrid,2018,21.634,21.634,1.0,OK
+mad,Madrid,2019,22.777,22.777,1.0,OK
+mad,Madrid,2020,23.333,22.777,0.976,OK
+mad,Madrid,2021,25.879,22.777,0.88,OK
+mad,Madrid,2022,25.999,25.901,0.996,OK
+mad,Madrid,2023,28.142,25.901,0.92,OK
+mad,Madrid,2024,30.584,30.447,0.995,OK
+mad,Madrid,2025,31.596,31.453,0.995,OK
+mur,Murcia,2015,4.642,4.908,1.057,OK
+mur,Murcia,2016,4.916,5.138,1.045,OK
+mur,Murcia,2017,5.093,5.32,1.045,OK
+mur,Murcia,2018,5.515,5.772,1.046,OK
+mur,Murcia,2019,5.8,6.057,1.044,OK
+mur,Murcia,2020,6.197,6.465,1.043,OK
+mur,Murcia,2021,6.754,7.054,1.045,OK
+mur,Murcia,2022,6.963,7.268,1.044,OK
+mur,Murcia,2023,7.771,8.157,1.05,OK
+mur,Murcia,2024,7.819,8.237,1.053,OK
+mur,Murcia,2025,8.037,8.46,1.053,OK
+nav,Navarra,2015,3.793,3.458,0.912,OK
+nav,Navarra,2016,4.005,3.506,0.875,OK
+nav,Navarra,2017,4.062,3.731,0.919,OK
+nav,Navarra,2018,4.164,3.89,0.934,OK
+nav,Navarra,2019,4.312,4.017,0.931,OK
+nav,Navarra,2020,4.574,4.257,0.931,OK
+nav,Navarra,2021,4.871,4.481,0.92,OK
+nav,Navarra,2022,5.273,4.767,0.904,OK
+nav,Navarra,2023,5.749,5.239,0.911,OK
+nav,Navarra,2024,6.355,5.836,0.918,OK
+nav,Navarra,2025,6.431,5.987,0.931,OK
+pvc,País Vasco,2015,10.701,11.631,1.087,OK
+pvc,País Vasco,2016,10.995,11.937,1.086,OK
+pvc,País Vasco,2017,11.125,12.094,1.087,OK
+pvc,País Vasco,2018,11.579,12.546,1.083,OK
+pvc,País Vasco,2019,11.22,12.851,1.145,OK
+pvc,País Vasco,2020,11.857,12.869,1.085,OK
+pvc,País Vasco,2021,12.522,13.578,1.084,OK
+pvc,País Vasco,2022,13.187,14.173,1.075,OK
+pvc,País Vasco,2023,14.362,15.502,1.079,OK
+pvc,País Vasco,2024,15.147,16.351,1.079,OK
+pvc,País Vasco,2025,15.811,17.07,1.08,OK
+val,C. Valenciana,2015,17.564,17.188,0.979,OK
+val,C. Valenciana,2016,17.561,17.156,0.977,OK
+val,C. Valenciana,2017,18.138,17.725,0.977,OK
+val,C. Valenciana,2018,20.414,19.957,0.978,OK
+val,C. Valenciana,2019,22.597,22.096,0.978,OK
+val,C. Valenciana,2020,23.531,23.022,0.978,OK
+val,C. Valenciana,2021,26.139,25.628,0.98,OK
+val,C. Valenciana,2022,28.632,27.967,0.977,OK
+val,C. Valenciana,2023,29.121,28.438,0.977,OK
+val,C. Valenciana,2024,30.41,29.732,0.978,OK
+val,C. Valenciana,2025,32.977,32.291,0.979,OK

@@ -1,0 +1,25 @@
+# macOS
+.DS_Store
+
+# Editor
+.vscode/
+.idea/
+*.swp
+
+# Node (por si en el futuro añadimos build/tooling)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+
+# Logs
+*.log
+
+# Credenciales locales (NO subir secretos a este repo)
+# La anon key de Supabase SÍ va commiteada en core/config.js (es pública por diseño).
+# Pero nunca subir claves de servicio, contraseñas de Postgres ni .Renviron:
+.env
+.env.local
+.Renviron
+*.key
+*.pem
+service-role*.json

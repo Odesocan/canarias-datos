@@ -1,0 +1,89 @@
+[2026-05-11 16:22:02] [INFO   ] Proyecto: /Users/cristiancpv/Desktop/TRABAJO/OBSERVATORIO/CANARIAS EN DATOS/Presupuestos
+[2026-05-11 16:22:02] [INFO   ] Pasos: extraccion -> transformacion -> modelado -> carga
+[2026-05-11 16:22:02] [INFO   ] with-db=TRUE | projection=FALSE | dry-run=FALSE
+[2026-05-11 16:22:02] [STEP   ] Inicio extraccion
+[2026-05-11 16:22:02] [INFO   ] Iniciando extracción
+[2026-05-11 16:22:02] [CACHE  ] Reutilizado raw local consulta_web.html
+[2026-05-11 16:22:02] [INFO   ] Parseando capa Hacienda desde SGCIEF_2024.xlsx (anio=2024)
+[2026-05-11 16:22:02] [OK     ] Parseo hacienda/2002-2026/consulta_web filas=24
+[2026-05-11 16:22:02] [CACHE  ] Reutilizado raw local memoria_programas.pdf
+[2026-05-11 16:22:58] [OK     ] Parseo and/2026/memoria_programas filas=107
+[2026-05-11 16:22:58] [CACHE  ] Reutilizado raw local gastos_csv.csv
+[2026-05-11 16:22:58] [WARN   ] Sin filas tras parseo and/2015/gastos_csv
+[2026-05-11 16:22:58] [CACHE  ] Reutilizado raw local ingresos_gastos.pdf
+[2026-05-11 16:23:56] [OK     ] Parseo ara/2024/ingresos_gastos filas=198
+[2026-05-11 16:23:56] [CACHE  ] Reutilizado raw local tomo_I.pdf
+[2026-05-11 16:24:25] [OK     ] Parseo ast/2026/tomo_I filas=104
+[2026-05-11 16:24:25] [CACHE  ] Reutilizado raw local memoria_programas.html
+[2026-05-11 16:24:25] [INFO   ] Tipo html sin parser activo — sólo manifest
+[2026-05-11 16:24:25] [WARN   ] Sin filas tras parseo bal/2025/memoria_programas
+[2026-05-11 16:24:25] [CACHE  ] Reutilizado raw local memoria_programas.pdf
+[2026-05-11 16:24:41] [OK     ] Parseo can/2025/memoria_programas filas=3
+[2026-05-11 16:24:41] [CACHE  ] Reutilizado raw local datos_abiertos.csv
+[2026-05-11 16:24:41] [WARN   ] Sin filas tras parseo can/2025/datos_abiertos
+[2026-05-11 16:24:41] [CACHE  ] Reutilizado raw local ingresos_gastos.pdf
+[2026-05-11 16:25:20] [WARN   ] extract_pdf.py exit=2 para ingresos_gastos.pdf
+[2026-05-11 16:25:20] [WARN   ] Sin filas tras parseo cnt/2025/ingresos_gastos
+[2026-05-11 16:25:20] [CACHE  ] Reutilizado raw local datos_abiertos_csv.csv
+[2026-05-11 16:25:20] [WARN   ] Sin filas tras parseo cym/2026/datos_abiertos_csv
+[2026-05-11 16:25:20] [CACHE  ] Reutilizado raw local tomo_I.pdf
+[2026-05-11 16:25:21] [WARN   ] extract_pdf.py exit=1 para tomo_I.pdf
+[2026-05-11 16:25:21] [WARN   ] Sin filas tras parseo clm/2026/tomo_I
+[2026-05-11 16:25:21] [CACHE  ] Reutilizado raw local vol_p_eid.pdf
+[2026-05-11 16:28:05] [WARN   ] extract_pdf.py exit=2 para vol_p_eid.pdf
+[2026-05-11 16:28:05] [WARN   ] Sin filas tras parseo cat/2026/vol_p_eid
+[2026-05-11 16:28:05] [CACHE  ] Reutilizado raw local tomo_II_EIG.pdf
+[2026-05-11 16:28:55] [OK     ] Parseo ext/2025/tomo_II_EIG filas=2574
+[2026-05-11 16:28:55] [CACHE  ] Reutilizado raw local tomo_III_APG.pdf
+[2026-05-11 16:29:22] [WARN   ] extract_pdf.py exit=2 para tomo_III_APG.pdf
+[2026-05-11 16:29:22] [WARN   ] Sin filas tras parseo ext/2025/tomo_III_APG
+[2026-05-11 16:29:22] [CACHE  ] Reutilizado raw local portal_index.html
+[2026-05-11 16:29:22] [INFO   ] Tipo html sin parser activo — sólo manifest
+[2026-05-11 16:29:22] [WARN   ] Sin filas tras parseo gal/2026/portal_index
+[2026-05-11 16:29:22] [CACHE  ] Reutilizado raw local funcional_economico.pdf
+[2026-05-11 16:29:32] [WARN   ] extract_pdf.py exit=2 para funcional_economico.pdf
+[2026-05-11 16:29:32] [WARN   ] Sin filas tras parseo lar/2025/funcional_economico
+[2026-05-11 16:29:32] [CACHE  ] Reutilizado raw local libro_03.pdf
+[2026-05-11 16:29:35] [WARN   ] extract_pdf.py exit=2 para libro_03.pdf
+[2026-05-11 16:29:35] [WARN   ] Sin filas tras parseo mad/2026/libro_03
+[2026-05-11 16:29:35] [CACHE  ] Reutilizado raw local portal_movil.html
+[2026-05-11 16:29:35] [INFO   ] Tipo html sin parser activo — sólo manifest
+[2026-05-11 16:29:35] [WARN   ] Sin filas tras parseo mur/2025/portal_movil
+[2026-05-11 16:29:35] [CACHE  ] Reutilizado raw local programa_csv.csv
+[2026-05-11 16:29:35] [WARN   ] Sin filas tras parseo nav/2026/programa_csv
+[2026-05-11 16:29:35] [CACHE  ] Reutilizado raw local csv_tidy.csv
+[2026-05-11 16:29:35] [WARN   ] Sin filas tras parseo pvc/2025/csv_tidy
+[2026-05-11 16:29:35] [CACHE  ] Reutilizado raw local tomo_II.html
+[2026-05-11 16:29:35] [INFO   ] Tipo html sin parser activo — sólo manifest
+[2026-05-11 16:29:35] [WARN   ] Sin filas tras parseo val/2025/tomo_II
+[2026-05-11 16:29:35] [OK     ] Extracción terminada: 21 fuentes, 3010 filas staging
+[2026-05-11 16:29:35] [STEP   ] Fin extraccion
+[2026-05-11 16:29:35] [STEP   ] Inicio transformacion
+[2026-05-11 16:29:35] [INFO   ] Iniciando transformación
+[2026-05-11 16:29:47] [INFO   ] Etiquetadas 24 filas Hacienda como concepto=total
+[2026-05-11 16:29:47] [INFO   ] Transformación: asignadas=186, pendientes=2824, agregadas=38
+[2026-05-11 16:29:47] [INFO   ] gasto_normalizado: filas=38 | ccaa=6 | periodo=2024-2026
+[2026-05-11 16:29:47] [WARN   ] gasto_normalizado: faltan CCAA en 2025: Andalucía, Aragón, Principado de Asturias, Islas Baleares, Canarias, Cantabria, Castilla y León, Castilla-La Mancha, Cataluña, Comunidad Valenciana, Galicia, Comunidad de Madrid, Región de Murcia, Comunidad Foral de Navarra, País Vasco, La Rioja
+[2026-05-11 16:29:47] [WARN   ] gasto_normalizado: faltan CCAA en 2026: Aragón, Islas Baleares, Canarias, Cantabria, Castilla y León, Castilla-La Mancha, Cataluña, Comunidad Valenciana, Extremadura, Galicia, Comunidad de Madrid, Región de Murcia, Comunidad Foral de Navarra, País Vasco, La Rioja
+[2026-05-11 16:29:47] [STEP   ] Fin transformacion
+[2026-05-11 16:29:47] [STEP   ] Inicio modelado
+[2026-05-11 16:29:47] [INFO   ] Iniciando modelado
+[2026-05-11 16:29:47] [INFO   ] ced_presupuestos modelado: filas=7 | ccaa=6 | periodo=2024-2026
+[2026-05-11 16:29:47] [WARN   ] ced_presupuestos modelado: faltan CCAA en 2025: Andalucía, Aragón, Principado de Asturias, Islas Baleares, Canarias, Cantabria, Castilla y León, Castilla-La Mancha, Cataluña, Comunidad Valenciana, Galicia, Comunidad de Madrid, Región de Murcia, Comunidad Foral de Navarra, País Vasco, La Rioja
+[2026-05-11 16:29:47] [WARN   ] ced_presupuestos modelado: faltan CCAA en 2026: Aragón, Islas Baleares, Canarias, Cantabria, Castilla y León, Castilla-La Mancha, Cataluña, Comunidad Valenciana, Extremadura, Galicia, Comunidad de Madrid, Región de Murcia, Comunidad Foral de Navarra, País Vasco, La Rioja
+[2026-05-11 16:29:47] [INFO   ] ced_presupuestos modelado: NA% por métrica -> imp_dependencia=71.4% | imp_direccion=57.1% | imp_discapacidad=71.4% | imp_educacion=57.1% | imp_empleo=57.1% | imp_idi=57.1% | imp_sanidad=42.9% | imp_soberania=42.9% | imp_total=57.1% | imp_turismo=57.1% | imp_vivienda=57.1% | imp_diversidad=71.4% | imp_igualdad=71.4% | imp_salud_mental=85.7% | pib_dependencia=71.4% | pib_direccion=57.1% | pib_discapacidad=71.4% | pib_educacion=57.1% | pib_empleo=57.1% | pib_idi=57.1% | pib_sanidad=42.9% | pib_soberania=42.9% | pib_total=57.1% | pib_turismo=57.1% | pib_vivienda=57.1% | pib_diversidad=71.4% | pib_igualdad=71.4% | pib_salud_mental=85.7% | pc_dependencia=71.4% | pc_direccion=57.1% | pc_discapacidad=71.4% | pc_educacion=57.1% | pc_empleo=57.1% | pc_idi=57.1% | pc_sanidad=42.9% | pc_soberania=42.9% | pc_total=57.1% | pc_turismo=57.1% | pc_vivienda=57.1% | pc_diversidad=71.4% | pc_igualdad=71.4% | pc_salud_mental=85.7% | var_dependencia=100% | var_direccion=100% | var_discapacidad=100% | var_educacion=100% | var_empleo=100% | var_idi=100% | var_sanidad=100% | var_soberania=100% | var_total=100% | var_turismo=100% | var_vivienda=100% | var_diversidad=100% | var_igualdad=100% | var_salud_mental=100%
+[2026-05-11 16:29:47] [INFO   ] Benford: chi=2.31 p=0.9699 ok=TRUE n=34
+[2026-05-11 16:29:47] [STEP   ] Fin modelado
+[2026-05-11 16:29:47] [STEP   ] Inicio carga
+[2026-05-11 16:29:47] [INFO   ] Iniciando carga
+[2026-05-11 16:29:47] [INFO   ] ced_presupuestos carga: filas=7 | ccaa=6 | periodo=2024-2026
+[2026-05-11 16:29:47] [WARN   ] ced_presupuestos carga: faltan CCAA en 2025: Andalucía, Aragón, Principado de Asturias, Islas Baleares, Canarias, Cantabria, Castilla y León, Castilla-La Mancha, Cataluña, Comunidad Valenciana, Galicia, Comunidad de Madrid, Región de Murcia, Comunidad Foral de Navarra, País Vasco, La Rioja
+[2026-05-11 16:29:47] [WARN   ] ced_presupuestos carga: faltan CCAA en 2026: Aragón, Islas Baleares, Canarias, Cantabria, Castilla y León, Castilla-La Mancha, Cataluña, Comunidad Valenciana, Extremadura, Galicia, Comunidad de Madrid, Región de Murcia, Comunidad Foral de Navarra, País Vasco, La Rioja
+[2026-05-11 16:29:47] [INFO   ] ced_presupuestos carga: NA% por métrica -> imp_dependencia=71.4% | imp_direccion=57.1% | imp_discapacidad=71.4% | imp_educacion=57.1% | imp_empleo=57.1% | imp_idi=57.1% | imp_sanidad=42.9% | imp_soberania=42.9% | imp_total=57.1% | imp_turismo=57.1% | imp_vivienda=57.1% | imp_diversidad=71.4% | imp_igualdad=71.4% | imp_salud_mental=85.7% | pib_dependencia=71.4% | pib_direccion=57.1% | pib_discapacidad=71.4% | pib_educacion=57.1% | pib_empleo=57.1% | pib_idi=57.1% | pib_sanidad=42.9% | pib_soberania=42.9% | pib_total=57.1% | pib_turismo=57.1% | pib_vivienda=57.1% | pib_diversidad=71.4% | pib_igualdad=71.4% | pib_salud_mental=85.7% | pc_dependencia=71.4% | pc_direccion=57.1% | pc_discapacidad=71.4% | pc_educacion=57.1% | pc_empleo=57.1% | pc_idi=57.1% | pc_sanidad=42.9% | pc_soberania=42.9% | pc_total=57.1% | pc_turismo=57.1% | pc_vivienda=57.1% | pc_diversidad=71.4% | pc_igualdad=71.4% | pc_salud_mental=85.7% | var_dependencia=100% | var_direccion=100% | var_discapacidad=100% | var_educacion=100% | var_empleo=100% | var_idi=100% | var_sanidad=100% | var_soberania=100% | var_total=100% | var_turismo=100% | var_vivienda=100% | var_diversidad=100% | var_igualdad=100% | var_salud_mental=100%
+[2026-05-11 16:29:47] [OK     ] Exportados ced_presupuestos.csv/xlsx (7 filas)
+[2026-05-11 16:29:47] [DB     ] Usando conexión PostgreSQL
+[2026-05-11 16:29:47] [DB     ] Carga en Supabase completada
+[2026-05-11 16:29:47] [OK     ] Carga completada
+[2026-05-11 16:29:47] [STEP   ] Fin carga
+[2026-05-11 16:29:47] [DONE   ] Pipeline completado en 7.76 minutos
+EXIT=0

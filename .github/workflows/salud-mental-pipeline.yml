@@ -1,0 +1,54 @@
+name: Salud Mental Pipeline
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 5 * * 1"
+
+jobs:
+  salud-mental:
+    runs-on: ubuntu-latest
+
+    env:
+      SUPABASE_HOST: ${{ secrets.SUPABASE_HOST }}
+      SUPABASE_PORT: ${{ secrets.SUPABASE_PORT }}
+      SUPABASE_DBNAME: ${{ secrets.SUPABASE_DBNAME }}
+      SUPABASE_USER: ${{ secrets.SUPABASE_USER }}
+      SUPABASE_PASS: ${{ secrets.SUPABASE_PASS }}
+      SUPABASE_SCHEMA: ${{ secrets.SUPABASE_SCHEMA }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup R
+        uses: r-lib/actions/setup-r@v2
+        with:
+          use-public-rspm: true
+
+      - name: Install system dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libcurl4-openssl-dev libssl-dev libxml2-dev libpq-dev
+
+      - name: Install R packages
+        run: |
+          Rscript -e 'install.packages(c("DBI","RPostgres","dplyr","glue","ineapir","prophet","purrr","readr","readxl","stringr","tibble","tidyr","writexl"), repos = "https://cloud.r-project.org")'
+
+      - name: Run pipeline
+        run: |
+          WITH_DB=false
+          if [ -n "${SUPABASE_HOST}" ] && [ -n "${SUPABASE_USER}" ] && [ -n "${SUPABASE_PASS}" ]; then
+            WITH_DB=true
+          fi
+          Rscript "Salud mental/00_maestro.R" --steps=extraccion,transformacion,modelado,carga --with-db="${WITH_DB}"
+
+      - name: Upload outputs
+        uses: actions/upload-artifact@v4
+        with:
+          name: salud-mental-outputs
+          path: |
+            Salud mental/2_transformacion/ced_saludmental.rds
+            Salud mental/3_modelado/ced_saludmental.rds
+            Salud mental/4_carga/ced_saludmental.csv
+            Salud mental/4_carga/ced_saludmental.xlsx

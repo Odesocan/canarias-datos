@@ -1,0 +1,757 @@
+ccaa:
+  Andalucía:
+    sanidad:
+      codigos:
+      - 41A
+      - 41B
+      - 41C
+      - 41D
+      - '41'
+      keywords:
+      - sanidad
+      - sanitaria
+    educacion:
+      codigos:
+      - 42A
+      - 42B
+      - 42C
+      - 42D
+      - 42E
+      - 42F
+      - 42G
+      - 42H
+      - 42I
+      - 42J
+      - '42'
+    vivienda:
+      codigos:
+      - '43'
+      - 43A
+      keywords:
+      - vivienda
+    idi:
+      codigos:
+      - '54'
+      - 54A
+      - 54C
+    dependencia:
+      codigos:
+      - 31R
+      keywords:
+      - dependencia
+    discapacidad:
+      codigos:
+      - 31E
+      keywords:
+      - discapacidad
+    salud_mental:
+      codigos:
+      - 41M
+      keywords:
+      - salud mental
+    turismo:
+      codigos:
+      - '75'
+      - 75A
+      keywords:
+      - turismo
+    igualdad:
+      codigos:
+      - 32G
+      keywords:
+      - igualdad
+      - mujer
+  Aragón:
+    sanidad:
+      codigos:
+      - '4131'
+      - '4133'
+      - '41'
+      keywords:
+      - sanidad
+      - salud
+    educacion:
+      codigos:
+      - '4221'
+      - '4225'
+      - '42'
+    vivienda:
+      codigos:
+      - '43'
+      keywords:
+      - vivienda
+    idi:
+      codigos:
+      - '5421'
+      - '5422'
+      - '54'
+    dependencia:
+      keywords:
+      - dependencia
+    discapacidad:
+      keywords:
+      - discapacidad
+    salud_mental:
+      keywords:
+      - salud mental
+    turismo:
+      keywords:
+      - turismo
+    igualdad:
+      keywords:
+      - igualdad
+      - mujer
+  Principado de Asturias:
+    sanidad:
+      codigos:
+      - 412A
+      - 412B
+      - 412C
+      - '41'
+      keywords:
+      - sanidad
+      - salud
+    educacion:
+      codigos:
+      - 421A
+      - 422C
+      - '42'
+    vivienda:
+      codigos:
+      - '43'
+      - 431A
+      keywords:
+      - vivienda
+    idi:
+      codigos:
+      - '54'
+      - 542A
+    dependencia:
+      codigos:
+      - 313G
+      keywords:
+      - dependencia
+    discapacidad:
+      codigos:
+      - 313F
+      keywords:
+      - discapacidad
+    salud_mental:
+      codigos:
+      - 312A
+      keywords:
+      - salud mental
+    turismo:
+      codigos:
+      - 432A
+      keywords:
+      - turismo
+    igualdad:
+      codigos:
+      - 323A
+      keywords:
+      - igualdad
+  Islas Baleares:
+    sanidad:
+      codigos:
+      - 411A
+      - 411B
+      - 411C
+      - 411D
+      - '41'
+      keywords:
+      - sanidad
+      - salud
+    educacion:
+      codigos:
+      - 421A
+      - 422B
+      - '42'
+    vivienda:
+      codigos:
+      - '43'
+      - 431A
+    idi:
+      codigos:
+      - '54'
+      - 467A
+    dependencia:
+      codigos:
+      - 313D
+    discapacidad:
+      codigos:
+      - 313F
+    salud_mental:
+      codigos:
+      - 412I
+    turismo:
+      codigos:
+      - 432A
+    igualdad:
+      codigos:
+      - 323A
+  Canarias:
+    sanidad:
+      codigos:
+      - 312A
+      - 312B
+      - 312C
+      keywords:
+      - salud
+      - sanitaria
+    educacion:
+      codigos:
+      - 321A
+      - 323A
+    vivienda:
+      codigos:
+      - 261A
+      keywords:
+      - vivienda
+    idi:
+      codigos:
+      - 463A
+      - 467A
+    dependencia:
+      codigos:
+      - 231H
+      keywords:
+      - dependencia
+    discapacidad:
+      codigos:
+      - 231G
+      keywords:
+      - discapacidad
+    salud_mental:
+      codigos:
+      - 312D
+      keywords:
+      - salud mental
+    turismo:
+      codigos:
+      - 432B
+    igualdad:
+      codigos:
+      - 232B
+      keywords:
+      - igualdad
+  Cantabria:
+    sanidad:
+      codigos:
+      - 312A
+      - 312B
+      - 312C
+      keywords:
+      - salud
+    educacion:
+      codigos:
+      - 321A
+      - 322C
+    vivienda:
+      codigos:
+      - 261A
+      keywords:
+      - vivienda
+    idi:
+      codigos:
+      - 463A
+    dependencia:
+      codigos:
+      - 231D
+      keywords:
+      - dependencia
+    discapacidad:
+      codigos:
+      - 231F
+      keywords:
+      - discapacidad
+    salud_mental:
+      codigos:
+      - 312B
+      keywords:
+      - salud mental
+    turismo:
+      codigos:
+      - 432A
+    igualdad:
+      codigos:
+      - 232B
+      keywords:
+      - igualdad
+      - mujer
+  Castilla y León:
+    sanidad:
+      codigos:
+      - 312A
+      - 312B
+      - 312C
+      keywords:
+      - salud
+    educacion:
+      codigos:
+      - 322A
+      - 322B
+      - 322C
+      - 322D
+      - 322E
+      - 322F
+    vivienda:
+      codigos:
+      - 261A
+      keywords:
+      - vivienda
+    idi:
+      codigos:
+      - 463A
+      - 467A
+    dependencia:
+      keywords:
+      - dependencia
+    discapacidad:
+      keywords:
+      - discapacidad
+    salud_mental:
+      codigos:
+      - 312A
+      keywords:
+      - salud mental
+    turismo:
+      codigos:
+      - 432A
+    igualdad:
+      codigos:
+      - 232A
+      keywords:
+      - igualdad
+      - mujer
+  Castilla-La Mancha:
+    sanidad:
+      codigos:
+      - 312A
+      - 312B
+      - 312C
+      keywords:
+      - salud
+    educacion:
+      codigos:
+      - 321A
+      - 322C
+    vivienda:
+      codigos:
+      - 261A
+      keywords:
+      - vivienda
+    idi:
+      codigos:
+      - 463A
+    dependencia:
+      codigos:
+      - 313B
+    discapacidad:
+      codigos:
+      - 313C
+      keywords:
+      - discapacidad
+    salud_mental:
+      codigos:
+      - 312B
+      keywords:
+      - salud mental
+    turismo:
+      codigos:
+      - 432A
+      keywords:
+      - turismo
+    igualdad:
+      codigos:
+      - 323A
+      keywords:
+      - igualdad
+  Cataluña:
+    sanidad:
+      codigos:
+      - '411'
+      - '414'
+      - '31'
+    educacion:
+      codigos:
+      - '421'
+      - '426'
+      - '42'
+    vivienda:
+      codigos:
+      - '51'
+      - '431'
+    idi:
+      codigos:
+      - '561'
+      - '562'
+      - '56'
+    dependencia:
+      codigos:
+      - '313'
+    discapacidad:
+      codigos:
+      - '314'
+    salud_mental:
+      codigos:
+      - '414'
+    turismo:
+      codigos:
+      - '751'
+    igualdad:
+      codigos:
+      - '232'
+      - '233'
+  Extremadura:
+    sanidad:
+      codigos:
+      - 212A
+      - 212B
+      - 212C
+      keywords:
+      - salud
+      - sanitaria
+    educacion:
+      codigos:
+      - 222A
+      - 222B
+      - 222C
+      - 222D
+      - 222E
+      - 222F
+      - 222G
+      - 222H
+    vivienda:
+      codigos:
+      - 261A
+      keywords:
+      - vivienda
+    idi:
+      codigos:
+      - 542A
+    dependencia:
+      codigos:
+      - 252B
+      keywords:
+      - dependencia
+    discapacidad:
+      codigos:
+      - 252A
+      keywords:
+      - discapacidad
+    salud_mental:
+      codigos:
+      - 212A
+      keywords:
+      - salud mental
+    turismo:
+      codigos:
+      - 432A
+      keywords:
+      - turismo
+    igualdad:
+      codigos:
+      - 253A
+      keywords:
+      - igualdad
+  Galicia:
+    sanidad:
+      codigos:
+      - '411'
+      keywords:
+      - sanitaria
+    educacion:
+      codigos:
+      - '421'
+      - '422'
+    vivienda:
+      codigos:
+      - '451'
+    idi:
+      codigos:
+      - '561'
+    dependencia:
+      codigos:
+      - 312E
+      keywords:
+      - dependencia
+    discapacidad:
+      codigos:
+      - 312D
+      keywords:
+      - discapacidad
+    salud_mental:
+      codigos:
+      - '411'
+    turismo:
+      codigos:
+      - 761A
+      keywords:
+      - turismo
+    igualdad:
+      codigos:
+      - 313A
+      keywords:
+      - igualdad
+  La Rioja:
+    sanidad:
+      codigos:
+      - 312A
+      - 312B
+      - 312C
+      keywords:
+      - salud
+    educacion:
+      codigos:
+      - 321A
+      - 322B
+    vivienda:
+      codigos:
+      - 261A
+      keywords:
+      - vivienda
+    idi:
+      codigos:
+      - 467A
+    dependencia:
+      codigos:
+      - 313A
+      keywords:
+      - dependencia
+    discapacidad:
+      codigos:
+      - 313B
+      keywords:
+      - discapacidad
+    salud_mental:
+      codigos:
+      - 312B
+      keywords:
+      - salud mental
+    turismo:
+      codigos:
+      - 432A
+    igualdad:
+      codigos:
+      - 232A
+      keywords:
+      - igualdad
+  Comunidad de Madrid:
+    sanidad:
+      codigos:
+      - '311'
+      - '313'
+      keywords:
+      - sanidad
+      - salud
+    educacion:
+      codigos:
+      - 321A
+      - 323A
+    vivienda:
+      codigos:
+      - 261A
+      keywords:
+      - vivienda
+    idi:
+      codigos:
+      - 467A
+    dependencia:
+      codigos:
+      - 231A
+      keywords:
+      - dependencia
+    discapacidad:
+      codigos:
+      - 231B
+      keywords:
+      - discapacidad
+    salud_mental:
+      codigos:
+      - 313A
+      keywords:
+      - salud mental
+    turismo:
+      codigos:
+      - 432A
+    igualdad:
+      codigos:
+      - 232A
+      keywords:
+      - igualdad
+      - mujer
+  Región de Murcia:
+    sanidad:
+      codigos:
+      - 412A
+      - 412B
+      - 412C
+      keywords:
+      - salud
+    educacion:
+      codigos:
+      - 421A
+      - 422F
+    vivienda:
+      codigos:
+      - 431A
+      keywords:
+      - vivienda
+    idi:
+      codigos:
+      - 542A
+    dependencia:
+      codigos:
+      - 313D
+      keywords:
+      - dependencia
+    discapacidad:
+      codigos:
+      - 313F
+      keywords:
+      - discapacidad
+    salud_mental:
+      codigos:
+      - 412B
+      keywords:
+      - salud mental
+    turismo:
+      codigos:
+      - 432A
+      keywords:
+      - turismo
+    igualdad:
+      codigos:
+      - 323A
+      keywords:
+      - mujer
+  Comunidad Foral de Navarra:
+    sanidad:
+      codigos:
+      - '510'
+      keywords:
+      - sanitaria
+    educacion:
+      codigos:
+      - '411'
+      - '420'
+    vivienda:
+      codigos:
+      - '320'
+      keywords:
+      - vivienda
+    idi:
+      codigos:
+      - '720'
+    dependencia:
+      codigos:
+      - '261'
+      keywords:
+      - dependencia
+    discapacidad:
+      codigos:
+      - '262'
+      keywords:
+      - discapacidad
+    salud_mental:
+      codigos:
+      - '514'
+      keywords:
+      - salud mental
+    turismo:
+      codigos:
+      - '730'
+      keywords:
+      - turismo
+    igualdad:
+      codigos:
+      - '920'
+      keywords:
+      - igualdad
+  País Vasco:
+    sanidad:
+      codigos:
+      - '41'
+      keywords:
+      - sanitaria
+    educacion:
+      codigos:
+      - '42'
+    vivienda:
+      codigos:
+      - '43'
+      keywords:
+      - vivienda
+    idi:
+      codigos:
+      - '54'
+    dependencia:
+      codigos:
+      - '31'
+      keywords:
+      - dependencia
+    discapacidad:
+      codigos:
+      - '31'
+      keywords:
+      - discapacidad
+    salud_mental:
+      codigos:
+      - '41'
+      keywords:
+      - salud mental
+    turismo:
+      codigos:
+      - '75'
+      keywords:
+      - turismo
+    igualdad:
+      codigos:
+      - '92'
+      keywords:
+      - igualdad
+  Comunidad Valenciana:
+    sanidad:
+      codigos:
+      - '411'
+      keywords:
+      - sanidad
+      - sanitaria
+    educacion:
+      codigos:
+      - '421'
+      - '422'
+    vivienda:
+      codigos:
+      - '431'
+      keywords:
+      - vivienda
+    idi:
+      codigos:
+      - '542'
+    dependencia:
+      codigos:
+      - '313.50'
+      keywords:
+      - dependencia
+    discapacidad:
+      codigos:
+      - '313.60'
+      keywords:
+      - discapacidad
+    salud_mental:
+      codigos:
+      - '313.70'
+      keywords:
+      - salud mental
+    turismo:
+      codigos:
+      - '751.10'
+      keywords:
+      - turismo
+    igualdad:
+      codigos:
+      - '323.10'
+      keywords:
+      - igualdad

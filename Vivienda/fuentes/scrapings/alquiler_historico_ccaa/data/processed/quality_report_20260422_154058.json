@@ -1,0 +1,76 @@
+{
+  "timestamp": "2026-04-22T15:40:58.585729",
+  "registros_totales": 729,
+  "cobertura": {
+    "comunidades_con_datos": 3,
+    "registros_por_comunidad": {
+      "Madrid": 243,
+      "Murcia": 243,
+      "País Vasco": 243
+    }
+  },
+  "completitud": {
+    "comunidad": 100.0,
+    "codigo_ccaa": 100.0,
+    "mes": 100.0,
+    "periodo": 100.0,
+    "mes_nombre": 100.0,
+    "precio_m2": 88.9,
+    "variacion_mensual": 88.5,
+    "variacion_trimestral": 87.7,
+    "variacion_anual": 84.0,
+    "fecha_extraccion": 100.0
+  },
+  "rangos": {
+    "precio_m2": {
+      "min": 4.82,
+      "max": 21.32,
+      "media": 10.16,
+      "mediana": 10.52
+    },
+    "variacion_mensual": {
+      "min": -6.3,
+      "max": 13.4,
+      "media": 0.21
+    },
+    "variacion_trimestral": {
+      "min": -12.9,
+      "max": 13.8,
+      "media": 0.65
+    },
+    "variacion_anual": {
+      "min": -19.5,
+      "max": 18.1,
+      "media": 2.58
+    }
+  },
+  "temporal": {
+    "anio_min": 2006,
+    "anio_max": 2026,
+    "anios_cubiertos": 21,
+    "registros_por_anio": {
+      "2006": 36,
+      "2007": 36,
+      "2008": 36,
+      "2009": 36,
+      "2010": 36,
+      "2011": 36,
+      "2012": 36,
+      "2013": 36,
+      "2014": 36,
+      "2015": 36,
+      "2016": 36,
+      "2017": 36,
+      "2018": 36,
+      "2019": 36,
+      "2020": 36,
+      "2021": 36,
+      "2022": 36,
+      "2023": 36,
+      "2024": 36,
+      "2025": 36,
+      "2026": 9
+    }
+  },
+  "status": "warning"
+}

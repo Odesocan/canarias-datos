@@ -1,0 +1,10 @@
+"variable","celdas_imp","anios","generos","ic_rel_medio","val_min","val_max","sims_min","sims_med"
+"avs_65",120,"2024,2025","hombres/mujeres/total",0.1,15.09,21.6,100,100
+"camas",20,"2025","total",0.071,1.93,3.57,100,100
+"enf_ae",20,"2025","total",0.106,3.21,5.75,100,100
+"enf_ap",20,"2025","total",0.117,0.51,1.03,100,100
+"gasto_farmacia_pct",36,"2024,2025","total",0.134,10.4,18.26,100,100
+"med_ae",20,"2025","total",0.084,1.63,2.83,100,100
+"med_ap",20,"2025","total",0.048,0.65,1.09,100,100
+"mort_evitable_idx",60,"2025","hombres/mujeres/total",0.251,0.31,1.09,100,100
+"reingresos_psiq",60,"2025","hombres/mujeres/total",0.255,6.61,17.47,100,100

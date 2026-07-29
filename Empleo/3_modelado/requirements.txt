@@ -1,0 +1,7 @@
+# Fase 3 · Modelado — sección Empleo (Canarias en Datos)
+pandas>=2.0
+pyarrow>=12.0
+statsforecast>=2.0     # AutoARIMA, AutoETS, AutoTheta, baselines, cross_validation
+prophet>=1.1           # Prophet (Meta) — incluido en la competición (INCLUIR_PROPHET)
+# opcionales (no usados por defecto; ver README):
+# scikit-learn         # RF/XGBoost univariante — omitidos por parsimonia

@@ -1,0 +1,66 @@
+name: presupuestos-validate
+
+on:
+  pull_request:
+    paths:
+      - "Presupuestos/**"
+      - ".github/workflows/validate.yml"
+  push:
+    branches: [main]
+    paths: ["Presupuestos/**"]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_PASSWORD: pw
+          POSTGRES_DB: presupuestos_test
+          POSTGRES_USER: postgres
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd "pg_isready -U postgres"
+          --health-interval 5s --health-timeout 5s --health-retries 10
+
+    env:
+      POSTGRES_URL: "postgresql://postgres:pw@localhost:5432/presupuestos_test"
+      SUPABASE_HOST: localhost
+      SUPABASE_PORT: "5432"
+      SUPABASE_DBNAME: presupuestos_test
+      SUPABASE_USER: postgres
+      SUPABASE_PASS: pw
+      SUPABASE_SCHEMA: presupuestos
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: r-lib/actions/setup-r@v2
+        with: { r-version: "4.4" }
+
+      - uses: r-lib/actions/setup-r-dependencies@v2
+        with:
+          working-directory: Presupuestos
+          extra-packages: |
+            glue here yaml httr fs digest dplyr tidyr tibble readr readxl
+            jsonlite stringi stringdist purrr writexl httr2 DBI RPostgres
+
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+
+      - name: Python deps
+        run: pip install pdfplumber pandas pyarrow
+
+      - name: Apply schema
+        run: |
+          sudo apt-get install -y postgresql-client
+          psql "$POSTGRES_URL" -f Presupuestos/db/schema.sql
+
+      - name: Run smoke test
+        working-directory: Presupuestos
+        run: Rscript tests/smoke_pipeline.R
+
+      - name: Run pipeline (sin DB)
+        working-directory: Presupuestos
+        run: Rscript 00_maestro.R --steps=extraccion,transformacion,modelado,carga --with-db=false

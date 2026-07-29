@@ -1,0 +1,807 @@
+[2026-07-24 09:51:57] [INFO   ] Proyecto: /Users/cristiancpv/Desktop/TRABAJO/OBSERVATORIO/CANARIAS EN DATOS/Presupuestos
+[2026-07-24 09:51:57] [INFO   ] Pasos: extraccion -> transformacion -> modelado -> carga
+[2026-07-24 09:51:57] [INFO   ] with-db=TRUE | projection=FALSE | dry-run=FALSE
+[2026-07-24 09:51:57] [STEP   ] Inicio extraccion
+[2026-07-24 09:51:57] [INFO   ] Iniciando extracción
+[2026-07-24 09:51:57] [CACHE  ] Reutilizado raw local consulta_web.html
+[2026-07-24 09:51:57] [INFO   ] Parseando capa Hacienda desde SGCIEF_2015_and.xlsx (anio=2015)
+[2026-07-24 09:51:58] [INFO   ] Parseando capa Hacienda desde SGCIEF_2015_ara.xlsx (anio=2015)
+[2026-07-24 09:51:58] [INFO   ] Parseando capa Hacienda desde SGCIEF_2015_ast.xlsx (anio=2015)
+[2026-07-24 09:51:59] [INFO   ] Parseando capa Hacienda desde SGCIEF_2015_bal.xlsx (anio=2015)
+[2026-07-24 09:51:59] [INFO   ] Parseando capa Hacienda desde SGCIEF_2015_can.xlsx (anio=2015)
+[2026-07-24 09:51:59] [INFO   ] Parseando capa Hacienda desde SGCIEF_2015_cat.xlsx (anio=2015)
+[2026-07-24 09:52:00] [INFO   ] Parseando capa Hacienda desde SGCIEF_2015_clm.xlsx (anio=2015)
+[2026-07-24 09:52:00] [INFO   ] Parseando capa Hacienda desde SGCIEF_2015_cnt.xlsx (anio=2015)
+[2026-07-24 09:52:00] [INFO   ] Parseando capa Hacienda desde SGCIEF_2015_cym.xlsx (anio=2015)
+[2026-07-24 09:52:01] [INFO   ] Parseando capa Hacienda desde SGCIEF_2015_ext.xlsx (anio=2015)
+[2026-07-24 09:52:01] [INFO   ] Parseando capa Hacienda desde SGCIEF_2015_gal.xlsx (anio=2015)
+[2026-07-24 09:52:01] [INFO   ] Parseando capa Hacienda desde SGCIEF_2015_lar.xlsx (anio=2015)
+[2026-07-24 09:52:02] [INFO   ] Parseando capa Hacienda desde SGCIEF_2015_mad.xlsx (anio=2015)
+[2026-07-24 09:52:02] [INFO   ] Parseando capa Hacienda desde SGCIEF_2015_mur.xlsx (anio=2015)
+[2026-07-24 09:52:03] [INFO   ] Parseando capa Hacienda desde SGCIEF_2015_nav.xlsx (anio=2015)
+[2026-07-24 09:52:03] [INFO   ] Parseando capa Hacienda desde SGCIEF_2015_pvc.xlsx (anio=2015)
+[2026-07-24 09:52:03] [INFO   ] Parseando capa Hacienda desde SGCIEF_2015_val.xlsx (anio=2015)
+[2026-07-24 09:52:04] [INFO   ] Parseando capa Hacienda desde SGCIEF_2016_and.xlsx (anio=2016)
+[2026-07-24 09:52:04] [INFO   ] Parseando capa Hacienda desde SGCIEF_2016_ara.xlsx (anio=2016)
+[2026-07-24 09:52:04] [INFO   ] Parseando capa Hacienda desde SGCIEF_2016_ast.xlsx (anio=2016)
+[2026-07-24 09:52:05] [INFO   ] Parseando capa Hacienda desde SGCIEF_2016_bal.xlsx (anio=2016)
+[2026-07-24 09:52:05] [INFO   ] Parseando capa Hacienda desde SGCIEF_2016_can.xlsx (anio=2016)
+[2026-07-24 09:52:05] [INFO   ] Parseando capa Hacienda desde SGCIEF_2016_cat.xlsx (anio=2016)
+[2026-07-24 09:52:06] [INFO   ] Parseando capa Hacienda desde SGCIEF_2016_clm.xlsx (anio=2016)
+[2026-07-24 09:52:06] [INFO   ] Parseando capa Hacienda desde SGCIEF_2016_cnt.xlsx (anio=2016)
+[2026-07-24 09:52:06] [INFO   ] Parseando capa Hacienda desde SGCIEF_2016_cym.xlsx (anio=2016)
+[2026-07-24 09:52:07] [INFO   ] Parseando capa Hacienda desde SGCIEF_2016_ext.xlsx (anio=2016)
+[2026-07-24 09:52:07] [INFO   ] Parseando capa Hacienda desde SGCIEF_2016_gal.xlsx (anio=2016)
+[2026-07-24 09:52:07] [INFO   ] Parseando capa Hacienda desde SGCIEF_2016_lar.xlsx (anio=2016)
+[2026-07-24 09:52:08] [INFO   ] Parseando capa Hacienda desde SGCIEF_2016_mad.xlsx (anio=2016)
+[2026-07-24 09:52:08] [INFO   ] Parseando capa Hacienda desde SGCIEF_2016_mur.xlsx (anio=2016)
+[2026-07-24 09:52:08] [INFO   ] Parseando capa Hacienda desde SGCIEF_2016_nav.xlsx (anio=2016)
+[2026-07-24 09:52:09] [INFO   ] Parseando capa Hacienda desde SGCIEF_2016_pvc.xlsx (anio=2016)
+[2026-07-24 09:52:09] [INFO   ] Parseando capa Hacienda desde SGCIEF_2016_val.xlsx (anio=2016)
+[2026-07-24 09:52:09] [INFO   ] Parseando capa Hacienda desde SGCIEF_2017_and.xlsx (anio=2017)
+[2026-07-24 09:52:10] [INFO   ] Parseando capa Hacienda desde SGCIEF_2017_ara.xlsx (anio=2017)
+[2026-07-24 09:52:10] [INFO   ] Parseando capa Hacienda desde SGCIEF_2017_ast.xlsx (anio=2017)
+[2026-07-24 09:52:10] [INFO   ] Parseando capa Hacienda desde SGCIEF_2017_bal.xlsx (anio=2017)
+[2026-07-24 09:52:11] [INFO   ] Parseando capa Hacienda desde SGCIEF_2017_can.xlsx (anio=2017)
+[2026-07-24 09:52:11] [INFO   ] Parseando capa Hacienda desde SGCIEF_2017_cat.xlsx (anio=2017)
+[2026-07-24 09:52:11] [INFO   ] Parseando capa Hacienda desde SGCIEF_2017_clm.xlsx (anio=2017)
+[2026-07-24 09:52:12] [INFO   ] Parseando capa Hacienda desde SGCIEF_2017_cnt.xlsx (anio=2017)
+[2026-07-24 09:52:12] [INFO   ] Parseando capa Hacienda desde SGCIEF_2017_cym.xlsx (anio=2017)
+[2026-07-24 09:52:12] [INFO   ] Parseando capa Hacienda desde SGCIEF_2017_ext.xlsx (anio=2017)
+[2026-07-24 09:52:13] [INFO   ] Parseando capa Hacienda desde SGCIEF_2017_gal.xlsx (anio=2017)
+[2026-07-24 09:52:13] [INFO   ] Parseando capa Hacienda desde SGCIEF_2017_lar.xlsx (anio=2017)
+[2026-07-24 09:52:13] [INFO   ] Parseando capa Hacienda desde SGCIEF_2017_mad.xlsx (anio=2017)
+[2026-07-24 09:52:14] [INFO   ] Parseando capa Hacienda desde SGCIEF_2017_mur.xlsx (anio=2017)
+[2026-07-24 09:52:14] [INFO   ] Parseando capa Hacienda desde SGCIEF_2017_nav.xlsx (anio=2017)
+[2026-07-24 09:52:14] [INFO   ] Parseando capa Hacienda desde SGCIEF_2017_pvc.xlsx (anio=2017)
+[2026-07-24 09:52:15] [INFO   ] Parseando capa Hacienda desde SGCIEF_2017_val.xlsx (anio=2017)
+[2026-07-24 09:52:15] [INFO   ] Parseando capa Hacienda desde SGCIEF_2018_and.xlsx (anio=2018)
+[2026-07-24 09:52:15] [INFO   ] Parseando capa Hacienda desde SGCIEF_2018_ara.xlsx (anio=2018)
+[2026-07-24 09:52:16] [INFO   ] Parseando capa Hacienda desde SGCIEF_2018_ast.xlsx (anio=2018)
+[2026-07-24 09:52:16] [INFO   ] Parseando capa Hacienda desde SGCIEF_2018_bal.xlsx (anio=2018)
+[2026-07-24 09:52:16] [INFO   ] Parseando capa Hacienda desde SGCIEF_2018_can.xlsx (anio=2018)
+[2026-07-24 09:52:17] [INFO   ] Parseando capa Hacienda desde SGCIEF_2018_cat.xlsx (anio=2018)
+[2026-07-24 09:52:17] [INFO   ] Parseando capa Hacienda desde SGCIEF_2018_clm.xlsx (anio=2018)
+[2026-07-24 09:52:17] [INFO   ] Parseando capa Hacienda desde SGCIEF_2018_cnt.xlsx (anio=2018)
+[2026-07-24 09:52:18] [INFO   ] Parseando capa Hacienda desde SGCIEF_2018_cym.xlsx (anio=2018)
+[2026-07-24 09:52:18] [INFO   ] Parseando capa Hacienda desde SGCIEF_2018_ext.xlsx (anio=2018)
+[2026-07-24 09:52:18] [INFO   ] Parseando capa Hacienda desde SGCIEF_2018_gal.xlsx (anio=2018)
+[2026-07-24 09:52:19] [INFO   ] Parseando capa Hacienda desde SGCIEF_2018_lar.xlsx (anio=2018)
+[2026-07-24 09:52:19] [INFO   ] Parseando capa Hacienda desde SGCIEF_2018_mad.xlsx (anio=2018)
+[2026-07-24 09:52:19] [INFO   ] Parseando capa Hacienda desde SGCIEF_2018_mur.xlsx (anio=2018)
+[2026-07-24 09:52:20] [INFO   ] Parseando capa Hacienda desde SGCIEF_2018_nav.xlsx (anio=2018)
+[2026-07-24 09:52:20] [INFO   ] Parseando capa Hacienda desde SGCIEF_2018_pvc.xlsx (anio=2018)
+[2026-07-24 09:52:21] [INFO   ] Parseando capa Hacienda desde SGCIEF_2018_val.xlsx (anio=2018)
+[2026-07-24 09:52:21] [INFO   ] Parseando capa Hacienda desde SGCIEF_2019_and.xlsx (anio=2019)
+[2026-07-24 09:52:21] [INFO   ] Parseando capa Hacienda desde SGCIEF_2019_ara.xlsx (anio=2019)
+[2026-07-24 09:52:22] [INFO   ] Parseando capa Hacienda desde SGCIEF_2019_ast.xlsx (anio=2019)
+[2026-07-24 09:52:22] [INFO   ] Parseando capa Hacienda desde SGCIEF_2019_bal.xlsx (anio=2019)
+[2026-07-24 09:52:22] [INFO   ] Parseando capa Hacienda desde SGCIEF_2019_can.xlsx (anio=2019)
+[2026-07-24 09:52:23] [INFO   ] Parseando capa Hacienda desde SGCIEF_2019_cat.xlsx (anio=2019)
+[2026-07-24 09:52:23] [INFO   ] Parseando capa Hacienda desde SGCIEF_2019_clm.xlsx (anio=2019)
+[2026-07-24 09:52:23] [INFO   ] Parseando capa Hacienda desde SGCIEF_2019_cnt.xlsx (anio=2019)
+[2026-07-24 09:52:24] [INFO   ] Parseando capa Hacienda desde SGCIEF_2019_cym.xlsx (anio=2019)
+[2026-07-24 09:52:24] [INFO   ] Parseando capa Hacienda desde SGCIEF_2019_ext.xlsx (anio=2019)
+[2026-07-24 09:52:24] [INFO   ] Parseando capa Hacienda desde SGCIEF_2019_gal.xlsx (anio=2019)
+[2026-07-24 09:52:25] [INFO   ] Parseando capa Hacienda desde SGCIEF_2019_lar.xlsx (anio=2019)
+[2026-07-24 09:52:25] [INFO   ] Parseando capa Hacienda desde SGCIEF_2019_mad.xlsx (anio=2019)
+[2026-07-24 09:52:25] [INFO   ] Parseando capa Hacienda desde SGCIEF_2019_mur.xlsx (anio=2019)
+[2026-07-24 09:52:26] [INFO   ] Parseando capa Hacienda desde SGCIEF_2019_nav.xlsx (anio=2019)
+[2026-07-24 09:52:26] [INFO   ] Parseando capa Hacienda desde SGCIEF_2019_pvc.xlsx (anio=2019)
+[2026-07-24 09:52:26] [INFO   ] Parseando capa Hacienda desde SGCIEF_2019_val.xlsx (anio=2019)
+[2026-07-24 09:52:27] [INFO   ] Parseando capa Hacienda desde SGCIEF_2020_and.xlsx (anio=2020)
+[2026-07-24 09:52:27] [INFO   ] Parseando capa Hacienda desde SGCIEF_2020_ara.xlsx (anio=2020)
+[2026-07-24 09:52:27] [INFO   ] Parseando capa Hacienda desde SGCIEF_2020_ast.xlsx (anio=2020)
+[2026-07-24 09:52:28] [INFO   ] Parseando capa Hacienda desde SGCIEF_2020_bal.xlsx (anio=2020)
+[2026-07-24 09:52:28] [INFO   ] Parseando capa Hacienda desde SGCIEF_2020_can.xlsx (anio=2020)
+[2026-07-24 09:52:28] [INFO   ] Parseando capa Hacienda desde SGCIEF_2020_cat.xlsx (anio=2020)
+[2026-07-24 09:52:29] [INFO   ] Parseando capa Hacienda desde SGCIEF_2020_clm.xlsx (anio=2020)
+[2026-07-24 09:52:29] [INFO   ] Parseando capa Hacienda desde SGCIEF_2020_cnt.xlsx (anio=2020)
+[2026-07-24 09:52:29] [INFO   ] Parseando capa Hacienda desde SGCIEF_2020_cym.xlsx (anio=2020)
+[2026-07-24 09:52:30] [INFO   ] Parseando capa Hacienda desde SGCIEF_2020_ext.xlsx (anio=2020)
+[2026-07-24 09:52:30] [INFO   ] Parseando capa Hacienda desde SGCIEF_2020_gal.xlsx (anio=2020)
+[2026-07-24 09:52:30] [INFO   ] Parseando capa Hacienda desde SGCIEF_2020_lar.xlsx (anio=2020)
+[2026-07-24 09:52:31] [INFO   ] Parseando capa Hacienda desde SGCIEF_2020_mad.xlsx (anio=2020)
+[2026-07-24 09:52:31] [INFO   ] Parseando capa Hacienda desde SGCIEF_2020_mur.xlsx (anio=2020)
+[2026-07-24 09:52:31] [INFO   ] Parseando capa Hacienda desde SGCIEF_2020_nav.xlsx (anio=2020)
+[2026-07-24 09:52:32] [INFO   ] Parseando capa Hacienda desde SGCIEF_2020_pvc.xlsx (anio=2020)
+[2026-07-24 09:52:32] [INFO   ] Parseando capa Hacienda desde SGCIEF_2020_val.xlsx (anio=2020)
+[2026-07-24 09:52:32] [INFO   ] Parseando capa Hacienda desde SGCIEF_2021_and.xlsx (anio=2021)
+[2026-07-24 09:52:33] [INFO   ] Parseando capa Hacienda desde SGCIEF_2021_ara.xlsx (anio=2021)
+[2026-07-24 09:52:33] [INFO   ] Parseando capa Hacienda desde SGCIEF_2021_ast.xlsx (anio=2021)
+[2026-07-24 09:52:33] [INFO   ] Parseando capa Hacienda desde SGCIEF_2021_bal.xlsx (anio=2021)
+[2026-07-24 09:52:34] [INFO   ] Parseando capa Hacienda desde SGCIEF_2021_can.xlsx (anio=2021)
+[2026-07-24 09:52:34] [INFO   ] Parseando capa Hacienda desde SGCIEF_2021_cat.xlsx (anio=2021)
+[2026-07-24 09:52:34] [INFO   ] Parseando capa Hacienda desde SGCIEF_2021_clm.xlsx (anio=2021)
+[2026-07-24 09:52:35] [INFO   ] Parseando capa Hacienda desde SGCIEF_2021_cnt.xlsx (anio=2021)
+[2026-07-24 09:52:35] [INFO   ] Parseando capa Hacienda desde SGCIEF_2021_cym.xlsx (anio=2021)
+[2026-07-24 09:52:36] [INFO   ] Parseando capa Hacienda desde SGCIEF_2021_ext.xlsx (anio=2021)
+[2026-07-24 09:52:36] [INFO   ] Parseando capa Hacienda desde SGCIEF_2021_gal.xlsx (anio=2021)
+[2026-07-24 09:52:36] [INFO   ] Parseando capa Hacienda desde SGCIEF_2021_lar.xlsx (anio=2021)
+[2026-07-24 09:52:37] [INFO   ] Parseando capa Hacienda desde SGCIEF_2021_mad.xlsx (anio=2021)
+[2026-07-24 09:52:37] [INFO   ] Parseando capa Hacienda desde SGCIEF_2021_mur.xlsx (anio=2021)
+[2026-07-24 09:52:37] [INFO   ] Parseando capa Hacienda desde SGCIEF_2021_nav.xlsx (anio=2021)
+[2026-07-24 09:52:38] [INFO   ] Parseando capa Hacienda desde SGCIEF_2021_pvc.xlsx (anio=2021)
+[2026-07-24 09:52:38] [INFO   ] Parseando capa Hacienda desde SGCIEF_2021_val.xlsx (anio=2021)
+[2026-07-24 09:52:38] [INFO   ] Parseando capa Hacienda desde SGCIEF_2022_and.xlsx (anio=2022)
+[2026-07-24 09:52:39] [INFO   ] Parseando capa Hacienda desde SGCIEF_2022_ara.xlsx (anio=2022)
+[2026-07-24 09:52:39] [INFO   ] Parseando capa Hacienda desde SGCIEF_2022_ast.xlsx (anio=2022)
+[2026-07-24 09:52:39] [INFO   ] Parseando capa Hacienda desde SGCIEF_2022_bal.xlsx (anio=2022)
+[2026-07-24 09:52:40] [INFO   ] Parseando capa Hacienda desde SGCIEF_2022_can.xlsx (anio=2022)
+[2026-07-24 09:52:40] [INFO   ] Parseando capa Hacienda desde SGCIEF_2022_cat.xlsx (anio=2022)
+[2026-07-24 09:52:40] [INFO   ] Parseando capa Hacienda desde SGCIEF_2022_clm.xlsx (anio=2022)
+[2026-07-24 09:52:41] [INFO   ] Parseando capa Hacienda desde SGCIEF_2022_cnt.xlsx (anio=2022)
+[2026-07-24 09:52:41] [INFO   ] Parseando capa Hacienda desde SGCIEF_2022_cym.xlsx (anio=2022)
+[2026-07-24 09:52:41] [INFO   ] Parseando capa Hacienda desde SGCIEF_2022_ext.xlsx (anio=2022)
+[2026-07-24 09:52:42] [INFO   ] Parseando capa Hacienda desde SGCIEF_2022_gal.xlsx (anio=2022)
+[2026-07-24 09:52:42] [INFO   ] Parseando capa Hacienda desde SGCIEF_2022_lar.xlsx (anio=2022)
+[2026-07-24 09:52:42] [INFO   ] Parseando capa Hacienda desde SGCIEF_2022_mad.xlsx (anio=2022)
+[2026-07-24 09:52:43] [INFO   ] Parseando capa Hacienda desde SGCIEF_2022_mur.xlsx (anio=2022)
+[2026-07-24 09:52:43] [INFO   ] Parseando capa Hacienda desde SGCIEF_2022_nav.xlsx (anio=2022)
+[2026-07-24 09:52:43] [INFO   ] Parseando capa Hacienda desde SGCIEF_2022_pvc.xlsx (anio=2022)
+[2026-07-24 09:52:44] [INFO   ] Parseando capa Hacienda desde SGCIEF_2022_val.xlsx (anio=2022)
+[2026-07-24 09:52:44] [INFO   ] Parseando capa Hacienda desde SGCIEF_2023_and.xlsx (anio=2023)
+[2026-07-24 09:52:44] [INFO   ] Parseando capa Hacienda desde SGCIEF_2023_ara.xlsx (anio=2023)
+[2026-07-24 09:52:45] [INFO   ] Parseando capa Hacienda desde SGCIEF_2023_ast.xlsx (anio=2023)
+[2026-07-24 09:52:45] [INFO   ] Parseando capa Hacienda desde SGCIEF_2023_bal.xlsx (anio=2023)
+[2026-07-24 09:52:45] [INFO   ] Parseando capa Hacienda desde SGCIEF_2023_can.xlsx (anio=2023)
+[2026-07-24 09:52:46] [INFO   ] Parseando capa Hacienda desde SGCIEF_2023_cat.xlsx (anio=2023)
+[2026-07-24 09:52:46] [INFO   ] Parseando capa Hacienda desde SGCIEF_2023_clm.xlsx (anio=2023)
+[2026-07-24 09:52:46] [INFO   ] Parseando capa Hacienda desde SGCIEF_2023_cnt.xlsx (anio=2023)
+[2026-07-24 09:52:47] [INFO   ] Parseando capa Hacienda desde SGCIEF_2023_cym.xlsx (anio=2023)
+[2026-07-24 09:52:47] [INFO   ] Parseando capa Hacienda desde SGCIEF_2023_ext.xlsx (anio=2023)
+[2026-07-24 09:52:47] [INFO   ] Parseando capa Hacienda desde SGCIEF_2023_gal.xlsx (anio=2023)
+[2026-07-24 09:52:48] [INFO   ] Parseando capa Hacienda desde SGCIEF_2023_lar.xlsx (anio=2023)
+[2026-07-24 09:52:48] [INFO   ] Parseando capa Hacienda desde SGCIEF_2023_mad.xlsx (anio=2023)
+[2026-07-24 09:52:48] [INFO   ] Parseando capa Hacienda desde SGCIEF_2023_mur.xlsx (anio=2023)
+[2026-07-24 09:52:49] [INFO   ] Parseando capa Hacienda desde SGCIEF_2023_nav.xlsx (anio=2023)
+[2026-07-24 09:52:49] [INFO   ] Parseando capa Hacienda desde SGCIEF_2023_pvc.xlsx (anio=2023)
+[2026-07-24 09:52:49] [INFO   ] Parseando capa Hacienda desde SGCIEF_2023_val.xlsx (anio=2023)
+[2026-07-24 09:52:50] [INFO   ] Parseando capa Hacienda desde SGCIEF_2024_and.xlsx (anio=2024)
+[2026-07-24 09:52:50] [INFO   ] Parseando capa Hacienda desde SGCIEF_2024_ara.xlsx (anio=2024)
+[2026-07-24 09:52:50] [INFO   ] Parseando capa Hacienda desde SGCIEF_2024_ast.xlsx (anio=2024)
+[2026-07-24 09:52:51] [INFO   ] Parseando capa Hacienda desde SGCIEF_2024_bal.xlsx (anio=2024)
+[2026-07-24 09:52:51] [INFO   ] Parseando capa Hacienda desde SGCIEF_2024_can.xlsx (anio=2024)
+[2026-07-24 09:52:51] [INFO   ] Parseando capa Hacienda desde SGCIEF_2024_cat.xlsx (anio=2024)
+[2026-07-24 09:52:52] [INFO   ] Parseando capa Hacienda desde SGCIEF_2024_clm.xlsx (anio=2024)
+[2026-07-24 09:52:52] [INFO   ] Parseando capa Hacienda desde SGCIEF_2024_cnt.xlsx (anio=2024)
+[2026-07-24 09:52:52] [INFO   ] Parseando capa Hacienda desde SGCIEF_2024_cym.xlsx (anio=2024)
+[2026-07-24 09:52:53] [INFO   ] Parseando capa Hacienda desde SGCIEF_2024_ext.xlsx (anio=2024)
+[2026-07-24 09:52:53] [INFO   ] Parseando capa Hacienda desde SGCIEF_2024_gal.xlsx (anio=2024)
+[2026-07-24 09:52:53] [INFO   ] Parseando capa Hacienda desde SGCIEF_2024_lar.xlsx (anio=2024)
+[2026-07-24 09:52:54] [INFO   ] Parseando capa Hacienda desde SGCIEF_2024_mad.xlsx (anio=2024)
+[2026-07-24 09:52:54] [INFO   ] Parseando capa Hacienda desde SGCIEF_2024_mur.xlsx (anio=2024)
+[2026-07-24 09:52:55] [INFO   ] Parseando capa Hacienda desde SGCIEF_2024_nav.xlsx (anio=2024)
+[2026-07-24 09:52:55] [INFO   ] Parseando capa Hacienda desde SGCIEF_2024_pvc.xlsx (anio=2024)
+[2026-07-24 09:52:55] [INFO   ] Parseando capa Hacienda desde SGCIEF_2024_val.xlsx (anio=2024)
+[2026-07-24 09:52:56] [INFO   ] Parseando capa Hacienda desde SGCIEF_2024.xlsx (anio=2024)
+[2026-07-24 09:52:56] [INFO   ] Parseando capa Hacienda desde SGCIEF_2025_and.xlsx (anio=2025)
+[2026-07-24 09:52:56] [INFO   ] Parseando capa Hacienda desde SGCIEF_2025_ara.xlsx (anio=2025)
+[2026-07-24 09:52:57] [INFO   ] Parseando capa Hacienda desde SGCIEF_2025_ast.xlsx (anio=2025)
+[2026-07-24 09:52:57] [INFO   ] Parseando capa Hacienda desde SGCIEF_2025_bal.xlsx (anio=2025)
+[2026-07-24 09:52:57] [INFO   ] Parseando capa Hacienda desde SGCIEF_2025_can.xlsx (anio=2025)
+[2026-07-24 09:52:58] [INFO   ] Parseando capa Hacienda desde SGCIEF_2025_cat.xlsx (anio=2025)
+[2026-07-24 09:52:58] [INFO   ] Parseando capa Hacienda desde SGCIEF_2025_clm.xlsx (anio=2025)
+[2026-07-24 09:52:58] [INFO   ] Parseando capa Hacienda desde SGCIEF_2025_cnt.xlsx (anio=2025)
+[2026-07-24 09:52:59] [INFO   ] Parseando capa Hacienda desde SGCIEF_2025_cym.xlsx (anio=2025)
+[2026-07-24 09:52:59] [INFO   ] Parseando capa Hacienda desde SGCIEF_2025_ext.xlsx (anio=2025)
+[2026-07-24 09:52:59] [INFO   ] Parseando capa Hacienda desde SGCIEF_2025_gal.xlsx (anio=2025)
+[2026-07-24 09:53:00] [INFO   ] Parseando capa Hacienda desde SGCIEF_2025_lar.xlsx (anio=2025)
+[2026-07-24 09:53:00] [INFO   ] Parseando capa Hacienda desde SGCIEF_2025_mad.xlsx (anio=2025)
+[2026-07-24 09:53:00] [INFO   ] Parseando capa Hacienda desde SGCIEF_2025_mur.xlsx (anio=2025)
+[2026-07-24 09:53:01] [INFO   ] Parseando capa Hacienda desde SGCIEF_2025_nav.xlsx (anio=2025)
+[2026-07-24 09:53:01] [INFO   ] Parseando capa Hacienda desde SGCIEF_2025_pvc.xlsx (anio=2025)
+[2026-07-24 09:53:01] [INFO   ] Parseando capa Hacienda desde SGCIEF_2025_val.xlsx (anio=2025)
+[2026-07-24 09:53:02] [INFO   ] Capa Hacienda: 1695 filas de 188 ficheros
+[2026-07-24 09:53:02] [OK     ] Parseo hacienda/2002-2026/consulta_web filas=1695
+[2026-07-24 09:53:02] [CACHE  ] Reutilizado raw local memoria_programas.pdf
+[2026-07-24 09:53:02] [OK     ] Parseo and/2026/memoria_programas filas=107
+[2026-07-24 09:53:02] [CACHE  ] Reutilizado raw local memoria_programas.pdf
+[2026-07-24 09:53:02] [OK     ] Parseo and/2025/memoria_programas filas=107
+[2026-07-24 09:53:02] [CACHE  ] Reutilizado raw local memoria_programas.pdf
+[2026-07-24 09:53:03] [OK     ] Parseo and/2024/memoria_programas filas=105
+[2026-07-24 09:53:03] [CACHE  ] Reutilizado raw local memoria_programas.pdf
+[2026-07-24 09:53:03] [OK     ] Parseo and/2023/memoria_programas filas=105
+[2026-07-24 09:53:03] [CACHE  ] Reutilizado raw local memoria_programas.pdf
+[2026-07-24 09:53:03] [OK     ] Parseo and/2022/memoria_programas filas=104
+[2026-07-24 09:53:03] [CACHE  ] Reutilizado raw local estado_iii.pdf
+[2026-07-24 09:53:23] [OK     ] Parseo and/2022/estado_iii filas=67
+[2026-07-24 09:53:23] [CACHE  ] Reutilizado raw local gastos_csv.csv
+[2026-07-24 09:53:23] [OK     ] Parseo and/2021/gastos_csv filas=94
+[2026-07-24 09:53:23] [CACHE  ] Reutilizado raw local gastos_csv.csv
+[2026-07-24 09:53:23] [OK     ] Parseo and/2020/gastos_csv filas=97
+[2026-07-24 09:53:23] [CACHE  ] Reutilizado raw local memoria_programas.pdf
+[2026-07-24 09:53:24] [OK     ] Parseo and/2019/memoria_programas filas=112
+[2026-07-24 09:53:24] [CACHE  ] Reutilizado raw local memoria_programas.pdf
+[2026-07-24 09:53:24] [OK     ] Parseo and/2018/memoria_programas filas=111
+[2026-07-24 09:53:24] [CACHE  ] Reutilizado raw local memoria_programas.pdf
+[2026-07-24 09:53:24] [OK     ] Parseo and/2017/memoria_programas filas=110
+[2026-07-24 09:53:24] [CACHE  ] Reutilizado raw local gastos_csv.csv
+[2026-07-24 09:53:25] [OK     ] Parseo and/2016/gastos_csv filas=101
+[2026-07-24 09:53:25] [CACHE  ] Reutilizado raw local gastos_csv.csv
+[2026-07-24 09:53:25] [OK     ] Parseo and/2015/gastos_csv filas=100
+[2026-07-24 09:53:25] [CACHE  ] Reutilizado raw local ingresos_gastos.pdf
+[2026-07-24 09:53:25] [OK     ] Parseo ara/2024/ingresos_gastos filas=194
+[2026-07-24 09:53:25] [CACHE  ] Reutilizado raw local ingresos_gastos.pdf
+[2026-07-24 09:53:26] [OK     ] Parseo ara/2026/ingresos_gastos filas=194
+[2026-07-24 09:53:26] [CACHE  ] Reutilizado raw local ingresos_gastos.pdf
+[2026-07-24 09:53:26] [OK     ] Parseo ara/2025/ingresos_gastos filas=194
+[2026-07-24 09:53:26] [CACHE  ] Reutilizado raw local ingresos_gastos.pdf
+[2026-07-24 09:53:26] [OK     ] Parseo ara/2023/ingresos_gastos filas=178
+[2026-07-24 09:53:26] [CACHE  ] Reutilizado raw local ingresos_gastos.pdf
+[2026-07-24 09:53:27] [OK     ] Parseo ara/2022/ingresos_gastos filas=178
+[2026-07-24 09:53:27] [CACHE  ] Reutilizado raw local ingresos_gastos.pdf
+[2026-07-24 09:53:27] [OK     ] Parseo ara/2021/ingresos_gastos filas=183
+[2026-07-24 09:53:27] [CACHE  ] Reutilizado raw local ingresos_gastos.pdf
+[2026-07-24 09:53:27] [OK     ] Parseo ara/2020/ingresos_gastos filas=162
+[2026-07-24 09:53:27] [CACHE  ] Reutilizado raw local ingresos_gastos.pdf
+[2026-07-24 09:53:28] [OK     ] Parseo ara/2019/ingresos_gastos filas=156
+[2026-07-24 09:53:28] [CACHE  ] Reutilizado raw local ingresos_gastos.pdf
+[2026-07-24 09:53:28] [OK     ] Parseo ara/2018/ingresos_gastos filas=156
+[2026-07-24 09:53:28] [CACHE  ] Reutilizado raw local ingresos_gastos.pdf
+[2026-07-24 09:53:28] [OK     ] Parseo ara/2017/ingresos_gastos filas=163
+[2026-07-24 09:53:28] [CACHE  ] Reutilizado raw local ingresos_gastos.pdf
+[2026-07-24 09:53:49] [OK     ] Parseo ara/2016/ingresos_gastos filas=158
+[2026-07-24 09:53:49] [CACHE  ] Reutilizado raw local ingresos_gastos.pdf
+[2026-07-24 09:53:50] [OK     ] Parseo ara/2015/ingresos_gastos filas=163
+[2026-07-24 09:53:50] [CACHE  ] Reutilizado raw local tomo_I.pdf
+[2026-07-24 09:53:50] [OK     ] Parseo ast/2026/tomo_I filas=106
+[2026-07-24 09:53:50] [CACHE  ] Reutilizado raw local tomo_I.pdf
+[2026-07-24 09:53:50] [OK     ] Parseo ast/2025/tomo_I filas=107
+[2026-07-24 09:53:50] [CACHE  ] Reutilizado raw local tomo_I.pdf
+[2026-07-24 09:53:51] [OK     ] Parseo ast/2024/tomo_I filas=106
+[2026-07-24 09:53:51] [CACHE  ] Reutilizado raw local tomo_I.pdf
+[2026-07-24 09:53:51] [OK     ] Parseo ast/2023/tomo_I filas=97
+[2026-07-24 09:53:51] [CACHE  ] Reutilizado raw local tomo_I.pdf
+[2026-07-24 09:53:52] [OK     ] Parseo ast/2021/tomo_I filas=97
+[2026-07-24 09:53:52] [CACHE  ] Reutilizado raw local tomo_I.pdf
+[2026-07-24 09:54:00] [OK     ] Parseo ast/2020/tomo_I filas=96
+[2026-07-24 09:54:00] [CACHE  ] Reutilizado raw local tomo_I.pdf
+[2026-07-24 09:54:07] [OK     ] Parseo ast/2019/tomo_I filas=91
+[2026-07-24 09:54:07] [CACHE  ] Reutilizado raw local tomo_I.pdf
+[2026-07-24 09:54:15] [OK     ] Parseo ast/2018/tomo_I filas=91
+[2026-07-24 09:54:15] [CACHE  ] Reutilizado raw local tomo_I.pdf
+[2026-07-24 09:54:23] [OK     ] Parseo ast/2017/tomo_I filas=92
+[2026-07-24 09:54:23] [CACHE  ] Reutilizado raw local tomo_I.pdf
+[2026-07-24 09:54:30] [OK     ] Parseo ast/2016/tomo_I filas=92
+[2026-07-24 09:54:30] [CACHE  ] Reutilizado raw local tomo_I.pdf
+[2026-07-24 09:54:31] [OK     ] Parseo ast/2015/tomo_I filas=91
+[2026-07-24 09:54:31] [CACHE  ] Reutilizado raw local tomo_I.pdf
+[2026-07-24 09:54:39] [OK     ] Parseo ast/2022/tomo_I filas=97
+[2026-07-24 09:54:39] [CACHE  ] Reutilizado raw local estats_numerics.pdf
+[2026-07-24 09:54:40] [OK     ] Parseo bal/2026/estats_numerics filas=148
+[2026-07-24 09:54:40] [CACHE  ] Reutilizado raw local memoria_programas.html
+[2026-07-24 09:54:49] [OK     ] Parseo bal/2025/memoria_programas filas=141
+[2026-07-24 09:54:49] [CACHE  ] Reutilizado raw local memoria_programas.html
+[2026-07-24 09:54:57] [OK     ] Parseo bal/2024/memoria_programas filas=145
+[2026-07-24 09:54:57] [CACHE  ] Reutilizado raw local memoria_programas.html
+[2026-07-24 09:55:06] [OK     ] Parseo bal/2023/memoria_programas filas=150
+[2026-07-24 09:55:06] [CACHE  ] Reutilizado raw local memoria_programas.html
+[2026-07-24 09:55:15] [OK     ] Parseo bal/2022/memoria_programas filas=143
+[2026-07-24 09:55:15] [CACHE  ] Reutilizado raw local memoria_programas.html
+[2026-07-24 09:55:20] [OK     ] Parseo bal/2021/memoria_programas filas=89
+[2026-07-24 09:55:20] [CACHE  ] Reutilizado raw local memoria_programas.html
+[2026-07-24 09:55:25] [OK     ] Parseo bal/2020/memoria_programas filas=95
+[2026-07-24 09:55:25] [CACHE  ] Reutilizado raw local memoria_programas.html
+[2026-07-24 09:55:30] [OK     ] Parseo bal/2019/memoria_programas filas=86
+[2026-07-24 09:55:30] [CACHE  ] Reutilizado raw local memoria_programas.html
+[2026-07-24 09:55:35] [OK     ] Parseo bal/2018/memoria_programas filas=82
+[2026-07-24 09:55:35] [CACHE  ] Reutilizado raw local memoria_programas.html
+[2026-07-24 09:55:44] [OK     ] Parseo bal/2016/memoria_programas filas=132
+[2026-07-24 09:55:44] [CACHE  ] Reutilizado raw local memoria_programas.html
+[2026-07-24 09:55:55] [OK     ] Parseo bal/2015/memoria_programas filas=131
+[2026-07-24 09:55:55] [CACHE  ] Reutilizado raw local memoria_programas.html
+[2026-07-24 09:56:03] [OK     ] Parseo bal/2017/memoria_programas filas=129
+[2026-07-24 09:56:03] [CACHE  ] Reutilizado raw local memoria_programas.pdf
+[2026-07-24 09:56:06] [OK     ] Parseo can/2022/memoria_programas filas=135
+[2026-07-24 09:56:06] [CACHE  ] Reutilizado raw local memoria_programas.pdf
+[2026-07-24 09:56:09] [OK     ] Parseo can/2023/memoria_programas filas=135
+[2026-07-24 09:56:09] [CACHE  ] Reutilizado raw local memoria_programas.pdf
+[2026-07-24 09:56:13] [OK     ] Parseo can/2024/memoria_programas filas=140
+[2026-07-24 09:56:13] [CACHE  ] Reutilizado raw local memoria_programas.pdf
+[2026-07-24 09:56:16] [OK     ] Parseo can/2026/memoria_programas filas=143
+[2026-07-24 09:56:16] [CACHE  ] Reutilizado raw local memoria_programas.pdf
+[2026-07-24 09:56:20] [OK     ] Parseo can/2025/memoria_programas filas=141
+[2026-07-24 09:56:20] [CACHE  ] Reutilizado raw local datos_abiertos.csv
+[2026-07-24 09:56:20] [WARN   ] ccaa.can exit=1 para datos_abiertos.csv
+[2026-07-24 09:56:20] [WARN   ] Sin filas tras parseo can/2025/datos_abiertos
+[2026-07-24 09:56:20] [CACHE  ] Reutilizado raw local memoria_programas.pdf
+[2026-07-24 09:56:23] [OK     ] Parseo can/2018/memoria_programas filas=140
+[2026-07-24 09:56:23] [CACHE  ] Reutilizado raw local memoria_programas.pdf
+[2026-07-24 09:56:26] [OK     ] Parseo can/2019/memoria_programas filas=142
+[2026-07-24 09:56:26] [CACHE  ] Reutilizado raw local memoria_programas.pdf
+[2026-07-24 09:56:29] [OK     ] Parseo can/2020/memoria_programas filas=144
+[2026-07-24 09:56:29] [CACHE  ] Reutilizado raw local memoria_programas.pdf
+[2026-07-24 09:56:32] [OK     ] Parseo can/2021/memoria_programas filas=141
+[2026-07-24 09:56:32] [CACHE  ] Reutilizado raw local memoria_programas.pdf
+[2026-07-24 09:56:35] [OK     ] Parseo can/2017/memoria_programas filas=141
+[2026-07-24 09:56:35] [CACHE  ] Reutilizado raw local memoria_programas.pdf
+[2026-07-24 09:56:38] [OK     ] Parseo can/2016/memoria_programas filas=140
+[2026-07-24 09:56:38] [CACHE  ] Reutilizado raw local memoria_programas.pdf
+[2026-07-24 09:56:41] [OK     ] Parseo can/2015/memoria_programas filas=139
+[2026-07-24 09:56:41] [CACHE  ] Reutilizado raw local ingresos_gastos.pdf
+[2026-07-24 09:57:06] [OK     ] Parseo cnt/2026/ingresos_gastos filas=91
+[2026-07-24 09:57:06] [CACHE  ] Reutilizado raw local ingresos_gastos.pdf
+[2026-07-24 09:57:26] [OK     ] Parseo cnt/2025/ingresos_gastos filas=88
+[2026-07-24 09:57:26] [CACHE  ] Reutilizado raw local ingresos_gastos.pdf
+[2026-07-24 09:57:43] [OK     ] Parseo cnt/2024/ingresos_gastos filas=89
+[2026-07-24 09:57:43] [CACHE  ] Reutilizado raw local ingresos_gastos.pdf
+[2026-07-24 09:58:01] [OK     ] Parseo cnt/2023/ingresos_gastos filas=91
+[2026-07-24 09:58:01] [CACHE  ] Reutilizado raw local ingresos_gastos.pdf
+[2026-07-24 09:58:20] [OK     ] Parseo cnt/2022/ingresos_gastos filas=91
+[2026-07-24 09:58:20] [CACHE  ] Reutilizado raw local ingresos_gastos.pdf
+[2026-07-24 09:58:36] [OK     ] Parseo cnt/2021/ingresos_gastos filas=85
+[2026-07-24 09:58:36] [CACHE  ] Reutilizado raw local ingresos_gastos.pdf
+[2026-07-24 09:58:52] [OK     ] Parseo cnt/2020/ingresos_gastos filas=85
+[2026-07-24 09:58:52] [CACHE  ] Reutilizado raw local ingresos_gastos.pdf
+[2026-07-24 09:59:08] [OK     ] Parseo cnt/2019/ingresos_gastos filas=85
+[2026-07-24 09:59:08] [CACHE  ] Reutilizado raw local ingresos_gastos.pdf
+[2026-07-24 09:59:22] [OK     ] Parseo cnt/2018/ingresos_gastos filas=84
+[2026-07-24 09:59:22] [CACHE  ] Reutilizado raw local desarrollo_centros.pdf
+[2026-07-24 09:59:47] [OK     ] Parseo cnt/2017/desarrollo_centros filas=84
+[2026-07-24 09:59:47] [CACHE  ] Reutilizado raw local desarrollo_centros.pdf
+[2026-07-24 10:00:16] [OK     ] Parseo cnt/2016/desarrollo_centros filas=84
+[2026-07-24 10:00:16] [CACHE  ] Reutilizado raw local desarrollo_centros.pdf
+[2026-07-24 10:00:43] [OK     ] Parseo cnt/2015/desarrollo_centros filas=83
+[2026-07-24 10:00:43] [CACHE  ] Reutilizado raw local gastos.bin
+[2026-07-24 10:00:44] [OK     ] Parseo cym/2026/gastos filas=103
+[2026-07-24 10:00:44] [CACHE  ] Reutilizado raw local gastos.bin
+[2026-07-24 10:00:45] [OK     ] Parseo cym/2025/gastos filas=103
+[2026-07-24 10:00:45] [CACHE  ] Reutilizado raw local gastos.xlsx
+[2026-07-24 10:00:46] [OK     ] Parseo cym/2024/gastos filas=104
+[2026-07-24 10:00:46] [CACHE  ] Reutilizado raw local gastos.xlsx
+[2026-07-24 10:00:48] [OK     ] Parseo cym/2023/gastos filas=107
+[2026-07-24 10:00:48] [CACHE  ] Reutilizado raw local gastos.csv
+[2026-07-24 10:00:48] [OK     ] Parseo cym/2021/gastos filas=104
+[2026-07-24 10:00:48] [CACHE  ] Reutilizado raw local gastos.csv
+[2026-07-24 10:00:49] [OK     ] Parseo cym/2022/gastos filas=104
+[2026-07-24 10:00:49] [CACHE  ] Reutilizado raw local gastos.csv
+[2026-07-24 10:00:49] [OK     ] Parseo cym/2018/gastos filas=102
+[2026-07-24 10:00:49] [CACHE  ] Reutilizado raw local gastos.csv
+[2026-07-24 10:00:49] [OK     ] Parseo cym/2020/gastos filas=102
+[2026-07-24 10:00:49] [CACHE  ] Reutilizado raw local gastos.csv
+[2026-07-24 10:00:50] [OK     ] Parseo cym/2019/gastos filas=102
+[2026-07-24 10:00:50] [CACHE  ] Reutilizado raw local gastos.csv
+[2026-07-24 10:00:50] [OK     ] Parseo cym/2017/gastos filas=102
+[2026-07-24 10:00:50] [CACHE  ] Reutilizado raw local gastos.csv
+[2026-07-24 10:00:50] [OK     ] Parseo cym/2016/gastos filas=103
+[2026-07-24 10:00:50] [CACHE  ] Reutilizado raw local bocyl_ley.pdf
+[2026-07-24 10:00:51] [WARN   ] ccaa.cym exit=2 para bocyl_ley.pdf
+[2026-07-24 10:00:51] [WARN   ] Sin filas tras parseo cym/2015/bocyl_ley
+[2026-07-24 10:00:51] [CACHE  ] Reutilizado raw local tomo_I.pdf
+[2026-07-24 10:00:51] [OK     ] Parseo clm/2026/tomo_I filas=113
+[2026-07-24 10:00:51] [CACHE  ] Reutilizado raw local tomo_I.pdf
+[2026-07-24 10:00:51] [OK     ] Parseo clm/2025/tomo_I filas=113
+[2026-07-24 10:00:51] [CACHE  ] Reutilizado raw local tomo_I.pdf
+[2026-07-24 10:00:52] [OK     ] Parseo clm/2024/tomo_I filas=114
+[2026-07-24 10:00:52] [CACHE  ] Reutilizado raw local tomo_I.pdf
+[2026-07-24 10:00:52] [OK     ] Parseo clm/2023/tomo_I filas=114
+[2026-07-24 10:00:52] [CACHE  ] Reutilizado raw local tomo_I.pdf
+[2026-07-24 10:00:52] [OK     ] Parseo clm/2022/tomo_I filas=111
+[2026-07-24 10:00:52] [CACHE  ] Reutilizado raw local gastos_articulo.csv
+[2026-07-24 10:00:53] [OK     ] Parseo clm/2021/gastos_articulo filas=101
+[2026-07-24 10:00:53] [CACHE  ] Reutilizado raw local gastos_articulo.csv
+[2026-07-24 10:00:53] [OK     ] Parseo clm/2020/gastos_articulo filas=100
+[2026-07-24 10:00:53] [CACHE  ] Reutilizado raw local gastos_articulo.csv
+[2026-07-24 10:00:53] [OK     ] Parseo clm/2019/gastos_articulo filas=99
+[2026-07-24 10:00:53] [CACHE  ] Reutilizado raw local gastos_articulo.csv
+[2026-07-24 10:00:54] [OK     ] Parseo clm/2018/gastos_articulo filas=98
+[2026-07-24 10:00:54] [CACHE  ] Reutilizado raw local gastos_articulo.csv
+[2026-07-24 10:00:54] [OK     ] Parseo clm/2017/gastos_articulo filas=98
+[2026-07-24 10:00:54] [CACHE  ] Reutilizado raw local gastos_articulo.csv
+[2026-07-24 10:00:54] [OK     ] Parseo clm/2016/gastos_articulo filas=99
+[2026-07-24 10:00:54] [CACHE  ] Reutilizado raw local gastos_articulo.csv
+[2026-07-24 10:00:55] [OK     ] Parseo clm/2015/gastos_articulo filas=99
+[2026-07-24 10:00:55] [CACHE  ] Reutilizado raw local vol_p_eid.pdf
+[2026-07-24 10:00:55] [OK     ] Parseo cat/2026/vol_p_eid filas=101
+[2026-07-24 10:00:55] [CACHE  ] Reutilizado raw local vol_p_eid.pdf
+[2026-07-24 10:00:55] [OK     ] Parseo cat/2024/vol_p_eid filas=99
+[2026-07-24 10:00:55] [CACHE  ] Reutilizado raw local vol_p_eid.pdf
+[2026-07-24 10:00:56] [OK     ] Parseo cat/2025/vol_p_eid filas=99
+[2026-07-24 10:00:56] [CACHE  ] Reutilizado raw local vol_p_eid.pdf
+[2026-07-24 10:00:56] [OK     ] Parseo cat/2023/vol_p_eid filas=99
+[2026-07-24 10:00:56] [CACHE  ] Reutilizado raw local vol_p_eid.pdf
+[2026-07-24 10:00:56] [OK     ] Parseo cat/2022/vol_p_eid filas=99
+[2026-07-24 10:00:56] [CACHE  ] Reutilizado raw local vol_p_eid.pdf
+[2026-07-24 10:00:57] [OK     ] Parseo cat/2020/vol_p_eid filas=97
+[2026-07-24 10:00:57] [CACHE  ] Reutilizado raw local vol_p_eid.pdf
+[2026-07-24 10:00:57] [OK     ] Parseo cat/2021/vol_p_eid filas=97
+[2026-07-24 10:00:57] [CACHE  ] Reutilizado raw local vol_p_eid.pdf
+[2026-07-24 10:00:57] [OK     ] Parseo cat/2016/vol_p_eid filas=94
+[2026-07-24 10:00:57] [CACHE  ] Reutilizado raw local vol_p_eid.pdf
+[2026-07-24 10:00:58] [OK     ] Parseo cat/2017/vol_p_eid filas=94
+[2026-07-24 10:00:58] [CACHE  ] Reutilizado raw local vol_p_eid.pdf
+[2026-07-24 10:00:58] [OK     ] Parseo cat/2018/vol_p_eid filas=94
+[2026-07-24 10:00:58] [CACHE  ] Reutilizado raw local vol_p_eid.pdf
+[2026-07-24 10:00:58] [OK     ] Parseo cat/2019/vol_p_eid filas=97
+[2026-07-24 10:00:58] [CACHE  ] Reutilizado raw local vol_p_eid.pdf
+[2026-07-24 10:00:59] [OK     ] Parseo cat/2015/vol_p_eid filas=96
+[2026-07-24 10:00:59] [CACHE  ] Reutilizado raw local ley_doe.pdf
+[2026-07-24 10:00:59] [OK     ] Parseo ext/2026/ley_doe filas=79
+[2026-07-24 10:00:59] [CACHE  ] Reutilizado raw local ley_doe.pdf
+[2026-07-24 10:00:59] [OK     ] Parseo ext/2025/ley_doe filas=79
+[2026-07-24 10:00:59] [CACHE  ] Reutilizado raw local ley_doe.pdf
+[2026-07-24 10:01:00] [OK     ] Parseo ext/2024/ley_doe filas=79
+[2026-07-24 10:01:00] [CACHE  ] Reutilizado raw local ley_doe.pdf
+[2026-07-24 10:01:00] [OK     ] Parseo ext/2023/ley_doe filas=81
+[2026-07-24 10:01:00] [CACHE  ] Reutilizado raw local ley_doe.pdf
+[2026-07-24 10:01:00] [OK     ] Parseo ext/2022/ley_doe filas=79
+[2026-07-24 10:01:00] [CACHE  ] Reutilizado raw local ley_doe.pdf
+[2026-07-24 10:01:01] [OK     ] Parseo ext/2021/ley_doe filas=80
+[2026-07-24 10:01:01] [CACHE  ] Reutilizado raw local ley_doe.pdf
+[2026-07-24 10:01:01] [OK     ] Parseo ext/2020/ley_doe filas=80
+[2026-07-24 10:01:01] [CACHE  ] Reutilizado raw local ley_doe.pdf
+[2026-07-24 10:01:02] [OK     ] Parseo ext/2019/ley_doe filas=77
+[2026-07-24 10:01:02] [CACHE  ] Reutilizado raw local ley_doe.pdf
+[2026-07-24 10:01:02] [OK     ] Parseo ext/2018/ley_doe filas=77
+[2026-07-24 10:01:02] [CACHE  ] Reutilizado raw local ley_doe.pdf
+[2026-07-24 10:01:02] [OK     ] Parseo ext/2017/ley_doe filas=77
+[2026-07-24 10:01:02] [CACHE  ] Reutilizado raw local ley_doe.pdf
+[2026-07-24 10:01:03] [OK     ] Parseo ext/2016/ley_doe filas=77
+[2026-07-24 10:01:03] [CACHE  ] Reutilizado raw local ley_doe.pdf
+[2026-07-24 10:01:03] [OK     ] Parseo ext/2015/ley_doe filas=78
+[2026-07-24 10:01:03] [CACHE  ] Reutilizado raw local progr.pdf
+[2026-07-24 10:01:27] [OK     ] Parseo gal/2026/progr filas=108
+[2026-07-24 10:01:27] [CACHE  ] Reutilizado raw local progr.pdf
+[2026-07-24 10:01:50] [OK     ] Parseo gal/2025/progr filas=108
+[2026-07-24 10:01:50] [CACHE  ] Reutilizado raw local progr.pdf
+[2026-07-24 10:02:16] [OK     ] Parseo gal/2024/progr filas=107
+[2026-07-24 10:02:16] [CACHE  ] Reutilizado raw local progr.pdf
+[2026-07-24 10:02:43] [OK     ] Parseo gal/2023/progr filas=107
+[2026-07-24 10:02:43] [CACHE  ] Reutilizado raw local progr.pdf
+[2026-07-24 10:03:09] [OK     ] Parseo gal/2022/progr filas=107
+[2026-07-24 10:03:09] [CACHE  ] Reutilizado raw local progr.pdf
+[2026-07-24 10:03:09] [OK     ] Parseo gal/2021/progr filas=107
+[2026-07-24 10:03:09] [CACHE  ] Reutilizado raw local progr.pdf
+[2026-07-24 10:03:09] [OK     ] Parseo gal/2020/progr filas=107
+[2026-07-24 10:03:09] [CACHE  ] Reutilizado raw local progr.pdf
+[2026-07-24 10:03:10] [OK     ] Parseo gal/2019/progr filas=107
+[2026-07-24 10:03:10] [CACHE  ] Reutilizado raw local progr.pdf
+[2026-07-24 10:03:10] [OK     ] Parseo gal/2018/progr filas=108
+[2026-07-24 10:03:10] [CACHE  ] Reutilizado raw local progr.pdf
+[2026-07-24 10:03:10] [OK     ] Parseo gal/2017/progr filas=108
+[2026-07-24 10:03:10] [CACHE  ] Reutilizado raw local progr.pdf
+[2026-07-24 10:03:11] [OK     ] Parseo gal/2016/progr filas=108
+[2026-07-24 10:03:11] [CACHE  ] Reutilizado raw local progr.pdf
+[2026-07-24 10:03:11] [OK     ] Parseo gal/2015/progr filas=107
+[2026-07-24 10:03:11] [CACHE  ] Reutilizado raw local funcional_economico.pdf
+[2026-07-24 10:03:13] [OK     ] Parseo lar/2026/funcional_economico filas=60
+[2026-07-24 10:03:13] [CACHE  ] Reutilizado raw local funcional_economico.pdf
+[2026-07-24 10:03:34] [OK     ] Parseo lar/2025/funcional_economico filas=58
+[2026-07-24 10:03:34] [CACHE  ] Reutilizado raw local funcional_economico.pdf
+[2026-07-24 10:03:40] [OK     ] Parseo lar/2024/funcional_economico filas=76
+[2026-07-24 10:03:40] [CACHE  ] Reutilizado raw local funcional_economico.pdf
+[2026-07-24 10:04:20] [WARN   ] ccaa.lar exit=2 para funcional_economico.pdf
+[2026-07-24 10:04:20] [WARN   ] Sin filas tras parseo lar/2023/funcional_economico
+[2026-07-24 10:04:20] [CACHE  ] Reutilizado raw local funcional_economico.pdf
+[2026-07-24 10:04:22] [OK     ] Parseo lar/2022/funcional_economico filas=64
+[2026-07-24 10:04:22] [CACHE  ] Reutilizado raw local funcional_economico.pdf
+[2026-07-24 10:04:26] [OK     ] Parseo lar/2021/funcional_economico filas=81
+[2026-07-24 10:04:26] [CACHE  ] Reutilizado raw local funcional_economico.pdf
+[2026-07-24 10:04:27] [OK     ] Parseo lar/2020/funcional_economico filas=76
+[2026-07-24 10:04:27] [CACHE  ] Reutilizado raw local funcional_economico.pdf
+[2026-07-24 10:04:31] [OK     ] Parseo lar/2019/funcional_economico filas=73
+[2026-07-24 10:04:31] [CACHE  ] Reutilizado raw local funcional_economico.pdf
+[2026-07-24 10:04:43] [OK     ] Parseo lar/2018/funcional_economico filas=53
+[2026-07-24 10:04:43] [CACHE  ] Reutilizado raw local funcional_economico.pdf
+[2026-07-24 10:04:45] [OK     ] Parseo lar/2017/funcional_economico filas=74
+[2026-07-24 10:04:45] [CACHE  ] Reutilizado raw local funcional_economico.pdf
+[2026-07-24 10:04:47] [OK     ] Parseo lar/2016/funcional_economico filas=70
+[2026-07-24 10:04:47] [CACHE  ] Reutilizado raw local funcional_economico.pdf
+[2026-07-24 10:04:48] [OK     ] Parseo lar/2015/funcional_economico filas=69
+[2026-07-24 10:04:48] [CACHE  ] Reutilizado raw local libro_03.pdf
+[2026-07-24 10:04:52] [OK     ] Parseo mad/2026/libro_03 filas=88
+[2026-07-24 10:04:52] [CACHE  ] Reutilizado raw local libro_03.pdf
+[2026-07-24 10:04:57] [OK     ] Parseo mad/2025/libro_03 filas=88
+[2026-07-24 10:04:57] [CACHE  ] Reutilizado raw local libro_03.pdf
+[2026-07-24 10:05:01] [OK     ] Parseo mad/2024/libro_03 filas=87
+[2026-07-24 10:05:01] [CACHE  ] Reutilizado raw local libro_03.pdf
+[2026-07-24 10:05:05] [OK     ] Parseo mad/2023/libro_03 filas=89
+[2026-07-24 10:05:05] [CACHE  ] Reutilizado raw local libro_03.pdf
+[2026-07-24 10:05:09] [OK     ] Parseo mad/2022/libro_03 filas=89
+[2026-07-24 10:05:09] [CACHE  ] Reutilizado raw local libro_03.pdf
+[2026-07-24 10:05:13] [OK     ] Parseo mad/2021/libro_03 filas=80
+[2026-07-24 10:05:13] [CACHE  ] Reutilizado raw local libro_03.pdf
+[2026-07-24 10:05:17] [OK     ] Parseo mad/2020/libro_03 filas=80
+[2026-07-24 10:05:17] [CACHE  ] Reutilizado raw local libro_03.pdf
+[2026-07-24 10:05:22] [OK     ] Parseo mad/2019/libro_03 filas=80
+[2026-07-24 10:05:22] [CACHE  ] Reutilizado raw local libro_03.pdf
+[2026-07-24 10:05:31] [OK     ] Parseo mad/2018/libro_03 filas=76
+[2026-07-24 10:05:31] [CACHE  ] Reutilizado raw local libro_03.pdf
+[2026-07-24 10:05:40] [OK     ] Parseo mad/2017/libro_03 filas=73
+[2026-07-24 10:05:40] [CACHE  ] Reutilizado raw local libro_03.pdf
+[2026-07-24 10:05:49] [OK     ] Parseo mad/2016/libro_03 filas=73
+[2026-07-24 10:05:49] [CACHE  ] Reutilizado raw local libro_03.pdf
+[2026-07-24 10:05:58] [OK     ] Parseo mad/2015/libro_03 filas=82
+[2026-07-24 10:05:58] [CACHE  ] Reutilizado raw local portal_movil.html
+[2026-07-24 10:05:58] [WARN   ] ccaa.mur exit=2 para portal_movil.html
+[2026-07-24 10:05:58] [WARN   ] Sin filas tras parseo mur/2026/portal_movil
+[2026-07-24 10:05:58] [CACHE  ] Reutilizado raw local portal_movil.html
+[2026-07-24 10:05:59] [OK     ] Parseo mur/2025/portal_movil filas=149
+[2026-07-24 10:05:59] [CACHE  ] Reutilizado raw local portal_movil.html
+[2026-07-24 10:05:59] [OK     ] Parseo mur/2024/portal_movil filas=160
+[2026-07-24 10:05:59] [CACHE  ] Reutilizado raw local portal_movil.html
+[2026-07-24 10:05:59] [OK     ] Parseo mur/2023/portal_movil filas=155
+[2026-07-24 10:05:59] [CACHE  ] Reutilizado raw local portal_movil.html
+[2026-07-24 10:06:00] [OK     ] Parseo mur/2022/portal_movil filas=154
+[2026-07-24 10:06:00] [CACHE  ] Reutilizado raw local portal_movil.html
+[2026-07-24 10:06:00] [OK     ] Parseo mur/2021/portal_movil filas=154
+[2026-07-24 10:06:00] [CACHE  ] Reutilizado raw local portal_movil.html
+[2026-07-24 10:06:00] [OK     ] Parseo mur/2020/portal_movil filas=154
+[2026-07-24 10:06:00] [CACHE  ] Reutilizado raw local portal_movil.html
+[2026-07-24 10:06:01] [OK     ] Parseo mur/2019/portal_movil filas=149
+[2026-07-24 10:06:01] [CACHE  ] Reutilizado raw local portal_movil.html
+[2026-07-24 10:06:01] [OK     ] Parseo mur/2018/portal_movil filas=147
+[2026-07-24 10:06:01] [CACHE  ] Reutilizado raw local portal_movil.html
+[2026-07-24 10:06:02] [OK     ] Parseo mur/2017/portal_movil filas=149
+[2026-07-24 10:06:02] [CACHE  ] Reutilizado raw local portal_movil.html
+[2026-07-24 10:06:02] [OK     ] Parseo mur/2016/portal_movil filas=145
+[2026-07-24 10:06:02] [CACHE  ] Reutilizado raw local ley_completa.pdf
+[2026-07-24 10:06:02] [OK     ] Parseo mur/2015/ley_completa filas=150
+[2026-07-24 10:06:02] [CACHE  ] Reutilizado raw local programa_csv.csv
+[2026-07-24 10:06:03] [OK     ] Parseo nav/2026/programa_csv filas=167
+[2026-07-24 10:06:03] [CACHE  ] Reutilizado raw local programa_csv.csv
+[2026-07-24 10:06:03] [OK     ] Parseo nav/2025/programa_csv filas=168
+[2026-07-24 10:06:03] [CACHE  ] Reutilizado raw local programa_csv.csv
+[2026-07-24 10:06:03] [OK     ] Parseo nav/2024/programa_csv filas=167
+[2026-07-24 10:06:03] [CACHE  ] Reutilizado raw local programa_csv.csv
+[2026-07-24 10:06:04] [OK     ] Parseo nav/2023/programa_csv filas=169
+[2026-07-24 10:06:04] [CACHE  ] Reutilizado raw local programa_csv.csv
+[2026-07-24 10:06:04] [OK     ] Parseo nav/2022/programa_csv filas=170
+[2026-07-24 10:06:04] [CACHE  ] Reutilizado raw local programa_csv.csv
+[2026-07-24 10:06:04] [OK     ] Parseo nav/2021/programa_csv filas=170
+[2026-07-24 10:06:04] [CACHE  ] Reutilizado raw local programa_csv.csv
+[2026-07-24 10:06:05] [OK     ] Parseo nav/2020/programa_csv filas=170
+[2026-07-24 10:06:05] [CACHE  ] Reutilizado raw local programa_csv.csv
+[2026-07-24 10:06:05] [OK     ] Parseo nav/2019/programa_csv filas=167
+[2026-07-24 10:06:05] [CACHE  ] Reutilizado raw local programa_csv.csv
+[2026-07-24 10:06:05] [OK     ] Parseo nav/2018/programa_csv filas=172
+[2026-07-24 10:06:05] [CACHE  ] Reutilizado raw local programa_csv.csv
+[2026-07-24 10:06:06] [OK     ] Parseo nav/2017/programa_csv filas=173
+[2026-07-24 10:06:06] [CACHE  ] Reutilizado raw local programa_csv.csv
+[2026-07-24 10:06:06] [OK     ] Parseo nav/2016/programa_csv filas=168
+[2026-07-24 10:06:06] [CACHE  ] Reutilizado raw local programa_csv.csv
+[2026-07-24 10:06:07] [OK     ] Parseo nav/2015/programa_csv filas=167
+[2026-07-24 10:06:07] [CACHE  ] Reutilizado raw local csv_tidy.csv
+[2026-07-24 10:06:07] [OK     ] Parseo pvc/2025/csv_tidy filas=119
+[2026-07-24 10:06:07] [CACHE  ] Reutilizado raw local csv_tidy.csv
+[2026-07-24 10:06:07] [OK     ] Parseo pvc/2024/csv_tidy filas=114
+[2026-07-24 10:06:07] [CACHE  ] Reutilizado raw local csv_tidy.csv
+[2026-07-24 10:06:08] [OK     ] Parseo pvc/2022/csv_tidy filas=113
+[2026-07-24 10:06:08] [CACHE  ] Reutilizado raw local csv_tidy.csv
+[2026-07-24 10:06:08] [OK     ] Parseo pvc/2026/csv_tidy filas=119
+[2026-07-24 10:06:08] [CACHE  ] Reutilizado raw local csv_tidy.csv
+[2026-07-24 10:06:08] [OK     ] Parseo pvc/2023/csv_tidy filas=113
+[2026-07-24 10:06:08] [CACHE  ] Reutilizado raw local GASTOSC.csv
+[2026-07-24 10:06:09] [OK     ] Parseo pvc/2021/GASTOSC filas=112
+[2026-07-24 10:06:09] [CACHE  ] Reutilizado raw local GASTOSC.csv
+[2026-07-24 10:06:09] [OK     ] Parseo pvc/2020/GASTOSC filas=110
+[2026-07-24 10:06:09] [CACHE  ] Reutilizado raw local GASTOSC.csv
+[2026-07-24 10:06:09] [OK     ] Parseo pvc/2019/GASTOSC filas=110
+[2026-07-24 10:06:09] [CACHE  ] Reutilizado raw local GASTOSC.csv
+[2026-07-24 10:06:10] [OK     ] Parseo pvc/2018/GASTOSC filas=109
+[2026-07-24 10:06:10] [CACHE  ] Reutilizado raw local GASTOSC.csv
+[2026-07-24 10:06:10] [OK     ] Parseo pvc/2017/GASTOSC filas=108
+[2026-07-24 10:06:10] [CACHE  ] Reutilizado raw local GASTOSC.csv
+[2026-07-24 10:06:11] [OK     ] Parseo pvc/2016/GASTOSC filas=106
+[2026-07-24 10:06:11] [CACHE  ] Reutilizado raw local GASTOSC.csv
+[2026-07-24 10:06:11] [OK     ] Parseo pvc/2015/GASTOSC filas=105
+[2026-07-24 10:06:11] [CACHE  ] Reutilizado raw local tomo_II.html
+[2026-07-24 10:06:12] [OK     ] Parseo val/2026/tomo_II filas=176
+[2026-07-24 10:06:12] [CACHE  ] Reutilizado raw local tomo_II.html
+[2026-07-24 10:06:13] [OK     ] Parseo val/2025/tomo_II filas=174
+[2026-07-24 10:06:13] [CACHE  ] Reutilizado raw local tomo_II.html
+[2026-07-24 10:06:15] [OK     ] Parseo val/2024/tomo_II filas=173
+[2026-07-24 10:06:15] [CACHE  ] Reutilizado raw local tomo_II.html
+[2026-07-24 10:06:16] [OK     ] Parseo val/2023/tomo_II filas=174
+[2026-07-24 10:06:16] [CACHE  ] Reutilizado raw local tomo_II.html
+[2026-07-24 10:06:16] [OK     ] Parseo val/2022/tomo_II filas=169
+[2026-07-24 10:06:16] [CACHE  ] Reutilizado raw local tomo_II.html
+[2026-07-24 10:06:17] [OK     ] Parseo val/2021/tomo_II filas=154
+[2026-07-24 10:06:17] [CACHE  ] Reutilizado raw local tomo_II.html
+[2026-07-24 10:06:18] [OK     ] Parseo val/2020/tomo_II filas=153
+[2026-07-24 10:06:18] [CACHE  ] Reutilizado raw local tomo_II.html
+[2026-07-24 10:06:19] [OK     ] Parseo val/2019/tomo_II filas=131
+[2026-07-24 10:06:19] [CACHE  ] Reutilizado raw local tomo_II.html
+[2026-07-24 10:06:20] [OK     ] Parseo val/2018/tomo_II filas=128
+[2026-07-24 10:06:20] [CACHE  ] Reutilizado raw local tomo_II.html
+[2026-07-24 10:06:20] [OK     ] Parseo val/2017/tomo_II filas=128
+[2026-07-24 10:06:20] [CACHE  ] Reutilizado raw local tomo_II.html
+[2026-07-24 10:06:21] [OK     ] Parseo val/2016/tomo_II filas=129
+[2026-07-24 10:06:21] [CACHE  ] Reutilizado raw local tomo_II.html
+[2026-07-24 10:06:23] [OK     ] Parseo val/2015/tomo_II filas=122
+[2026-07-24 10:06:23] [OK     ] Extracción terminada: 207 fuentes, 24824 filas staging
+[2026-07-24 10:06:23] [STEP   ] Fin extraccion
+[2026-07-24 10:06:23] [STEP   ] Inicio transformacion
+[2026-07-24 10:06:23] [INFO   ] Iniciando transformación
+[2026-07-24 10:06:41] [INFO   ] Etiquetadas 1695 filas Hacienda como concepto=total
+[2026-07-24 10:06:41] [WARN   ] Concepto Python vs R: 91 discrepancias en 90 CCAA-año
+[2026-07-24 10:06:41] [INFO   ] Transformación: asignadas=18524, pendientes=6300, agregadas=2610
+[2026-07-24 10:06:41] [WARN   ] Chequeos de magnitud: 64 alertas básicas
+[2026-07-24 10:06:41] [INFO   ] gasto_normalizado: filas=2610 | ccaa=17 | periodo=2015-2026
+[2026-07-24 10:06:41] [INFO   ] gasto_normalizado: cobertura completa en 2025
+[2026-07-24 10:06:41] [WARN   ] gasto_normalizado: faltan CCAA en 2026: Región de Murcia
+[2026-07-24 10:06:41] [STEP   ] Fin transformacion
+[2026-07-24 10:06:41] [STEP   ] Inicio modelado
+[2026-07-24 10:06:41] [INFO   ] Iniciando modelado
+[2026-07-24 10:06:41] [INFO   ] PIB regional: 170 filas reales + 34 proyectadas (bootstrap n=5000) hasta 2026
+[2026-07-24 10:06:42] [INFO   ] ced_presupuestos modelado: filas=388 | ccaa=17 | periodo=2015-2026
+[2026-07-24 10:06:42] [INFO   ] ced_presupuestos modelado: cobertura completa en 2025
+[2026-07-24 10:06:42] [WARN   ] ced_presupuestos modelado: faltan CCAA en 2026: Región de Murcia
+[2026-07-24 10:06:42] [INFO   ] ced_presupuestos modelado: NA% por métrica -> pib_regional_eur=0% | imp_dependencia=54.4% | imp_direccion=48.2% | imp_discapacidad=62.9% | imp_diversidad=50% | imp_educacion=48.2% | imp_empleo=48.2% | imp_idi=48.2% | imp_igualdad=48.7% | imp_salud_mental=73.5% | imp_sanidad=48.2% | imp_soberania=48.5% | imp_total=51.8% | imp_turismo=48.5% | imp_vivienda=48.2% | pib_dependencia=65.7% | pib_direccion=61.1% | pib_discapacidad=72.2% | pib_diversidad=61.9% | pib_educacion=61.1% | pib_empleo=61.1% | pib_idi=61.1% | pib_igualdad=61.3% | pib_salud_mental=80.2% | pib_sanidad=61.1% | pib_soberania=61.1% | pib_total=64.9% | pib_turismo=61.3% | pib_vivienda=61.1% | pibreg_dependencia=54.4% | pibreg_direccion=48.2% | pibreg_discapacidad=62.9% | pibreg_diversidad=50% | pibreg_educacion=48.2% | pibreg_empleo=48.2% | pibreg_idi=48.2% | pibreg_igualdad=48.7% | pibreg_salud_mental=73.5% | pibreg_sanidad=48.2% | pibreg_soberania=48.5% | pibreg_total=51.8% | pibreg_turismo=48.5% | pibreg_vivienda=48.2% | pc_dependencia=88.7% | pc_direccion=87.1% | pc_discapacidad=91% | pc_diversidad=87.1% | pc_educacion=87.1% | pc_empleo=87.1% | pc_idi=87.1% | pc_igualdad=87.1% | pc_salud_mental=92.5% | pc_sanidad=87.1% | pc_soberania=87.1% | pc_total=91.2% | pc_turismo=87.1% | pc_vivienda=87.1% | var_dependencia=58.2% | var_direccion=52.6% | var_discapacidad=66.5% | var_diversidad=54.4% | var_educacion=52.6% | var_empleo=52.6% | var_idi=52.6% | var_igualdad=53.1% | var_salud_mental=76.3% | var_sanidad=52.6% | var_soberania=52.8% | var_total=56.2% | var_turismo=52.8% | var_vivienda=52.6%
+[2026-07-24 10:06:42] [INFO   ] Benford: chi=19.18 p=0.0139 ok=TRUE n=2610
+[2026-07-24 10:06:42] [STEP   ] Fin modelado
+[2026-07-24 10:06:42] [STEP   ] Inicio carga
+[2026-07-24 10:06:42] [INFO   ] Iniciando carga
+[2026-07-24 10:06:42] [OK     ] Capa Hacienda: 68 filas CCAA-año (años=2022-2025, CCAA=17)
+[2026-07-24 10:06:42] [WARN   ] Capa Hacienda: omitidas 68 filas ya presentes en el modelado para evitar duplicados
+[2026-07-24 10:06:42] [INFO   ] ced_presupuestos carga: filas=388 | ccaa=17 | periodo=2015-2026
+[2026-07-24 10:06:42] [INFO   ] ced_presupuestos carga: cobertura completa en 2025
+[2026-07-24 10:06:42] [WARN   ] ced_presupuestos carga: faltan CCAA en 2026: Región de Murcia
+[2026-07-24 10:06:42] [INFO   ] ced_presupuestos carga: NA% por métrica -> pib_regional_eur=0% | imp_dependencia=54.4% | imp_direccion=48.2% | imp_discapacidad=62.9% | imp_diversidad=50% | imp_educacion=48.2% | imp_empleo=48.2% | imp_idi=48.2% | imp_igualdad=48.7% | imp_salud_mental=73.5% | imp_sanidad=48.2% | imp_soberania=48.5% | imp_total=51.8% | imp_turismo=48.5% | imp_vivienda=48.2% | pib_dependencia=65.7% | pib_direccion=61.1% | pib_discapacidad=72.2% | pib_diversidad=61.9% | pib_educacion=61.1% | pib_empleo=61.1% | pib_idi=61.1% | pib_igualdad=61.3% | pib_salud_mental=80.2% | pib_sanidad=61.1% | pib_soberania=61.1% | pib_total=64.9% | pib_turismo=61.3% | pib_vivienda=61.1% | pibreg_dependencia=54.4% | pibreg_direccion=48.2% | pibreg_discapacidad=62.9% | pibreg_diversidad=50% | pibreg_educacion=48.2% | pibreg_empleo=48.2% | pibreg_idi=48.2% | pibreg_igualdad=48.7% | pibreg_salud_mental=73.5% | pibreg_sanidad=48.2% | pibreg_soberania=48.5% | pibreg_total=51.8% | pibreg_turismo=48.5% | pibreg_vivienda=48.2% | pc_dependencia=88.7% | pc_direccion=87.1% | pc_discapacidad=91% | pc_diversidad=87.1% | pc_educacion=87.1% | pc_empleo=87.1% | pc_idi=87.1% | pc_igualdad=87.1% | pc_salud_mental=92.5% | pc_sanidad=87.1% | pc_soberania=87.1% | pc_total=91.2% | pc_turismo=87.1% | pc_vivienda=87.1% | var_dependencia=58.2% | var_direccion=52.6% | var_discapacidad=66.5% | var_diversidad=54.4% | var_educacion=52.6% | var_empleo=52.6% | var_idi=52.6% | var_igualdad=53.1% | var_salud_mental=76.3% | var_sanidad=52.6% | var_soberania=52.8% | var_total=56.2% | var_turismo=52.8% | var_vivienda=52.6%
+[2026-07-24 10:06:42] [OK     ] Exportados ced_presupuestos.csv/xlsx (388 filas)
+[2026-07-24 10:06:42] [DB     ] Usando conexión PostgreSQL
+NOTICE:  schema "presupuestos" already exists, skipping
+
+NOTICE:  relation "ced_presupuestos" already exists, skipping
+
+NOTICE:  column "pib_origen" of relation "ced_presupuestos" already exists, skipping
+
+NOTICE:  column "pib_regional_eur" of relation "ced_presupuestos" already exists, skipping
+
+NOTICE:  column "imp_dependencia" of relation "ced_presupuestos" already exists, skipping
+
+NOTICE:  column "imp_direccion" of relation "ced_presupuestos" already exists, skipping
+
+NOTICE:  column "imp_discapacidad" of relation "ced_presupuestos" already exists, skipping
+
+NOTICE:  column "imp_diversidad" of relation "ced_presupuestos" already exists, skipping
+
+NOTICE:  column "imp_educacion" of relation "ced_presupuestos" already exists, skipping
+
+NOTICE:  column "imp_empleo" of relation "ced_presupuestos" already exists, skipping
+
+NOTICE:  column "imp_idi" of relation "ced_presupuestos" already exists, skipping
+
+NOTICE:  column "imp_igualdad" of relation "ced_presupuestos" already exists, skipping
+
+NOTICE:  column "imp_salud_mental" of relation "ced_presupuestos" already exists, skipping
+
+NOTICE:  column "imp_sanidad" of relation "ced_presupuestos" already exists, skipping
+
+NOTICE:  column "imp_soberania" of relation "ced_presupuestos" already exists, skipping
+
+NOTICE:  column "imp_total" of relation "ced_presupuestos" already exists, skipping
+
+NOTICE:  column "imp_turismo" of relation "ced_presupuestos" already exists, skipping
+
+NOTICE:  column "imp_vivienda" of relation "ced_presupuestos" already exists, skipping
+
+NOTICE:  column "pib_dependencia" of relation "ced_presupuestos" already exists, skipping
+
+NOTICE:  column "pib_direccion" of relation "ced_presupuestos" already exists, skipping
+
+NOTICE:  column "pib_discapacidad" of relation "ced_presupuestos" already exists, skipping
+
+NOTICE:  column "pib_diversidad" of relation "ced_presupuestos" already exists, skipping
+
+NOTICE:  column "pib_educacion" of relation "ced_presupuestos" already exists, skipping
+
+NOTICE:  column "pib_empleo" of relation "ced_presupuestos" already exists, skipping
+
+NOTICE:  column "pib_idi" of relation "ced_presupuestos" already exists, skipping
+
+NOTICE:  column "pib_igualdad" of relation "ced_presupuestos" already exists, skipping
+
+NOTICE:  column "pib_salud_mental" of relation "ced_presupuestos" already exists, skipping
+
+NOTICE:  column "pib_sanidad" of relation "ced_presupuestos" already exists, skipping
+
+NOTICE:  column "pib_soberania" of relation "ced_presupuestos" already exists, skipping
+
+NOTICE:  column "pib_total" of relation "ced_presupuestos" already exists, skipping
+
+NOTICE:  column "pib_turismo" of relation "ced_presupuestos" already exists, skipping
+
+NOTICE:  column "pib_vivienda" of relation "ced_presupuestos" already exists, skipping
+
+NOTICE:  column "pibreg_dependencia" of relation "ced_presupuestos" already exists, skipping
+
+NOTICE:  column "pibreg_direccion" of relation "ced_presupuestos" already exists, skipping
+
+NOTICE:  column "pibreg_discapacidad" of relation "ced_presupuestos" already exists, skipping
+
+NOTICE:  column "pibreg_diversidad" of relation "ced_presupuestos" already exists, skipping
+
+NOTICE:  column "pibreg_educacion" of relation "ced_presupuestos" already exists, skipping
+
+NOTICE:  column "pibreg_empleo" of relation "ced_presupuestos" already exists, skipping
+
+NOTICE:  column "pibreg_idi" of relation "ced_presupuestos" already exists, skipping
+
+NOTICE:  column "pibreg_igualdad" of relation "ced_presupuestos" already exists, skipping
+
+NOTICE:  column "pibreg_sanidad" of relation "ced_presupuestos" already exists, skipping
+
+NOTICE:  column "pibreg_soberania" of relation "ced_presupuestos" already exists, skipping
+
+NOTICE:  column "pibreg_turismo" of relation "ced_presupuestos" already exists, skipping
+
+NOTICE:  column "pibreg_vivienda" of relation "ced_presupuestos" already exists, skipping
+
+NOTICE:  column "pc_dependencia" of relation "ced_presupuestos" already exists, skipping
+
+NOTICE:  column "pc_direccion" of relation "ced_presupuestos" already exists, skipping
+
+NOTICE:  column "pc_discapacidad" of relation "ced_presupuestos" already exists, skipping
+
+NOTICE:  column "pc_diversidad" of relation "ced_presupuestos" already exists, skipping
+
+NOTICE:  column "pc_educacion" of relation "ced_presupuestos" already exists, skipping
+
+NOTICE:  column "pc_empleo" of relation "ced_presupuestos" already exists, skipping
+
+NOTICE:  column "pc_idi" of relation "ced_presupuestos" already exists, skipping
+
+NOTICE:  column "pc_igualdad" of relation "ced_presupuestos" already exists, skipping
+
+NOTICE:  column "pc_salud_mental" of relation "ced_presupuestos" already exists, skipping
+
+NOTICE:  column "pc_sanidad" of relation "ced_presupuestos" already exists, skipping
+
+NOTICE:  column "pc_soberania" of relation "ced_presupuestos" already exists, skipping
+
+NOTICE:  column "pc_total" of relation "ced_presupuestos" already exists, skipping
+
+NOTICE:  column "pc_turismo" of relation "ced_presupuestos" already exists, skipping
+
+NOTICE:  column "pc_vivienda" of relation "ced_presupuestos" already exists, skipping
+
+NOTICE:  column "var_dependencia" of relation "ced_presupuestos" already exists, skipping
+
+NOTICE:  column "var_direccion" of relation "ced_presupuestos" already exists, skipping
+
+NOTICE:  column "var_discapacidad" of relation "ced_presupuestos" already exists, skipping
+
+NOTICE:  column "var_diversidad" of relation "ced_presupuestos" already exists, skipping
+
+NOTICE:  column "var_educacion" of relation "ced_presupuestos" already exists, skipping
+
+NOTICE:  column "var_empleo" of relation "ced_presupuestos" already exists, skipping
+
+NOTICE:  column "var_idi" of relation "ced_presupuestos" already exists, skipping
+
+NOTICE:  column "var_igualdad" of relation "ced_presupuestos" already exists, skipping
+
+NOTICE:  column "var_salud_mental" of relation "ced_presupuestos" already exists, skipping
+
+NOTICE:  column "var_sanidad" of relation "ced_presupuestos" already exists, skipping
+
+NOTICE:  column "var_soberania" of relation "ced_presupuestos" already exists, skipping
+
+NOTICE:  column "var_total" of relation "ced_presupuestos" already exists, skipping
+
+NOTICE:  column "var_turismo" of relation "ced_presupuestos" already exists, skipping
+
+NOTICE:  column "var_vivienda" of relation "ced_presupuestos" already exists, skipping
+
+NOTICE:  relation "ced_presupuestos_key_idx" already exists, skipping
+
+[2026-07-24 10:06:42] [DB     ] Carga en Supabase completada
+[2026-07-24 10:06:42] [OK     ] Carga completada
+[2026-07-24 10:06:42] [STEP   ] Fin carga
+[2026-07-24 10:06:42] [DONE   ] Pipeline completado en 14.74 minutos
+Avisos:
+1: In system2(cfg$python_bin, args = c("-m", "ccaa", "--input", shQuote(src),  :
+  el comando ejecutado ''python3' -m ccaa --input '/Users/cristiancpv/Desktop/TRABAJO/OBSERVATORIO/CANARIAS EN DATOS/Presupuestos/fuentes/raw/can/2025/datos_abiertos.csv' --output '/Users/cristiancpv/Desktop/TRABAJO/OBSERVATORIO/CANARIAS EN DATOS/Presupuestos/1_extraccion/_pdf_cache/can/2025_datos_abiertos.csv' --ccaa can --anio 2025 2>&1' tiene el estatus 1
+2: One or more parsing issues, call `problems()` on your data frame for details,
+e.g.:
+  dat <- vroom(...)
+  problems(dat) 
+3: In system2(cfg$python_bin, args = c("-m", "ccaa", "--input", shQuote(src),  :
+  el comando ejecutado ''python3' -m ccaa --input '/Users/cristiancpv/Desktop/TRABAJO/OBSERVATORIO/CANARIAS EN DATOS/Presupuestos/fuentes/raw/cym/2015/bocyl_ley.pdf' --output '/Users/cristiancpv/Desktop/TRABAJO/OBSERVATORIO/CANARIAS EN DATOS/Presupuestos/1_extraccion/_pdf_cache/cym/2015_bocyl_ley.csv' --ccaa cym --anio 2015 2>&1' tiene el estatus 2
+4: In system2(cfg$python_bin, args = c("-m", "ccaa", "--input", shQuote(src),  :
+  el comando ejecutado ''python3' -m ccaa --input '/Users/cristiancpv/Desktop/TRABAJO/OBSERVATORIO/CANARIAS EN DATOS/Presupuestos/fuentes/raw/lar/2023/funcional_economico.pdf' --output '/Users/cristiancpv/Desktop/TRABAJO/OBSERVATORIO/CANARIAS EN DATOS/Presupuestos/1_extraccion/_pdf_cache/lar/2023_funcional_economico.csv' --ccaa lar --anio 2023 2>&1' tiene el estatus 2
+5: In system2(cfg$python_bin, args = c("-m", "ccaa", "--input", shQuote(src),  :
+  el comando ejecutado ''python3' -m ccaa --input '/Users/cristiancpv/Desktop/TRABAJO/OBSERVATORIO/CANARIAS EN DATOS/Presupuestos/fuentes/raw/mur/2026/portal_movil.html' --output '/Users/cristiancpv/Desktop/TRABAJO/OBSERVATORIO/CANARIAS EN DATOS/Presupuestos/1_extraccion/_pdf_cache/mur/2026_portal_movil.csv' --ccaa mur --anio 2026 2>&1' tiene el estatus 2
+MAESTRO_DONE_OK 10:06:42

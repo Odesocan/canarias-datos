@@ -1,0 +1,215 @@
+# correspondencias LEGACY — La Rioja, clasificación funcional ANTIGUA (≤2016).
+# Los BOLR 2015-2016 usan grupos 4.1=Sanidad, 4.2=Educación, 3.1=Protección
+# social, 5.3.1/7.1=Agrario, 4.5/7.5=Cultura/Turismo, 4.3=Vivienda, 5.4=I+D,
+# 1.*=Dirección — DISTINTO del esquema nuevo (2017+, en correspondencias.yml,
+# donde 3.1=Sanidad). Sin este fichero, los códigos nuevos mis-asignaban
+# 403 M€ de sanidad a soberania. transform.py lo selecciona para anio<=2016.
+# FIX 2026-07-02.
+conceptos:
+  sanidad:
+    codigos:
+    - 4.1*
+    keywords:
+    - sanidad
+    - sanitario
+    - sanitaria
+    - sanitarios
+    - asistencia sanitaria
+    - atención primaria
+    - atencion primaria
+    - atención especializada
+    - atencion especializada
+    - hospitales
+    - formación del personal sanitario
+    - formacion del personal sanitario
+    - acciones de salud
+    - ordenación, control e información al consumidor
+    - salud pública
+    - salud publica
+    - salud
+  educacion:
+    codigos:
+    - 4.2*
+    keywords:
+    - educación
+    - educacion
+    - educativo
+    - educativa
+    - enseñanza
+    - ensenanza
+    - escolar
+    - profesorado
+    - formación profesional
+    - formacion profesional
+    - universidad
+    - universidades
+    - universitario
+    - universitaria
+    - becas
+  soberania:
+    codigos:
+    - 5.3.1*
+    - 7.1*
+    keywords:
+    - agricultura
+    - ganadería
+    - ganaderia
+    - ganadero
+    - pesca
+    - pesquero
+    - pesquera
+    - agroalimentaria
+    - agroalimentario
+    - agrario
+    - agraria
+    - desarrollo rural
+    - medio rural
+  direccion:
+    codigos:
+    - 1.*
+    keywords:
+    - actividad legislativa
+    - parlamento
+    - cortes
+    - alta dirección
+    - alta direccion
+    - presidencia
+    - vicepresidencia
+    - gobierno
+    - dirección política
+    - direccion politica
+    - dirección administrativa
+    - direccion administrativa
+    - servicios generales
+    - servicios de carácter
+    - servicios de caracter
+    - función pública
+    - funcion publica
+    - control externo
+    - transparencia
+    - tribunales de justicia
+    - ministerio fiscal
+    - administración de justicia
+    - administracion de justicia
+    - acción exterior
+    - accion exterior
+    - cooperación al desarrollo
+    - cooperacion al desarrollo
+    - cooperación para el desarrollo
+    - cooperacion para el desarrollo
+    - asesoramiento jurídico
+    - asesoramiento juridico
+    - asesoramiento
+    - actividad ejecutiva
+    - protección civil
+    - proteccion civil
+    - seguridad ciudadana
+    - planificación
+    - planificacion
+    - gestión del sistema
+    - gestion del sistema
+    - administración del
+    - administracion del
+    - politica económica
+    - politica economica
+  vivienda:
+    codigos:
+    - 4.3*
+    keywords:
+    - vivienda
+    - viviendas
+    - urbanismo
+    - ordenación del territorio
+    - ordenacion del territorio
+    - rehabilitación
+    - rehabilitacion
+  empleo:
+    codigos:
+    - 3.2.2*
+    keywords:
+    - empleo
+    - políticas de empleo
+    - politicas de empleo
+    - formación para el empleo
+    - formacion para el empleo
+    - inserción laboral
+    - insercion laboral
+    - ocupación
+    - ocupacion
+  idi:
+    codigos:
+    - 5.4*
+    keywords:
+    - investigación
+    - investigacion
+    - innovación
+    - innovacion
+    - i+d
+    - i d i
+    - desarrollo tecnológico
+    - desarrollo tecnologico
+    - sociedad digital
+  dependencia:
+    codigos:
+    - 3.1*
+    keywords:
+    - dependencia
+    - autonomía personal
+    - autonomia personal
+    - personas mayores
+    - mayores
+    - sociosanitarias
+    - planificación sociosanitaria
+    - planificacion sociosanitaria
+  discapacidad:
+    codigos: []
+    keywords:
+    - discapacidad
+    - diversidad funcional
+    - personas con discapacidad
+  salud_mental:
+    codigos: []
+    keywords:
+    - salud mental
+    - acciones salud mental
+    - drogodependencias
+    - adicciones
+  diversidad:
+    codigos: []
+    keywords:
+    - lgtbi
+    - lgbti
+    - migración
+    - migracion
+    - interculturalidad
+    - gitano
+    - exclusión social
+    - exclusion social
+    - infancia y menores
+    - prestaciones
+    - servicios sociales
+    - acción social
+    - accion social
+  turismo:
+    codigos:
+    - 4.5*
+    - 7.5*
+    keywords:
+    - turismo
+    - turístico
+    - turistico
+    - turística
+    - turistica
+    - hostelería
+    - hosteleria
+  igualdad:
+    codigos: []
+    keywords:
+    - igualdad
+    - igualdad de oportunidades
+    - mujer
+    - mujeres
+    - violencia de género
+    - violencia de genero
+    - promoción social
+    - promocion social

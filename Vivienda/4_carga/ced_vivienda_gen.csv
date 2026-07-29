@@ -1,0 +1,1327 @@
+ccaa;periodo;genero;origen;dif_finmes;espacio_insuf;gasto_elevado;hogares_mono;retrasos_pagos;salario_destinado
+Andalucía;2004;hombres;real;17,50;18,65;NA;NA;12,55;NA
+Andalucía;2004;mujeres;real;17,90;18,55;NA;NA;12,65;NA
+Andalucía;2004;total;real;17,70;18,60;NA;NA;12,60;NA
+Andalucía;2005;hombres;real;13,15;10,90;NA;NA;7,40;NA
+Andalucía;2005;mujeres;real;14,05;10,90;NA;NA;7,20;NA
+Andalucía;2005;total;real;13,60;10,90;NA;NA;7,30;NA
+Andalucía;2006;hombres;real;17,90;6,75;NA;NA;8,85;NA
+Andalucía;2006;mujeres;real;18,10;6,25;NA;NA;8,55;NA
+Andalucía;2006;total;real;18,00;6,50;NA;NA;8,70;NA
+Andalucía;2007;hombres;real;14,45;5,65;NA;NA;10,20;NA
+Andalucía;2007;mujeres;real;14,95;5,55;NA;NA;10,00;NA
+Andalucía;2007;total;real;14,70;5,60;NA;NA;10,10;NA
+Andalucía;2008;hombres;real;17,00;7,10;7,25;NA;7,90;0,52
+Andalucía;2008;mujeres;real;17,40;6,50;7,35;NA;7,30;0,63
+Andalucía;2008;total;real;17,20;6,80;7,30;NA;7,60;0,55
+Andalucía;2009;hombres;real;20,45;6,05;8,55;NA;10,80;0,46
+Andalucía;2009;mujeres;real;20,35;5,35;8,65;NA;10,40;0,55
+Andalucía;2009;total;real;20,40;5,70;8,60;NA;10,60;0,49
+Andalucía;2010;hombres;real;23,05;4,85;7,45;NA;12,70;0,43
+Andalucía;2010;mujeres;real;23,55;4,35;8,15;NA;13,10;0,56
+Andalucía;2010;total;real;23,30;4,60;7,80;NA;12,90;0,47
+Andalucía;2011;hombres;real;18,00;7,65;11,10;NA;13,85;0,41
+Andalucía;2011;mujeres;real;18,20;7,35;11,30;NA;13,75;0,52
+Andalucía;2011;total;real;18,10;7,50;11,20;NA;13,80;0,44
+Andalucía;2012;hombres;real;22,10;6,60;8,60;NA;15,90;0,39
+Andalucía;2012;mujeres;real;21,50;6,60;8,80;NA;15,10;0,50
+Andalucía;2012;total;real;21,80;6,60;8,70;NA;15,50;0,43
+Andalucía;2013;hombres;real;25,95;6,55;9,45;NA;13,50;0,37
+Andalucía;2013;mujeres;real;26,25;6,25;8,95;NA;13,30;0,48
+Andalucía;2013;total;real;26,10;6,40;9,20;NA;13,40;0,41
+Andalucía;2014;hombres;real;25,55;7,10;11,45;48,30;15,70;0,36
+Andalucía;2014;mujeres;real;26,05;7,10;11,35;274,00;15,90;0,48
+Andalucía;2014;total;real;25,80;7,10;11,40;322,30;15,80;0,40
+Andalucía;2015;hombres;real;16,65;5,75;8,90;56,20;13,90;0,37
+Andalucía;2015;mujeres;real;17,15;5,45;8,70;284,80;13,70;0,48
+Andalucía;2015;total;real;16,90;5,60;8,80;341,00;13,80;0,41
+Andalucía;2016;hombres;real;24,75;6,80;9,15;70,60;13,35;0,38
+Andalucía;2016;mujeres;real;25,85;7,00;9,65;285,90;13,05;0,51
+Andalucía;2016;total;real;25,30;6,90;9,40;356,50;13,20;0,43
+Andalucía;2017;hombres;real;13,95;6,40;7,80;68,60;11,30;0,40
+Andalucía;2017;mujeres;real;14,45;6,80;8,60;287,30;11,10;0,53
+Andalucía;2017;total;real;14,20;6,60;8,20;355,90;11,20;0,45
+Andalucía;2018;hombres;real;16,95;6,35;6,75;59,90;15,60;0,45
+Andalucía;2018;mujeres;real;17,85;6,45;7,85;280,20;15,80;0,59
+Andalucía;2018;total;real;17,40;6,40;7,30;340,10;15,70;0,50
+Andalucía;2019;hombres;real;10,25;8,40;7,75;59,50;11,25;0,48
+Andalucía;2019;mujeres;real;11,35;8,60;8,25;278,00;11,35;0,61
+Andalucía;2019;total;real;10,80;8,50;8,00;337,50;11,30;0,52
+Andalucía;2020;hombres;real;14,50;8,30;5,55;55,30;19,30;0,50
+Andalucía;2020;mujeres;real;15,10;7,90;6,45;277,40;18,70;0,66
+Andalucía;2020;total;real;14,80;8,10;6,00;332,70;19,00;0,55
+Andalucía;2021;hombres;proyeccion;NA;NA;NA;59,15;NA;NA
+Andalucía;2021;hombres;real;12,45;7,05;9,95;NA;17,30;0,49
+Andalucía;2021;mujeres;proyeccion;NA;NA;NA;282,04;NA;NA
+Andalucía;2021;mujeres;real;12,55;6,75;10,25;NA;16,70;0,62
+Andalucía;2021;total;proyeccion;NA;NA;NA;342,33;NA;NA
+Andalucía;2021;total;real;12,50;6,90;10,10;NA;17,00;0,53
+Andalucía;2022;hombres;proyeccion;NA;NA;NA;59,81;NA;NA
+Andalucía;2022;hombres;real;11,30;7,60;9,00;NA;16,55;0,51
+Andalucía;2022;mujeres;proyeccion;NA;NA;NA;283,02;NA;NA
+Andalucía;2022;mujeres;real;12,10;7,60;9,80;NA;16,05;0,62
+Andalucía;2022;total;proyeccion;NA;NA;NA;343,58;NA;NA
+Andalucía;2022;total;real;11,70;7,60;9,40;NA;16,30;0,55
+Andalucía;2023;hombres;proyeccion;NA;NA;NA;60,62;NA;NA
+Andalucía;2023;hombres;real;13,40;8,10;8,50;NA;15,95;0,54
+Andalucía;2023;mujeres;proyeccion;NA;NA;NA;285,94;NA;NA
+Andalucía;2023;mujeres;real;13,80;8,10;8,90;NA;15,25;0,67
+Andalucía;2023;total;proyeccion;NA;NA;NA;341,62;NA;NA
+Andalucía;2023;total;real;13,60;8,10;8,70;NA;15,60;0,58
+Andalucía;2024;hombres;proyeccion;11,97;7,71;8,00;60,59;15,40;0,59
+Andalucía;2024;mujeres;proyeccion;12,23;7,66;8,34;286,70;14,72;0,71
+Andalucía;2024;total;proyeccion;12,03;7,67;7,98;341,62;15,24;0,62
+Andalucía;2025;hombres;proyeccion;13,05;7,76;8,12;60,40;15,87;0,63
+Andalucía;2025;mujeres;proyeccion;12,76;7,72;7,73;285,94;14,19;0,76
+Andalucía;2025;total;proyeccion;12,95;7,73;8,07;341,62;14,87;0,67
+Andalucía;2026;hombres;proyeccion;12,08;7,71;8,03;60,40;15,99;0,66
+Andalucía;2026;mujeres;proyeccion;12,60;7,75;8,01;285,94;14,03;0,78
+Andalucía;2026;total;proyeccion;12,22;7,77;7,91;341,62;14,67;0,70
+Aragón;2004;hombres;real;3,90;9,05;NA;NA;4,35;NA
+Aragón;2004;mujeres;real;4,30;8,95;NA;NA;4,45;NA
+Aragón;2004;total;real;4,10;9,00;NA;NA;4,40;NA
+Aragón;2005;hombres;real;4,85;5,50;NA;NA;3,30;NA
+Aragón;2005;mujeres;real;5,75;5,50;NA;NA;3,10;NA
+Aragón;2005;total;real;5,30;5,50;NA;NA;3,20;NA
+Aragón;2006;hombres;real;7,10;6,25;NA;NA;4,05;NA
+Aragón;2006;mujeres;real;7,30;5,75;NA;NA;3,75;NA
+Aragón;2006;total;real;7,20;6,00;NA;NA;3,90;NA
+Aragón;2007;hombres;real;5,35;4,75;NA;NA;5,80;NA
+Aragón;2007;mujeres;real;5,85;4,65;NA;NA;5,60;NA
+Aragón;2007;total;real;5,60;4,70;NA;NA;5,70;NA
+Aragón;2008;hombres;real;2,90;3,40;7,45;NA;3,70;0,44
+Aragón;2008;mujeres;real;3,30;2,80;7,55;NA;3,10;0,61
+Aragón;2008;total;real;3,10;3,10;7,50;NA;3,40;0,50
+Aragón;2009;hombres;real;4,25;4,45;7,25;NA;3,60;0,40
+Aragón;2009;mujeres;real;4,15;3,75;7,35;NA;3,20;0,56
+Aragón;2009;total;real;4,20;4,10;7,30;NA;3,40;0,45
+Aragón;2010;hombres;real;4,75;2,15;5,05;NA;5,30;0,38
+Aragón;2010;mujeres;real;5,25;1,65;5,75;NA;5,70;0,51
+Aragón;2010;total;real;5,00;1,90;5,40;NA;5,50;0,42
+Aragón;2011;hombres;real;4,60;2,85;7,70;NA;5,55;0,37
+Aragón;2011;mujeres;real;4,80;2,55;7,90;NA;5,45;0,51
+Aragón;2011;total;real;4,70;2,70;7,80;NA;5,50;0,42
+Aragón;2012;hombres;real;5,60;1,40;7,60;NA;4,50;0,36
+Aragón;2012;mujeres;real;5,00;1,40;7,80;NA;3,70;0,51
+Aragón;2012;total;real;5,30;1,40;7,70;NA;4,10;0,42
+Aragón;2013;hombres;real;15,65;4,05;10,05;NA;11,70;0,33
+Aragón;2013;mujeres;real;15,95;3,75;9,55;NA;11,50;0,46
+Aragón;2013;total;real;15,80;3,90;9,80;NA;11,60;0,39
+Aragón;2014;hombres;real;10,25;1,80;9,15;8,10;11,00;0,31
+Aragón;2014;mujeres;real;10,75;1,80;9,05;36,80;11,20;0,42
+Aragón;2014;total;real;10,50;1,80;9,10;44,80;11,10;0,36
+Aragón;2015;hombres;real;6,25;1,35;6,50;8,50;8,20;0,32
+Aragón;2015;mujeres;real;6,75;1,05;6,30;38,40;8,00;0,44
+Aragón;2015;total;real;6,50;1,20;6,40;46,80;8,10;0,37
+Aragón;2016;hombres;real;4,75;1,40;4,75;12,10;8,35;0,34
+Aragón;2016;mujeres;real;5,85;1,60;5,25;37,70;8,05;0,46
+Aragón;2016;total;real;5,30;1,50;5,00;49,80;8,20;0,39
+Aragón;2017;hombres;real;3,75;1,70;3,70;11,10;3,80;0,35
+Aragón;2017;mujeres;real;4,25;2,10;4,50;40,00;3,60;0,47
+Aragón;2017;total;real;4,00;1,90;4,10;51,10;3,70;0,39
+Aragón;2018;hombres;real;4,05;4,65;4,65;8,60;3,80;0,36
+Aragón;2018;mujeres;real;4,95;4,75;5,75;41,50;4,00;0,49
+Aragón;2018;total;real;4,50;4,70;5,20;50,10;3,90;0,40
+Aragón;2019;hombres;real;2,85;6,00;4,65;10,10;3,75;0,39
+Aragón;2019;mujeres;real;3,95;6,20;5,15;39,30;3,85;0,51
+Aragón;2019;total;real;3,40;6,10;4,90;49,40;3,80;0,43
+Aragón;2020;hombres;real;5,20;5,00;5,45;10,70;5,70;0,40
+Aragón;2020;mujeres;real;5,80;4,60;6,35;40,70;5,10;0,49
+Aragón;2020;total;real;5,50;4,80;5,90;51,40;5,40;0,44
+Aragón;2021;hombres;proyeccion;NA;NA;NA;10,22;NA;NA
+Aragón;2021;hombres;real;7,45;6,25;6,55;NA;12,70;0,39
+Aragón;2021;mujeres;proyeccion;NA;NA;NA;40,81;NA;NA
+Aragón;2021;mujeres;real;7,55;5,95;6,85;NA;12,10;0,49
+Aragón;2021;total;proyeccion;NA;NA;NA;52,03;NA;NA
+Aragón;2021;total;real;7,50;6,10;6,70;NA;12,40;0,43
+Aragón;2022;hombres;proyeccion;NA;NA;NA;10,15;NA;NA
+Aragón;2022;hombres;real;6,50;3,10;6,50;NA;9,05;0,38
+Aragón;2022;mujeres;proyeccion;NA;NA;NA;40,79;NA;NA
+Aragón;2022;mujeres;real;7,30;3,10;7,30;NA;8,55;0,50
+Aragón;2022;total;proyeccion;NA;NA;NA;52,29;NA;NA
+Aragón;2022;total;real;6,90;3,10;6,90;NA;8,80;0,43
+Aragón;2023;hombres;proyeccion;NA;NA;NA;10,17;NA;NA
+Aragón;2023;hombres;real;9,40;4,30;7,40;NA;12,25;0,38
+Aragón;2023;mujeres;proyeccion;NA;NA;NA;40,83;NA;NA
+Aragón;2023;mujeres;real;9,80;4,30;7,80;NA;11,55;0,50
+Aragón;2023;total;proyeccion;NA;NA;NA;52,47;NA;NA
+Aragón;2023;total;real;9,60;4,30;7,60;NA;11,90;0,43
+Aragón;2024;hombres;proyeccion;7,25;4,05;7,32;10,22;9,88;0,40
+Aragón;2024;mujeres;proyeccion;8,36;4,10;7,44;40,88;10,10;0,52
+Aragón;2024;total;proyeccion;7,74;4,06;7,54;52,70;10,02;0,45
+Aragón;2025;hombres;proyeccion;8,39;4,45;7,76;10,23;11,41;0,43
+Aragón;2025;mujeres;proyeccion;8,05;4,50;7,72;40,89;10,88;0,55
+Aragón;2025;total;proyeccion;8,04;4,48;7,55;52,96;11,24;0,49
+Aragón;2026;hombres;proyeccion;8,34;4,81;7,59;10,20;11,32;0,46
+Aragón;2026;mujeres;proyeccion;8,34;4,92;7,45;40,87;10,73;0,57
+Aragón;2026;total;proyeccion;8,53;4,89;7,53;54,43;11,05;0,50
+Canarias;2004;hombres;real;23,70;26,05;NA;NA;11,05;NA
+Canarias;2004;mujeres;real;24,10;25,95;NA;NA;11,15;NA
+Canarias;2004;total;real;23,90;26,00;NA;NA;11,10;NA
+Canarias;2005;hombres;real;18,65;14,30;NA;NA;10,80;NA
+Canarias;2005;mujeres;real;19,55;14,30;NA;NA;10,60;NA
+Canarias;2005;total;real;19,10;14,30;NA;NA;10,70;NA
+Canarias;2006;hombres;real;17,20;13,15;NA;NA;8,55;NA
+Canarias;2006;mujeres;real;17,40;12,65;NA;NA;8,25;NA
+Canarias;2006;total;real;17,30;12,90;NA;NA;8,40;NA
+Canarias;2007;hombres;real;14,85;10,25;NA;NA;12,10;NA
+Canarias;2007;mujeres;real;15,35;10,15;NA;NA;11,90;NA
+Canarias;2007;total;real;15,10;10,20;NA;NA;12,00;NA
+Canarias;2008;hombres;real;18,40;9,60;10,95;NA;11,30;0,65
+Canarias;2008;mujeres;real;18,80;9,00;11,05;NA;10,70;0,73
+Canarias;2008;total;real;18,60;9,30;11,00;NA;11,00;0,68
+Canarias;2009;hombres;real;20,65;9,95;9,55;NA;21,00;0,56
+Canarias;2009;mujeres;real;20,55;9,25;9,65;NA;20,60;0,63
+Canarias;2009;total;real;20,60;9,60;9,60;NA;20,80;0,59
+Canarias;2010;hombres;real;16,75;11,85;12,05;NA;14,90;0,53
+Canarias;2010;mujeres;real;17,25;11,35;12,75;NA;15,30;0,63
+Canarias;2010;total;real;17,00;11,60;12,40;NA;15,10;0,57
+Canarias;2011;hombres;real;12,70;11,15;9,80;NA;12,05;0,48
+Canarias;2011;mujeres;real;12,90;10,85;10,00;NA;11,95;0,58
+Canarias;2011;total;real;12,80;11,00;9,90;NA;12,00;0,52
+Canarias;2012;hombres;real;19,50;13,70;12,70;NA;10,60;0,45
+Canarias;2012;mujeres;real;18,90;13,70;12,90;NA;9,80;0,55
+Canarias;2012;total;real;19,20;13,70;12,80;NA;10,20;0,49
+Canarias;2013;hombres;real;17,05;11,65;11,45;NA;20,10;0,44
+Canarias;2013;mujeres;real;17,35;11,35;10,95;NA;19,90;0,52
+Canarias;2013;total;real;17,20;11,50;11,20;NA;20,00;0,47
+Canarias;2014;hombres;real;18,75;12,10;10,65;15,30;16,70;0,45
+Canarias;2014;mujeres;real;19,25;12,10;10,55;78,80;16,90;0,50
+Canarias;2014;total;real;19,00;12,10;10,60;94,10;16,80;0,47
+Canarias;2015;hombres;real;34,55;15,05;13,10;16,90;19,00;0,45
+Canarias;2015;mujeres;real;35,05;14,75;12,90;85,50;18,80;0,52
+Canarias;2015;total;real;34,80;14,90;13,00;102,40;18,90;0,47
+Canarias;2016;hombres;real;35,55;14,60;10,85;18,30;16,85;0,48
+Canarias;2016;mujeres;real;36,65;14,80;11,35;85,10;16,55;0,54
+Canarias;2016;total;real;36,10;14,70;11,10;103,30;16,70;0,51
+Canarias;2017;hombres;real;19,05;6,60;11,70;18,10;21,20;0,54
+Canarias;2017;mujeres;real;19,55;7,00;12,50;83,90;21,00;0,59
+Canarias;2017;total;real;19,30;6,80;12,10;102,00;21,10;0,56
+Canarias;2018;hombres;real;14,85;6,15;11,95;19,10;11,80;0,60
+Canarias;2018;mujeres;real;15,75;6,25;13,05;83,60;12,00;0,69
+Canarias;2018;total;real;15,30;6,20;12,50;102,70;11,90;0,64
+Canarias;2019;hombres;real;14,25;12,70;11,35;19,90;9,85;0,65
+Canarias;2019;mujeres;real;15,35;12,90;11,85;86,20;9,95;0,72
+Canarias;2019;total;real;14,80;12,80;11,60;106,10;9,90;0,68
+Canarias;2020;hombres;real;15,30;14,50;12,85;21,90;23,30;0,66
+Canarias;2020;mujeres;real;15,90;14,10;13,75;92,60;22,70;0,70
+Canarias;2020;total;real;15,60;14,30;13,30;114,60;23,00;0,67
+Canarias;2021;hombres;proyeccion;NA;NA;NA;21,68;NA;NA
+Canarias;2021;hombres;real;15,15;17,75;14,85;NA;26,50;0,64
+Canarias;2021;mujeres;proyeccion;NA;NA;NA;92,47;NA;NA
+Canarias;2021;mujeres;real;15,25;17,45;15,15;NA;25,90;0,69
+Canarias;2021;total;proyeccion;NA;NA;NA;110,51;NA;NA
+Canarias;2021;total;real;15,20;17,60;15,00;NA;26,20;0,65
+Canarias;2022;hombres;proyeccion;NA;NA;NA;21,72;NA;NA
+Canarias;2022;hombres;real;13,00;16,20;14,40;NA;20,25;0,66
+Canarias;2022;mujeres;proyeccion;NA;NA;NA;93,64;NA;NA
+Canarias;2022;mujeres;real;13,80;16,20;15,20;NA;19,75;0,70
+Canarias;2022;total;proyeccion;NA;NA;NA;112,66;NA;NA
+Canarias;2022;total;real;13,40;16,20;14,80;NA;20,00;0,68
+Canarias;2023;hombres;proyeccion;NA;NA;NA;21,99;NA;NA
+Canarias;2023;hombres;real;9,70;18,00;8,40;NA;21,65;0,74
+Canarias;2023;mujeres;proyeccion;NA;NA;NA;94,08;NA;NA
+Canarias;2023;mujeres;real;10,10;18,00;8,80;NA;20,95;0,76
+Canarias;2023;total;proyeccion;NA;NA;NA;112,33;NA;NA
+Canarias;2023;total;real;9,90;18,00;8,60;NA;21,30;0,75
+Canarias;2024;hombres;proyeccion;11,22;14,43;9,43;22,36;17,60;0,79
+Canarias;2024;mujeres;proyeccion;11,15;14,85;9,35;94,61;17,93;0,82
+Canarias;2024;total;proyeccion;10,96;14,45;9,31;113,56;17,92;0,80
+Canarias;2025;hombres;proyeccion;9,98;13,16;9,88;22,38;18,84;0,82
+Canarias;2025;mujeres;proyeccion;9,79;13,36;10,05;95,11;18,81;0,86
+Canarias;2025;total;proyeccion;9,72;13,21;9,84;114,16;18,80;0,83
+Canarias;2026;hombres;proyeccion;10,33;12,82;10,60;22,40;18,71;0,84
+Canarias;2026;mujeres;proyeccion;9,79;12,65;10,74;95,18;18,85;0,87
+Canarias;2026;total;proyeccion;9,63;12,94;10,51;114,32;18,85;0,84
+Cantabria;2004;hombres;real;8,30;9,65;NA;NA;2,15;NA
+Cantabria;2004;mujeres;real;8,70;9,55;NA;NA;2,25;NA
+Cantabria;2004;total;real;8,50;9,60;NA;NA;2,20;NA
+Cantabria;2005;hombres;real;3,25;7,60;NA;NA;3,20;NA
+Cantabria;2005;mujeres;real;4,15;7,60;NA;NA;3,00;NA
+Cantabria;2005;total;real;3,70;7,60;NA;NA;3,10;NA
+Cantabria;2006;hombres;real;9,90;8,65;NA;NA;2,85;NA
+Cantabria;2006;mujeres;real;10,10;8,15;NA;NA;2,55;NA
+Cantabria;2006;total;real;10,00;8,40;NA;NA;2,70;NA
+Cantabria;2007;hombres;real;4,15;6,25;NA;NA;3,90;NA
+Cantabria;2007;mujeres;real;4,65;6,15;NA;NA;3,70;NA
+Cantabria;2007;total;real;4,40;6,20;NA;NA;3,80;NA
+Cantabria;2008;hombres;real;10,80;6,50;10,55;NA;3,90;0,71
+Cantabria;2008;mujeres;real;11,20;5,90;10,65;NA;3,30;0,92
+Cantabria;2008;total;real;11,00;6,20;10,60;NA;3,60;0,79
+Cantabria;2009;hombres;real;6,15;3,05;11,95;NA;4,70;0,57
+Cantabria;2009;mujeres;real;6,05;2,35;12,05;NA;4,30;0,79
+Cantabria;2009;total;real;6,10;2,70;12,00;NA;4,50;0,64
+Cantabria;2010;hombres;real;13,85;2,05;8,75;NA;3,20;0,49
+Cantabria;2010;mujeres;real;14,35;1,55;9,45;NA;3,60;0,68
+Cantabria;2010;total;real;14,10;1,80;9,10;NA;3,40;0,56
+Cantabria;2011;hombres;real;7,10;1,25;8,90;NA;9,05;0,44
+Cantabria;2011;mujeres;real;7,30;0,95;9,10;NA;8,95;0,60
+Cantabria;2011;total;real;7,20;1,10;9,00;NA;9,00;0,50
+Cantabria;2012;hombres;real;8,40;3,80;11,90;NA;3,60;0,42
+Cantabria;2012;mujeres;real;7,80;3,80;12,10;NA;2,80;0,57
+Cantabria;2012;total;real;8,10;3,80;12,00;NA;3,20;0,48
+Cantabria;2013;hombres;real;14,75;4,25;11,75;NA;7,90;0,37
+Cantabria;2013;mujeres;real;15,05;3,95;11,25;NA;7,70;0,51
+Cantabria;2013;total;real;14,90;4,10;11,50;NA;7,80;0,42
+Cantabria;2014;hombres;real;18,05;0,80;8,25;4,40;8,10;0,34
+Cantabria;2014;mujeres;real;18,55;0,80;8,15;20,00;8,30;0,48
+Cantabria;2014;total;real;18,30;0,80;8,20;24,40;8,20;0,39
+Cantabria;2015;hombres;real;12,95;3,25;7,20;5,40;6,40;0,34
+Cantabria;2015;mujeres;real;13,45;2,95;7,00;18,20;6,20;0,47
+Cantabria;2015;total;real;13,20;3,10;7,10;23,60;6,30;0,38
+Cantabria;2016;hombres;real;10,55;7,00;9,85;6,40;6,05;0,37
+Cantabria;2016;mujeres;real;11,65;7,20;10,35;21,40;5,75;0,50
+Cantabria;2016;total;real;11,10;7,10;10,10;27,80;5,90;0,42
+Cantabria;2017;hombres;real;5,85;2,50;6,40;6,10;2,40;0,38
+Cantabria;2017;mujeres;real;6,35;2,90;7,20;23,60;2,20;0,51
+Cantabria;2017;total;real;6,10;2,70;6,80;29,70;2,30;0,43
+Cantabria;2018;hombres;real;7,95;1,85;9,05;5,00;7,00;0,40
+Cantabria;2018;mujeres;real;8,85;1,95;10,15;22,90;7,20;0,53
+Cantabria;2018;total;real;8,40;1,90;9,60;27,90;7,10;0,45
+Cantabria;2019;hombres;real;6,45;1,30;4,65;4,40;3,05;0,41
+Cantabria;2019;mujeres;real;7,55;1,50;5,15;23,70;3,15;0,51
+Cantabria;2019;total;real;7,00;1,40;4,90;28,10;3,10;0,44
+Cantabria;2020;hombres;real;5,80;1,60;5,25;4,80;7,10;0,43
+Cantabria;2020;mujeres;real;6,40;1,20;6,15;21,60;6,50;0,53
+Cantabria;2020;total;real;6,10;1,40;5,70;26,40;6,80;0,46
+Cantabria;2021;hombres;proyeccion;NA;NA;NA;4,82;NA;NA
+Cantabria;2021;hombres;real;6,85;3,55;5,75;NA;9,30;0,42
+Cantabria;2021;mujeres;proyeccion;NA;NA;NA;23,00;NA;NA
+Cantabria;2021;mujeres;real;6,95;3,25;6,05;NA;8,70;0,54
+Cantabria;2021;total;proyeccion;NA;NA;NA;27,38;NA;NA
+Cantabria;2021;total;real;6,90;3,40;5,90;NA;9,00;0,47
+Cantabria;2022;hombres;proyeccion;NA;NA;NA;4,79;NA;NA
+Cantabria;2022;hombres;real;5,40;2,60;6,40;NA;5,55;0,44
+Cantabria;2022;mujeres;proyeccion;NA;NA;NA;22,66;NA;NA
+Cantabria;2022;mujeres;real;6,20;2,60;7,20;NA;5,05;0,57
+Cantabria;2022;total;proyeccion;NA;NA;NA;27,71;NA;NA
+Cantabria;2022;total;real;5,80;2,60;6,80;NA;5,30;0,49
+Cantabria;2023;hombres;proyeccion;NA;NA;NA;4,78;NA;NA
+Cantabria;2023;hombres;real;6,30;4,10;6,60;NA;7,55;0,47
+Cantabria;2023;mujeres;proyeccion;NA;NA;NA;22,63;NA;NA
+Cantabria;2023;mujeres;real;6,70;4,10;7,00;NA;6,85;0,57
+Cantabria;2023;total;proyeccion;NA;NA;NA;28,07;NA;NA
+Cantabria;2023;total;real;6,50;4,10;6,80;NA;7,20;0,51
+Cantabria;2024;hombres;proyeccion;6,20;4,02;6,74;4,79;8,37;0,51
+Cantabria;2024;mujeres;proyeccion;6,65;4,08;7,19;22,56;7,99;0,63
+Cantabria;2024;total;proyeccion;6,33;4,01;6,83;27,98;8,08;0,55
+Cantabria;2025;hombres;proyeccion;6,54;4,64;6,78;4,79;7,79;0,52
+Cantabria;2025;mujeres;proyeccion;7,02;4,66;7,13;22,57;7,33;0,64
+Cantabria;2025;total;proyeccion;6,86;4,63;6,74;28,22;7,73;0,57
+Cantabria;2026;hombres;proyeccion;6,67;5,13;6,76;4,79;8,18;0,52
+Cantabria;2026;mujeres;proyeccion;7,04;5,09;7,18;22,57;7,89;0,63
+Cantabria;2026;total;proyeccion;6,64;5,09;6,82;28,17;8,03;0,56
+Castilla y León;2004;hombres;real;6,60;11,95;NA;NA;2,75;NA
+Castilla y León;2004;mujeres;real;7,00;11,85;NA;NA;2,85;NA
+Castilla y León;2004;total;real;6,80;11,90;NA;NA;2,80;NA
+Castilla y León;2005;hombres;real;6,45;5,70;NA;NA;4,10;NA
+Castilla y León;2005;mujeres;real;7,35;5,70;NA;NA;3,90;NA
+Castilla y León;2005;total;real;6,90;5,70;NA;NA;4,00;NA
+Castilla y León;2006;hombres;real;8,80;2,45;NA;NA;5,95;NA
+Castilla y León;2006;mujeres;real;9,00;1,95;NA;NA;5,65;NA
+Castilla y León;2006;total;real;8,90;2,20;NA;NA;5,80;NA
+Castilla y León;2007;hombres;real;4,65;1,75;NA;NA;5,70;NA
+Castilla y León;2007;mujeres;real;5,15;1,65;NA;NA;5,50;NA
+Castilla y León;2007;total;real;4,90;1,70;NA;NA;5,60;NA
+Castilla y León;2008;hombres;real;7,60;3,10;3,85;NA;4,30;0,37
+Castilla y León;2008;mujeres;real;8,00;2,50;3,95;NA;3,70;0,47
+Castilla y León;2008;total;real;7,80;2,80;3,90;NA;4,00;0,40
+Castilla y León;2009;hombres;real;13,15;3,55;5,75;NA;7,40;0,33
+Castilla y León;2009;mujeres;real;13,05;2,85;5,85;NA;7,00;0,42
+Castilla y León;2009;total;real;13,10;3,20;5,80;NA;7,20;0,36
+Castilla y León;2010;hombres;real;12,25;3,55;5,15;NA;9,00;0,32
+Castilla y León;2010;mujeres;real;12,75;3,05;5,85;NA;9,40;0,42
+Castilla y León;2010;total;real;12,50;3,30;5,50;NA;9,20;0,36
+Castilla y León;2011;hombres;real;6,80;2,35;4,60;NA;7,75;0,34
+Castilla y León;2011;mujeres;real;7,00;2,05;4,80;NA;7,65;0,43
+Castilla y León;2011;total;real;6,90;2,20;4,70;NA;7,70;0,37
+Castilla y León;2012;hombres;real;8,00;0,60;6,80;NA;7,00;0,34
+Castilla y León;2012;mujeres;real;7,40;0,60;7,00;NA;6,20;0,44
+Castilla y León;2012;total;real;7,70;0,60;6,90;NA;6,60;0,39
+Castilla y León;2013;hombres;real;10,35;1,15;7,25;NA;3,30;0,32
+Castilla y León;2013;mujeres;real;10,65;0,85;6,75;NA;3,10;0,42
+Castilla y León;2013;total;real;10,50;1,00;7,00;NA;3,20;0,36
+Castilla y León;2014;hombres;real;12,25;2,70;9,45;16,50;4,60;0,32
+Castilla y León;2014;mujeres;real;12,75;2,70;9,35;72,50;4,80;0,41
+Castilla y León;2014;total;real;12,50;2,70;9,40;89,10;4,70;0,35
+Castilla y León;2015;hombres;real;9,95;1,95;8,70;16,60;5,40;0,31
+Castilla y León;2015;mujeres;real;10,45;1,65;8,50;72,60;5,20;0,40
+Castilla y León;2015;total;real;10,20;1,80;8,60;89,20;5,30;0,34
+Castilla y León;2016;hombres;real;4,75;2,40;5,55;17,10;5,95;0,31
+Castilla y León;2016;mujeres;real;5,85;2,60;6,05;77,00;5,65;0,41
+Castilla y León;2016;total;real;5,30;2,50;5,80;94,10;5,80;0,35
+Castilla y León;2017;hombres;real;4,35;1,70;5,20;16,50;2,50;0,32
+Castilla y León;2017;mujeres;real;4,85;2,10;6,00;75,50;2,30;0,43
+Castilla y León;2017;total;real;4,60;1,90;5,60;92,10;2,40;0,37
+Castilla y León;2018;hombres;real;3,35;0,75;3,85;19,60;3,10;0,35
+Castilla y León;2018;mujeres;real;4,25;0,85;4,95;75,00;3,30;0,43
+Castilla y León;2018;total;real;3,80;0,80;4,40;94,60;3,20;0,38
+Castilla y León;2019;hombres;real;2,65;0,90;3,65;22,50;3,05;0,36
+Castilla y León;2019;mujeres;real;3,75;1,10;4,15;79,90;3,15;0,47
+Castilla y León;2019;total;real;3,20;1,00;3,90;102,40;3,10;0,40
+Castilla y León;2020;hombres;real;8,10;1,80;3,85;22,30;7,20;0,37
+Castilla y León;2020;mujeres;real;8,70;1,40;4,75;84,40;6,60;0,47
+Castilla y León;2020;total;real;8,40;1,60;4,30;106,70;6,90;0,41
+Castilla y León;2021;hombres;proyeccion;NA;NA;NA;21,89;NA;NA
+Castilla y León;2021;hombres;real;6,65;2,45;6,55;NA;10,30;0,37
+Castilla y León;2021;mujeres;proyeccion;NA;NA;NA;83,54;NA;NA
+Castilla y León;2021;mujeres;real;6,75;2,15;6,85;NA;9,70;0,47
+Castilla y León;2021;total;proyeccion;NA;NA;NA;101,90;NA;NA
+Castilla y León;2021;total;real;6,70;2,30;6,70;NA;10,00;0,41
+Castilla y León;2022;hombres;proyeccion;NA;NA;NA;22,07;NA;NA
+Castilla y León;2022;hombres;real;6,40;2,10;6,50;NA;10,65;0,38
+Castilla y León;2022;mujeres;proyeccion;NA;NA;NA;85,06;NA;NA
+Castilla y León;2022;mujeres;real;7,20;2,10;7,30;NA;10,15;0,47
+Castilla y León;2022;total;proyeccion;NA;NA;NA;102,33;NA;NA
+Castilla y León;2022;total;real;6,80;2,10;6,90;NA;10,40;0,41
+Castilla y León;2023;hombres;proyeccion;NA;NA;NA;22,18;NA;NA
+Castilla y León;2023;hombres;real;7,50;2,80;6,70;NA;9,95;0,38
+Castilla y León;2023;mujeres;proyeccion;NA;NA;NA;86,10;NA;NA
+Castilla y León;2023;mujeres;real;7,90;2,80;7,10;NA;9,25;0,46
+Castilla y León;2023;total;proyeccion;NA;NA;NA;101,57;NA;NA
+Castilla y León;2023;total;real;7,70;2,80;6,90;NA;9,60;0,41
+Castilla y León;2024;hombres;proyeccion;7,33;4,38;7,00;22,51;10,05;0,40
+Castilla y León;2024;mujeres;proyeccion;8,03;4,32;7,87;89,57;9,43;0,48
+Castilla y León;2024;total;proyeccion;7,72;4,41;7,75;101,08;9,54;0,44
+Castilla y León;2025;hombres;proyeccion;7,89;4,43;7,22;22,55;10,75;0,43
+Castilla y León;2025;mujeres;proyeccion;7,98;4,17;7,77;90,92;9,32;0,52
+Castilla y León;2025;total;proyeccion;7,87;4,59;7,75;102,13;9,71;0,46
+Castilla y León;2026;hombres;proyeccion;7,90;5,13;7,81;22,52;10,69;0,44
+Castilla y León;2026;mujeres;proyeccion;7,99;4,71;7,67;91,47;9,62;0,53
+Castilla y León;2026;total;proyeccion;7,86;5,48;8,04;102,13;10,39;0,48
+Castilla-La Mancha;2004;hombres;real;9,60;7,05;NA;NA;3,05;NA
+Castilla-La Mancha;2004;mujeres;real;10,00;6,95;NA;NA;3,15;NA
+Castilla-La Mancha;2004;total;real;9,80;7,00;NA;NA;3,10;NA
+Castilla-La Mancha;2005;hombres;real;6,95;4,70;NA;NA;5,40;NA
+Castilla-La Mancha;2005;mujeres;real;7,85;4,70;NA;NA;5,20;NA
+Castilla-La Mancha;2005;total;real;7,40;4,70;NA;NA;5,30;NA
+Castilla-La Mancha;2006;hombres;real;11,30;2,95;NA;NA;8,15;NA
+Castilla-La Mancha;2006;mujeres;real;11,50;2,45;NA;NA;7,85;NA
+Castilla-La Mancha;2006;total;real;11,40;2,70;NA;NA;8,00;NA
+Castilla-La Mancha;2007;hombres;real;12,15;3,65;NA;NA;5,40;NA
+Castilla-La Mancha;2007;mujeres;real;12,65;3,55;NA;NA;5,20;NA
+Castilla-La Mancha;2007;total;real;12,40;3,60;NA;NA;5,30;NA
+Castilla-La Mancha;2008;hombres;real;13,90;6,20;5,55;NA;10,00;0,38
+Castilla-La Mancha;2008;mujeres;real;14,30;5,60;5,65;NA;9,40;0,45
+Castilla-La Mancha;2008;total;real;14,10;5,90;5,60;NA;9,70;0,40
+Castilla-La Mancha;2009;hombres;real;20,15;4,15;6,65;NA;12,60;0,35
+Castilla-La Mancha;2009;mujeres;real;20,05;3,45;6,75;NA;12,20;0,42
+Castilla-La Mancha;2009;total;real;20,10;3,80;6,70;NA;12,40;0,37
+Castilla-La Mancha;2010;hombres;real;16,35;3,75;7,05;NA;9,00;0,33
+Castilla-La Mancha;2010;mujeres;real;16,85;3,25;7,75;NA;9,40;0,40
+Castilla-La Mancha;2010;total;real;16,60;3,50;7,40;NA;9,20;0,35
+Castilla-La Mancha;2011;hombres;real;10,60;4,95;9,40;NA;9,05;0,32
+Castilla-La Mancha;2011;mujeres;real;10,80;4,65;9,60;NA;8,95;0,38
+Castilla-La Mancha;2011;total;real;10,70;4,80;9,50;NA;9,00;0,35
+Castilla-La Mancha;2012;hombres;real;14,90;6,20;13,00;NA;8,90;0,32
+Castilla-La Mancha;2012;mujeres;real;14,30;6,20;13,20;NA;8,10;0,41
+Castilla-La Mancha;2012;total;real;14,60;6,20;13,10;NA;8,50;0,35
+Castilla-La Mancha;2013;hombres;real;21,65;4,65;10,95;NA;15,60;0,29
+Castilla-La Mancha;2013;mujeres;real;21,95;4,35;10,45;NA;15,40;0,37
+Castilla-La Mancha;2013;total;real;21,80;4,50;10,70;NA;15,50;0,32
+Castilla-La Mancha;2014;hombres;real;15,85;2,30;9,65;12,80;13,40;0,28
+Castilla-La Mancha;2014;mujeres;real;16,35;2,30;9,55;50,20;13,60;0,34
+Castilla-La Mancha;2014;total;real;16,10;2,30;9,60;63,00;13,50;0,30
+Castilla-La Mancha;2015;hombres;real;16,75;4,05;8,20;16,50;13,20;0,28
+Castilla-La Mancha;2015;mujeres;real;17,25;3,75;8,00;57,30;13,00;0,34
+Castilla-La Mancha;2015;total;real;17,00;3,90;8,10;73,80;13,10;0,30
+Castilla-La Mancha;2016;hombres;real;16,35;4,70;11,45;17,00;16,75;0,28
+Castilla-La Mancha;2016;mujeres;real;17,45;4,90;11,95;59,30;16,45;0,35
+Castilla-La Mancha;2016;total;real;16,90;4,80;11,70;76,20;16,60;0,31
+Castilla-La Mancha;2017;hombres;real;9,15;3,80;9,70;14,90;5,00;0,30
+Castilla-La Mancha;2017;mujeres;real;9,65;4,20;10,50;56,30;4,80;0,38
+Castilla-La Mancha;2017;total;real;9,40;4,00;10,10;71,20;4,90;0,32
+Castilla-La Mancha;2018;hombres;real;8,85;0,85;9,65;14,80;9,00;0,30
+Castilla-La Mancha;2018;mujeres;real;9,75;0,95;10,75;58,80;9,20;0,38
+Castilla-La Mancha;2018;total;real;9,30;0,90;10,20;73,60;9,10;0,33
+Castilla-La Mancha;2019;hombres;real;5,65;1,80;7,15;14,60;6,15;0,32
+Castilla-La Mancha;2019;mujeres;real;6,75;2,00;7,65;58,30;6,25;0,38
+Castilla-La Mancha;2019;total;real;6,20;1,90;7,40;72,90;6,20;0,34
+Castilla-La Mancha;2020;hombres;real;6,20;1,80;6,45;14,80;8,70;0,33
+Castilla-La Mancha;2020;mujeres;real;6,80;1,40;7,35;60,70;8,10;0,39
+Castilla-La Mancha;2020;total;real;6,50;1,60;6,90;75,50;8,40;0,35
+Castilla-La Mancha;2021;hombres;proyeccion;NA;NA;NA;15,11;NA;NA
+Castilla-La Mancha;2021;hombres;real;8,45;2,25;7,65;NA;14,50;0,33
+Castilla-La Mancha;2021;mujeres;proyeccion;NA;NA;NA;60,69;NA;NA
+Castilla-La Mancha;2021;mujeres;real;8,55;1,95;7,95;NA;13,90;0,40
+Castilla-La Mancha;2021;total;proyeccion;NA;NA;NA;75,62;NA;NA
+Castilla-La Mancha;2021;total;real;8,50;2,10;7,80;NA;14,20;0,36
+Castilla-La Mancha;2022;hombres;proyeccion;NA;NA;NA;15,14;NA;NA
+Castilla-La Mancha;2022;hombres;real;10,40;4,10;5,50;NA;14,75;0,33
+Castilla-La Mancha;2022;mujeres;proyeccion;NA;NA;NA;61,29;NA;NA
+Castilla-La Mancha;2022;mujeres;real;11,20;4,10;6,30;NA;14,25;0,41
+Castilla-La Mancha;2022;total;proyeccion;NA;NA;NA;75,70;NA;NA
+Castilla-La Mancha;2022;total;real;10,80;4,10;5,90;NA;14,50;0,36
+Castilla-La Mancha;2023;hombres;proyeccion;NA;NA;NA;15,23;NA;NA
+Castilla-La Mancha;2023;hombres;real;9,10;4,30;6,50;NA;13,45;0,34
+Castilla-La Mancha;2023;mujeres;proyeccion;NA;NA;NA;61,51;NA;NA
+Castilla-La Mancha;2023;mujeres;real;9,50;4,30;6,90;NA;12,75;0,41
+Castilla-La Mancha;2023;total;proyeccion;NA;NA;NA;75,64;NA;NA
+Castilla-La Mancha;2023;total;real;9,30;4,30;6,70;NA;13,10;0,37
+Castilla-La Mancha;2024;hombres;proyeccion;8,42;4,93;6,67;15,54;13,85;0,36
+Castilla-La Mancha;2024;mujeres;proyeccion;8,95;5,03;6,75;62,05;12,94;0,43
+Castilla-La Mancha;2024;total;proyeccion;8,53;5,01;6,83;75,75;13,69;0,39
+Castilla-La Mancha;2025;hombres;proyeccion;8,42;5,26;6,74;15,57;13,87;0,39
+Castilla-La Mancha;2025;mujeres;proyeccion;8,50;5,38;7,06;63,62;12,71;0,46
+Castilla-La Mancha;2025;total;proyeccion;8,51;5,35;6,83;75,70;13,36;0,42
+Castilla-La Mancha;2026;hombres;proyeccion;8,72;5,28;6,78;15,58;13,69;0,42
+Castilla-La Mancha;2026;mujeres;proyeccion;8,60;5,34;6,81;63,70;13,05;0,48
+Castilla-La Mancha;2026;total;proyeccion;8,74;5,30;6,75;75,70;13,53;0,44
+Cataluña;2004;hombres;real;10,40;10,55;NA;NA;8,55;NA
+Cataluña;2004;mujeres;real;10,80;10,45;NA;NA;8,65;NA
+Cataluña;2004;total;real;10,60;10,50;NA;NA;8,60;NA
+Cataluña;2005;hombres;real;11,05;6,80;NA;NA;8,20;NA
+Cataluña;2005;mujeres;real;11,95;6,80;NA;NA;8,00;NA
+Cataluña;2005;total;real;11,50;6,80;NA;NA;8,10;NA
+Cataluña;2006;hombres;real;12,30;7,85;NA;NA;7,75;NA
+Cataluña;2006;mujeres;real;12,50;7,35;NA;NA;7,45;NA
+Cataluña;2006;total;real;12,40;7,60;NA;NA;7,60;NA
+Cataluña;2007;hombres;real;12,35;7,75;NA;NA;7,50;NA
+Cataluña;2007;mujeres;real;12,85;7,65;NA;NA;7,30;NA
+Cataluña;2007;total;real;12,60;7,70;NA;NA;7,40;NA
+Cataluña;2008;hombres;real;13,00;7,80;13,35;NA;8,90;0,57
+Cataluña;2008;mujeres;real;13,40;7,20;13,45;NA;8,30;0,75
+Cataluña;2008;total;real;13,20;7,50;13,40;NA;8,60;0,64
+Cataluña;2009;hombres;real;16,85;6,95;13,95;NA;9,20;0,51
+Cataluña;2009;mujeres;real;16,75;6,25;14,05;NA;8,80;0,67
+Cataluña;2009;total;real;16,80;6,60;14,00;NA;9,00;0,57
+Cataluña;2010;hombres;real;14,65;6,85;12,95;NA;11,90;0,50
+Cataluña;2010;mujeres;real;15,15;6,35;13,65;NA;12,30;0,65
+Cataluña;2010;total;real;14,90;6,60;13,30;NA;12,10;0,56
+Cataluña;2011;hombres;real;5,50;11,25;11,90;NA;6,55;0,49
+Cataluña;2011;mujeres;real;5,70;10,95;12,10;NA;6,45;0,65
+Cataluña;2011;total;real;5,60;11,10;12,00;NA;6,50;0,55
+Cataluña;2012;hombres;real;13,70;8,20;13,20;NA;13,40;0,47
+Cataluña;2012;mujeres;real;13,10;8,20;13,40;NA;12,60;0,63
+Cataluña;2012;total;real;13,40;8,20;13,30;NA;13,00;0,54
+Cataluña;2013;hombres;real;15,35;5,95;11,25;NA;10,70;0,44
+Cataluña;2013;mujeres;real;15,65;5,65;10,75;NA;10,50;0,59
+Cataluña;2013;total;real;15,50;5,80;11,00;NA;10,60;0,51
+Cataluña;2014;hombres;real;12,65;7,50;12,95;53,70;10,40;0,44
+Cataluña;2014;mujeres;real;13,15;7,50;12,85;212,20;10,60;0,59
+Cataluña;2014;total;real;12,90;7,50;12,90;265,80;10,50;0,51
+Cataluña;2015;hombres;real;12,65;7,95;11,70;58,30;12,00;0,49
+Cataluña;2015;mujeres;real;13,15;7,65;11,50;227,50;11,80;0,64
+Cataluña;2015;total;real;12,90;7,80;11,60;285,80;11,90;0,55
+Cataluña;2016;hombres;real;12,15;5,20;10,85;59,00;10,05;0,54
+Cataluña;2016;mujeres;real;13,25;5,40;11,35;245,20;9,75;0,71
+Cataluña;2016;total;real;12,70;5,30;11,10;304,30;9,90;0,61
+Cataluña;2017;hombres;real;6,75;6,60;10,30;55,90;8,40;0,62
+Cataluña;2017;mujeres;real;7,25;7,00;11,10;238,90;8,20;0,80
+Cataluña;2017;total;real;7,00;6,80;10,70;294,70;8,30;0,69
+Cataluña;2018;hombres;real;8,05;5,15;9,35;59,80;8,60;0,64
+Cataluña;2018;mujeres;real;8,95;5,25;10,45;225,30;8,80;0,84
+Cataluña;2018;total;real;8,50;5,20;9,90;285,10;8,70;0,72
+Cataluña;2019;hombres;real;5,65;7,20;10,05;63,20;8,05;0,66
+Cataluña;2019;mujeres;real;6,75;7,40;10,55;226,00;8,15;0,82
+Cataluña;2019;total;real;6,20;7,30;10,30;289,30;8,10;0,73
+Cataluña;2020;hombres;real;8,90;12,10;9,65;66,60;14,60;0,65
+Cataluña;2020;mujeres;real;9,50;11,70;10,55;247,60;14,00;0,82
+Cataluña;2020;total;real;9,20;11,90;10,10;314,20;14,30;0,72
+Cataluña;2021;hombres;proyeccion;NA;NA;NA;65,31;NA;NA
+Cataluña;2021;hombres;real;8,75;8,45;10,25;NA;14,50;0,59
+Cataluña;2021;mujeres;proyeccion;NA;NA;NA;243,92;NA;NA
+Cataluña;2021;mujeres;real;8,85;8,15;10,55;NA;13,90;0,74
+Cataluña;2021;total;proyeccion;NA;NA;NA;300,50;NA;NA
+Cataluña;2021;total;real;8,80;8,30;10,40;NA;14,20;0,65
+Cataluña;2022;hombres;proyeccion;NA;NA;NA;64,69;NA;NA
+Cataluña;2022;hombres;real;7,60;9,00;10,30;NA;15,05;0,60
+Cataluña;2022;mujeres;proyeccion;NA;NA;NA;241,78;NA;NA
+Cataluña;2022;mujeres;real;8,40;9,00;11,10;NA;14,55;0,76
+Cataluña;2022;total;proyeccion;NA;NA;NA;307,54;NA;NA
+Cataluña;2022;total;real;8,00;9,00;10,70;NA;14,80;0,66
+Cataluña;2023;hombres;proyeccion;NA;NA;NA;64,32;NA;NA
+Cataluña;2023;hombres;real;9,00;9,20;9,40;NA;14,35;0,66
+Cataluña;2023;mujeres;proyeccion;NA;NA;NA;237,20;NA;NA
+Cataluña;2023;mujeres;real;9,40;9,20;9,80;NA;13,65;0,79
+Cataluña;2023;total;proyeccion;NA;NA;NA;298,93;NA;NA
+Cataluña;2023;total;real;9,20;9,20;9,60;NA;14,00;0,71
+Cataluña;2024;hombres;proyeccion;8,01;9,27;9,49;63,89;14,27;0,72
+Cataluña;2024;mujeres;proyeccion;8,78;9,24;9,68;236,51;13,95;0,87
+Cataluña;2024;total;proyeccion;8,54;9,29;9,55;299,83;14,12;0,78
+Cataluña;2025;hombres;proyeccion;8,10;9,27;9,37;63,75;14,04;0,77
+Cataluña;2025;mujeres;proyeccion;8,52;9,29;9,80;236,37;13,85;0,92
+Cataluña;2025;total;proyeccion;8,33;9,33;9,64;298,76;14,03;0,83
+Cataluña;2026;hombres;proyeccion;8,14;9,27;9,39;63,81;13,99;0,72
+Cataluña;2026;mujeres;proyeccion;8,74;9,32;9,67;236,37;14,00;0,85
+Cataluña;2026;total;proyeccion;8,27;9,28;9,61;298,58;14,00;0,77
+Comunidad Foral de Navarra;2004;hombres;real;4,60;9,85;NA;NA;2,85;NA
+Comunidad Foral de Navarra;2004;mujeres;real;5,00;9,75;NA;NA;2,95;NA
+Comunidad Foral de Navarra;2004;total;real;4,80;9,80;NA;NA;2,90;NA
+Comunidad Foral de Navarra;2005;hombres;real;3,85;2,70;NA;NA;7,40;NA
+Comunidad Foral de Navarra;2005;mujeres;real;4,75;2,70;NA;NA;7,20;NA
+Comunidad Foral de Navarra;2005;total;real;4,30;2,70;NA;NA;7,30;NA
+Comunidad Foral de Navarra;2006;hombres;real;6,80;4,25;NA;NA;6,65;NA
+Comunidad Foral de Navarra;2006;mujeres;real;7,00;3,75;NA;NA;6,35;NA
+Comunidad Foral de Navarra;2006;total;real;6,90;4,00;NA;NA;6,50;NA
+Comunidad Foral de Navarra;2007;hombres;real;4,25;3,25;NA;NA;9,40;NA
+Comunidad Foral de Navarra;2007;mujeres;real;4,75;3,15;NA;NA;9,20;NA
+Comunidad Foral de Navarra;2007;total;real;4,50;3,20;NA;NA;9,30;NA
+Comunidad Foral de Navarra;2008;hombres;real;7,00;2,80;8,05;NA;7,90;NA
+Comunidad Foral de Navarra;2008;mujeres;real;7,40;2,20;8,15;NA;7,30;NA
+Comunidad Foral de Navarra;2008;total;real;7,20;2,50;8,10;NA;7,60;NA
+Comunidad Foral de Navarra;2009;hombres;real;8,95;1,65;6,75;NA;7,80;NA
+Comunidad Foral de Navarra;2009;mujeres;real;8,85;0,95;6,85;NA;7,40;NA
+Comunidad Foral de Navarra;2009;total;real;8,90;1,30;6,80;NA;7,60;NA
+Comunidad Foral de Navarra;2010;hombres;real;6,55;1,15;8,75;NA;9,70;0,32
+Comunidad Foral de Navarra;2010;mujeres;real;7,05;0,65;9,45;NA;10,10;0,43
+Comunidad Foral de Navarra;2010;total;real;6,80;0,90;9,10;NA;9,90;0,37
+Comunidad Foral de Navarra;2011;hombres;real;4,10;3,55;2,40;NA;7,65;0,33
+Comunidad Foral de Navarra;2011;mujeres;real;4,30;3,25;2,60;NA;7,55;0,46
+Comunidad Foral de Navarra;2011;total;real;4,20;3,40;2,50;NA;7,60;0,38
+Comunidad Foral de Navarra;2012;hombres;real;6,90;1,80;3,10;NA;5,90;0,34
+Comunidad Foral de Navarra;2012;mujeres;real;6,30;1,80;3,30;NA;5,10;0,49
+Comunidad Foral de Navarra;2012;total;real;6,60;1,80;3,20;NA;5,50;0,41
+Comunidad Foral de Navarra;2013;hombres;real;4,95;2,95;4,45;NA;3,40;0,30
+Comunidad Foral de Navarra;2013;mujeres;real;5,25;2,65;3,95;NA;3,20;0,44
+Comunidad Foral de Navarra;2013;total;real;5,10;2,80;4,20;NA;3,30;0,37
+Comunidad Foral de Navarra;2014;hombres;real;4,35;2,70;6,45;3,90;6,20;0,29
+Comunidad Foral de Navarra;2014;mujeres;real;4,85;2,70;6,35;18,00;6,40;0,42
+Comunidad Foral de Navarra;2014;total;real;4,60;2,70;6,40;21,80;6,30;0,34
+Comunidad Foral de Navarra;2015;hombres;real;6,35;1,25;5,80;3,60;6,00;0,29
+Comunidad Foral de Navarra;2015;mujeres;real;6,85;0,95;5,60;18,50;5,80;0,41
+Comunidad Foral de Navarra;2015;total;real;6,60;1,10;5,70;22,10;5,90;0,34
+Comunidad Foral de Navarra;2016;hombres;real;7,35;1,80;7,35;4,30;5,65;0,30
+Comunidad Foral de Navarra;2016;mujeres;real;8,45;2,00;7,85;20,70;5,35;0,42
+Comunidad Foral de Navarra;2016;total;real;7,90;1,90;7,60;25,10;5,50;0,35
+Comunidad Foral de Navarra;2017;hombres;real;1,15;-0,20;4,20;4,70;2,30;0,31
+Comunidad Foral de Navarra;2017;mujeres;real;1,65;0,20;5,00;18,50;2,10;0,42
+Comunidad Foral de Navarra;2017;total;real;1,40;0,00;4,60;23,20;2,20;0,35
+Comunidad Foral de Navarra;2018;hombres;real;9,95;1,95;3,75;4,70;10,20;0,33
+Comunidad Foral de Navarra;2018;mujeres;real;10,85;2,05;4,85;17,00;10,40;0,43
+Comunidad Foral de Navarra;2018;total;real;10,40;2,00;4,30;21,80;10,30;0,38
+Comunidad Foral de Navarra;2019;hombres;real;6,85;2,60;4,65;4,20;6,85;0,35
+Comunidad Foral de Navarra;2019;mujeres;real;7,95;2,80;5,15;17,70;6,95;0,44
+Comunidad Foral de Navarra;2019;total;real;7,40;2,70;4,90;21,90;6,90;0,39
+Comunidad Foral de Navarra;2020;hombres;real;5,60;6,80;6,65;3,70;11,70;0,37
+Comunidad Foral de Navarra;2020;mujeres;real;6,20;6,40;7,55;18,50;11,10;0,47
+Comunidad Foral de Navarra;2020;total;real;5,90;6,60;7,10;22,20;11,40;0,40
+Comunidad Foral de Navarra;2021;hombres;proyeccion;NA;NA;NA;4,28;NA;NA
+Comunidad Foral de Navarra;2021;hombres;real;6,35;5,25;5,95;NA;10,60;0,38
+Comunidad Foral de Navarra;2021;mujeres;proyeccion;NA;NA;NA;19,46;NA;NA
+Comunidad Foral de Navarra;2021;mujeres;real;6,45;4,95;6,25;NA;10,00;0,48
+Comunidad Foral de Navarra;2021;total;proyeccion;NA;NA;NA;22,61;NA;NA
+Comunidad Foral de Navarra;2021;total;real;6,40;5,10;6,10;NA;10,30;0,42
+Comunidad Foral de Navarra;2022;hombres;proyeccion;NA;NA;NA;4,37;NA;NA
+Comunidad Foral de Navarra;2022;hombres;real;6,00;6,70;7,60;NA;11,05;0,38
+Comunidad Foral de Navarra;2022;mujeres;proyeccion;NA;NA;NA;20,04;NA;NA
+Comunidad Foral de Navarra;2022;mujeres;real;6,80;6,70;8,40;NA;10,55;0,47
+Comunidad Foral de Navarra;2022;total;proyeccion;NA;NA;NA;22,58;NA;NA
+Comunidad Foral de Navarra;2022;total;real;6,40;6,70;8,00;NA;10,80;0,42
+Comunidad Foral de Navarra;2023;hombres;proyeccion;NA;NA;NA;4,34;NA;NA
+Comunidad Foral de Navarra;2023;hombres;real;7,00;8,10;8,90;NA;12,25;0,37
+Comunidad Foral de Navarra;2023;mujeres;proyeccion;NA;NA;NA;20,63;NA;NA
+Comunidad Foral de Navarra;2023;mujeres;real;7,40;8,10;9,30;NA;11,55;0,47
+Comunidad Foral de Navarra;2023;total;proyeccion;NA;NA;NA;22,48;NA;NA
+Comunidad Foral de Navarra;2023;total;real;7,20;8,10;9,10;NA;11,90;0,41
+Comunidad Foral de Navarra;2024;hombres;proyeccion;6,86;7,66;8,01;4,35;11,89;0,40
+Comunidad Foral de Navarra;2024;mujeres;proyeccion;7,27;7,76;8,15;20,52;11,85;0,48
+Comunidad Foral de Navarra;2024;total;proyeccion;7,02;7,67;7,97;22,49;11,83;0,44
+Comunidad Foral de Navarra;2025;hombres;proyeccion;7,56;7,46;7,71;4,34;12,11;0,42
+Comunidad Foral de Navarra;2025;mujeres;proyeccion;7,91;7,51;7,48;20,46;11,95;0,49
+Comunidad Foral de Navarra;2025;total;proyeccion;7,76;7,50;7,70;22,55;12,22;0,45
+Comunidad Foral de Navarra;2026;hombres;proyeccion;7,25;7,28;8,05;4,34;12,10;0,42
+Comunidad Foral de Navarra;2026;mujeres;proyeccion;7,74;7,48;7,57;20,69;12,14;0,49
+Comunidad Foral de Navarra;2026;total;proyeccion;7,46;7,39;8,01;22,54;12,17;0,44
+Comunidad Valenciana;2004;hombres;real;11,60;10,05;NA;NA;7,45;NA
+Comunidad Valenciana;2004;mujeres;real;12,00;9,95;NA;NA;7,55;NA
+Comunidad Valenciana;2004;total;real;11,80;10,00;NA;NA;7,50;NA
+Comunidad Valenciana;2005;hombres;real;8,65;6,90;NA;NA;10,40;NA
+Comunidad Valenciana;2005;mujeres;real;9,55;6,90;NA;NA;10,20;NA
+Comunidad Valenciana;2005;total;real;9,10;6,90;NA;NA;10,30;NA
+Comunidad Valenciana;2006;hombres;real;12,60;5,05;NA;NA;9,45;NA
+Comunidad Valenciana;2006;mujeres;real;12,80;4,55;NA;NA;9,15;NA
+Comunidad Valenciana;2006;total;real;12,70;4,80;NA;NA;9,30;NA
+Comunidad Valenciana;2007;hombres;real;8,65;3,35;NA;NA;7,30;NA
+Comunidad Valenciana;2007;mujeres;real;9,15;3,25;NA;NA;7,10;NA
+Comunidad Valenciana;2007;total;real;8,90;3,30;NA;NA;7,20;NA
+Comunidad Valenciana;2008;hombres;real;16,70;3,40;11,95;NA;13,70;0,47
+Comunidad Valenciana;2008;mujeres;real;17,10;2,80;12,05;NA;13,10;0,59
+Comunidad Valenciana;2008;total;real;16,90;3,10;12,00;NA;13,40;0,52
+Comunidad Valenciana;2009;hombres;real;17,45;4,05;12,05;NA;18,90;0,41
+Comunidad Valenciana;2009;mujeres;real;17,35;3,35;12,15;NA;18,50;0,52
+Comunidad Valenciana;2009;total;real;17,40;3,70;12,10;NA;18,70;0,45
+Comunidad Valenciana;2010;hombres;real;14,15;3,25;8,75;NA;16,10;0,37
+Comunidad Valenciana;2010;mujeres;real;14,65;2,75;9,45;NA;16,50;0,48
+Comunidad Valenciana;2010;total;real;14,40;3,00;9,10;NA;16,30;0,42
+Comunidad Valenciana;2011;hombres;real;11,20;4,75;9,10;NA;8,75;0,34
+Comunidad Valenciana;2011;mujeres;real;11,40;4,45;9,30;NA;8,65;0,43
+Comunidad Valenciana;2011;total;real;11,30;4,60;9,20;NA;8,70;0,38
+Comunidad Valenciana;2012;hombres;real;18,10;3,90;11,40;NA;15,40;0,33
+Comunidad Valenciana;2012;mujeres;real;17,50;3,90;11,60;NA;14,60;0,43
+Comunidad Valenciana;2012;total;real;17,80;3,90;11,50;NA;15,00;0,37
+Comunidad Valenciana;2013;hombres;real;21,65;4,15;11,25;NA;15,60;0,32
+Comunidad Valenciana;2013;mujeres;real;21,95;3,85;10,75;NA;15,40;0,41
+Comunidad Valenciana;2013;total;real;21,80;4,00;11,00;NA;15,50;0,36
+Comunidad Valenciana;2014;hombres;real;20,65;2,80;9,45;33,50;19,40;0,31
+Comunidad Valenciana;2014;mujeres;real;21,15;2,80;9,35;160,90;19,60;0,41
+Comunidad Valenciana;2014;total;real;20,90;2,80;9,40;194,40;19,50;0,35
+Comunidad Valenciana;2015;hombres;real;18,95;4,75;11,60;36,60;15,20;0,32
+Comunidad Valenciana;2015;mujeres;real;19,45;4,45;11,40;164,80;15,00;0,41
+Comunidad Valenciana;2015;total;real;19,20;4,60;11,50;201,40;15,10;0,35
+Comunidad Valenciana;2016;hombres;real;25,15;5,50;10,85;38,50;12,95;0,35
+Comunidad Valenciana;2016;mujeres;real;26,25;5,70;11,35;172,60;12,65;0,44
+Comunidad Valenciana;2016;total;real;25,70;5,60;11,10;211,20;12,80;0,38
+Comunidad Valenciana;2017;hombres;real;11,95;4,50;10,80;33,30;14,70;0,36
+Comunidad Valenciana;2017;mujeres;real;12,45;4,90;11,60;173,00;14,50;0,47
+Comunidad Valenciana;2017;total;real;12,20;4,70;11,20;206,30;14,60;0,40
+Comunidad Valenciana;2018;hombres;real;6,25;4,15;8,75;27,90;7,50;0,39
+Comunidad Valenciana;2018;mujeres;real;7,15;4,25;9,85;166,80;7,70;0,49
+Comunidad Valenciana;2018;total;real;6,70;4,20;9,30;194,70;7,60;0,43
+Comunidad Valenciana;2019;hombres;real;6,15;3,90;6,75;32,20;9,35;0,42
+Comunidad Valenciana;2019;mujeres;real;7,25;4,10;7,25;162,30;9,45;0,54
+Comunidad Valenciana;2019;total;real;6,70;4,00;7,00;194,50;9,40;0,46
+Comunidad Valenciana;2020;hombres;real;10,40;3,10;10,15;36,70;14,70;0,44
+Comunidad Valenciana;2020;mujeres;real;11,00;2,70;11,05;165,30;14,10;0,55
+Comunidad Valenciana;2020;total;real;10,70;2,90;10,60;202,10;14,40;0,48
+Comunidad Valenciana;2021;hombres;proyeccion;NA;NA;NA;36,30;NA;NA
+Comunidad Valenciana;2021;hombres;real;7,75;4,15;9,45;NA;13,80;0,42
+Comunidad Valenciana;2021;mujeres;proyeccion;NA;NA;NA;168,46;NA;NA
+Comunidad Valenciana;2021;mujeres;real;7,85;3,85;9,75;NA;13,20;0,53
+Comunidad Valenciana;2021;total;proyeccion;NA;NA;NA;204,48;NA;NA
+Comunidad Valenciana;2021;total;real;7,80;4,00;9,60;NA;13,50;0,46
+Comunidad Valenciana;2022;hombres;proyeccion;NA;NA;NA;35,87;NA;NA
+Comunidad Valenciana;2022;hombres;real;8,00;3,80;7,00;NA;12,45;0,44
+Comunidad Valenciana;2022;mujeres;proyeccion;NA;NA;NA;168,27;NA;NA
+Comunidad Valenciana;2022;mujeres;real;8,80;3,80;7,80;NA;11,95;0,55
+Comunidad Valenciana;2022;total;proyeccion;NA;NA;NA;203,85;NA;NA
+Comunidad Valenciana;2022;total;real;8,40;3,80;7,40;NA;12,20;0,48
+Comunidad Valenciana;2023;hombres;proyeccion;NA;NA;NA;35,77;NA;NA
+Comunidad Valenciana;2023;hombres;real;6,70;6,90;8,60;NA;12,85;0,49
+Comunidad Valenciana;2023;mujeres;proyeccion;NA;NA;NA;167,45;NA;NA
+Comunidad Valenciana;2023;mujeres;real;7,10;6,90;9,00;NA;12,15;0,60
+Comunidad Valenciana;2023;total;proyeccion;NA;NA;NA;203,41;NA;NA
+Comunidad Valenciana;2023;total;real;6,90;6,90;8,80;NA;12,50;0,53
+Comunidad Valenciana;2024;hombres;proyeccion;8,14;5,68;7,20;35,58;12,49;0,55
+Comunidad Valenciana;2024;mujeres;proyeccion;7,90;5,74;8,29;167,44;14,48;0,66
+Comunidad Valenciana;2024;total;proyeccion;8,10;5,72;7,64;203,37;13,99;0,59
+Comunidad Valenciana;2025;hombres;proyeccion;8,78;5,87;8,05;35,33;12,26;0,59
+Comunidad Valenciana;2025;mujeres;proyeccion;8,27;5,99;8,06;167,43;13,50;0,71
+Comunidad Valenciana;2025;total;proyeccion;8,59;5,86;8,07;203,71;12,05;0,63
+Comunidad Valenciana;2026;hombres;proyeccion;8,36;6,19;7,06;35,13;12,52;0,60
+Comunidad Valenciana;2026;mujeres;proyeccion;8,07;6,54;7,89;167,43;12,59;0,72
+Comunidad Valenciana;2026;total;proyeccion;8,48;6,22;7,84;204,27;12,74;0,65
+Comunidad de Madrid;2004;hombres;real;9,40;17,05;NA;NA;8,75;NA
+Comunidad de Madrid;2004;mujeres;real;9,80;16,95;NA;NA;8,85;NA
+Comunidad de Madrid;2004;total;real;9,60;17,00;NA;NA;8,80;NA
+Comunidad de Madrid;2005;hombres;real;12,05;13,70;NA;NA;7,20;NA
+Comunidad de Madrid;2005;mujeres;real;12,95;13,70;NA;NA;7,00;NA
+Comunidad de Madrid;2005;total;real;12,50;13,70;NA;NA;7,10;NA
+Comunidad de Madrid;2006;hombres;real;10,10;10,15;NA;NA;4,15;NA
+Comunidad de Madrid;2006;mujeres;real;10,30;9,65;NA;NA;3,85;NA
+Comunidad de Madrid;2006;total;real;10,20;9,90;NA;NA;4,00;NA
+Comunidad de Madrid;2007;hombres;real;12,45;8,15;NA;NA;6,20;NA
+Comunidad de Madrid;2007;mujeres;real;12,95;8,05;NA;NA;6,00;NA
+Comunidad de Madrid;2007;total;real;12,70;8,10;NA;NA;6,10;NA
+Comunidad de Madrid;2008;hombres;real;16,20;7,40;13,85;NA;10,90;0,60
+Comunidad de Madrid;2008;mujeres;real;16,60;6,80;13,95;NA;10,30;0,77
+Comunidad de Madrid;2008;total;real;16,40;7,10;13,90;NA;10,60;0,66
+Comunidad de Madrid;2009;hombres;real;15,05;7,85;15,35;NA;12,50;0,56
+Comunidad de Madrid;2009;mujeres;real;14,95;7,15;15,45;NA;12,10;0,74
+Comunidad de Madrid;2009;total;real;15,00;7,50;15,40;NA;12,30;0,64
+Comunidad de Madrid;2010;hombres;real;14,05;8,75;12,85;NA;12,40;0,56
+Comunidad de Madrid;2010;mujeres;real;14,55;8,25;13,55;NA;12,80;0,70
+Comunidad de Madrid;2010;total;real;14,30;8,50;13,20;NA;12,60;0,62
+Comunidad de Madrid;2011;hombres;real;13,70;7,45;12,50;NA;6,65;0,56
+Comunidad de Madrid;2011;mujeres;real;13,90;7,15;12,70;NA;6,55;0,72
+Comunidad de Madrid;2011;total;real;13,80;7,30;12,60;NA;6,60;0,63
+Comunidad de Madrid;2012;hombres;real;12,50;7,40;13,30;NA;8,00;0,52
+Comunidad de Madrid;2012;mujeres;real;11,90;7,40;13,50;NA;7,20;0,68
+Comunidad de Madrid;2012;total;real;12,20;7,40;13,40;NA;7,60;0,59
+Comunidad de Madrid;2013;hombres;real;17,15;7,55;14,75;NA;11,20;0,50
+Comunidad de Madrid;2013;mujeres;real;17,45;7,25;14,25;NA;11,00;0,64
+Comunidad de Madrid;2013;total;real;17,30;7,40;14,50;NA;11,10;0,56
+Comunidad de Madrid;2014;hombres;real;13,65;6,50;14,55;35,00;10,20;0,49
+Comunidad de Madrid;2014;mujeres;real;14,15;6,50;14,45;198,50;10,40;0,63
+Comunidad de Madrid;2014;total;real;13,90;6,50;14,50;233,50;10,30;0,55
+Comunidad de Madrid;2015;hombres;real;10,45;7,55;13,60;42,20;9,30;0,53
+Comunidad de Madrid;2015;mujeres;real;10,95;7,25;13,40;205,90;9,10;0,65
+Comunidad de Madrid;2015;total;real;10,70;7,40;13,50;248,10;9,20;0,59
+Comunidad de Madrid;2016;hombres;real;11,65;6,10;15,35;49,60;8,85;0,57
+Comunidad de Madrid;2016;mujeres;real;12,75;6,30;15,85;222,40;8,55;0,71
+Comunidad de Madrid;2016;total;real;12,20;6,20;15,60;272,00;8,70;0,63
+Comunidad de Madrid;2017;hombres;real;6,45;6,30;14,70;42,90;7,00;0,62
+Comunidad de Madrid;2017;mujeres;real;6,95;6,70;15,50;217,50;6,80;0,76
+Comunidad de Madrid;2017;total;real;6,70;6,50;15,10;260,40;6,90;0,68
+Comunidad de Madrid;2018;hombres;real;10,15;5,95;12,95;36,40;8,60;0,69
+Comunidad de Madrid;2018;mujeres;real;11,05;6,05;14,05;211,10;8,80;0,86
+Comunidad de Madrid;2018;total;real;10,60;6,00;13,50;247,40;8,70;0,76
+Comunidad de Madrid;2019;hombres;real;6,45;6,00;12,75;41,30;7,15;0,70
+Comunidad de Madrid;2019;mujeres;real;7,55;6,20;13,25;213,40;7,25;0,84
+Comunidad de Madrid;2019;total;real;7,00;6,10;13,00;254,70;7,20;0,76
+Comunidad de Madrid;2020;hombres;real;8,20;12,10;9,65;42,90;11,80;0,68
+Comunidad de Madrid;2020;mujeres;real;8,80;11,70;10,55;208,40;11,20;0,82
+Comunidad de Madrid;2020;total;real;8,50;11,90;10,10;251,40;11,50;0,75
+Comunidad de Madrid;2021;hombres;proyeccion;NA;NA;NA;42,43;NA;NA
+Comunidad de Madrid;2021;hombres;real;6,85;9,15;13,25;NA;13,50;0,61
+Comunidad de Madrid;2021;mujeres;proyeccion;NA;NA;NA;210,38;NA;NA
+Comunidad de Madrid;2021;mujeres;real;6,95;8,85;13,55;NA;12,90;0,74
+Comunidad de Madrid;2021;total;proyeccion;NA;NA;NA;255,04;NA;NA
+Comunidad de Madrid;2021;total;real;6,90;9,00;13,40;NA;13,20;0,67
+Comunidad de Madrid;2022;hombres;proyeccion;NA;NA;NA;42,57;NA;NA
+Comunidad de Madrid;2022;hombres;real;7,90;8,50;11,80;NA;12,15;0,63
+Comunidad de Madrid;2022;mujeres;proyeccion;NA;NA;NA;210,98;NA;NA
+Comunidad de Madrid;2022;mujeres;real;8,70;8,50;12,60;NA;11,65;0,74
+Comunidad de Madrid;2022;total;proyeccion;NA;NA;NA;254,83;NA;NA
+Comunidad de Madrid;2022;total;real;8,30;8,50;12,20;NA;11,90;0,67
+Comunidad de Madrid;2023;hombres;proyeccion;NA;NA;NA;42,41;NA;NA
+Comunidad de Madrid;2023;hombres;real;9,00;9,40;8,90;NA;14,15;0,66
+Comunidad de Madrid;2023;mujeres;proyeccion;NA;NA;NA;210,69;NA;NA
+Comunidad de Madrid;2023;mujeres;real;9,40;9,40;9,30;NA;13,45;0,77
+Comunidad de Madrid;2023;total;proyeccion;NA;NA;NA;254,88;NA;NA
+Comunidad de Madrid;2023;total;real;9,20;9,40;9,10;NA;13,80;0,71
+Comunidad de Madrid;2024;hombres;proyeccion;8,41;9,17;10,57;42,70;12,91;0,75
+Comunidad de Madrid;2024;mujeres;proyeccion;8,73;9,29;10,82;210,69;12,82;0,87
+Comunidad de Madrid;2024;total;proyeccion;8,66;9,31;10,55;254,81;13,00;0,81
+Comunidad de Madrid;2025;hombres;proyeccion;8,36;9,11;10,82;42,34;13,52;0,83
+Comunidad de Madrid;2025;mujeres;proyeccion;8,55;9,33;10,93;210,69;13,73;0,95
+Comunidad de Madrid;2025;total;proyeccion;8,54;9,35;10,91;254,81;13,70;0,88
+Comunidad de Madrid;2026;hombres;proyeccion;8,33;9,01;11,07;42,66;12,51;0,86
+Comunidad de Madrid;2026;mujeres;proyeccion;8,81;9,31;11,16;210,69;12,81;0,98
+Comunidad de Madrid;2026;total;proyeccion;8,66;9,20;11,15;254,81;12,54;0,92
+Extremadura;2004;hombres;real;14,40;10,45;NA;NA;5,65;NA
+Extremadura;2004;mujeres;real;14,80;10,35;NA;NA;5,75;NA
+Extremadura;2004;total;real;14,60;10,40;NA;NA;5,70;NA
+Extremadura;2005;hombres;real;15,85;7,70;NA;NA;6,50;NA
+Extremadura;2005;mujeres;real;16,75;7,70;NA;NA;6,30;NA
+Extremadura;2005;total;real;16,30;7,70;NA;NA;6,40;NA
+Extremadura;2006;hombres;real;9,90;2,95;NA;NA;3,65;NA
+Extremadura;2006;mujeres;real;10,10;2,45;NA;NA;3,35;NA
+Extremadura;2006;total;real;10,00;2,70;NA;NA;3,50;NA
+Extremadura;2007;hombres;real;7,75;4,35;NA;NA;5,50;NA
+Extremadura;2007;mujeres;real;8,25;4,25;NA;NA;5,30;NA
+Extremadura;2007;total;real;8,00;4,30;NA;NA;5,40;NA
+Extremadura;2008;hombres;real;10,60;5,20;3,15;NA;4,20;NA
+Extremadura;2008;mujeres;real;11,00;4,60;3,25;NA;3,60;NA
+Extremadura;2008;total;real;10,80;4,90;3,20;NA;3,90;NA
+Extremadura;2009;hombres;real;11,15;3,35;3,85;NA;2,00;0,38
+Extremadura;2009;mujeres;real;11,05;2,65;3,95;NA;1,60;0,42
+Extremadura;2009;total;real;11,10;3,00;3,90;NA;1,80;0,39
+Extremadura;2010;hombres;real;11,85;1,75;4,55;NA;9,00;0,35
+Extremadura;2010;mujeres;real;12,35;1,25;5,25;NA;9,40;0,41
+Extremadura;2010;total;real;12,10;1,50;4,90;NA;9,20;0,37
+Extremadura;2011;hombres;real;7,50;2,95;4,50;NA;5,25;0,33
+Extremadura;2011;mujeres;real;7,70;2,65;4,70;NA;5,15;0,38
+Extremadura;2011;total;real;7,60;2,80;4,60;NA;5,20;0,35
+Extremadura;2012;hombres;real;13,40;3,20;6,90;NA;7,70;0,33
+Extremadura;2012;mujeres;real;12,80;3,20;7,10;NA;6,90;0,39
+Extremadura;2012;total;real;13,10;3,20;7,00;NA;7,30;0,35
+Extremadura;2013;hombres;real;21,75;1,65;5,65;NA;9,30;0,31
+Extremadura;2013;mujeres;real;22,05;1,35;5,15;NA;9,10;0,38
+Extremadura;2013;total;real;21,90;1,50;5,40;NA;9,20;0,33
+Extremadura;2014;hombres;real;20,95;3,60;7,55;8,50;7,70;0,30
+Extremadura;2014;mujeres;real;21,45;3,60;7,45;31,90;7,90;0,36
+Extremadura;2014;total;real;21,20;3,60;7,50;40,40;7,80;0,32
+Extremadura;2015;hombres;real;20,55;4,35;5,90;8,20;6,40;0,28
+Extremadura;2015;mujeres;real;21,05;4,05;5,70;31,60;6,20;0,35
+Extremadura;2015;total;real;20,80;4,20;5,80;39,80;6,30;0,31
+Extremadura;2016;hombres;real;17,55;2,50;3,35;6,70;6,25;0,29
+Extremadura;2016;mujeres;real;18,65;2,70;3,85;33,50;5,95;0,36
+Extremadura;2016;total;real;18,10;2,60;3,60;40,30;6,10;0,32
+Extremadura;2017;hombres;real;11,75;2,60;5,40;7,30;11,40;0,30
+Extremadura;2017;mujeres;real;12,25;3,00;6,20;34,20;11,20;0,37
+Extremadura;2017;total;real;12,00;2,80;5,80;41,50;11,30;0,32
+Extremadura;2018;hombres;real;11,95;1,55;4,65;8,40;9,80;0,31
+Extremadura;2018;mujeres;real;12,85;1,65;5,75;32,20;10,00;0,38
+Extremadura;2018;total;real;12,40;1,60;5,20;40,60;9,90;0,33
+Extremadura;2019;hombres;real;12,65;1,50;6,15;9,50;10,05;0,33
+Extremadura;2019;mujeres;real;13,75;1,70;6,65;32,40;10,15;0,41
+Extremadura;2019;total;real;13,20;1,60;6,40;41,90;10,10;0,35
+Extremadura;2020;hombres;real;12,40;4,30;3,25;9,70;14,00;0,33
+Extremadura;2020;mujeres;real;13,00;3,90;4,15;34,00;13,40;0,40
+Extremadura;2020;total;real;12,70;4,10;3,70;43,70;13,70;0,35
+Extremadura;2021;hombres;proyeccion;NA;NA;NA;9,25;NA;NA
+Extremadura;2021;hombres;real;7,95;2,45;5,45;NA;12,10;0,34
+Extremadura;2021;mujeres;proyeccion;NA;NA;NA;33,96;NA;NA
+Extremadura;2021;mujeres;real;8,05;2,15;5,75;NA;11,50;0,40
+Extremadura;2021;total;proyeccion;NA;NA;NA;42,97;NA;NA
+Extremadura;2021;total;real;8,00;2,30;5,60;NA;11,80;0,36
+Extremadura;2022;hombres;proyeccion;NA;NA;NA;9,23;NA;NA
+Extremadura;2022;hombres;real;10,60;1,80;4,00;NA;12,65;0,35
+Extremadura;2022;mujeres;proyeccion;NA;NA;NA;34,01;NA;NA
+Extremadura;2022;mujeres;real;11,40;1,80;4,80;NA;12,15;0,39
+Extremadura;2022;total;proyeccion;NA;NA;NA;42,54;NA;NA
+Extremadura;2022;total;real;11,00;1,80;4,40;NA;12,40;0,36
+Extremadura;2023;hombres;proyeccion;NA;NA;NA;9,24;NA;NA
+Extremadura;2023;hombres;real;10,80;2,20;4,50;NA;13,75;0,35
+Extremadura;2023;mujeres;proyeccion;NA;NA;NA;34,01;NA;NA
+Extremadura;2023;mujeres;real;11,20;2,20;4,90;NA;13,05;0,40
+Extremadura;2023;total;proyeccion;NA;NA;NA;42,74;NA;NA
+Extremadura;2023;total;real;11,00;2,20;4,70;NA;13,40;0,37
+Extremadura;2024;hombres;proyeccion;9,66;2,81;4,89;9,25;12,27;0,38
+Extremadura;2024;mujeres;proyeccion;10,32;2,78;4,84;34,17;12,66;0,43
+Extremadura;2024;total;proyeccion;9,87;2,79;4,95;42,61;12,33;0,39
+Extremadura;2025;hombres;proyeccion;9,28;4,08;5,01;9,34;12,95;0,38
+Extremadura;2025;mujeres;proyeccion;9,68;4,05;4,80;34,27;12,76;0,43
+Extremadura;2025;total;proyeccion;9,45;4,03;4,88;42,57;13,01;0,39
+Extremadura;2026;hombres;proyeccion;8,95;4,10;5,00;9,55;12,36;0,39
+Extremadura;2026;mujeres;proyeccion;9,13;4,07;4,83;34,33;12,52;0,44
+Extremadura;2026;total;proyeccion;9,13;4,11;4,92;42,79;12,42;0,40
+Galicia;2004;hombres;real;8,40;15,85;NA;NA;6,55;NA
+Galicia;2004;mujeres;real;8,80;15,75;NA;NA;6,65;NA
+Galicia;2004;total;real;8,60;15,80;NA;NA;6,60;NA
+Galicia;2005;hombres;real;8,05;3,70;NA;NA;4,70;NA
+Galicia;2005;mujeres;real;8,95;3,70;NA;NA;4,50;NA
+Galicia;2005;total;real;8,50;3,70;NA;NA;4,60;NA
+Galicia;2006;hombres;real;10,70;2,35;NA;NA;6,45;NA
+Galicia;2006;mujeres;real;10,90;1,85;NA;NA;6,15;NA
+Galicia;2006;total;real;10,80;2,10;NA;NA;6,30;NA
+Galicia;2007;hombres;real;8,75;3,45;NA;NA;5,80;NA
+Galicia;2007;mujeres;real;9,25;3,35;NA;NA;5,60;NA
+Galicia;2007;total;real;9,00;3,40;NA;NA;5,70;NA
+Galicia;2008;hombres;real;9,70;3,00;3,65;NA;3,70;0,58
+Galicia;2008;mujeres;real;10,10;2,40;3,75;NA;3,10;0,73
+Galicia;2008;total;real;9,90;2,70;3,70;NA;3,40;0,62
+Galicia;2009;hombres;real;13,15;2,25;4,45;NA;6,90;0,51
+Galicia;2009;mujeres;real;13,05;1,55;4,55;NA;6,50;0,62
+Galicia;2009;total;real;13,10;1,90;4,50;NA;6,70;0,55
+Galicia;2010;hombres;real;13,15;2,75;4,35;NA;6,80;0,44
+Galicia;2010;mujeres;real;13,65;2,25;5,05;NA;7,20;0,54
+Galicia;2010;total;real;13,40;2,50;4,70;NA;7,00;0,47
+Galicia;2011;hombres;real;12,00;3,75;5,70;NA;5,65;0,42
+Galicia;2011;mujeres;real;12,20;3,45;5,90;NA;5,55;0,51
+Galicia;2011;total;real;12,10;3,60;5,80;NA;5,60;0,45
+Galicia;2012;hombres;real;13,30;0,70;6,60;NA;8,00;0,41
+Galicia;2012;mujeres;real;12,70;0,70;6,80;NA;7,20;0,51
+Galicia;2012;total;real;13,00;0,70;6,70;NA;7,60;0,45
+Galicia;2013;hombres;real;16,95;1,45;7,25;NA;6,00;0,36
+Galicia;2013;mujeres;real;17,25;1,15;6,75;NA;5,80;0,45
+Galicia;2013;total;real;17,10;1,30;7,00;NA;5,90;0,40
+Galicia;2014;hombres;real;21,25;1,40;4,55;17,80;7,30;0,35
+Galicia;2014;mujeres;real;21,75;1,40;4,45;92,70;7,50;0,44
+Galicia;2014;total;real;21,50;1,40;4,50;110,50;7,40;0,39
+Galicia;2015;hombres;real;7,55;2,25;6,50;18,50;7,90;0,34
+Galicia;2015;mujeres;real;8,05;1,95;6,30;92,60;7,70;0,43
+Galicia;2015;total;real;7,80;2,10;6,40;111,10;7,80;0,37
+Galicia;2016;hombres;real;5,35;0,80;6,35;19,70;6,55;0,33
+Galicia;2016;mujeres;real;6,45;1,00;6,85;95,00;6,25;0,42
+Galicia;2016;total;real;5,90;0,90;6,60;114,70;6,40;0,36
+Galicia;2017;hombres;real;5,25;2,30;5,90;19,00;4,60;0,33
+Galicia;2017;mujeres;real;5,75;2,70;6,70;94,00;4,40;0,42
+Galicia;2017;total;real;5,50;2,50;6,30;113,00;4,50;0,36
+Galicia;2018;hombres;real;5,75;1,45;4,05;19,30;3,80;0,35
+Galicia;2018;mujeres;real;6,65;1,55;5,15;102,50;4,00;0,44
+Galicia;2018;total;real;6,20;1,50;4,60;121,80;3,90;0,38
+Galicia;2019;hombres;real;4,95;1,90;4,85;19,40;5,55;0,37
+Galicia;2019;mujeres;real;6,05;2,10;5,35;104,40;5,65;0,47
+Galicia;2019;total;real;5,50;2,00;5,10;123,90;5,60;0,41
+Galicia;2020;hombres;real;6,30;2,00;4,85;21,70;8,80;0,39
+Galicia;2020;mujeres;real;6,90;1,60;5,75;88,40;8,20;0,49
+Galicia;2020;total;real;6,60;1,80;5,30;110,00;8,50;0,42
+Galicia;2021;hombres;proyeccion;NA;NA;NA;21,54;NA;NA
+Galicia;2021;hombres;real;6,85;2,55;5,25;NA;9,30;0,40
+Galicia;2021;mujeres;proyeccion;NA;NA;NA;99,16;NA;NA
+Galicia;2021;mujeres;real;6,95;2,25;5,55;NA;8,70;0,50
+Galicia;2021;total;proyeccion;NA;NA;NA;116,00;NA;NA
+Galicia;2021;total;real;6,90;2,40;5,40;NA;9,00;0,43
+Galicia;2022;hombres;proyeccion;NA;NA;NA;22,16;NA;NA
+Galicia;2022;hombres;real;6,60;3,20;4,40;NA;9,65;0,39
+Galicia;2022;mujeres;proyeccion;NA;NA;NA;99,37;NA;NA
+Galicia;2022;mujeres;real;7,40;3,20;5,20;NA;9,15;0,49
+Galicia;2022;total;proyeccion;NA;NA;NA;115,66;NA;NA
+Galicia;2022;total;real;7,00;3,20;4,80;NA;9,40;0,43
+Galicia;2023;hombres;proyeccion;NA;NA;NA;22,31;NA;NA
+Galicia;2023;hombres;real;8,40;4,50;4,60;NA;9,55;0,40
+Galicia;2023;mujeres;proyeccion;NA;NA;NA;100,06;NA;NA
+Galicia;2023;mujeres;real;8,80;4,50;5,00;NA;8,85;0,50
+Galicia;2023;total;proyeccion;NA;NA;NA;116,26;NA;NA
+Galicia;2023;total;real;8,60;4,50;4,80;NA;9,20;0,44
+Galicia;2024;hombres;proyeccion;7,51;4,77;4,85;22,34;10,05;0,43
+Galicia;2024;mujeres;proyeccion;8,20;4,73;5,19;99,84;9,38;0,53
+Galicia;2024;total;proyeccion;8,19;4,77;4,94;116,26;9,53;0,47
+Galicia;2025;hombres;proyeccion;7,83;5,46;4,76;22,37;11,45;0,44
+Galicia;2025;mujeres;proyeccion;8,20;5,39;5,10;99,94;9,48;0,54
+Galicia;2025;total;proyeccion;8,07;5,41;4,97;116,25;9,63;0,48
+Galicia;2026;hombres;proyeccion;7,81;5,62;4,82;22,47;12,20;0,44
+Galicia;2026;mujeres;proyeccion;8,21;5,62;5,06;99,86;9,62;0,54
+Galicia;2026;total;proyeccion;8,00;5,63;4,95;116,25;10,11;0,48
+Islas Baleares;2004;hombres;real;9,40;11,75;NA;NA;8,35;NA
+Islas Baleares;2004;mujeres;real;9,80;11,65;NA;NA;8,45;NA
+Islas Baleares;2004;total;real;9,60;11,70;NA;NA;8,40;NA
+Islas Baleares;2005;hombres;real;15,35;8,70;NA;NA;12,80;NA
+Islas Baleares;2005;mujeres;real;16,25;8,70;NA;NA;12,60;NA
+Islas Baleares;2005;total;real;15,80;8,70;NA;NA;12,70;NA
+Islas Baleares;2006;hombres;real;11,80;10,45;NA;NA;12,45;NA
+Islas Baleares;2006;mujeres;real;12,00;9,95;NA;NA;12,15;NA
+Islas Baleares;2006;total;real;11,90;10,20;NA;NA;12,30;NA
+Islas Baleares;2007;hombres;real;7,15;8,35;NA;NA;10,30;NA
+Islas Baleares;2007;mujeres;real;7,65;8,25;NA;NA;10,10;NA
+Islas Baleares;2007;total;real;7,40;8,30;NA;NA;10,20;NA
+Islas Baleares;2008;hombres;real;13,90;3,30;19,35;NA;8,80;0,83
+Islas Baleares;2008;mujeres;real;14,30;2,70;19,45;NA;8,20;0,98
+Islas Baleares;2008;total;real;14,10;3,00;19,40;NA;8,50;0,90
+Islas Baleares;2009;hombres;real;16,45;6,25;18,45;NA;18,80;0,68
+Islas Baleares;2009;mujeres;real;16,35;5,55;18,55;NA;18,40;0,81
+Islas Baleares;2009;total;real;16,40;5,90;18,50;NA;18,60;0,74
+Islas Baleares;2010;hombres;real;14,55;5,05;20,25;NA;13,50;0,60
+Islas Baleares;2010;mujeres;real;15,05;4,55;20,95;NA;13,90;0,68
+Islas Baleares;2010;total;real;14,80;4,80;20,60;NA;13,70;0,64
+Islas Baleares;2011;hombres;real;15,90;4,65;20,00;NA;17,45;0,53
+Islas Baleares;2011;mujeres;real;16,10;4,35;20,20;NA;17,35;0,60
+Islas Baleares;2011;total;real;16,00;4,50;20,10;NA;17,40;0,57
+Islas Baleares;2012;hombres;real;9,20;6,50;20,80;NA;18,10;0,50
+Islas Baleares;2012;mujeres;real;8,60;6,50;21,00;NA;17,30;0,57
+Islas Baleares;2012;total;real;8,90;6,50;20,90;NA;17,70;0,54
+Islas Baleares;2013;hombres;real;18,65;7,45;19,75;NA;19,50;0,47
+Islas Baleares;2013;mujeres;real;18,95;7,15;19,25;NA;19,30;0,54
+Islas Baleares;2013;total;real;18,80;7,30;19,50;NA;19,40;0,51
+Islas Baleares;2014;hombres;real;16,45;10,40;21,85;8,60;21,20;0,46
+Islas Baleares;2014;mujeres;real;16,95;10,40;21,75;31,50;21,40;0,54
+Islas Baleares;2014;total;real;16,70;10,40;21,80;40,10;21,30;0,50
+Islas Baleares;2015;hombres;real;17,65;6,55;20,60;8,40;21,80;0,50
+Islas Baleares;2015;mujeres;real;18,15;6,25;20,40;31,30;21,60;0,58
+Islas Baleares;2015;total;real;17,90;6,40;20,50;39,70;21,70;0,54
+Islas Baleares;2016;hombres;real;13,45;10,40;11,25;8,90;12,75;0,59
+Islas Baleares;2016;mujeres;real;14,55;10,60;11,75;34,20;12,45;0,68
+Islas Baleares;2016;total;real;14,00;10,50;11,50;43,20;12,60;0,63
+Islas Baleares;2017;hombres;real;5,65;11,50;16,40;8,20;15,50;0,71
+Islas Baleares;2017;mujeres;real;6,15;11,90;17,20;35,30;15,30;0,79
+Islas Baleares;2017;total;real;5,90;11,70;16,80;43,50;15,40;0,75
+Islas Baleares;2018;hombres;real;9,95;7,85;9,15;6,80;10,10;0,70
+Islas Baleares;2018;mujeres;real;10,85;7,95;10,25;35,40;10,30;0,80
+Islas Baleares;2018;total;real;10,40;7,90;9,70;42,20;10,20;0,74
+Islas Baleares;2019;hombres;real;5,65;13,70;11,45;6,90;13,95;0,70
+Islas Baleares;2019;mujeres;real;6,75;13,90;11,95;36,20;14,05;0,77
+Islas Baleares;2019;total;real;6,20;13,80;11,70;43,10;14,00;0,74
+Islas Baleares;2020;hombres;real;8,70;9,90;9,95;8,30;13,40;0,68
+Islas Baleares;2020;mujeres;real;9,30;9,50;10,85;37,20;12,80;0,79
+Islas Baleares;2020;total;real;9,00;9,70;10,40;45,40;13,10;0,73
+Islas Baleares;2021;hombres;proyeccion;NA;NA;NA;8,55;NA;NA
+Islas Baleares;2021;hombres;real;5,35;6,65;17,65;NA;20,60;0,63
+Islas Baleares;2021;mujeres;proyeccion;NA;NA;NA;36,82;NA;NA
+Islas Baleares;2021;mujeres;real;5,45;6,35;17,95;NA;20,00;0,70
+Islas Baleares;2021;total;proyeccion;NA;NA;NA;43,67;NA;NA
+Islas Baleares;2021;total;real;5,40;6,50;17,80;NA;20,30;0,66
+Islas Baleares;2022;hombres;proyeccion;NA;NA;NA;8,88;NA;NA
+Islas Baleares;2022;hombres;real;5,30;9,30;11,40;NA;20,75;0,66
+Islas Baleares;2022;mujeres;proyeccion;NA;NA;NA;36,60;NA;NA
+Islas Baleares;2022;mujeres;real;6,10;9,30;12,20;NA;20,25;0,69
+Islas Baleares;2022;total;proyeccion;NA;NA;NA;43,92;NA;NA
+Islas Baleares;2022;total;real;5,70;9,30;11,80;NA;20,50;0,67
+Islas Baleares;2023;hombres;proyeccion;NA;NA;NA;8,98;NA;NA
+Islas Baleares;2023;hombres;real;5,00;10,10;14,30;NA;16,15;0,78
+Islas Baleares;2023;mujeres;proyeccion;NA;NA;NA;36,72;NA;NA
+Islas Baleares;2023;mujeres;real;5,40;10,10;14,70;NA;15,45;0,82
+Islas Baleares;2023;total;proyeccion;NA;NA;NA;43,82;NA;NA
+Islas Baleares;2023;total;real;5,20;10,10;14,50;NA;15,80;0,80
+Islas Baleares;2024;hombres;proyeccion;5,42;9,02;12,83;8,99;16,00;0,86
+Islas Baleares;2024;mujeres;proyeccion;5,65;9,08;12,97;36,54;16,02;0,90
+Islas Baleares;2024;total;proyeccion;5,36;9,06;12,94;43,83;15,96;0,87
+Islas Baleares;2025;hombres;proyeccion;5,61;9,13;12,39;9,00;15,73;0,89
+Islas Baleares;2025;mujeres;proyeccion;5,43;9,18;12,70;36,68;15,70;0,94
+Islas Baleares;2025;total;proyeccion;5,30;9,15;12,78;43,83;15,69;0,91
+Islas Baleares;2026;hombres;proyeccion;5,56;9,32;12,62;8,97;15,83;0,90
+Islas Baleares;2026;mujeres;proyeccion;5,59;9,49;12,51;36,31;15,69;0,95
+Islas Baleares;2026;total;proyeccion;5,26;9,39;12,56;43,83;15,65;0,91
+La Rioja;2004;hombres;real;6,50;15,05;NA;NA;4,85;NA
+La Rioja;2004;mujeres;real;6,90;14,95;NA;NA;4,95;NA
+La Rioja;2004;total;real;6,70;15,00;NA;NA;4,90;NA
+La Rioja;2005;hombres;real;4,65;4,10;NA;NA;4,60;NA
+La Rioja;2005;mujeres;real;5,55;4,10;NA;NA;4,40;NA
+La Rioja;2005;total;real;5,10;4,10;NA;NA;4,50;NA
+La Rioja;2006;hombres;real;9,70;6,85;NA;NA;5,35;NA
+La Rioja;2006;mujeres;real;9,90;6,35;NA;NA;5,05;NA
+La Rioja;2006;total;real;9,80;6,60;NA;NA;5,20;NA
+La Rioja;2007;hombres;real;8,65;1,75;NA;NA;9,90;NA
+La Rioja;2007;mujeres;real;9,15;1,65;NA;NA;9,70;NA
+La Rioja;2007;total;real;8,90;1,70;NA;NA;9,80;NA
+La Rioja;2008;hombres;real;13,00;3,60;11,95;NA;7,60;NA
+La Rioja;2008;mujeres;real;13,40;3,00;12,05;NA;7,00;NA
+La Rioja;2008;total;real;13,20;3,30;12,00;NA;7,30;NA
+La Rioja;2009;hombres;real;15,35;6,25;7,45;NA;11,90;NA
+La Rioja;2009;mujeres;real;15,25;5,55;7,55;NA;11,50;NA
+La Rioja;2009;total;real;15,30;5,90;7,50;NA;11,70;NA
+La Rioja;2010;hombres;real;16,15;7,35;7,75;NA;12,10;0,38
+La Rioja;2010;mujeres;real;16,65;6,85;8,45;NA;12,50;0,49
+La Rioja;2010;total;real;16,40;7,10;8,10;NA;12,30;0,41
+La Rioja;2011;hombres;real;8,70;5,25;12,30;NA;10,75;0,35
+La Rioja;2011;mujeres;real;8,90;4,95;12,50;NA;10,65;0,47
+La Rioja;2011;total;real;8,80;5,10;12,40;NA;10,70;0,39
+La Rioja;2012;hombres;real;14,70;2,40;11,80;NA;11,20;0,35
+La Rioja;2012;mujeres;real;14,10;2,40;12,00;NA;10,40;0,48
+La Rioja;2012;total;real;14,40;2,40;11,90;NA;10,80;0,40
+La Rioja;2013;hombres;real;14,25;0,65;14,75;NA;11,10;0,33
+La Rioja;2013;mujeres;real;14,55;0,35;14,25;NA;10,90;0,43
+La Rioja;2013;total;real;14,40;0,50;14,50;NA;11,00;0,37
+La Rioja;2014;hombres;real;10,65;1,40;9,05;1,90;11,30;0,29
+La Rioja;2014;mujeres;real;11,15;1,40;8,95;8,60;11,50;0,38
+La Rioja;2014;total;real;10,90;1,40;9,00;10,50;11,40;0,32
+La Rioja;2015;hombres;real;8,45;1,15;8,30;1,60;16,30;0,29
+La Rioja;2015;mujeres;real;8,95;0,85;8,10;8,90;16,10;0,37
+La Rioja;2015;total;real;8,70;1,00;8,20;10,50;16,20;0,32
+La Rioja;2016;hombres;real;7,75;0,50;6,35;2,10;12,65;0,29
+La Rioja;2016;mujeres;real;8,85;0,70;6,85;10,60;12,35;0,37
+La Rioja;2016;total;real;8,30;0,60;6,60;12,70;12,50;0,32
+La Rioja;2017;hombres;real;0,35;-0,10;3,60;2,40;4,50;0,30
+La Rioja;2017;mujeres;real;0,85;0,30;4,40;9,80;4,30;0,40
+La Rioja;2017;total;real;0,60;0,10;4,00;12,20;4,40;0,33
+La Rioja;2018;hombres;real;6,95;-0,05;8,85;2,30;7,80;0,32
+La Rioja;2018;mujeres;real;7,85;0,05;9,95;8,30;8,00;0,42
+La Rioja;2018;total;real;7,40;0,00;9,40;10,60;7,90;0,35
+La Rioja;2019;hombres;real;2,25;2,00;5,55;2,40;4,85;0,34
+La Rioja;2019;mujeres;real;3,35;2,20;6,05;9,60;4,95;0,44
+La Rioja;2019;total;real;2,80;2,10;5,80;12,00;4,90;0,37
+La Rioja;2020;hombres;real;5,70;2,80;4,15;2,80;8,50;0,36
+La Rioja;2020;mujeres;real;6,30;2,40;5,05;10,10;7,90;0,46
+La Rioja;2020;total;real;6,00;2,60;4,60;12,90;8,20;0,39
+La Rioja;2021;hombres;proyeccion;NA;NA;NA;2,55;NA;NA
+La Rioja;2021;hombres;real;3,05;3,85;8,05;NA;8,30;0,36
+La Rioja;2021;mujeres;proyeccion;NA;NA;NA;10,15;NA;NA
+La Rioja;2021;mujeres;real;3,15;3,55;8,35;NA;7,70;0,46
+La Rioja;2021;total;proyeccion;NA;NA;NA;11,86;NA;NA
+La Rioja;2021;total;real;3,10;3,70;8,20;NA;8,00;0,39
+La Rioja;2022;hombres;proyeccion;NA;NA;NA;2,55;NA;NA
+La Rioja;2022;hombres;real;2,90;5,00;6,50;NA;8,05;0,35
+La Rioja;2022;mujeres;proyeccion;NA;NA;NA;10,14;NA;NA
+La Rioja;2022;mujeres;real;3,70;5,00;7,30;NA;7,55;0,46
+La Rioja;2022;total;proyeccion;NA;NA;NA;12,54;NA;NA
+La Rioja;2022;total;real;3,30;5,00;6,90;NA;7,80;0,39
+La Rioja;2023;hombres;proyeccion;NA;NA;NA;2,54;NA;NA
+La Rioja;2023;hombres;real;4,60;5,70;5,30;NA;10,75;0,35
+La Rioja;2023;mujeres;proyeccion;NA;NA;NA;10,23;NA;NA
+La Rioja;2023;mujeres;real;5,00;5,70;5,70;NA;10,05;0,43
+La Rioja;2023;total;proyeccion;NA;NA;NA;11,83;NA;NA
+La Rioja;2023;total;real;4,80;5,70;5,50;NA;10,40;0,39
+La Rioja;2024;hombres;proyeccion;4,72;5,49;6,88;2,54;12,08;0,37
+La Rioja;2024;mujeres;proyeccion;4,83;5,54;6,92;10,36;10,67;0,45
+La Rioja;2024;total;proyeccion;4,83;5,50;7,01;11,97;11,34;0,40
+La Rioja;2025;hombres;proyeccion;5,47;5,68;6,44;2,54;12,81;0,40
+La Rioja;2025;mujeres;proyeccion;4,78;5,78;6,47;10,36;12,17;0,48
+La Rioja;2025;total;proyeccion;4,92;5,72;6,47;11,89;13,01;0,43
+La Rioja;2026;hombres;proyeccion;5,63;5,57;6,65;2,54;12,60;0,40
+La Rioja;2026;mujeres;proyeccion;4,88;5,79;6,80;10,36;12,73;0,48
+La Rioja;2026;total;proyeccion;5,23;5,56;6,89;11,88;12,88;0,43
+País Vasco;2004;hombres;real;5,00;16,15;NA;NA;4,05;NA
+País Vasco;2004;mujeres;real;5,40;16,05;NA;NA;4,15;NA
+País Vasco;2004;total;real;5,20;16,10;NA;NA;4,10;NA
+País Vasco;2005;hombres;real;7,45;5,20;NA;NA;5,30;NA
+País Vasco;2005;mujeres;real;8,35;5,20;NA;NA;5,10;NA
+País Vasco;2005;total;real;7,90;5,20;NA;NA;5,20;NA
+País Vasco;2006;hombres;real;5,00;3,65;NA;NA;6,15;NA
+País Vasco;2006;mujeres;real;5,20;3,15;NA;NA;5,85;NA
+País Vasco;2006;total;real;5,10;3,40;NA;NA;6,00;NA
+País Vasco;2007;hombres;real;6,45;4,45;NA;NA;4,80;NA
+País Vasco;2007;mujeres;real;6,95;4,35;NA;NA;4,60;NA
+País Vasco;2007;total;real;6,70;4,40;NA;NA;4,70;NA
+País Vasco;2008;hombres;real;6,90;3,20;4,15;NA;5,10;NA
+País Vasco;2008;mujeres;real;7,30;2,60;4,25;NA;4,50;NA
+País Vasco;2008;total;real;7,10;2,90;4,20;NA;4,80;NA
+País Vasco;2009;hombres;real;10,35;2,75;5,45;NA;4,00;NA
+País Vasco;2009;mujeres;real;10,25;2,05;5,55;NA;3,60;NA
+País Vasco;2009;total;real;10,30;2,40;5,50;NA;3,80;NA
+País Vasco;2010;hombres;real;5,45;3,25;7,75;NA;4,70;0,46
+País Vasco;2010;mujeres;real;5,95;2,75;8,45;NA;5,10;0,64
+País Vasco;2010;total;real;5,70;3,00;8,10;NA;4,90;0,52
+País Vasco;2011;hombres;real;6,30;3,15;9,30;NA;5,25;0,48
+País Vasco;2011;mujeres;real;6,50;2,85;9,50;NA;5,15;0,67
+País Vasco;2011;total;real;6,40;3,00;9,40;NA;5,20;0,55
+País Vasco;2012;hombres;real;6,70;0,80;7,80;NA;4,30;0,47
+País Vasco;2012;mujeres;real;6,10;0,80;8,00;NA;3,50;0,66
+País Vasco;2012;total;real;6,40;0,80;7,90;NA;3,90;0,54
+País Vasco;2013;hombres;real;11,35;1,55;6,65;NA;5,60;0,44
+País Vasco;2013;mujeres;real;11,65;1,25;6,15;NA;5,40;0,61
+País Vasco;2013;total;real;11,50;1,40;6,40;NA;5,50;0,50
+País Vasco;2014;hombres;real;10,85;1,00;7,45;15,70;5,60;0,41
+País Vasco;2014;mujeres;real;11,35;1,00;7,35;64,80;5,80;0,55
+País Vasco;2014;total;real;11,10;1,00;7,40;80,50;5,70;0,46
+País Vasco;2015;hombres;real;10,15;0,55;7,60;16,60;6,20;0,41
+País Vasco;2015;mujeres;real;10,65;0,25;7,40;69,40;6,00;0,57
+País Vasco;2015;total;real;10,40;0,40;7,50;86,00;6,10;0,47
+País Vasco;2016;hombres;real;5,45;1,50;6,85;16,90;6,65;0,42
+País Vasco;2016;mujeres;real;6,55;1,70;7,35;75,00;6,35;0,58
+País Vasco;2016;total;real;6,00;1,60;7,10;91,90;6,50;0,48
+País Vasco;2017;hombres;real;5,15;0,50;7,90;15,50;6,00;0,43
+País Vasco;2017;mujeres;real;5,65;0,90;8,70;80,00;5,80;0,59
+País Vasco;2017;total;real;5,40;0,70;8,30;95,40;5,90;0,49
+País Vasco;2018;hombres;real;6,05;3,05;6,85;16,80;5,30;0,46
+País Vasco;2018;mujeres;real;6,95;3,15;7,95;79,40;5,50;0,64
+País Vasco;2018;total;real;6,50;3,10;7,40;96,10;5,40;0,52
+País Vasco;2019;hombres;real;5,65;2,30;6,05;17,70;8,45;0,47
+País Vasco;2019;mujeres;real;6,75;2,50;6,55;75,10;8,55;0,61
+País Vasco;2019;total;real;6,20;2,40;6,30;92,80;8,50;0,52
+País Vasco;2020;hombres;real;5,30;5,30;6,75;16,50;8,50;0,48
+País Vasco;2020;mujeres;real;5,90;4,90;7,65;76,80;7,90;0,61
+País Vasco;2020;total;real;5,60;5,10;7,20;93,30;8,20;0,54
+País Vasco;2021;hombres;proyeccion;NA;NA;NA;17,56;NA;NA
+País Vasco;2021;hombres;real;4,55;3,85;6,45;NA;9,10;0,47
+País Vasco;2021;mujeres;proyeccion;NA;NA;NA;76,78;NA;NA
+País Vasco;2021;mujeres;real;4,65;3,55;6,75;NA;8,50;0,60
+País Vasco;2021;total;proyeccion;NA;NA;NA;94,06;NA;NA
+País Vasco;2021;total;real;4,60;3,70;6,60;NA;8,80;0,52
+País Vasco;2022;hombres;proyeccion;NA;NA;NA;17,05;NA;NA
+País Vasco;2022;hombres;real;3,50;3,00;6,90;NA;7,45;0,46
+País Vasco;2022;mujeres;proyeccion;NA;NA;NA;77,54;NA;NA
+País Vasco;2022;mujeres;real;4,30;3,00;7,70;NA;6,95;0,59
+País Vasco;2022;total;proyeccion;NA;NA;NA;94,55;NA;NA
+País Vasco;2022;total;real;3,90;3,00;7,30;NA;7,20;0,51
+País Vasco;2023;hombres;proyeccion;NA;NA;NA;17,87;NA;NA
+País Vasco;2023;hombres;real;6,10;5,20;5,70;NA;10,75;0,48
+País Vasco;2023;mujeres;proyeccion;NA;NA;NA;79,84;NA;NA
+País Vasco;2023;mujeres;real;6,50;5,20;6,10;NA;10,05;0,57
+País Vasco;2023;total;proyeccion;NA;NA;NA;96,19;NA;NA
+País Vasco;2023;total;real;6,30;5,20;5,90;NA;10,40;0,51
+País Vasco;2024;hombres;proyeccion;5,82;4,76;6,96;17,85;10,13;0,53
+País Vasco;2024;mujeres;proyeccion;6,14;4,54;7,19;81,70;9,42;0,62
+País Vasco;2024;total;proyeccion;5,87;4,49;6,96;96,18;9,57;0,55
+País Vasco;2025;hombres;proyeccion;5,64;5,23;6,41;18,16;10,64;0,56
+País Vasco;2025;mujeres;proyeccion;5,98;4,97;6,47;82,46;9,73;0,64
+País Vasco;2025;total;proyeccion;5,48;4,95;6,45;95,95;9,78;0,58
+País Vasco;2026;hombres;proyeccion;5,60;5,15;7,21;18,87;10,89;0,58
+País Vasco;2026;mujeres;proyeccion;5,43;5,13;7,16;84,65;9,44;0,66
+País Vasco;2026;total;proyeccion;5,44;5,09;7,19;95,95;9,73;0,60
+Principado de Asturias;2004;hombres;real;6,60;10,55;NA;NA;4,65;NA
+Principado de Asturias;2004;mujeres;real;7,00;10,45;NA;NA;4,75;NA
+Principado de Asturias;2004;total;real;6,80;10,50;NA;NA;4,70;NA
+Principado de Asturias;2005;hombres;real;3,95;2,30;NA;NA;1,80;NA
+Principado de Asturias;2005;mujeres;real;4,85;2,30;NA;NA;1,60;NA
+Principado de Asturias;2005;total;real;4,40;2,30;NA;NA;1,70;NA
+Principado de Asturias;2006;hombres;real;3,10;2,95;NA;NA;2,95;NA
+Principado de Asturias;2006;mujeres;real;3,30;2,45;NA;NA;2,65;NA
+Principado de Asturias;2006;total;real;3,20;2,70;NA;NA;2,80;NA
+Principado de Asturias;2007;hombres;real;6,95;1,95;NA;NA;5,60;NA
+Principado de Asturias;2007;mujeres;real;7,45;1,85;NA;NA;5,40;NA
+Principado de Asturias;2007;total;real;7,20;1,90;NA;NA;5,50;NA
+Principado de Asturias;2008;hombres;real;4,30;2,20;3,65;NA;3,80;0,56
+Principado de Asturias;2008;mujeres;real;4,70;1,60;3,75;NA;3,20;0,77
+Principado de Asturias;2008;total;real;4,50;1,90;3,70;NA;3,50;0,63
+Principado de Asturias;2009;hombres;real;8,15;2,05;4,75;NA;5,50;0,46
+Principado de Asturias;2009;mujeres;real;8,05;1,35;4,85;NA;5,10;0,62
+Principado de Asturias;2009;total;real;8,10;1,70;4,80;NA;5,30;0,51
+Principado de Asturias;2010;hombres;real;5,55;1,45;3,45;NA;3,10;0,42
+Principado de Asturias;2010;mujeres;real;6,05;0,95;4,15;NA;3,50;0,59
+Principado de Asturias;2010;total;real;5,80;1,20;3,80;NA;3,30;0,48
+Principado de Asturias;2011;hombres;real;3,20;1,95;5,20;NA;2,65;0,39
+Principado de Asturias;2011;mujeres;real;3,40;1,65;5,40;NA;2,55;0,56
+Principado de Asturias;2011;total;real;3,30;1,80;5,30;NA;2,60;0,45
+Principado de Asturias;2012;hombres;real;7,30;1,70;5,60;NA;5,50;0,37
+Principado de Asturias;2012;mujeres;real;6,70;1,70;5,80;NA;4,70;0,52
+Principado de Asturias;2012;total;real;7,00;1,70;5,70;NA;5,10;0,43
+Principado de Asturias;2013;hombres;real;8,65;1,15;7,85;NA;7,60;0,34
+Principado de Asturias;2013;mujeres;real;8,95;0,85;7,35;NA;7,40;0,49
+Principado de Asturias;2013;total;real;8,80;1,00;7,60;NA;7,50;0,39
+Principado de Asturias;2014;hombres;real;5,65;0,90;7,25;7,20;8,30;0,32
+Principado de Asturias;2014;mujeres;real;6,15;0,90;7,15;41,90;8,50;0,45
+Principado de Asturias;2014;total;real;5,90;0,90;7,20;49,10;8,40;0,38
+Principado de Asturias;2015;hombres;real;8,85;1,35;8,80;6,20;6,60;0,31
+Principado de Asturias;2015;mujeres;real;9,35;1,05;8,60;40,20;6,40;0,46
+Principado de Asturias;2015;total;real;9,10;1,20;8,70;46,40;6,50;0,36
+Principado de Asturias;2016;hombres;real;4,65;1,30;6,25;8,00;5,45;0,32
+Principado de Asturias;2016;mujeres;real;5,75;1,50;6,75;43,40;5,15;0,47
+Principado de Asturias;2016;total;real;5,20;1,40;6,50;51,40;5,30;0,37
+Principado de Asturias;2017;hombres;real;10,45;1,50;7,00;8,60;5,90;0,32
+Principado de Asturias;2017;mujeres;real;10,95;1,90;7,80;46,10;5,70;0,49
+Principado de Asturias;2017;total;real;10,70;1,70;7,40;54,70;5,80;0,38
+Principado de Asturias;2018;hombres;real;8,65;2,75;6,25;7,30;4,40;0,33
+Principado de Asturias;2018;mujeres;real;9,55;2,85;7,35;44,20;4,60;0,48
+Principado de Asturias;2018;total;real;9,10;2,80;6,80;51,50;4,50;0,39
+Principado de Asturias;2019;hombres;real;8,85;3,70;11,15;7,90;4,75;0,35
+Principado de Asturias;2019;mujeres;real;9,95;3,90;11,65;44,50;4,85;0,49
+Principado de Asturias;2019;total;real;9,40;3,80;11,40;52,40;4,80;0,39
+Principado de Asturias;2020;hombres;real;9,00;3,50;9,25;8,70;12,00;0,35
+Principado de Asturias;2020;mujeres;real;9,60;3,10;10,15;43,20;11,40;0,50
+Principado de Asturias;2020;total;real;9,30;3,30;9,70;51,90;11,70;0,41
+Principado de Asturias;2021;hombres;proyeccion;NA;NA;NA;8,67;NA;NA
+Principado de Asturias;2021;hombres;real;6,65;3,05;10,35;NA;10,30;0,36
+Principado de Asturias;2021;mujeres;proyeccion;NA;NA;NA;44,40;NA;NA
+Principado de Asturias;2021;mujeres;real;6,75;2,75;10,65;NA;9,70;0,50
+Principado de Asturias;2021;total;proyeccion;NA;NA;NA;52,34;NA;NA
+Principado de Asturias;2021;total;real;6,70;2,90;10,50;NA;10,00;0,41
+Principado de Asturias;2022;hombres;proyeccion;NA;NA;NA;8,91;NA;NA
+Principado de Asturias;2022;hombres;real;6,10;3,80;10,00;NA;7,85;0,36
+Principado de Asturias;2022;mujeres;proyeccion;NA;NA;NA;44,28;NA;NA
+Principado de Asturias;2022;mujeres;real;6,90;3,80;10,80;NA;7,35;0,49
+Principado de Asturias;2022;total;proyeccion;NA;NA;NA;52,39;NA;NA
+Principado de Asturias;2022;total;real;6,50;3,80;10,40;NA;7,60;0,40
+Principado de Asturias;2023;hombres;proyeccion;NA;NA;NA;9,06;NA;NA
+Principado de Asturias;2023;hombres;real;5,40;2,10;6,30;NA;9,35;0,37
+Principado de Asturias;2023;mujeres;proyeccion;NA;NA;NA;44,46;NA;NA
+Principado de Asturias;2023;mujeres;real;5,80;2,10;6,70;NA;8,65;0,48
+Principado de Asturias;2023;total;proyeccion;NA;NA;NA;52,57;NA;NA
+Principado de Asturias;2023;total;real;5,60;2,10;6,50;NA;9,00;0,41
+Principado de Asturias;2024;hombres;proyeccion;5,94;3,46;7,18;9,14;8,54;0,39
+Principado de Asturias;2024;mujeres;proyeccion;6,25;3,44;7,62;44,29;8,43;0,52
+Principado de Asturias;2024;total;proyeccion;6,06;3,43;7,37;53,27;8,35;0,44
+Principado de Asturias;2025;hombres;proyeccion;5,99;3,26;6,55;9,30;9,24;0,43
+Principado de Asturias;2025;mujeres;proyeccion;5,92;3,13;6,57;44,47;9,18;0,54
+Principado de Asturias;2025;total;proyeccion;6,08;3,16;6,61;55,27;9,36;0,47
+Principado de Asturias;2026;hombres;proyeccion;5,98;3,52;7,63;9,38;9,15;0,45
+Principado de Asturias;2026;mujeres;proyeccion;5,80;3,38;7,70;44,30;8,77;0,56
+Principado de Asturias;2026;total;proyeccion;6,17;3,46;7,93;55,36;8,93;0,48
+Región de Murcia;2004;hombres;real;20,90;16,25;NA;NA;15,55;NA
+Región de Murcia;2004;mujeres;real;21,30;16,15;NA;NA;15,65;NA
+Región de Murcia;2004;total;real;21,10;16,20;NA;NA;15,60;NA
+Región de Murcia;2005;hombres;real;17,85;9,30;NA;NA;8,30;NA
+Región de Murcia;2005;mujeres;real;18,75;9,30;NA;NA;8,10;NA
+Región de Murcia;2005;total;real;18,30;9,30;NA;NA;8,20;NA
+Región de Murcia;2006;hombres;real;14,90;11,75;NA;NA;9,25;NA
+Región de Murcia;2006;mujeres;real;15,10;11,25;NA;NA;8,95;NA
+Región de Murcia;2006;total;real;15,00;11,50;NA;NA;9,10;NA
+Región de Murcia;2007;hombres;real;16,65;9,05;NA;NA;13,70;NA
+Región de Murcia;2007;mujeres;real;17,15;8,95;NA;NA;13,50;NA
+Región de Murcia;2007;total;real;16,90;9,00;NA;NA;13,60;NA
+Región de Murcia;2008;hombres;real;15,20;7,80;7,85;NA;8,80;0,46
+Región de Murcia;2008;mujeres;real;15,60;7,20;7,95;NA;8,20;0,59
+Región de Murcia;2008;total;real;15,40;7,50;7,90;NA;8,50;0,49
+Región de Murcia;2009;hombres;real;28,15;7,45;12,75;NA;18,30;0,39
+Región de Murcia;2009;mujeres;real;28,05;6,75;12,85;NA;17,90;0,51
+Región de Murcia;2009;total;real;28,10;7,10;12,80;NA;18,10;0,42
+Región de Murcia;2010;hombres;real;25,85;4,25;11,15;NA;20,20;0,35
+Región de Murcia;2010;mujeres;real;26,35;3,75;11,85;NA;20,60;0,47
+Región de Murcia;2010;total;real;26,10;4,00;11,50;NA;20,40;0,39
+Región de Murcia;2011;hombres;real;12,70;9,25;8,80;NA;11,15;0,35
+Región de Murcia;2011;mujeres;real;12,90;8,95;9,00;NA;11,05;0,44
+Región de Murcia;2011;total;real;12,80;9,10;8,90;NA;11,10;0,38
+Región de Murcia;2012;hombres;real;27,70;5,90;11,60;NA;14,50;0,35
+Región de Murcia;2012;mujeres;real;27,10;5,90;11,80;NA;13,70;0,45
+Región de Murcia;2012;total;real;27,40;5,90;11,70;NA;14,10;0,38
+Región de Murcia;2013;hombres;real;25,95;6,45;10,25;NA;24,60;0,32
+Región de Murcia;2013;mujeres;real;26,25;6,15;9,75;NA;24,40;0,44
+Región de Murcia;2013;total;real;26,10;6,30;10,00;NA;24,50;0,36
+Región de Murcia;2014;hombres;real;24,65;3,40;12,55;9,30;19,40;0,31
+Región de Murcia;2014;mujeres;real;25,15;3,40;12,45;41,80;19,60;0,42
+Región de Murcia;2014;total;real;24,90;3,40;12,50;51,10;19,50;0,34
+Región de Murcia;2015;hombres;real;21,25;4,85;12,90;8,50;17,20;0,30
+Región de Murcia;2015;mujeres;real;21,75;4,55;12,70;44,90;17,00;0,41
+Región de Murcia;2015;total;real;21,50;4,70;12,80;53,40;17,10;0,33
+Región de Murcia;2016;hombres;real;25,65;4,00;9,45;9,40;15,05;0,31
+Región de Murcia;2016;mujeres;real;26,75;4,20;9,95;47,00;14,75;0,42
+Región de Murcia;2016;total;real;26,20;4,10;9,70;56,40;14,90;0,35
+Región de Murcia;2017;hombres;real;17,35;3,30;7,80;9,40;17,00;0,32
+Región de Murcia;2017;mujeres;real;17,85;3,70;8,60;44,30;16,80;0,43
+Región de Murcia;2017;total;real;17,60;3,50;8,20;53,70;16,90;0,35
+Región de Murcia;2018;hombres;real;15,15;7,85;8,15;9,10;14,80;0,34
+Región de Murcia;2018;mujeres;real;16,05;7,95;9,25;47,00;15,00;0,45
+Región de Murcia;2018;total;real;15,60;7,90;8,70;56,10;14,90;0,37
+Región de Murcia;2019;hombres;real;12,95;4,20;5,45;10,30;11,55;0,36
+Región de Murcia;2019;mujeres;real;14,05;4,40;5,95;46,10;11,65;0,47
+Región de Murcia;2019;total;real;13,50;4,30;5,70;56,40;11,60;0,39
+Región de Murcia;2020;hombres;real;10,90;10,50;4,45;10,90;15,80;0,36
+Región de Murcia;2020;mujeres;real;11,50;10,10;5,35;44,10;15,20;0,48
+Región de Murcia;2020;total;real;11,20;10,30;4,90;55,00;15,50;0,40
+Región de Murcia;2021;hombres;proyeccion;NA;NA;NA;10,62;NA;NA
+Región de Murcia;2021;hombres;real;11,75;4,25;5,75;NA;21,60;0,38
+Región de Murcia;2021;mujeres;proyeccion;NA;NA;NA;45,31;NA;NA
+Región de Murcia;2021;mujeres;real;11,85;3,95;6,05;NA;21,00;0,49
+Región de Murcia;2021;total;proyeccion;NA;NA;NA;55,80;NA;NA
+Región de Murcia;2021;total;real;11,80;4,10;5,90;NA;21,30;0,41
+Región de Murcia;2022;hombres;proyeccion;NA;NA;NA;10,64;NA;NA
+Región de Murcia;2022;hombres;real;6,90;4,50;7,60;NA;12,55;0,39
+Región de Murcia;2022;mujeres;proyeccion;NA;NA;NA;45,03;NA;NA
+Región de Murcia;2022;mujeres;real;7,70;4,50;8,40;NA;12,05;0,50
+Región de Murcia;2022;total;proyeccion;NA;NA;NA;56,17;NA;NA
+Región de Murcia;2022;total;real;7,30;4,50;8,00;NA;12,30;0,43
+Región de Murcia;2023;hombres;proyeccion;NA;NA;NA;10,65;NA;NA
+Región de Murcia;2023;hombres;real;7,60;5,90;5,80;NA;16,95;0,40
+Región de Murcia;2023;mujeres;proyeccion;NA;NA;NA;45,15;NA;NA
+Región de Murcia;2023;mujeres;real;8,00;5,90;6,20;NA;16,25;0,51
+Región de Murcia;2023;total;proyeccion;NA;NA;NA;56,18;NA;NA
+Región de Murcia;2023;total;real;7,80;5,90;6,00;NA;16,60;0,43
+Región de Murcia;2024;hombres;proyeccion;7,56;5,87;6,69;10,63;16,88;0,42
+Región de Murcia;2024;mujeres;proyeccion;7,23;5,44;6,30;45,15;18,97;0,53
+Región de Murcia;2024;total;proyeccion;7,41;5,64;6,98;56,18;17,25;0,45
+Región de Murcia;2025;hombres;proyeccion;7,43;6,33;6,70;10,72;15,38;0,44
+Región de Murcia;2025;mujeres;proyeccion;7,67;5,50;6,96;45,15;14,86;0,55
+Región de Murcia;2025;total;proyeccion;7,47;5,61;6,50;56,21;14,78;0,47
+Región de Murcia;2026;hombres;proyeccion;7,44;6,43;6,72;10,90;15,33;0,44
+Región de Murcia;2026;mujeres;proyeccion;7,51;5,46;6,44;45,15;15,63;0,55
+Región de Murcia;2026;total;proyeccion;7,54;5,52;7,27;56,33;15,39;0,47

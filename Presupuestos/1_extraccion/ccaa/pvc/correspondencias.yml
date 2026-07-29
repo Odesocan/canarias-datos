@@ -1,0 +1,97 @@
+# ccaa/pvc/correspondencias.yml — Euskadi / País Vasco
+#
+# Reescrito Noche 11 (2026-05-22). La versión anterior usaba códigos
+# genéricos de 3 dígitos ("311","412","421"…) que NO existen en la
+# nomenclatura vasca: el CSV tidy de Open Data Euskadi clasifica el gasto
+# por PROGRAMA de 4 dígitos, cuyos 2-3 primeros dígitos son la Función /
+# Subfunción de la clasificación funcional. Resultado del bug: pvc
+# 2022/2024/2025 mapeaba 0-7 % de las filas (falso VERDE en la tabla N9).
+#
+# Esta tabla mapea por PREFIJO del código de programa = código de Función
+# (clasificación funcional del gasto, País Vasco). Validado contra los
+# importes agregados por función de pvc/2025 (Osakidetza ~5,1 B EUR -> 41;
+# Educación ~3,8 B EUR -> 42; I+D ~0,48 B EUR -> 54).
+#
+# Sólo se declaran las funciones de asignación INEQUÍVOCA. Las funciones
+# de protección social agregada (31 garantía de ingresos/pensiones, 321
+# y 323 servicios sociales) NO se mapean: contienen dependencia /
+# discapacidad / salud mental / diversidad / igualdad mezclados sin
+# desglose de subfunción que permita separarlos — forzarlos sería un
+# error de datos (lección ast/N10). El CSV no trae denominación a nivel
+# de programa, por lo que NO se usan keywords (la única descripción del
+# fichero es de subconcepto económico y no es fiable para mapear).
+conceptos:
+  sanidad:
+    # Función 41 — Sanidad (Osakidetza). Subfunción 411.
+    codigos: ["41*"]
+    keywords: []
+  educacion:
+    # Función 42 — Educación. Subfunciones 421/422/423.
+    codigos: ["42*"]
+    keywords: []
+  soberania:
+    # Función 71 — Agricultura, ganadería y pesca (soberanía alimentaria).
+    codigos: ["71*"]
+    keywords: []
+  direccion:
+    # REDEFINIDO 2026-07-27 — Direccion politica (altos cargos del ejecutivo).
+    # Antes era un cajon de sastre: deuda, justicia, tributos, transferencias a
+    # entes locales, informatica, medios y parlamentos. Referencia: programa 912A
+    # de Canarias 'Direccion Politica y Gobierno', replicado en cada consejeria.
+    # Perimetro: ejecutivo estricto (presidencia, vicepresidencia, gabinetes, alta
+    # direccion). EXCLUIDOS parlamento, control externo, defensorias, consejos
+    # consultivos y transparencia. Keywords VACIAS a proposito: mapeo por codigo
+    # exacto para que no vuelva a capturar por texto. Ver logs/progreso.md.
+    # 1217 Retribuciones de Altos Cargos (12/12, 2,2-4,8 M). AVISO: en pvc las
+    # denominaciones estan DESALINEADAS (el extractor toma el nombre de la primera
+    # partida, no el del programa), asi que 'Retribuciones de Altos Cargos' aparece
+    # tambien en 3121 con 1.495 M y en 2223 con 753 M. Mapear SOLO por codigo.
+    codigos:
+    - '1217'
+    keywords: []
+  vivienda:
+    # Función 43 — Vivienda y urbanismo. Subfunción 431.
+    codigos: ["43*"]
+    keywords: []
+  empleo:
+    # FIX 2026-07-02: en la clasificación funcional VASCA 321=Empleo (3211 Empleo
+    # 425M + 3212/3213), 323=Formación (3231 Prestakuntza 271M). El comentario
+    # previo confundía la clasificación estatal: 322 NO es empleo sino
+    # igualdad/juventud (ver igualdad). El viejo `322*` dejaba el empleo real
+    # (~700 M€/año) en NULL y contaba 26 M de igualdad como empleo.
+    codigos: ["321*", "3231"]
+    keywords: []
+  idi:
+    # Función 54 — Investigación científica, técnica y aplicada.
+    codigos: ["54*"]
+    keywords: []
+  dependencia:
+    # No separable: integrada en subfunción 323 (servicios sociales) sin
+    # programa propio en la clasificación funcional vasca de este CSV.
+    codigos: []
+    keywords: []
+  discapacidad:
+    # No separable: integrada en subfunción 323 (servicios sociales).
+    codigos: []
+    keywords: []
+  salud_mental:
+    # FIX 2026-07-02: SÍ separable — programa 4116 "Adicciones" (Adikzioak,
+    # ~4-5 M€/año), antes absorbido por el prefijo 41* de sanidad. El resto de
+    # salud mental sí está integrado en la red de Osakidetza sin programa propio.
+    codigos: ["4116"]
+    keywords: []
+  diversidad:
+    # FIX 2026-07-02: SÍ separable — programa 3122 "Inmigración" (Inmigrazioa,
+    # 4→16 M€/año). Antes declarado NULL estructural por error.
+    codigos: ["3122"]
+    keywords: []
+  turismo:
+    # Función 75 — Turismo. Subfunción 751.
+    codigos: ["75*"]
+    keywords: []
+  igualdad:
+    # FIX 2026-07-02: SÍ separable — subfunción 322 (mal atribuida antes a
+    # empleo): 3221 "Promoción de Igualdad para la Mujer" + 3223 "Emakunde"
+    # (~15 M€/año). Se excluye 3222 "Juventud" (no hay concepto canónico juventud).
+    codigos: ["3221", "3223"]
+    keywords: []

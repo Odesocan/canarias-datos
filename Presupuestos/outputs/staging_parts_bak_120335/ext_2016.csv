@@ -1,0 +1,78 @@
+ccaa_id3,anio,concepto,importe_eur,codigo,denominacion
+ext,2016,direccion,13594000.0,111A,Actividad legislativa
+ext,2016,direccion,939174.0,111B,Actividad consultiva
+ext,2016,direccion,6775405.0,112A,Dirección y administración de Presidencia
+ext,2016,direccion,8293052.0,113A,Dirección de Administración y Hacienda Públicas
+ext,2016,direccion,4740453.0,113B,"Planificación, programación y presupuestación"
+ext,2016,direccion,5877843.0,113C,Administración tributaria
+ext,2016,direccion,1508664.0,113D,Administración del patrimonio
+ext,2016,direccion,5845518.0,113E,Control interno y contabilidad pública
+ext,2016,direccion,6275062.0,114A,Dirección y organización de la Función Pública
+ext,2016,direccion,2200269.0,114B,Evaluación y calidad de los servicios
+ext,2016,direccion,1954604.0,114C,Formación del personal de la Administrac. Pública
+ext,2016,direccion,2825023.0,114D,Asesoramiento y defensa de intereses de la Admón
+ext,2016,direccion,27416239.0,115A,Relaciones institucionales e informativas
+ext,2016,direccion,45028056.0,115B,Relaciones con la administración local
+ext,2016,direccion,6534532.0,116A,Protección civil e interior
+ext,2016,direccion,380023696.0,121A,Amortizac. y gastos financ. del endeudam. público
+ext,2016,direccion,5000000.0,131B,Fondo de contingencia
+ext,2016,sanidad,49242461.0,211A,Dirección y administración de Sanidad
+ext,2016,sanidad,30107452.0,211B,"Formación, inspección y calidad sanitarias"
+ext,2016,sanidad,3618228.0,212A,Planificación y ordenación sanitarias
+ext,2016,sanidad,621196979.0,212B,Atención primaria de salud
+ext,2016,sanidad,837681381.0,212C,Atención especializada de salud
+ext,2016,sanidad,8255390.0,212D,Salud pública
+ext,2016,educacion,16771114.0,221A,Dirección y administración de Educación
+ext,2016,educacion,6780253.0,221B,Formación del profesorado de Educación
+ext,2016,educacion,362282385.0,222A,Educación infantil y primaria
+ext,2016,educacion,379060391.0,222B,Educación secundaria y formación profesional
+ext,2016,educacion,58286418.0,222C,"Educación especial, enseñanzas artístic. e idiomas"
+ext,2016,educacion,102205943.0,222D,Enseñanzas universitarias
+ext,2016,educacion,16680927.0,222E,Educac. permanente y a distancia no universitaria
+ext,2016,educacion,10411241.0,222F,Enseñanza agraria
+ext,2016,educacion,63713509.0,222G,Actividades complementar. y ayudas a la enseñanza
+ext,2016,dependencia,3723836.0,231A,Dirección y administración de Dependencia
+ext,2016,dependencia,297299715.0,232A,Atención a la dependencia
+ext,2016,empleo,13457071.0,241A,Dirección y administración de Empleo
+ext,2016,empleo,161683105.0,242A,Fomento y calidad en el empleo
+ext,2016,empleo,74506061.0,242B,Formación para el empleo
+ext,2016,diversidad,40299054.0,252A,Atención a la infancia y a las familias
+ext,2016,diversidad,76104709.0,252B,Inclusión social
+ext,2016,diversidad,12945014.0,252C,Cooperación al desarrollo y acción exterior
+ext,2016,igualdad,8046928.0,253A,Igualdad de oportunidades
+ext,2016,diversidad,6456902.0,253B,Promoción y servicios a la juventud
+ext,2016,diversidad,778079.0,253C,Acciones en materia de emigración
+ext,2016,vivienda,39821947.0,261A,Promoción y ayudas para el acceso a la vivienda
+ext,2016,vivienda,8636528.0,262A,"Urbanismo, arquitectura y ordenac. del territorio"
+ext,2016,diversidad,2553473.0,271A,Dirección y administración de Cultura
+ext,2016,diversidad,7390046.0,272A,Protección del patrimonio histórico-artístico
+ext,2016,diversidad,6898128.0,272B,Bibliotecas y archivos
+ext,2016,diversidad,6570053.0,272C,Museos y artes plásticas
+ext,2016,diversidad,8946043.0,273A,Promoción y cooperación cultural
+ext,2016,diversidad,7530581.0,273B,"Teatro, música y cine"
+ext,2016,diversidad,16410232.0,274A,Fomento y apoyo de las actividades deportivas
+ext,2016,soberania,27687657.0,311A,Dirección y administración de Agricultura
+ext,2016,soberania,31980874.0,312A,Sanidad vegetal y animal
+ext,2016,soberania,32316793.0,312B,Competitividad y calidad produc. agríc. y ganadera
+ext,2016,soberania,601807389.0,313A,Regulación de producciones
+ext,2016,soberania,22379643.0,314A,Desarrollo del medio rural
+ext,2016,idi,15959419.0,321A,Dir. y admón. de Empresa e Innovación
+ext,2016,,5537905.0,322A,Ordenación industrial y desarrollo energético
+ext,2016,,38140736.0,323A,Desarrollo empresarial
+ext,2016,soberania,21580487.0,323C,Empresa agroalimentaria
+ext,2016,,4693794.0,324A,Consumo
+ext,2016,empleo,6759759.0,325A,Relaciones laborales y condiciones de trabajo
+ext,2016,idi,5680558.0,331A,Investigación y experimentación agraria
+ext,2016,idi,48709320.0,331B,"Investigación, desarrollo tecnológico e innovación"
+ext,2016,direccion,1357038.0,331C,Estudios estadísticos y económicos
+ext,2016,idi,37241289.0,332A,Tecnologías de la información y las comunicaciones
+ext,2016,,12863135.0,333A,Energía renovable y eficiencia energética
+ext,2016,,17900218.0,341A,Comercio de calidad y artesanía extremeña
+ext,2016,turismo,23479376.0,342A,Ordenación y promoción del turismo
+ext,2016,soberania,129978745.0,353A,Infraestructuras agrarias
+ext,2016,,62861894.0,353B,Infraestructuras de carreteras
+ext,2016,,34293551.0,353C,Ordenación e inspección del transporte
+ext,2016,,25910181.0,354A,Medio natural y calidad ambiental
+ext,2016,,38383502.0,354B,Protección y defensa contra los incendios
+ext,2016,,33548816.0,354C,"Conservación, protección y mejora de los montes"
+ext,2016,,25192818.0,354D,Saneamiento y abastecimiento de aguas

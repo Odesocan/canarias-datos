@@ -1,0 +1,202 @@
+conceptos:
+  sanidad:
+    codigos:
+    - '311'
+    - '312'
+    - '411'
+    - '412'
+    - '510'
+    - 312A
+    - 312C
+    - 312*
+    keywords:
+    - sanidad
+    - salud pública
+    - salud publica
+    - servicio cántabro de salud
+    - servicio cantabro de salud
+    - atencion primaria
+    - atención primaria
+    - atencion especializada
+    - atención especializada
+    - sanitaria
+    - sanitario     # FIX 2026-07-02: "FORMACIÓN DE PERSONAL SANITARIO" (311O, 22M) iba a NULL
+    - asistencia sanitaria
+    - asistencial
+    - salud
+  educacion:
+    codigos:
+    - '321'
+    - '322'
+    - '421'
+    - '422'
+    - '423'
+    - 321A
+    - 322C
+    - 321*
+    - 322*
+    - 421*
+    - 422*
+    - 423*
+    keywords:
+    - educación
+    - educacion
+    - enseñanza
+    - enseñanzas
+    - ensenanza
+    - universidad
+    - personal docente
+  soberania:
+    codigos:
+    - '531'
+    - '710'
+    - '711'
+    - '712'
+    - '713'
+    - '414'
+    - '415'
+    - '419'
+    - 71*
+    - 41[4-9]A
+    keywords:
+    - agricultura
+    - ganadería
+    - ganaderia
+    - pesca
+    - alimentación
+    - alimentacion
+    - desarrollo rural
+  direccion:
+    # REDEFINIDO 2026-07-27 — Direccion politica (altos cargos del ejecutivo).
+    # Antes era un cajon de sastre: deuda, justicia, tributos, transferencias a
+    # entes locales, informatica, medios y parlamentos. Referencia: programa 912A
+    # de Canarias 'Direccion Politica y Gobierno', replicado en cada consejeria.
+    # Perimetro: ejecutivo estricto (presidencia, vicepresidencia, gabinetes, alta
+    # direccion). EXCLUIDOS parlamento, control externo, defensorias, consejos
+    # consultivos y transparencia. Keywords VACIAS a proposito: mapeo por codigo
+    # exacto para que no vuelva a capturar por texto. Ver logs/progreso.md.
+    # 912M PRESIDENCIA DEL GOBIERNO DE CANTABRIA (12/12). OJO: salto 2019->2020 (1,9 ->
+    # 8,7 M) por cambio de perimetro del programa en el origen.
+    codigos:
+    - '912M'
+    keywords: []
+  vivienda:
+    codigos:
+    - '261'
+    - '431'
+    - '451'
+    - 261A
+    - 261*
+    - 431*
+    keywords:
+    - vivienda
+    - habitatge
+    - etxebizitza
+  empleo:
+    codigos:
+    - '241'
+    - '230'
+    - 241*
+    keywords:
+    - empleo
+    - inserción laboral
+    - insercion laboral
+    - fomento del empleo
+    - ocupación
+    - ocupacion
+  idi:
+    codigos:
+    - '463'
+    - '467'
+    - '542'
+    - '561'
+    - '720'
+    - 463A
+    - 463*
+    - 542*
+    keywords:
+    - investigación
+    - investigacion
+    - innovación
+    - innovacion
+    - desarrollo tecnológico
+    - desarrollo tecnologico
+  dependencia:
+    codigos:
+    - 231D
+    # 232D "FOMENTO DE LA NATALIDAD" RETIRADO (FIX 2026-07-02): no es dependencia.
+    - 232G
+    - 313D
+    - 252D
+    - 231B
+    keywords:
+    - dependencia
+    - autonomía personal
+    - autonomia personal
+    - atención a la dependencia
+    - atencion a la dependencia
+  discapacidad:
+    codigos:
+    # 231C "ATENCIÓN A LA INFANCIA, ADOLESCENCIA Y FAMILIA" RETIRADO (FIX 2026-07-02):
+    # es infancia (→diversidad vía keyword), no discapacidad.
+    # 232C "FOMENTO DE LAS ACTIVIDADES JUVENILES" RETIRADO (FIX 2026-07-16): es
+    # juventud, no discapacidad; era el 100 % del discapacidad reportado (0,03 M
+    # en 2022-23, fabricado). Cantabria queda a NULL estructural en este concepto
+    # (el gasto real está en 231B "Autonomía Personal y Dependencia" → dependencia).
+    - 313C
+    - 313G
+    - '314'
+    - 231F
+    keywords:
+    - discapacidad
+    - diversidad funcional
+  salud_mental:
+    codigos:
+    # 313A "SALUD PÚBLICA" RETIRADO (FIX 2026-07-02): es sanidad (→keyword "salud
+    # pública"), no salud mental; era el 100 % del salud_mental reportado (fabricado).
+    - 313E
+    - 312D
+    - 412I
+    keywords:
+    - salud mental
+    - salut mental
+    - drogodependencias
+    - adicciones
+  diversidad:
+    codigos:
+    - 231C     # FIX 2026-07-02: Infancia, adolescencia y familia (movido de discapacidad)
+    - '234'
+    - 313B
+    - '266'
+    keywords:
+    - lgtbi
+    - lgbti
+    - migración
+    - migracion
+    - interculturalidad
+    - gitano
+    - infancia
+    - adolescencia
+  turismo:
+    codigos:
+    - '432'
+    - 432A
+    - '751'
+    - '761'
+    - '730'
+    - 432*
+    - 751*
+    keywords:
+    - turismo
+  igualdad:
+    codigos:
+    # FIX 2026-07-02: RETIRADOS los prefijos 232*/323* — arrastraban 232A "JUVENTUD"
+    # (19,5 M) y 323A "INNOVACIÓN" (8,7 M→idi) a igualdad. Solo 232B es igualdad real.
+    - '920'
+    - 232B
+    keywords:
+    - igualdad
+    - mujer
+    - violencia de género
+    - violencia de genero
+    - instituto de la mujer

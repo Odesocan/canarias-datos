@@ -1,0 +1,229 @@
+conceptos:
+  sanidad:
+    # 2026-07-01: '4131' "Protección y promoción de la salud" RETIRADO — es la
+    # transferencia interna del Departamento (sec 16) al Servicio Aragonés de Salud
+    # (sec 52) y duplicaba la entrega 4121 (~2×, 3247 €/hab vs ~1600). Se excluye en
+    # extract.py (_ARA_TRANSFER_SALUD); aquí se quita por coherencia. Sanidad = 4121
+    # (SALUD, entrega) + 4111/4132/4134 (Departamento) + 4124 (banco de sangre).
+    codigos:
+    - '311'
+    - '312'
+    - '411'
+    - '412'
+    - '510'
+    # 2026-06-05: '4133' (programa "SALUD MENTAL") movido a salud_mental —
+    # estaba absorbido por sanidad y ocultaba el concepto canónico propio.
+    - '41'
+    # FIX 2026-07-02: exactos que la ficha declara sanidad pero el keyword no
+    # casaba (van a NULL). NO usar prefijo 41* aquí: reabsorbería 4133 salud_mental.
+    - '4124'  # producción componentes sanguíneos (banco de sangre)
+    - '4132'  # servicios de atención al usuario
+    keywords:
+    - sanidad
+    - salud publica
+    - servicio canario salud
+    - servicio andaluz salud
+    - atencion primaria
+    - atencion especializada
+    - sanitaria
+    - osasun
+    - salud
+  educacion:
+    codigos:
+    - '321'
+    - '322'
+    - '421'
+    - '422'
+    - '423'
+    - '4221'
+    - '4225'
+    - '42'
+    # 2026-05-26: añadidos códigos funcionales ARA 4 dígitos
+    - '4211'  # servicios generales educación, cultura y deporte
+    - '4229'  # evaluación calidad enseñanza superior
+    # FIX 2026-07-02: prefijos 4 díg. — los exactos de 3 díg. de arriba NUNCA
+    # casan (el código emitido es 4 díg.) y el mapeo dependía del keyword, que
+    # falla con la abreviatura "EDUC SECUNDARIA" (4222, 526 M/año → NULL desde
+    # 2020) y con FP (4220/4226/4227). 421*+422* cubren toda la función educación.
+    - '421*'  # servicios generales + gestión de personal educación
+    - '422*'  # centros: infantil/primaria, secundaria, especial, artísticas, FP, universitaria
+    - '4232'  # equidad (apoyo educativo)
+    keywords:
+    - educacion
+    - ensenanza
+    - ensenyament
+    - hezkuntza
+  soberania:
+    codigos:
+    - '412'
+    - '5311'  # FIX 2026-07-02: mejora estructuras agrarias (exacto; 53* invadiría
+              # medio ambiente/carreteras). El keyword "agrarias" no casaba.
+    - '71*'   # FIX 2026-07-02: función 71 completa = agricultura/ganadería/pesca/
+              # alimentación (7121 agroalimentario, 7123 producción agraria 465 M/año,
+              # 7161 seg. alimentaria) — antes NULL por keyword-miss ("AGRARIA"≠"agricultura").
+    keywords:
+    - agricultura
+    - ganaderia
+    - pesca
+    - alimentacion
+    - nekazaritza
+    - soberania alimentaria
+  direccion:
+    codigos:
+    - '010'
+    - '111'
+    - '112'
+    - '911'
+    - '912'
+    - '921'
+    # 2026-05-26: añadidos códigos funcionales ARA 4 dígitos para órganos
+    # institucionales (Justicia Aragón, Cámara de Cuentas, consejos),
+    # administración general, hacienda/economía, transferencias.
+    - '1111'  # actuaciones del Justicia de Aragón
+    - '1112'  # actuaciones del Justicia de Aragón
+    - '1113'  # Aljafería
+    - '1114'  # actuaciones Cámara Cuentas
+    - '1121'  # alta dirección
+    - '1124'  # Tribunal Admvo Contratos Públicos
+    - '1125'  # Consejo Consultivo de Aragón
+    - '1211'  # presidencia
+    - '1212'  # servicios centrales, edificios e instalaciones
+    - '1213'  # servicios de seguridad y protección civil
+    - '1215'  # servicios de interior
+    - '1217'  # relaciones institucionales
+    - '1218'  # servicios generales desarrollo territorial
+    - '1219'  # unidad policía nacional adscrita
+    - '1251'  # apoyo a la administración local
+    - '1252'  # política territorial
+    - '1259'  # cooperación con la policía local
+    - '1261'  # servicios coordinación administrativa Huesca
+    - '1262'  # servicios coordinación administrativa Teruel
+    - '1263'  # servicios jurídicos
+    - '1264'  # información ciudadana y documentación
+    - '1267'  # actuaciones desarrollo estatutario
+    - '1268'  # información y participación ciudadana
+    - '1311'  # actuaciones de relaciones exteriores
+    - '4631'  # elecciones institucionales
+    - '6111'  # servicios generales hacienda y admón pública
+    - '6121'  # planificación y dirección presupuestaria
+    - '6312'  # control interno y contabilidad
+    - '6313'  # gestión del patrimonio
+    - '6314'  # gestión de tesorería
+    - '6411'  # Jta consultiva contratación admtva y registros
+    - '6412'  # contratación pública
+    - '9111'  # transferencias a administraciones comarcales
+    keywords:
+    - presidencia
+    - alta direccion
+    - parlamento
+    - cortes
+    - gobierno
+  vivienda:
+    codigos:
+    - '261'
+    - '431'
+    - '451'
+    - '43'
+    keywords:
+    - vivienda
+    - habitatge
+    - etxebizitza
+  empleo:
+    codigos:
+    - '241'
+    - '322'
+    - '230'
+    keywords:
+    - empleo
+    - ocupacio
+    - enplegua
+    - fomento del empleo
+  idi:
+    codigos:
+    - '463'
+    - '467'
+    - '542'
+    - '561'
+    - '720'
+    - '5421'
+    - '5422'
+    - '54'
+    keywords:
+    - investigacion
+    - innovacion
+    - i d i
+    - desarrollo tecnologico
+  dependencia:
+    codigos:
+    - 231D
+    - 232D
+    - 232G
+    - 313D
+    - 252D
+    keywords:
+    - dependencia
+    - mendekotasun
+    - atencion a la dependencia
+  discapacidad:
+    codigos:
+    - 231C
+    - 232C
+    - 313C
+    - 313G
+    - '314'
+    keywords:
+    - discapacidad
+    - diversidad funcional
+    - discapacitat
+  salud_mental:
+    codigos:
+    - 313A
+    - 313E
+    - '414'
+    - '514'
+    - 312D
+    - 412I
+    # 2026-06-05: código funcional ARA real (programa "SALUD MENTAL",
+    # visto en ingresos_gastos.pdf 2024; match exacto gana al prefijo 41).
+    - '4133'
+    keywords:
+    - salud mental
+    - salut mental
+    - buru osasun
+  diversidad:
+    codigos:
+    - 232B
+    - '234'
+    - 313B
+    - '266'
+    # 2026-06-05: código funcional ARA real ("APOYO A LA INMIGRACIÓN").
+    - '3241'
+    keywords:
+    - lgtbi
+    - lgbti
+    - migracion
+    - interculturalidad
+    - gitano
+  turismo:
+    codigos:
+    - '432'
+    - 432A
+    - '751'
+    - '761'
+    - '730'
+    keywords:
+    - turismo
+    - turisme
+    - turismoa
+  igualdad:
+    codigos:
+    - '232'
+    - '323'
+    - '920'
+    keywords:
+    - igualdad
+    - mujer
+    - violencia de genero
+    - berdintasun
+    - emakume
+    - instituto de la mujer

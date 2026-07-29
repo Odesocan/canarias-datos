@@ -1,0 +1,49 @@
+{
+  "seccion": "Empleo",
+  "fase": "2_transformacion",
+  "filas_largo": 29505,
+  "indicadores": [
+    1,
+    2,
+    3,
+    4,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+  ],
+  "n_indicadores": 10,
+  "territorios": [
+    "Andalucía",
+    "Aragón",
+    "Canarias",
+    "Cantabria",
+    "Castilla y León",
+    "Castilla-La Mancha",
+    "Cataluña",
+    "Ceuta",
+    "Comunidad Foral de Navarra",
+    "Comunidad de Madrid",
+    "Comunitat Valenciana",
+    "Extremadura",
+    "Galicia",
+    "Illes Balears",
+    "La Rioja",
+    "Melilla",
+    "País Vasco",
+    "Principado de Asturias",
+    "Región de Murcia",
+    "Total Nacional"
+  ],
+  "anyo_min": 2010,
+  "anyo_max": 2026,
+  "filas_ancho_anual": 1020,
+  "indicador_5_afiliacion": "PENDIENTE (ficheros Seguridad Social no cargados)",
+  "supuesto_indicador_11": {
+    "superficie_ref_m2": 80,
+    "pagas_anyo": 12,
+    "formula": "(precio_m2 * m2_ref) / (ganancia_media_anual / pagas) * 100"
+  }
+}

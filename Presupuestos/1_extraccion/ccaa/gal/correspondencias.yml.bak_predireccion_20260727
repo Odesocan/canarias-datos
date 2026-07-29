@@ -1,0 +1,174 @@
+# gal/correspondencias.yml — Galicia.
+# OJO: la clasificación funcional gallega pone SANIDAD en el grupo 41x y los
+# SERVIZOS SOCIAIS en el 31x (al revés que Cantabria/genérico). Los `codigos` se
+# derivan del catálogo real de programas (PROGR_I/II) — ver logs/progreso.md 2026-06-30.
+# Los `keywords` siguen sirviendo a la rama CSV (datos abertos), que usa códigos
+# sintéticos consellería×grupo y no casa con estos prefijos de programa.
+# Prefijos de programa llevan '*' (el helper sólo hace prefix-match si termina en '*');
+# los códigos de 4 caracteres son match exacto (gana sobre el prefijo).
+conceptos:
+  sanidad:
+    codigos:
+    - '411*'   # dirección e servizos xerais de sanidade (transferencia SERGAS)
+    - '412*'   # atención hospitalaria / primaria
+    - '413*'   # protección e promoción da saúde pública
+    - '414*'   # formación de graduados e posgraduados
+    - 561C     # investigación sanitaria
+    keywords:
+    - sanidade
+    - atencion primaria
+    - atencion hospitalaria
+    - saude publica
+    - sanitaria
+    - cons. sanidade
+  educacion:
+    codigos:
+    - '421*'
+    - '422*'
+    - '423*'
+    - 561B     # investigación universitaria
+    keywords:
+    - educa          # rama CSV: consellería "CULTURA, EDUCA. E UNIV." (abreviado)
+    - educacion
+    - educación
+    - ensino
+    - ensinanza
+    - universidade
+    - cons. educacion
+    - cons. educación
+  soberania:
+    codigos:
+    - '711*'   # medio rural
+    - '712*'
+    - '713*'
+    - '721*'   # políticas pesqueiras
+    - '722*'
+    - '723*'
+    - '551*'   # infraestruturas / forestal no medio rural
+    - '514*'   # infraestruturas pesqueiras
+    keywords:
+    - medio rural
+    - rural
+    - pesqueira
+    - pesqueiro
+    - agraria
+    - agroalimentaria
+    - mar
+    - cons. mar
+    - cons. medio rural
+  direccion:
+    codigos:
+    - '111*'   # alta dirección
+    - '121*'
+    - '122*'
+    - '123*'
+    - '124*'
+    - '131*'   # administración de xustiza
+    - '141*'   # administración local
+    - '161*'   # eleccións
+    - '212*'   # protección civil
+    - '581*'   # estatística
+    - '611*'   # facenda
+    - '612*'
+    - '621*'
+    - '811*'   # transferencias a entidades locais
+    - '911*'   # amortización e gastos financeiros da débeda
+    keywords:
+    - presidencia
+    - parlamento
+    - facenda
+    - hacienda
+    - administracion publica
+    - administración pública
+    - debeda
+    - cons. facenda
+  vivienda:
+    codigos:
+    - '451*'   # rehabilitación / acceso á vivenda
+    - '521*'   # urbanismo
+    keywords:
+    - vivenda
+    - vivienda
+    - urbanismo
+    - cons. vivenda
+  empleo:
+    codigos:
+    - '321*'   # dirección e servizos xerais de emprego
+    - '322*'   # mellora da empregabilidade / fomento do emprego
+    - '323*'   # formación profesional para o emprego
+    - '324*'   # relacións laborais / economía social
+    keywords:
+    - emprego
+    - empleo
+    - empregabilidade
+    - economia social
+    - cons. emprego
+  idi:
+    codigos:
+    - 561A     # plan galego de I+D+i
+    - '571*'   # fomento da sociedade da información
+    keywords:
+    - investigacion
+    - investigación
+    - innovacion
+    - innovación
+    - sociedade da informacion
+    - i d i
+  dependencia:
+    codigos:
+    - 312D     # atención á dependencia
+    - 312E     # promoción da autonomía persoal e prevención da dependencia
+    keywords:
+    - dependencia
+    - atencion a la dependencia
+    - autonomia persoal
+    - politica social        # rama CSV: consellería de Política Social
+    - política social
+    - cons. politica social
+    - benestar
+  discapacidad:
+    codigos: []
+    keywords:
+    - discapacidad
+    - diversidad funcional
+  salud_mental:
+    codigos: []
+    keywords:
+    - saude mental
+    - salud mental
+  diversidad:
+    codigos:
+    - 312C     # servizos sociais relativos ás migracións
+    - 313A     # servizos á xuventude
+    - '151*'   # fomento da lingua galega
+    - '331*'   # cooperación exterior e ao desenvolvemento
+    - '431*'   # dirección e servizos xerais de cultura
+    - '432*'   # bibliotecas, arquivos, museos / fomento actividades culturais
+    - '433*'   # patrimonio histórico
+    - '441*'   # promoción da actividade deportiva
+    keywords:
+    - xuventude
+    - juventud
+    - migracion
+    - migración
+    - cultura
+    - lingua
+    - deporte
+    - cooperacion
+    - cons. cultura
+  turismo:
+    codigos:
+    - '761*'   # potenciación e promoción do turismo
+    keywords:
+    - turismo
+    - cons. turismo
+  igualdad:
+    codigos:
+    - 313B     # accións para a igualdade e promoción da muller
+    - 313D     # protección ás mulleres que sofren violencia de xénero
+    keywords:
+    - igualdade
+    - muller
+    - violencia de xenero
+    - violencia de xénero
+    - berdintasun

@@ -1,0 +1,1771 @@
+<div id="ced-canendatos-d3"
+     class="ced-canendatos-d3"
+     data-section="vivienda"
+     data-supabase-url="https://kdpsjutsgvghdtzoskkg.supabase.co"
+     data-supabase-key="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImtkcHNqdXRzZ3ZnaGR0em9za2tnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjUxOTE3MzEsImV4cCI6MjA4MDc2NzczMX0.1W2H42tPmOSvVWPd65jS3m13k_M3gH_X1ifysTKppPo"
+     data-supabase-schema="canendatos"
+     data-geojson-url="https://gisco-services.ec.europa.eu/distribution/v2/nuts/geojson/NUTS_RG_01M_2021_4326_LEVL_2.geojson">
+  <style>
+    /* ================================================================
+       CED · Canarias en Datos · Hub D3 multi-temático
+       Cada sección define su paleta vía data-section="<id>".
+       ================================================================ */
+    #ced-canendatos-d3 {
+      /* Tokens neutros compartidos */
+      --ced-bg:#f5f7f9; --ced-surface:#fff; --ced-ink:#142019; --ced-muted:#5a6671;
+      --ced-line:#dfe5ea; --ced-soft:#eef2f5;
+      /* Paleta por sección — overrides abajo */
+      --ced-accent:#1769aa; --ced-accent-soft:#e8f2fb; --ced-accent-deep:#0c3f6b;
+      --ced-contrast:#e60d76; --ced-contrast-soft:#fce4ef;
+      --ced-shadow:0 16px 40px rgba(20,32,25,.08);
+      width:100%; max-width:100%; overflow-x:hidden; color:var(--ced-ink);
+      font-family:Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      letter-spacing:0; background:var(--ced-bg); padding:18px 14px 28px; position:relative;
+    }
+    #ced-canendatos-d3, #ced-canendatos-d3 * { box-sizing:border-box; }
+    #ced-canendatos-d3 button, #ced-canendatos-d3 select { font:inherit; }
+
+    /* Paletas por sección ---------------------------------------------------- */
+    #ced-canendatos-d3[data-section="vivienda"] {
+      --ced-accent:#1769aa; --ced-accent-soft:#e8f2fb; --ced-accent-deep:#0c3f6b;
+      --ced-contrast:#e6792d; --ced-contrast-soft:#fbe7d6;
+    }
+    #ced-canendatos-d3[data-section="saludmental"] {
+      --ced-accent:#0a8a4d; --ced-accent-soft:#e8fbf0; --ced-accent-deep:#074d2a;
+      --ced-contrast:#e60d76; --ced-contrast-soft:#fce4ef;
+    }
+    #ced-canendatos-d3[data-section="dependencia"] {
+      --ced-accent:#c4571f; --ced-accent-soft:#fbe8e0; --ced-accent-deep:#6e1f1a;
+      --ced-contrast:#168a81; --ced-contrast-soft:#d8edec;
+    }
+    #ced-canendatos-d3[data-section="educacion"] {
+      --ced-accent:#7c3aed; --ced-accent-soft:#f3eefe; --ced-accent-deep:#4c1d95;
+      --ced-contrast:#009e8e; --ced-contrast-soft:#e0faf7;
+    }
+
+    /* Antesala de carga ------------------------------------------------------ */
+    #ced-canendatos-d3 .ced-bootstrap {
+      position:absolute; inset:0; z-index:50;
+      background:linear-gradient(135deg, var(--ced-bg) 0%, #fff 100%);
+      display:flex; align-items:center; justify-content:center;
+      padding:24px; transition:opacity .35s ease;
+    }
+    #ced-canendatos-d3 .ced-bootstrap.is-hidden { opacity:0; pointer-events:none; }
+    #ced-canendatos-d3 .ced-bootstrap-card {
+      background:var(--ced-surface); border:1px solid var(--ced-line); border-radius:12px;
+      box-shadow:var(--ced-shadow); padding:28px 30px; max-width:560px; width:100%;
+    }
+    #ced-canendatos-d3 .ced-bootstrap-eyebrow {
+      color:var(--ced-accent); font-size:11.5px; font-weight:700;
+      text-transform:uppercase; letter-spacing:.08em; margin-bottom:8px;
+    }
+    #ced-canendatos-d3 .ced-bootstrap-card h1 {
+      margin:0 0 6px; font-size:24px; line-height:1.15; font-weight:760; color:var(--ced-ink);
+    }
+    #ced-canendatos-d3 .ced-bootstrap-card p {
+      margin:0 0 20px; color:var(--ced-muted); font-size:14px; line-height:1.5;
+    }
+    #ced-canendatos-d3 .ced-bootstrap-tasks {
+      display:grid; gap:8px; margin-bottom:16px;
+    }
+    #ced-canendatos-d3 .ced-bootstrap-task {
+      display:flex; align-items:center; gap:10px;
+      padding:9px 11px; border:1px solid var(--ced-line); border-radius:7px;
+      background:#fbfcfd; font-size:13px; color:var(--ced-ink);
+    }
+    #ced-canendatos-d3 .ced-bootstrap-dot {
+      display:inline-block; width:10px; height:10px; border-radius:999px;
+      background:var(--ced-soft); border:1px solid var(--ced-line); flex:none;
+      transition:background .2s ease, border-color .2s ease;
+    }
+    #ced-canendatos-d3 .ced-bootstrap-task[data-state="loading"] .ced-bootstrap-dot {
+      background:var(--ced-accent-soft); border-color:var(--ced-accent);
+      animation:cedPulse 1.1s ease-in-out infinite;
+    }
+    #ced-canendatos-d3 .ced-bootstrap-task[data-state="ok"] .ced-bootstrap-dot {
+      background:var(--ced-accent); border-color:var(--ced-accent);
+    }
+    #ced-canendatos-d3 .ced-bootstrap-task[data-state="err"] .ced-bootstrap-dot {
+      background:#c0392b; border-color:#c0392b;
+    }
+    #ced-canendatos-d3 .ced-bootstrap-task small {
+      color:var(--ced-muted); font-size:11.5px; margin-left:auto;
+    }
+    @keyframes cedPulse { 0%,100% { opacity:.4; } 50% { opacity:1; } }
+    #ced-canendatos-d3 .ced-bootstrap-bar {
+      height:6px; background:var(--ced-soft); border-radius:99px; overflow:hidden;
+    }
+    #ced-canendatos-d3 .ced-bootstrap-fill {
+      height:100%; width:0%; background:var(--ced-accent);
+      transition:width .3s ease;
+    }
+
+    /* Selector de sección --------------------------------------------------- */
+    #ced-canendatos-d3 .ced-sections {
+      display:flex; gap:8px; flex-wrap:wrap; margin-bottom:14px;
+      padding:6px; background:var(--ced-surface); border:1px solid var(--ced-line);
+      border-radius:10px; box-shadow:var(--ced-shadow);
+    }
+    #ced-canendatos-d3 .ced-section-btn {
+      flex:1 1 200px; min-width:0; text-align:left; padding:10px 14px;
+      background:transparent; border:1px solid transparent; border-radius:7px;
+      cursor:pointer; color:var(--ced-ink); display:grid; gap:2px;
+    }
+    #ced-canendatos-d3 .ced-section-btn:hover { background:var(--ced-soft); }
+    #ced-canendatos-d3 .ced-section-btn.is-active {
+      background:var(--ced-accent-soft); border-color:var(--ced-accent);
+    }
+    #ced-canendatos-d3 .ced-section-btn strong {
+      font-size:14px; font-weight:700; color:var(--ced-accent-deep);
+    }
+    #ced-canendatos-d3 .ced-section-btn span {
+      font-size:12px; color:var(--ced-muted); line-height:1.3;
+    }
+    #ced-canendatos-d3 .ced-section-btn[data-coming="true"] {
+      cursor:not-allowed; opacity:.55;
+    }
+    #ced-canendatos-d3 .ced-section-btn[data-coming="true"] strong::after {
+      content:" · próximamente"; font-weight:500; font-size:11px; color:var(--ced-muted);
+      text-transform:uppercase; letter-spacing:.04em;
+    }
+
+    /* Cabecera ---------------------------------------------------------------*/
+    #ced-canendatos-d3 .ced-header { background:var(--ced-surface); border:1px solid var(--ced-line); border-radius:10px; overflow:hidden; }
+    #ced-canendatos-d3 .ced-header-inner { padding:22px 24px 18px; display:grid; grid-template-columns:minmax(0,1fr) auto; gap:18px; align-items:end; }
+    #ced-canendatos-d3 .ced-eyebrow { color:var(--ced-accent); font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.06em; }
+    #ced-canendatos-d3 h2 { margin:5px 0 6px; font-size:clamp(26px,3.4vw,44px); line-height:1.06; font-weight:760; color:var(--ced-ink); padding:0; }
+    #ced-canendatos-d3 .ced-lead { max-width:790px; color:var(--ced-muted); font-size:15px; line-height:1.55; }
+    #ced-canendatos-d3 .ced-actions { display:flex; gap:10px; align-items:center; justify-content:flex-end; flex-wrap:wrap; }
+    #ced-canendatos-d3 .ced-btn { border:1px solid var(--ced-line); background:var(--ced-surface); color:var(--ced-ink); min-height:38px; padding:0 14px; border-radius:7px; cursor:pointer; display:inline-flex; align-items:center; gap:8px; white-space:nowrap; font-weight:600; }
+    #ced-canendatos-d3 .ced-btn.is-primary { background:var(--ced-accent); border-color:var(--ced-accent); color:#fff; }
+    #ced-canendatos-d3 .ced-btn:hover { box-shadow:0 4px 10px rgba(20,32,25,.12); }
+
+    #ced-canendatos-d3 .ced-toolbar { padding:14px 24px; display:flex; gap:14px; flex-wrap:wrap; align-items:center; border-top:1px solid var(--ced-line); }
+    #ced-canendatos-d3 .ced-control { display:grid; gap:5px; min-width:0; }
+    #ced-canendatos-d3 .ced-control label { color:var(--ced-muted); font-size:11px; font-weight:650; text-transform:uppercase; letter-spacing:.05em; }
+    #ced-canendatos-d3 select { min-height:38px; border:1px solid var(--ced-line); border-radius:7px; background:var(--ced-surface); color:var(--ced-ink); padding:0 30px 0 10px; min-width:200px; }
+
+    /* Estructura principal --------------------------------------------------- */
+    #ced-canendatos-d3 .ced-main { padding:18px 0 0; display:grid; grid-template-columns:300px minmax(0,1fr); gap:18px; }
+    #ced-canendatos-d3 .ced-story-nav { display:grid; gap:10px; align-self:start; position:sticky; top:12px; }
+    #ced-canendatos-d3 .ced-story-step { border:1px solid var(--ced-line); border-left:4px solid transparent; background:var(--ced-surface); border-radius:8px; text-align:left; padding:14px; cursor:pointer; color:var(--ced-ink); font-family:inherit; }
+    #ced-canendatos-d3 .ced-story-step.is-active { border-left-color:var(--ced-accent); box-shadow:var(--ced-shadow); }
+    #ced-canendatos-d3 .ced-story-step strong { display:block; font-size:14px; margin-bottom:4px; }
+    #ced-canendatos-d3 .ced-story-step span { display:block; color:var(--ced-muted); font-size:12.5px; line-height:1.45; }
+    #ced-canendatos-d3 .ced-stage { min-width:0; display:grid; gap:14px; }
+    #ced-canendatos-d3 .ced-kpi-row { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:10px; }
+    #ced-canendatos-d3 .ced-kpi { background:var(--ced-surface); border:1px solid var(--ced-line); border-radius:8px; padding:13px 14px; }
+    #ced-canendatos-d3 .ced-kpi-label { color:var(--ced-muted); font-size:11px; line-height:1.25; min-height:30px; text-transform:uppercase; letter-spacing:.04em; font-weight:650; }
+    #ced-canendatos-d3 .ced-kpi-value { margin-top:8px; font-size:24px; line-height:1; font-weight:760; color:var(--ced-accent-deep); }
+    #ced-canendatos-d3 .ced-kpi-note { margin-top:6px; color:var(--ced-muted); font-size:12px; }
+    #ced-canendatos-d3 .ced-panel { background:var(--ced-surface); border:1px solid var(--ced-line); border-radius:10px; box-shadow:var(--ced-shadow); overflow:hidden; }
+    #ced-canendatos-d3 .ced-panel-head { padding:16px 18px 10px; display:flex; justify-content:space-between; gap:14px; align-items:flex-start; border-bottom:1px solid var(--ced-line); }
+    #ced-canendatos-d3 .ced-panel-title { font-size:18px; font-weight:760; margin:0 0 4px; }
+    #ced-canendatos-d3 .ced-panel-sub { color:var(--ced-muted); font-size:13px; line-height:1.45; }
+    #ced-canendatos-d3 .ced-badge { color:var(--ced-accent-deep); background:var(--ced-accent-soft); border:1px solid var(--ced-accent); border-radius:999px; padding:5px 9px; font-size:11px; font-weight:700; white-space:nowrap; text-transform:uppercase; letter-spacing:.03em; }
+    #ced-canendatos-d3 .ced-chart-wrap { min-height:460px; padding:14px 16px 18px; }
+    /* Metodología visual --------------------------------------------------- */
+    #ced-canendatos-d3 .ced-method-grid { display:flex; flex-direction:column; gap:18px; padding:18px; }
+    #ced-canendatos-d3 .ced-method-flow { background:linear-gradient(180deg, var(--ced-accent-soft) 0%, var(--ced-surface) 100%); border:1px solid var(--ced-line); border-radius:10px; padding:14px 16px 16px; }
+    #ced-canendatos-d3 .ced-method-flow-title { font-size:11.5px; font-weight:700; color:var(--ced-accent-deep); text-transform:uppercase; letter-spacing:.07em; margin-bottom:12px; display:flex; align-items:center; gap:8px; }
+    #ced-canendatos-d3 .ced-method-flow-title::before { content:""; display:inline-block; width:18px; height:2px; background:var(--ced-accent); border-radius:99px; }
+    #ced-canendatos-d3 .ced-method-flow-steps { display:grid; grid-template-columns:repeat(5, minmax(0,1fr)); gap:10px; }
+    #ced-canendatos-d3 .ced-method-flow-step { position:relative; background:var(--ced-surface); border:1px solid var(--ced-line); border-radius:8px; padding:11px 12px 10px; display:grid; gap:4px; min-width:0; }
+    #ced-canendatos-d3 .ced-method-flow-step::after { content:""; position:absolute; right:-7px; top:50%; width:12px; height:12px; transform:translateY(-50%) rotate(45deg); background:var(--ced-surface); border-top:1px solid var(--ced-line); border-right:1px solid var(--ced-line); z-index:2; }
+    #ced-canendatos-d3 .ced-method-flow-step:last-child::after { display:none; }
+    #ced-canendatos-d3 .ced-method-flow-num { font-size:10px; font-weight:800; color:var(--ced-accent); letter-spacing:.08em; }
+    #ced-canendatos-d3 .ced-method-flow-step strong { font-size:13px; color:var(--ced-ink); font-weight:760; }
+    #ced-canendatos-d3 .ced-method-flow-step span { font-size:11.5px; color:var(--ced-muted); line-height:1.35; }
+    #ced-canendatos-d3 .ced-method-cards { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; }
+    #ced-canendatos-d3 .ced-method-item { position:relative; border:1px solid var(--ced-line); border-top:3px solid var(--ced-accent); border-radius:10px; padding:18px 16px 14px; background:var(--ced-surface); display:flex; flex-direction:column; gap:8px; transition:transform .15s ease, box-shadow .15s ease; }
+    #ced-canendatos-d3 .ced-method-item:hover { transform:translateY(-2px); box-shadow:var(--ced-shadow); }
+    #ced-canendatos-d3 .ced-method-num { position:absolute; top:-12px; left:14px; background:var(--ced-accent); color:#fff; width:26px; height:26px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:800; box-shadow:0 4px 10px rgba(20,32,25,.18); }
+    #ced-canendatos-d3 .ced-method-icon { width:38px; height:38px; border-radius:9px; background:var(--ced-accent-soft); color:var(--ced-accent-deep); display:flex; align-items:center; justify-content:center; margin-top:4px; }
+    #ced-canendatos-d3 .ced-method-icon svg { width:20px; height:20px; display:block; }
+    #ced-canendatos-d3 .ced-method-item h3 { margin:0; font-size:15px; color:var(--ced-ink); font-weight:760; line-height:1.25; }
+    #ced-canendatos-d3 .ced-method-item p { margin:0; color:var(--ced-ink); font-size:13.5px; line-height:1.55; opacity:.85; }
+    #ced-canendatos-d3 .ced-method-item p code, #ced-canendatos-d3 .ced-method-item p strong { color:var(--ced-accent-deep); }
+    #ced-canendatos-d3 .ced-method-item p code { background:var(--ced-accent-soft); padding:1px 5px; border-radius:4px; font-size:12px; }
+    #ced-canendatos-d3 .ced-source-strip { border-top:1px solid var(--ced-line); padding:12px 16px; color:var(--ced-muted); font-size:12px; display:flex; flex-wrap:wrap; gap:8px 18px; justify-content:space-between; background:#fbfcfd; }
+    #ced-canendatos-d3 .ced-axis text { fill:var(--ced-muted); font-size:11.5px; }
+    #ced-canendatos-d3 .ced-axis path, #ced-canendatos-d3 .ced-axis line { stroke:var(--ced-line); }
+    #ced-canendatos-d3 .ced-grid line { stroke:var(--ced-soft); }
+    #ced-canendatos-d3 svg { width:100%; height:auto; display:block; overflow:visible; }
+    #ced-canendatos-d3 .ced-map-region { transition:fill .15s ease, stroke-width .15s ease; cursor:pointer; }
+    #ced-canendatos-d3 .ced-map-region:hover { stroke:var(--ced-ink); stroke-width:2px; }
+    #ced-canendatos-d3 .ced-tooltip { position:fixed; z-index:999999; pointer-events:none; background:rgba(20,32,25,.96); color:#fff; padding:10px 12px; border-radius:7px; font-size:12px; line-height:1.45; opacity:0; transform:translate(-50%, calc(-100% - 10px)); min-width:160px; box-shadow:0 10px 30px rgba(0,0,0,.25); }
+    #ced-canendatos-d3 .ced-tooltip strong { display:block; font-size:13px; margin-bottom:3px; color:#fff; }
+    #ced-canendatos-d3 .ced-tooltip-metric { display:block; margin:1px 0 4px; color:#cfe6d8; font-size:11px; line-height:1.25; font-weight:600; }
+    #ced-canendatos-d3 .ced-tooltip-value { display:block; margin:5px 0 4px; color:#fff; font-size:20px; line-height:1.1; font-weight:800; text-align:center; }
+    #ced-canendatos-d3 .ced-tooltip-extra { display:block; color:#cfe6d8; font-size:11px; margin-top:4px; }
+    #ced-canendatos-d3 .ced-loading { color:var(--ced-muted); padding:24px; }
+    #ced-canendatos-d3 .ced-legend { display:flex; gap:14px; align-items:center; flex-wrap:wrap; padding:6px 0 0; font-size:12px; color:var(--ced-muted); }
+    #ced-canendatos-d3 .ced-legend-swatch { display:inline-block; width:14px; height:14px; border-radius:3px; margin-right:6px; vertical-align:middle; }
+
+    @media (max-width:980px) {
+      #ced-canendatos-d3 .ced-header-inner, #ced-canendatos-d3 .ced-main { grid-template-columns:1fr; }
+      #ced-canendatos-d3 .ced-story-nav { position:static; grid-template-columns:repeat(2,minmax(0,1fr)); }
+      #ced-canendatos-d3 .ced-kpi-row { grid-template-columns:repeat(2,minmax(0,1fr)); }
+      #ced-canendatos-d3 .ced-method-cards { grid-template-columns:repeat(2,minmax(0,1fr)); }
+      #ced-canendatos-d3 .ced-method-flow-steps { grid-template-columns:repeat(3, minmax(0,1fr)); row-gap:18px; }
+      #ced-canendatos-d3 .ced-method-flow-step:nth-child(3n)::after { display:none; }
+      #ced-canendatos-d3 select { min-width:160px; }
+    }
+    @media (max-width:640px) {
+      #ced-canendatos-d3 { padding:14px 10px 22px; }
+      #ced-canendatos-d3 .ced-header-inner { padding:16px 14px 14px; gap:12px; }
+      #ced-canendatos-d3 .ced-toolbar { padding:12px 14px; display:grid; grid-template-columns:1fr; }
+      #ced-canendatos-d3 .ced-control, #ced-canendatos-d3 select { width:100%; min-width:0; }
+      #ced-canendatos-d3 .ced-actions { display:grid; grid-template-columns:1fr; width:100%; }
+      #ced-canendatos-d3 .ced-btn { width:100%; justify-content:center; }
+      #ced-canendatos-d3 .ced-kpi-row { grid-template-columns:repeat(2, minmax(0,1fr)); }
+      #ced-canendatos-d3 .ced-method-cards, #ced-canendatos-d3 .ced-method-flow-steps { grid-template-columns:1fr; }
+      #ced-canendatos-d3 .ced-method-flow-step::after { display:none; }
+      #ced-canendatos-d3 .ced-chart-wrap { padding:10px 6px 14px; min-height:auto; }
+      #ced-canendatos-d3 .ced-tooltip { max-width:min(280px,calc(100vw - 28px)); }
+
+      /* Tabs de sección como carrusel horizontal con snap */
+      #ced-canendatos-d3 .ced-sections {
+        display:flex; flex-wrap:nowrap; overflow-x:auto;
+        scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch;
+        padding:6px; gap:6px;
+      }
+      #ced-canendatos-d3 .ced-section-btn {
+        flex:0 0 78%; scroll-snap-align:start; min-width:0;
+      }
+
+      /* Story nav como carrusel horizontal con snap */
+      #ced-canendatos-d3 .ced-story-nav {
+        position:static; display:flex; flex-wrap:nowrap; overflow-x:auto;
+        scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch;
+        padding:2px 2px 8px; gap:8px;
+        grid-template-columns:none;
+      }
+      #ced-canendatos-d3 .ced-story-step {
+        flex:0 0 80%; scroll-snap-align:start; padding:12px;
+      }
+      #ced-canendatos-d3 .ced-story-step strong { font-size:13.5px; }
+      #ced-canendatos-d3 .ced-story-step span { font-size:12px; }
+
+      /* KPIs compactos en 2 columnas */
+      #ced-canendatos-d3 .ced-kpi { padding:10px 11px; }
+      #ced-canendatos-d3 .ced-kpi-label { font-size:10.5px; min-height:0; }
+      #ced-canendatos-d3 .ced-kpi-value { font-size:19px; margin-top:6px; }
+      #ced-canendatos-d3 .ced-kpi-note { font-size:11px; }
+
+      #ced-canendatos-d3 .ced-panel-head { flex-direction:column; padding:13px 13px 9px; gap:8px; }
+      #ced-canendatos-d3 .ced-badge { align-self:flex-start; white-space:normal; line-height:1.25; }
+      #ced-canendatos-d3 .ced-source-strip { display:grid; grid-template-columns:1fr; padding:10px 12px; }
+
+      /* Vista de mapa en móvil = lista de CCAA */
+      #ced-canendatos-d3 .ced-mlist { display:flex; flex-direction:column; gap:6px; padding:4px 6px 8px; }
+      #ced-canendatos-d3 .ced-mlist-row {
+        display:grid; grid-template-columns:24px 1fr auto; gap:8px; align-items:center;
+        padding:8px 10px; background:var(--ced-surface);
+        border:1px solid var(--ced-line); border-radius:8px;
+      }
+      #ced-canendatos-d3 .ced-mlist-row.is-canarias {
+        border-color:var(--ced-contrast);
+        background:linear-gradient(90deg, var(--ced-contrast-soft) 0%, var(--ced-surface) 60%);
+      }
+      #ced-canendatos-d3 .ced-mlist-rank {
+        font-size:11px; font-weight:800; color:var(--ced-muted); text-align:center;
+      }
+      #ced-canendatos-d3 .ced-mlist-row.is-canarias .ced-mlist-rank { color:var(--ced-contrast); }
+      #ced-canendatos-d3 .ced-mlist-name { font-size:13px; font-weight:650; color:var(--ced-ink); min-width:0; }
+      #ced-canendatos-d3 .ced-mlist-bar { grid-column:1 / -1; height:6px; background:var(--ced-soft); border-radius:99px; overflow:hidden; }
+      #ced-canendatos-d3 .ced-mlist-bar-fill { height:100%; background:var(--ced-accent); }
+      #ced-canendatos-d3 .ced-mlist-row.is-canarias .ced-mlist-bar-fill { background:var(--ced-contrast); }
+      #ced-canendatos-d3 .ced-mlist-value { font-size:13px; font-weight:760; color:var(--ced-accent-deep); white-space:nowrap; }
+      #ced-canendatos-d3 .ced-mlist-row.is-canarias .ced-mlist-value { color:var(--ced-contrast); }
+      #ced-canendatos-d3 .ced-mlist-extra { grid-column:1 / -1; color:var(--ced-muted); font-size:11px; margin-top:2px; }
+
+      /* Vista de género en móvil = tarjetas apiladas con barras */
+      #ced-canendatos-d3 .ced-mgender { display:flex; flex-direction:column; gap:8px; padding:4px 6px 8px; }
+      #ced-canendatos-d3 .ced-mgender-row { background:var(--ced-surface); border:1px solid var(--ced-line); border-radius:9px; padding:10px 11px; }
+      #ced-canendatos-d3 .ced-mgender-row.is-canarias { border-color:var(--ced-contrast); box-shadow:0 4px 14px var(--ced-contrast-soft); }
+      #ced-canendatos-d3 .ced-mgender-head { display:flex; align-items:baseline; justify-content:space-between; gap:8px; margin-bottom:8px; }
+      #ced-canendatos-d3 .ced-mgender-head strong { font-size:13px; font-weight:700; color:var(--ced-ink); }
+      #ced-canendatos-d3 .ced-mgender-gap { font-size:12px; font-weight:760; padding:2px 7px; border-radius:99px; }
+      #ced-canendatos-d3 .ced-mgender-gap.is-pos { background:var(--ced-contrast-soft); color:var(--ced-contrast); }
+      #ced-canendatos-d3 .ced-mgender-gap.is-neg { background:var(--ced-accent-soft); color:var(--ced-accent-deep); }
+      #ced-canendatos-d3 .ced-mgender-bars { display:grid; grid-template-columns:54px 1fr auto; gap:6px 10px; align-items:center; font-size:12px; }
+      #ced-canendatos-d3 .ced-mgender-bars .lbl { color:var(--ced-muted); }
+      #ced-canendatos-d3 .ced-mgender-bars .bar { height:8px; background:var(--ced-soft); border-radius:99px; overflow:hidden; }
+      #ced-canendatos-d3 .ced-mgender-bars .bar > span { display:block; height:100%; }
+      #ced-canendatos-d3 .ced-mgender-bars .bar.h > span { background:var(--ced-accent); }
+      #ced-canendatos-d3 .ced-mgender-bars .bar.m > span { background:var(--ced-contrast); }
+      #ced-canendatos-d3 .ced-mgender-bars .val { font-weight:700; color:var(--ced-ink); white-space:nowrap; }
+    }
+  </style>
+
+  <!-- ANTESALA DE CARGA -->
+  <div class="ced-bootstrap" data-ced-bootstrap>
+    <div class="ced-bootstrap-card">
+      <div class="ced-bootstrap-eyebrow">Canarias en Datos · Observatorio</div>
+      <h1>Preparando el panel multitemático…</h1>
+      <p>Sincronizamos los datasets en segundo plano para que la navegación entre secciones sea instantánea.</p>
+      <div class="ced-bootstrap-tasks" data-ced-bootstrap-tasks></div>
+      <div class="ced-bootstrap-bar"><div class="ced-bootstrap-fill" data-ced-bootstrap-fill></div></div>
+    </div>
+  </div>
+
+  <!-- TABS DE SECCIÓN -->
+  <nav class="ced-sections" data-ced-sections aria-label="Secciones del observatorio"></nav>
+
+  <!-- CHASIS COMÚN -->
+  <section class="ced-header">
+    <div class="ced-header-inner">
+      <div>
+        <div class="ced-eyebrow" data-ced-eyebrow>Canarias en Datos</div>
+        <h2 data-ced-h2>—</h2>
+        <div class="ced-lead" data-ced-lead>—</div>
+      </div>
+      <div class="ced-actions">
+        <button class="ced-btn" type="button" data-ced-method>Metodología</button>
+        <button class="ced-btn is-primary" type="button" data-ced-download>Descargar CSV</button>
+      </div>
+    </div>
+    <div class="ced-toolbar">
+      <div class="ced-control"><label>Indicador</label><select data-ced-metric></select></div>
+      <div class="ced-control"><label>Periodo</label><select data-ced-year></select></div>
+      <div class="ced-control"><label>Género</label><select data-ced-gender>
+        <option value="total">Total</option>
+        <option value="hombres">Hombres</option>
+        <option value="mujeres">Mujeres</option>
+      </select></div>
+    </div>
+  </section>
+
+  <div class="ced-main">
+    <nav class="ced-story-nav" data-ced-story aria-label="Capítulos narrativos">
+      <button class="ced-story-step is-active" data-ced-step="context" type="button"><strong>1. Situar Canarias</strong><span>Mapa coroplético para comparar Canarias con el resto de comunidades.</span></button>
+      <button class="ced-story-step" data-ced-step="evolution" type="button"><strong>2. Evolución</strong><span>Serie temporal por CCAA con resaltado de Canarias.</span></button>
+      <button class="ced-story-step" data-ced-step="gender" type="button"><strong>3. Brecha de género</strong><span>Comparación hombres-mujeres por comunidad.</span></button>
+      <button class="ced-story-step" data-ced-step="method" type="button"><strong>4. Cómo se construye</strong><span>Fuentes, modelado, actualización.</span></button>
+    </nav>
+    <section class="ced-stage">
+      <div class="ced-kpi-row" data-ced-kpis></div>
+      <section class="ced-panel">
+        <div class="ced-panel-head">
+          <div>
+            <div class="ced-panel-title" data-ced-title>—</div>
+            <div class="ced-panel-sub" data-ced-sub>—</div>
+          </div>
+          <div class="ced-badge" data-ced-badge>—</div>
+        </div>
+        <div class="ced-chart-wrap" data-ced-chart>
+          <div class="ced-loading">Inicializando…</div>
+        </div>
+        <div class="ced-method-grid" data-ced-method-grid hidden></div>
+        <div class="ced-source-strip" data-ced-source-strip>
+          <span data-ced-source-left>—</span>
+          <span data-ced-source-right>—</span>
+        </div>
+      </section>
+    </section>
+  </div>
+  <div class="ced-tooltip" data-ced-tooltip></div>
+
+<script>
+(function(){
+  "use strict";
+  const root = document.getElementById("ced-canendatos-d3");
+  if (!root) return;
+
+  // ====== Carga de D3 ======================================================
+  function ensureD3(cb) {
+    if (window.d3) return cb(window.d3);
+    const existing = document.querySelector('script[data-ced-d3="true"]');
+    if (existing) {
+      if (window.d3) return cb(window.d3);
+      existing.addEventListener("load", () => cb(window.d3));
+      existing.addEventListener("error", () => cb(null));
+      return;
+    }
+    const s = document.createElement("script");
+    s.src = "https://cdn.jsdelivr.net/npm/d3@7";
+    s.async = true; s.dataset.cedD3 = "true";
+    s.onload  = () => cb(window.d3);
+    s.onerror = () => cb(null);
+    document.head.appendChild(s);
+  }
+
+  // Helper: aplica un timeout a una promesa para que el bootstrap no cuelgue
+  // si Supabase, el CDN o Eurostat no responden.
+  function withTimeout(promise, ms, label) {
+    let to;
+    const timer = new Promise((_, reject) => {
+      to = setTimeout(() => reject(new Error(`Timeout (${ms}ms): ${label}`)), ms);
+    });
+    return Promise.race([promise, timer]).finally(() => clearTimeout(to));
+  }
+
+  ensureD3(function(d3){
+  if (!d3) {
+    const bs = document.querySelector("#ced-canendatos-d3 [data-ced-bootstrap]");
+    if (bs) bs.querySelector(".ced-bootstrap-card").innerHTML =
+      `<div class="ced-bootstrap-eyebrow">Canarias en Datos · Observatorio</div>
+       <h1>No se pudo cargar D3</h1>
+       <p>La librería <code>d3@7</code> no está disponible. Comprueba la conexión o incluye <code>&lt;script src="https://cdn.jsdelivr.net/npm/d3@7"&gt;&lt;/script&gt;</code> en la página.</p>`;
+    return;
+  }
+
+  // ====== Mapa CCAA → NUTS-2 (compartido) =================================
+  const NUTS_FOR_CCAA = {
+    "Andalucía":"ES61","Aragón":"ES24","Principado de Asturias":"ES12",
+    "Islas Baleares":"ES53","Canarias":"ES70","Cantabria":"ES13",
+    "Castilla y León":"ES41","Castilla-La Mancha":"ES42","Cataluña":"ES51",
+    "Comunidad Valenciana":"ES52","Extremadura":"ES43","Galicia":"ES11",
+    "Comunidad de Madrid":"ES30","Región de Murcia":"ES62",
+    "Comunidad Foral de Navarra":"ES22","País Vasco":"ES21","La Rioja":"ES23"
+  };
+  const CCAA_ALIASES = {
+    "andalucia":"Andalucía","aragon":"Aragón","asturias":"Principado de Asturias",
+    "principado de asturias":"Principado de Asturias","baleares":"Islas Baleares",
+    "illes balears":"Islas Baleares","balears illes":"Islas Baleares","islas baleares":"Islas Baleares",
+    "canarias":"Canarias","cantabria":"Cantabria","castilla y leon":"Castilla y León",
+    "castilla y león":"Castilla y León","castilla la mancha":"Castilla-La Mancha",
+    "castilla-la mancha":"Castilla-La Mancha","cataluna":"Cataluña","cataluña":"Cataluña","catalunya":"Cataluña",
+    "comunidad valenciana":"Comunidad Valenciana","comunitat valenciana":"Comunidad Valenciana",
+    "extremadura":"Extremadura","galicia":"Galicia","madrid":"Comunidad de Madrid",
+    "comunidad de madrid":"Comunidad de Madrid","murcia":"Región de Murcia",
+    "region de murcia":"Región de Murcia","región de murcia":"Región de Murcia",
+    "navarra":"Comunidad Foral de Navarra","comunidad foral de navarra":"Comunidad Foral de Navarra",
+    "pais vasco":"País Vasco","país vasco":"País Vasco","la rioja":"La Rioja","rioja la":"La Rioja"
+  };
+  function normalizeCcaa(name) {
+    if (!name) return "";
+    const k = String(name).normalize("NFD").replace(/[̀-ͯ]/g,"")
+      .toLowerCase().replace(/^\d{1,2}\s+/,"").replace(/[^a-z0-9]+/g," ").trim();
+    return CCAA_ALIASES[k] || String(name).trim();
+  }
+  function num(v) {
+    if (v == null || v === "" || v === "NA") return null;
+    const t = String(v).trim();
+    const n = Number(t.includes(",") && !t.match(/\d{1,3}(,\d{3})+/) ? t.replace(",", ".") : t.replace(/\s/g,""));
+    return Number.isFinite(n) ? n : null;
+  }
+
+  // ====== Configuración de secciones ======================================
+  // Para añadir una nueva temática: añade una entrada con loader + metrics + textos.
+  const SECTIONS = {
+    vivienda: {
+      id: "vivienda",
+      label: "Vivienda",
+      granularity: "annual",
+      tagline: "Acceso, esfuerzo y condiciones residenciales.",
+      eyebrow: "Canarias en Datos · Vivienda",
+      title: "El acceso a la vivienda contado como una historia de presión, género y evidencia.",
+      lead: "Pieza D3 conectada al pipeline ETL: precios, esfuerzo salarial, condiciones del hogar y brecha de género — comparando Canarias con el resto del Estado.",
+      sourceLeft: "Fuentes: INE (ECV, EES) · Idealista",
+      sourceRight: "Tablas: ced_vivienda_global · ced_vivienda_gen",
+      hasGender: true,
+      method: [
+        { h:"Fuentes",            p:"Encuesta de Condiciones de Vida (INE), Encuesta de Estructura Salarial (INE) y portal inmobiliario Idealista. La geometría se sirve desde <code>geodesocan</code>." },
+        { h:"Actualización",      p:"Mensual para los precios de venta y alquiler de Idealista; anual para el resto, por las limitaciones de publicación de las fuentes originales del INE." },
+        { h:"Estimaciones",       p:"Para todas las variables salvo precios de Idealista, el pipeline compara <strong>ARIMA · ETS · Prophet · Random Forest · XGBoost</strong> con validación temporal y elige el modelo con menor error normalizado." },
+        { h:"Brecha de género",   p:"Las series con desagregación por sexo se sirven desde <code>ced_vivienda_gen</code>; cuando la fuente no la publica se mantiene como total." },
+        { h:"Origen",             p:"Cada fila lleva la marca <code>origen = real | proyeccion</code>. Si al menos una variable es proyectada, la fila se etiqueta como proyección." },
+        { h:"Almacenamiento",     p:"El pipeline persiste en Supabase (<code>canendatos.ced_vivienda_global</code> y <code>canendatos.ced_vivienda_gen</code>) y publica también CSV." }
+      ],
+      // Paleta para el coroplético
+      mapPalette: ["#e8f2fb","#cbe1f2","#9bc4e1","#5a98c8","#1769aa","#0c3f6b"],
+      metrics: {
+        precio_alquiler:   { label:"Precio del alquiler",          short:"Alquiler",        unit:"€/mes",  fmt:".0f", suffix:" €/mes" },
+        precio_venta:      { label:"Precio de venta",              short:"Venta",           unit:"€/m²",   fmt:".0f", suffix:" €/m²" },
+        salario_destinado: { label:"Salario destinado al alquiler",short:"Esfuerzo",        unit:"%",      fmt:".1f", suffix:" %" },
+        gasto_elevado:     { label:"Gasto elevado en vivienda",    short:"Gasto elevado",   unit:"%",      fmt:".1f", suffix:" %" },
+        retrasos_pagos:    { label:"Retrasos en pagos",            short:"Retrasos",        unit:"%",      fmt:".1f", suffix:" %" },
+        dif_finmes:        { label:"Dificultad para llegar a fin de mes", short:"Fin de mes", unit:"%",  fmt:".1f", suffix:" %" },
+        espacio_insuf:     { label:"Espacio insuficiente",         short:"Espacio insuf.",  unit:"%",      fmt:".1f", suffix:" %" },
+        hogares_mono:      { label:"Hogares monoparentales",       short:"Monoparentales",  unit:"miles",  fmt:".1f", suffix:" mil" }
+      },
+      supabase: { schema:"canendatos", tables:["ced_vivienda_global","ced_vivienda_gen"] },
+      csv: null,
+      loader: loadVivienda
+    },
+    saludmental: {
+      id: "saludmental",
+      label: "Salud mental",
+      granularity: "annual",
+      tagline: "Prevalencia, fármacos y suicidios.",
+      eyebrow: "Canarias en Datos · Salud mental",
+      title: "Salud mental: prevalencia, fármacos y suicidios contados como ejes estructurales del bienestar.",
+      lead: "Pieza D3 conectada al pipeline ETL: prevalencia de trastornos mentales, consumo de antidepresivos e hipnosedantes (DHD) y mortalidad por suicidio, con horizonte proyectado hasta 2026.",
+      sourceLeft: "Fuentes: Ministerio de Sanidad (INCLASNS) · INE",
+      sourceRight: "Tabla: ced_saludmental",
+      hasGender: true,
+      method: [
+        { h:"Fuentes",          p:"API <strong>INCLASNS</strong> (prevalencia y DHD) y <strong>INE</strong> (mortalidad por suicidio 46688, censo trimestral 56940)." },
+        { h:"Imputación género",p:"El SNS sólo publica el agregado total para los DHD: reconstruimos hombres y mujeres aplicando la brecha relativa observada en la prevalencia por género para cada CCAA y año." },
+        { h:"Variables-etiqueta",p:"Multiplicamos las tasas por el censo anual (media de los cuatro trimestres) para mostrar valores absolutos en los tooltips: personas, dosis y muertes." },
+        { h:"Modelado",         p:"El pipeline compara <strong>ARIMA · ETS · Prophet · Random Forest · XGBoost</strong> con validación cruzada temporal (3 folds, NMAE) y aplica el algoritmo con menor error global. Proyección hasta 2026." },
+        { h:"Actualización",    p:"Anual. La extracción consume APIs públicas, normaliza códigos CCAA, integra el censo trimestral y persiste un único dataset en Supabase (<code>canendatos.ced_saludmental</code>)." },
+        { h:"Origen",           p:"Cada fila lleva la marca <code>origen = real | proyeccion</code>. Si al menos una variable es proyectada, la fila se marca como proyección." }
+      ],
+      mapPalette: ["#e8fbf0","#bde8d2","#7ddca8","#3cc880","#0a8a4d","#063a20"],
+      metrics: {
+        t_mental:         { label:"Prevalencia de trastornos mentales", short:"Trastornos mentales", unit:"% población", fmt:".1f", suffix:" %",
+                            extra: r => r.n_personas_tm ? `≈ ${d3.format(",.0f")(r.n_personas_tm).replace(/,/g,".")} personas` : null },
+        antidep_ajustado: { label:"Consumo de antidepresivos (DHD)",    short:"Antidepresivos",      unit:"DHD",         fmt:".1f", suffix:" DHD",
+                            extra: r => r.antidep_anual_total ? `≈ ${d3.format(",.0f")(r.antidep_anual_total).replace(/,/g,".")} dosis/año` : null },
+        hipno_ajustado:   { label:"Consumo de hipnosedantes (DHD)",     short:"Hipnosedantes",       unit:"DHD",         fmt:".1f", suffix:" DHD",
+                            extra: r => r.hipno_anual_total ? `≈ ${d3.format(",.0f")(r.hipno_anual_total).replace(/,/g,".")} dosis/año` : null },
+        suicidios:        { label:"Tasa de suicidio",                   short:"Suicidios",           unit:"/100.000 hab.",fmt:".2f", suffix:" /100k",
+                            extra: r => r.n_suicidios ? `≈ ${d3.format(",.0f")(r.n_suicidios).replace(/,/g,".")} muertes` : null }
+      },
+      supabase: { schema:"canendatos", tables:["ced_saludmental"] },
+      csv: null,
+      loader: loadSaludMental
+    },
+    dependencia: {
+      id: "dependencia",
+      label: "Dependencia",
+      granularity: "monthly",
+      tagline: "SAAD: cobertura, los tres limbos y feminización del cuidado.",
+      eyebrow: "Canarias en Datos · Dependencia",
+      title: "El derecho a los cuidados, contado como una historia de cobertura, limbo y feminización.",
+      lead: "Pieza D3 conectada al pipeline ETL del Observatorio: cobertura del SAAD relativizada por Población Potencialmente Dependiente, los tres limbos de la dependencia (grado, PIA y prestaciones), tiempos de espera, mix de prestaciones y feminización del cuidado informal. Serie mensual desde enero de 2023.",
+      sourceLeft: "Fuente: IMSERSO · Estadísticas mensuales SAAD",
+      sourceRight: "Tablas: ced_dependencia_global · ced_dependencia_gen",
+      hasGender: true,
+      method: [
+        { h:"Fuente",                 p:"Estadísticas mensuales del <strong>SAAD</strong> publicadas por el IMSERSO en formato xlsx desde 2023. El pipeline procesa varias hojas operativas: solicitudes, beneficiarios, dictámenes, pendientes de resolución, pendientes de PIA, beneficiarios efectivos, tiempos de espera y perfil del cuidador por CCAA." },
+        { h:"Denominador PPD",        p:"Los indicadores con sufijo <code>(% PPD)</code> se relativizan respecto a la <strong>Población Potencialmente Dependiente</strong> (≥65 años + 16-64 con discapacidad). Fuente primaria: <code>general.censo_ppd</code>. Fallback: hoja <code>22solcasaadpot</code>. El dato se almacena ya como porcentaje de la PPD (×100), sin transformaciones de display en el cliente." },
+        { h:"Los tres limbos",        p:"El flujo administrativo del SAAD encadena tres cuellos de botella relativizados a la PPD: <strong>limbo del grado</strong> (sin dictamen, sheet 10pendResol), <strong>limbo del PIA</strong> (con dictamen pero sin Programa Individual de Atención, sheet 10pendPrest) y <strong>limbo de las prestaciones</strong> (con PIA pero sin prestación efectiva, sheet 12BenefEfect col 5). Son fenómenos administrativos distintos, no medidas redundantes." },
+        { h:"Imputación género",      p:"El IMSERSO no publica solicitudes, pendientes ni tiempos por sexo en sus hojas mensuales. Sólo el perfil del cuidador (61aperfcuidadorCCAA) cruza CCAA × género. La tabla <code>ced_dependencia_gen</code> aplica este ratio como factor de escala, marcado <code>origen_genero='estimado'</code>. <strong>Es una aproximación, no datos oficiales desagregados.</strong>" },
+        { h:"Modelado",               p:"El pipeline compara <strong>ARIMA · ETS · Random Forest · XGBoost</strong> con validación cruzada temporal rolling-origin (3 folds, NMAE) y aplica el algoritmo con menor error global. Prophet se descarta por defecto al tener NMAE ~4× peor en series mensuales cortas. Horizonte de proyección: 6 meses adelante." },
+        { h:"Almacenamiento",         p:"El pipeline persiste en Supabase (<code>canendatos.ced_dependencia_global</code> y <code>canendatos.ced_dependencia_gen</code>) y publica también CSV/XLSX. Las geometrías para el mapa se sirven desde NUTS-2 de Eurostat." }
+      ],
+      mapPalette: ["#fbe8e0","#f6c2ad","#f29478","#e8633e","#b8472f","#6e1f1a"],
+      metrics: {
+        cobertura_pct_ppd:          { label:"Cobertura efectiva (% PPD)",          short:"Cobertura",           unit:"% de la PPD",                fmt:".2f", suffix:" %" },
+        solicitudes_pct_ppd:        { label:"Solicitudes acumuladas (% PPD)",      short:"Solicitudes",         unit:"% de la PPD",                fmt:".2f", suffix:" %" },
+        limbo_grado_pct_ppd:        { label:"Limbo del grado (% PPD)",             short:"Limbo grado",         unit:"% de la PPD",                fmt:".2f", suffix:" %" },
+        limbo_pia_pct_ppd:          { label:"Limbo del PIA (% PPD)",               short:"Limbo PIA",           unit:"% de la PPD",                fmt:".2f", suffix:" %" },
+        limbo_prestaciones_pct_ppd: { label:"Limbo de las prestaciones (% PPD)",   short:"Limbo prestaciones",  unit:"% de la PPD",                fmt:".2f", suffix:" %" },
+        tiempo_espera_total_dias:   { label:"Tiempo de espera total (días)",       short:"Días espera",         unit:"días",                       fmt:",.0f", suffix:" días" },
+        pct_pecef:                  { label:"Cuidados familiares — PECEF (% prestaciones)", short:"% PECEF",    unit:"% sobre total prestaciones", fmt:".1f", suffix:" %" },
+        pct_atencion_residencial:   { label:"Atención residencial (% prestaciones)", short:"% residencial",    unit:"% sobre total prestaciones", fmt:".1f", suffix:" %" },
+        ratio_prest_x_benef:        { label:"Intensidad de atención",              short:"Intensidad",          unit:"prestaciones por beneficiario", fmt:".2f", suffix:"" },
+        pct_grado3:                 { label:"Gran dependencia — Grado III (% derecho a prestación)", short:"% Grado III", unit:"% sobre resoluciones de grado", fmt:".1f", suffix:" %" },
+        pct_mujeres_benef:          { label:"Mujeres en expedientes (%)",          short:"% mujeres",           unit:"% expedientes activos",      fmt:".1f", suffix:" %" }
+      },
+      supabase: { schema:"canendatos", tables:["ced_dependencia_global","ced_dependencia_gen"] },
+      csv: null,
+      loader: loadDependencia
+    },
+    educacion: {
+      id: "educacion",
+      label: "Educación",
+      granularity: "annual",
+      tagline: "Abandono, nivel formativo, resultados y esfuerzo público.",
+      eyebrow: "Canarias en Datos · Educación",
+      title: "La educación en Canarias, contada como una historia de abandono, nivel formativo, género y esfuerzo público.",
+      lead: "Pieza D3 conectada al pipeline ETL: abandono educativo temprano, nivel de formación (superior y bajo), formación permanente, jóvenes NEET, idoneidad, graduación en ESO, escolarización 0-2 y esfuerzo público (gasto sobre PIB y por alumno). Canarias frente al resto del Estado, serie anual 2015-2026 con proyección multi-algoritmo. La perspectiva de género es dato observado (EPA y MEFP), no una estimación.",
+      sourceLeft: "Fuentes: INE·EPA (vía Eurostat) · MEFP (EDUCAbase, Cifras de la Educación) · Presupuestos",
+      sourceRight: "Tablas: ced_educacion_global · ced_educacion_gen",
+      hasGender: true,
+      method: [
+        { h:"Fuentes",           p:"Variables educativas de la <strong>EPA</strong> (INE) servidas a nivel autonómico (NUTS-2) por <strong>Eurostat</strong>; estadística del <strong>MEFP</strong> (EDUCAbase · PC-Axis y anuario «Las cifras de la Educación en España»); y el área de <strong>Presupuestos</strong> de Canarias en Datos para el esfuerzo sobre el PIB regional. La geometría del mapa se sirve desde NUTS-2 de Eurostat." },
+        { h:"Los diez indicadores", p:"Resultados de la población (abandono temprano, nivel superior 25-34, bajo nivel 25-64, formación permanente, NEET), trayectoria escolar (idoneidad a los 15, graduación en ESO, escolarización 0-2) y esfuerzo público (gasto/PIB y gasto por alumno). Los ocho primeros, por CCAA <strong>y</strong> género; los dos de gasto, sólo por CCAA." },
+        { h:"Brecha de género",  p:"Tanto la <strong>EPA</strong> como el <strong>MEFP</strong> publican el desglose <strong>directo</strong> por sexo, sin imputación (<code>ced_educacion_gen</code>). El patrón suele estar <strong>invertido</strong>: más abandono y NEET en hombres, más titulación superior, idoneidad y graduación en mujeres." },
+        { h:"Eje temporal anual",p:"Serie <strong>2015-2026</strong>. Los datos del MEFP se refieren al curso académico y se asignan al año natural de inicio (2023-24 → 2023). Cada año se marca real o proyección; los indicadores tienen distinto año de cierre (p. ej. graduación y gasto por alumno terminan en 2023)." },
+        { h:"Modelado",          p:"Competición por serie de <strong>ETS · ARIMA · Prophet · Random Forest · XGBoost</strong> frente a estimadores simples (media, naive, deriva, tendencia), con validación cruzada temporal rolling-origin. Se elige el de menor <strong>MAPE/MAE</strong> con regla de <strong>parsimonia</strong> (el más simple dentro del margen del mejor). Horizonte de proyección: 2026." },
+        { h:"Origen y almacenamiento", p:"Cada fila lleva la marca <code>origen = real | proyeccion</code>. El pipeline persiste en Supabase (<code>canendatos.ced_educacion_global</code> y <code>canendatos.ced_educacion_gen</code>) y publica también CSV/XLSX." }
+      ],
+      mapPalette: ["#f3eefe","#e0d1fb","#c4a8f4","#9f6ee8","#7c3aed","#4c1d95"],
+      metrics: {
+        abandono_temprano:       { label:"Abandono educativo temprano (18-24)",       short:"Abandono",            unit:"% de la población 18-24", fmt:".1f",  suffix:" %" },
+        nivel_superior_25_34:    { label:"Población con educación superior (25-34)",   short:"Titulación superior", unit:"% de la población 25-34", fmt:".1f",  suffix:" %" },
+        nivel_bajo_25_64:        { label:"Población con bajo nivel formativo (25-64)", short:"Bajo nivel",          unit:"% de la población 25-64", fmt:".1f",  suffix:" %" },
+        formacion_adultos_25_64: { label:"Formación permanente (25-64)",               short:"Formación adulta",    unit:"% de la población 25-64", fmt:".1f",  suffix:" %" },
+        neet_15_29:              { label:"Jóvenes que ni estudian ni trabajan (15-29)",short:"NEET",                unit:"% de la población 15-29", fmt:".1f",  suffix:" %" },
+        idoneidad_15:            { label:"Tasa de idoneidad a los 15 años",            short:"Idoneidad",           unit:"% del alumnado de 15 años",fmt:".1f", suffix:" %" },
+        graduacion_eso:          { label:"Tasa bruta de graduación en ESO",            short:"Graduación ESO",      unit:"% de la edad teórica",    fmt:".1f",  suffix:" %" },
+        escolarizacion_0_2:      { label:"Escolarización 0-2 años (1er ciclo Infantil)",short:"Escolarización 0-2", unit:"% de la población 0-2",   fmt:".1f",  suffix:" %" },
+        gasto_edu_pib:           { label:"Gasto en educación sobre PIB",               short:"Gasto/PIB",           unit:"% del PIB regional",      fmt:".2f",  suffix:" %" },
+        gasto_por_alumno:        { label:"Gasto público por alumno (no universitaria)",short:"Gasto/alumno",        unit:"euros por alumno",        fmt:",.0f", suffix:" €" }
+      },
+      supabase: { schema:"canendatos", tables:["ced_educacion_global","ced_educacion_gen"] },
+      csv: null,
+      loader: loadEducacion
+    }
+    // Futuras secciones: copia el bloque y añade su loader.
+  };
+
+  // Stub para secciones futuras que aparezcan grises en los tabs
+  const COMING_SOON = [
+    { id:"economia",   label:"Economía",     tagline:"Renta, empleo, productividad." }
+  ];
+
+  // ====== Loaders ==========================================================
+  function supabaseFetchAll(table, schema) {
+    const url = root.dataset.supabaseUrl;
+    const key = root.dataset.supabaseKey;
+    if (!url || !key) return Promise.reject(new Error("Supabase no configurado"));
+    const pageSize = 1000;
+    const all = [];
+    function page(offset) {
+      const ctrl = (typeof AbortController !== "undefined") ? new AbortController() : null;
+      const to = ctrl ? setTimeout(() => ctrl.abort(), 12000) : null;
+      return fetch(`${url}/rest/v1/${encodeURIComponent(table)}?select=*&limit=${pageSize}&offset=${offset}`,
+        { headers: { apikey:key, Authorization:`Bearer ${key}`, "Accept-Profile":schema },
+          signal: ctrl ? ctrl.signal : undefined })
+        .then(r => { if (to) clearTimeout(to); if (!r.ok) return r.text().then(t => { throw new Error(`${table} ${r.status}: ${t}`); }); return r.json(); })
+        .then(rows => { all.push(...rows); if (rows.length < pageSize) return all; return page(offset + pageSize); })
+        .catch(err => { if (to) clearTimeout(to); throw err; });
+    }
+    return page(0);
+  }
+
+  // -- Salud mental ---------------------------------------------------------
+  function loadSaludMental(cfg) {
+    const NUMERIC = ["t_mental","antidep_ajustado","hipno_ajustado","suicidios","brecha_rel","censo",
+                     "n_personas_tm","antidep_anual_total","hipno_anual_total","n_suicidios"];
+    return supabaseFetchAll("ced_saludmental", cfg.supabase.schema).then(rows => {
+      return rows.map(d => {
+        const periodKey = parsePeriodKey(d.periodo, cfg.granularity);
+        if (!periodKey) return null;
+        const out = { ccaa: normalizeCcaa(d.ccaa), genero: d.genero || "total", origen: d.origen || "real",
+                      period: periodKey,
+                      periodo: periodKeyToNum(periodKey, cfg.granularity) };
+        NUMERIC.forEach(k => out[k] = num(d[k]));
+        return out;
+      }).filter(r => r && r.ccaa);
+    });
+  }
+
+  // -- Vivienda -------------------------------------------------------------
+  // Las dos tablas (global + género) tienen una columna por métrica con su sufijo
+  // _origen y opcionalmente _periodo_label. Aplanamos a {ccaa, periodo, genero, origen, [metric]}.
+  function loadVivienda(cfg) {
+    return Promise.all([
+      supabaseFetchAll("ced_vivienda_global", cfg.supabase.schema).catch(() => []),
+      supabaseFetchAll("ced_vivienda_gen",    cfg.supabase.schema).catch(() => [])
+    ]).then(([globalRows, genderRows]) => {
+      const metricKeys = Object.keys(cfg.metrics);
+      function flatten(rows, defaultGender) {
+        // Agregamos por (ccaa, periodo_año, genero) — si la fuente trae meses para precios,
+        // tomamos la media anual para mantener la grilla anual del hub.
+        const buckets = new Map();
+        rows.forEach(d => {
+          const ccaa = normalizeCcaa(d.ccaa);
+          if (!ccaa) return;
+          const periodKey = parsePeriodKey(d.periodo ?? d.anio ?? d.year ?? d.fecha, cfg.granularity);
+          if (!periodKey) return;
+          const periodNum = periodKeyToNum(periodKey, cfg.granularity);
+          const gen = (d.genero || d.sexo || defaultGender || "total").toLowerCase();
+          const key = `${ccaa}|${periodKey}|${gen}`;
+          let bucket = buckets.get(key);
+          if (!bucket) {
+            bucket = { ccaa, period: periodKey, periodo: periodNum, genero: gen, origen: d.origen || "real", _counts:{} };
+            metricKeys.forEach(k => { bucket[k] = null; bucket._counts[k] = 0; });
+            buckets.set(key, bucket);
+          }
+          metricKeys.forEach(k => {
+            const v = num(d[k]);
+            if (v == null) return;
+            bucket[k] = (bucket._counts[k] === 0) ? v : ((bucket[k] * bucket._counts[k]) + v) / (bucket._counts[k] + 1);
+            bucket._counts[k] += 1;
+          });
+          // Si alguna métrica viene marcada como proyección, la fila lo es.
+          metricKeys.forEach(k => { if (d[`${k}_origen`] === "proyeccion") bucket.origen = "proyeccion"; });
+        });
+        return Array.from(buckets.values()).map(b => { delete b._counts; return b; });
+      }
+      const flat = flatten(globalRows, "total").concat(flatten(genderRows, null));
+      return flat;
+    });
+  }
+
+  // -- Dependencia ----------------------------------------------------------
+  // Granularidad MENSUAL desde 2023. Combina global + gen, normalizando los
+  // valores de genero (singular -> plural) para casar con la convencion del
+  // master ("hombres"/"mujeres"). Usa `ppd` como peso para la media estatal
+  // ponderada (campo `censo` = ppd para que stateMean lo aproveche).
+  function loadDependencia(cfg) {
+    const metricKeys = Object.keys(cfg.metrics);
+    function normalizeGenero(raw, fallback) {
+      const s = String(raw || fallback || "total").toLowerCase().trim();
+      if (s === "hombre" || s === "hombres" || s === "h" || s === "male")   return "hombres";
+      if (s === "mujer"  || s === "mujeres" || s === "m" || s === "female") return "mujeres";
+      return s || "total";
+    }
+    return Promise.all([
+      supabaseFetchAll("ced_dependencia_global", cfg.supabase.schema).catch(() => []),
+      supabaseFetchAll("ced_dependencia_gen",    cfg.supabase.schema).catch(() => [])
+    ]).then(([globalRows, genderRows]) => {
+      function flatten(rows, defaultGenero) {
+        return rows.map(d => {
+          const ccaa = normalizeCcaa(d.ccaa);
+          if (!ccaa) return null;
+          const periodKey = parsePeriodKey(d.fecha ?? d.periodo, "monthly");
+          if (!periodKey) return null;
+          const out = {
+            ccaa,
+            period: periodKey,
+            periodo: periodKeyToNum(periodKey, "monthly"),
+            genero: normalizeGenero(d.genero, defaultGenero),
+            origen: d.origen || "real",
+            censo: num(d.ppd) || null   // PPD como peso para stateMean ponderado
+          };
+          metricKeys.forEach(k => out[k] = num(d[k]));
+          return out;
+        }).filter(Boolean);
+      }
+      return flatten(globalRows, "total").concat(flatten(genderRows, null));
+    });
+  }
+
+  // -- Educación ------------------------------------------------------------
+  // Granularidad ANUAL 2015-2026. `ced_educacion_global` lleva un único
+  // `origen` por fila y una columna por indicador (los 10). `ced_educacion_gen`
+  // añade el desglose hombres/mujeres/total para los 8 indicadores con sexo
+  // (los 2 de gasto son sólo-total). Servimos el "total" desde global —más
+  // completo, incluye el gasto— y de gen tomamos sólo hombres/mujeres para no
+  // duplicar la fila total. Sin peso poblacional: la media estatal es simple.
+  function loadEducacion(cfg) {
+    const metricKeys = Object.keys(cfg.metrics);
+    function mapRow(d, genero) {
+      const ccaa = normalizeCcaa(d.ccaa);
+      if (!ccaa) return null;
+      const periodKey = parsePeriodKey(d.periodo ?? d.anio ?? d.year, cfg.granularity);
+      if (!periodKey) return null;
+      const out = {
+        ccaa,
+        period: periodKey,
+        periodo: periodKeyToNum(periodKey, cfg.granularity),
+        genero,
+        origen: d.origen || "real"
+      };
+      metricKeys.forEach(k => out[k] = num(d[k]));
+      return out;
+    }
+    return Promise.all([
+      supabaseFetchAll("ced_educacion_global", cfg.supabase.schema).catch(() => []),
+      supabaseFetchAll("ced_educacion_gen",    cfg.supabase.schema).catch(() => [])
+    ]).then(([globalRows, genderRows]) => {
+      const total = globalRows.map(d => mapRow(d, "total")).filter(Boolean);
+      const gendered = genderRows
+        .filter(d => {
+          const g = String(d.genero || "").toLowerCase().trim();
+          return g === "hombres" || g === "mujeres";
+        })
+        .map(d => mapRow(d, String(d.genero).toLowerCase().trim()))
+        .filter(Boolean);
+      return total.concat(gendered);
+    });
+  }
+
+  function parseYear(v) {
+    if (v == null || v === "") return NaN;
+    if (typeof v === "number" && Number.isFinite(v)) return v >= 1900 ? Math.floor(v) : NaN;
+    const s = String(v).trim();
+    const m = s.match(/(\d{4})/);
+    return m ? +m[1] : NaN;
+  }
+
+  // ====== Helpers de periodo (granularidad anual o mensual) ================
+  // Cada seccion declara `granularity` ("annual" | "monthly"). El estado
+  // mantiene `state.period` como string canonico ("2025" para anual,
+  // "2025-03" para mensual). Cada fila de datos lleva tanto `period` (string,
+  // para filtros y dropdowns) como `periodo` (numero, para el eje X de la
+  // serie temporal: año entero o ano + (mes-1)/12 fraccional).
+  const MONTH_NAMES_ES_SHORT = ["ene","feb","mar","abr","may","jun","jul","ago","sep","oct","nov","dic"];
+  const MONTH_NAMES_ES_LONG  = ["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre"];
+
+  function parsePeriodKey(value, granularity) {
+    if (value == null || value === "") return null;
+    const s = String(value).trim();
+    if (granularity === "monthly") {
+      const m = s.match(/^(\d{4})[-/](\d{1,2})/);
+      if (!m) return null;
+      const y = +m[1], mo = +m[2];
+      if (!(mo >= 1 && mo <= 12)) return null;
+      return `${y}-${String(mo).padStart(2, "0")}`;
+    }
+    const yr = parseYear(s);
+    return Number.isFinite(yr) ? String(yr) : null;
+  }
+
+  function periodKeyToNum(periodKey, granularity) {
+    if (!periodKey) return NaN;
+    if (granularity === "monthly") {
+      const [y, mo] = periodKey.split("-").map(Number);
+      return y + (mo - 1) / 12;
+    }
+    return +periodKey;
+  }
+
+  function formatPeriodLabel(periodKey, granularity, opts = {}) {
+    if (!periodKey) return "";
+    if (granularity === "monthly") {
+      const [y, mo] = periodKey.split("-");
+      const names = opts.long ? MONTH_NAMES_ES_LONG : MONTH_NAMES_ES_SHORT;
+      return `${names[+mo - 1]} ${y}`;
+    }
+    return periodKey;
+  }
+
+  function comparePeriodKeys(a, b) {
+    // Funciona tanto para "2025" como "2025-03": orden lexicografico = orden temporal
+    return a < b ? -1 : a > b ? 1 : 0;
+  }
+
+  function loadGeo() {
+    const url = root.getAttribute("data-geojson-url");
+    return withTimeout(d3.json(url), 12000, "geojson").then(geo => {
+      geo.features = geo.features.filter(f => /^ES\d{2}$/.test(f.properties.NUTS_ID || f.properties.id));
+      return geo;
+    }).catch(() => null);
+  }
+
+  // ====== Estado global ====================================================
+  // state.period es un string canonico:
+  //   - secciones anuales:   "2025"
+  //   - secciones mensuales: "2025-03"
+  // La granularidad se lee de SECTIONS[state.section].granularity.
+  const state = {
+    section: root.dataset.section || "vivienda",
+    metric: null,
+    gender: "total",
+    period: null,
+    step: "context",
+    geo: null,
+    cache: {}, // section.id -> { rows, byKey, error }
+    sectionState: {} // section.id -> { metric, period, step, gender }
+  };
+
+  // ====== Helpers DOM ======================================================
+  const $ = sel => root.querySelector(sel);
+  const $$ = sel => Array.from(root.querySelectorAll(sel));
+  const tooltip = $("[data-ced-tooltip]");
+  function showTip(html, evt) { tooltip.innerHTML = html; tooltip.style.left = evt.clientX+"px"; tooltip.style.top = evt.clientY+"px"; tooltip.style.opacity = 1; }
+  function moveTip(evt) { tooltip.style.left = evt.clientX+"px"; tooltip.style.top = evt.clientY+"px"; }
+  function hideTip() { tooltip.style.opacity = 0; }
+  document.addEventListener("mousemove", moveTip);
+
+  // ====== Antesala de carga ================================================
+  const bootstrap = $("[data-ced-bootstrap]");
+  const tasksEl   = $("[data-ced-bootstrap-tasks]");
+  const fillEl    = $("[data-ced-bootstrap-fill]");
+  const tasks = []; // { id, label, state, el }
+
+  function addTask(id, label) {
+    const el = document.createElement("div");
+    el.className = "ced-bootstrap-task";
+    el.dataset.cedTask = id;
+    el.dataset.state = "loading";
+    el.innerHTML = `<span class="ced-bootstrap-dot"></span><span>${label}</span><small>cargando…</small>`;
+    tasksEl.appendChild(el);
+    const t = { id, label, state:"loading", el };
+    tasks.push(t);
+    updateProgress();
+    return t;
+  }
+  function setTask(id, status, note) {
+    const t = tasks.find(t => t.id === id); if (!t) return;
+    t.state = status;
+    t.el.dataset.state = status;
+    const small = t.el.querySelector("small");
+    if (small) small.textContent = note || (status === "ok" ? "listo" : status === "err" ? "error" : "cargando…");
+    updateProgress();
+  }
+  function updateProgress() {
+    const done = tasks.filter(t => t.state !== "loading").length;
+    const pct = tasks.length === 0 ? 0 : (done / tasks.length) * 100;
+    fillEl.style.width = pct + "%";
+  }
+  function hideBootstrap() {
+    bootstrap.classList.add("is-hidden");
+    setTimeout(() => { bootstrap.style.display = "none"; }, 400);
+  }
+
+  // ====== Renderizado del chasis ==========================================
+  const els = {
+    eyebrow: $("[data-ced-eyebrow]"), h2: $("[data-ced-h2]"), lead: $("[data-ced-lead]"),
+    metricSel: $("[data-ced-metric]"), yearSel: $("[data-ced-year]"), genderSel: $("[data-ced-gender]"),
+    title: $("[data-ced-title]"), sub: $("[data-ced-sub]"), badge: $("[data-ced-badge]"),
+    chart: $("[data-ced-chart]"), kpis: $("[data-ced-kpis]"),
+    methodGrid: $("[data-ced-method-grid]"),
+    sourceLeft: $("[data-ced-source-left]"), sourceRight: $("[data-ced-source-right]"),
+    sectionsNav: $("[data-ced-sections]"), genderControl: $("[data-ced-gender]").parentElement,
+    storyNav: $("[data-ced-story]")
+  };
+
+  function renderSectionTabs() {
+    const items = Object.values(SECTIONS).map(s => ({ id:s.id, label:s.label, tagline:s.tagline, available:true }))
+      .concat(COMING_SOON.map(s => ({ ...s, available:false })));
+    els.sectionsNav.innerHTML = items.map(s => `
+      <button type="button" class="ced-section-btn ${state.section===s.id?'is-active':''}"
+              data-ced-section-btn="${s.id}" data-coming="${!s.available}">
+        <strong>${s.label}</strong><span>${s.tagline}</span>
+      </button>`).join("");
+    els.sectionsNav.querySelectorAll("[data-ced-section-btn]").forEach(btn => {
+      btn.addEventListener("click", () => {
+        if (btn.dataset.coming === "true") return;
+        const next = btn.dataset.cedSectionBtn;
+        if (next === state.section) return;
+        switchSection(next);
+      });
+    });
+  }
+
+  function applySectionTheme(sectionId) {
+    root.dataset.section = sectionId;
+  }
+
+  function persistSectionState() {
+    state.sectionState[state.section] = {
+      metric: state.metric, period: state.period, step: state.step, gender: state.gender
+    };
+  }
+
+  // Periodos (claves canonicas en string) con al menos una fila valida para
+  // (seccion actual, metrica, genero). Si la combinacion no tiene datos, se
+  // hace fallback al genero total. Devuelve array de strings ordenados
+  // cronologicamente (orden lexicografico = orden temporal porque el formato
+  // "yyyy" o "yyyy-mm" es zero-padded).
+  function availablePeriodsFor(metric, gender) {
+    const cache = state.cache[state.section];
+    if (!cache || !cache.rows || !metric) return [];
+    let rows = cache.rows.filter(r => r.genero === gender && r[metric] != null);
+    if (rows.length === 0 && gender !== "total") {
+      rows = cache.rows.filter(r => r.genero === "total" && r[metric] != null);
+    }
+    return Array.from(new Set(rows.map(r => r.period))).filter(Boolean).sort(comparePeriodKeys);
+  }
+
+  // Elige el mejor periodo dado uno preferido (mantenerlo si esta, si no el mas reciente).
+  function bestPeriodFor(metric, gender, preferred) {
+    const periods = availablePeriodsFor(metric, gender);
+    if (periods.length === 0) return null;
+    if (preferred != null && periods.includes(preferred)) return preferred;
+    return periods[periods.length - 1];
+  }
+
+  // ¿La sección actual tiene filas con género hombres/mujeres para esta métrica?
+  function genderAvailable(metric) {
+    const cache = state.cache[state.section];
+    if (!cache || !cache.rows) return false;
+    return cache.rows.some(r => (r.genero === "hombres" || r.genero === "mujeres") && r[metric] != null);
+  }
+
+  function restoreSectionState(sectionId) {
+    const cfg = SECTIONS[sectionId];
+    const cache = state.cache[sectionId];
+    const saved = state.sectionState[sectionId] || {};
+    const metricKeys = Object.keys(cfg.metrics);
+
+    state.metric = saved.metric && cfg.metrics[saved.metric] ? saved.metric : metricKeys[0];
+
+    // Género: respetar guardado si la sección lo soporta y existe esa desagregación
+    // para la métrica restaurada. Si no, caer a total.
+    let gender = saved.gender || "total";
+    if (!cfg.hasGender) gender = "total";
+    if (gender !== "total" && cache && cache.rows && !genderAvailable(state.metric)) gender = "total";
+    state.gender = gender;
+
+    // Step: si el guardado es "gender" pero la sección destino no soporta género,
+    // caer al primer capítulo.
+    let step = saved.step || "context";
+    if (step === "gender" && !cfg.hasGender) step = "context";
+    state.step = step;
+
+    // Periodo: limitarlo a los periodos disponibles para (metrica, genero) actual.
+    state.period = bestPeriodFor(state.metric, state.gender, saved.period);
+  }
+
+  function switchSection(sectionId) {
+    persistSectionState();
+    state.section = sectionId;
+    applySectionTheme(sectionId);
+    restoreSectionState(sectionId);
+    els.sectionsNav.querySelectorAll("[data-ced-section-btn]").forEach(b => {
+      b.classList.toggle("is-active", b.dataset.cedSectionBtn === sectionId);
+    });
+    syncStoryNavActive();
+    renderShellForSection();
+    render();
+  }
+
+  function syncStoryNavActive() {
+    $$("[data-ced-step]").forEach(b => b.classList.toggle("is-active", b.dataset.cedStep === state.step));
+  }
+
+  function renderShellForSection() {
+    const cfg = SECTIONS[state.section];
+    els.eyebrow.textContent = cfg.eyebrow;
+    els.h2.textContent = cfg.title;
+    els.lead.textContent = cfg.lead;
+    els.sourceLeft.textContent = cfg.sourceLeft;
+    els.sourceRight.textContent = cfg.sourceRight;
+
+    // Selector de métrica
+    els.metricSel.innerHTML = "";
+    Object.entries(cfg.metrics).forEach(([k,v]) => {
+      const opt = document.createElement("option"); opt.value = k; opt.textContent = v.label;
+      els.metricSel.appendChild(opt);
+    });
+    els.metricSel.value = state.metric;
+
+    // Selector de periodo (filtrado a periodos con dato para metrica+genero actuales)
+    rebuildPeriodSelector();
+
+    // Mostrar/ocultar selector de género según soporte de la sección
+    els.genderControl.style.display = cfg.hasGender ? "" : "none";
+    els.genderSel.value = state.gender;
+
+    // Story steps: ocultar paso de género si no aplica
+    els.storyNav.querySelector('[data-ced-step="gender"]').style.display = cfg.hasGender ? "" : "none";
+
+    // Metodología (pipeline + tarjetas con icono)
+    els.methodGrid.innerHTML = renderMethodHtml(cfg);
+  }
+
+  // ====== Metodología visual ==============================================
+  const METHOD_ICONS = {
+    database: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14a9 3 0 0 0 18 0V5"/><path d="M3 12a9 3 0 0 0 18 0"/></svg>',
+    clock:    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>',
+    chart:    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>',
+    users:    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>',
+    tag:      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>',
+    cloud:    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>',
+    layers:   '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>',
+    info:     '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>'
+  };
+
+  function methodIconFor(heading) {
+    const k = String(heading || "").toLowerCase();
+    if (k.includes("fuente"))                                                   return METHOD_ICONS.database;
+    if (k.includes("actualiza"))                                                return METHOD_ICONS.clock;
+    if (k.includes("modelad") || k.includes("estimaci"))                        return METHOD_ICONS.chart;
+    if (k.includes("imputaci") || k.includes("género") || k.includes("genero")) return METHOD_ICONS.users;
+    if (k.includes("variable") || k.includes("etiqueta") || k.includes("origen"))return METHOD_ICONS.tag;
+    if (k.includes("almacen") || k.includes("supabase") || k.includes("workflow"))return METHOD_ICONS.cloud;
+    return METHOD_ICONS.layers;
+  }
+
+  function renderMethodHtml(cfg) {
+    return `
+      <div class="ced-method-cards">
+        ${cfg.method.map((m, i) => `
+          <div class="ced-method-item">
+            <span class="ced-method-num">${i + 1}</span>
+            <div class="ced-method-icon">${methodIconFor(m.h)}</div>
+            <h3>${m.h}</h3>
+            <p>${m.p}</p>
+          </div>`).join("")}
+      </div>`;
+  }
+
+  function rebuildPeriodSelector() {
+    const cfg = SECTIONS[state.section];
+    const periods = availablePeriodsFor(state.metric, state.gender);
+    els.yearSel.innerHTML = "";
+    periods.forEach(p => {
+      const opt = document.createElement("option");
+      opt.value = p;
+      opt.textContent = formatPeriodLabel(p, cfg.granularity, { long: cfg.granularity === "monthly" });
+      els.yearSel.appendChild(opt);
+    });
+    if (periods.length && !periods.includes(state.period)) state.period = periods[periods.length - 1];
+    if (state.period != null) els.yearSel.value = state.period;
+  }
+
+  // ====== Eventos ==========================================================
+  els.metricSel.addEventListener("change", () => {
+    state.metric = els.metricSel.value;
+    // Reajustar periodo al mejor disponible para la nueva metrica con el genero actual
+    state.period = bestPeriodFor(state.metric, state.gender, state.period);
+    rebuildPeriodSelector();
+    render();
+  });
+  els.yearSel.addEventListener("change", () => {
+    state.period = els.yearSel.value;  // string canonico (yyyy o yyyy-mm)
+    render();
+  });
+  els.genderSel.addEventListener("change", () => {
+    state.gender = els.genderSel.value;
+    state.period = bestPeriodFor(state.metric, state.gender, state.period);
+    rebuildPeriodSelector();
+    render();
+  });
+  $$("[data-ced-step]").forEach(btn => btn.addEventListener("click", () => {
+    state.step = btn.dataset.cedStep;
+    syncStoryNavActive();
+    render();
+  }));
+  $("[data-ced-method]").addEventListener("click", () => {
+    state.step = "method";
+    syncStoryNavActive();
+    render();
+  });
+  $("[data-ced-download]").addEventListener("click", downloadCsv);
+
+  // Re-render al redimensionar para mantener legends/rankings bien dimensionados
+  let resizeTimer = null;
+  let lastWidth = root.clientWidth;
+  if (typeof ResizeObserver !== "undefined") {
+    new ResizeObserver(() => {
+      const w = root.clientWidth;
+      if (Math.abs(w - lastWidth) < 30) return; // ignorar cambios menores
+      lastWidth = w;
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => { if (state.metric) render(); }, 150);
+    }).observe(root);
+  }
+
+  function downloadCsv() {
+    const cfg = SECTIONS[state.section];
+    const cache = state.cache[state.section];
+    if (!cache || !cache.rows) return;
+    // Exportamos period (string canonico) en lugar de periodo (numero) para
+    // que el CSV sea legible: "2025-03" en lugar de 2025.166666...
+    const cols = ["ccaa","period","genero","origen", ...Object.keys(cfg.metrics)];
+    const header = cols.map(c => c === "period" ? "periodo" : c).join(";");
+    const lines = [header];
+    cache.rows.forEach(r => {
+      lines.push(cols.map(c => {
+        const v = r[c];
+        return v == null ? "" : String(v).replace(/;/g, ",");
+      }).join(";"));
+    });
+    const blob = new Blob([lines.join("\n")], { type:"text/csv;charset=utf-8" });
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = `ced_${cfg.id}.csv`;
+    document.body.appendChild(a); a.click();
+    setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 100);
+  }
+
+  // ====== Filtros y métricas auxiliares ===================================
+  function rowsForView() {
+    const cache = state.cache[state.section];
+    if (!cache || !cache.rows) return [];
+    return cache.rows.filter(r => r.genero === state.gender);
+  }
+  function stateMean(metric, periodKey, gender) {
+    const cache = state.cache[state.section];
+    if (!cache) return null;
+    const rs = cache.rows.filter(r => r.period === periodKey && r.genero === gender && r.ccaa !== "Media Estatal" && r[metric] != null);
+    if (rs.length === 0) return null;
+    const w = d3.sum(rs, r => r.censo || 0);
+    if (w > 0) return d3.sum(rs, r => r[metric] * (r.censo || 0)) / w;
+    return d3.mean(rs, r => r[metric]);
+  }
+  function stateSeries(metric, gender) {
+    const cache = state.cache[state.section];
+    if (!cache) return [];
+    // Iteramos por period (string) pero devolvemos periodo (numero) para el eje X.
+    const seen = new Map();  // period -> periodo (numero)
+    cache.rows.forEach(r => { if (r.period != null && !seen.has(r.period)) seen.set(r.period, r.periodo); });
+    const periodKeys = Array.from(seen.keys()).sort(comparePeriodKeys);
+    return periodKeys.map(p => ({ period:p, periodo:seen.get(p), value:stateMean(metric, p, gender) }))
+      .filter(d => d.value != null);
+  }
+  function fmtVal(metric, v) {
+    const cfg = SECTIONS[state.section].metrics[metric];
+    if (v == null) return "—";
+    return d3.format(cfg.fmt)(v) + cfg.suffix;
+  }
+
+  // ====== KPIs =============================================================
+  function renderKpis() {
+    const cfg = SECTIONS[state.section];
+    const meta = cfg.metrics[state.metric];
+    const rows = rowsForView().filter(r => r.period === state.period && r[state.metric] != null);
+    const can  = rows.find(r => r.ccaa === "Canarias");
+    const ccaaOnly = rows.filter(r => r.ccaa !== "Media Estatal");
+    const sorted = ccaaOnly.slice().sort((a,b) => d3.ascending(a[state.metric], b[state.metric]));
+    const lo = sorted[0]; const hi = sorted[sorted.length-1];
+    const nat = stateMean(state.metric, state.period, state.gender);
+    const periodLabel = formatPeriodLabel(state.period, cfg.granularity, { long: cfg.granularity === "monthly" });
+    const cards = [
+      { label:`Media estatal · ${periodLabel}`, value: fmtVal(state.metric, nat), note:`${meta.unit} · ponderada` },
+      { label:`Canarias · ${periodLabel}`,      value: fmtVal(state.metric, can ? can[state.metric] : null),
+        note: (can && nat != null && can[state.metric] != null)
+          ? `${can[state.metric] >= nat ? "+" : ""}${d3.format(meta.fmt)(can[state.metric] - nat)} vs media`
+          : "" },
+      { label:"Mínimo CCAA", value: lo ? fmtVal(state.metric, lo[state.metric]) : "—", note: lo ? lo.ccaa : "" },
+      { label:"Máximo CCAA", value: hi ? fmtVal(state.metric, hi[state.metric]) : "—", note: hi ? hi.ccaa : "" }
+    ];
+    els.kpis.innerHTML = cards.map(c => `
+      <div class="ced-kpi">
+        <div class="ced-kpi-label">${c.label}</div>
+        <div class="ced-kpi-value">${c.value}</div>
+        <div class="ced-kpi-note">${c.note || ""}</div>
+      </div>`).join("");
+  }
+
+  // ====== Helpers móvil ====================================================
+  function isMobile() { return root.clientWidth < 640; }
+
+  // ====== Render: mapa coroplético =========================================
+  function renderMap() {
+    const cfg = SECTIONS[state.section];
+    const meta = cfg.metrics[state.metric];
+    const wrap = els.chart; wrap.innerHTML = "";
+    // En móvil, el mapa coroplético no se lee bien: usamos lista de CCAA
+    if (isMobile()) { renderMobileList(wrap); return; }
+    if (!state.geo) { wrap.innerHTML = `<div class="ced-loading">No se pudo cargar la geometría. Mostrando ranking.</div>`; renderRanking(wrap); return; }
+
+    const w = wrap.clientWidth || 720;
+    const h = 480;
+    const margin = { top:14, right:20, bottom:58, left:20 };
+    const svg = d3.select(wrap).append("svg").attr("viewBox", `0 0 ${w} ${h}`);
+    const yearRows = rowsForView().filter(r => r.period === state.period && r[state.metric] != null);
+    const valueByCcaa = new Map(yearRows.map(r => [r.ccaa, r]));
+    const getCcaa = f => Object.keys(NUTS_FOR_CCAA).find(k => NUTS_FOR_CCAA[k] === (f.properties.NUTS_ID || f.properties.id));
+
+    const mainlandFeatures = state.geo.features.filter(f => getCcaa(f) !== "Canarias");
+    const canFeature       = state.geo.features.find(f => getCcaa(f) === "Canarias");
+    const mainland = { type:"FeatureCollection", features:mainlandFeatures };
+
+    const projection = d3.geoMercator()
+      .fitExtent([[margin.left, margin.top], [w - margin.right, h - margin.bottom]], mainland);
+    const path = d3.geoPath(projection);
+
+    const palette = cfg.mapPalette;
+    const values  = yearRows.map(r => r[state.metric]).filter(Number.isFinite);
+    const extent  = d3.extent(values);
+    const uniqueValues = Array.from(new Set(values));
+    const color = uniqueValues.length > 1
+      ? d3.scaleQuantile().domain(values).range(palette)
+      : () => palette[Math.floor(palette.length/2)];
+
+    function fillFor(ccaa) { const r = valueByCcaa.get(ccaa); return r ? color(r[state.metric]) : "#eef3f0"; }
+    function tipFor(ccaa, evt) {
+      const row = valueByCcaa.get(ccaa);
+      const v = row ? row[state.metric] : null;
+      const extra = row && meta.extra ? meta.extra(row) : null;
+      const periodLabel = formatPeriodLabel(state.period, cfg.granularity, { long: cfg.granularity === "monthly" });
+      showTip(`
+        <strong>${ccaa}</strong>
+        <span class="ced-tooltip-metric">${meta.short} · ${periodLabel}</span>
+        <span class="ced-tooltip-value">${fmtVal(state.metric, v)}</span>
+        ${extra ? `<span class="ced-tooltip-extra">${extra}</span>` : ""}
+        ${row ? `<span class="ced-tooltip-extra">${row.origen === "proyeccion" ? "Proyección" : "Dato real"}</span>` : ""}
+      `, evt);
+    }
+
+    const mainlandPaths = svg.append("g").selectAll("path").data(mainlandFeatures).join("path")
+      .attr("class","ced-map-region")
+      .attr("d", path)
+      .attr("fill", d => fillFor(getCcaa(d)))
+      .attr("stroke", "#fff").attr("stroke-width", 0.7)
+      .on("mousemove", function(evt, d) { const c = getCcaa(d); if (c) tipFor(c, evt); })
+      .on("mouseleave", hideTip);
+
+    let canRegion = null;
+    if (canFeature) {
+      const canBounds = path.bounds(canFeature);
+      const canW = Math.max(1, canBounds[1][0] - canBounds[0][0]);
+      const canH = Math.max(1, canBounds[1][1] - canBounds[0][1]);
+      const desiredW = Math.min(150, Math.max(92, w * 0.15));
+      const canScale = desiredW / canW;
+      const targetX = margin.left + w * 0.04;
+      const targetY = h - margin.bottom - Math.max(78, canH * canScale * 0.7);
+      const tx = targetX - canBounds[0][0] * canScale;
+      const ty = targetY - canBounds[0][1] * canScale;
+      const canG = svg.append("g").attr("transform", `translate(${tx},${ty}) scale(${canScale})`);
+      canRegion = canG.append("path").datum(canFeature)
+        .attr("class","ced-map-region")
+        .attr("d", path)
+        .attr("fill", fillFor("Canarias"))
+        .attr("stroke", "var(--ced-contrast, #142019)").attr("stroke-width", 1.6 / canScale)
+        .on("mousemove", evt => tipFor("Canarias", evt))
+        .on("mouseleave", hideTip);
+      svg.append("text").attr("x", targetX + desiredW/2).attr("y", targetY - 8)
+        .attr("text-anchor","middle").attr("fill","var(--ced-accent-deep)")
+        .attr("font-size", 12).attr("font-weight", 800).text("Canarias");
+    }
+
+    function highlightMembers(names) {
+      const set = new Set(names);
+      mainlandPaths.attr("opacity", d => set.has(getCcaa(d)) ? 1 : 0.16)
+        .attr("stroke", d => set.has(getCcaa(d)) ? "#142019" : "#fff")
+        .attr("stroke-width", d => set.has(getCcaa(d)) ? 1.8 : 0.7);
+      if (canRegion) canRegion.attr("opacity", set.has("Canarias") ? 1 : 0.16);
+    }
+    function resetHighlight() {
+      mainlandPaths.attr("opacity", 1).attr("stroke","#fff").attr("stroke-width", 0.7);
+      if (canRegion) canRegion.attr("opacity", 1);
+    }
+
+    // Leyenda por cuantiles
+    const legendW = Math.min(360, w - 70);
+    const legendX = w - legendW - 20;
+    const legendY = h - 36;
+    const legendColors = uniqueValues.length > 1 ? palette : [palette[Math.floor(palette.length/2)]];
+    const bins = legendColors.map((c, i) => {
+      const range = color.invertExtent ? color.invertExtent(c) : extent;
+      const members = yearRows.filter(r => color(r[state.metric]) === c)
+        .sort((a,b) => d3.descending(a[state.metric], b[state.metric]));
+      return { color:c, index:i, min:range[0] ?? extent[0], max:range[1] ?? extent[1], members };
+    });
+    const segW = legendW / legendColors.length;
+    svg.append("g").selectAll("rect.ced-legend-seg").data(bins).join("rect")
+      .attr("class","ced-legend-seg")
+      .attr("x", (d,i) => legendX + i*segW).attr("y", legendY)
+      .attr("width", Math.ceil(segW)).attr("height", 12)
+      .attr("rx", (d,i) => i === 0 || i === bins.length-1 ? 4 : 0)
+      .attr("fill", d => d.color).attr("cursor","pointer")
+      .on("mousemove", function(evt, d) {
+        const names = d.members.map(r => r.ccaa);
+        highlightMembers(names);
+        d3.select(this).attr("stroke","#142019").attr("stroke-width", 1.4);
+        const list = names.length ? names.join(", ") : "Sin comunidades";
+        showTip(`
+          <strong>Tramo ${d.index+1} / ${bins.length}</strong>
+          <span class="ced-tooltip-metric">${meta.short} · ${formatPeriodLabel(state.period, cfg.granularity, { long: cfg.granularity === "monthly" })}</span>
+          <span class="ced-tooltip-value">${fmtVal(state.metric, d.min)} – ${fmtVal(state.metric, d.max)}</span>
+          <span class="ced-tooltip-extra">${list}</span>
+        `, evt);
+      })
+      .on("mouseleave", function() {
+        d3.select(this).attr("stroke", null).attr("stroke-width", null);
+        resetHighlight(); hideTip();
+      });
+
+    svg.append("text").attr("x", legendX).attr("y", legendY - 7)
+      .attr("font-size", 11).attr("fill","var(--ced-muted)")
+      .text(`${meta.short} (${meta.unit})`);
+    svg.append("text").attr("x", legendX + legendW).attr("y", legendY - 7)
+      .attr("text-anchor","end").attr("font-size", 10).attr("fill","var(--ced-muted)")
+      .text(uniqueValues.length > 1 ? "cuantiles" : "valor único");
+    svg.append("text").attr("x", legendX).attr("y", legendY + 26)
+      .attr("font-size", 10).attr("fill","var(--ced-muted)")
+      .text(extent[0] != null ? d3.format(meta.fmt)(extent[0]) + meta.suffix : "");
+    svg.append("text").attr("x", legendX + legendW).attr("y", legendY + 26)
+      .attr("text-anchor","end").attr("font-size", 10).attr("fill","var(--ced-muted)")
+      .text(extent[1] != null ? d3.format(meta.fmt)(extent[1]) + meta.suffix : "");
+  }
+
+  // ====== Render móvil: lista CCAA (sustituye al mapa) ====================
+  function renderMobileList(wrap) {
+    const cfg = SECTIONS[state.section];
+    const meta = cfg.metrics[state.metric];
+    const yearRows = rowsForView()
+      .filter(r => r.period === state.period && r.ccaa !== "Media Estatal" && r[state.metric] != null);
+    if (yearRows.length === 0) {
+      wrap.innerHTML = `<div class="ced-loading">Sin datos para esta combinación.</div>`;
+      return;
+    }
+    const max = d3.max(yearRows, r => r[state.metric]);
+    // Canarias primero, resto descendente
+    const sorted = yearRows.slice().sort((a, b) => d3.descending(a[state.metric], b[state.metric]));
+    const rankBy = new Map(sorted.map((r, i) => [r.ccaa, i + 1]));
+    const can = sorted.find(r => r.ccaa === "Canarias");
+    const others = sorted.filter(r => r.ccaa !== "Canarias");
+    const ordered = can ? [can, ...others] : sorted;
+
+    const list = document.createElement("div");
+    list.className = "ced-mlist";
+    list.innerHTML = ordered.map(r => {
+      const pct = max > 0 ? (r[state.metric] / max) * 100 : 0;
+      const isCan = r.ccaa === "Canarias";
+      const extra = meta.extra ? meta.extra(r) : null;
+      const proj = r.origen === "proyeccion" ? " · proy." : "";
+      return `
+        <div class="ced-mlist-row${isCan ? ' is-canarias' : ''}">
+          <div class="ced-mlist-rank">${rankBy.get(r.ccaa)}º</div>
+          <div class="ced-mlist-name">${r.ccaa}${proj}</div>
+          <div class="ced-mlist-value">${fmtVal(state.metric, r[state.metric])}</div>
+          <div class="ced-mlist-bar"><div class="ced-mlist-bar-fill" style="width:${pct.toFixed(1)}%"></div></div>
+          ${extra ? `<div class="ced-mlist-extra">${extra}</div>` : ""}
+        </div>`;
+    }).join("");
+    wrap.appendChild(list);
+  }
+
+  // ====== Render móvil: brecha de género (cards apiladas) =================
+  function renderMobileGender(wrap) {
+    const cfg = SECTIONS[state.section];
+    const meta = cfg.metrics[state.metric];
+    const cache = state.cache[state.section];
+    const all = (cache && cache.rows ? cache.rows : [])
+      .filter(r => r.period === state.period && r.ccaa !== "Media Estatal" && r[state.metric] != null);
+    const byCcaa = d3.group(all, r => r.ccaa);
+    const rows = Array.from(byCcaa, ([ccaa, vs]) => {
+      const h = vs.find(r => r.genero === "hombres");
+      const m = vs.find(r => r.genero === "mujeres");
+      if (!h || !m) return null;
+      return { ccaa, men: h[state.metric], women: m[state.metric], gap: m[state.metric] - h[state.metric] };
+    }).filter(Boolean).sort((a, b) => d3.descending(Math.abs(a.gap), Math.abs(b.gap)));
+
+    if (rows.length === 0) {
+      wrap.innerHTML = `<div class="ced-loading">No hay datos por género para ${meta.label} en ${formatPeriodLabel(state.period, cfg.granularity, { long: cfg.granularity === "monthly" })}.</div>`;
+      return;
+    }
+    const maxAbs = d3.max(rows, r => Math.max(r.men, r.women));
+    // Canarias primero
+    const can = rows.find(r => r.ccaa === "Canarias");
+    const ordered = can ? [can, ...rows.filter(r => r.ccaa !== "Canarias")] : rows;
+
+    const list = document.createElement("div");
+    list.className = "ced-mgender";
+    list.innerHTML = ordered.map(r => {
+      const isCan = r.ccaa === "Canarias";
+      const wH = maxAbs > 0 ? (r.men   / maxAbs) * 100 : 0;
+      const wM = maxAbs > 0 ? (r.women / maxAbs) * 100 : 0;
+      const sign = r.gap >= 0 ? "is-pos" : "is-neg";
+      const gapTxt = `${r.gap >= 0 ? "+" : ""}${d3.format(meta.fmt)(r.gap)}${meta.suffix}`;
+      return `
+        <div class="ced-mgender-row${isCan ? ' is-canarias' : ''}">
+          <div class="ced-mgender-head">
+            <strong>${r.ccaa}</strong>
+            <span class="ced-mgender-gap ${sign}">Brecha ${gapTxt}</span>
+          </div>
+          <div class="ced-mgender-bars">
+            <span class="lbl">Hombres</span>
+            <span class="bar h"><span style="width:${wH.toFixed(1)}%"></span></span>
+            <span class="val">${fmtVal(state.metric, r.men)}</span>
+            <span class="lbl">Mujeres</span>
+            <span class="bar m"><span style="width:${wM.toFixed(1)}%"></span></span>
+            <span class="val">${fmtVal(state.metric, r.women)}</span>
+          </div>
+        </div>`;
+    }).join("");
+    wrap.appendChild(list);
+  }
+
+  function renderRanking(wrap) {
+    const cfg = SECTIONS[state.section];
+    const meta = cfg.metrics[state.metric];
+    const rows = rowsForView()
+      .filter(r => r.period === state.period && r.ccaa !== "Media Estatal" && r[state.metric] != null)
+      .sort((a,b) => d3.descending(a[state.metric], b[state.metric]));
+    const w = wrap.clientWidth || 720;
+    const h = Math.max(360, rows.length*24 + 40);
+    const m = { top:14, right:80, bottom:14, left:160 };
+    const svg = d3.select(wrap).append("svg").attr("viewBox", `0 0 ${w} ${h}`);
+    const x = d3.scaleLinear().domain([0, d3.max(rows, r => r[state.metric])]).nice().range([m.left, w - m.right]);
+    const y = d3.scaleBand().domain(rows.map(r => r.ccaa)).range([m.top, h - m.bottom]).padding(0.18);
+    svg.append("g").selectAll("rect").data(rows).join("rect")
+      .attr("x", x(0)).attr("y", r => y(r.ccaa)).attr("height", y.bandwidth())
+      .attr("width", r => x(r[state.metric]) - x(0))
+      .attr("fill", r => r.ccaa === "Canarias" ? "var(--ced-contrast)" : "var(--ced-accent)")
+      .attr("opacity", r => r.origen === "proyeccion" ? 0.6 : 1);
+    svg.append("g").attr("class","ced-axis").attr("transform", `translate(${m.left},0)`).call(d3.axisLeft(y).tickSize(0));
+    svg.append("g").selectAll("text.value").data(rows).join("text")
+      .attr("class","value")
+      .attr("x", r => x(r[state.metric]) + 6).attr("y", r => y(r.ccaa) + y.bandwidth()/2 + 4)
+      .attr("font-size", 11.5).attr("fill","var(--ced-ink)")
+      .text(r => d3.format(meta.fmt)(r[state.metric]) + meta.suffix);
+  }
+
+  // ====== Render: serie temporal ===========================================
+  function renderEvolution() {
+    const cfg = SECTIONS[state.section];
+    const meta = cfg.metrics[state.metric];
+    const wrap = els.chart; wrap.innerHTML = "";
+    const mobile = isMobile();
+    const w = wrap.clientWidth || 720;
+    const h = mobile ? 360 : 460;
+    const m = mobile ? { top:20, right:14, bottom:36, left:42 } : { top:24, right:150, bottom:42, left:58 };
+    const all = rowsForView().filter(r => r[state.metric] != null && r.ccaa !== "Media Estatal");
+    if (all.length === 0) { wrap.innerHTML = `<div class="ced-loading">No hay datos para este indicador.</div>`; return; }
+    const series = Array.from(d3.group(all, r => r.ccaa), ([ccaa, vals]) => ({
+      ccaa, values: vals.slice().sort((a,b) => a.periodo - b.periodo)
+    }));
+    const stateLine = stateSeries(state.metric, state.gender);
+
+    const svg = d3.select(wrap).append("svg").attr("viewBox", `0 0 ${w} ${h}`);
+    const x = d3.scaleLinear().domain(d3.extent(all, r => r.periodo)).range([m.left, w - m.right]);
+    const y = d3.scaleLinear().domain([0, d3.max(all, r => r[state.metric])]).nice().range([h - m.bottom, m.top]);
+    const line = d3.line().defined(d => d[state.metric] != null).x(d => x(d.periodo)).y(d => y(d[state.metric]));
+    const stateLineGen = d3.line().x(d => x(d.periodo)).y(d => y(d.value));
+
+    svg.append("g").attr("class","ced-grid").attr("transform", `translate(${m.left},0)`)
+      .call(d3.axisLeft(y).ticks(5).tickSize(-(w - m.left - m.right)).tickFormat(""))
+      .call(g => g.select(".domain").remove());
+    // Eje X: para anuales, ticks enteros (años). Para mensuales, ticks por
+    // anio entero pero etiqueta abreviada de mes en posiciones intermedias
+    // si caben (auto-ajustado por d3 con ticks(...)).
+    const xTickFormat = cfg.granularity === "monthly"
+      ? (v => {
+          const yr = Math.floor(v);
+          const mo = Math.round((v - yr) * 12) + 1;
+          if (mo === 1) return String(yr);
+          return MONTH_NAMES_ES_SHORT[mo - 1];
+        })
+      : d3.format("d");
+    svg.append("g").attr("class","ced-axis").attr("transform", `translate(0,${h-m.bottom})`)
+      .call(d3.axisBottom(x).ticks(cfg.granularity === "monthly" ? 10 : 8).tickFormat(xTickFormat));
+    svg.append("g").attr("class","ced-axis").attr("transform", `translate(${m.left},0)`)
+      .call(d3.axisLeft(y).ticks(5).tickFormat(d => d3.format(meta.fmt)(d)));
+    svg.append("text").attr("x", m.left).attr("y", 14)
+      .attr("fill","var(--ced-muted)").attr("font-size", 12).text(`${meta.short} (${meta.unit})`);
+
+    const stateLayer = svg.append("g");
+    const lineLayer  = svg.append("g");
+    const labelLayer = svg.append("g");
+    const hitLayer   = svg.append("g");
+
+    if (stateLine.length > 1) {
+      stateLayer.append("path").datum(stateLine)
+        .attr("fill","none").attr("stroke","var(--ced-ink)").attr("stroke-width", 1.6)
+        .attr("stroke-dasharray","4 3").attr("d", stateLineGen);
+    }
+
+    const paths = lineLayer.selectAll("path.ced-series").data(series).join("path")
+      .attr("class","ced-series").attr("d", d => line(d.values))
+      .attr("fill","none")
+      .attr("stroke", d => d.ccaa === "Canarias" ? "var(--ced-contrast)" : "var(--ced-accent)")
+      .attr("stroke-width", d => d.ccaa === "Canarias" ? 3 : 1.4)
+      .attr("opacity", d => d.ccaa === "Canarias" ? 1 : 0.4);
+
+    function highlight(name, event) {
+      paths.attr("opacity", d => d.ccaa === name ? 1 : 0.1)
+        .attr("stroke-width", d => d.ccaa === name ? 3.6 : 1)
+        .attr("stroke", d => d.ccaa === name ? "var(--ced-contrast)" : "var(--ced-line)");
+      labelLayer.selectAll("*").remove();
+      const sel = series.find(d => d.ccaa === name);
+      if (!sel) return;
+      const last = sel.values[sel.values.length - 1];
+      labelLayer.append("text").attr("x", x(last.periodo) + 8).attr("y", y(last[state.metric]))
+        .attr("dy","0.35em").attr("text-anchor","start")
+        .attr("fill","var(--ced-contrast)").attr("font-size", 13).attr("font-weight", 800).text(name);
+      sel.values.forEach(d => {
+        labelLayer.append("circle").attr("cx", x(d.periodo)).attr("cy", y(d[state.metric])).attr("r", 4)
+          .attr("fill", d.origen === "proyeccion" ? "#fff" : "var(--ced-contrast)")
+          .attr("stroke", "var(--ced-contrast)").attr("stroke-width", 1.6);
+      });
+      const svgEl = wrap.querySelector("svg");
+      const [mx] = d3.pointer(event, svgEl);
+      const nearest = d3.least(sel.values, d => Math.abs(x(d.periodo) - mx)) || last;
+      const extra = meta.extra ? meta.extra(nearest) : null;
+      const nearestLabel = formatPeriodLabel(nearest.period, cfg.granularity, { long: cfg.granularity === "monthly" });
+      showTip(`
+        <strong>${name} · ${nearestLabel}</strong>
+        <span class="ced-tooltip-metric">${meta.short} (${nearest.origen === "proyeccion" ? "proyección" : "real"})</span>
+        <span class="ced-tooltip-value">${fmtVal(state.metric, nearest[state.metric])}</span>
+        ${extra ? `<span class="ced-tooltip-extra">${extra}</span>` : ""}
+      `, event);
+    }
+    function reset() {
+      paths.attr("opacity", d => d.ccaa === "Canarias" ? 1 : 0.4)
+        .attr("stroke-width", d => d.ccaa === "Canarias" ? 3 : 1.4)
+        .attr("stroke", d => d.ccaa === "Canarias" ? "var(--ced-contrast)" : "var(--ced-accent)");
+      labelLayer.selectAll("*").remove();
+      const can = series.find(d => d.ccaa === "Canarias");
+      if (can && !mobile) {
+        const last = can.values[can.values.length - 1];
+        labelLayer.append("text").attr("x", x(last.periodo)+8).attr("y", y(last[state.metric]))
+          .attr("dy","0.35em").attr("fill","var(--ced-contrast)").attr("font-size", 13).attr("font-weight", 800)
+          .text("Canarias");
+      }
+      hideTip();
+    }
+    hitLayer.selectAll("path.ced-line-hit").data(series).join("path")
+      .attr("d", d => line(d.values)).attr("fill","none")
+      .attr("stroke","transparent").attr("stroke-width", 14).style("cursor","pointer")
+      .on("mousemove", (event, d) => highlight(d.ccaa, event))
+      .on("mouseleave", reset);
+    reset();
+
+    const lg = d3.select(wrap).append("div").attr("class","ced-legend");
+    lg.html(`
+      <span><span class="ced-legend-swatch" style="background:var(--ced-contrast)"></span>Canarias</span>
+      <span><span class="ced-legend-swatch" style="background:var(--ced-ink)"></span>Media estatal (--)</span>
+      <span><span class="ced-legend-swatch" style="background:var(--ced-accent);opacity:.4"></span>Otras CCAA</span>
+      <span style="color:var(--ced-muted)">Pasa el ratón por una línea para aislarla</span>
+    `);
+  }
+
+  // ====== Render: brecha de género (dumbbell) ==============================
+  function renderGender() {
+    const cfg = SECTIONS[state.section];
+    if (!cfg.hasGender) { els.chart.innerHTML = `<div class="ced-loading">Esta sección no expone desagregación por género.</div>`; return; }
+    const meta = cfg.metrics[state.metric];
+    const yr = formatPeriodLabel(state.period, cfg.granularity, { long: cfg.granularity === "monthly" });
+    const wrap = els.chart; wrap.innerHTML = "";
+    // Variante móvil: tarjetas apiladas con barras hombres/mujeres
+    if (isMobile()) { renderMobileGender(wrap); return; }
+    const cache = state.cache[state.section];
+    const all = (cache && cache.rows ? cache.rows : []).filter(r => r.period === state.period && r.ccaa !== "Media Estatal" && r[state.metric] != null);
+    const byCcaa = d3.group(all, r => r.ccaa);
+    const rows = Array.from(byCcaa, ([ccaa, vs]) => {
+      const h = vs.find(r => r.genero === "hombres");
+      const m = vs.find(r => r.genero === "mujeres");
+      if (!h || !m) return null;
+      return { ccaa, men:h[state.metric], women:m[state.metric], gap:m[state.metric] - h[state.metric] };
+    }).filter(Boolean).sort((a,b) => d3.descending(Math.abs(a.gap), Math.abs(b.gap)));
+
+    if (rows.length === 0) {
+      wrap.innerHTML = `<div class="ced-loading">No hay datos por género para ${meta.label} en ${yr}.</div>`;
+      return;
+    }
+    const w = wrap.clientWidth || 720;
+    const h = Math.max(460, rows.length*30 + 80);
+    const mg = { top:38, right:118, bottom:42, left:170 };
+    const svg = d3.select(wrap).append("svg").attr("viewBox", `0 0 ${w} ${h}`);
+    const ext = d3.extent(rows.flatMap(r => [r.men, r.women]));
+    const x = d3.scaleLinear().domain(ext).nice().range([mg.left, w - mg.right]);
+    const y = d3.scaleBand().domain(rows.map(r => r.ccaa)).range([mg.top, h - mg.bottom]).padding(0.36);
+
+    svg.append("g").attr("class","ced-grid").attr("transform", `translate(0,${h - mg.bottom})`)
+      .call(d3.axisBottom(x).ticks(5).tickSize(-(h - mg.top - mg.bottom)).tickFormat(""))
+      .call(g => g.select(".domain").remove());
+    svg.append("g").attr("class","ced-axis").attr("transform", `translate(0,${h-mg.bottom})`).call(d3.axisBottom(x).ticks(5));
+    svg.append("g").attr("class","ced-axis").attr("transform", `translate(${mg.left},0)`)
+      .call(d3.axisLeft(y).tickSize(0)).call(g => g.select(".domain").remove());
+
+    const rowGroups = svg.append("g").selectAll("g.ced-gender-row").data(rows).join("g")
+      .attr("class","ced-gender-row").attr("cursor","pointer");
+
+    rowGroups.append("line")
+      .attr("x1", r => x(r.men)).attr("x2", r => x(r.women))
+      .attr("y1", r => y(r.ccaa) + y.bandwidth()/2).attr("y2", r => y(r.ccaa) + y.bandwidth()/2)
+      .attr("stroke", r => r.ccaa === "Canarias" ? "var(--ced-ink)" : "var(--ced-line)")
+      .attr("stroke-width", r => r.ccaa === "Canarias" ? 2.6 : 1.7);
+    rowGroups.append("circle").attr("class","ced-men-dot")
+      .attr("cx", r => x(r.men)).attr("cy", r => y(r.ccaa) + y.bandwidth()/2)
+      .attr("r", r => r.ccaa === "Canarias" ? 5.5 : 4.2)
+      .attr("fill","var(--ced-accent)");
+    rowGroups.append("circle").attr("class","ced-women-dot")
+      .attr("cx", r => x(r.women)).attr("cy", r => y(r.ccaa) + y.bandwidth()/2)
+      .attr("r", r => r.ccaa === "Canarias" ? 5.5 : 4.2)
+      .attr("fill","var(--ced-contrast)");
+    rowGroups.append("text")
+      .attr("x", w - mg.right + 12).attr("y", r => y(r.ccaa) + y.bandwidth()/2).attr("dy","0.35em")
+      .attr("fill", r => r.ccaa === "Canarias" ? "var(--ced-accent-deep)" : "var(--ced-muted)")
+      .attr("font-weight", r => r.ccaa === "Canarias" ? 800 : 500).attr("font-size", 12)
+      .text(r => `${r.gap >= 0 ? "+" : ""}${d3.format(meta.fmt)(r.gap)}${meta.suffix}`);
+    rowGroups.append("rect")
+      .attr("x", mg.left).attr("y", r => y(r.ccaa) - 4)
+      .attr("width", w - mg.left - mg.right + 100).attr("height", y.bandwidth() + 8)
+      .attr("fill","transparent")
+      .on("mousemove", function(evt, d) {
+        rowGroups.attr("opacity", r => r.ccaa === d.ccaa ? 1 : 0.22);
+        const g = d3.select(this.parentNode); g.raise();
+        showTip(`
+          <strong>${d.ccaa}</strong>
+          <span class="ced-tooltip-metric">${meta.short} · ${yr}</span>
+          <span class="ced-tooltip-value">Brecha ${d.gap >= 0 ? "+" : ""}${d3.format(meta.fmt)(d.gap)}${meta.suffix}</span>
+          <span class="ced-tooltip-extra">Mujeres: ${fmtVal(state.metric, d.women)}</span>
+          <span class="ced-tooltip-extra">Hombres: ${fmtVal(state.metric, d.men)}</span>
+        `, evt);
+      })
+      .on("mouseleave", function() {
+        rowGroups.attr("opacity", 1); hideTip();
+      });
+
+    svg.append("circle").attr("cx", mg.left).attr("cy", 18).attr("r", 4).attr("fill","var(--ced-accent)");
+    svg.append("text").attr("x", mg.left + 9).attr("y", 22).attr("font-size", 12).attr("fill","var(--ced-muted)").text("Hombres");
+    svg.append("circle").attr("cx", mg.left + 90).attr("cy", 18).attr("r", 4).attr("fill","var(--ced-contrast)");
+    svg.append("text").attr("x", mg.left + 99).attr("y", 22).attr("font-size", 12).attr("fill","var(--ced-muted)").text("Mujeres");
+  }
+
+  // ====== Render: metodología =============================================
+  function renderMethod() {
+    els.chart.innerHTML = "";
+    els.methodGrid.hidden = false;
+  }
+
+  // ====== Render principal ================================================
+  function render() {
+    const cfg = SECTIONS[state.section];
+    const meta = cfg.metrics[state.metric];
+    const titles = {
+      context:  { t:"Situar Canarias",   s:`Mapa coroplético · ${meta.label} · ${state.period} · género: ${state.gender}` },
+      evolution:{ t:"Evolución",         s:`Serie temporal de ${meta.label} · género: ${state.gender}` },
+      gender:   { t:"Brecha de género",  s:`${meta.label} por CCAA · ${state.period} (hombres vs mujeres)` },
+      method:   { t:"Cómo se construye", s:"Pipeline ETL del Observatorio · Supabase + R + D3" }
+    };
+    els.title.textContent = titles[state.step].t;
+    els.sub.textContent   = titles[state.step].s;
+    const cache = state.cache[state.section];
+    const srcBadge = cache && cache.error ? "Error" : "Supabase";
+    els.badge.textContent = state.step === "method" ? "Documentación" : (state.period ? `${cfg.label} · ${state.period} · ${srcBadge}` : cfg.label);
+    const isMethod = state.step === "method";
+    els.methodGrid.hidden = !isMethod;
+    // En metodología: ocultar el chart-wrap entero (vacío crearía un hueco) y los KPIs.
+    els.chart.style.display = isMethod ? "none" : "";
+    els.kpis.style.display  = isMethod ? "none" : "";
+
+    // refrescar value de selectores en caso de cambio externo
+    if (els.metricSel.value !== state.metric) els.metricSel.value = state.metric;
+    if (state.period != null && els.yearSel.value !== String(state.period)) els.yearSel.value = state.period;
+    if (els.genderSel.value !== state.gender) els.genderSel.value = state.gender;
+
+    if (isMethod) { renderMethod(); return; }
+
+    // Sin datos para la combinación actual: KPIs vacíos + mensaje en lugar de chart
+    if (state.period == null || availablePeriodsFor(state.metric, state.gender).length === 0) {
+      els.kpis.innerHTML = ["", "", "", ""].map(() => `
+        <div class="ced-kpi"><div class="ced-kpi-label">Sin datos</div>
+        <div class="ced-kpi-value">—</div><div class="ced-kpi-note"></div></div>`).join("");
+      els.chart.innerHTML = `<div class="ced-loading">No hay datos para <strong>${meta.label}</strong> con el género <strong>${state.gender}</strong> en esta sección.</div>`;
+      return;
+    }
+
+    renderKpis();
+    if (state.step === "context")   renderMap();
+    if (state.step === "evolution") renderEvolution();
+    if (state.step === "gender")    renderGender();
+  }
+
+  // ====== Bootstrap: carga en paralelo ====================================
+  renderSectionTabs();
+  applySectionTheme(state.section);
+
+  const geoTask = addTask("geo", "Geometría NUTS-2 (Eurostat)");
+  const sectionTasks = {};
+  Object.values(SECTIONS).forEach(cfg => {
+    sectionTasks[cfg.id] = addTask(`section-${cfg.id}`, `Datos · ${cfg.label}`);
+  });
+
+  const geoPromise = loadGeo()
+    .then(geo => { state.geo = geo; setTask("geo", geo ? "ok" : "err", geo ? `${geo.features.length} regiones` : "no disponible"); })
+    .catch(err => { setTask("geo","err", err.message); state.geo = null; });
+
+  const sectionPromises = Object.values(SECTIONS).map(cfg => {
+    return cfg.loader(cfg)
+      .then(rows => {
+        state.cache[cfg.id] = { rows, error:null };
+        const years = Array.from(new Set(rows.map(r => r.periodo)));
+        setTask(`section-${cfg.id}`, "ok", `${rows.length} filas · ${years.length} años`);
+      })
+      .catch(err => {
+        console.error(`CED ${cfg.id} falló`, err);
+        state.cache[cfg.id] = { rows:[], error:err };
+        setTask(`section-${cfg.id}`, "err", "sin datos");
+      });
+  });
+
+  // Failsafe: si por cualquier motivo el bootstrap no termina en 18s, cerramos
+  // igualmente para que el usuario al menos vea el chasis en lugar de un overlay
+  // colgado. Las tareas con error siguen visibles brevemente.
+  const failsafe = setTimeout(() => {
+    console.warn("CED bootstrap: failsafe — cerrando overlay tras 18s");
+    finishBootstrap();
+  }, 18000);
+
+  let bootstrapDone = false;
+  function finishBootstrap() {
+    if (bootstrapDone) return;
+    bootstrapDone = true;
+    clearTimeout(failsafe);
+    try {
+      restoreSectionState(state.section);
+      renderShellForSection();
+      render();
+    } catch (err) {
+      console.error("CED bootstrap render falló", err);
+      els.chart.innerHTML = `<div class="ced-loading">Error al inicializar: ${err && err.message ? err.message : err}</div>`;
+    }
+    setTimeout(hideBootstrap, 250);
+  }
+
+  Promise.all([geoPromise, ...sectionPromises])
+    .then(finishBootstrap)
+    .catch(err => { console.error("CED bootstrap promise.all rechazada", err); finishBootstrap(); });
+
+  }); // ensureD3
+})();
+</script>
+</div>

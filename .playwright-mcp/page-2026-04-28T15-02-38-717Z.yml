@@ -1,0 +1,75 @@
+- generic [ref=e2]:
+  - generic [ref=e3]:
+    - generic [ref=e4]:
+      - generic [ref=e5]:
+        - generic [ref=e6]: Canarias en Datos · CED Dependencia
+        - 'heading "Dependencia: solicitudes, dictámenes y prestaciones contadas como una cadena de acceso a derechos." [level=2] [ref=e7]'
+        - generic [ref=e8]: "Pieza D3 conectada al pipeline SAAD/IMSERSO del Observatorio: solicitudes, personas beneficiarias, prestaciones, grados reconocidos y composición de servicios para situar Canarias en el sistema autonómico de dependencia."
+      - generic [ref=e9]:
+        - button "Metodología" [ref=e10] [cursor=pointer]
+        - button "Descargar CSV" [ref=e11] [cursor=pointer]
+    - generic [ref=e12]:
+      - generic [ref=e13]:
+        - generic [ref=e14]: Indicador
+        - combobox [ref=e15]
+      - generic [ref=e16]:
+        - generic [ref=e17]: Periodo
+        - combobox [ref=e18]
+      - generic [ref=e19]:
+        - generic [ref=e20]: Lectura
+        - combobox [ref=e21]:
+          - option "Mapa" [selected]
+          - option "Evolución"
+          - option "Prestaciones"
+          - option "Metodología"
+  - generic [ref=e22]:
+    - navigation "Capítulos narrativos" [ref=e23]:
+      - button "1. Situar Canarias Mapa coroplético para comparar Canarias con el resto de comunidades." [ref=e24] [cursor=pointer]:
+        - strong [ref=e25]: 1. Situar Canarias
+        - generic [ref=e26]: Mapa coroplético para comparar Canarias con el resto de comunidades.
+      - button "2. Evolución Serie temporal mensual del indicador seleccionado." [ref=e27] [cursor=pointer]:
+        - strong [ref=e28]: 2. Evolución
+        - generic [ref=e29]: Serie temporal mensual del indicador seleccionado.
+      - button "3. Prestaciones Composición de la cartera SAAD por comunidad en el periodo elegido." [ref=e30] [cursor=pointer]:
+        - strong [ref=e31]: 3. Prestaciones
+        - generic [ref=e32]: Composición de la cartera SAAD por comunidad en el periodo elegido.
+      - button "4. Cómo se construye Fuentes, normalización, modelado, exportación y actualización mensual." [ref=e33] [cursor=pointer]:
+        - strong [ref=e34]: 4. Cómo se construye
+        - generic [ref=e35]: Fuentes, normalización, modelado, exportación y actualización mensual.
+    - generic [ref=e37]:
+      - generic [ref=e38]:
+        - generic [ref=e39]:
+          - generic [ref=e40]: Situar Canarias
+          - generic [ref=e41]: Cargando datos...
+        - generic [ref=e42]: Pipeline ETL
+      - generic [ref=e44]: Cargando ced_dependencia.csv...
+      - generic [ref=e45]:
+        - generic [ref=e46]:
+          - heading "Fuente de datos" [level=3] [ref=e47]
+          - paragraph [ref=e48]: Informes mensuales del SAAD publicados por IMSERSO. El pipeline descarga los Excel, clasifica hojas de solicitudes, dictámenes y prestaciones, y normaliza las CCAA.
+        - generic [ref=e49]:
+          - heading "Actualización mensual" [level=3] [ref=e50]
+          - paragraph [ref=e51]: La extracción recorre el año actual y puede refrescar la fuente remota para incorporar el último mes disponible cuando IMSERSO lo publique.
+        - generic [ref=e52]:
+          - heading "Indicadores" [level=3] [ref=e53]
+          - paragraph [ref=e54]: Solicitudes, personas beneficiarias, prestaciones totales, ratio de prestaciones por persona y distribución por grado reconocido.
+        - generic [ref=e55]:
+          - heading "Normalización" [level=3] [ref=e56]
+          - paragraph [ref=e57]: Los nombres territoriales se homologan al diccionario CED y se eliminan variantes como códigos, denominaciones abreviadas o etiquetas autonómicas alternativas.
+        - generic [ref=e58]:
+          - heading "Modelado" [level=3] [ref=e59]
+          - paragraph [ref=e60]: Las series numéricas se proyectan por comunidad e indicador con modelos temporales. Prophet se usa si está disponible; en caso contrario se aplica una regresión temporal lineal.
+        - generic [ref=e61]:
+          - heading "Exportación" [level=3] [ref=e62]
+          - paragraph [ref=e63]:
+            - text: El consolidado principal se publica en
+            - code [ref=e64]: ced_dependencia.csv
+            - text: y las tablas de detalle se exportan individualmente en
+            - code [ref=e65]: 4_carga/tables_csv
+            - text: .
+      - generic [ref=e66]:
+        - generic [ref=e67]: "Fuente: IMSERSO · Sistema para la Autonomía y Atención a la Dependencia"
+        - generic [ref=e68]:
+          - text: "Tabla:"
+          - code [ref=e69]: ced_dependencia
+          - text: · Pipeline Dependencia

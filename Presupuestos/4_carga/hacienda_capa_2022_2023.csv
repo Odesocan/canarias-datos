@@ -1,0 +1,305 @@
+ccaa_id3,anio,capitulo,codigo,denominacion,importe_eur,capa,fuente_path
+and,2022,1,01,Gastos de personal,14009575820.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_and.xlsx
+and,2022,2,02,Gastos corrientes en bienes y servicios,5743084730.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_and.xlsx
+and,2022,3,03,Gastos financieros,432460240.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_and.xlsx
+and,2022,4,04,Transferencias corrientes,12429239710.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_and.xlsx
+and,2022,5,05,Fondo de contingencia,16000000.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_and.xlsx
+and,2022,6,06,Inversiones reales,1585974240.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_and.xlsx
+and,2022,7,07,Transferencias de capital,1398158500.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_and.xlsx
+and,2022,8,08,Activos financieros,4728840.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_and.xlsx
+and,2022,9,09,Pasivos financieros,4782564800.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_and.xlsx
+ara,2022,1,01,Gastos de personal,2505419020.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_ara.xlsx
+ara,2022,2,02,Gastos corrientes en bienes y servicios,916558030.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_ara.xlsx
+ara,2022,3,03,Gastos financieros,157600970.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_ara.xlsx
+ara,2022,4,04,Transferencias corrientes,1693183800.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_ara.xlsx
+ara,2022,5,05,Fondo de contingencia,30398970.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_ara.xlsx
+ara,2022,6,06,Inversiones reales,371958150.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_ara.xlsx
+ara,2022,7,07,Transferencias de capital,404674940.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_ara.xlsx
+ara,2022,8,08,Activos financieros,2250000.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_ara.xlsx
+ara,2022,9,09,Pasivos financieros,1361801790.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_ara.xlsx
+ast,2022,1,01,Gastos de personal,1962356060.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_ast.xlsx
+ast,2022,2,02,Gastos corrientes en bienes y servicios,1019298780.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_ast.xlsx
+ast,2022,3,03,Gastos financieros,37636740.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_ast.xlsx
+ast,2022,4,04,Transferencias corrientes,1107543210.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_ast.xlsx
+ast,2022,5,05,Fondo de contingencia,2000000.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_ast.xlsx
+ast,2022,6,06,Inversiones reales,304180230.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_ast.xlsx
+ast,2022,7,07,Transferencias de capital,320826870.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_ast.xlsx
+ast,2022,8,08,Activos financieros,30083940.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_ast.xlsx
+ast,2022,9,09,Pasivos financieros,570239760.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_ast.xlsx
+bal,2022,1,01,Gastos de personal,1846850880.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_bal.xlsx
+bal,2022,2,02,Gastos corrientes en bienes y servicios,873102040.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_bal.xlsx
+bal,2022,3,03,Gastos financieros,77312560.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_bal.xlsx
+bal,2022,4,04,Transferencias corrientes,1561050160.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_bal.xlsx
+bal,2022,5,05,Fondo de contingencia,75000000.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_bal.xlsx
+bal,2022,6,06,Inversiones reales,371527200.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_bal.xlsx
+bal,2022,7,07,Transferencias de capital,371798870.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_bal.xlsx
+bal,2022,8,08,Activos financieros,41014070.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_bal.xlsx
+bal,2022,9,09,Pasivos financieros,1180165930.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_bal.xlsx
+can,2022,1,01,Gastos de personal,3739896910.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_can.xlsx
+can,2022,2,02,Gastos corrientes en bienes y servicios,1257433800.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_can.xlsx
+can,2022,3,03,Gastos financieros,24562350.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_can.xlsx
+can,2022,4,04,Transferencias corrientes,2627816060.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_can.xlsx
+can,2022,5,05,Fondo de contingencia,61523760.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_can.xlsx
+can,2022,6,06,Inversiones reales,737546720.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_can.xlsx
+can,2022,7,07,Transferencias de capital,649532040.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_can.xlsx
+can,2022,8,08,Activos financieros,16260610.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_can.xlsx
+can,2022,9,09,Pasivos financieros,859025200.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_can.xlsx
+cat,2022,1,01,Gastos de personal,9847711090.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_cat.xlsx
+cat,2022,2,02,Gastos corrientes en bienes y servicios,9912038870.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_cat.xlsx
+cat,2022,3,03,Gastos financieros,639327700.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_cat.xlsx
+cat,2022,4,04,Transferencias corrientes,13908806480.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_cat.xlsx
+cat,2022,5,05,Fondo de contingencia,300000000.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_cat.xlsx
+cat,2022,6,06,Inversiones reales,1398119100.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_cat.xlsx
+cat,2022,7,07,Transferencias de capital,1360307610.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_cat.xlsx
+cat,2022,8,08,Activos financieros,922262110.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_cat.xlsx
+cat,2022,9,09,Pasivos financieros,10723892260.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_cat.xlsx
+clm,2022,1,01,Gastos de personal,3843931990.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_clm.xlsx
+clm,2022,2,02,Gastos corrientes en bienes y servicios,1541936020.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_clm.xlsx
+clm,2022,3,03,Gastos financieros,112705460.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_clm.xlsx
+clm,2022,4,04,Transferencias corrientes,2878152070.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_clm.xlsx
+clm,2022,5,05,Fondo de contingencia,32447200.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_clm.xlsx
+clm,2022,6,06,Inversiones reales,826812500.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_clm.xlsx
+clm,2022,7,07,Transferencias de capital,635266570.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_clm.xlsx
+clm,2022,8,08,Activos financieros,2704280.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_clm.xlsx
+clm,2022,9,09,Pasivos financieros,2399559020.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_clm.xlsx
+cnt,2022,1,01,Gastos de personal,1090283980.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_cnt.xlsx
+cnt,2022,2,02,Gastos corrientes en bienes y servicios,554160740.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_cnt.xlsx
+cnt,2022,3,03,Gastos financieros,71717690.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_cnt.xlsx
+cnt,2022,4,04,Transferencias corrientes,692809840.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_cnt.xlsx
+cnt,2022,5,05,Fondo de contingencia,6651110.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_cnt.xlsx
+cnt,2022,6,06,Inversiones reales,284827700.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_cnt.xlsx
+cnt,2022,7,07,Transferencias de capital,166773230.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_cnt.xlsx
+cnt,2022,8,08,Activos financieros,18094470.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_cnt.xlsx
+cnt,2022,9,09,Pasivos financieros,457318080.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_cnt.xlsx
+cym,2022,1,01,Gastos de personal,4211642389.9999995,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_cym.xlsx
+cym,2022,2,02,Gastos corrientes en bienes y servicios,1815678200.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_cym.xlsx
+cym,2022,3,03,Gastos financieros,245526380.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_cym.xlsx
+cym,2022,4,04,Transferencias corrientes,3109487360.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_cym.xlsx
+cym,2022,6,06,Inversiones reales,670593840.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_cym.xlsx
+cym,2022,7,07,Transferencias de capital,927344860.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_cym.xlsx
+cym,2022,8,08,Activos financieros,90248180.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_cym.xlsx
+cym,2022,9,09,Pasivos financieros,1220923310.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_cym.xlsx
+ext,2022,1,01,Gastos de personal,2311879310.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_ext.xlsx
+ext,2022,2,02,Gastos corrientes en bienes y servicios,880225180.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_ext.xlsx
+ext,2022,3,03,Gastos financieros,52816430.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_ext.xlsx
+ext,2022,4,04,Transferencias corrientes,2092208010.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_ext.xlsx
+ext,2022,5,05,Fondo de contingencia,10000000.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_ext.xlsx
+ext,2022,6,06,Inversiones reales,565173220.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_ext.xlsx
+ext,2022,7,07,Transferencias de capital,370111210.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_ext.xlsx
+ext,2022,8,08,Activos financieros,217500.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_ext.xlsx
+ext,2022,9,09,Pasivos financieros,717339250.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_ext.xlsx
+gal,2022,1,01,Gastos de personal,4327396950.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_gal.xlsx
+gal,2022,2,02,Gastos corrientes en bienes y servicios,1983772060.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_gal.xlsx
+gal,2022,3,03,Gastos financieros,74468560.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_gal.xlsx
+gal,2022,4,04,Transferencias corrientes,2642497160.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_gal.xlsx
+gal,2022,5,05,Fondo de contingencia,45417180.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_gal.xlsx
+gal,2022,6,06,Inversiones reales,1438671940.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_gal.xlsx
+gal,2022,7,07,Transferencias de capital,1115139110.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_gal.xlsx
+gal,2022,8,08,Activos financieros,220367120.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_gal.xlsx
+gal,2022,9,09,Pasivos financieros,1270218180.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_gal.xlsx
+lar,2022,1,01,Gastos de personal,571028990.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_lar.xlsx
+lar,2022,2,02,Gastos corrientes en bienes y servicios,333343030.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_lar.xlsx
+lar,2022,3,03,Gastos financieros,8037540.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_lar.xlsx
+lar,2022,4,04,Transferencias corrientes,415515480.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_lar.xlsx
+lar,2022,5,05,Fondo de contingencia,1222710.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_lar.xlsx
+lar,2022,6,06,Inversiones reales,124733270.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_lar.xlsx
+lar,2022,7,07,Transferencias de capital,137027250.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_lar.xlsx
+lar,2022,8,08,Activos financieros,12531390.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_lar.xlsx
+lar,2022,9,09,Pasivos financieros,346453940.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_lar.xlsx
+mad,2022,1,01,Gastos de personal,8268733940.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_mad.xlsx
+mad,2022,2,02,Gastos corrientes en bienes y servicios,5203614380.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_mad.xlsx
+mad,2022,3,03,Gastos financieros,699006880.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_mad.xlsx
+mad,2022,4,04,Transferencias corrientes,6719754480.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_mad.xlsx
+mad,2022,5,05,Fondo de contingencia,114219560.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_mad.xlsx
+mad,2022,6,06,Inversiones reales,914775180.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_mad.xlsx
+mad,2022,7,07,Transferencias de capital,532225530.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_mad.xlsx
+mad,2022,8,08,Activos financieros,592843430.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_mad.xlsx
+mad,2022,9,09,Pasivos financieros,2953999090.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_mad.xlsx
+mur,2022,1,01,Gastos de personal,2728950820.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_mur.xlsx
+mur,2022,2,02,Gastos corrientes en bienes y servicios,813637470.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_mur.xlsx
+mur,2022,3,03,Gastos financieros,76056290.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_mur.xlsx
+mur,2022,4,04,Transferencias corrientes,1175044420.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_mur.xlsx
+mur,2022,5,05,Fondo de contingencia,76725360.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_mur.xlsx
+mur,2022,6,06,Inversiones reales,320388540.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_mur.xlsx
+mur,2022,7,07,Transferencias de capital,241789600.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_mur.xlsx
+mur,2022,8,08,Activos financieros,6530650.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_mur.xlsx
+mur,2022,9,09,Pasivos financieros,1523678820.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_mur.xlsx
+nav,2022,1,01,Gastos de personal,1586136520.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_nav.xlsx
+nav,2022,2,02,Gastos corrientes en bienes y servicios,849843840.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_nav.xlsx
+nav,2022,3,03,Gastos financieros,57065320.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_nav.xlsx
+nav,2022,4,04,Transferencias corrientes,1781280720.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_nav.xlsx
+nav,2022,5,05,Fondo de contingencia,5429790.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_nav.xlsx
+nav,2022,6,06,Inversiones reales,222890020.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_nav.xlsx
+nav,2022,7,07,Transferencias de capital,264388010.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_nav.xlsx
+nav,2022,8,08,Activos financieros,35913860.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_nav.xlsx
+nav,2022,9,09,Pasivos financieros,470178530.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_nav.xlsx
+pvc,2022,1,01,Gastos de personal,4932239490.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_pvc.xlsx
+pvc,2022,2,02,Gastos corrientes en bienes y servicios,2034389820.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_pvc.xlsx
+pvc,2022,3,03,Gastos financieros,190757060.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_pvc.xlsx
+pvc,2022,4,04,Transferencias corrientes,3696382630.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_pvc.xlsx
+pvc,2022,5,05,Fondo de contingencia,780000.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_pvc.xlsx
+pvc,2022,6,06,Inversiones reales,562697280.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_pvc.xlsx
+pvc,2022,7,07,Transferencias de capital,875916340.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_pvc.xlsx
+pvc,2022,8,08,Activos financieros,147839170.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_pvc.xlsx
+pvc,2022,9,09,Pasivos financieros,746365490.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_pvc.xlsx
+val,2022,1,01,Gastos de personal,7772239040.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_val.xlsx
+val,2022,2,02,Gastos corrientes en bienes y servicios,3925303620.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_val.xlsx
+val,2022,3,03,Gastos financieros,363364230.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_val.xlsx
+val,2022,4,04,Transferencias corrientes,6084651960.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_val.xlsx
+val,2022,5,05,Fondo de contingencia,9000000.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_val.xlsx
+val,2022,6,06,Inversiones reales,1479722590.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_val.xlsx
+val,2022,7,07,Transferencias de capital,1746839360.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_val.xlsx
+val,2022,8,08,Activos financieros,192602900.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_val.xlsx
+val,2022,9,09,Pasivos financieros,7058636200.0,hacienda,fuentes/raw/hacienda/2022/per_ccaa/SGCIEF_2022_val.xlsx
+and,2023,1,01,Gastos de personal,14795256900.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_and.xlsx
+and,2023,2,02,Gastos corrientes en bienes y servicios,6504704800.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_and.xlsx
+and,2023,3,03,Gastos financieros,560844160.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_and.xlsx
+and,2023,4,04,Transferencias corrientes,13420201610.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_and.xlsx
+and,2023,5,05,Fondo de contingencia,16010000.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_and.xlsx
+and,2023,6,06,Inversiones reales,3198975100.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_and.xlsx
+and,2023,7,07,Transferencias de capital,2268530420.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_and.xlsx
+and,2023,8,08,Activos financieros,82567740.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_and.xlsx
+and,2023,9,09,Pasivos financieros,4756740130.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_and.xlsx
+ara,2023,1,01,Gastos de personal,2686955740.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_ara.xlsx
+ara,2023,2,02,Gastos corrientes en bienes y servicios,1169137200.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_ara.xlsx
+ara,2023,3,03,Gastos financieros,151237720.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_ara.xlsx
+ara,2023,4,04,Transferencias corrientes,1819628540.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_ara.xlsx
+ara,2023,5,05,Fondo de contingencia,31991620.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_ara.xlsx
+ara,2023,6,06,Inversiones reales,428814800.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_ara.xlsx
+ara,2023,7,07,Transferencias de capital,613797410.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_ara.xlsx
+ara,2023,8,08,Activos financieros,2250000.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_ara.xlsx
+ara,2023,9,09,Pasivos financieros,1345776640.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_ara.xlsx
+ast,2023,1,01,Gastos de personal,2054860430.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_ast.xlsx
+ast,2023,2,02,Gastos corrientes en bienes y servicios,1114183200.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_ast.xlsx
+ast,2023,3,03,Gastos financieros,48755680.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_ast.xlsx
+ast,2023,4,04,Transferencias corrientes,1197854440.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_ast.xlsx
+ast,2023,5,05,Fondo de contingencia,2000000.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_ast.xlsx
+ast,2023,6,06,Inversiones reales,463545750.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_ast.xlsx
+ast,2023,7,07,Transferencias de capital,457241460.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_ast.xlsx
+ast,2023,8,08,Activos financieros,30464610.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_ast.xlsx
+ast,2023,9,09,Pasivos financieros,599312920.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_ast.xlsx
+bal,2023,1,01,Gastos de personal,1976332020.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_bal.xlsx
+bal,2023,2,02,Gastos corrientes en bienes y servicios,949792960.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_bal.xlsx
+bal,2023,3,03,Gastos financieros,88698420.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_bal.xlsx
+bal,2023,4,04,Transferencias corrientes,1876437020.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_bal.xlsx
+bal,2023,5,05,Fondo de contingencia,60000000.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_bal.xlsx
+bal,2023,6,06,Inversiones reales,319868650.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_bal.xlsx
+bal,2023,7,07,Transferencias de capital,676362640.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_bal.xlsx
+bal,2023,8,08,Activos financieros,32944900.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_bal.xlsx
+bal,2023,9,09,Pasivos financieros,1152935100.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_bal.xlsx
+can,2023,1,01,Gastos de personal,4096514180.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_can.xlsx
+can,2023,2,02,Gastos corrientes en bienes y servicios,1363991470.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_can.xlsx
+can,2023,3,03,Gastos financieros,50041140.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_can.xlsx
+can,2023,4,04,Transferencias corrientes,2873210740.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_can.xlsx
+can,2023,5,05,Fondo de contingencia,29960710.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_can.xlsx
+can,2023,6,06,Inversiones reales,967552750.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_can.xlsx
+can,2023,7,07,Transferencias de capital,799516740.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_can.xlsx
+can,2023,8,08,Activos financieros,6660160.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_can.xlsx
+can,2023,9,09,Pasivos financieros,871753730.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_can.xlsx
+cat,2023,1,01,Gastos de personal,10932369880.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_cat.xlsx
+cat,2023,2,02,Gastos corrientes en bienes y servicios,10711274360.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_cat.xlsx
+cat,2023,3,03,Gastos financieros,784255960.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_cat.xlsx
+cat,2023,4,04,Transferencias corrientes,15031495720.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_cat.xlsx
+cat,2023,5,05,Fondo de contingencia,300000000.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_cat.xlsx
+cat,2023,6,06,Inversiones reales,1289185440.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_cat.xlsx
+cat,2023,7,07,Transferencias de capital,1164157480.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_cat.xlsx
+cat,2023,8,08,Activos financieros,979629040.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_cat.xlsx
+cat,2023,9,09,Pasivos financieros,10615219400.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_cat.xlsx
+clm,2023,1,01,Gastos de personal,3969586570.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_clm.xlsx
+clm,2023,2,02,Gastos corrientes en bienes y servicios,1503295580.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_clm.xlsx
+clm,2023,3,03,Gastos financieros,124234850.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_clm.xlsx
+clm,2023,4,04,Transferencias corrientes,2990535100.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_clm.xlsx
+clm,2023,5,05,Fondo de contingencia,16041420.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_clm.xlsx
+clm,2023,6,06,Inversiones reales,823984860.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_clm.xlsx
+clm,2023,7,07,Transferencias de capital,760782750.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_clm.xlsx
+clm,2023,8,08,Activos financieros,2665660.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_clm.xlsx
+clm,2023,9,09,Pasivos financieros,2240448760.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_clm.xlsx
+cnt,2023,1,01,Gastos de personal,1176010990.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_cnt.xlsx
+cnt,2023,2,02,Gastos corrientes en bienes y servicios,573493210.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_cnt.xlsx
+cnt,2023,3,03,Gastos financieros,55134230.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_cnt.xlsx
+cnt,2023,4,04,Transferencias corrientes,721288860.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_cnt.xlsx
+cnt,2023,5,05,Fondo de contingencia,23200000.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_cnt.xlsx
+cnt,2023,6,06,Inversiones reales,294921150.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_cnt.xlsx
+cnt,2023,7,07,Transferencias de capital,210232910.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_cnt.xlsx
+cnt,2023,8,08,Activos financieros,18322330.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_cnt.xlsx
+cnt,2023,9,09,Pasivos financieros,434750030.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_cnt.xlsx
+cym,2023,1,01,Gastos de personal,4691785790.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_cym.xlsx
+cym,2023,2,02,Gastos corrientes en bienes y servicios,1946737150.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_cym.xlsx
+cym,2023,3,03,Gastos financieros,252578650.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_cym.xlsx
+cym,2023,4,04,Transferencias corrientes,3313465860.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_cym.xlsx
+cym,2023,6,06,Inversiones reales,1012705950.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_cym.xlsx
+cym,2023,7,07,Transferencias de capital,1252732680.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_cym.xlsx
+cym,2023,8,08,Activos financieros,74295260.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_cym.xlsx
+cym,2023,9,09,Pasivos financieros,1265535560.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_cym.xlsx
+ext,2023,1,01,Gastos de personal,2474405180.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_ext.xlsx
+ext,2023,2,02,Gastos corrientes en bienes y servicios,967410570.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_ext.xlsx
+ext,2023,3,03,Gastos financieros,65724250.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_ext.xlsx
+ext,2023,4,04,Transferencias corrientes,2247873930.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_ext.xlsx
+ext,2023,5,05,Fondo de contingencia,10000000.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_ext.xlsx
+ext,2023,6,06,Inversiones reales,667179430.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_ext.xlsx
+ext,2023,7,07,Transferencias de capital,477505420.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_ext.xlsx
+ext,2023,8,08,Activos financieros,26271380.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_ext.xlsx
+ext,2023,9,09,Pasivos financieros,844722590.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_ext.xlsx
+gal,2023,1,01,Gastos de personal,4593520030.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_gal.xlsx
+gal,2023,2,02,Gastos corrientes en bienes y servicios,2142138600.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_gal.xlsx
+gal,2023,3,03,Gastos financieros,110836870.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_gal.xlsx
+gal,2023,4,04,Transferencias corrientes,2956982030.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_gal.xlsx
+gal,2023,5,05,Fondo de contingencia,45417180.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_gal.xlsx
+gal,2023,6,06,Inversiones reales,1572300650.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_gal.xlsx
+gal,2023,7,07,Transferencias de capital,1199121240.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_gal.xlsx
+gal,2023,8,08,Activos financieros,226737940.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_gal.xlsx
+gal,2023,9,09,Pasivos financieros,1320116620.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_gal.xlsx
+lar,2023,1,01,Gastos de personal,603060210.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_lar.xlsx
+lar,2023,2,02,Gastos corrientes en bienes y servicios,341594990.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_lar.xlsx
+lar,2023,3,03,Gastos financieros,12089610.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_lar.xlsx
+lar,2023,4,04,Transferencias corrientes,461303080.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_lar.xlsx
+lar,2023,5,05,Fondo de contingencia,482000.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_lar.xlsx
+lar,2023,6,06,Inversiones reales,185515740.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_lar.xlsx
+lar,2023,7,07,Transferencias de capital,140190280.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_lar.xlsx
+lar,2023,8,08,Activos financieros,6294200.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_lar.xlsx
+lar,2023,9,09,Pasivos financieros,158343020.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_lar.xlsx
+mad,2023,1,01,Gastos de personal,8896420460.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_mad.xlsx
+mad,2023,2,02,Gastos corrientes en bienes y servicios,6347957130.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_mad.xlsx
+mad,2023,3,03,Gastos financieros,800550460.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_mad.xlsx
+mad,2023,4,04,Transferencias corrientes,6688671540.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_mad.xlsx
+mad,2023,5,05,Fondo de contingencia,114219560.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_mad.xlsx
+mad,2023,6,06,Inversiones reales,1228884530.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_mad.xlsx
+mad,2023,7,07,Transferencias de capital,779740530.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_mad.xlsx
+mad,2023,8,08,Activos financieros,592843430.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_mad.xlsx
+mad,2023,9,09,Pasivos financieros,2693180010.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_mad.xlsx
+mur,2023,1,01,Gastos de personal,2981945450.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_mur.xlsx
+mur,2023,2,02,Gastos corrientes en bienes y servicios,814457100.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_mur.xlsx
+mur,2023,3,03,Gastos financieros,97878610.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_mur.xlsx
+mur,2023,4,04,Transferencias corrientes,1334822820.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_mur.xlsx
+mur,2023,5,05,Fondo de contingencia,131076200.00000001,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_mur.xlsx
+mur,2023,6,06,Inversiones reales,450775690.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_mur.xlsx
+mur,2023,7,07,Transferencias de capital,218637250.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_mur.xlsx
+mur,2023,8,08,Activos financieros,15387150.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_mur.xlsx
+mur,2023,9,09,Pasivos financieros,1725733120.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_mur.xlsx
+nav,2023,1,01,Gastos de personal,1686663870.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_nav.xlsx
+nav,2023,2,02,Gastos corrientes en bienes y servicios,933432180.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_nav.xlsx
+nav,2023,3,03,Gastos financieros,46355840.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_nav.xlsx
+nav,2023,4,04,Transferencias corrientes,1972356130.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_nav.xlsx
+nav,2023,5,05,Fondo de contingencia,4558100.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_nav.xlsx
+nav,2023,6,06,Inversiones reales,281436700.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_nav.xlsx
+nav,2023,7,07,Transferencias de capital,313927500.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_nav.xlsx
+nav,2023,8,08,Activos financieros,36005860.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_nav.xlsx
+nav,2023,9,09,Pasivos financieros,474215000.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_nav.xlsx
+pvc,2023,1,01,Gastos de personal,5218744680.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_pvc.xlsx
+pvc,2023,2,02,Gastos corrientes en bienes y servicios,2178786560.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_pvc.xlsx
+pvc,2023,3,03,Gastos financieros,212047330.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_pvc.xlsx
+pvc,2023,4,04,Transferencias corrientes,4162682820.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_pvc.xlsx
+pvc,2023,5,05,Fondo de contingencia,770000.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_pvc.xlsx
+pvc,2023,6,06,Inversiones reales,570020960.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_pvc.xlsx
+pvc,2023,7,07,Transferencias de capital,1084296430.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_pvc.xlsx
+pvc,2023,8,08,Activos financieros,156062890.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_pvc.xlsx
+pvc,2023,9,09,Pasivos financieros,778313780.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_pvc.xlsx
+val,2023,1,01,Gastos de personal,8305303530.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_val.xlsx
+val,2023,2,02,Gastos corrientes en bienes y servicios,4177412840.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_val.xlsx
+val,2023,3,03,Gastos financieros,465668340.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_val.xlsx
+val,2023,4,04,Transferencias corrientes,6587335120.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_val.xlsx
+val,2023,5,05,Fondo de contingencia,9000000.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_val.xlsx
+val,2023,6,06,Inversiones reales,1565128850.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_val.xlsx
+val,2023,7,07,Transferencias de capital,1737747020.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_val.xlsx
+val,2023,8,08,Activos financieros,117084900.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_val.xlsx
+val,2023,9,09,Pasivos financieros,6156198930.0,hacienda,fuentes/raw/hacienda/2023/per_ccaa/SGCIEF_2023_val.xlsx

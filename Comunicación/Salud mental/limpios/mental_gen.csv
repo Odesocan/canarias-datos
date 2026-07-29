@@ -1,0 +1,580 @@
+﻿comunidades_autónomas;periodo;género;trastornos
+01 Andalucía;2015;hombres;6,464
+01 Andalucía;2015;mujeres;13,493
+01 Andalucía;2015;total;10,041
+01 Andalucía;2016;hombres;5,556
+01 Andalucía;2016;mujeres;11,853
+01 Andalucía;2016;total;8,761
+01 Andalucía;2017;hombres;5,948
+01 Andalucía;2017;mujeres;12,434
+01 Andalucía;2017;total;9,248
+01 Andalucía;2018;hombres;6,06
+01 Andalucía;2018;mujeres;12,584
+01 Andalucía;2018;total;9,38
+01 Andalucía;2019;hombres;6,127
+01 Andalucía;2019;mujeres;12,715
+01 Andalucía;2019;total;9,478
+01 Andalucía;2020;hombres;6,084
+01 Andalucía;2020;mujeres;12,684
+01 Andalucía;2020;total;9,441
+01 Andalucía;2021;hombres;5,233
+01 Andalucía;2021;mujeres;10,275
+01 Andalucía;2021;total;7,796
+01 Andalucía;2022;hombres;5,379395132
+01 Andalucía;2022;mujeres;10,70327612
+01 Andalucía;2022;total;8,086952496
+01 Andalucía;2023;hombres;5,615977461
+01 Andalucía;2023;mujeres;11,01175989
+01 Andalucía;2023;total;8,362374653
+02 Aragón;2013;hombres;6,292
+02 Aragón;2013;mujeres;14,391
+02 Aragón;2013;total;10,404
+02 Aragón;2014;hombres;6,485
+02 Aragón;2014;mujeres;14,679
+02 Aragón;2014;total;10,645
+02 Aragón;2015;hombres;6,648
+02 Aragón;2015;mujeres;14,848
+02 Aragón;2015;total;10,811
+02 Aragón;2016;hombres;6,766
+02 Aragón;2016;mujeres;15,102
+02 Aragón;2016;total;10,999
+02 Aragón;2017;hombres;7,133
+02 Aragón;2017;mujeres;15,612
+02 Aragón;2017;total;11,44
+02 Aragón;2018;hombres;7,801
+02 Aragón;2018;mujeres;16,631
+02 Aragón;2018;total;12,284
+02 Aragón;2019;hombres;8,307
+02 Aragón;2019;mujeres;17,325
+02 Aragón;2019;total;12,883
+02 Aragón;2020;hombres;8,42
+02 Aragón;2020;mujeres;17,487
+02 Aragón;2020;total;13,019
+02 Aragón;2021;hombres;8,84
+02 Aragón;2021;mujeres;18,14
+02 Aragón;2021;total;13,548
+02 Aragón;2022;hombres;8,753322754
+02 Aragón;2022;mujeres;18,00595663
+02 Aragón;2022;total;13,44210534
+02 Aragón;2023;hombres;8,990591126
+02 Aragón;2023;mujeres;18,48100194
+02 Aragón;2023;total;13,80096087
+03 Principado de Asturias;2013;hombres;9,418
+03 Principado de Asturias;2013;mujeres;19,736
+03 Principado de Asturias;2013;total;14,802
+03 Principado de Asturias;2014;hombres;9,87
+03 Principado de Asturias;2014;mujeres;20,461
+03 Principado de Asturias;2014;total;15,401
+03 Principado de Asturias;2015;hombres;10,133
+03 Principado de Asturias;2015;mujeres;20,934
+03 Principado de Asturias;2015;total;15,771
+03 Principado de Asturias;2016;hombres;10,301
+03 Principado de Asturias;2016;mujeres;21,068
+03 Principado de Asturias;2016;total;15,922
+03 Principado de Asturias;2017;hombres;10,663
+03 Principado de Asturias;2017;mujeres;21,468
+03 Principado de Asturias;2017;total;16,305
+03 Principado de Asturias;2018;hombres;10,887
+03 Principado de Asturias;2018;mujeres;21,972
+03 Principado de Asturias;2018;total;16,675
+03 Principado de Asturias;2019;hombres;11,274
+03 Principado de Asturias;2019;mujeres;22,325
+03 Principado de Asturias;2019;total;17,056
+03 Principado de Asturias;2020;hombres;11,393
+03 Principado de Asturias;2020;mujeres;22,726
+03 Principado de Asturias;2020;total;17,327
+03 Principado de Asturias;2021;hombres;11,613
+03 Principado de Asturias;2021;mujeres;23,197
+03 Principado de Asturias;2021;total;17,676
+03 Principado de Asturias;2022;hombres;13,53091995
+03 Principado de Asturias;2022;mujeres;26,56315469
+03 Principado de Asturias;2022;total;20,35794056
+03 Principado de Asturias;2023;hombres;13,75264374
+03 Principado de Asturias;2023;mujeres;26,8229575
+03 Principado de Asturias;2023;total;20,60032884
+04 Islas Baleares;2013;hombres;12,92
+04 Islas Baleares;2013;mujeres;24,584
+04 Islas Baleares;2013;total;18,832
+04 Islas Baleares;2014;hombres;13,256
+04 Islas Baleares;2014;mujeres;24,898
+04 Islas Baleares;2014;total;19,156
+04 Islas Baleares;2015;hombres;14,685
+04 Islas Baleares;2015;mujeres;27,165
+04 Islas Baleares;2015;total;21,004
+04 Islas Baleares;2016;hombres;15,847
+04 Islas Baleares;2016;mujeres;28,636
+04 Islas Baleares;2016;total;22,317
+04 Islas Baleares;2017;hombres;15,215
+04 Islas Baleares;2017;mujeres;26,876
+04 Islas Baleares;2017;total;21,108
+04 Islas Baleares;2018;hombres;16,141
+04 Islas Baleares;2018;mujeres;28,521
+04 Islas Baleares;2018;total;22,39
+04 Islas Baleares;2019;hombres;17,059
+04 Islas Baleares;2019;mujeres;29,949
+04 Islas Baleares;2019;total;23,559
+04 Islas Baleares;2020;hombres;17,639
+04 Islas Baleares;2020;mujeres;31,135
+04 Islas Baleares;2020;total;24,442
+04 Islas Baleares;2021;hombres;17,458
+04 Islas Baleares;2021;mujeres;30,167
+04 Islas Baleares;2021;total;23,857
+04 Islas Baleares;2022;hombres;17,52394445
+04 Islas Baleares;2022;mujeres;29,86912757
+04 Islas Baleares;2022;total;23,74607718
+04 Islas Baleares;2023;hombres;17,74030697
+04 Islas Baleares;2023;mujeres;30,29997401
+04 Islas Baleares;2023;total;24,06453669
+05 Canarias;2013;hombres;11,245
+05 Canarias;2013;mujeres;20,497
+05 Canarias;2013;total;15,931
+05 Canarias;2014;hombres;12,129
+05 Canarias;2014;mujeres;22,017
+05 Canarias;2014;total;17,138
+05 Canarias;2015;hombres;13,122
+05 Canarias;2015;mujeres;23,559
+05 Canarias;2015;total;18,409
+05 Canarias;2016;hombres;14,041
+05 Canarias;2016;mujeres;24,941
+05 Canarias;2016;total;19,564
+05 Canarias;2017;hombres;15,01
+05 Canarias;2017;mujeres;26,097
+05 Canarias;2017;total;20,63
+05 Canarias;2018;hombres;15,782
+05 Canarias;2018;mujeres;27,162
+05 Canarias;2018;total;21,551
+05 Canarias;2019;hombres;17,131
+05 Canarias;2019;mujeres;28,954
+05 Canarias;2019;total;23,137
+05 Canarias;2020;hombres;18,725
+05 Canarias;2020;mujeres;31,034
+05 Canarias;2020;total;24,975
+05 Canarias;2021;hombres;20,145
+05 Canarias;2021;mujeres;33,045
+05 Canarias;2021;total;26,695
+05 Canarias;2022;hombres;21,03778897
+05 Canarias;2022;mujeres;34,68438694
+05 Canarias;2022;total;27,97613027
+05 Canarias;2023;hombres;22,32143276
+05 Canarias;2023;mujeres;36,37687677
+05 Canarias;2023;total;29,46730036
+06 Cantabria;2013;hombres;5,945
+06 Cantabria;2013;mujeres;12,909
+06 Cantabria;2013;total;9,529
+06 Cantabria;2014;hombres;6,403
+06 Cantabria;2014;mujeres;13,673
+06 Cantabria;2014;total;10,141
+06 Cantabria;2015;hombres;6,729
+06 Cantabria;2015;mujeres;14,269
+06 Cantabria;2015;total;10,607
+06 Cantabria;2016;hombres;6,82
+06 Cantabria;2016;mujeres;14,496
+06 Cantabria;2016;total;10,768
+06 Cantabria;2017;hombres;7,102
+06 Cantabria;2017;mujeres;14,888
+06 Cantabria;2017;total;11,106
+06 Cantabria;2018;hombres;7,375
+06 Cantabria;2018;mujeres;15,286
+06 Cantabria;2018;total;11,447
+06 Cantabria;2019;hombres;7,788
+06 Cantabria;2019;mujeres;16,28
+06 Cantabria;2019;total;12,159
+06 Cantabria;2020;hombres;8,297
+06 Cantabria;2020;mujeres;16,993
+06 Cantabria;2020;total;12,775
+06 Cantabria;2021;hombres;8,746
+06 Cantabria;2021;mujeres;17,792
+06 Cantabria;2021;total;13,405
+06 Cantabria;2022;hombres;9,101427738
+06 Cantabria;2022;mujeres;18,55331448
+06 Cantabria;2022;total;13,97311263
+06 Cantabria;2023;hombres;9,613740803
+06 Cantabria;2023;mujeres;19,43837542
+06 Cantabria;2023;total;14,68132949
+08 Castilla-La Mancha;2013;hombres;2,197
+08 Castilla-La Mancha;2013;mujeres;4,261
+08 Castilla-La Mancha;2013;total;3,233
+08 Castilla-La Mancha;2014;hombres;3,634
+08 Castilla-La Mancha;2014;mujeres;7,128
+08 Castilla-La Mancha;2014;total;5,388
+08 Castilla-La Mancha;2015;hombres;3,65
+08 Castilla-La Mancha;2015;mujeres;7,18
+08 Castilla-La Mancha;2015;total;5,422
+08 Castilla-La Mancha;2016;hombres;3,739
+08 Castilla-La Mancha;2016;mujeres;7,106
+08 Castilla-La Mancha;2016;total;5,429
+08 Castilla-La Mancha;2017;hombres;3,924
+08 Castilla-La Mancha;2017;mujeres;7,425
+08 Castilla-La Mancha;2017;total;5,68
+08 Castilla-La Mancha;2018;hombres;3,834
+08 Castilla-La Mancha;2018;mujeres;7,073
+08 Castilla-La Mancha;2018;total;5,458
+08 Castilla-La Mancha;2019;hombres;4,079
+08 Castilla-La Mancha;2019;mujeres;7,367
+08 Castilla-La Mancha;2019;total;5,727
+08 Castilla-La Mancha;2020;hombres;3,71
+08 Castilla-La Mancha;2020;mujeres;7,231
+08 Castilla-La Mancha;2020;total;5,475
+08 Castilla-La Mancha;2021;hombres;3,681
+08 Castilla-La Mancha;2021;mujeres;8,529
+08 Castilla-La Mancha;2021;total;6,109
+08 Castilla-La Mancha;2022;hombres;4,106103058
+08 Castilla-La Mancha;2022;mujeres;9,503349095
+08 Castilla-La Mancha;2022;total;6,809684239
+08 Castilla-La Mancha;2023;hombres;4,168668922
+08 Castilla-La Mancha;2023;mujeres;9,280427774
+08 Castilla-La Mancha;2023;total;6,731017027
+07 Castilla y León;2013;hombres;7,883
+07 Castilla y León;2013;mujeres;16,065
+07 Castilla y León;2013;total;12,042
+07 Castilla y León;2014;hombres;8,515
+07 Castilla y León;2014;mujeres;16,939
+07 Castilla y León;2014;total;12,796
+07 Castilla y León;2015;hombres;8,949
+07 Castilla y León;2015;mujeres;17,571
+07 Castilla y León;2015;total;13,331
+07 Castilla y León;2016;hombres;9,004
+07 Castilla y León;2016;mujeres;17,482
+07 Castilla y León;2016;total;13,312
+07 Castilla y León;2017;hombres;11,704
+07 Castilla y León;2017;mujeres;22,627
+07 Castilla y León;2017;total;17,255
+07 Castilla y León;2018;hombres;12,391
+07 Castilla y León;2018;mujeres;23,688
+07 Castilla y León;2018;total;18,134
+07 Castilla y León;2019;hombres;13,251
+07 Castilla y León;2019;mujeres;24,962
+07 Castilla y León;2019;total;19,217
+07 Castilla y León;2020;hombres;13,794
+07 Castilla y León;2020;mujeres;25,633
+07 Castilla y León;2020;total;19,827
+07 Castilla y León;2021;hombres;14,206
+07 Castilla y León;2021;mujeres;26,622
+07 Castilla y León;2021;total;20,531
+07 Castilla y León;2022;hombres;15,144463
+07 Castilla y León;2022;mujeres;27,89127874
+07 Castilla y León;2022;total;21,64008132
+07 Castilla y León;2023;hombres;15,6172165
+07 Castilla y León;2023;mujeres;28,56924667
+07 Castilla y León;2023;total;22,22222031
+09 Cataluña;2013;hombres;4,014
+09 Cataluña;2013;mujeres;8,318
+09 Cataluña;2013;total;6,2
+09 Cataluña;2014;hombres;4,378
+09 Cataluña;2014;mujeres;9,178
+09 Cataluña;2014;total;6,817
+09 Cataluña;2015;hombres;4,499
+09 Cataluña;2015;mujeres;9,232
+09 Cataluña;2015;total;6,907
+09 Cataluña;2016;hombres;4,504
+09 Cataluña;2016;mujeres;9,463
+09 Cataluña;2016;total;7,028
+09 Cataluña;2017;hombres;5,941
+09 Cataluña;2017;mujeres;12,674
+09 Cataluña;2017;total;9,368
+09 Cataluña;2018;hombres;5,167
+09 Cataluña;2018;mujeres;10,521
+09 Cataluña;2018;total;7,892
+09 Cataluña;2019;hombres;15,789
+09 Cataluña;2019;mujeres;27,854
+09 Cataluña;2019;total;21,923
+09 Cataluña;2020;hombres;16,69
+09 Cataluña;2020;mujeres;29,213
+09 Cataluña;2020;total;23,055
+09 Cataluña;2021;hombres;17,294
+09 Cataluña;2021;mujeres;30,437
+09 Cataluña;2021;total;23,954
+09 Cataluña;2022;hombres;17,50679823
+09 Cataluña;2022;mujeres;30,58023429
+09 Cataluña;2022;total;24,13895731
+09 Cataluña;2023;hombres;18,62504831
+09 Cataluña;2023;mujeres;32,12584146
+09 Cataluña;2023;total;25,46846056
+10 Comunidad Valenciana;2013;hombres;15,994
+10 Comunidad Valenciana;2013;mujeres;30,102
+10 Comunidad Valenciana;2013;total;23,16
+10 Comunidad Valenciana;2014;hombres;17,37
+10 Comunidad Valenciana;2014;mujeres;31,896
+10 Comunidad Valenciana;2014;total;24,758
+10 Comunidad Valenciana;2015;hombres;18,587
+10 Comunidad Valenciana;2015;mujeres;33,463
+10 Comunidad Valenciana;2015;total;26,145
+10 Comunidad Valenciana;2016;hombres;19,89
+10 Comunidad Valenciana;2016;mujeres;35,126
+10 Comunidad Valenciana;2016;total;27,632
+10 Comunidad Valenciana;2017;hombres;20,986
+10 Comunidad Valenciana;2017;mujeres;36,568
+10 Comunidad Valenciana;2017;total;28,905
+10 Comunidad Valenciana;2018;hombres;21,751
+10 Comunidad Valenciana;2018;mujeres;37,534
+10 Comunidad Valenciana;2018;total;29,778
+10 Comunidad Valenciana;2019;hombres;22,247
+10 Comunidad Valenciana;2019;mujeres;38,28
+10 Comunidad Valenciana;2019;total;30,404
+10 Comunidad Valenciana;2020;hombres;22,819
+10 Comunidad Valenciana;2020;mujeres;39,092
+10 Comunidad Valenciana;2020;total;31,102
+10 Comunidad Valenciana;2021;hombres;23,586
+10 Comunidad Valenciana;2021;mujeres;40,083
+10 Comunidad Valenciana;2021;total;31,982
+10 Comunidad Valenciana;2022;hombres;24,20391294
+10 Comunidad Valenciana;2022;mujeres;40,6900326
+10 Comunidad Valenciana;2022;total;32,60013987
+10 Comunidad Valenciana;2023;hombres;24,66383025
+10 Comunidad Valenciana;2023;mujeres;41,0914545
+10 Comunidad Valenciana;2023;total;33,03172157
+00 Media Estatal;2013;hombres;7,287
+00 Media Estatal;2013;mujeres;14,717
+00 Media Estatal;2013;total;11,081
+00 Media Estatal;2014;hombres;7,75
+00 Media Estatal;2014;mujeres;15,47
+00 Media Estatal;2014;total;11,694
+00 Media Estatal;2015;hombres;7,929
+00 Media Estatal;2015;mujeres;15,714
+00 Media Estatal;2015;total;11,903
+00 Media Estatal;2016;hombres;8,097
+00 Media Estatal;2016;mujeres;15,933
+00 Media Estatal;2016;total;12,096
+00 Media Estatal;2017;hombres;8,774
+00 Media Estatal;2017;mujeres;17,094
+00 Media Estatal;2017;total;13,02
+00 Media Estatal;2018;hombres;8,931
+00 Media Estatal;2018;mujeres;17,091
+00 Media Estatal;2018;total;13,095
+00 Media Estatal;2019;hombres;11,049
+00 Media Estatal;2019;mujeres;20,505
+00 Media Estatal;2019;total;15,876
+00 Media Estatal;2020;hombres;11,447
+00 Media Estatal;2020;mujeres;21,134
+00 Media Estatal;2020;total;16,391
+00 Media Estatal;2021;hombres;11,702
+00 Media Estatal;2021;mujeres;21,438
+00 Media Estatal;2021;total;16,668
+00 Media Estatal;2022;hombres;12,09195733
+00 Media Estatal;2022;mujeres;22,04941958
+00 Media Estatal;2022;total;17,17443462
+00 Media Estatal;2023;hombres;12,66632146
+00 Media Estatal;2023;mujeres;22,83712034
+00 Media Estatal;2023;total;17,8597505
+11 Extremadura;2013;hombres;1,33
+11 Extremadura;2013;mujeres;3,581
+11 Extremadura;2013;total;2,467
+11 Extremadura;2014;hombres;1,577
+11 Extremadura;2014;mujeres;4,014
+11 Extremadura;2014;total;2,808
+11 Extremadura;2015;hombres;1,832
+11 Extremadura;2015;mujeres;4,589
+11 Extremadura;2015;total;3,224
+11 Extremadura;2016;hombres;2,035
+11 Extremadura;2016;mujeres;5,017
+11 Extremadura;2016;total;3,54
+11 Extremadura;2017;hombres;2,324
+11 Extremadura;2017;mujeres;5,682
+11 Extremadura;2017;total;4,019
+11 Extremadura;2018;hombres;2,595
+11 Extremadura;2018;mujeres;5,931
+11 Extremadura;2018;total;4,279
+11 Extremadura;2019;hombres;2,698
+11 Extremadura;2019;mujeres;6,245
+11 Extremadura;2019;total;4,493
+11 Extremadura;2020;hombres;2,883
+11 Extremadura;2020;mujeres;6,689
+11 Extremadura;2020;total;4,81
+11 Extremadura;2021;hombres;3,015
+11 Extremadura;2021;mujeres;6,868
+11 Extremadura;2021;total;4,966
+11 Extremadura;2022;hombres;3,295458205
+11 Extremadura;2022;mujeres;7,982856219
+11 Extremadura;2022;total;5,669588807
+11 Extremadura;2023;hombres;3,746083357
+11 Extremadura;2023;mujeres;8,825843947
+11 Extremadura;2023;total;6,322467843
+12 Galicia;2013;hombres;4,53
+12 Galicia;2013;mujeres;10,655
+12 Galicia;2013;total;7,701
+12 Galicia;2014;hombres;5,108
+12 Galicia;2014;mujeres;11,843
+12 Galicia;2014;total;8,593
+12 Galicia;2015;hombres;5,69
+12 Galicia;2015;mujeres;12,894
+12 Galicia;2015;total;9,417
+12 Galicia;2016;hombres;6,171
+12 Galicia;2016;mujeres;13,908
+12 Galicia;2016;total;10,175
+12 Galicia;2017;hombres;6,614
+12 Galicia;2017;mujeres;14,619
+12 Galicia;2017;total;10,757
+12 Galicia;2018;hombres;7,03
+12 Galicia;2018;mujeres;15,344
+12 Galicia;2018;total;11,333
+12 Galicia;2019;hombres;7,44
+12 Galicia;2019;mujeres;16,223
+12 Galicia;2019;total;11,995
+12 Galicia;2020;hombres;7,845
+12 Galicia;2020;mujeres;16,836
+12 Galicia;2020;total;12,509
+12 Galicia;2021;hombres;8,222
+12 Galicia;2021;mujeres;17,755
+12 Galicia;2021;total;13,169
+12 Galicia;2022;hombres;9,452815845
+12 Galicia;2022;mujeres;19,82942686
+12 Galicia;2022;total;14,83994082
+12 Galicia;2023;hombres;9,931216328
+12 Galicia;2023;mujeres;20,58732836
+12 Galicia;2023;total;15,47579101
+17 La Rioja;2016;hombres;5,623
+17 La Rioja;2016;mujeres;11,966
+17 La Rioja;2016;total;8,836
+17 La Rioja;2017;hombres;5,784
+17 La Rioja;2017;mujeres;12,143
+17 La Rioja;2017;total;9,003
+17 La Rioja;2018;hombres;6,154
+17 La Rioja;2018;mujeres;12,701
+17 La Rioja;2018;total;9,47
+17 La Rioja;2019;hombres;6,241
+17 La Rioja;2019;mujeres;12,882
+17 La Rioja;2019;total;9,603
+17 La Rioja;2020;hombres;6,585
+17 La Rioja;2020;mujeres;13,291
+17 La Rioja;2020;total;9,98
+17 La Rioja;2021;hombres;6,928
+17 La Rioja;2021;mujeres;14,036
+17 La Rioja;2021;total;10,526
+17 La Rioja;2022;hombres;7,148453646
+17 La Rioja;2022;mujeres;14,51550587
+17 La Rioja;2022;total;10,87907471
+17 La Rioja;2023;hombres;7,441102492
+17 La Rioja;2023;mujeres;14,95761059
+17 La Rioja;2023;total;11,25004461
+13 Comunidad de Madrid;2013;hombres;5,183
+13 Comunidad de Madrid;2013;mujeres;11,513
+13 Comunidad de Madrid;2013;total;8,479
+13 Comunidad de Madrid;2014;hombres;5,238
+13 Comunidad de Madrid;2014;mujeres;11,528
+13 Comunidad de Madrid;2014;total;8,512
+13 Comunidad de Madrid;2015;hombres;5,554
+13 Comunidad de Madrid;2015;mujeres;12,122
+13 Comunidad de Madrid;2015;total;8,971
+13 Comunidad de Madrid;2016;hombres;5,847
+13 Comunidad de Madrid;2016;mujeres;12,616
+13 Comunidad de Madrid;2016;total;9,366
+13 Comunidad de Madrid;2017;hombres;5,772
+13 Comunidad de Madrid;2017;mujeres;12,384
+13 Comunidad de Madrid;2017;total;9,208
+13 Comunidad de Madrid;2018;hombres;5,615
+13 Comunidad de Madrid;2018;mujeres;11,819
+13 Comunidad de Madrid;2018;total;8,838
+13 Comunidad de Madrid;2019;hombres;6,045
+13 Comunidad de Madrid;2019;mujeres;12,676
+13 Comunidad de Madrid;2019;total;9,49
+13 Comunidad de Madrid;2020;hombres;6,31
+13 Comunidad de Madrid;2020;mujeres;13,107
+13 Comunidad de Madrid;2020;total;9,838
+13 Comunidad de Madrid;2021;hombres;6,523
+13 Comunidad de Madrid;2021;mujeres;13,45
+13 Comunidad de Madrid;2021;total;10,123
+13 Comunidad de Madrid;2022;hombres;6,46944507
+13 Comunidad de Madrid;2022;mujeres;13,19797809
+13 Comunidad de Madrid;2022;total;9,969483219
+13 Comunidad de Madrid;2023;hombres;6,962065925
+13 Comunidad de Madrid;2023;mujeres;14,07421626
+13 Comunidad de Madrid;2023;total;10,66419596
+14 Región de Murcia;2013;hombres;8,062
+14 Región de Murcia;2013;mujeres;16,814
+14 Región de Murcia;2013;total;12,455
+14 Región de Murcia;2014;hombres;8,543
+14 Región de Murcia;2014;mujeres;17,798
+14 Región de Murcia;2014;total;13,179
+14 Región de Murcia;2015;hombres;8,917
+14 Región de Murcia;2015;mujeres;18,365
+14 Región de Murcia;2015;total;13,643
+14 Región de Murcia;2016;hombres;9,105
+14 Región de Murcia;2016;mujeres;18,798
+14 Región de Murcia;2016;total;13,947
+14 Región de Murcia;2017;hombres;9,336
+14 Región de Murcia;2017;mujeres;18,975
+14 Región de Murcia;2017;total;14,145
+14 Región de Murcia;2018;hombres;9,613
+14 Región de Murcia;2018;mujeres;19,185
+14 Región de Murcia;2018;total;14,388
+14 Región de Murcia;2019;hombres;9,749
+14 Región de Murcia;2019;mujeres;19,363
+14 Región de Murcia;2019;total;14,54
+14 Región de Murcia;2020;hombres;9,94
+14 Región de Murcia;2020;mujeres;19,702
+14 Región de Murcia;2020;total;14,811
+14 Región de Murcia;2021;hombres;10,088
+14 Región de Murcia;2021;mujeres;19,953
+14 Región de Murcia;2021;total;15,007
+14 Región de Murcia;2022;hombres;9,794512584
+14 Región de Murcia;2022;mujeres;19,37355144
+14 Región de Murcia;2022;total;14,56897279
+14 Región de Murcia;2023;hombres;10,03930123
+14 Región de Murcia;2023;mujeres;19,64222671
+14 Región de Murcia;2023;total;14,83120118
+15 Comunidad Foral de Navarra;2013;hombres;8,445
+15 Comunidad Foral de Navarra;2013;mujeres;17,527
+15 Comunidad Foral de Navarra;2013;total;13,023
+15 Comunidad Foral de Navarra;2014;hombres;9,267
+15 Comunidad Foral de Navarra;2014;mujeres;18,602
+15 Comunidad Foral de Navarra;2014;total;13,975
+15 Comunidad Foral de Navarra;2015;hombres;9,769
+15 Comunidad Foral de Navarra;2015;mujeres;19,343
+15 Comunidad Foral de Navarra;2015;total;14,601
+15 Comunidad Foral de Navarra;2016;hombres;10,475
+15 Comunidad Foral de Navarra;2016;mujeres;20,592
+15 Comunidad Foral de Navarra;2016;total;15,585
+15 Comunidad Foral de Navarra;2017;hombres;10,642
+15 Comunidad Foral de Navarra;2017;mujeres;20,896
+15 Comunidad Foral de Navarra;2017;total;15,83
+15 Comunidad Foral de Navarra;2018;hombres;10,995
+15 Comunidad Foral de Navarra;2018;mujeres;21,069
+15 Comunidad Foral de Navarra;2018;total;16,095
+15 Comunidad Foral de Navarra;2019;hombres;11,203
+15 Comunidad Foral de Navarra;2019;mujeres;21,425
+15 Comunidad Foral de Navarra;2019;total;16,371
+15 Comunidad Foral de Navarra;2020;hombres;11,406
+15 Comunidad Foral de Navarra;2020;mujeres;21,736
+15 Comunidad Foral de Navarra;2020;total;16,634
+15 Comunidad Foral de Navarra;2021;hombres;11,643
+15 Comunidad Foral de Navarra;2021;mujeres;22,264
+15 Comunidad Foral de Navarra;2021;total;17,013
+15 Comunidad Foral de Navarra;2022;hombres;11,66797
+15 Comunidad Foral de Navarra;2022;mujeres;22,36778228
+15 Comunidad Foral de Navarra;2022;total;17,08640989
+15 Comunidad Foral de Navarra;2023;hombres;11,79548037
+15 Comunidad Foral de Navarra;2023;mujeres;22,4650474
+15 Comunidad Foral de Navarra;2023;total;17,19907796
+16 País Vasco;2013;hombres;8,592
+16 País Vasco;2013;mujeres;17,108
+16 País Vasco;2013;total;12,937
+16 País Vasco;2014;hombres;7,284
+16 País Vasco;2014;mujeres;14,724
+16 País Vasco;2014;total;11,082
+16 País Vasco;2015;hombres;7,929
+16 País Vasco;2015;mujeres;15,533
+16 País Vasco;2015;total;11,811
+16 País Vasco;2016;hombres;8,651
+16 País Vasco;2016;mujeres;16,648
+16 País Vasco;2016;total;12,735
+16 País Vasco;2017;hombres;9,217
+16 País Vasco;2017;mujeres;17,409
+16 País Vasco;2017;total;13,402
+16 País Vasco;2018;hombres;9,865
+16 País Vasco;2018;mujeres;18,411
+16 País Vasco;2018;total;14,232
+16 País Vasco;2019;hombres;11,545
+16 País Vasco;2019;mujeres;20,688
+16 País Vasco;2019;total;16,22
+16 País Vasco;2020;hombres;11,789
+16 País Vasco;2020;mujeres;21,252
+16 País Vasco;2020;total;16,628
+16 País Vasco;2021;hombres;12,645
+16 País Vasco;2021;mujeres;22,748
+16 País Vasco;2021;total;17,81
+16 País Vasco;2022;hombres;13,22258699
+16 País Vasco;2022;mujeres;24,00747207
+16 País Vasco;2022;total;18,73792615
+16 País Vasco;2023;hombres;14,0886117
+16 País Vasco;2023;mujeres;25,21046581
+16 País Vasco;2023;total;19,77780221

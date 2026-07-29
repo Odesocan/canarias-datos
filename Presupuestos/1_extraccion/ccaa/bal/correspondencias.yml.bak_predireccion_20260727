@@ -1,0 +1,273 @@
+conceptos:
+  sanidad:
+    codigos:
+    - 411E      # Finançament sanitari
+    - 413A      # Acreditació, docència i recerca en salut
+    - 413B      # Prevenció i vigilància en salut pública
+    - 413C      # Protecció de la salut
+    - 413D      # Coordinació de centres insulars
+    - 413F      # Planificació, control i gestió del medicament
+    - 411D      # Planificació, avaluació i cartera de serveis (sanitari)
+    - '411'
+    - '412'
+    - '511'
+    keywords:
+    - sanidad
+    - salud publica
+    - salut publica
+    - servicio canario salud
+    - atencion primaria
+    - atencion especializada
+    - sanitaria
+    - salud
+    - salut
+    - financament sanitari
+  educacion:
+    codigos:
+    - 421B      # Ordenació general del sistema educatiu
+    - 421C      # Planificació educativa
+    - 421D      # Formació del professorat
+    - 421E      # Llengües estrangeres i projectes internacionals
+    - 421F      # Política i actuacions universitàries
+    - 421G      # Formació professional
+    - 421H      # Inspecció educativa
+    - 421K      # Innovació i comunitat educativa
+    - 422A      # Educació pública
+    - '421*'
+    - '422*'
+    - '423*'
+    keywords:
+    - educacion
+    - educació
+    - ensenyament
+    - educativa
+    - escolar
+    - universitari
+    - formació professional
+  soberania:
+    codigos:
+    - 714B      # Foment del sector agropecuari
+    - 714C      # Polítiques alimentàries
+    - 718A      # Recursos marins i ordenació pesquer
+    - '714*'
+    - '715*'
+    - '716*'
+    - '717*'
+    - '718*'
+    keywords:
+    - agricultura
+    - agropecuari
+    - ramaderia
+    - ganaderia
+    - pesca
+    - pesquer
+    - alimentacio
+    - alimentació
+    - alimentaria
+    - alimentàries
+    - soberania alimentaria
+  direccion:
+    codigos:
+    - 111A      # Activitat legislativa (Parlament)
+    - 111B      # Control extern administracions (Sindicatura)
+    - 111C      # Assessorament consultiu institucional
+    - 111D      # Assessorament social/econ/laboral (CES)
+    - 111F      # Control mitjans audiovisuals
+    - 121A      # Direcció serveis Presidència
+    - 121C      # Coordinació programes Govern
+    - 121H      # Gestió de recursos humans
+    - 121I      # Salut i prevenció de riscs laborals
+    - 126B      # Publicacions i BOIB
+    - 126E      # Advocacia / serveis jurídics
+    - 126F      # Serveis comuns generals
+    - 126H      # Assessorament i recerca normativa
+    - 126J      # Gestió central contractació
+    - 126K      # Junta consultiva contractació
+    - 126L      # Serveis comuns tecnològics
+    - 126M      # Contractació centralitzada
+    - 131A      # Relacions amb el Parlament
+    - 131B      # Relacions cooperació altres administracions
+    - 131C      # Cases regionals
+    - 131D      # Polítiques de memòria
+    - 141A      # Direcció serveis Hisenda
+    - 141B      # Planificació pressupostària
+    - 141C      # Gestió comptable i control intern
+    - 141D      # Planificació política econòmica
+    - 141E      # Gestió tresoreria i política financera
+    - 141F      # Patrimoni
+    - 141G      # Fons UE
+    - 141H      # Inversions estratègiques
+    - 151A      # Comunicació institucional
+    - 151C      # Transparència
+    - 151D      # Participació i voluntariat
+    - 151E      # Modernització i ciutadania
+    - 211A      # Justícia institucional
+    - 222A      # Seguretat edificis administratius
+    - 223A      # Emergències
+    - 231A      # Acció exterior
+    - 313K      # Direcció serveis Famílies i Afers Socials
+    - 521A      # Infraestructures bàsiques
+    - 721A      # Direcció serveis Conselleria Empresa
+    - 561C      # Direcció serveis Mar i Cicle Aigua
+    - 811A      # Fons de contingència
+    - 912A      # Suport financer consells insulars
+    - 912B      # Suport financer ajuntaments
+    - '111*'
+    - '121*'
+    - '126*'
+    - '131*'
+    - '141*'
+    - '151*'
+    - '911*'
+    - '912*'
+    - '921*'
+    keywords:
+    - presidencia
+    - presidència
+    - alta direccion
+    - parlament
+    - cortes
+    - gobierno
+    - direcció i serveis generals
+    - secretaria general
+  vivienda:
+    codigos:
+    - '261'
+    - '431'
+    - '451'
+    - '43'
+    - 431A
+    - 431B
+    keywords:
+    - vivienda
+    - habitatge
+    - etxebizitza
+  empleo:
+    codigos:
+    - 322A      # Ocupació i inserció laboral específiques
+    - 322B      # Gestió relacions laborals
+    - 322D      # Foment i gestió ocupació Illes Balears
+    - 322F      # Autoocupació i economia social
+    - '322*'
+    - '241*'
+    keywords:
+    - empleo
+    - ocupació
+    - ocupacio
+    - enplegua
+    - foment de l'ocupació
+    - inserció laboral
+    - autoocupació
+    - economia social
+    - relacions laborals
+  idi:
+    codigos:
+    - 541A      # Recerca i desenvolupament
+    - 542A      # Innovació
+    - 463A
+    - '467*'
+    - '541*'
+    - '542*'
+    keywords:
+    - investigacion
+    - investigació
+    - recerca
+    - innovacion
+    - innovació
+    - i d i
+    - desarrollo tecnologico
+    - desenvolupament tecnològic
+  dependencia:
+    codigos:
+    - 313D      # Atenció a la dependència
+    - 313I      # Planificació social
+    - 313L      # Equipaments serveis socials
+    - 314A      # Pensions i prestacions econòmiques
+    - 231D
+    - 232D
+    - 232G
+    - 252D
+    keywords:
+    - dependencia
+    - mendekotasun
+    - atencion a la dependencia
+    - pensions
+    - prestacions econòmiques
+    - serveis socials
+  discapacidad:
+    codigos:
+    - 231C
+    - 232C
+    - 313C
+    - 313G
+    - 313F
+    - '314'
+    keywords:
+    - discapacidad
+    - diversidad funcional
+    - diversitat funcional
+    - discapacitat
+  salud_mental:
+    codigos:
+    - 413E      # Pla autonòmic d'addiccions
+    - 313A
+    - 313E
+    - '414'
+    - '514'
+    - 312D
+    - 412I
+    keywords:
+    - salud mental
+    - salut mental
+    - buru osasun
+    - addicc
+    - drogas
+  diversidad:
+    codigos:
+    - 232A      # Cooperació internacional
+    - 313J      # Atenció població immigrant
+    - 316A      # Drets i diversitat
+    - 232B
+    - '234'
+    - 313B
+    - '266'
+    keywords:
+    - lgtbi
+    - lgbti
+    - migracion
+    - migració
+    - immigrant
+    - interculturalidad
+    - cooperació internacional
+    - diversitat
+    - drets civils
+  turismo:
+    codigos:
+    - 751B      # Promoció turística
+    - 751C      # Ordenació del sector turístic
+    - 432A
+    - '432*'
+    - '751*'
+    - '761*'
+    - '730*'
+    keywords:
+    - turismo
+    - turisme
+    - turistic
+    - turismoa
+  igualdad:
+    codigos:
+    - 323C      # Polítiques públiques d'igualtat
+    - '232'
+    - '323*'
+    - '920'
+    - 323A
+    keywords:
+    - igualdad
+    - igualtat
+    - mujer
+    - dona
+    - violencia de genero
+    - berdintasun
+    - emakume
+    - instituto de la mujer

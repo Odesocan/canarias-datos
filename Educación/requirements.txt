@@ -1,0 +1,25 @@
+# Dependencias del pipeline Educación · Canarias en Datos (todas las etapas).
+# Versiones fijadas a las verificadas en el entorno de desarrollo (2026-07)
+# para reproducibilidad: un cambio de versión de statsmodels/prophet/sklearn
+# puede alterar la selección de modelo.
+#
+# Instalación:  pip install -r requirements.txt
+# NOTA: xgboost necesita la runtime OpenMP del sistema (macOS: `brew install libomp`).
+
+# --- Común / extracción (1_extraccion) ---
+requests>=2.32.5
+pandas>=2.3.3
+numpy>=2.4.3
+beautifulsoup4>=4.14.3
+lxml>=6.0.2
+openpyxl>=3.1.5
+
+# --- Modelado (3_modelado) ---
+statsmodels>=0.14.6
+prophet>=1.3.0
+scikit-learn>=1.9.0
+xgboost>=3.3.0
+
+# --- Carga (4_carga) ---
+SQLAlchemy>=2.0.51
+psycopg2-binary>=2.9.12

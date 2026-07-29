@@ -1,0 +1,11 @@
+indicador,bloque,unidad,n,na_pct_global,min,max
+abandono_temprano,A,%,187,0.0,3.6,26.8
+nivel_superior_25_34,A,%,187,0.0,31.1,68.6
+nivel_bajo_25_64,A,%,187,0.0,20.3,57.8
+formacion_adultos_25_64,A,%,187,0.0,7.4,19.8
+neet_15_29,B,%,187,0.0,7.2,24.2
+idoneidad_15,C,%,170,9.1,56.9,89.3
+graduacion_eso,C,%,153,18.2,66.8,90.1
+escolarizacion_0_2,C,%,170,9.1,13.6,64.4
+gasto_edu_pib,D,%PIB,170,9.1,0.0,5.63
+gasto_por_alumno,D,EUR,153,18.2,4591.0,12484.0

@@ -1,0 +1,423 @@
+[2026-07-02 14:52:29] [INFO   ] Proyecto: /Users/cristiancpv/Desktop/TRABAJO/OBSERVATORIO/CANARIAS EN DATOS/Presupuestos
+[2026-07-02 14:52:29] [INFO   ] Pasos: extraccion -> transformacion -> modelado
+[2026-07-02 14:52:29] [INFO   ] with-db=FALSE | projection=FALSE | dry-run=FALSE
+[2026-07-02 14:52:29] [STEP   ] Inicio extraccion
+[2026-07-02 14:52:29] [INFO   ] Iniciando extracción
+[2026-07-02 14:52:29] [CACHE  ] Reutilizado raw local consulta_web.html
+[2026-07-02 14:52:29] [SKIP   ] Hash coincide para hacienda/2002-2026/consulta_web — saltando parseo
+[2026-07-02 14:52:29] [CACHE  ] Reutilizado raw local memoria_programas.pdf
+[2026-07-02 14:52:29] [SKIP   ] Hash coincide para and/2026/memoria_programas — saltando parseo
+[2026-07-02 14:52:29] [CACHE  ] Reutilizado raw local memoria_programas.pdf
+[2026-07-02 14:52:29] [SKIP   ] Hash coincide para and/2025/memoria_programas — saltando parseo
+[2026-07-02 14:52:29] [CACHE  ] Reutilizado raw local memoria_programas.pdf
+[2026-07-02 14:52:29] [SKIP   ] Hash coincide para and/2024/memoria_programas — saltando parseo
+[2026-07-02 14:52:29] [CACHE  ] Reutilizado raw local memoria_programas.pdf
+[2026-07-02 14:52:29] [SKIP   ] Hash coincide para and/2023/memoria_programas — saltando parseo
+[2026-07-02 14:52:29] [CACHE  ] Reutilizado raw local memoria_programas.pdf
+[2026-07-02 14:52:29] [SKIP   ] Hash coincide para and/2022/memoria_programas — saltando parseo
+[2026-07-02 14:52:29] [CACHE  ] Reutilizado raw local estado_iii.pdf
+[2026-07-02 14:52:29] [SKIP   ] Hash coincide para and/2022/estado_iii — saltando parseo
+[2026-07-02 14:52:29] [CACHE  ] Reutilizado raw local gastos_csv.csv
+[2026-07-02 14:52:29] [SKIP   ] Hash coincide para and/2021/gastos_csv — saltando parseo
+[2026-07-02 14:52:29] [CACHE  ] Reutilizado raw local gastos_csv.csv
+[2026-07-02 14:52:29] [SKIP   ] Hash coincide para and/2020/gastos_csv — saltando parseo
+[2026-07-02 14:52:29] [CACHE  ] Reutilizado raw local memoria_programas.pdf
+[2026-07-02 14:52:29] [SKIP   ] Hash coincide para and/2019/memoria_programas — saltando parseo
+[2026-07-02 14:52:29] [CACHE  ] Reutilizado raw local memoria_programas.pdf
+[2026-07-02 14:52:29] [SKIP   ] Hash coincide para and/2018/memoria_programas — saltando parseo
+[2026-07-02 14:52:29] [CACHE  ] Reutilizado raw local memoria_programas.pdf
+[2026-07-02 14:52:29] [SKIP   ] Hash coincide para and/2017/memoria_programas — saltando parseo
+[2026-07-02 14:52:29] [CACHE  ] Reutilizado raw local gastos_csv.csv
+[2026-07-02 14:52:29] [SKIP   ] Hash coincide para and/2016/gastos_csv — saltando parseo
+[2026-07-02 14:52:29] [CACHE  ] Reutilizado raw local gastos_csv.csv
+[2026-07-02 14:52:29] [SKIP   ] Hash coincide para and/2015/gastos_csv — saltando parseo
+[2026-07-02 14:52:29] [CACHE  ] Reutilizado raw local ingresos_gastos.pdf
+[2026-07-02 14:52:29] [SKIP   ] Hash coincide para ara/2024/ingresos_gastos — saltando parseo
+[2026-07-02 14:52:29] [CACHE  ] Reutilizado raw local ingresos_gastos.pdf
+[2026-07-02 14:52:29] [SKIP   ] Hash coincide para ara/2026/ingresos_gastos — saltando parseo
+[2026-07-02 14:52:29] [CACHE  ] Reutilizado raw local ingresos_gastos.pdf
+[2026-07-02 14:52:29] [SKIP   ] Hash coincide para ara/2025/ingresos_gastos — saltando parseo
+[2026-07-02 14:52:29] [CACHE  ] Reutilizado raw local ingresos_gastos.pdf
+[2026-07-02 14:52:29] [SKIP   ] Hash coincide para ara/2023/ingresos_gastos — saltando parseo
+[2026-07-02 14:52:29] [CACHE  ] Reutilizado raw local ingresos_gastos.pdf
+[2026-07-02 14:52:29] [SKIP   ] Hash coincide para ara/2022/ingresos_gastos — saltando parseo
+[2026-07-02 14:52:29] [CACHE  ] Reutilizado raw local ingresos_gastos.pdf
+[2026-07-02 14:52:29] [SKIP   ] Hash coincide para ara/2021/ingresos_gastos — saltando parseo
+[2026-07-02 14:52:29] [CACHE  ] Reutilizado raw local ingresos_gastos.pdf
+[2026-07-02 14:52:29] [SKIP   ] Hash coincide para ara/2020/ingresos_gastos — saltando parseo
+[2026-07-02 14:52:29] [CACHE  ] Reutilizado raw local ingresos_gastos.pdf
+[2026-07-02 14:52:29] [SKIP   ] Hash coincide para ara/2019/ingresos_gastos — saltando parseo
+[2026-07-02 14:52:29] [CACHE  ] Reutilizado raw local ingresos_gastos.pdf
+[2026-07-02 14:52:29] [SKIP   ] Hash coincide para ara/2018/ingresos_gastos — saltando parseo
+[2026-07-02 14:52:29] [CACHE  ] Reutilizado raw local ingresos_gastos.pdf
+[2026-07-02 14:52:29] [SKIP   ] Hash coincide para ara/2017/ingresos_gastos — saltando parseo
+[2026-07-02 14:52:29] [CACHE  ] Reutilizado raw local ingresos_gastos.pdf
+[2026-07-02 14:52:29] [SKIP   ] Hash coincide para ara/2016/ingresos_gastos — saltando parseo
+[2026-07-02 14:52:29] [CACHE  ] Reutilizado raw local ingresos_gastos.pdf
+[2026-07-02 14:52:29] [SKIP   ] Hash coincide para ara/2015/ingresos_gastos — saltando parseo
+[2026-07-02 14:52:29] [CACHE  ] Reutilizado raw local tomo_I.pdf
+[2026-07-02 14:52:29] [SKIP   ] Hash coincide para ast/2026/tomo_I — saltando parseo
+[2026-07-02 14:52:29] [CACHE  ] Reutilizado raw local tomo_I.pdf
+[2026-07-02 14:52:29] [SKIP   ] Hash coincide para ast/2025/tomo_I — saltando parseo
+[2026-07-02 14:52:29] [CACHE  ] Reutilizado raw local tomo_I.pdf
+[2026-07-02 14:52:29] [SKIP   ] Hash coincide para ast/2024/tomo_I — saltando parseo
+[2026-07-02 14:52:29] [CACHE  ] Reutilizado raw local tomo_I.pdf
+[2026-07-02 14:52:29] [SKIP   ] Hash coincide para ast/2023/tomo_I — saltando parseo
+[2026-07-02 14:52:29] [CACHE  ] Reutilizado raw local tomo_I.pdf
+[2026-07-02 14:52:29] [SKIP   ] Hash coincide para ast/2021/tomo_I — saltando parseo
+[2026-07-02 14:52:29] [CACHE  ] Reutilizado raw local tomo_I.pdf
+[2026-07-02 14:52:29] [SKIP   ] Hash coincide para ast/2020/tomo_I — saltando parseo
+[2026-07-02 14:52:29] [CACHE  ] Reutilizado raw local tomo_I.pdf
+[2026-07-02 14:52:29] [SKIP   ] Hash coincide para ast/2019/tomo_I — saltando parseo
+[2026-07-02 14:52:29] [CACHE  ] Reutilizado raw local tomo_I.pdf
+[2026-07-02 14:52:29] [SKIP   ] Hash coincide para ast/2018/tomo_I — saltando parseo
+[2026-07-02 14:52:29] [CACHE  ] Reutilizado raw local tomo_I.pdf
+[2026-07-02 14:52:29] [SKIP   ] Hash coincide para ast/2017/tomo_I — saltando parseo
+[2026-07-02 14:52:29] [CACHE  ] Reutilizado raw local tomo_I.pdf
+[2026-07-02 14:52:29] [SKIP   ] Hash coincide para ast/2016/tomo_I — saltando parseo
+[2026-07-02 14:52:29] [CACHE  ] Reutilizado raw local tomo_I.pdf
+[2026-07-02 14:52:29] [SKIP   ] Hash coincide para ast/2015/tomo_I — saltando parseo
+[2026-07-02 14:52:29] [CACHE  ] Reutilizado raw local tomo_I.pdf
+[2026-07-02 14:52:29] [SKIP   ] Hash coincide para ast/2022/tomo_I — saltando parseo
+[2026-07-02 14:52:29] [CACHE  ] Reutilizado raw local estats_numerics.pdf
+[2026-07-02 14:52:29] [SKIP   ] Hash coincide para bal/2026/estats_numerics — saltando parseo
+[2026-07-02 14:52:29] [CACHE  ] Reutilizado raw local memoria_programas.html
+[2026-07-02 14:52:29] [SKIP   ] Hash coincide para bal/2025/memoria_programas — saltando parseo
+[2026-07-02 14:52:29] [CACHE  ] Reutilizado raw local memoria_programas.html
+[2026-07-02 14:52:29] [SKIP   ] Hash coincide para bal/2024/memoria_programas — saltando parseo
+[2026-07-02 14:52:29] [CACHE  ] Reutilizado raw local memoria_programas.html
+[2026-07-02 14:52:29] [SKIP   ] Hash coincide para bal/2023/memoria_programas — saltando parseo
+[2026-07-02 14:52:29] [CACHE  ] Reutilizado raw local memoria_programas.html
+[2026-07-02 14:52:29] [SKIP   ] Hash coincide para bal/2022/memoria_programas — saltando parseo
+[2026-07-02 14:52:29] [CACHE  ] Reutilizado raw local memoria_programas.html
+[2026-07-02 14:52:29] [SKIP   ] Hash coincide para bal/2021/memoria_programas — saltando parseo
+[2026-07-02 14:52:29] [CACHE  ] Reutilizado raw local memoria_programas.html
+[2026-07-02 14:52:29] [SKIP   ] Hash coincide para bal/2020/memoria_programas — saltando parseo
+[2026-07-02 14:52:29] [CACHE  ] Reutilizado raw local memoria_programas.html
+[2026-07-02 14:52:29] [SKIP   ] Hash coincide para bal/2019/memoria_programas — saltando parseo
+[2026-07-02 14:52:29] [CACHE  ] Reutilizado raw local memoria_programas.html
+[2026-07-02 14:52:29] [SKIP   ] Hash coincide para bal/2018/memoria_programas — saltando parseo
+[2026-07-02 14:52:29] [CACHE  ] Reutilizado raw local memoria_programas.html
+[2026-07-02 14:52:29] [SKIP   ] Hash coincide para bal/2016/memoria_programas — saltando parseo
+[2026-07-02 14:52:29] [CACHE  ] Reutilizado raw local memoria_programas.html
+[2026-07-02 14:52:29] [SKIP   ] Hash coincide para bal/2015/memoria_programas — saltando parseo
+[2026-07-02 14:52:29] [CACHE  ] Reutilizado raw local memoria_programas.html
+[2026-07-02 14:52:29] [SKIP   ] Hash coincide para bal/2017/memoria_programas — saltando parseo
+[2026-07-02 14:52:29] [CACHE  ] Reutilizado raw local memoria_programas.pdf
+[2026-07-02 14:52:29] [SKIP   ] Hash coincide para can/2022/memoria_programas — saltando parseo
+[2026-07-02 14:52:29] [CACHE  ] Reutilizado raw local memoria_programas.pdf
+[2026-07-02 14:52:29] [SKIP   ] Hash coincide para can/2023/memoria_programas — saltando parseo
+[2026-07-02 14:52:29] [CACHE  ] Reutilizado raw local memoria_programas.pdf
+[2026-07-02 14:52:29] [SKIP   ] Hash coincide para can/2024/memoria_programas — saltando parseo
+[2026-07-02 14:52:29] [CACHE  ] Reutilizado raw local memoria_programas.pdf
+[2026-07-02 14:52:29] [SKIP   ] Hash coincide para can/2026/memoria_programas — saltando parseo
+[2026-07-02 14:52:29] [CACHE  ] Reutilizado raw local memoria_programas.pdf
+[2026-07-02 14:52:29] [SKIP   ] Hash coincide para can/2025/memoria_programas — saltando parseo
+[2026-07-02 14:52:29] [CACHE  ] Reutilizado raw local datos_abiertos.csv
+[2026-07-02 14:52:29] [SKIP   ] Hash coincide para can/2025/datos_abiertos — saltando parseo
+[2026-07-02 14:52:29] [CACHE  ] Reutilizado raw local memoria_programas.pdf
+[2026-07-02 14:52:29] [SKIP   ] Hash coincide para can/2018/memoria_programas — saltando parseo
+[2026-07-02 14:52:29] [CACHE  ] Reutilizado raw local memoria_programas.pdf
+[2026-07-02 14:52:29] [SKIP   ] Hash coincide para can/2019/memoria_programas — saltando parseo
+[2026-07-02 14:52:29] [CACHE  ] Reutilizado raw local memoria_programas.pdf
+[2026-07-02 14:52:29] [SKIP   ] Hash coincide para can/2020/memoria_programas — saltando parseo
+[2026-07-02 14:52:29] [CACHE  ] Reutilizado raw local memoria_programas.pdf
+[2026-07-02 14:52:29] [SKIP   ] Hash coincide para can/2021/memoria_programas — saltando parseo
+[2026-07-02 14:52:29] [CACHE  ] Reutilizado raw local memoria_programas.pdf
+[2026-07-02 14:52:29] [SKIP   ] Hash coincide para can/2017/memoria_programas — saltando parseo
+[2026-07-02 14:52:29] [CACHE  ] Reutilizado raw local memoria_programas.pdf
+[2026-07-02 14:52:29] [SKIP   ] Hash coincide para can/2016/memoria_programas — saltando parseo
+[2026-07-02 14:52:29] [CACHE  ] Reutilizado raw local memoria_programas.pdf
+[2026-07-02 14:52:29] [SKIP   ] Hash coincide para can/2015/memoria_programas — saltando parseo
+[2026-07-02 14:52:29] [CACHE  ] Reutilizado raw local ingresos_gastos.pdf
+[2026-07-02 14:52:29] [SKIP   ] Hash coincide para cnt/2026/ingresos_gastos — saltando parseo
+[2026-07-02 14:52:29] [CACHE  ] Reutilizado raw local ingresos_gastos.pdf
+[2026-07-02 14:52:29] [SKIP   ] Hash coincide para cnt/2025/ingresos_gastos — saltando parseo
+[2026-07-02 14:52:29] [CACHE  ] Reutilizado raw local ingresos_gastos.pdf
+[2026-07-02 14:52:29] [SKIP   ] Hash coincide para cnt/2024/ingresos_gastos — saltando parseo
+[2026-07-02 14:52:29] [CACHE  ] Reutilizado raw local ingresos_gastos.pdf
+[2026-07-02 14:52:29] [SKIP   ] Hash coincide para cnt/2023/ingresos_gastos — saltando parseo
+[2026-07-02 14:52:29] [CACHE  ] Reutilizado raw local ingresos_gastos.pdf
+[2026-07-02 14:52:30] [SKIP   ] Hash coincide para cnt/2022/ingresos_gastos — saltando parseo
+[2026-07-02 14:52:30] [CACHE  ] Reutilizado raw local ingresos_gastos.pdf
+[2026-07-02 14:52:30] [SKIP   ] Hash coincide para cnt/2021/ingresos_gastos — saltando parseo
+[2026-07-02 14:52:30] [CACHE  ] Reutilizado raw local ingresos_gastos.pdf
+[2026-07-02 14:52:30] [SKIP   ] Hash coincide para cnt/2020/ingresos_gastos — saltando parseo
+[2026-07-02 14:52:30] [CACHE  ] Reutilizado raw local ingresos_gastos.pdf
+[2026-07-02 14:52:30] [SKIP   ] Hash coincide para cnt/2019/ingresos_gastos — saltando parseo
+[2026-07-02 14:52:30] [CACHE  ] Reutilizado raw local ingresos_gastos.pdf
+[2026-07-02 14:52:30] [SKIP   ] Hash coincide para cnt/2018/ingresos_gastos — saltando parseo
+[2026-07-02 14:52:30] [CACHE  ] Reutilizado raw local desarrollo_centros.pdf
+[2026-07-02 14:52:30] [SKIP   ] Hash coincide para cnt/2017/desarrollo_centros — saltando parseo
+[2026-07-02 14:52:30] [CACHE  ] Reutilizado raw local desarrollo_centros.pdf
+[2026-07-02 14:52:30] [SKIP   ] Hash coincide para cnt/2016/desarrollo_centros — saltando parseo
+[2026-07-02 14:52:30] [CACHE  ] Reutilizado raw local desarrollo_centros.pdf
+[2026-07-02 14:52:30] [SKIP   ] Hash coincide para cnt/2015/desarrollo_centros — saltando parseo
+[2026-07-02 14:52:30] [CACHE  ] Reutilizado raw local gastos.bin
+[2026-07-02 14:52:30] [SKIP   ] Hash coincide para cym/2026/gastos — saltando parseo
+[2026-07-02 14:52:30] [CACHE  ] Reutilizado raw local gastos.bin
+[2026-07-02 14:52:30] [SKIP   ] Hash coincide para cym/2025/gastos — saltando parseo
+[2026-07-02 14:52:30] [CACHE  ] Reutilizado raw local gastos.xlsx
+[2026-07-02 14:52:30] [SKIP   ] Hash coincide para cym/2024/gastos — saltando parseo
+[2026-07-02 14:52:30] [CACHE  ] Reutilizado raw local gastos.xlsx
+[2026-07-02 14:52:30] [SKIP   ] Hash coincide para cym/2023/gastos — saltando parseo
+[2026-07-02 14:52:30] [CACHE  ] Reutilizado raw local gastos.csv
+[2026-07-02 14:52:30] [SKIP   ] Hash coincide para cym/2021/gastos — saltando parseo
+[2026-07-02 14:52:30] [CACHE  ] Reutilizado raw local gastos.csv
+[2026-07-02 14:52:30] [SKIP   ] Hash coincide para cym/2018/gastos — saltando parseo
+[2026-07-02 14:52:30] [CACHE  ] Reutilizado raw local gastos.csv
+[2026-07-02 14:52:30] [SKIP   ] Hash coincide para cym/2017/gastos — saltando parseo
+[2026-07-02 14:52:30] [CACHE  ] Reutilizado raw local gastos.csv
+[2026-07-02 14:52:30] [SKIP   ] Hash coincide para cym/2016/gastos — saltando parseo
+[2026-07-02 14:52:30] [CACHE  ] Reutilizado raw local tomo_I.pdf
+[2026-07-02 14:52:30] [SKIP   ] Hash coincide para clm/2026/tomo_I — saltando parseo
+[2026-07-02 14:52:30] [CACHE  ] Reutilizado raw local tomo_I.pdf
+[2026-07-02 14:52:30] [SKIP   ] Hash coincide para clm/2025/tomo_I — saltando parseo
+[2026-07-02 14:52:30] [CACHE  ] Reutilizado raw local tomo_I.pdf
+[2026-07-02 14:52:30] [SKIP   ] Hash coincide para clm/2024/tomo_I — saltando parseo
+[2026-07-02 14:52:30] [CACHE  ] Reutilizado raw local tomo_I.pdf
+[2026-07-02 14:52:30] [SKIP   ] Hash coincide para clm/2023/tomo_I — saltando parseo
+[2026-07-02 14:52:30] [CACHE  ] Reutilizado raw local tomo_I.pdf
+[2026-07-02 14:52:30] [SKIP   ] Hash coincide para clm/2022/tomo_I — saltando parseo
+[2026-07-02 14:52:30] [CACHE  ] Reutilizado raw local gastos_articulo.csv
+[2026-07-02 14:52:30] [SKIP   ] Hash coincide para clm/2021/gastos_articulo — saltando parseo
+[2026-07-02 14:52:30] [CACHE  ] Reutilizado raw local gastos_articulo.csv
+[2026-07-02 14:52:30] [SKIP   ] Hash coincide para clm/2020/gastos_articulo — saltando parseo
+[2026-07-02 14:52:30] [CACHE  ] Reutilizado raw local gastos_articulo.csv
+[2026-07-02 14:52:30] [SKIP   ] Hash coincide para clm/2019/gastos_articulo — saltando parseo
+[2026-07-02 14:52:30] [CACHE  ] Reutilizado raw local gastos_articulo.csv
+[2026-07-02 14:52:30] [SKIP   ] Hash coincide para clm/2018/gastos_articulo — saltando parseo
+[2026-07-02 14:52:30] [CACHE  ] Reutilizado raw local gastos_articulo.csv
+[2026-07-02 14:52:30] [SKIP   ] Hash coincide para clm/2017/gastos_articulo — saltando parseo
+[2026-07-02 14:52:30] [CACHE  ] Reutilizado raw local gastos_articulo.csv
+[2026-07-02 14:52:30] [SKIP   ] Hash coincide para clm/2016/gastos_articulo — saltando parseo
+[2026-07-02 14:52:30] [CACHE  ] Reutilizado raw local gastos_articulo.csv
+[2026-07-02 14:52:30] [SKIP   ] Hash coincide para clm/2015/gastos_articulo — saltando parseo
+[2026-07-02 14:52:30] [CACHE  ] Reutilizado raw local vol_p_eid.pdf
+[2026-07-02 14:52:30] [SKIP   ] Hash coincide para cat/2026/vol_p_eid — saltando parseo
+[2026-07-02 14:52:30] [CACHE  ] Reutilizado raw local vol_p_eid.pdf
+[2026-07-02 14:52:30] [SKIP   ] Hash coincide para cat/2024/vol_p_eid — saltando parseo
+[2026-07-02 14:52:30] [CACHE  ] Reutilizado raw local vol_p_eid.pdf
+[2026-07-02 14:52:30] [SKIP   ] Hash coincide para cat/2023/vol_p_eid — saltando parseo
+[2026-07-02 14:52:30] [CACHE  ] Reutilizado raw local vol_p_eid.pdf
+[2026-07-02 14:52:30] [SKIP   ] Hash coincide para cat/2022/vol_p_eid — saltando parseo
+[2026-07-02 14:52:30] [CACHE  ] Reutilizado raw local vol_p_eid.pdf
+[2026-07-02 14:52:30] [SKIP   ] Hash coincide para cat/2020/vol_p_eid — saltando parseo
+[2026-07-02 14:52:30] [CACHE  ] Reutilizado raw local vol_p_eid.pdf
+[2026-07-02 14:52:30] [SKIP   ] Hash coincide para cat/2016/vol_p_eid — saltando parseo
+[2026-07-02 14:52:30] [CACHE  ] Reutilizado raw local vol_p_eid.pdf
+[2026-07-02 14:52:30] [SKIP   ] Hash coincide para cat/2017/vol_p_eid — saltando parseo
+[2026-07-02 14:52:30] [CACHE  ] Reutilizado raw local vol_p_eid.pdf
+[2026-07-02 14:52:30] [SKIP   ] Hash coincide para cat/2019/vol_p_eid — saltando parseo
+[2026-07-02 14:52:30] [CACHE  ] Reutilizado raw local vol_p_eid.pdf
+[2026-07-02 14:52:30] [SKIP   ] Hash coincide para cat/2015/vol_p_eid — saltando parseo
+[2026-07-02 14:52:30] [CACHE  ] Reutilizado raw local ley_doe.pdf
+[2026-07-02 14:52:30] [SKIP   ] Hash coincide para ext/2026/ley_doe — saltando parseo
+[2026-07-02 14:52:30] [CACHE  ] Reutilizado raw local ley_doe.pdf
+[2026-07-02 14:52:30] [SKIP   ] Hash coincide para ext/2025/ley_doe — saltando parseo
+[2026-07-02 14:52:30] [CACHE  ] Reutilizado raw local ley_doe.pdf
+[2026-07-02 14:52:30] [SKIP   ] Hash coincide para ext/2024/ley_doe — saltando parseo
+[2026-07-02 14:52:30] [CACHE  ] Reutilizado raw local ley_doe.pdf
+[2026-07-02 14:52:30] [SKIP   ] Hash coincide para ext/2023/ley_doe — saltando parseo
+[2026-07-02 14:52:30] [CACHE  ] Reutilizado raw local ley_doe.pdf
+[2026-07-02 14:52:30] [SKIP   ] Hash coincide para ext/2022/ley_doe — saltando parseo
+[2026-07-02 14:52:30] [CACHE  ] Reutilizado raw local ley_doe.pdf
+[2026-07-02 14:52:30] [SKIP   ] Hash coincide para ext/2021/ley_doe — saltando parseo
+[2026-07-02 14:52:30] [CACHE  ] Reutilizado raw local ley_doe.pdf
+[2026-07-02 14:52:31] [SKIP   ] Hash coincide para ext/2020/ley_doe — saltando parseo
+[2026-07-02 14:52:31] [CACHE  ] Reutilizado raw local ley_doe.pdf
+[2026-07-02 14:52:31] [SKIP   ] Hash coincide para ext/2019/ley_doe — saltando parseo
+[2026-07-02 14:52:31] [CACHE  ] Reutilizado raw local ley_doe.pdf
+[2026-07-02 14:52:31] [SKIP   ] Hash coincide para ext/2018/ley_doe — saltando parseo
+[2026-07-02 14:52:31] [CACHE  ] Reutilizado raw local ley_doe.pdf
+[2026-07-02 14:52:31] [SKIP   ] Hash coincide para ext/2017/ley_doe — saltando parseo
+[2026-07-02 14:52:31] [CACHE  ] Reutilizado raw local ley_doe.pdf
+[2026-07-02 14:52:31] [SKIP   ] Hash coincide para ext/2016/ley_doe — saltando parseo
+[2026-07-02 14:52:31] [CACHE  ] Reutilizado raw local ley_doe.pdf
+[2026-07-02 14:52:31] [SKIP   ] Hash coincide para ext/2015/ley_doe — saltando parseo
+[2026-07-02 14:52:31] [CACHE  ] Reutilizado raw local gastos_orzamento.csv
+[2026-07-02 14:52:32] [OK     ] Parseo gal/2026/gastos_orzamento filas=47
+[2026-07-02 14:52:32] [CACHE  ] Reutilizado raw local gastos_orzamento.csv
+[2026-07-02 14:52:32] [SKIP   ] Hash coincide para gal/2025/gastos_orzamento — saltando parseo
+[2026-07-02 14:52:32] [CACHE  ] Reutilizado raw local gastos_orzamento.csv
+[2026-07-02 14:52:32] [SKIP   ] Hash coincide para gal/2024/gastos_orzamento — saltando parseo
+[2026-07-02 14:52:32] [CACHE  ] Reutilizado raw local gastos_orzamento.csv
+[2026-07-02 14:52:32] [OK     ] Parseo gal/2023/gastos_orzamento filas=42
+[2026-07-02 14:52:32] [CACHE  ] Reutilizado raw local gastos_orzamento.csv
+[2026-07-02 14:52:33] [OK     ] Parseo gal/2022/gastos_orzamento filas=41
+[2026-07-02 14:52:33] [CACHE  ] Reutilizado raw local progr.pdf
+[2026-07-02 14:52:33] [SKIP   ] Hash coincide para gal/2021/progr — saltando parseo
+[2026-07-02 14:52:33] [CACHE  ] Reutilizado raw local progr.pdf
+[2026-07-02 14:52:33] [SKIP   ] Hash coincide para gal/2020/progr — saltando parseo
+[2026-07-02 14:52:33] [CACHE  ] Reutilizado raw local progr.pdf
+[2026-07-02 14:52:33] [SKIP   ] Hash coincide para gal/2019/progr — saltando parseo
+[2026-07-02 14:52:33] [CACHE  ] Reutilizado raw local progr.pdf
+[2026-07-02 14:52:33] [SKIP   ] Hash coincide para gal/2018/progr — saltando parseo
+[2026-07-02 14:52:33] [CACHE  ] Reutilizado raw local progr.pdf
+[2026-07-02 14:52:33] [SKIP   ] Hash coincide para gal/2017/progr — saltando parseo
+[2026-07-02 14:52:33] [CACHE  ] Reutilizado raw local progr.pdf
+[2026-07-02 14:52:33] [SKIP   ] Hash coincide para gal/2016/progr — saltando parseo
+[2026-07-02 14:52:33] [CACHE  ] Reutilizado raw local progr.pdf
+[2026-07-02 14:52:33] [SKIP   ] Hash coincide para gal/2015/progr — saltando parseo
+[2026-07-02 14:52:33] [CACHE  ] Reutilizado raw local funcional_economico.pdf
+[2026-07-02 14:52:33] [SKIP   ] Hash coincide para lar/2026/funcional_economico — saltando parseo
+[2026-07-02 14:52:33] [CACHE  ] Reutilizado raw local funcional_economico.pdf
+[2026-07-02 14:52:33] [SKIP   ] Hash coincide para lar/2025/funcional_economico — saltando parseo
+[2026-07-02 14:52:33] [CACHE  ] Reutilizado raw local funcional_economico.pdf
+[2026-07-02 14:52:33] [SKIP   ] Hash coincide para lar/2024/funcional_economico — saltando parseo
+[2026-07-02 14:52:33] [CACHE  ] Reutilizado raw local funcional_economico.pdf
+[2026-07-02 14:52:33] [SKIP   ] Hash coincide para lar/2023/funcional_economico — saltando parseo
+[2026-07-02 14:52:33] [CACHE  ] Reutilizado raw local funcional_economico.pdf
+[2026-07-02 14:52:33] [SKIP   ] Hash coincide para lar/2022/funcional_economico — saltando parseo
+[2026-07-02 14:52:33] [CACHE  ] Reutilizado raw local funcional_economico.pdf
+[2026-07-02 14:52:33] [SKIP   ] Hash coincide para lar/2021/funcional_economico — saltando parseo
+[2026-07-02 14:52:33] [CACHE  ] Reutilizado raw local funcional_economico.pdf
+[2026-07-02 14:52:33] [SKIP   ] Hash coincide para lar/2020/funcional_economico — saltando parseo
+[2026-07-02 14:52:33] [CACHE  ] Reutilizado raw local funcional_economico.pdf
+[2026-07-02 14:52:33] [SKIP   ] Hash coincide para lar/2019/funcional_economico — saltando parseo
+[2026-07-02 14:52:33] [CACHE  ] Reutilizado raw local funcional_economico.pdf
+[2026-07-02 14:52:33] [SKIP   ] Hash coincide para lar/2018/funcional_economico — saltando parseo
+[2026-07-02 14:52:33] [CACHE  ] Reutilizado raw local funcional_economico.pdf
+[2026-07-02 14:52:33] [SKIP   ] Hash coincide para lar/2017/funcional_economico — saltando parseo
+[2026-07-02 14:52:33] [CACHE  ] Reutilizado raw local funcional_economico.pdf
+[2026-07-02 14:52:33] [SKIP   ] Hash coincide para lar/2016/funcional_economico — saltando parseo
+[2026-07-02 14:52:33] [CACHE  ] Reutilizado raw local funcional_economico.pdf
+[2026-07-02 14:52:33] [SKIP   ] Hash coincide para lar/2015/funcional_economico — saltando parseo
+[2026-07-02 14:52:33] [CACHE  ] Reutilizado raw local libro_03.pdf
+[2026-07-02 14:52:33] [SKIP   ] Hash coincide para mad/2026/libro_03 — saltando parseo
+[2026-07-02 14:52:33] [CACHE  ] Reutilizado raw local libro_03.pdf
+[2026-07-02 14:52:33] [SKIP   ] Hash coincide para mad/2025/libro_03 — saltando parseo
+[2026-07-02 14:52:33] [CACHE  ] Reutilizado raw local libro_03.pdf
+[2026-07-02 14:52:33] [SKIP   ] Hash coincide para mad/2024/libro_03 — saltando parseo
+[2026-07-02 14:52:33] [CACHE  ] Reutilizado raw local libro_03.pdf
+[2026-07-02 14:52:33] [SKIP   ] Hash coincide para mad/2023/libro_03 — saltando parseo
+[2026-07-02 14:52:33] [CACHE  ] Reutilizado raw local libro_03.pdf
+[2026-07-02 14:52:33] [SKIP   ] Hash coincide para mad/2022/libro_03 — saltando parseo
+[2026-07-02 14:52:33] [CACHE  ] Reutilizado raw local libro_03.pdf
+[2026-07-02 14:52:33] [SKIP   ] Hash coincide para mad/2021/libro_03 — saltando parseo
+[2026-07-02 14:52:33] [CACHE  ] Reutilizado raw local libro_03.pdf
+[2026-07-02 14:52:33] [SKIP   ] Hash coincide para mad/2020/libro_03 — saltando parseo
+[2026-07-02 14:52:33] [CACHE  ] Reutilizado raw local libro_03.pdf
+[2026-07-02 14:52:33] [SKIP   ] Hash coincide para mad/2019/libro_03 — saltando parseo
+[2026-07-02 14:52:33] [CACHE  ] Reutilizado raw local libro_03.pdf
+[2026-07-02 14:52:33] [SKIP   ] Hash coincide para mad/2018/libro_03 — saltando parseo
+[2026-07-02 14:52:33] [CACHE  ] Reutilizado raw local libro_03.pdf
+[2026-07-02 14:52:33] [SKIP   ] Hash coincide para mad/2017/libro_03 — saltando parseo
+[2026-07-02 14:52:33] [CACHE  ] Reutilizado raw local libro_03.pdf
+[2026-07-02 14:52:33] [SKIP   ] Hash coincide para mad/2016/libro_03 — saltando parseo
+[2026-07-02 14:52:33] [CACHE  ] Reutilizado raw local libro_03.pdf
+[2026-07-02 14:52:33] [SKIP   ] Hash coincide para mad/2015/libro_03 — saltando parseo
+[2026-07-02 14:52:33] [CACHE  ] Reutilizado raw local portal_movil.html
+[2026-07-02 14:52:33] [SKIP   ] Hash coincide para mur/2026/portal_movil — saltando parseo
+[2026-07-02 14:52:33] [CACHE  ] Reutilizado raw local portal_movil.html
+[2026-07-02 14:52:33] [SKIP   ] Hash coincide para mur/2025/portal_movil — saltando parseo
+[2026-07-02 14:52:33] [CACHE  ] Reutilizado raw local portal_movil.html
+[2026-07-02 14:52:33] [SKIP   ] Hash coincide para mur/2024/portal_movil — saltando parseo
+[2026-07-02 14:52:33] [CACHE  ] Reutilizado raw local portal_movil.html
+[2026-07-02 14:52:33] [SKIP   ] Hash coincide para mur/2023/portal_movil — saltando parseo
+[2026-07-02 14:52:33] [CACHE  ] Reutilizado raw local portal_movil.html
+[2026-07-02 14:52:33] [SKIP   ] Hash coincide para mur/2022/portal_movil — saltando parseo
+[2026-07-02 14:52:33] [CACHE  ] Reutilizado raw local portal_movil.html
+[2026-07-02 14:52:33] [SKIP   ] Hash coincide para mur/2021/portal_movil — saltando parseo
+[2026-07-02 14:52:33] [CACHE  ] Reutilizado raw local portal_movil.html
+[2026-07-02 14:52:33] [SKIP   ] Hash coincide para mur/2020/portal_movil — saltando parseo
+[2026-07-02 14:52:33] [CACHE  ] Reutilizado raw local portal_movil.html
+[2026-07-02 14:52:33] [SKIP   ] Hash coincide para mur/2019/portal_movil — saltando parseo
+[2026-07-02 14:52:33] [CACHE  ] Reutilizado raw local portal_movil.html
+[2026-07-02 14:52:33] [SKIP   ] Hash coincide para mur/2018/portal_movil — saltando parseo
+[2026-07-02 14:52:33] [CACHE  ] Reutilizado raw local portal_movil.html
+[2026-07-02 14:52:33] [SKIP   ] Hash coincide para mur/2017/portal_movil — saltando parseo
+[2026-07-02 14:52:33] [CACHE  ] Reutilizado raw local portal_movil.html
+[2026-07-02 14:52:33] [SKIP   ] Hash coincide para mur/2016/portal_movil — saltando parseo
+[2026-07-02 14:52:33] [CACHE  ] Reutilizado raw local ley_completa.pdf
+[2026-07-02 14:52:33] [SKIP   ] Hash coincide para mur/2015/ley_completa — saltando parseo
+[2026-07-02 14:52:33] [CACHE  ] Reutilizado raw local programa_csv.csv
+[2026-07-02 14:52:33] [SKIP   ] Hash coincide para nav/2026/programa_csv — saltando parseo
+[2026-07-02 14:52:33] [CACHE  ] Reutilizado raw local programa_csv.csv
+[2026-07-02 14:52:33] [SKIP   ] Hash coincide para nav/2025/programa_csv — saltando parseo
+[2026-07-02 14:52:33] [CACHE  ] Reutilizado raw local programa_csv.csv
+[2026-07-02 14:52:33] [SKIP   ] Hash coincide para nav/2024/programa_csv — saltando parseo
+[2026-07-02 14:52:33] [CACHE  ] Reutilizado raw local programa_csv.csv
+[2026-07-02 14:52:33] [SKIP   ] Hash coincide para nav/2023/programa_csv — saltando parseo
+[2026-07-02 14:52:33] [CACHE  ] Reutilizado raw local programa_csv.csv
+[2026-07-02 14:52:33] [SKIP   ] Hash coincide para nav/2022/programa_csv — saltando parseo
+[2026-07-02 14:52:33] [CACHE  ] Reutilizado raw local programa_csv.csv
+[2026-07-02 14:52:33] [SKIP   ] Hash coincide para nav/2021/programa_csv — saltando parseo
+[2026-07-02 14:52:33] [CACHE  ] Reutilizado raw local programa_csv.csv
+[2026-07-02 14:52:33] [SKIP   ] Hash coincide para nav/2020/programa_csv — saltando parseo
+[2026-07-02 14:52:33] [CACHE  ] Reutilizado raw local programa_csv.csv
+[2026-07-02 14:52:33] [SKIP   ] Hash coincide para nav/2019/programa_csv — saltando parseo
+[2026-07-02 14:52:33] [CACHE  ] Reutilizado raw local programa_csv.csv
+[2026-07-02 14:52:33] [SKIP   ] Hash coincide para nav/2018/programa_csv — saltando parseo
+[2026-07-02 14:52:33] [CACHE  ] Reutilizado raw local programa_csv.csv
+[2026-07-02 14:52:33] [SKIP   ] Hash coincide para nav/2017/programa_csv — saltando parseo
+[2026-07-02 14:52:33] [CACHE  ] Reutilizado raw local programa_csv.csv
+[2026-07-02 14:52:33] [SKIP   ] Hash coincide para nav/2016/programa_csv — saltando parseo
+[2026-07-02 14:52:33] [CACHE  ] Reutilizado raw local programa_csv.csv
+[2026-07-02 14:52:33] [SKIP   ] Hash coincide para nav/2015/programa_csv — saltando parseo
+[2026-07-02 14:52:33] [CACHE  ] Reutilizado raw local csv_tidy.csv
+[2026-07-02 14:52:33] [SKIP   ] Hash coincide para pvc/2025/csv_tidy — saltando parseo
+[2026-07-02 14:52:33] [CACHE  ] Reutilizado raw local csv_tidy.csv
+[2026-07-02 14:52:33] [SKIP   ] Hash coincide para pvc/2024/csv_tidy — saltando parseo
+[2026-07-02 14:52:33] [CACHE  ] Reutilizado raw local csv_tidy.csv
+[2026-07-02 14:52:33] [SKIP   ] Hash coincide para pvc/2022/csv_tidy — saltando parseo
+[2026-07-02 14:52:33] [CACHE  ] Reutilizado raw local csv_tidy.csv
+[2026-07-02 14:52:33] [SKIP   ] Hash coincide para pvc/2026/csv_tidy — saltando parseo
+[2026-07-02 14:52:33] [CACHE  ] Reutilizado raw local csv_tidy.csv
+[2026-07-02 14:52:33] [SKIP   ] Hash coincide para pvc/2023/csv_tidy — saltando parseo
+[2026-07-02 14:52:33] [CACHE  ] Reutilizado raw local GASTOSC.csv
+[2026-07-02 14:52:33] [SKIP   ] Hash coincide para pvc/2021/GASTOSC — saltando parseo
+[2026-07-02 14:52:33] [CACHE  ] Reutilizado raw local GASTOSC.csv
+[2026-07-02 14:52:33] [SKIP   ] Hash coincide para pvc/2020/GASTOSC — saltando parseo
+[2026-07-02 14:52:33] [CACHE  ] Reutilizado raw local GASTOSC.csv
+[2026-07-02 14:52:33] [SKIP   ] Hash coincide para pvc/2019/GASTOSC — saltando parseo
+[2026-07-02 14:52:33] [CACHE  ] Reutilizado raw local GASTOSC.csv
+[2026-07-02 14:52:33] [SKIP   ] Hash coincide para pvc/2018/GASTOSC — saltando parseo
+[2026-07-02 14:52:33] [CACHE  ] Reutilizado raw local GASTOSC.csv
+[2026-07-02 14:52:33] [SKIP   ] Hash coincide para pvc/2017/GASTOSC — saltando parseo
+[2026-07-02 14:52:33] [CACHE  ] Reutilizado raw local GASTOSC.csv
+[2026-07-02 14:52:33] [SKIP   ] Hash coincide para pvc/2016/GASTOSC — saltando parseo
+[2026-07-02 14:52:33] [CACHE  ] Reutilizado raw local GASTOSC.csv
+[2026-07-02 14:52:33] [SKIP   ] Hash coincide para pvc/2015/GASTOSC — saltando parseo
+[2026-07-02 14:52:33] [CACHE  ] Reutilizado raw local tomo_II.html
+[2026-07-02 14:52:33] [SKIP   ] Hash coincide para val/2026/tomo_II — saltando parseo
+[2026-07-02 14:52:33] [CACHE  ] Reutilizado raw local tomo_II.html
+[2026-07-02 14:52:33] [SKIP   ] Hash coincide para val/2025/tomo_II — saltando parseo
+[2026-07-02 14:52:34] [CACHE  ] Reutilizado raw local tomo_II.html
+[2026-07-02 14:52:34] [SKIP   ] Hash coincide para val/2024/tomo_II — saltando parseo
+[2026-07-02 14:52:34] [CACHE  ] Reutilizado raw local tomo_II.html
+[2026-07-02 14:52:34] [SKIP   ] Hash coincide para val/2023/tomo_II — saltando parseo
+[2026-07-02 14:52:34] [CACHE  ] Reutilizado raw local tomo_II.html
+[2026-07-02 14:52:34] [SKIP   ] Hash coincide para val/2022/tomo_II — saltando parseo
+[2026-07-02 14:52:34] [CACHE  ] Reutilizado raw local tomo_II.html
+[2026-07-02 14:52:34] [SKIP   ] Hash coincide para val/2021/tomo_II — saltando parseo
+[2026-07-02 14:52:34] [CACHE  ] Reutilizado raw local tomo_II.html
+[2026-07-02 14:52:34] [SKIP   ] Hash coincide para val/2020/tomo_II — saltando parseo
+[2026-07-02 14:52:34] [CACHE  ] Reutilizado raw local tomo_II.html
+[2026-07-02 14:52:34] [SKIP   ] Hash coincide para val/2019/tomo_II — saltando parseo
+[2026-07-02 14:52:34] [CACHE  ] Reutilizado raw local tomo_II.html
+[2026-07-02 14:52:34] [SKIP   ] Hash coincide para val/2018/tomo_II — saltando parseo
+[2026-07-02 14:52:34] [CACHE  ] Reutilizado raw local tomo_II.html
+[2026-07-02 14:52:34] [SKIP   ] Hash coincide para val/2017/tomo_II — saltando parseo
+[2026-07-02 14:52:34] [CACHE  ] Reutilizado raw local tomo_II.html
+[2026-07-02 14:52:34] [SKIP   ] Hash coincide para val/2016/tomo_II — saltando parseo
+[2026-07-02 14:52:34] [OK     ] Extracción terminada: 199 fuentes, 130 filas staging
+[2026-07-02 14:52:34] [STEP   ] Fin extraccion
+[2026-07-02 14:52:34] [STEP   ] Inicio transformacion
+[2026-07-02 14:52:34] [INFO   ] Iniciando transformación
+[2026-07-02 14:52:34] [WARN   ] Concepto Python vs R: 4 discrepancias en 1 CCAA-año
+[2026-07-02 14:52:34] [INFO   ] Transformación: asignadas=113, pendientes=17, agregadas=22
+[2026-07-02 14:52:34] [INFO   ] Chequeos de magnitud: sin alertas básicas
+[2026-07-02 14:52:34] [INFO   ] gasto_normalizado: filas=22 | ccaa=1 | periodo=2022-2026
+[2026-07-02 14:52:34] [WARN   ] gasto_normalizado: faltan CCAA en 2023: Andalucía, Aragón, Principado de Asturias, Islas Baleares, Canarias, Cantabria, Castilla y León, Castilla-La Mancha, Cataluña, Comunidad Valenciana, Extremadura, Comunidad de Madrid, Región de Murcia, Comunidad Foral de Navarra, País Vasco, La Rioja
+[2026-07-02 14:52:34] [WARN   ] gasto_normalizado: faltan CCAA en 2026: Andalucía, Aragón, Principado de Asturias, Islas Baleares, Canarias, Cantabria, Castilla y León, Castilla-La Mancha, Cataluña, Comunidad Valenciana, Extremadura, Comunidad de Madrid, Región de Murcia, Comunidad Foral de Navarra, País Vasco, La Rioja
+[2026-07-02 14:52:34] [STEP   ] Fin transformacion
+[2026-07-02 14:52:34] [STEP   ] Inicio modelado
+[2026-07-02 14:52:34] [INFO   ] Iniciando modelado
+[2026-07-02 14:52:34] [INFO   ] ced_presupuestos modelado: filas=3 | ccaa=1 | periodo=2022-2026
+[2026-07-02 14:52:34] [WARN   ] ced_presupuestos modelado: faltan CCAA en 2023: Andalucía, Aragón, Principado de Asturias, Islas Baleares, Canarias, Cantabria, Castilla y León, Castilla-La Mancha, Cataluña, Comunidad Valenciana, Extremadura, Comunidad de Madrid, Región de Murcia, Comunidad Foral de Navarra, País Vasco, La Rioja
+[2026-07-02 14:52:34] [WARN   ] ced_presupuestos modelado: faltan CCAA en 2026: Andalucía, Aragón, Principado de Asturias, Islas Baleares, Canarias, Cantabria, Castilla y León, Castilla-La Mancha, Cataluña, Comunidad Valenciana, Extremadura, Comunidad de Madrid, Región de Murcia, Comunidad Foral de Navarra, País Vasco, La Rioja
+[2026-07-02 14:52:34] [INFO   ] ced_presupuestos modelado: NA% por métrica -> imp_dependencia=0% | imp_direccion=0% | imp_diversidad=66.7% | imp_educacion=0% | imp_empleo=0% | imp_idi=66.7% | imp_sanidad=0% | imp_soberania=0% | imp_turismo=66.7% | imp_vivienda=66.7% | pib_dependencia=0% | pib_direccion=0% | pib_diversidad=66.7% | pib_educacion=0% | pib_empleo=0% | pib_idi=66.7% | pib_sanidad=0% | pib_soberania=0% | pib_turismo=66.7% | pib_vivienda=66.7% | pc_dependencia=66.7% | pc_direccion=66.7% | pc_diversidad=66.7% | pc_educacion=66.7% | pc_empleo=66.7% | pc_idi=100% | pc_sanidad=66.7% | pc_soberania=66.7% | pc_turismo=100% | pc_vivienda=66.7% | var_dependencia=33.3% | var_direccion=33.3% | var_diversidad=100% | var_educacion=33.3% | var_empleo=33.3% | var_idi=100% | var_sanidad=33.3% | var_soberania=33.3% | var_turismo=100% | var_vivienda=100%
+[2026-07-02 14:52:34] [INFO   ] Benford: muestra insuficiente (n=22)
+[2026-07-02 14:52:34] [STEP   ] Fin modelado
+[2026-07-02 14:52:34] [DONE   ] Pipeline completado en 0.09 minutos

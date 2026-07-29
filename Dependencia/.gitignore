@@ -1,0 +1,57 @@
+# =============================================================================
+# .gitignore — Pipeline Dependencia
+# =============================================================================
+
+# -- Credenciales: NUNCA commitear --------------------------------------------
+# .Renviron contiene la contraseña de Postgres y otros secretos.
+.Renviron
+.env
+.env.local
+*.key
+*.pem
+service-role*.json
+
+# -- macOS --------------------------------------------------------------------
+.DS_Store
+._*
+.Spotlight-V100
+.Trashes
+
+# -- R / RStudio --------------------------------------------------------------
+.Rhistory
+.RData
+.Ruserdata
+.Rapp.history
+.Rproj.user/
+*-Ex.R
+
+# -- Editores -----------------------------------------------------------------
+.vscode/
+.idea/
+*.swp
+*~
+
+# -- Logs ---------------------------------------------------------------------
+*.log
+logs/
+
+# -- Caches y temporales ------------------------------------------------------
+*.tmp
+*.bak
+.cache/
+
+# -- Archivos pesados de raws (descarga reproducible desde IMSERSO) -----------
+# Comentado: si quieres versionar los XLS originales, deja esta línea apagada.
+# Si prefieres no inflar el repo y confiar en re-descargar con extraccion.R,
+# activa la siguiente línea.
+# 1_extraccion/imserso_xls_multi/
+
+# -- Outputs binarios opcionales ----------------------------------------------
+# Los .rds intermedios SÍ se versionan por defecto: son la "fuente de verdad"
+# entre etapas y permiten reproducir resultados sin re-ejecutar todo. Si en
+# el futuro pesan demasiado, se pueden gitignorar etapa por etapa.
+
+# -- Otros --------------------------------------------------------------------
+*.zip
+~$*.docx
+~$*.xlsx

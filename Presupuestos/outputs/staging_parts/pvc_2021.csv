@@ -1,0 +1,113 @@
+ccaa_id3,anio,concepto,importe_eur,codigo,denominacion
+pvc,2021,,983213981.0,0111,Zor Publikoa
+pvc,2021,direccion,31500000.0,1111,Legebiltzarra
+pvc,2021,direccion,6036917.0,1112,Herri Kontuen Euskal Epaitegia
+pvc,2021,direccion,1817261.0,1113,Datuak Babesteko Euskal Bulegoa
+pvc,2021,direccion,10594039.0,1121,Lehendakaritza. Egitura eta Laguntza
+pvc,2021,direccion,3416552.0,1122,Gizarte Trantsizioa eta 2030 Agenda
+pvc,2021,direccion,1478664.0,1124,Euskadiko Ekonomia eta Gizarte Arazoet. Batzordea
+pvc,2021,direccion,1171464.0,1125,Euskadiko Aholku Batzorde Juridikoa
+pvc,2021,direccion,7750874.0,1211,Gobernantza Publikoa eta Aut. Egitura eta Laguntz
+pvc,2021,direccion,25627978.0,1212,Zerbitzu Orokorrak
+pvc,2021,direccion,16484385.0,1213,"F. Publikoa, Langileen Hautaketa eta Prestakuntza"
+pvc,2021,direccion,46443118.0,1214,Informatika eta Telekomunikazioak
+pvc,2021,direccion,8193502.0,1215,Berrikuntza eta Administrazio Elektronikoa
+pvc,2021,direccion,9251759.0,1216,Adm. Publikoko Langileen Hautaketa eta Prestak.
+pvc,2021,direccion,3096212.0,1217,Erakundeen Harremanak
+pvc,2021,direccion,3995722.0,1218,Araubide Juridikoa
+pvc,2021,direccion,398083.0,1219,EAEko Admin. Publik. datuak babesa
+pvc,2021,direccion,48366906.0,1221,Hainbat Sail
+pvc,2021,direccion,3780000.0,1222,Kreditu Orokorra
+pvc,2021,direccion,551856250.0,1229,COVID-19K eragindako krisiaren aurkako neurriak
+pvc,2021,direccion,9090839.0,1311,Kanpo Harremanak
+pvc,2021,direccion,49264291.0,1312,Garapen Lankidetza
+pvc,2021,,158110201.0,1411,Justizi Administrazioa
+pvc,2021,,41050713.0,1412,Justizia
+pvc,2021,,5231869.0,2211,Segurtasuna. Egitura eta Laguntza
+pvc,2021,,12749605.0,2221,Trafikoa
+pvc,2021,,655310809.0,2223,Ertzaintza Zerbitzuan
+pvc,2021,,23859748.0,2224,Polizia eta Larrialdietako Euskal Akademia
+pvc,2021,,4553164.0,2231,Larrialdiei aurre egitea
+pvc,2021,,62375217.0,3110,Lana eta Enplegua. Egitura eta Laguntza
+pvc,2021,,7214836.0,3111,"Berdintasun., Justizia, G P Egitura eta Laguntz"
+pvc,2021,,30589223.0,3112,Lana
+pvc,2021,,14864813.0,3113,Laneko Segurtasuna eta Osasunbidea
+pvc,2021,,938244788.0,3121,Gizarteratzea
+pvc,2021,diversidad,8114553.0,3122,Inmigrazioa
+pvc,2021,,65639624.0,3123,Gizarte Zerbitzuak
+pvc,2021,,77498784.0,3124,Familia eta Komunitate Politika
+pvc,2021,,2610061.0,3131,Gizarte Solaskidetzaren Garapena
+pvc,2021,empleo,566201855.0,3211,Enplegua
+pvc,2021,empleo,5928973.0,3212,Gizarte Ekonomia
+pvc,2021,empleo,1065284.0,3213,Euskadiko Kooperatiben Goren Kontseilua
+pvc,2021,igualdad,7003666.0,3221,Emakumeen Aukera Berdintasuna Sustatzea
+pvc,2021,,8808736.0,3222,Gazteria
+pvc,2021,igualdad,7360000.0,3223,Emakunde-Emakumearen Euskal Erakundea
+pvc,2021,empleo,251167150.0,3231,Prestakuntza
+pvc,2021,sanidad,19615257.0,4111,Osasuna. Egitura eta Laguntza
+pvc,2021,sanidad,3376723660.0,4112,Osasun Finantzaketa eta Kontratazioa
+pvc,2021,sanidad,48353140.0,4113,Osasun Publikoa
+pvc,2021,sanidad,13879593.0,4114,Osasun Ikerketa eta Plangintza
+pvc,2021,sanidad,530960838.0,4115,Farmazia
+pvc,2021,salud_mental,4879512.0,4116,Adikzioak
+pvc,2021,educacion,74466250.0,4211,Hezkuntza. Egitura eta Laguntza
+pvc,2021,educacion,1120391576.0,4221,Haur eta Lehen Hezkuntza
+pvc,2021,educacion,1094351054.0,4222,Bigarren Hezkuntza eta Lanbide Heziketa
+pvc,2021,educacion,345895223.0,4223,Unibertsitateko Irakaskuntza
+pvc,2021,educacion,56474510.0,4224,Araubide Bereziko Irakaskuntzak
+pvc,2021,educacion,49737837.0,4225,Hezkuntza Berritzea eta Irakasleak Etengabe Prest
+pvc,2021,educacion,33520119.0,4226,Etengabeko Ikaskuntza eta Helduen Hezkuntza
+pvc,2021,educacion,176544900.0,4231,Hezkuntza Sustapena
+pvc,2021,vivienda,6401003.0,4311,Lurra. Plang. Etxebiz. Garraioak. Egitura eta Lag
+pvc,2021,vivienda,159631261.0,4312,Etxebizitza
+pvc,2021,vivienda,7401973.0,4313,Lurralde Antolamendua
+pvc,2021,,35459274.0,4421,Ingurumenaren Babesa
+pvc,2021,,5881543.0,4431,Kontsumoa
+pvc,2021,,7078000.0,4432,Kontsumobide-Kontsumoko Euskal Institutua
+pvc,2021,,4483445.0,4511,Kultura/Hizk. Pol. Egitura eta Laguntza
+pvc,2021,,9786117.0,4512,Kirolak
+pvc,2021,,33025113.0,4513,Kulturaren Sustapena
+pvc,2021,,24596230.0,4514,Ondare Historiko Artistikoa
+pvc,2021,,148850000.0,4515,Gizarte Hedabideak
+pvc,2021,,5419229.0,4611,Hauteskundeak
+pvc,2021,,7420445.0,4621,Biktimak eta Giza Eskubideak
+pvc,2021,,4160151.0,4622,"Memoria, Bizikidetza eta Giza Eskubideen Instit."
+pvc,2021,,64929095.0,4711,Hizkuntza Politika
+pvc,2021,,10545051.0,4712,Administrazio Publikoaren Hizkuntza Normalkuntza
+pvc,2021,,50864000.0,4713,Helduen Alfabetatze eta Berreuskalduntzerako Erak
+pvc,2021,,11298241.0,4714,Euskalduntzea eta Hizkuntza Normalkuntza
+pvc,2021,,44278238.0,4715,Hezkuntza Sistemaren Euskalduntzea
+pvc,2021,,45000000.0,5121,Uraren Plangintza eta Administrazioa
+pvc,2021,,241456601.0,5131,Trenbideko garraioaren azpiegitura eta kudeaketa
+pvc,2021,,58683000.0,5135,EAE-KO Trenbide Sare Berria-Kudeaketa Kreditoak
+pvc,2021,,4500000.0,5136,Bilboko Hegoaldeko Tren Saihesbidea-Kudeaketa K.
+pvc,2021,,7126053.0,5141,Garraioaren plangintza
+pvc,2021,,23923098.0,5151,Portuak
+pvc,2021,idi,26141147.0,5411,Nekazaritza eta Arrantza Alorreko Iker. eta Garap
+pvc,2021,idi,69923364.0,5412,Ikerketa
+pvc,2021,idi,185009033.0,5413,Teknologia
+pvc,2021,idi,51666683.0,5414,Berrikuntzarako Funtsa
+pvc,2021,idi,35256282.0,5415,Eraldaketa Digitala eta Ekintzailetza Berritzaile
+pvc,2021,,14074110.0,5511,Estatistika
+pvc,2021,,3253923.0,5512,Meteorologia eta Klimatologia
+pvc,2021,,14809000.0,5513,Estatistikako Eragiketa eta Argitalpen Ofizialak
+pvc,2021,,6853278.0,6110,Ekonomia eta Ogasuna. Egitura eta Laguntza
+pvc,2021,,10188327.0,6111,Ekonomia eta Gastu Publikoa
+pvc,2021,,3175014.0,6112,Zerga-politika
+pvc,2021,,2171401.0,6113,Joko eta Ikuskizunak
+pvc,2021,,9359321.0,6114,Ondare eta Kontratazioa
+pvc,2021,,2899709.0,6115,Lehiaren Euskal Agintaritza
+pvc,2021,,10215065.0,6311,Finantza-Politika
+pvc,2021,soberania,83546686.0,7111,"Nekazaritza, eta Landaren eta Itsasertzaren gar."
+pvc,2021,soberania,30648842.0,7112,Arrantza
+pvc,2021,soberania,30227661.0,7113,Elikagaien Sustapena eta Kalitatea
+pvc,2021,,20882187.0,7211,"Ekonomiaren Garapena, Jas. In. Egitura eta Lagunt"
+pvc,2021,,63953921.0,7212,Industria Garapena
+pvc,2021,,1037443.0,7213,Industria Segurtasuna
+pvc,2021,,8380978.0,7214,Berrikuntza eta Lehiakortasun Estrategia
+pvc,2021,,11740448.0,7311,Energia eta Meatze Politika eta Garapena
+pvc,2021,turismo,3538819.0,7510,"Turismo, Merkataritza, Kon. Egitura eta Laguntza"
+pvc,2021,turismo,15291077.0,7511,Turismo eta Ostalaritza
+pvc,2021,,7354256.0,7612,Barne Merkataritza
+pvc,2021,,23779000.0,7613,Nazioartekotzea
+pvc,2021,,85909926.0,9119,"Bestelako Finantza-harr.,Euskal Alor Publikoareki"

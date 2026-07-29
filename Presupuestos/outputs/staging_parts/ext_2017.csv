@@ -1,0 +1,78 @@
+ccaa_id3,anio,concepto,importe_eur,codigo,denominacion
+ext,2017,direccion,13594000.0,111A,Actividad legislativa
+ext,2017,direccion,885666.0,111B,Actividad consultiva
+ext,2017,direccion,6302011.0,112A,Dirección y administración de Presidencia
+ext,2017,direccion,7634774.0,113A,113A
+ext,2017,direccion,4966262.0,113B,113B
+ext,2017,direccion,6156568.0,113C,Administración tributaria
+ext,2017,direccion,1497774.0,113D,Administración del patrimonio
+ext,2017,direccion,6365956.0,113E,Control interno y contabilidad pública
+ext,2017,direccion,5687746.0,114A,Dirección y organización de la Función Pública
+ext,2017,direccion,2151292.0,114B,Evaluación y calidad de los servicios
+ext,2017,direccion,2003855.0,114C,114C
+ext,2017,direccion,2824526.0,114D,114D
+ext,2017,direccion,27430145.0,115A,Relaciones institucionales e informativas
+ext,2017,direccion,44814633.0,115B,Relaciones con la administración local
+ext,2017,direccion,6949238.0,116A,Protección civil e interior
+ext,2017,direccion,315271660.0,121A,121A
+ext,2017,direccion,5000000.0,131B,Fondo de contingencia
+ext,2017,sanidad,48631669.0,211A,Dirección y administración de Sanidad
+ext,2017,sanidad,31493671.0,211B,"Formación, inspección y calidad sanitarias"
+ext,2017,sanidad,3801173.0,212A,Planificación y ordenación sanitarias
+ext,2017,sanidad,618324571.0,212B,Atención primaria de salud
+ext,2017,sanidad,829103590.0,212C,Atención especializada de salud
+ext,2017,sanidad,7711571.0,212D,Salud pública
+ext,2017,educacion,17085254.0,221A,Dirección y administración de Educación
+ext,2017,educacion,6932592.0,221B,Formación del profesorado de Educación
+ext,2017,educacion,360304569.0,222A,Educación infantil y primaria
+ext,2017,educacion,379577984.0,222B,Educación secundaria y formación profesional
+ext,2017,educacion,55831199.0,222C,222C
+ext,2017,educacion,103369310.0,222D,Enseñanzas universitarias
+ext,2017,educacion,17274157.0,222E,222E
+ext,2017,educacion,10790898.0,222F,Enseñanza agraria
+ext,2017,educacion,65461320.0,222G,222G
+ext,2017,dependencia,3582960.0,231A,Dirección y administración de Dependencia
+ext,2017,dependencia,306051480.0,232A,Atención a la dependencia
+ext,2017,empleo,13351074.0,241A,Dirección y administración de Empleo
+ext,2017,empleo,160816698.0,242A,Fomento y calidad en el empleo
+ext,2017,empleo,88251339.0,242B,Formación para el empleo
+ext,2017,diversidad,41566638.0,252A,Atención a la infancia y a las familias
+ext,2017,diversidad,76211096.0,252B,Inclusión social
+ext,2017,diversidad,13924463.0,252C,Cooperación al desarrollo y acción exterior
+ext,2017,igualdad,8440314.0,253A,Igualdad de oportunidades
+ext,2017,diversidad,6571071.0,253B,Promoción y servicios a la juventud
+ext,2017,diversidad,780114.0,253C,Acciones en materia de emigración
+ext,2017,vivienda,34756905.0,261A,261A
+ext,2017,vivienda,9392875.0,262A,262A
+ext,2017,diversidad,2895333.0,271A,Dirección y administración de Cultura
+ext,2017,diversidad,8545286.0,272A,Protección del patrimonio histórico-artístico
+ext,2017,diversidad,4999898.0,272B,Bibliotecas
+ext,2017,diversidad,6515558.0,272C,Museos y artes plásticas
+ext,2017,diversidad,8900566.0,273A,Promoción y cooperación cultural
+ext,2017,diversidad,7347495.0,273B,"Teatro, música y cine"
+ext,2017,diversidad,17236220.0,274A,274A
+ext,2017,soberania,27626876.0,311A,Dirección y administración de Agricultura
+ext,2017,soberania,35241657.0,312A,Sanidad vegetal y animal
+ext,2017,soberania,31071628.0,312B,312B
+ext,2017,soberania,599131794.0,313A,Regulación de producciones
+ext,2017,soberania,32159979.0,314A,Desarrollo del medio rural
+ext,2017,idi,16167917.0,321A,Dir. y admón. de Empresa e Innovación
+ext,2017,,5536951.0,322A,Ordenación industrial y desarrollo energético
+ext,2017,,36857733.0,323A,Desarrollo empresarial
+ext,2017,soberania,25115845.0,323C,Empresa agroalimentaria
+ext,2017,,4962244.0,324A,Consumo
+ext,2017,empleo,7151864.0,325A,Relaciones laborales y condiciones de trabajo
+ext,2017,idi,5689657.0,331A,Investigación y experimentación agraria
+ext,2017,idi,50954150.0,331B,331B
+ext,2017,direccion,1353860.0,331C,Estudios estadísticos y económicos
+ext,2017,idi,35634165.0,332A,332A
+ext,2017,,12745862.0,333A,Energía renovable y eficiencia energética
+ext,2017,,18063810.0,341A,Comercio de calidad y artesanía extremeña
+ext,2017,turismo,22428519.0,342A,Ordenación y promoción del turismo
+ext,2017,soberania,159146578.0,353A,Infraestructuras agrarias
+ext,2017,,51859467.0,353B,Infraestructuras de carreteras
+ext,2017,,35349101.0,353C,Ordenación e inspección del transporte
+ext,2017,,25298647.0,354A,Medio natural y calidad ambiental
+ext,2017,,39579016.0,354B,Protección y defensa contra los incendios
+ext,2017,,34991872.0,354C,354C
+ext,2017,,22140526.0,354D,Saneamiento y abastecimiento de aguas

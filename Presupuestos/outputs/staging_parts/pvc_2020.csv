@@ -1,0 +1,111 @@
+ccaa_id3,anio,concepto,importe_eur,codigo,denominacion
+pvc,2020,,929803492.0,0111,Zor Publikoa
+pvc,2020,direccion,31950000.0,1111,Legebiltzarra
+pvc,2020,direccion,7926315.0,1112,Herri Kontuen Euskal Epaitegia
+pvc,2020,direccion,1792069.0,1113,Datuak Babesteko Euskal Bulegoa
+pvc,2020,direccion,11449123.0,1121,Lehendakaritza. Egitura eta Laguntza
+pvc,2020,direccion,1458188.0,1124,Euskadiko Ekonomia eta Gizarte Arazoet. Batzordea
+pvc,2020,direccion,1153239.0,1125,Euskadiko Aholku Batzorde Juridikoa
+pvc,2020,direccion,11442695.0,1211,Gobernantza Publikoa eta Aut. Egitura eta Laguntz
+pvc,2020,direccion,25694313.0,1212,Zerbitzu Orokorrak
+pvc,2020,direccion,13744984.0,1213,"F. Publikoa, Langileen Hautaketa eta Prestakuntza"
+pvc,2020,direccion,31317231.0,1214,Informatika eta Telekomunikazioak
+pvc,2020,direccion,15656259.0,1215,Berrikuntza eta Administrazio Elektronikoa
+pvc,2020,direccion,9442437.0,1216,Adm. Publikoko Langileen Hautaketa eta Prestak.
+pvc,2020,direccion,3004739.0,1217,Erakundeen Harremanak
+pvc,2020,direccion,4031466.0,1218,Araubide Juridikoa
+pvc,2020,direccion,296582.0,1219,EAEko Admin. Publik. datuak babesa
+pvc,2020,direccion,49185443.0,1221,Hainbat Sail
+pvc,2020,direccion,300000.0,1222,Kreditu Orokorra
+pvc,2020,direccion,8879013.0,1311,Kanpo Harremanak
+pvc,2020,direccion,49234387.0,1312,Garapen Lankidetza
+pvc,2020,,148614411.0,1411,Justizi Administrazioa
+pvc,2020,,41107179.0,1412,Justizia
+pvc,2020,,5061191.0,2211,Segurtasuna. Egitura eta Laguntza
+pvc,2020,,12646398.0,2221,Trafikoa
+pvc,2020,,626871021.0,2223,Ertzaintza Zerbitzuan
+pvc,2020,,21312000.0,2224,Polizia eta Larrialdietako Euskal Akademia
+pvc,2020,,4532914.0,2231,Larrialdiei aurre egitea
+pvc,2020,,2934442.0,3110,Lana eta Justizia. Egitura eta Laguntza
+pvc,2020,,51233304.0,3111,Enplegua eta Gizarte Polit. Egitura eta Laguntza
+pvc,2020,,28675112.0,3112,Lana
+pvc,2020,,14582000.0,3113,Laneko Segurtasuna eta Osasunbidea
+pvc,2020,,949054484.0,3121,Gizarteratzea
+pvc,2020,diversidad,6713383.0,3122,Inmigrazioa
+pvc,2020,,36251621.0,3123,Gizarte Zerbitzuak
+pvc,2020,,86250737.0,3124,Familia eta Komunitate Politika
+pvc,2020,,2573980.0,3131,Gizarte Solaskidetzaren Garapena
+pvc,2020,empleo,564714846.0,3211,Enplegua
+pvc,2020,empleo,5709856.0,3212,Gizarte Ekonomia
+pvc,2020,empleo,1050517.0,3213,Euskadiko Kooperatiben Goren Kontseilua
+pvc,2020,igualdad,6923666.0,3221,Emakumeen Aukera Berdintasuna Sustatzea
+pvc,2020,,8788029.0,3222,Gazteria
+pvc,2020,igualdad,7326000.0,3223,Emakunde-Emakumearen Euskal Erakundea
+pvc,2020,empleo,234710596.0,3231,Prestakuntza
+pvc,2020,sanidad,18809564.0,4111,Osasuna. Egitura eta Laguntza
+pvc,2020,sanidad,3331446888.0,4112,Osasun Finantzaketa eta Kontratazioa
+pvc,2020,sanidad,46460807.0,4113,Osasun Publikoa
+pvc,2020,sanidad,11190302.0,4114,Osasun Ikerketa eta Plangintza
+pvc,2020,sanidad,530928274.0,4115,Farmazia
+pvc,2020,salud_mental,4855165.0,4116,Adikzioak
+pvc,2020,educacion,82939749.0,4211,Hezkuntza. Egitura eta Laguntza
+pvc,2020,educacion,1090827924.0,4221,Haur eta Lehen Hezkuntza
+pvc,2020,educacion,1054829860.0,4222,Bigarren Hezkuntza eta Lanbide Heziketa
+pvc,2020,educacion,334243048.0,4223,Unibertsitateko Irakaskuntza
+pvc,2020,educacion,57615251.0,4224,Araubide Bereziko Irakaskuntzak
+pvc,2020,educacion,50362749.0,4225,Hezkuntza Berritzea eta Irakasleak Etengabe Prest
+pvc,2020,educacion,37816940.0,4226,Etengabeko Ikaskuntza eta Helduen Hezkuntza
+pvc,2020,educacion,177058416.0,4231,Hezkuntza Sustapena
+pvc,2020,vivienda,155621677.0,4312,Etxebizitza
+pvc,2020,vivienda,8448954.0,4313,Lurralde Antolamendua
+pvc,2020,,6432371.0,4420,Ingurumena eta Lurralde Pol. Etx.Egitura eta Lag.
+pvc,2020,,30848218.0,4421,Ingurumenaren Babesa
+pvc,2020,,5750543.0,4431,Kontsumoa
+pvc,2020,,6927000.0,4432,Kontsumobide-Kontsumoko Euskal Institutua
+pvc,2020,,4227974.0,4511,Kultura/Hizk. Pol. Egitura eta Laguntza
+pvc,2020,,8990108.0,4512,Kirolak
+pvc,2020,,33259733.0,4513,Kulturaren Sustapena
+pvc,2020,,25900096.0,4514,Ondare Historiko Artistikoa
+pvc,2020,,143775000.0,4515,Gizarte Hedabideak
+pvc,2020,,16415028.0,4611,Hauteskundeak
+pvc,2020,,8516660.0,4621,Biktimak eta Giza Eskubideak
+pvc,2020,,4150151.0,4622,"Memoria, Bizikidetza eta Giza Eskubideen Instit."
+pvc,2020,,60699089.0,4711,Hizkuntza Politika
+pvc,2020,,10030056.0,4712,Administrazio Publikoaren Hizkuntza Normalkuntza
+pvc,2020,,46750000.0,4713,Helduen Alfabetatze eta Berreuskalduntzerako Erak
+pvc,2020,,10963563.0,4714,Euskalduntzea eta Hizkuntza Normalkuntza
+pvc,2020,,43579433.0,4715,Hezkuntza Sistemaren Euskalduntzea
+pvc,2020,,41040748.0,5121,Uraren Plangintza eta Administrazioa
+pvc,2020,,241827157.0,5131,Trenbideko garraioaren azpiegitura eta kudeaketa
+pvc,2020,,95297000.0,5135,EAE-KO Trenbide Sare Berria-Kudeaketa Kreditoak
+pvc,2020,,5190000.0,5136,Bilboko Hegoaldeko Tren Saihesbidea-Kudeaketa K.
+pvc,2020,,6040295.0,5141,Garraioaren plangintza
+pvc,2020,,22692357.0,5151,Portuak
+pvc,2020,idi,23103861.0,5411,Nekazaritza eta Arrantza Alorreko Iker. eta Garap
+pvc,2020,idi,66673630.0,5412,Ikerketa
+pvc,2020,idi,169367492.0,5413,Teknologia
+pvc,2020,idi,42861032.0,5414,Berrikuntzarako Funtsa
+pvc,2020,idi,26277948.0,5415,Berrikuntza Digitalaren Agenda
+pvc,2020,,13955173.0,5511,Estatistika
+pvc,2020,,3248038.0,5512,Meteorologia eta Klimatologia
+pvc,2020,,14689000.0,5513,Estatistikako Eragiketa eta Argitalpen Ofizialak
+pvc,2020,,7206983.0,6110,Ogasuna eta Ekonomia. Egitura eta Laguntza
+pvc,2020,,10022639.0,6111,Ekonomia eta Gastu Publikoa
+pvc,2020,,3396717.0,6112,Zerga-politika
+pvc,2020,,2119410.0,6113,Joko eta Ikuskizunak
+pvc,2020,,8662760.0,6114,Ondare eta Kontratazioa
+pvc,2020,,2848000.0,6115,Lehiaren Euskal Agintaritza
+pvc,2020,,10464728.0,6311,Finantza-Politika
+pvc,2020,soberania,83398855.0,7111,"Nekazaritza, eta Landaren eta Itsasertzaren gar."
+pvc,2020,soberania,21563826.0,7112,Arrantza
+pvc,2020,soberania,27694760.0,7113,Elikagaien Sustapena eta Kalitatea
+pvc,2020,,19590297.0,7211,Ekonomiaren Garapena eta Az. Egitura eta Laguntza
+pvc,2020,,188347698.0,7212,Industria Garapena eta Ekintzaileen Laguntza
+pvc,2020,,5907884.0,7213,Industria Segurtasuna
+pvc,2020,,8148519.0,7214,Berrikuntza eta Lehiakortasun Estrategia
+pvc,2020,,3462948.0,7311,Energia eta Meatze Politika eta Garapena
+pvc,2020,turismo,3499897.0,7510,"Turismo, Merkataritza, Kon. Egitura eta Laguntza"
+pvc,2020,turismo,16376200.0,7511,Turismo eta Ostalaritza
+pvc,2020,,18126360.0,7612,Barne Merkataritza
+pvc,2020,,23192539.0,7613,Nazioartekotzea
+pvc,2020,,96650996.0,9119,"Bestelako Finantza-harr.,Euskal Alor Publikoareki"

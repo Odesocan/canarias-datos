@@ -1,0 +1,110 @@
+15:37:11 | INFO     | ============================================================
+15:37:11 | INFO     | PIPELINE ETL: HISTORICO ALQUILER CCAA ESPAÑA
+15:37:11 | INFO     | Inicio: 2026-04-22T15:37:11.176682
+15:37:11 | INFO     | Etapa: all
+15:37:11 | INFO     | ============================================================
+15:37:11 | INFO     | ============================================================
+15:37:11 | INFO     | ETAPA 1: EXTRACCIÓN
+15:37:11 | INFO     | ============================================================
+15:37:11 | WARNING  | ProxyManager sin proxies configurados. Se usará IP directa (riesgo de bloqueo).
+15:37:11 | INFO     | Filtrado por: Madrid, Murcia, País Vasco → 3 comunidades
+15:37:11 | INFO     | Iniciando extracción de 3 comunidades | rotación cada 10 comunidades
+15:37:11 | INFO     | === Sesión 1/1 (3 comunidades) ===
+15:37:11 | INFO     | Navegador iniciado (nodriver) — viewport 1920x1080
+15:37:11 | INFO     | [1/3] Procesando: Madrid
+15:37:30 | INFO     | Google search: idealista precio alquiler comunidad de madrid informe
+15:37:34 | INFO     | Click en resultado de Idealista sala-de-prensa
+15:37:44 | INFO     | Banner de cookies Didomi aceptado
+15:37:45 | INFO     | Ya en página de histórico: https://www.idealista.com/sala-de-prensa/informes-precio-vivienda/alquiler/madrid-comunidad/historico/
+15:37:53 | INFO     | Tabla de histórico cargada correctamente
+15:38:02 | INFO     | Página obtenida: 231,791 chars
+15:38:02 | INFO     | Tabla parseada: 243 filas para Madrid
+15:38:06 | INFO     |   -> 243 registros extraídos de Madrid
+15:38:06 | INFO     | [2/3] Procesando: País Vasco
+15:38:06 | INFO     | Pausa entre comunidades: 6.4s [comunidad #1]
+15:38:31 | INFO     | Google search: idealista alquiler Euskadi report
+15:39:01 | WARNING  | Google no surface enlace CCAA, probando: https://www.idealista.com/sala-de-prensa/informes-precio-vivienda/alquiler/euskadi/historico/
+15:39:10 | INFO     | Ya en página de histórico: https://www.idealista.com/sala-de-prensa/informes-precio-vivienda/alquiler/euskadi/historico/
+15:39:20 | INFO     | Tabla de histórico cargada correctamente
+15:39:28 | INFO     | Página obtenida: 131,853 chars
+15:39:29 | INFO     | Tabla parseada: 243 filas para País Vasco
+15:39:33 | INFO     |   -> 243 registros extraídos de País Vasco
+15:39:33 | INFO     | [3/3] Procesando: Murcia
+15:39:33 | INFO     | Pausa entre comunidades: 5.9s [comunidad #2]
+15:39:57 | INFO     | Google search: idealista precio alquiler Región de Murcia informe
+15:40:27 | WARNING  | Google no surface enlace CCAA, probando: https://www.idealista.com/sala-de-prensa/informes-precio-vivienda/alquiler/murcia-region/historico/
+15:40:37 | INFO     | Ya en página de histórico: https://www.idealista.com/sala-de-prensa/informes-precio-vivienda/alquiler/murcia-region/historico/
+15:40:47 | INFO     | Tabla de histórico cargada correctamente
+15:40:54 | INFO     | Página obtenida: 134,991 chars
+15:40:54 | INFO     | Tabla parseada: 243 filas para Murcia
+15:40:58 | INFO     |   -> 243 registros extraídos de Murcia
+15:40:58 | INFO     | Navegador cerrado.
+15:40:58 | INFO     | Dataset consolidado guardado: /Users/cristiancpv/Desktop/TRABAJO/OBSERVATORIO/CANARIAS EN DATOS/Vivienda/fuentes/scrapings/alquiler_historico_ccaa/data/raw/consolidado_20260422_154058.json
+15:40:58 | INFO     | Extracción completada: 729 registros totales | 3 comunidades con datos | 0 sin datos | 0 fallidas
+15:40:58 | INFO     | ============================================================
+15:40:58 | INFO     | ETAPA 2: TRANSFORMACIÓN
+15:40:58 | INFO     | ============================================================
+15:40:58 | INFO     | Limpiando 729 registros crudos
+15:40:58 | INFO     | Limpieza completada: 729 registros válidos (de 729 crudos, 0 descartados)
+15:40:58 | INFO     | Validación: 729 registros | 3 comunidades | status=warning
+15:40:58 | INFO     | Informe de calidad: /Users/cristiancpv/Desktop/TRABAJO/OBSERVATORIO/CANARIAS EN DATOS/Vivienda/fuentes/scrapings/alquiler_historico_ccaa/data/processed/quality_report_20260422_154058.json
+15:40:58 | INFO     | ============================================================
+15:40:58 | INFO     | ETAPA 3: CARGA
+15:40:58 | INFO     | ============================================================
+15:40:58 | INFO     | CSV exportado: /Users/cristiancpv/Desktop/TRABAJO/OBSERVATORIO/CANARIAS EN DATOS/Vivienda/fuentes/scrapings/alquiler_historico_ccaa/data/exports/alquiler_historico_ccaa_20260422_154058.csv (729 filas)
+15:40:58 | INFO     | Copia procesada: /Users/cristiancpv/Desktop/TRABAJO/OBSERVATORIO/CANARIAS EN DATOS/Vivienda/fuentes/scrapings/alquiler_historico_ccaa/data/processed/alquiler_historico_ccaa_20260422_154058.csv
+15:40:58 | INFO     |   completo: /Users/cristiancpv/Desktop/TRABAJO/OBSERVATORIO/CANARIAS EN DATOS/Vivienda/fuentes/scrapings/alquiler_historico_ccaa/data/exports/alquiler_historico_ccaa_20260422_154058.csv
+15:40:58 | INFO     |   processed: /Users/cristiancpv/Desktop/TRABAJO/OBSERVATORIO/CANARIAS EN DATOS/Vivienda/fuentes/scrapings/alquiler_historico_ccaa/data/processed/alquiler_historico_ccaa_20260422_154058.csv
+15:40:58 | INFO     | Para crear la tabla, ejecutar el siguiente SQL en el SQL Editor de Supabase Dashboard:
+15:40:58 | INFO     | 
+CREATE TABLE IF NOT EXISTS alquiler_historico_ccaa (
+    id                      BIGSERIAL PRIMARY KEY,
+    comunidad               TEXT NOT NULL,
+    codigo_ccaa             CHAR(2),
+    mes                     SMALLINT NOT NULL,
+    periodo                 SMALLINT NOT NULL,
+    mes_nombre              TEXT,
+    precio_m2               NUMERIC(8, 2),
+    variacion_mensual       NUMERIC(6, 2),
+    variacion_trimestral    NUMERIC(6, 2),
+    variacion_anual         NUMERIC(6, 2),
+    fecha_extraccion        TIMESTAMPTZ DEFAULT NOW(),
+    created_at              TIMESTAMPTZ DEFAULT NOW(),
+    updated_at              TIMESTAMPTZ DEFAULT NOW(),
+
+    UNIQUE(comunidad, mes, periodo)
+);
+
+-- Índices para consultas frecuentes
+CREATE INDEX IF NOT EXISTS idx_hist_ccaa_comunidad ON alquiler_historico_ccaa (comunidad);
+CREATE INDEX IF NOT EXISTS idx_hist_ccaa_periodo   ON alquiler_historico_ccaa (periodo);
+CREATE INDEX IF NOT EXISTS idx_hist_ccaa_combined  ON alquiler_historico_ccaa (comunidad, periodo);
+CREATE INDEX IF NOT EXISTS idx_hist_ccaa_codigo    ON alquiler_historico_ccaa (codigo_ccaa);
+
+COMMENT ON TABLE alquiler_historico_ccaa IS
+    'Evolución histórica del precio de alquiler por m² en las comunidades
+     autónomas de España (17 CCAA + Ceuta + Melilla).
+     Fuente: Idealista sala de prensa. Datos mensuales con variaciones.';
+
+Loop <_UnixSelectorEventLoop running=False closed=True debug=False> that handles pid 33097 is closed
+15:40:59 | INFO     | Conectado a Supabase: https://kdpsjutsgvghdtzoskkg.supabase.co...
+15:40:59 | INFO     | Cargando 729 registros a Supabase (alquiler_historico_ccaa)
+15:41:00 | INFO     | Carga completada: 729/729 registros (100.0% éxito)
+15:41:00 | INFO     | Carga Supabase: {'total': 729, 'cargados': 729, 'errores': 0, 'tasa_exito': 100.0}
+15:41:00 | INFO     | Pipeline completado en 0:03:48.910004
+successfully removed temp profile /var/folders/8p/dhxngyy16_q03bsbkhdh285c0000gn/T/uc_w6hsc27z
+Exception ignored in: <function BaseSubprocessTransport.__del__ at 0x109d50400>
+Traceback (most recent call last):
+  File "/Users/cristiancpv/.pyenv/versions/3.12.3/lib/python3.12/asyncio/base_subprocess.py", line 126, in __del__
+    self.close()
+  File "/Users/cristiancpv/.pyenv/versions/3.12.3/lib/python3.12/asyncio/base_subprocess.py", line 104, in close
+    proto.pipe.close()
+  File "/Users/cristiancpv/.pyenv/versions/3.12.3/lib/python3.12/asyncio/unix_events.py", line 767, in close
+    self.write_eof()
+  File "/Users/cristiancpv/.pyenv/versions/3.12.3/lib/python3.12/asyncio/unix_events.py", line 753, in write_eof
+    self._loop.call_soon(self._call_connection_lost, None)
+  File "/Users/cristiancpv/.pyenv/versions/3.12.3/lib/python3.12/asyncio/base_events.py", line 795, in call_soon
+    self._check_closed()
+  File "/Users/cristiancpv/.pyenv/versions/3.12.3/lib/python3.12/asyncio/base_events.py", line 541, in _check_closed
+    raise RuntimeError('Event loop is closed')
+RuntimeError: Event loop is closed

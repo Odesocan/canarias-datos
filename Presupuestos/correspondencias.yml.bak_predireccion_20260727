@@ -1,0 +1,971 @@
+# Tabla de correspondencias presupuestarias por CCAA
+# ODESOCAN — Canarias en Datos · Línea Presupuestos
+# Última revisión: 2026-05-11 (volcado completo del Word)
+#
+conceptos:
+  total:
+    nombre: Total gasto (capa Hacienda)
+    procedencia: funcion
+  sanidad:
+    nombre: Sanidad
+    procedencia: funcion
+  educacion:
+    nombre: Educación
+    procedencia: funcion
+  soberania:
+    nombre: Soberanía alimentaria
+    procedencia: funcion
+  direccion:
+    nombre: Dirección política
+    procedencia: funcion
+  vivienda:
+    nombre: Vivienda
+    procedencia: funcion
+  empleo:
+    nombre: Empleo
+    procedencia: funcion
+  idi:
+    nombre: I+D+i
+    procedencia: funcion
+  dependencia:
+    nombre: Dependencia
+    procedencia: seccion
+  discapacidad:
+    nombre: Discapacidad
+    procedencia: seccion
+  salud_mental:
+    nombre: Salud mental
+    procedencia: programa
+  diversidad:
+    nombre: Diversidad
+    procedencia: programa
+  turismo:
+    nombre: Turismo
+    procedencia: programa
+  igualdad:
+    nombre: Igualdad
+    procedencia: ente
+patrones:
+  sanidad:
+    codigos:
+    - '311'
+    - '312'
+    - '411'
+    - '412'
+    - '510'
+    keywords:
+    - sanidad
+    - salud publica
+    - servicio canario salud
+    - servicio andaluz salud
+    - atencion primaria
+    - atencion especializada
+    - sanitaria
+    - osasun
+  educacion:
+    codigos:
+    - '321'
+    - '322'
+    - '421'
+    - '422'
+    - '423'
+    keywords:
+    - educacion
+    - ensenanza
+    - ensenyament
+    - hezkuntza
+  soberania:
+    codigos:
+    - '412'
+    - '531'
+    - '710'
+    - '711'
+    - '712'
+    keywords:
+    - agricultura
+    - ganaderia
+    - pesca
+    - alimentacion
+    - nekazaritza
+    - soberania alimentaria
+  direccion:
+    codigos:
+    - '010'
+    - '111'
+    - '112'
+    - '911'
+    - '912'
+    - '921'
+    keywords:
+    - presidencia
+    - alta direccion
+    - parlamento
+    - cortes
+    - gobierno
+  vivienda:
+    codigos:
+    - '261'
+    - '431'
+    - '451'
+    keywords:
+    - vivienda
+    - habitatge
+    - etxebizitza
+  empleo:
+    codigos:
+    - '241'
+    - '322'
+    - '230'
+    keywords:
+    - empleo
+    - ocupacio
+    - enplegua
+    - fomento del empleo
+  idi:
+    codigos:
+    - '463'
+    - '467'
+    - '542'
+    - '561'
+    - '720'
+    keywords:
+    - investigacion
+    - innovacion
+    - i d i
+    - desarrollo tecnologico
+  dependencia:
+    codigos:
+    - 231D
+    - 232D
+    - 232G
+    - 313D
+    - 252D
+    keywords:
+    - dependencia
+    - mendekotasun
+    - atencion a la dependencia
+  discapacidad:
+    codigos:
+    - 231C
+    - 232C
+    - 313C
+    - 313G
+    - '314'
+    keywords:
+    - discapacidad
+    - diversidad funcional
+    - discapacitat
+  salud_mental:
+    codigos:
+    - 313A
+    - 313E
+    - '414'
+    - '514'
+    - 312D
+    - 412I
+    keywords:
+    - salud mental
+    - salut mental
+    - buru osasun
+  diversidad:
+    codigos:
+    - 232B
+    - '234'
+    - 313B
+    - '266'
+    keywords:
+    - lgtbi
+    - lgbti
+    - migracion
+    - interculturalidad
+    - gitano
+  turismo:
+    codigos:
+    - '432'
+    - 432A
+    - '751'
+    - '761'
+    - '730'
+    keywords:
+    - turismo
+    - turisme
+    - turismoa
+  igualdad:
+    codigos:
+    - '232'
+    - '323'
+    - '920'
+    keywords:
+    - igualdad
+    - mujer
+    - violencia de genero
+    - berdintasun
+    - emakume
+    - instituto de la mujer
+ccaa:
+  Andalucía:
+    sanidad:
+      codigos:
+      - 41A
+      - 41B
+      - 41C
+      - 41D
+      - '41'
+      keywords:
+      - sanidad
+      - sanitaria
+    educacion:
+      codigos:
+      - 42A
+      - 42B
+      - 42C
+      - 42D
+      - 42E
+      - 42F
+      - 42G
+      - 42H
+      - 42I
+      - 42J
+      - '42'
+    vivienda:
+      codigos:
+      - '43'
+      - 43A
+      keywords:
+      - vivienda
+    idi:
+      codigos:
+      - '54'
+      - 54A
+      - 54C
+    dependencia:
+      codigos:
+      - 31R
+      keywords:
+      - dependencia
+    discapacidad:
+      codigos:
+      - 31E
+      keywords:
+      - discapacidad
+    salud_mental:
+      codigos:
+      - 41M
+      keywords:
+      - salud mental
+    turismo:
+      codigos:
+      - '75'
+      - 75A
+      keywords:
+      - turismo
+    igualdad:
+      codigos:
+      - 32G
+      keywords:
+      - igualdad
+      - mujer
+  Aragón:
+    sanidad:
+      codigos:
+      - '4131'
+      - '41'
+      keywords:
+      - sanidad
+      - salud publica
+    educacion:
+      codigos:
+      - '4221'
+      - '4225'
+      - '42'
+    vivienda:
+      codigos:
+      - '43'
+      keywords:
+      - vivienda
+    idi:
+      codigos:
+      - '5421'
+      - '5422'
+      - '54'
+    dependencia:
+      keywords:
+      - dependencia
+    discapacidad:
+      keywords:
+      - discapacidad
+    salud_mental:
+      codigos:
+      - '4133'
+      keywords:
+      - salud mental
+    turismo:
+      keywords:
+      - turismo
+    igualdad:
+      keywords:
+      - igualdad
+      - mujer
+  Principado de Asturias:
+    sanidad:
+      codigos:
+      - 412A
+      - 412B
+      - 412C
+      - '41'
+      keywords:
+      - sanidad
+      - salud publica
+    educacion:
+      codigos:
+      - 421A
+      - 422C
+      - '42'
+    vivienda:
+      codigos:
+      - '43'
+      - 431A
+      keywords:
+      - vivienda
+    idi:
+      codigos:
+      - '54'
+      - 542A
+    # 2026-07-24 · Rework del bloque 313x (servicios sociales, Consejería de
+    # Bienestar). Asturias NO desglosa dependencia/discapacidad/salud_mental como
+    # programas propios: viven agregados en los programas 313x de servicios
+    # sociales. El Cuaderno Metodológico define la procedencia de `dependencia`
+    # como "Sección/DG dentro de SS ... SS general en otras CCAA" (Asturias no
+    # tiene DG dedicada tipo SEPAD) → el envoltorio de SS general se asigna a
+    # DEPENDENCIA (concepto dominante y procedencia metodológica).
+    # Antes del fix: el envoltorio caía en salud_mental (313A/313E ≈ 416 M€
+    # falsos, por el patrón GLOBAL 313A/313E que codifica el 313A de Madrid) y en
+    # discapacidad (313F ATENCIÓN A LA INFANCIA ≈ 51 M€ falsos), mientras
+    # dependencia solo recogía 313G/313D (~0,8 → 70 M€, salto espurio en 2024 al
+    # aparecer la línea 313G). Ver logs/progreso.md 2026-07-24 y limitaciones-ast.md.
+    dependencia:
+      # Envoltorio de servicios sociales generales:
+      #  313A PRESTACIONES Y PROGRAMAS CONCERTADOS (plazas residenciales/de día
+      #       concertadas, prestaciones económicas de dependencia)
+      #  313E GESTIÓN DE SERVICIOS SOCIALES (residencias públicas, SAD,
+      #       teleasistencia, valoración de la dependencia)
+      #  313G AYUDAS DIVERSAS CON FINES SOCIALES (línea nueva desde 2024)
+      #  313D PENSIONES NO CONTRIBUTIVAS
+      codigos:
+      - 313A
+      - 313E
+      - 313G
+      - 313D
+      keywords:
+      - dependencia
+      - atencion a la dependencia
+    # discapacidad y salud_mental: NULL ESTRUCTURAL por diseño. No son separables
+    # del envoltorio 313x (comparten DG con dependencia — Cuaderno: "Misma DG que
+    # dependencia en muchas CCAA"; Asturias no tiene programa propio de salud
+    # mental). Se retiran las asignaciones erróneas previas (313F infancia→
+    # discapacidad, 312A inexistente→salud_mental). Residual conocido: 313C
+    # COOPERACIÓN AL DESARROLLO (~6,7 M€/año) sigue cayendo en discapacidad vía el
+    # patrón GLOBAL 313C (compartido con Galicia); no se anula aquí para no
+    # alterar gal. Igual patrón residual: 313B EMIGRACIÓN→diversidad (global).
+    turismo:
+      codigos:
+      - 432A
+      keywords:
+      - turismo
+    igualdad:
+      codigos:
+      - 323A
+      keywords:
+      - igualdad
+  Islas Baleares:
+    sanidad:
+      codigos:
+      - 411A
+      - 411B
+      - 411C
+      - 411D
+      - '41'
+      keywords:
+      - sanidad
+      - salud publica
+    educacion:
+      codigos:
+      - 421A
+      - 422B
+      - '42'
+    vivienda:
+      codigos:
+      - '43'
+      - 431A
+    idi:
+      codigos:
+      - '54'
+      - 467A
+    dependencia:
+      codigos:
+      - 313D
+    discapacidad:
+      codigos:
+      - 313F
+    salud_mental:
+      codigos:
+      - 412I
+    turismo:
+      codigos:
+      - 432A
+    igualdad:
+      codigos:
+      - 323A
+  Canarias:
+    sanidad:
+      codigos:
+      - 312A
+      - 312B
+      - 312C
+      keywords:
+      - salud publica
+      - sanitaria
+    educacion:
+      codigos:
+      - 321A
+      - 323A
+    vivienda:
+      codigos:
+      - 261A
+      keywords:
+      - vivienda
+    idi:
+      codigos:
+      - 463A
+      - 467A
+    dependencia:
+      codigos:
+      - 231H
+      keywords:
+      - dependencia
+    discapacidad:
+      codigos:
+      - 231G
+      keywords:
+      - discapacidad
+    salud_mental:
+      codigos:
+      - 312D
+      keywords:
+      - salud mental
+    turismo:
+      codigos:
+      - 432B
+    igualdad:
+      codigos:
+      - 232B
+      keywords:
+      - igualdad
+  Cantabria:
+    sanidad:
+      codigos:
+      - 312A
+      - 312B
+      - 312C
+      keywords:
+      - salud publica
+    educacion:
+      codigos:
+      - 321A
+      - 322C
+    vivienda:
+      codigos:
+      - 261A
+      keywords:
+      - vivienda
+    idi:
+      codigos:
+      - 463A
+    dependencia:
+      codigos:
+      - 231D
+      keywords:
+      - dependencia
+    discapacidad:
+      codigos:
+      - 231F
+      keywords:
+      - discapacidad
+    salud_mental:
+      codigos:
+      - 312B
+      keywords:
+      - salud mental
+    turismo:
+      codigos:
+      - 432A
+    igualdad:
+      codigos:
+      - 232B
+      keywords:
+      - igualdad
+      - mujer
+  Castilla y León:
+    sanidad:
+      codigos:
+      - 312A
+      - 312B
+      - 312C
+      keywords:
+      - salud publica
+    educacion:
+      codigos:
+      - 322A
+      - 322B
+      - 322C
+      - 322D
+      - 322E
+      - 322F
+    vivienda:
+      codigos:
+      - 261A
+      keywords:
+      - vivienda
+    idi:
+      codigos:
+      - 463A
+      - 467A
+    dependencia:
+      keywords:
+      - dependencia
+    discapacidad:
+      keywords:
+      - discapacidad
+    salud_mental:
+      codigos:
+      - 312A
+      keywords:
+      - salud mental
+    turismo:
+      codigos:
+      - 432A
+    igualdad:
+      codigos:
+      - 232A
+      keywords:
+      - igualdad
+      - mujer
+  Castilla-La Mancha:
+    sanidad:
+      codigos:
+      - 312A
+      - 312B
+      - 312C
+      keywords:
+      - salud publica
+    educacion:
+      codigos:
+      - 321A
+      - 322C
+    vivienda:
+      codigos:
+      - 261A
+      - 432A
+      keywords:
+      - vivienda
+    idi:
+      codigos:
+      - 463A
+    dependencia:
+      codigos:
+      - 313B
+    discapacidad:
+      codigos:
+      - 313C
+      keywords:
+      - discapacidad
+    salud_mental:
+      codigos:
+      - 312B
+      keywords:
+      - salud mental
+    turismo:
+      keywords:
+      - turismo
+    igualdad:
+      codigos:
+      - 323A
+      keywords:
+      - igualdad
+  Cataluña:
+    sanidad:
+      codigos:
+      - '411'
+      - '414'
+      - '31'
+    educacion:
+      codigos:
+      - '421'
+      - '426'
+      - '42'
+    vivienda:
+      codigos:
+      - '51'
+      - '431'
+    idi:
+      codigos:
+      - '561'
+      - '562'
+      - '56'
+    dependencia:
+      codigos:
+      - '313'
+    discapacidad:
+      codigos:
+      - '314'
+    salud_mental:
+      codigos:
+      - '414'
+    turismo:
+      codigos:
+      - '751'
+    igualdad:
+      codigos:
+      - '232'
+      - '233'
+  Extremadura:
+    # Reescrito 2026-06-30 contra el catálogo real de programas (Ley DOE). El
+    # anterior era genérico y mal (313A agricultura iba a salud_mental, turismo=432A
+    # cuando ext usa 342A, sanidad sin 211x, salud_mental=212A=sanidad). Códigos =
+    # match por prefijo con frontera de dígito (R) o 4-char exacto. Ext NO tiene
+    # programa de salud_mental ni de discapacidad propios → quedan NULL (estructural).
+    sanidad:
+      codigos: ['211', '212']
+      keywords: [sanidad, sanitaria, salud publica, atencion primaria]
+    educacion:
+      codigos: ['221', '222']
+      keywords: [educacion, ensenanza, universitarias, profesorado]
+    dependencia:
+      codigos: ['231', '232']
+      keywords: [dependencia, atencion a la dependencia]
+    empleo:
+      codigos: ['241', '242', 325A]
+      keywords: [empleo, relaciones laborales]
+    igualdad:
+      codigos: [253A, 253D]
+      keywords: [igualdad de genero, violencia, mujer]
+    vivienda:
+      codigos: ['261', '262']
+      keywords: [vivienda, urbanismo]
+    soberania:
+      codigos: ['311', '312', '313', 314A, 323C, 353A]
+      keywords: [agricultura, agraria, producciones, medio rural, agroalimentaria]
+    idi:
+      codigos: [331A, 331B, 332A]
+      keywords: [investigacion, innovacion, desarrollo tecnologico]
+    turismo:
+      codigos: ['342']
+      keywords: [turismo]
+    diversidad:
+      codigos: [252C, 253B, 253C, '271', '272', '273', '274']
+      keywords: [cultura, patrimonio, juventud, deporte, emigracion, cooperacion]
+    direccion:
+      codigos: ['111', '112', '113', '114', '115', '116', '121', '131', 331C, 800X]
+      keywords: [presidencia, hacienda, funcion publica, endeudamiento]
+  Galicia:
+    # Reescrito 2026-06-30. En Galicia sanidad=grupo 41x y servizos sociais=31x
+    # (al revés que el genérico). Códigos = match por prefijo con frontera de dígito
+    # (sirven a los años PROGR, programa-nivel); keywords = nombres de consellería
+    # (sirven a los años CSV de datos abertos). El ORDEN de conceptos fija la
+    # precedencia de keyword en los años CSV: educacion y dependencia van antes que
+    # diversidad para no perderlas (consellerías "CULTURA, EDUCA. E UNIV." y
+    # "POLÍTICA SOCIAL E XUVENTUDE"). Ver logs/progreso.md 2026-06-30.
+    sanidad:
+      codigos: ['411', '412', '413', '414', 561C]
+      keywords: [sanidad, sanidade, sanitaria]
+    educacion:
+      codigos: ['421', '422', '423', 561B]
+      keywords: [educa, ensino, ensinanza, universidade]
+    dependencia:
+      codigos: [312D, 312E]
+      keywords: [dependencia, atencion a la dependencia, persoas dependentes, politica social, benestar]
+    empleo:
+      codigos: ['321', '322', '323', '324']
+      keywords: [emprego]
+    igualdad:
+      codigos: [313B, 313D]
+      keywords: [igualdade, muller, violencia de xenero]
+    soberania:
+      codigos: ['711', '712', '713', '721', '722', '723', '551', '514']
+      keywords: [medio rural, rural, pesqueir, agrar, ' mar']
+    vivienda:
+      codigos: ['451', '521']
+      keywords: [vivenda, urbanismo]
+    turismo:
+      codigos: ['761']
+      keywords: [turismo]
+    idi:
+      codigos: [561A, '571']
+    direccion:
+      codigos: ['111', '121', '122', '123', '124', '131', '141', '161', '212',
+                '581', '611', '612', '621', '811', '911']
+      keywords: [presidencia, facenda, debeda, xustiza, administracion,
+                 corporacions locais, organos estatutarios, gastos de diversas]
+    diversidad:
+      codigos: [312C, 313A, '151', '331', '431', '432', '433', '441']
+      keywords: [cultura, lingua, xuventude, deporte, migrac, cooperacion]
+  La Rioja:
+    sanidad:
+      codigos:
+      - 312A
+      - 312B
+      - 312C
+      keywords:
+      - salud publica
+    educacion:
+      codigos:
+      - 321A
+      - 322B
+    vivienda:
+      codigos:
+      - 261A
+      keywords:
+      - vivienda
+    idi:
+      codigos:
+      - 467A
+    dependencia:
+      codigos:
+      - 313A
+      keywords:
+      - dependencia
+    discapacidad:
+      codigos:
+      - 313B
+      keywords:
+      - discapacidad
+    salud_mental:
+      codigos:
+      - 312B
+      keywords:
+      - salud mental
+    turismo:
+      codigos:
+      - 432A
+    igualdad:
+      codigos:
+      - 232A
+      keywords:
+      - igualdad
+  Comunidad de Madrid:
+    sanidad:
+      codigos:
+      - '311'
+      - '313'
+      keywords:
+      - sanidad
+      - salud publica
+    educacion:
+      codigos:
+      - 321A
+      - 323A
+    vivienda:
+      codigos:
+      - 261A
+      keywords:
+      - vivienda
+    idi:
+      codigos:
+      - 467A
+    dependencia:
+      codigos:
+      - 231A
+      keywords:
+      - dependencia
+    discapacidad:
+      codigos:
+      - 231B
+      keywords:
+      - discapacidad
+    salud_mental:
+      codigos:
+      - 313A
+      keywords:
+      - salud mental
+    turismo:
+      codigos:
+      - 432A
+    igualdad:
+      codigos:
+      - 232A
+      keywords:
+      - igualdad
+      - mujer
+  Región de Murcia:
+    sanidad:
+      codigos:
+      - 412A
+      - 412B
+      - 412C
+      keywords:
+      - salud publica
+    educacion:
+      codigos:
+      - 421A
+      - 422F
+    vivienda:
+      codigos:
+      - 431A
+      keywords:
+      - vivienda
+    idi:
+      codigos:
+      - 542A
+    dependencia:
+      codigos:
+      - 313D
+      keywords:
+      - dependencia
+    discapacidad:
+      codigos:
+      - 313F
+      keywords:
+      - discapacidad
+    salud_mental:
+      codigos:
+      - 412B
+      keywords:
+      - salud mental
+    turismo:
+      codigos:
+      - 432A
+      keywords:
+      - turismo
+    igualdad:
+      codigos:
+      - 323A
+      keywords:
+      - mujer
+  Comunidad Foral de Navarra:
+    sanidad:
+      codigos:
+      - '510'
+      keywords:
+      - sanitaria
+    educacion:
+      codigos:
+      - '411'
+      - '420'
+    vivienda:
+      codigos:
+      - '320'
+      keywords:
+      - vivienda
+    idi:
+      codigos:
+      - '720'
+      keywords:
+      - investigacion desarrollo
+    dependencia:
+      codigos:
+      - '261'
+      keywords:
+      - dependencia
+    discapacidad:
+      codigos:
+      - '262'
+      keywords:
+      - discapacidad
+    salud_mental:
+      codigos:
+      - '514'
+      keywords:
+      - salud mental
+    turismo:
+      codigos:
+      - '730'
+      keywords:
+      - turismo
+    igualdad:
+      codigos:
+      - '920'
+      keywords:
+      - igualdad
+  País Vasco:
+    # Reescrito 2026-07-01 para casar con ccaa/pvc/correspondencias.yml (Python).
+    # Clasificación FUNCIONAL vasca: prefijo del Programa de 4 díg = Función
+    # (41*→sanidad, 42*→educacion…). Requiere el soporte de comodín "*" en
+    # .match_codigo (R/correspondencias.R): "41" solo casaría "41"/"41A", NO
+    # "4111". Sin keywords: la denom del CSV tidy es de subconcepto económico y
+    # no es fiable (bug 2026-07-01: sin esto, los años tidy 2022-2026 caían a
+    # NULL en sanidad/educación mientras los ZIP 2015-2021 colaban por keyword).
+    # dependencia/discapacidad/salud_mental/diversidad/igualdad NO son separables
+    # en esta clasificación (van en 31/32 servicios sociales) → sin mapear.
+    sanidad:
+      codigos:
+      - '41*'
+    educacion:
+      codigos:
+      - '42*'
+    soberania:
+      codigos:
+      - '71*'
+    direccion:
+      codigos:
+      - '11*'
+      - '12*'
+      - '13*'
+    vivienda:
+      codigos:
+      - '43*'
+    igualdad:
+      # 2026-07-03: 322* en la clasificación vasca son Emakunde/Instituto Vasco de
+      # la Mujer (3221/3223) → igualdad por cuaderno §1.6, no empleo. El empleo real
+      # (Lanbide) va en otro código. Confirmado con la denom del staging + python local.
+      codigos:
+      - '322*'
+    idi:
+      codigos:
+      - '54*'
+    turismo:
+      codigos:
+      - '75*'
+  Comunidad Valenciana:
+    sanidad:
+      codigos:
+      - '411'
+      keywords:
+      - sanidad
+      - sanitaria
+    educacion:
+      codigos:
+      - '421'
+      - '422'
+    vivienda:
+      codigos:
+      - '431'
+      keywords:
+      - vivienda
+    idi:
+      codigos:
+      - '542'
+    dependencia:
+      codigos:
+      - '313.50'
+      keywords:
+      - dependencia
+    discapacidad:
+      codigos:
+      - '313.60'
+      keywords:
+      - discapacidad
+    salud_mental:
+      codigos:
+      - '313.70'
+      keywords:
+      - salud mental
+    turismo:
+      codigos:
+      - '751.10'
+      keywords:
+      - turismo
+    igualdad:
+      codigos:
+      - '323.10'
+      keywords:
+      - igualdad

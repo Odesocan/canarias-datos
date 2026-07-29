@@ -1,0 +1,156 @@
+# gal/correspondencias.yml — Galicia.
+# OJO: la clasificación funcional gallega pone SANIDAD en el grupo 41x y los
+# SERVIZOS SOCIAIS en el 31x (al revés que Cantabria/genérico). Los `codigos` se
+# derivan del catálogo real de programas (PROGR_I/II) — ver logs/progreso.md 2026-06-30.
+# Los `keywords` siguen sirviendo a la rama CSV (datos abertos), que usa códigos
+# sintéticos consellería×grupo y no casa con estos prefijos de programa.
+# Prefijos de programa llevan '*' (el helper sólo hace prefix-match si termina en '*');
+# los códigos de 4 caracteres son match exacto (gana sobre el prefijo).
+conceptos:
+  sanidad:
+    codigos:
+    - '411*'   # dirección e servizos xerais de sanidade (transferencia SERGAS)
+    - '412*'   # atención hospitalaria / primaria
+    - '413*'   # protección e promoción da saúde pública
+    - '414*'   # formación de graduados e posgraduados
+    - 561C     # investigación sanitaria
+    keywords:
+    - sanidade
+    - atencion primaria
+    - atencion hospitalaria
+    - saude publica
+    - sanitaria
+    - cons. sanidade
+  educacion:
+    codigos:
+    - '421*'
+    - '422*'
+    - '423*'
+    - 561B     # investigación universitaria
+    keywords:
+    - educa          # rama CSV: consellería "CULTURA, EDUCA. E UNIV." (abreviado)
+    - educacion
+    - educación
+    - ensino
+    - ensinanza
+    - universidade
+    - cons. educacion
+    - cons. educación
+  soberania:
+    codigos:
+    - '711*'   # medio rural
+    - '712*'
+    - '713*'
+    - '721*'   # políticas pesqueiras
+    - '722*'
+    - '723*'
+    - '551*'   # infraestruturas / forestal no medio rural
+    - '514*'   # infraestruturas pesqueiras
+    keywords:
+    - medio rural
+    - rural
+    - pesqueira
+    - pesqueiro
+    - agraria
+    - agroalimentaria
+    - mar
+    - cons. mar
+    - cons. medio rural
+  direccion:
+    # REDEFINIDO 2026-07-27 — Direccion politica (altos cargos del ejecutivo).
+    # Antes era un cajon de sastre: deuda, justicia, tributos, transferencias a
+    # entes locales, informatica, medios y parlamentos. Referencia: programa 912A
+    # de Canarias 'Direccion Politica y Gobierno', replicado en cada consejeria.
+    # Perimetro: ejecutivo estricto (presidencia, vicepresidencia, gabinetes, alta
+    # direccion). EXCLUIDOS parlamento, control externo, defensorias, consejos
+    # consultivos y transparencia. Keywords VACIAS a proposito: mapeo por codigo
+    # exacto para que no vuelva a capturar por texto. Ver logs/progreso.md.
+    # 111A PRESIDENCIA DA XUNTA DE GALICIA (12/12, 3,4-7,0 M). Sale de direccion el 911A
+    # DEBEDA PUBLICA (1.511 M) y el 811B transferencias a entidades locais.
+    codigos:
+    - '111A'
+    keywords: []
+  vivienda:
+    codigos:
+    - '451*'   # rehabilitación / acceso á vivenda
+    - '521*'   # urbanismo
+    keywords:
+    - vivenda
+    - vivienda
+    - urbanismo
+    - cons. vivenda
+  empleo:
+    codigos:
+    - '321*'   # dirección e servizos xerais de emprego
+    - '322*'   # mellora da empregabilidade / fomento do emprego
+    - '323*'   # formación profesional para o emprego
+    - '324*'   # relacións laborais / economía social
+    keywords:
+    - emprego
+    - empleo
+    - empregabilidade
+    - economia social
+    - cons. emprego
+  idi:
+    codigos:
+    - 561A     # plan galego de I+D+i
+    - '571*'   # fomento da sociedade da información
+    keywords:
+    - investigacion
+    - investigación
+    - innovacion
+    - innovación
+    - sociedade da informacion
+    - i d i
+  dependencia:
+    codigos:
+    - 312D     # atención á dependencia
+    - 312E     # promoción da autonomía persoal e prevención da dependencia
+    keywords:
+    - dependencia
+    - atencion a la dependencia
+    - autonomia persoal
+    - politica social        # rama CSV: consellería de Política Social
+    - política social
+    - cons. politica social
+    - benestar
+  discapacidad:
+    codigos: []
+    keywords:
+    - discapacidad
+    - diversidad funcional
+  salud_mental:
+    codigos: []
+    keywords:
+    - saude mental
+    - salud mental
+  diversidad:
+    # REDEFINIDO 2026-07-27 — Diversidad (LGTBI, migraciones, etnias), per
+    # Cuaderno Metodologico tablas 4/14. Este fichero local anulaba (por tener
+    # mayor prioridad, python_local=78) el override YA aplicado en la raiz
+    # (correspondencias.yml ccaa.Galicia): xuventude, lingua galega, cooperacion
+    # exterior, cultura/bibliotecas/patrimonio/deporte NO son diversidad — eran
+    # 199 M de los 221 M del concepto (90%). Se queda solo 312C 'Servizos
+    # sociais relativos as migracions' (22-25 M/anio). Ver logs/progreso.md.
+    codigos:
+    - 312C     # servizos sociais relativos ás migracións
+    keywords:
+    - migracion
+    - migración
+    - lgtbi
+  turismo:
+    codigos:
+    - '761*'   # potenciación e promoción do turismo
+    keywords:
+    - turismo
+    - cons. turismo
+  igualdad:
+    codigos:
+    - 313B     # accións para a igualdade e promoción da muller
+    - 313D     # protección ás mulleres que sofren violencia de xénero
+    keywords:
+    - igualdade
+    - muller
+    - violencia de xenero
+    - violencia de xénero
+    - berdintasun

@@ -1,0 +1,267 @@
+conceptos:
+  sanidad:
+    codigos:
+    - '311'
+    - '312'
+    - '411'
+    - '412'
+    - '510'
+    - 41A
+    - 41B
+    - 41C
+    - 41D
+    - '41'
+    - 41E
+    - 41F
+    - 41G
+    - 41H
+    - 41I
+    - 41J
+    - 41K
+    # 31B "PLAN SOBRE ADICCIONES" movido a salud_mental (FIX 2026-07-02): adicciones
+    # es salud_mental en el catálogo (cf. lar/mur/clm), no sanidad general.
+    keywords:
+    - sanidad
+    - salud publica
+    - servicio canario salud
+    - servicio andaluz salud
+    - atencion primaria
+    - atencion especializada
+    - sanitaria
+    - osasun
+  educacion:
+    codigos:
+    - '321'
+    - '322'
+    - '421'
+    - '422'
+    - '423'
+    - 42A
+    - 42B
+    - 42C
+    - 42D
+    - 42E
+    - 42F
+    - 42G
+    - 42H
+    - 42I
+    - 42J
+    - '42'
+    - 42K
+    keywords:
+    - educacion
+    - ensenanza
+    - ensenyament
+    - hezkuntza
+  soberania:
+    codigos:
+    - '412'
+    - '531'
+    - '710'
+    - '711'
+    - '712'
+    - 71A
+    - 71B
+    - 71C
+    - 71D
+    - 71E
+    - 71F
+    - 71G
+    - 71H
+    - 71I
+    - 71P
+    keywords:
+    - agricultura
+    - ganaderia
+    - pesca
+    - alimentacion
+    - nekazaritza
+    - soberania alimentaria
+  direccion:
+    codigos:
+    - '010'
+    - '111'
+    - '112'
+    - '911'
+    - '912'
+    - '921'
+    - 01A
+    - 11A
+    - 11B
+    - 11C
+    - 11D
+    - 11E
+    - 11F
+    - 11G
+    - 11H
+    - 11I
+    - 11J
+    - 12A
+    - 12B
+    - 12C
+    - 12D
+    - 12S
+    - 14A
+    - 14B
+    - 14C
+    - 52C
+    - 61A
+    - 61B
+    - 61C
+    - 61D
+    - 61E
+    - 61F
+    - 61G
+    - 61H
+    - 61I
+    - 61J
+    - 61K
+    - 61L
+    - 61M
+    - 61N
+    - 63A
+    - 63B
+    - 81A
+    - 81B
+    - 82A
+    keywords:
+    - presidencia
+    - alta direccion
+    - parlamento
+    - cortes
+    - gobierno
+  vivienda:
+    codigos:
+    - '261'
+    - '431'
+    - '451'
+    - '43'
+    - 43A
+    - 43B
+    - 43C
+    - 43D
+    keywords:
+    - vivienda
+    - habitatge
+    - etxebizitza
+  empleo:
+    codigos:
+    - '241'
+    - '322'
+    - '230'
+    - 31C
+    - 31M
+    - 32A
+    - 32B
+    - 32C
+    - 32D
+    - 32K
+    - 72C
+    - 76A
+    keywords:
+    - empleo
+    - ocupacio
+    - enplegua
+    - fomento del empleo
+  idi:
+    codigos:
+    - '463'
+    - '467'
+    - '542'
+    - '561'
+    - '720'
+    - '54'
+    - 54A
+    - 54C
+    - 72A
+    keywords:
+    - investigacion
+    - innovacion
+    - i d i
+    - desarrollo tecnologico
+  dependencia:
+    codigos:
+    - 231D
+    - 232D
+    - 232G
+    - 313D
+    - 252D
+    - 31R
+    keywords:
+    - dependencia
+    - mendekotasun
+    - atencion a la dependencia
+  discapacidad:
+    codigos:
+    - 231C
+    - 232C
+    - 313C
+    - 313G
+    - '314'
+    - 31E
+    keywords:
+    - discapacidad
+    - diversidad funcional
+    - discapacitat
+  salud_mental:
+    codigos:
+    - 31B     # PLAN SOBRE ADICCIONES (FIX 2026-07-02, antes en sanidad)
+    - 313A
+    - 313E
+    - '414'
+    - '514'
+    - 312D
+    - 412I
+    - 41M
+    keywords:
+    - salud mental
+    - salut mental
+    - buru osasun
+  diversidad:
+    codigos:
+    - 232B
+    - '234'
+    - 313B
+    - '266'
+    - 31J
+    # FIX 2026-07-02: programas sociales que iban a NULL (~450 M€/año); diversidad
+    # estaba en 1 fila de 4-10 M (implausible para Andalucía).
+    - 31G     # ACCIÓN COMUNITARIA E INSERCIÓN (210 M)
+    - 31P     # APOYO A FAMILIAS (184 M)
+    - 32E     # PROYECTOS DE INTERÉS SOCIAL (58 M)
+    keywords:
+    - lgtbi
+    - lgbti
+    - migracion
+    - interculturalidad
+    - gitano
+  turismo:
+    codigos:
+    - '432'
+    - 432A
+    - '751'
+    - '761'
+    - '730'
+    - '75'
+    - 75A
+    - 75B
+    - 75C
+    - 75D
+    keywords:
+    - turismo
+    - turisme
+    - turismoa
+  igualdad:
+    codigos:
+    - '232'
+    - '323'
+    - '920'
+    - 32G
+    - 31T
+    keywords:
+    - igualdad
+    - mujer
+    - violencia de genero
+    - berdintasun
+    - emakume
+    - instituto de la mujer
