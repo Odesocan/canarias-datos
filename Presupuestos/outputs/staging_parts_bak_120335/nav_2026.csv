@@ -1,0 +1,168 @@
+ccaa_id3,anio,concepto,importe_eur,codigo,denominacion
+nav,2026,educacion,18453155.0,32.3211,Educación / Dirección y servicios generales de educación
+nav,2026,educacion,625337621.0,32.3220,Educación / Dirección y servicios generales de enseñanza
+nav,2026,educacion,102000.0,32.3242,Educación / Apoyo a otras actividades educativas
+nav,2026,educacion,20095231.0,32.3251,"Educación / Construcción, equipamiento y material didáctico"
+nav,2026,educacion,60755751.0,32.322D,Educación / Educación primaria
+nav,2026,educacion,4965986.0,32.3231,Educación / Becas y ayudas a estudiantes
+nav,2026,educacion,55263848.0,32.3221,Educación / Educación infantil
+nav,2026,educacion,49467550.0,32.3222,Educación / Educación secundaria
+nav,2026,educacion,21122116.0,32.3224,Educación / Educación especial
+nav,2026,educacion,14275794.0,32.322C,Educación / Bachillerato
+nav,2026,educacion,33968907.0,32.322E,Educación / Formación profesional
+nav,2026,educacion,31391762.0,32.3241,Educación / Servicios complementarios de la enseñanza
+nav,2026,educacion,1755953.0,32.3212,Educación / Formación permanente del profesorado de Educación
+nav,2026,educacion,10852619.0,32.322A,Educación / Nuevas tecnologías aplicadas a la educación
+nav,2026,educacion,3695636.0,32.3229,"Educación / Otras enseñanzas (idiomas, especiales y otros)"
+nav,2026,educacion,4642040.0,32.3225,Educación / Enseñanzas artísticas
+nav,2026,educacion,102791.0,32.3227,Educación / Educación compensatoria y de adultos
+nav,2026,educacion,107514340.0,32.3223,Educación / Enseñanzas universitarias
+nav,2026,educacion,180000.0,32.322G,Educación / Deporte en edad escolar y en la universidad
+nav,2026,diversidad,68449836.0,23.2317,Servicios sociales y promoción social / Atención a la infancia
+nav,2026,diversidad,9942648.0,23.2331,Servicios sociales y promoción social / Dirección y servicios generales de protección social
+nav,2026,diversidad,20030277.0,23.2310,Servicios sociales y promoción social / Programación general de protección y promoción social
+nav,2026,diversidad,14065809.0,23.2316,Servicios sociales y promoción social / Reinserción social
+nav,2026,diversidad,209545270.0,23.2315,Servicios sociales y promoción social / Protección a la familia
+nav,2026,diversidad,6692492.0,23.2319,Servicios sociales y promoción social / Integración de los inmigrantes
+nav,2026,dependencia,266742173.0,23.231B,Servicios sociales y promoción social / Autonomía personal y atención a la dependencia
+nav,2026,igualdad,4762671.0,23.2322,Servicios sociales y promoción social / Igualdad de oportunidades entre mujeres y hombres
+nav,2026,igualdad,3305500.0,23.2323,Servicios sociales y promoción social / Actuaciones para la previsión integral de la violencia de género
+nav,2026,igualdad,4419133.0,23.2321,Servicios sociales y promoción social / Promoción y servicios a la juventud
+nav,2026,diversidad,3991832.0,23.2325,Servicios sociales y promoción social / Memoria y convivencia
+nav,2026,empleo,7853944.0,24.2421,Fomento del empleo / Formación profesional ocupacional
+nav,2026,empleo,13201843.0,24.2413,Fomento del empleo / Actuaciones en el mercado de trabajo
+nav,2026,empleo,36558067.0,24.2411,Fomento del empleo / Fomento de la inserción y estabilidad laboral
+nav,2026,empleo,2887000.0,24.2412,Fomento del empleo / Desarrollo de la economía social y de la responsabilidad social de las empresas
+nav,2026,empleo,8465750.0,24.2422,"Fomento del empleo / Escuelas taller, casas de oficios y talleres de empleo"
+nav,2026,,24131233.0,33.3341,Cultura / Promoción y cooperación cultural
+nav,2026,,25453338.0,33.3361,Cultura / Fomento y apoyo de las actividades deportivas
+nav,2026,direccion,6951713.0,33.3311,Cultura / Dirección y servicios generales de cultura
+nav,2026,,3494451.0,33.3371,"Cultura / Administración, conservación y restauración del patrimonio histórico"
+nav,2026,,280000.0,33.3374,Cultura / Arqueología
+nav,2026,,11500.0,33.3352,"Cultura / Teatro, cinematografía y otras artes escénicas"
+nav,2026,,6272000.0,33.3351,Cultura / Música y danza
+nav,2026,,6885004.0,33.3331,Cultura / Museos
+nav,2026,,8755833.0,33.3322,Cultura / Bibliotecas
+nav,2026,,3460649.0,33.3321,Cultura / Archivos
+nav,2026,,335750.0,33.3342,Cultura / Promoción del libro y publicaciones culturales
+nav,2026,,10000.0,33.3362,Cultura / Fomento y apoyo de las actividades deportivas
+nav,2026,,600000.0,33.3372,Cultura / Conservación y restauración de bienes culturales
+nav,2026,direccion,10697283.0,45.4512,Infraestructuras / Dirección y servicios generales de obras públicas
+nav,2026,,60325470.0,45.4533,Infraestructuras / Conservación y explotación de carreteras
+nav,2026,,131456155.0,45.4532,Infraestructuras / Creación de infraestructura de carreteras
+nav,2026,,1710276.0,45.4511,Infraestructuras / Estudios y servicios de asistencia técnica en obras públicas
+nav,2026,,23715282.0,45.4562,Infraestructuras / Protección y mejora del medio ambiente
+nav,2026,,18917678.0,45.4521,Infraestructuras / Gestión e infraestructuras de recursos hidráulicos
+nav,2026,,18366890.0,45.4531,Infraestructuras / Infraestructura del transporte ferroviario
+nav,2026,,9582866.0,45.4563,Infraestructuras / Protección y mejora del medio natural
+nav,2026,direccion,1285928.0,45.4514,Infraestructuras / Dirección y servicios generales del transporte
+nav,2026,,3036030.0,45.4534,Infraestructuras / Ordenación e inspección del transporte terrestre
+nav,2026,direccion,70000.0,45.4513,Infraestructuras / Dirección y servicios generales de medio ambiente
+nav,2026,,688735.0,45.4566,Infraestructuras / Creación y mejora de comunales y pastos
+nav,2026,,15834747.0,45.4567,Infraestructuras / Conservación y mejora de masas forestales
+nav,2026,direccion,569404.0,45.4565,Infraestructuras / Prevención y extinción de incendios
+nav,2026,,13208552.0,45.4561,Infraestructuras / Calidad del agua
+nav,2026,,6788751.0,45.4581,Infraestructuras / Infraestructura industrial
+nav,2026,,4181259.0,45.4569,Infraestructuras / Actuaciones para la prevención de la contaminación y el cambio climático
+nav,2026,,162250.0,45.45A1,Infraestructuras / Protección y conservación de vías pecuarias
+nav,2026,direccion,1452497.0,45.4516,Infraestructuras / Dirección y servicios generales de urbanismo
+nav,2026,turismo,2842354.0,45.4583,Infraestructuras / Infraestructura turística
+nav,2026,vivienda,5440384.0,26.2611,Acceso a la vivienda y fomento de la edificación / Dirección y servicios generales de vivienda
+nav,2026,vivienda,3225083.0,26.2617,Acceso a la vivienda y fomento de la edificación / Urbanismo y política del suelo
+nav,2026,vivienda,7293517.0,26.2612,Acceso a la vivienda y fomento de la edificación / Promoción y administración de viviendas
+nav,2026,vivienda,323500.0,26.2615,Acceso a la vivienda y fomento de la edificación / Mantenimiento y mejora del patrimonio inmobiliario
+nav,2026,vivienda,104034509.0,26.2614,"Acceso a la vivienda y fomento de la edificación / Ayudas para rehabilitación, construcción y acceso a la vivienda"
+nav,2026,vivienda,33226132.0,26.2616,Acceso a la vivienda y fomento de la edificación / Mantenimiento y mejora de la infraestructura urbana en el ámbito municipal
+nav,2026,,775000.0,49.4951,Otras actuaciones de carácter económico / Desarrollo y aplicación de la información geográfica
+nav,2026,,1294431.0,49.4923,Otras actuaciones de carácter económico / Protección y promoción de los derechos de los consumidores y usuarios
+nav,2026,idi,5797370.0,49.4911,"Otras actuaciones de carácter económico / Ordenación, administración y promoción de las telecomunicaciones y de la sociedad de la información"
+nav,2026,empleo,8719859.0,49.4941,Otras actuaciones de carácter económico / Administración de las relaciones laborales y condiciones de trabajo
+nav,2026,,2810310.0,49.4913,Otras actuaciones de carácter económico / Mantenimiento y ampliación de la red telefónica y radiotelefónica
+nav,2026,,1018180.0,49.4914,Otras actuaciones de carácter económico / Mantenimiento y ampliación de la red de televisión
+nav,2026,,64401286.0,44.4411,Subvenciones al transporte / Subvenciones y apoyo al transporte terrestre
+nav,2026,direccion,18163012.0,91.9112,Alta dirección / Actividad legislativa
+nav,2026,direccion,5091060.0,91.9113,Alta dirección / Control externo del sector público
+nav,2026,direccion,416946.0,91.9121,Alta dirección / Gobierno de Navarra
+nav,2026,direccion,569816.0,91.9122,Alta dirección / Alto asesoramiento de la Comunidad Foral de Navarra
+nav,2026,,25726075.0,21.2121,Pensiones / Pensiones no contributivas y prestaciones asistenciales
+nav,2026,,132142741.0,21.2111,Pensiones / Pensiones contributivas
+nav,2026,direccion,20770067.0,14.1431,Política exterior / Cooperación para el desarrollo
+nav,2026,direccion,581010.0,14.1441,"Política exterior / Cooperación, promoción y difusión cultural en el exterior"
+nav,2026,direccion,3205144.0,14.1451,Política exterior / Relaciones con la Unión Europea
+nav,2026,direccion,3343045.0,14.1461,Política exterior / Relaciones con el exterior
+nav,2026,,314010.0,42.4213,"Industria y energía / Calidad, competitividad y seguridad industrial"
+nav,2026,direccion,4705368.0,42.4211,Industria y energía / Dirección y servicios generales de industria y energía
+nav,2026,,48955399.0,42.4252,Industria y energía / Incentivos sobre medidas energéticas
+nav,2026,,16557347.0,42.4222,Industria y energía / Desarrollo industrial
+nav,2026,direccion,36681652.0,92.9234,Servicios de carácter general / Dirección y servicios generales de economía y hacienda
+nav,2026,direccion,27125435.0,92.9211,"Servicios de carácter general / Dirección, organización y servicios generales de la Administración Pública"
+nav,2026,direccion,1690012.0,92.921B,Servicios de carácter general / Coordinación de servicios generales
+nav,2026,direccion,494344.0,92.9216,Servicios de carácter general / Edición y confección de boletines oficiales
+nav,2026,direccion,1250007.0,92.9217,Servicios de carácter general / Asesoramiento y defensa
+nav,2026,direccion,914330.0,92.921A,Servicios de carácter general / Tramitación y resolución de recursos administrativos
+nav,2026,direccion,97320243.0,92.9214,"Servicios de carácter general / Administración, gestión y control de personal"
+nav,2026,direccion,3322250.0,92.9213,"Servicios de carácter general / Selección, formación, promoción y representación del personal"
+nav,2026,direccion,4781839.0,92.9218,"Servicios de carácter general / Conservación y mantenimiento de vehículos, maquinaria, instalaciones y otros"
+nav,2026,direccion,469236.0,92.9219,Servicios de carácter general / Impresos y publicaciones
+nav,2026,direccion,4430028.0,92.9215,Servicios de carácter general / Cobertura informativa
+nav,2026,direccion,16761540.0,92.9221,Servicios de carácter general / Dirección y servicios generales de Política Territorial
+nav,2026,direccion,241830.0,92.9222,Servicios de carácter general / Coordinación y relaciones financieras con entidades locales
+nav,2026,direccion,1222136.0,92.9224,"Servicios de carácter general / Apoyo en aspectos técnicos, jurídicos o económicos"
+nav,2026,direccion,101741.0,92.9223,Servicios de carácter general / Régimen jurídico y de personal de la administración local
+nav,2026,direccion,4501947.0,92.9239,Servicios de carácter general / Servicios de apoyo a economía y hacienda
+nav,2026,direccion,565020.0,92.9237,Servicios de carácter general / Gestión de tesorería
+nav,2026,direccion,12874074.0,92.9231,Servicios de carácter general / Gestión del patrimonio
+nav,2026,direccion,1533805.0,92.9233,Servicios de carácter general / Elaboración y difusión estadística
+nav,2026,direccion,2333500.0,92.9249,Servicios de carácter general / Otras formas de participación ciudadana
+nav,2026,direccion,46124560.0,92.921C,Servicios de carácter general / Informática
+nav,2026,idi,55535497.0,46.4673,"Investigación, desarrollo e innovación / Investigación y desarrollo tecnológico-industrial"
+nav,2026,idi,414000.0,46.4691,"Investigación, desarrollo e innovación / Otras Innovaciones Tecnológicas"
+nav,2026,idi,3886010.0,46.4679,"Investigación, desarrollo e innovación / Innovación tecnológica de las telecomunicaciones"
+nav,2026,idi,7651388.0,46.4651,"Investigación, desarrollo e innovación / Investigación sanitaria"
+nav,2026,idi,883572.0,46.4681,"Investigación, desarrollo e innovación / Estudios técnicos en el sector agrario"
+nav,2026,idi,2771759.0,46.4674,"Investigación, desarrollo e innovación / Investigación y experimentación agraria y forestal"
+nav,2026,idi,1173065.0,46.4621,"Investigación, desarrollo e innovación / Investigación y estudios sociológicos"
+nav,2026,direccion,93621320.0,13.1321,Seguridad ciudadana e instituciones penitenciarias / Seguridad ciudadana
+nav,2026,direccion,10128709.0,13.1311,Seguridad ciudadana e instituciones penitenciarias / Dirección y servicios generales de seguridad y protección civil
+nav,2026,direccion,2789336.0,13.1322,Seguridad ciudadana e instituciones penitenciarias / Seguridad vial
+nav,2026,direccion,43388630.0,13.1342,Seguridad ciudadana e instituciones penitenciarias / Prevención y extinción de incendios y salvamento
+nav,2026,direccion,5560360.0,13.1341,Seguridad ciudadana e instituciones penitenciarias / Protección civil
+nav,2026,direccion,3441685.0,11.1112,Justicia / Dirección y servicios generales de justicia
+nav,2026,direccion,40075821.0,11.1121,Justicia / Órganos judiciales
+nav,2026,,4093170.0,22.2241,Otras prestaciones económicas / Otras prestaciones económicas
+nav,2026,direccion,22386670.0,94.9423,Transferencias a otras administraciones públicas / Otras transferencias
+nav,2026,direccion,932224800.0,94.9411,Transferencias a otras administraciones públicas / Convenio económico con el Estado
+nav,2026,direccion,345601242.0,94.9421,Transferencias a otras administraciones públicas / Participación en los tributos de la Hacienda Pública de Navarra
+nav,2026,sanidad,187235136.0,31.3111,Sanidad / Dirección y servicios generales de sanidad y política social
+nav,2026,sanidad,38118192.0,31.3139,Sanidad / Otras acciones públicas de protección de la salud
+nav,2026,sanidad,891534.0,31.3112,Sanidad / Formación sanitaria
+nav,2026,sanidad,162547.0,31.3132,Sanidad / Salud pública y sanidad exterior
+nav,2026,sanidad,23643658.0,31.3128,Sanidad / Infraestructura y equipamiento de centros sanitarios
+nav,2026,salud_mental,45731453.0,31.3124,Sanidad / Asistencia psiquiátrica y psíquica
+nav,2026,sanidad,843380851.0,31.3123,Sanidad / Atención especializada de salud
+nav,2026,sanidad,214475780.0,31.3122,Sanidad / Atención primaria de salud
+nav,2026,sanidad,192887307.0,31.3131,Sanidad / Oferta y uso racional de medicamentos y productos sanitarios
+nav,2026,sanidad,7584754.0,31.3127,Sanidad / Servicios auxiliares de centros sanitarios
+nav,2026,turismo,18195258.0,43.4321,"Comercio, Turismo y Pymes / Coordinación y promoción del turismo"
+nav,2026,turismo,2860187.0,43.4314,"Comercio, Turismo y Pymes / Ordenación y modernización de las estructuras comerciales"
+nav,2026,turismo,385000.0,43.4313,"Comercio, Turismo y Pymes / Ordenación y promoción del comercio exterior"
+nav,2026,direccion,846884.0,43.4312,"Comercio, Turismo y Pymes / Dirección y servicios generales de comercio y turismo"
+nav,2026,soberania,17738916.0,41.4111,"Agricultura, ganadería y alimentación / Dirección y servicios generales de agricultura, ganadería y alimentación"
+nav,2026,soberania,35145455.0,41.4121,"Agricultura, ganadería y alimentación / Competitividad, calidad y defensa de la producción agrícola"
+nav,2026,soberania,28214042.0,41.4142,"Agricultura, ganadería y alimentación / Desarrollo sostenible del medio rural"
+nav,2026,soberania,558843.0,41.4123,"Agricultura, ganadería y alimentación / Regulación de los mercados agrarios"
+nav,2026,soberania,10595482.0,41.4122,"Agricultura, ganadería y alimentación / Competitividad, calidad y defensa de la producción ganadera"
+nav,2026,soberania,7280217.0,41.4143,"Agricultura, ganadería y alimentación / Reordenación de la propiedad y concentración parcelaria"
+nav,2026,soberania,22991184.0,41.4141,"Agricultura, ganadería y alimentación / Gestión de los recursos hídricos para el regadío"
+nav,2026,soberania,18483717.0,41.4131,"Agricultura, ganadería y alimentación / Competitividad de la industria agroalimentaria y calidad alimentaria"
+nav,2026,soberania,18020.0,41.4144,"Agricultura, ganadería y alimentación / Fomento y mejora de las infraestructuras agrarias"
+nav,2026,direccion,707140.0,93.9323,Administración financiera y tributaria / Resolución de reclamaciones económico-administrativas
+nav,2026,direccion,665211.0,93.9312,Administración financiera y tributaria / Política presupuestaria
+nav,2026,direccion,86000.0,93.9315,Administración financiera y tributaria / Política financiera y de créditos
+nav,2026,direccion,3156686.0,93.9314,Administración financiera y tributaria / Control interno y contabilidad pública
+nav,2026,direccion,1355382.0,93.9311,Administración financiera y tributaria / Previsión y política económica
+nav,2026,direccion,19960136.0,93.9321,Administración financiera y tributaria / Aplicación del sistema tributario
+nav,2026,direccion,2469032.0,93.9324,Administración financiera y tributaria / Inspección fiscal
+nav,2026,direccion,2451585.0,93.9322,Administración financiera y tributaria / Gestión del catastro inmobiliario
+nav,2026,direccion,5534883.0,93.9313,Administración financiera y tributaria / Política tributaria
+nav,2026,direccion,49183324.0,95.9511,Deuda pública / Amortización y gastos financieros de la deuda pública en moneda nacional

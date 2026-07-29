@@ -1,0 +1,1271 @@
+# Tabla de correspondencias presupuestarias por CCAA
+# ODESOCAN — Canarias en Datos · Línea Presupuestos
+# Última revisión: 2026-05-11 (volcado completo del Word)
+#
+conceptos:
+  total:
+    nombre: Total gasto (capa Hacienda)
+    procedencia: funcion
+  sanidad:
+    nombre: Sanidad
+    procedencia: funcion
+  educacion:
+    nombre: Educación
+    procedencia: funcion
+  soberania:
+    nombre: Soberanía alimentaria
+    procedencia: funcion
+  direccion:
+    nombre: Dirección política
+    procedencia: funcion
+  vivienda:
+    nombre: Vivienda
+    procedencia: funcion
+  empleo:
+    nombre: Empleo
+    procedencia: funcion
+  idi:
+    nombre: I+D+i
+    procedencia: funcion
+  dependencia:
+    nombre: Dependencia
+    procedencia: seccion
+  discapacidad:
+    nombre: Discapacidad
+    procedencia: seccion
+  salud_mental:
+    nombre: Salud mental
+    procedencia: programa
+  diversidad:
+    nombre: Diversidad
+    procedencia: programa
+  turismo:
+    nombre: Turismo
+    procedencia: programa
+  igualdad:
+    nombre: Igualdad
+    procedencia: ente
+patrones:
+  sanidad:
+    codigos:
+    - '311'
+    - '312'
+    - '411'
+    - '412'
+    - '510'
+    keywords:
+    - sanidad
+    - salud publica
+    - servicio canario salud
+    - servicio andaluz salud
+    - atencion primaria
+    - atencion especializada
+    - sanitaria
+    - osasun
+  educacion:
+    codigos:
+    - '321'
+    - '322'
+    - '421'
+    - '422'
+    - '423'
+    keywords:
+    - educacion
+    - ensenanza
+    - ensenyament
+    - hezkuntza
+  soberania:
+    codigos:
+    - '412'
+    - '531'
+    - '710'
+    - '711'
+    - '712'
+    keywords:
+    - agricultura
+    - ganaderia
+    - pesca
+    - alimentacion
+    - nekazaritza
+    - soberania alimentaria
+  direccion:
+    # REDEFINIDO 2026-07-27 — Direccion politica (altos cargos del ejecutivo).
+    # Antes era un cajon de sastre: deuda, justicia, tributos, transferencias a
+    # entes locales, informatica, medios y parlamentos. Referencia: programa 912A
+    # de Canarias 'Direccion Politica y Gobierno', replicado en cada consejeria.
+    # Perimetro: ejecutivo estricto (presidencia, vicepresidencia, gabinetes, alta
+    # direccion). EXCLUIDOS parlamento, control externo, defensorias, consejos
+    # consultivos y transparencia. Keywords VACIAS a proposito: mapeo por codigo
+    # exacto para que no vuelva a capturar por texto. Ver logs/progreso.md.
+    # PATRON GLOBAL VACIADO: el mismo codigo significa cosas distintas en cada CCAA (112A
+    # es direccion en clm/ext/ast pero Tribunales de Justicia en can), asi que direccion
+    # se define SOLO en los bloques por comunidad de la seccion `ccaa`.
+    codigos: []
+    keywords: []
+  vivienda:
+    codigos:
+    - '261'
+    - '431'
+    - '451'
+    keywords:
+    - vivienda
+    - habitatge
+    - etxebizitza
+  empleo:
+    codigos:
+    - '241'
+    - '322'
+    - '230'
+    keywords:
+    - empleo
+    - ocupacio
+    - enplegua
+    - fomento del empleo
+  idi:
+    codigos:
+    - '463'
+    - '467'
+    - '542'
+    - '561'
+    - '720'
+    keywords:
+    - investigacion
+    - innovacion
+    - i d i
+    - desarrollo tecnologico
+  dependencia:
+    codigos:
+    - 231D
+    - 232D
+    - 232G
+    - 313D
+    - 252D
+    keywords:
+    - dependencia
+    - mendekotasun
+    - atencion a la dependencia
+  discapacidad:
+    # 313C RETIRADO 2026-07-27: leak sistémico documentado en ast/LIMITACIONES
+    # y en ast/limitaciones-ast.md §Residuales — el código NO es discapacidad
+    # en Asturias (313C ast = "Cooperación al desarrollo") ni en Baleares
+    # (313C bal = "Mesures judicials i prevenció del delicte", ambas ajenas a
+    # los 13 conceptos). Galicia SÍ usa 313C legítimamente ("Servizos sociais
+    # comunitarios", ~455 M€/año) → override explícito añadido en su bloque
+    # ccaa (ccaa.Galicia.discapacidad.codigos) para que no dependa de este
+    # patrón global. Ver logs/progreso.md 2026-07-27.
+    codigos:
+    - 231C
+    - 232C
+    - 313G
+    - '314'
+    keywords:
+    - discapacidad
+    - diversidad funcional
+    - discapacitat
+  salud_mental:
+    # '514' RETIRADO 2026-07-27: leak sistémico (patrón de Navarra filtrándose
+    # a otras CCAA). En Asturias 514B = "Infraestructura y explotación
+    # portuaria" y en Baleares 514B = "Gestió de les instal·lacions
+    # portuàries" — puertos, nada que ver con salud mental. Navarra usa '514'
+    # legítimamente, pero YA tiene override explícito en su bloque ccaa
+    # (ccaa."Comunidad Foral de Navarra".salud_mental.codigos), así que retirar
+    # el patrón global no le afecta. Ver logs/progreso.md 2026-07-27.
+    codigos:
+    - 313A
+    - 313E
+    - '414'
+    - 312D
+    - 412I
+    keywords:
+    - salud mental
+    - salut mental
+    - buru osasun
+  diversidad:
+    # 313B RETIRADO 2026-07-27: leak sistémico. En Asturias 313B = "Programa
+    # de emigración asturiana" (residual sin concepto claro entre los 13). En
+    # Baleares y Murcia 313B es en realidad OTRO concepto (bal: "Atenció a la
+    # discapacitat" → discapacidad; mur: "Personas con trastorno mental y
+    # otros colectivos" → salud_mental) — corregido en sus ymls LOCALES
+    # (1_extraccion/ccaa/{bal,mur}/correspondencias.yml). Sin este patrón
+    # global, ambos ya resuelven bien vía su asignación local corregida.
+    # Ver logs/progreso.md 2026-07-27.
+    codigos:
+    - 232B
+    - '234'
+    - '266'
+    keywords:
+    - lgtbi
+    - lgbti
+    - migracion
+    - interculturalidad
+    - gitano
+  turismo:
+    codigos:
+    - '432'
+    - 432A
+    - '751'
+    - '761'
+    - '730'
+    keywords:
+    - turismo
+    - turisme
+    - turismoa
+  igualdad:
+    codigos:
+    - '232'
+    - '323'
+    - '920'
+    keywords:
+    - igualdad
+    - mujer
+    - violencia de genero
+    - berdintasun
+    - emakume
+    - instituto de la mujer
+ccaa:
+  Andalucía:
+    sanidad:
+      codigos:
+      - 41A
+      - 41B
+      - 41C
+      - 41D
+      - '41'
+      keywords:
+      - sanidad
+      - sanitaria
+    educacion:
+      codigos:
+      - 42A
+      - 42B
+      - 42C
+      - 42D
+      - 42E
+      - 42F
+      - 42G
+      - 42H
+      - 42I
+      - 42J
+      - '42'
+    vivienda:
+      codigos:
+      - '43'
+      - 43A
+      keywords:
+      - vivienda
+    idi:
+      codigos:
+      - '54'
+      - 54A
+      - 54C
+    dependencia:
+      codigos:
+      - 31R
+      keywords:
+      - dependencia
+    discapacidad:
+      codigos:
+      - 31E
+      keywords:
+      - discapacidad
+    salud_mental:
+      codigos:
+      - 41M
+      keywords:
+      - salud mental
+    turismo:
+      codigos:
+      - '75'
+      - 75A
+      keywords:
+      - turismo
+    igualdad:
+      codigos:
+      - 32G
+      keywords:
+      - igualdad
+      - mujer
+    direccion:
+      # REDEFINIDO 2026-07-27 — Direccion politica (altos cargos del ejecutivo).
+      # Antes era un cajon de sastre: deuda, justicia, tributos, transferencias a
+      # entes locales, informatica, medios y parlamentos. Referencia: programa 912A
+      # de Canarias 'Direccion Politica y Gobierno', replicado en cada consejeria.
+      # Perimetro: ejecutivo estricto (presidencia, vicepresidencia, gabinetes, alta
+      # direccion). EXCLUIDOS parlamento, control externo, defensorias, consejos
+      # consultivos y transparencia. Keywords VACIAS a proposito: mapeo por codigo
+      # exacto para que no vuelva a capturar por texto. Ver logs/progreso.md.
+      # NULL ESTRUCTURAL: Andalucía no publica programa de direccion politica. El unico
+      # candidato, 11A D.S.G. Presidencia, es la direccion administrativa de UN departamento
+      # y su serie es inestable (61,8 M en 2015, 620,9 M en 2025, 87,4 M en 2026, con
+      # numeros pegados a la denominacion). No es asimilable a 912A.
+      codigos: []
+      keywords: []
+  Aragón:
+    sanidad:
+      codigos:
+      - '4131'
+      - '41'
+      keywords:
+      - sanidad
+      - salud publica
+    educacion:
+      codigos:
+      - '4221'
+      - '4225'
+      - '42'
+    vivienda:
+      codigos:
+      - '43'
+      keywords:
+      - vivienda
+    idi:
+      codigos:
+      - '5421'
+      - '5422'
+      - '54'
+    dependencia:
+      keywords:
+      - dependencia
+    discapacidad:
+      keywords:
+      - discapacidad
+    salud_mental:
+      codigos:
+      - '4133'
+      keywords:
+      - salud mental
+    turismo:
+      keywords:
+      - turismo
+    igualdad:
+      keywords:
+      - igualdad
+      - mujer
+    direccion:
+      # REDEFINIDO 2026-07-27 — Direccion politica (altos cargos del ejecutivo).
+      # Antes era un cajon de sastre: deuda, justicia, tributos, transferencias a
+      # entes locales, informatica, medios y parlamentos. Referencia: programa 912A
+      # de Canarias 'Direccion Politica y Gobierno', replicado en cada consejeria.
+      # Perimetro: ejecutivo estricto (presidencia, vicepresidencia, gabinetes, alta
+      # direccion). EXCLUIDOS parlamento, control externo, defensorias, consejos
+      # consultivos y transparencia. Keywords VACIAS a proposito: mapeo por codigo
+      # exacto para que no vuelva a capturar por texto. Ver logs/progreso.md.
+      # 1121 PRESIDENCIA Y ORGANOS DE LA PRESIDENCIA (12/12 anios, 2,2-3,0 M). Se excluye
+      # 1211 Servicios Generales de Presidencia (D.S.G. de departamento).
+      codigos:
+      - '1121'
+      keywords: []
+  Principado de Asturias:
+    sanidad:
+      codigos:
+      - 412A
+      - 412B
+      - 412C
+      - '41'
+      keywords:
+      - sanidad
+      - salud publica
+    educacion:
+      codigos:
+      - 421A
+      - 422C
+      - '42'
+    vivienda:
+      codigos:
+      - '43'
+      - 431A
+      keywords:
+      - vivienda
+    idi:
+      codigos:
+      - '54'
+      - 542A
+    # 2026-07-24 · Rework del bloque 313x (servicios sociales, Consejería de
+    # Bienestar). Asturias NO desglosa dependencia/discapacidad/salud_mental como
+    # programas propios: viven agregados en los programas 313x de servicios
+    # sociales. El Cuaderno Metodológico define la procedencia de `dependencia`
+    # como "Sección/DG dentro de SS ... SS general en otras CCAA" (Asturias no
+    # tiene DG dedicada tipo SEPAD) → el envoltorio de SS general se asigna a
+    # DEPENDENCIA (concepto dominante y procedencia metodológica).
+    # Antes del fix: el envoltorio caía en salud_mental (313A/313E ≈ 416 M€
+    # falsos, por el patrón GLOBAL 313A/313E que codifica el 313A de Madrid) y en
+    # discapacidad (313F ATENCIÓN A LA INFANCIA ≈ 51 M€ falsos), mientras
+    # dependencia solo recogía 313G/313D (~0,8 → 70 M€, salto espurio en 2024 al
+    # aparecer la línea 313G). Ver logs/progreso.md 2026-07-24 y limitaciones-ast.md.
+    dependencia:
+      # Envoltorio de servicios sociales generales:
+      #  313A PRESTACIONES Y PROGRAMAS CONCERTADOS (plazas residenciales/de día
+      #       concertadas, prestaciones económicas de dependencia)
+      #  313E GESTIÓN DE SERVICIOS SOCIALES (residencias públicas, SAD,
+      #       teleasistencia, valoración de la dependencia)
+      #  313G AYUDAS DIVERSAS CON FINES SOCIALES (línea nueva desde 2024)
+      #  313D PENSIONES NO CONTRIBUTIVAS
+      codigos:
+      - 313A
+      - 313E
+      - 313G
+      - 313D
+      keywords:
+      - dependencia
+      - atencion a la dependencia
+    # discapacidad y salud_mental: NULL ESTRUCTURAL por diseño. No son separables
+    # del envoltorio 313x (comparten DG con dependencia — Cuaderno: "Misma DG que
+    # dependencia en muchas CCAA"; Asturias no tiene programa propio de salud
+    # mental). Se retiran las asignaciones erróneas previas (313F infancia→
+    # discapacidad, 312A inexistente→salud_mental). Residual conocido: 313C
+    # COOPERACIÓN AL DESARROLLO (~6,7 M€/año) sigue cayendo en discapacidad vía el
+    # patrón GLOBAL 313C (compartido con Galicia); no se anula aquí para no
+    # alterar gal. Igual patrón residual: 313B EMIGRACIÓN→diversidad (global).
+    turismo:
+      codigos:
+      - 432A
+      keywords:
+      - turismo
+    igualdad:
+      codigos:
+      - 323A
+      keywords:
+      - igualdad
+    direccion:
+      # REDEFINIDO 2026-07-27 — Direccion politica (altos cargos del ejecutivo).
+      # Antes era un cajon de sastre: deuda, justicia, tributos, transferencias a
+      # entes locales, informatica, medios y parlamentos. Referencia: programa 912A
+      # de Canarias 'Direccion Politica y Gobierno', replicado en cada consejeria.
+      # Perimetro: ejecutivo estricto (presidencia, vicepresidencia, gabinetes, alta
+      # direccion). EXCLUIDOS parlamento, control externo, defensorias, consejos
+      # consultivos y transparencia. Keywords VACIAS a proposito: mapeo por codigo
+      # exacto para que no vuelva a capturar por texto. Ver logs/progreso.md.
+      # 112A SECRETARIA GENERAL TECNICA Y GABINETE TECNICO (2015-2025), 112H APOYO A LA
+      # VICEPRESIDENCIA (2020-2026), 112I GABINETE Y OFICINA ECONOMICA (2026, releva a
+      # 112A). Cobertura 12/12.
+      codigos:
+      - '112A'
+      - '112H'
+      - '112I'
+      keywords: []
+  Islas Baleares:
+    sanidad:
+      codigos:
+      - 411A
+      - 411B
+      - 411C
+      - 411D
+      - '41'
+      keywords:
+      - sanidad
+      - salud publica
+    educacion:
+      codigos:
+      - 421A
+      - 422B
+      - '42'
+    vivienda:
+      codigos:
+      - '43'
+      - 431A
+    idi:
+      codigos:
+      - '54'
+      - 467A
+    dependencia:
+      codigos:
+      - 313D
+    discapacidad:
+      codigos:
+      - 313F
+    salud_mental:
+      codigos:
+      - 412I
+    turismo:
+      codigos:
+      - 432A
+    igualdad:
+      codigos:
+      - 323A
+    direccion:
+      # REDEFINIDO 2026-07-27 — Direccion politica (altos cargos del ejecutivo).
+      # Antes era un cajon de sastre: deuda, justicia, tributos, transferencias a
+      # entes locales, informatica, medios y parlamentos. Referencia: programa 912A
+      # de Canarias 'Direccion Politica y Gobierno', replicado en cada consejeria.
+      # Perimetro: ejecutivo estricto (presidencia, vicepresidencia, gabinetes, alta
+      # direccion). EXCLUIDOS parlamento, control externo, defensorias, consejos
+      # consultivos y transparencia. Keywords VACIAS a proposito: mapeo por codigo
+      # exacto para que no vuelva a capturar por texto. Ver logs/progreso.md.
+      # 121A Serveis/Direccio generals de la Presidencia del Govern (12/12, 3,2-4,4 M). Se
+      # excluye 121B (D.S.G. de la Conselleria de Presidencia, 47 M) y 912A/912B, que en
+      # Baleares son soporte financiero a consells insulars y ajuntaments.
+      codigos:
+      - '121A'
+      keywords: []
+  Canarias:
+    sanidad:
+      codigos:
+      - 312A
+      - 312B
+      - 312C
+      keywords:
+      - salud publica
+      - sanitaria
+    educacion:
+      codigos:
+      - 321A
+      - 323A
+    vivienda:
+      codigos:
+      - 261A
+      keywords:
+      - vivienda
+    idi:
+      codigos:
+      - 463A
+      - 467A
+    dependencia:
+      codigos:
+      - 231H
+      keywords:
+      - dependencia
+    discapacidad:
+      codigos:
+      - 231G
+      keywords:
+      - discapacidad
+    salud_mental:
+      codigos:
+      - 312D
+      keywords:
+      - salud mental
+    turismo:
+      codigos:
+      - 432B
+    igualdad:
+      codigos:
+      - 232B
+      keywords:
+      - igualdad
+    direccion:
+      # REDEFINIDO 2026-07-27 — Direccion politica (altos cargos del ejecutivo).
+      # Antes era un cajon de sastre: deuda, justicia, tributos, transferencias a
+      # entes locales, informatica, medios y parlamentos. Referencia: programa 912A
+      # de Canarias 'Direccion Politica y Gobierno', replicado en cada consejeria.
+      # Perimetro: ejecutivo estricto (presidencia, vicepresidencia, gabinetes, alta
+      # direccion). EXCLUIDOS parlamento, control externo, defensorias, consejos
+      # consultivos y transparencia. Keywords VACIAS a proposito: mapeo por codigo
+      # exacto para que no vuelva a capturar por texto. Ver logs/progreso.md.
+      # 912A DIRECCION POLITICA Y GOBIERNO (12/12, 12,4-33,6 M). ES LA REFERENCIA del
+      # concepto: programa horizontal replicado en cada consejeria para los altos cargos. Se
+      # excluyen 912B/C (D.S.G. Presidencia/Vicepresidencia), 912D/E (asistencia tecnica),
+      # 912G (relaciones con el Parlamento), 912H (oficina en Madrid) y 912L (Parlamento y
+      # entes estatutarios).
+      codigos:
+      - '912A'
+      keywords: []
+  Cantabria:
+    sanidad:
+      codigos:
+      - 312A
+      - 312B
+      - 312C
+      keywords:
+      - salud publica
+    educacion:
+      codigos:
+      - 321A
+      - 322C
+    vivienda:
+      codigos:
+      - 261A
+      keywords:
+      - vivienda
+    idi:
+      codigos:
+      - 463A
+    dependencia:
+      codigos:
+      - 231D
+      keywords:
+      - dependencia
+    discapacidad:
+      codigos:
+      - 231F
+      keywords:
+      - discapacidad
+    salud_mental:
+      codigos:
+      - 312B
+      keywords:
+      - salud mental
+    turismo:
+      codigos:
+      - 432A
+    igualdad:
+      codigos:
+      - 232B
+      keywords:
+      - igualdad
+      - mujer
+    direccion:
+      # REDEFINIDO 2026-07-27 — Direccion politica (altos cargos del ejecutivo).
+      # Antes era un cajon de sastre: deuda, justicia, tributos, transferencias a
+      # entes locales, informatica, medios y parlamentos. Referencia: programa 912A
+      # de Canarias 'Direccion Politica y Gobierno', replicado en cada consejeria.
+      # Perimetro: ejecutivo estricto (presidencia, vicepresidencia, gabinetes, alta
+      # direccion). EXCLUIDOS parlamento, control externo, defensorias, consejos
+      # consultivos y transparencia. Keywords VACIAS a proposito: mapeo por codigo
+      # exacto para que no vuelva a capturar por texto. Ver logs/progreso.md.
+      # 912M PRESIDENCIA DEL GOBIERNO DE CANTABRIA (12/12). OJO: salto 2019->2020 (1,9 ->
+      # 8,7 M) por cambio de perimetro del programa en el origen.
+      codigos:
+      - '912M'
+      keywords: []
+  Castilla y León:
+    sanidad:
+      codigos:
+      - 312A
+      - 312B
+      - 312C
+      keywords:
+      - salud publica
+    educacion:
+      codigos:
+      - 322A
+      - 322B
+      - 322C
+      - 322D
+      - 322E
+      - 322F
+    vivienda:
+      codigos:
+      - 261A
+      keywords:
+      - vivienda
+    idi:
+      codigos:
+      - 463A
+      - 467A
+    dependencia:
+      keywords:
+      - dependencia
+    discapacidad:
+      keywords:
+      - discapacidad
+    salud_mental:
+      codigos:
+      - 312A
+      keywords:
+      - salud mental
+    turismo:
+      codigos:
+      - 432A
+    igualdad:
+      codigos:
+      - 232A
+      keywords:
+      - igualdad
+      - mujer
+    direccion:
+      # REDEFINIDO 2026-07-27 — Direccion politica (altos cargos del ejecutivo).
+      # Antes era un cajon de sastre: deuda, justicia, tributos, transferencias a
+      # entes locales, informatica, medios y parlamentos. Referencia: programa 912A
+      # de Canarias 'Direccion Politica y Gobierno', replicado en cada consejeria.
+      # Perimetro: ejecutivo estricto (presidencia, vicepresidencia, gabinetes, alta
+      # direccion). EXCLUIDOS parlamento, control externo, defensorias, consejos
+      # consultivos y transparencia. Keywords VACIAS a proposito: mapeo por codigo
+      # exacto para que no vuelva a capturar por texto. Ver logs/progreso.md.
+      # 912A01 PRESIDENCIA DE LA JUNTA (12/12, 1,0-1,8 M) y 912A02 VICEPRESIDENCIA
+      # (2023-2024). DESVIACION deliberada respecto del borrador, que proponia 921A01 Dir.y
+      # Serv.G.Presidencia (13-22 M): 921A01 es la D.S.G. del departamento, mas ancha que el
+      # perimetro acordado. 912A01/02 es el equivalente estricto.
+      codigos:
+      - '912A01'
+      - '912A02'
+      keywords: []
+  Castilla-La Mancha:
+    sanidad:
+      codigos:
+      - 312A
+      - 312B
+      - 312C
+      keywords:
+      - salud publica
+    educacion:
+      codigos:
+      - 321A
+      - 322C
+    vivienda:
+      codigos:
+      - 261A
+      - 432A
+      keywords:
+      - vivienda
+    idi:
+      codigos:
+      - 463A
+    dependencia:
+      codigos:
+      - 313B
+    discapacidad:
+      codigos:
+      - 313C
+      keywords:
+      - discapacidad
+    salud_mental:
+      codigos:
+      - 312B
+      keywords:
+      - salud mental
+    turismo:
+      keywords:
+      - turismo
+    igualdad:
+      codigos:
+      - 323A
+      keywords:
+      - igualdad
+    direccion:
+      # REDEFINIDO 2026-07-27 — Direccion politica (altos cargos del ejecutivo).
+      # Antes era un cajon de sastre: deuda, justicia, tributos, transferencias a
+      # entes locales, informatica, medios y parlamentos. Referencia: programa 912A
+      # de Canarias 'Direccion Politica y Gobierno', replicado en cada consejeria.
+      # Perimetro: ejecutivo estricto (presidencia, vicepresidencia, gabinetes, alta
+      # direccion). EXCLUIDOS parlamento, control externo, defensorias, consejos
+      # consultivos y transparencia. Keywords VACIAS a proposito: mapeo por codigo
+      # exacto para que no vuelva a capturar por texto. Ver logs/progreso.md.
+      # 112A DIRECCION Y SERVICIOS GENERALES DE LA PRESIDENCIA (12/12, 12,8-21,8 M).
+      # Castilla-La Mancha no separa la direccion politica del ejecutivo por debajo de este
+      # nivel: es el programa mas estrecho disponible.
+      codigos:
+      - '112A'
+      keywords: []
+  Cataluña:
+    sanidad:
+      codigos:
+      - '411'
+      - '414'
+      - '31'
+    educacion:
+      codigos:
+      - '421'
+      - '426'
+      - '42'
+    vivienda:
+      codigos:
+      - '51'
+      - '431'
+    idi:
+      codigos:
+      - '561'
+      - '562'
+      - '56'
+    dependencia:
+      codigos:
+      - '313'
+    discapacidad:
+      codigos:
+      - '314'
+    salud_mental:
+      codigos:
+      - '414'
+    turismo:
+      codigos:
+      - '751'
+    igualdad:
+      codigos:
+      - '232'
+      - '233'
+    direccion:
+      # REDEFINIDO 2026-07-27 — Direccion politica (altos cargos del ejecutivo).
+      # Antes era un cajon de sastre: deuda, justicia, tributos, transferencias a
+      # entes locales, informatica, medios y parlamentos. Referencia: programa 912A
+      # de Canarias 'Direccion Politica y Gobierno', replicado en cada consejeria.
+      # Perimetro: ejecutivo estricto (presidencia, vicepresidencia, gabinetes, alta
+      # direccion). EXCLUIDOS parlamento, control externo, defensorias, consejos
+      # consultivos y transparencia. Keywords VACIAS a proposito: mapeo por codigo
+      # exacto para que no vuelva a capturar por texto. Ver logs/progreso.md.
+      # 112 IMPULS I COORDINACIO DE L'ACCIO DE GOVERN (12/12, 0,1-3,5 M). Sale de direccion
+      # el 911 DEUTE PUBLIC (9.350 M), que era el 62 % del concepto.
+      codigos:
+      - '112'
+      keywords: []
+  Extremadura:
+    # Reescrito 2026-06-30 contra el catálogo real de programas (Ley DOE). El
+    # anterior era genérico y mal (313A agricultura iba a salud_mental, turismo=432A
+    # cuando ext usa 342A, sanidad sin 211x, salud_mental=212A=sanidad). Códigos =
+    # match por prefijo con frontera de dígito (R) o 4-char exacto. Ext NO tiene
+    # programa de salud_mental ni de discapacidad propios → quedan NULL (estructural).
+    sanidad:
+      codigos: ['211', '212']
+      keywords: [sanidad, sanitaria, salud publica, atencion primaria]
+    educacion:
+      codigos: ['221', '222']
+      keywords: [educacion, ensenanza, universitarias, profesorado]
+    dependencia:
+      codigos: ['231', '232']
+      keywords: [dependencia, atencion a la dependencia]
+    empleo:
+      codigos: ['241', '242', 325A]
+      keywords: [empleo, relaciones laborales]
+    igualdad:
+      codigos: [253A, 253D]
+      keywords: [igualdad de genero, violencia, mujer]
+    vivienda:
+      codigos: ['261', '262']
+      keywords: [vivienda, urbanismo]
+    soberania:
+      codigos: ['311', '312', '313', 314A, 323C, 353A]
+      keywords: [agricultura, agraria, producciones, medio rural, agroalimentaria]
+    idi:
+      codigos: [331A, 331B, 332A]
+      keywords: [investigacion, innovacion, desarrollo tecnologico]
+    turismo:
+      codigos: ['342']
+      keywords: [turismo]
+    diversidad:
+      # REDEFINIDO 2026-07-27 — Diversidad (LGTBI, migraciones, etnias), per Cuaderno
+      # Metodologico tablas 4/14. Antes cajon de sastre: inclusion social
+      # generica, infancia/familia, cooperacion al desarrollo, deporte, cultura,
+      # patrimonio, idioma. Ver logs/progreso.md.
+      # Retirados 252C (Cooperacion para el Desarrollo, 14 M, ayuda generica), 253B
+      # (Promocion y Servicios a la Juventud, 7 M) y 271/272/273/274 (direccion de cultura,
+      # bibliotecas, museos, promocion cultural, deporte — 78 M en total, NADA que ver con
+      # diversidad). Se queda 253C 'Acciones en materia de Emigracion' (0,9 M/anio).
+      codigos:
+      - '253C'
+      keywords:
+      - 'lgtbi'
+      - 'migracion'
+      - 'interculturalidad'
+      - 'gitano'
+      - 'emigracion'
+    direccion:
+      # REDEFINIDO 2026-07-27 — Direccion politica (altos cargos del ejecutivo).
+      # Antes era un cajon de sastre: deuda, justicia, tributos, transferencias a
+      # entes locales, informatica, medios y parlamentos. Referencia: programa 912A
+      # de Canarias 'Direccion Politica y Gobierno', replicado en cada consejeria.
+      # Perimetro: ejecutivo estricto (presidencia, vicepresidencia, gabinetes, alta
+      # direccion). EXCLUIDOS parlamento, control externo, defensorias, consejos
+      # consultivos y transparencia. Keywords VACIAS a proposito: mapeo por codigo
+      # exacto para que no vuelva a capturar por texto. Ver logs/progreso.md.
+      # 112A DIRECCION Y ADMINISTRACION DE PRESIDENCIA (12/12, 5,8-11,7 M). Sale de
+      # direccion el 121A AMORTIZACION Y GASTOS FINANCIEROS DE LA DEUDA (960 M), que era el
+      # 82 % del concepto.
+      codigos:
+      - '112A'
+      keywords: []
+  Galicia:
+    # Reescrito 2026-06-30. En Galicia sanidad=grupo 41x y servizos sociais=31x
+    # (al revés que el genérico). Códigos = match por prefijo con frontera de dígito
+    # (sirven a los años PROGR, programa-nivel); keywords = nombres de consellería
+    # (sirven a los años CSV de datos abertos). El ORDEN de conceptos fija la
+    # precedencia de keyword en los años CSV: educacion y dependencia van antes que
+    # diversidad para no perderlas (consellerías "CULTURA, EDUCA. E UNIV." y
+    # "POLÍTICA SOCIAL E XUVENTUDE"). Ver logs/progreso.md 2026-06-30.
+    sanidad:
+      codigos: ['411', '412', '413', '414', 561C]
+      keywords: [sanidad, sanidade, sanitaria]
+    educacion:
+      codigos: ['421', '422', '423', 561B]
+      keywords: [educa, ensino, ensinanza, universidade]
+    dependencia:
+      codigos: [312D, 312E]
+      keywords: [dependencia, atencion a la dependencia, persoas dependentes, politica social, benestar]
+    empleo:
+      codigos: ['321', '322', '323', '324']
+      keywords: [emprego]
+    igualdad:
+      codigos: [313B, 313D]
+      keywords: [igualdade, muller, violencia de xenero]
+    soberania:
+      codigos: ['711', '712', '713', '721', '722', '723', '551', '514']
+      keywords: [medio rural, rural, pesqueir, agrar, ' mar']
+    vivienda:
+      codigos: ['451', '521']
+      keywords: [vivenda, urbanismo]
+    turismo:
+      codigos: ['761']
+      keywords: [turismo]
+    idi:
+      codigos: [561A, '571']
+    direccion:
+      # REDEFINIDO 2026-07-27 — Direccion politica (altos cargos del ejecutivo).
+      # Antes era un cajon de sastre: deuda, justicia, tributos, transferencias a
+      # entes locales, informatica, medios y parlamentos. Referencia: programa 912A
+      # de Canarias 'Direccion Politica y Gobierno', replicado en cada consejeria.
+      # Perimetro: ejecutivo estricto (presidencia, vicepresidencia, gabinetes, alta
+      # direccion). EXCLUIDOS parlamento, control externo, defensorias, consejos
+      # consultivos y transparencia. Keywords VACIAS a proposito: mapeo por codigo
+      # exacto para que no vuelva a capturar por texto. Ver logs/progreso.md.
+      # 111A PRESIDENCIA DA XUNTA DE GALICIA (12/12, 3,4-7,0 M). Sale de direccion el 911A
+      # DEBEDA PUBLICA (1.511 M) y el 811B transferencias a entidades locais.
+      codigos:
+      - '111A'
+      keywords: []
+    diversidad:
+      # REDEFINIDO 2026-07-27 — Diversidad (LGTBI, migraciones, etnias), per Cuaderno
+      # Metodologico tablas 4/14. Antes cajon de sastre: inclusion social
+      # generica, infancia/familia, cooperacion al desarrollo, deporte, cultura,
+      # patrimonio, idioma. Ver logs/progreso.md.
+      # Retirados 313A (Servizos a xuventude, 17 M), 151 (Fomento da lingua galega, 11 M),
+      # 431/432/433/441 (direccion de cultura, bibliotecas/museos, patrimonio, deporte — 162
+      # M en total, NADA que ver con diversidad). Se queda 312C 'Servizos sociais relativos
+      # as migracions' (22-25 M/anio, unico programa realmente de diversidad).
+      codigos:
+      - '312C'
+      keywords:
+      - 'lgtbi'
+      - 'migrac'
+      - 'interculturalidad'
+      - 'gitano'
+    discapacidad:
+      # AÑADIDO 2026-07-27: override explícito para no depender del patrón
+      # GLOBAL, retirado hoy porque filtraba a Asturias/Baleares (donde 313C
+      # significa otra cosa). En Galicia 313C = "Servizos sociais comunitarios"
+      # (~455 M€/año), uso legítimo ya verificado. Ver logs/progreso.md.
+      codigos: ['313C']
+      keywords: []
+  La Rioja:
+    sanidad:
+      codigos:
+      - 312A
+      - 312B
+      - 312C
+      keywords:
+      - salud publica
+    educacion:
+      codigos:
+      - 321A
+      - 322B
+    vivienda:
+      codigos:
+      - 261A
+      keywords:
+      - vivienda
+    idi:
+      codigos:
+      - 467A
+    dependencia:
+      codigos:
+      - 313A
+      keywords:
+      - dependencia
+    discapacidad:
+      codigos:
+      - 313B
+      keywords:
+      - discapacidad
+    salud_mental:
+      codigos:
+      - 312B
+      keywords:
+      - salud mental
+    turismo:
+      codigos:
+      - 432A
+    igualdad:
+      codigos:
+      - 232A
+      keywords:
+      - igualdad
+    direccion:
+      # REDEFINIDO 2026-07-27 — Direccion politica (altos cargos del ejecutivo).
+      # Antes era un cajon de sastre: deuda, justicia, tributos, transferencias a
+      # entes locales, informatica, medios y parlamentos. Referencia: programa 912A
+      # de Canarias 'Direccion Politica y Gobierno', replicado en cada consejeria.
+      # Perimetro: ejecutivo estricto (presidencia, vicepresidencia, gabinetes, alta
+      # direccion). EXCLUIDOS parlamento, control externo, defensorias, consejos
+      # consultivos y transparencia. Keywords VACIAS a proposito: mapeo por codigo
+      # exacto para que no vuelva a capturar por texto. Ver logs/progreso.md.
+      # 1.8.1.1 ACTIVIDAD ALTA DIRECCION (2017-2026) y 1.1.2.1 GABINETE DEL PRESIDENTE
+      # (2015-2016, esquema funcional antiguo). Juntos dan 12/12. Codigos ENTRECOMILLADOS:
+      # sin comillas YAML los lee como float y nunca casan.
+      codigos:
+      - '1.8.1.1'
+      - '1.1.2.1'
+      keywords: []
+  Comunidad de Madrid:
+    sanidad:
+      codigos:
+      - '311'
+      - '313'
+      keywords:
+      - sanidad
+      - salud publica
+    educacion:
+      codigos:
+      - 321A
+      - 323A
+    vivienda:
+      codigos:
+      - 261A
+      keywords:
+      - vivienda
+    idi:
+      codigos:
+      - 467A
+    dependencia:
+      codigos:
+      - 231A
+      keywords:
+      - dependencia
+    discapacidad:
+      codigos:
+      - 231B
+      keywords:
+      - discapacidad
+    salud_mental:
+      codigos:
+      - 313A
+      keywords:
+      - salud mental
+    turismo:
+      codigos:
+      - 432A
+    igualdad:
+      codigos:
+      - 232A
+      keywords:
+      - igualdad
+      - mujer
+    direccion:
+      # REDEFINIDO 2026-07-27 — Direccion politica (altos cargos del ejecutivo).
+      # Antes era un cajon de sastre: deuda, justicia, tributos, transferencias a
+      # entes locales, informatica, medios y parlamentos. Referencia: programa 912A
+      # de Canarias 'Direccion Politica y Gobierno', replicado en cada consejeria.
+      # Perimetro: ejecutivo estricto (presidencia, vicepresidencia, gabinetes, alta
+      # direccion). EXCLUIDOS parlamento, control externo, defensorias, consejos
+      # consultivos y transparencia. Keywords VACIAS a proposito: mapeo por codigo
+      # exacto para que no vuelva a capturar por texto. Ver logs/progreso.md.
+      # 3001 PRESIDENCIA DE LA COMUNIDAD DE MADRID (12/12, 1,1-1,7 M). Se excluye 11001
+      # S.G.T. de Presidencia (40-191 M), que es la secretaria general tecnica de un
+      # departamento entero. Madrid extrae por CENTRO, no por programa.
+      codigos:
+      - '3001'
+      keywords: []
+  Región de Murcia:
+    sanidad:
+      codigos:
+      - 412A
+      - 412B
+      - 412C
+      keywords:
+      - salud publica
+    educacion:
+      codigos:
+      - 421A
+      - 422F
+    vivienda:
+      codigos:
+      - 431A
+      keywords:
+      - vivienda
+    idi:
+      codigos:
+      - 542A
+    dependencia:
+      codigos:
+      - 313D
+      keywords:
+      - dependencia
+    discapacidad:
+      codigos:
+      - 313F
+      keywords:
+      - discapacidad
+    salud_mental:
+      codigos:
+      - 412B
+      keywords:
+      - salud mental
+    turismo:
+      codigos:
+      - 432A
+      keywords:
+      - turismo
+    igualdad:
+      codigos:
+      - 323A
+      keywords:
+      - mujer
+    direccion:
+      # REDEFINIDO 2026-07-27 — Direccion politica (altos cargos del ejecutivo).
+      # Antes era un cajon de sastre: deuda, justicia, tributos, transferencias a
+      # entes locales, informatica, medios y parlamentos. Referencia: programa 912A
+      # de Canarias 'Direccion Politica y Gobierno', replicado en cada consejeria.
+      # Perimetro: ejecutivo estricto (presidencia, vicepresidencia, gabinetes, alta
+      # direccion). EXCLUIDOS parlamento, control externo, defensorias, consejos
+      # consultivos y transparencia. Keywords VACIAS a proposito: mapeo por codigo
+      # exacto para que no vuelva a capturar por texto. Ver logs/progreso.md.
+      # 112E SERVICIOS GRALES SECRETARIA GRAL DE LA PRESIDENCIA (2020-2026, 0,5-0,7 M).
+      # 2015-2019 quedan NULL: antes de 2020 Murcia solo publica 112A DIRECCION Y SERVICIOS
+      # GENERALES, cuya serie es inestable (64,4 M en 2015, 6,5 M en 2017).
+      codigos:
+      - '112E'
+      keywords: []
+  Comunidad Foral de Navarra:
+    sanidad:
+      codigos:
+      - '510'
+      keywords:
+      - sanitaria
+    educacion:
+      codigos:
+      - '411'
+      - '420'
+    vivienda:
+      codigos:
+      - '320'
+      keywords:
+      - vivienda
+    idi:
+      codigos:
+      - '720'
+      keywords:
+      - investigacion desarrollo
+    dependencia:
+      codigos:
+      - '261'
+      keywords:
+      - dependencia
+    discapacidad:
+      codigos:
+      - '262'
+      keywords:
+      - discapacidad
+    salud_mental:
+      codigos:
+      - '514'
+      keywords:
+      - salud mental
+    turismo:
+      codigos:
+      - '730'
+      keywords:
+      - turismo
+    igualdad:
+      codigos:
+      - '920'
+      keywords:
+      - igualdad
+    direccion:
+      # REDEFINIDO 2026-07-27 — Direccion politica (altos cargos del ejecutivo).
+      # Antes era un cajon de sastre: deuda, justicia, tributos, transferencias a
+      # entes locales, informatica, medios y parlamentos. Referencia: programa 912A
+      # de Canarias 'Direccion Politica y Gobierno', replicado en cada consejeria.
+      # Perimetro: ejecutivo estricto (presidencia, vicepresidencia, gabinetes, alta
+      # direccion). EXCLUIDOS parlamento, control externo, defensorias, consejos
+      # consultivos y transparencia. Keywords VACIAS a proposito: mapeo por codigo
+      # exacto para que no vuelva a capturar por texto. Ver logs/progreso.md.
+      # 91.9121 Alta direccion / Gobierno de Navarra (12/12, 0,4-0,6 M). Se excluyen 91.9112
+      # actividad legislativa, 91.9113 control externo y 91.9122 alto asesoramiento.
+      codigos:
+      - '91.9121'
+      keywords: []
+  País Vasco:
+    # Reescrito 2026-07-01 para casar con ccaa/pvc/correspondencias.yml (Python).
+    # Clasificación FUNCIONAL vasca: prefijo del Programa de 4 díg = Función
+    # (41*→sanidad, 42*→educacion…). Requiere el soporte de comodín "*" en
+    # .match_codigo (R/correspondencias.R): "41" solo casaría "41"/"41A", NO
+    # "4111". Sin keywords: la denom del CSV tidy es de subconcepto económico y
+    # no es fiable (bug 2026-07-01: sin esto, los años tidy 2022-2026 caían a
+    # NULL en sanidad/educación mientras los ZIP 2015-2021 colaban por keyword).
+    # dependencia/discapacidad/salud_mental/diversidad/igualdad NO son separables
+    # en esta clasificación (van en 31/32 servicios sociales) → sin mapear.
+    sanidad:
+      codigos:
+      - '41*'
+    educacion:
+      codigos:
+      - '42*'
+    soberania:
+      codigos:
+      - '71*'
+    direccion:
+      # REDEFINIDO 2026-07-27 — Direccion politica (altos cargos del ejecutivo).
+      # Antes era un cajon de sastre: deuda, justicia, tributos, transferencias a
+      # entes locales, informatica, medios y parlamentos. Referencia: programa 912A
+      # de Canarias 'Direccion Politica y Gobierno', replicado en cada consejeria.
+      # Perimetro: ejecutivo estricto (presidencia, vicepresidencia, gabinetes, alta
+      # direccion). EXCLUIDOS parlamento, control externo, defensorias, consejos
+      # consultivos y transparencia. Keywords VACIAS a proposito: mapeo por codigo
+      # exacto para que no vuelva a capturar por texto. Ver logs/progreso.md.
+      # 1217 Retribuciones de Altos Cargos (12/12, 2,2-4,8 M). AVISO: en pvc las
+      # denominaciones estan DESALINEADAS (el extractor toma el nombre de la primera
+      # partida, no el del programa), asi que 'Retribuciones de Altos Cargos' aparece
+      # tambien en 3121 con 1.495 M y en 2223 con 753 M. Mapear SOLO por codigo.
+      codigos:
+      - '1217'
+      keywords: []
+    vivienda:
+      codigos:
+      - '43*'
+    igualdad:
+      # 2026-07-03: 322* en la clasificación vasca son Emakunde/Instituto Vasco de
+      # la Mujer (3221/3223) → igualdad por cuaderno §1.6, no empleo. El empleo real
+      # (Lanbide) va en otro código. Confirmado con la denom del staging + python local.
+      codigos:
+      - '322*'
+    idi:
+      codigos:
+      - '54*'
+    turismo:
+      codigos:
+      - '75*'
+  Comunidad Valenciana:
+    sanidad:
+      codigos:
+      - '411'
+      keywords:
+      - sanidad
+      - sanitaria
+    educacion:
+      codigos:
+      - '421'
+      - '422'
+    vivienda:
+      codigos:
+      - '431'
+      keywords:
+      - vivienda
+    idi:
+      codigos:
+      - '542'
+    dependencia:
+      codigos:
+      - '313.50'
+      keywords:
+      - dependencia
+    discapacidad:
+      codigos:
+      - '313.60'
+      keywords:
+      - discapacidad
+    salud_mental:
+      codigos:
+      - '313.70'
+      keywords:
+      - salud mental
+    turismo:
+      codigos:
+      - '751.10'
+      keywords:
+      - turismo
+    igualdad:
+      codigos:
+      - '323.10'
+      keywords:
+      - igualdad
+    direccion:
+      # REDEFINIDO 2026-07-27 — Direccion politica (altos cargos del ejecutivo).
+      # Antes era un cajon de sastre: deuda, justicia, tributos, transferencias a
+      # entes locales, informatica, medios y parlamentos. Referencia: programa 912A
+      # de Canarias 'Direccion Politica y Gobierno', replicado en cada consejeria.
+      # Perimetro: ejecutivo estricto (presidencia, vicepresidencia, gabinetes, alta
+      # direccion). EXCLUIDOS parlamento, control externo, defensorias, consejos
+      # consultivos y transparencia. Keywords VACIAS a proposito: mapeo por codigo
+      # exacto para que no vuelva a capturar por texto. Ver logs/progreso.md.
+      # 121B00 Alta Direccion y Servicios (2024-2026) y su codigo legacy '121.2'
+      # (2015-2023). Juntos dan 12/12. Sale de direccion el 011A00 Servicio de la Deuda
+      # (7.948 M), que era el 80 % del concepto. '121.2' ENTRECOMILLADO obligatoriamente.
+      codigos:
+      - '121B00'
+      - '121.2'
+      keywords: []

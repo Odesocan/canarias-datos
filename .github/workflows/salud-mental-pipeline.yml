@@ -1,0 +1,49 @@
+name: Salud Mental Pipeline
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 5 * * 1"
+
+jobs:
+  salud-mental:
+    runs-on: ubuntu-latest
+    # El paso `carga` escribe en la Supabase de producción. Declarar el entorno
+    # permite exigir revisor en GitHub antes de que el cron escriba sin supervisión
+    # (§4.2). Sin reglas de protección configuradas, no altera la ejecución.
+    environment: production
+
+    env:
+      SUPABASE_HOST: ${{ secrets.SUPABASE_HOST }}
+      SUPABASE_PORT: ${{ secrets.SUPABASE_PORT }}
+      SUPABASE_DBNAME: ${{ secrets.SUPABASE_DBNAME }}
+      SUPABASE_USER: ${{ secrets.SUPABASE_USER }}
+      SUPABASE_PASS: ${{ secrets.SUPABASE_PASS }}
+      SUPABASE_SCHEMA: ${{ secrets.SUPABASE_SCHEMA }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup R
+        uses: ./.github/actions/setup-r-pipeline
+        with:
+          extra-packages: "ineapir prophet"
+
+      - name: Run pipeline
+        run: |
+          WITH_DB=false
+          if [ -n "${SUPABASE_HOST}" ] && [ -n "${SUPABASE_USER}" ] && [ -n "${SUPABASE_PASS}" ]; then
+            WITH_DB=true
+          fi
+          Rscript "Salud mental/00_maestro.R" --steps=extraccion,transformacion,modelado,carga --with-db="${WITH_DB}"
+
+      - name: Upload outputs
+        uses: actions/upload-artifact@v4
+        with:
+          name: salud-mental-outputs
+          path: |
+            Salud mental/2_transformacion/ced_saludmental.rds
+            Salud mental/3_modelado/ced_saludmental.rds
+            Salud mental/4_carga/ced_saludmental.csv
+            Salud mental/4_carga/ced_saludmental.xlsx

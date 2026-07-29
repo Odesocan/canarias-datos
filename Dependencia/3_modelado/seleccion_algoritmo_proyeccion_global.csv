@@ -1,0 +1,5 @@
+"algoritmo";"variables_evaluadas";"variables_validas";"cobertura_media";"error_global";"candidato_global"
+"ETS";11;11;1;0,0316996571799054;TRUE
+"ARIMA";11;11;1;0,0351393337256694;TRUE
+"XGBoost";11;11;1;0,0366130340975149;TRUE
+"RF";11;11;1;0,037857937165137;TRUE

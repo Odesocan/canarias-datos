@@ -1,0 +1,72 @@
+ccaa_id3,anio,imp_total_hacienda_eur,imp_total_autonomico_eur,imp_total_hacienda_b_eur,imp_total_autonomico_b_eur,ratio_auto_vs_hacienda,n_capitulos,nota
+and,2022,40401786880.0,,40.402,,,9.0,pendiente master run — autonómica todavía no en ced_presupuestos.csv
+and,2023,45603830860.0,,45.604,,,9.0,pendiente master run — autonómica todavía no en ced_presupuestos.csv
+and,2024,46753227860.0,,46.753,,,9.0,pendiente master run — autonómica todavía no en ced_presupuestos.csv
+and,2025,48871600760.0,,48.872,,,9.0,pendiente master run — autonómica todavía no en ced_presupuestos.csv
+and,2026,,15375822015.0,,15.376,,,sin capa hacienda — SGCIEF aún no publicó este año
+ara,2022,7443845670.0,,7.444,,,9.0,pendiente master run — autonómica todavía no en ced_presupuestos.csv
+ara,2023,8249589670.0,,8.25,,,9.0,pendiente master run — autonómica todavía no en ced_presupuestos.csv
+ara,2024,8546300920.0,8120996883.7300005,8.546,8.121,0.9502,9.0,OK conciliación ±10% (95.0%)
+ara,2025,8546300920.0,,8.546,,,9.0,pendiente master run — autonómica todavía no en ced_presupuestos.csv
+ast,2022,5354165590.0,,5.354,,,9.0,pendiente master run — autonómica todavía no en ced_presupuestos.csv
+ast,2023,5968218490.0,,5.968,,,9.0,pendiente master run — autonómica todavía no en ced_presupuestos.csv
+ast,2024,6348595440.0,,6.349,,,9.0,pendiente master run — autonómica todavía no en ced_presupuestos.csv
+ast,2025,6664478950.0,,6.664,,,9.0,pendiente master run — autonómica todavía no en ced_presupuestos.csv
+ast,2026,,4973393506.66,,4.973,,,sin capa hacienda — SGCIEF aún no publicó este año
+bal,2022,6397821710.0,,6.398,,,9.0,pendiente master run — autonómica todavía no en ced_presupuestos.csv
+bal,2023,7133371710.0,,7.133,,,9.0,pendiente master run — autonómica todavía no en ced_presupuestos.csv
+bal,2024,7320653460.0,,7.321,,,9.0,pendiente master run — autonómica todavía no en ced_presupuestos.csv
+bal,2025,7469140340.0,,7.469,,,9.0,pendiente master run — autonómica todavía no en ced_presupuestos.csv
+can,2022,9973597450.0,,9.974,,,9.0,pendiente master run — autonómica todavía no en ced_presupuestos.csv
+can,2023,11059201620.0,,11.059,,,9.0,pendiente master run — autonómica todavía no en ced_presupuestos.csv
+can,2024,11970645250.0,,11.971,,,9.0,pendiente master run — autonómica todavía no en ced_presupuestos.csv
+can,2025,12342736470.0,,12.343,,,9.0,pendiente master run — autonómica todavía no en ced_presupuestos.csv
+cat,2022,49012465220.0,,49.012,,,9.0,pendiente master run — autonómica todavía no en ced_presupuestos.csv
+cat,2023,51807587280.0,,51.808,,,9.0,pendiente master run — autonómica todavía no en ced_presupuestos.csv
+cat,2024,51827587280.0,,51.828,,,9.0,pendiente master run — autonómica todavía no en ced_presupuestos.csv
+cat,2025,50605289010.0,,50.605,,,9.0,pendiente master run — autonómica todavía no en ced_presupuestos.csv
+cat,2026,,17640927960.09,,17.641,,,sin capa hacienda — SGCIEF aún no publicó este año
+clm,2022,12273515110.0,,12.274,,,9.0,pendiente master run — autonómica todavía no en ced_presupuestos.csv
+clm,2023,12431575550.0,,12.432,,,9.0,pendiente master run — autonómica todavía no en ced_presupuestos.csv
+clm,2024,12473342760.0,,12.473,,,9.0,pendiente master run — autonómica todavía no en ced_presupuestos.csv
+clm,2025,12716180030.0,,12.716,,,9.0,pendiente master run — autonómica todavía no en ced_presupuestos.csv
+cnt,2022,3342636840.0,,3.343,,,9.0,pendiente master run — autonómica todavía no en ced_presupuestos.csv
+cnt,2023,3507353710.0,,3.507,,,9.0,pendiente master run — autonómica todavía no en ced_presupuestos.csv
+cnt,2024,3547667860.0,,3.548,,,9.0,pendiente master run — autonómica todavía no en ced_presupuestos.csv
+cnt,2025,3755661620.0,0.0,3.756,0.0,0.0,9.0,autonómica<50% hacienda — posible falta concepto §1.6 (0.0%)
+cym,2022,12291444520.0,,12.291,,,8.0,pendiente master run — autonómica todavía no en ced_presupuestos.csv
+cym,2023,13809836900.0,,13.81,,,8.0,pendiente master run — autonómica todavía no en ced_presupuestos.csv
+cym,2024,14562494140.0,,14.562,,,8.0,pendiente master run — autonómica todavía no en ced_presupuestos.csv
+cym,2025,14562494140.0,,14.562,,,8.0,pendiente master run — autonómica todavía no en ced_presupuestos.csv
+ext,2022,6999970110.0,,7.0,,,9.0,pendiente master run — autonómica todavía no en ced_presupuestos.csv
+ext,2023,7781092750.0,,7.781,,,9.0,pendiente master run — autonómica todavía no en ced_presupuestos.csv
+ext,2024,8127109110.0,,8.127,,,9.0,pendiente master run — autonómica todavía no en ced_presupuestos.csv
+ext,2025,8098337980.0,4072623029.96,8.098,4.073,0.5029,9.0,desviación significativa (50.3%)
+gal,2022,13117948260.0,,13.118,,,9.0,pendiente master run — autonómica todavía no en ced_presupuestos.csv
+gal,2023,14167171160.0,,14.167,,,9.0,pendiente master run — autonómica todavía no en ced_presupuestos.csv
+gal,2024,14815200880.0,,14.815,,,9.0,pendiente master run — autonómica todavía no en ced_presupuestos.csv
+gal,2025,15740540500.0,,15.741,,,9.0,pendiente master run — autonómica todavía no en ced_presupuestos.csv
+lar,2022,1949893600.0,,1.95,,,9.0,pendiente master run — autonómica todavía no en ced_presupuestos.csv
+lar,2023,1908873130.0,,1.909,,,9.0,pendiente master run — autonómica todavía no en ced_presupuestos.csv
+lar,2024,1973863310.0,,1.974,,,9.0,pendiente master run — autonómica todavía no en ced_presupuestos.csv
+lar,2025,2114703990.0,,2.115,,,9.0,pendiente master run — autonómica todavía no en ced_presupuestos.csv
+mad,2022,25999172470.0,,25.999,,,9.0,pendiente master run — autonómica todavía no en ced_presupuestos.csv
+mad,2023,28142467650.0,,28.142,,,9.0,pendiente master run — autonómica todavía no en ced_presupuestos.csv
+mad,2024,30584355910.0,,30.584,,,9.0,pendiente master run — autonómica todavía no en ced_presupuestos.csv
+mad,2025,31596299960.0,,31.596,,,9.0,pendiente master run — autonómica todavía no en ced_presupuestos.csv
+mur,2022,6962801970.0,,6.963,,,9.0,pendiente master run — autonómica todavía no en ced_presupuestos.csv
+mur,2023,7770713390.0,,7.771,,,9.0,pendiente master run — autonómica todavía no en ced_presupuestos.csv
+mur,2024,7819336870.0,,7.819,,,9.0,pendiente master run — autonómica todavía no en ced_presupuestos.csv
+mur,2025,8037477030.0,,8.037,,,9.0,pendiente master run — autonómica todavía no en ced_presupuestos.csv
+nav,2022,5273126610.0,,5.273,,,9.0,pendiente master run — autonómica todavía no en ced_presupuestos.csv
+nav,2023,5748951180.0,,5.749,,,9.0,pendiente master run — autonómica todavía no en ced_presupuestos.csv
+nav,2024,6355410180.0,,6.355,,,9.0,pendiente master run — autonómica todavía no en ced_presupuestos.csv
+nav,2025,6431264950.0,,6.431,,,9.0,pendiente master run — autonómica todavía no en ced_presupuestos.csv
+pvc,2022,13187367280.0,,13.187,,,9.0,pendiente master run — autonómica todavía no en ced_presupuestos.csv
+pvc,2023,14361725450.0,,14.362,,,9.0,pendiente master run — autonómica todavía no en ced_presupuestos.csv
+pvc,2024,15147034380.0,,15.147,,,9.0,pendiente master run — autonómica todavía no en ced_presupuestos.csv
+pvc,2025,15811133330.0,2685801928.0,15.811,2.686,0.1699,9.0,autonómica<50% hacienda — posible falta concepto §1.6 (17.0%)
+val,2022,28632359900.0,,28.632,,,9.0,pendiente master run — autonómica todavía no en ced_presupuestos.csv
+val,2023,29120879530.0,,29.121,,,9.0,pendiente master run — autonómica todavía no en ced_presupuestos.csv
+val,2024,30410305550.0,,30.41,,,9.0,pendiente master run — autonómica todavía no en ced_presupuestos.csv
+val,2025,32976869660.0,,32.977,,,9.0,pendiente master run — autonómica todavía no en ced_presupuestos.csv

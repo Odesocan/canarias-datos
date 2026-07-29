@@ -1,0 +1,9 @@
+tipo_hoja,periodo,n_meses,ncol_mediana,ncol_min,ncol_max,nrow_mediana,n_firmas_dist,n_meses_observados,cobertura_pct
+benpresaad_v1,pre,129,24,24,25,32,3,129,100
+benpresaad_v2,post,38,16,16,16,29,1,38,100
+dictsaad,post,38,26,24,26,34,2,38,100
+dictsaad,pre,129,21,21,28,27,8,129,100
+perfsaad,post,38,29,29,29,35,1,38,100
+perfsaad,pre,129,29,23,31,35,9,129,100
+solsaad,post,38,9,9,9,28,1,38,100
+solsaad,pre,129,5,4,10,28,7,129,100

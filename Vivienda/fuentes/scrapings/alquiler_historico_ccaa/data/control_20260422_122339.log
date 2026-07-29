@@ -1,0 +1,163 @@
+12:23:40 | INFO     | ============================================================
+12:23:40 | INFO     | PIPELINE ETL: HISTORICO ALQUILER CCAA ESPAÑA
+12:23:40 | INFO     | Inicio: 2026-04-22T12:23:40.036632
+12:23:40 | INFO     | Etapa: extract
+12:23:40 | INFO     | ============================================================
+12:23:40 | INFO     | ============================================================
+12:23:40 | INFO     | ETAPA 1: EXTRACCIÓN
+12:23:40 | INFO     | ============================================================
+12:23:40 | WARNING  | ProxyManager sin proxies configurados. Se usará IP directa (riesgo de bloqueo).
+12:23:40 | INFO     | Filtrado por: Cataluña, Comunidad Valenciana, Asturias, Murcia, Baleares, Castilla-La Mancha, Navarra, Madrid, Galicia, La Rioja, Extremadura, Aragón, Ceuta, Melilla, Andalucía → 15 comunidades
+12:23:40 | INFO     | Iniciando extracción de 15 comunidades | rotación cada 10 comunidades
+12:23:40 | INFO     | === Sesión 1/2 (10 comunidades) ===
+12:23:41 | INFO     | Navegador iniciado (nodriver) — viewport 1680x1050
+12:23:41 | INFO     | [1/15] Procesando: Asturias
+12:23:59 | INFO     | Google search: idealista precio alquiler asturias informe
+12:24:21 | INFO     | Click en resultado de Idealista sala-de-prensa
+12:24:32 | INFO     | Banner de cookies Didomi aceptado
+12:24:37 | INFO     | Click en 'Ver datos más antiguos' → /historico/
+12:24:46 | INFO     | Tabla de histórico cargada correctamente
+12:24:53 | INFO     | Página obtenida: 134,996 chars
+12:24:53 | INFO     | Tabla parseada: 243 filas para Asturias
+12:24:58 | INFO     |   -> 243 registros extraídos de Asturias
+12:24:58 | INFO     | [2/15] Procesando: Murcia
+12:24:58 | INFO     | Pausa entre comunidades: 6.5s [comunidad #1]
+12:25:22 | INFO     | Google search: informe alquiler Murcia idealista sala prensa
+12:25:49 | WARNING  | Google no surface enlace CCAA, navegando directo: https://www.idealista.com/sala-de-prensa/informes-precio-vivienda/alquiler/murcia/historico/
+12:26:01 | INFO     | Ya en página de histórico: https://www.idealista.com/sala-de-prensa/informes-precio-vivienda/alquiler/murcia/historico/
+12:26:24 | WARNING  | Timeout esperando tabla de histórico
+12:26:24 | INFO     |   -> Sin datos para Murcia
+12:26:24 | INFO     | [3/15] Procesando: Extremadura
+12:26:24 | INFO     | Pausa entre comunidades: 5.5s [comunidad #2]
+12:26:47 | INFO     | Google search: idealista sala de prensa alquiler extremadura
+12:27:13 | WARNING  | Google no surface enlace CCAA, navegando directo: https://www.idealista.com/sala-de-prensa/informes-precio-vivienda/alquiler/extremadura/historico/
+12:27:26 | INFO     | Ya en página de histórico: https://www.idealista.com/sala-de-prensa/informes-precio-vivienda/alquiler/extremadura/historico/
+12:27:37 | INFO     | Tabla de histórico cargada correctamente
+12:27:48 | INFO     | Página obtenida: 132,556 chars
+12:27:48 | INFO     | Tabla parseada: 243 filas para Extremadura
+12:27:51 | INFO     |   -> 243 registros extraídos de Extremadura
+12:27:51 | INFO     | [4/15] Procesando: Comunidad Valenciana
+12:27:51 | INFO     | Pausa entre comunidades: 9.8s [comunidad #3]
+12:28:22 | INFO     | Google search: sala de prensa idealista alquiler comunidad valenciana
+12:28:49 | WARNING  | Google no surface enlace CCAA, navegando directo: https://www.idealista.com/sala-de-prensa/informes-precio-vivienda/alquiler/comunidad-valenciana/historico/
+12:28:58 | INFO     | Ya en página de histórico: https://www.idealista.com/sala-de-prensa/informes-precio-vivienda/alquiler/comunidad-valenciana/historico/
+12:29:20 | WARNING  | Timeout esperando tabla de histórico
+12:29:20 | INFO     |   -> Sin datos para Comunidad Valenciana
+12:29:20 | INFO     | [5/15] Procesando: Madrid
+12:29:20 | INFO     | Pausa entre comunidades: 8.6s [comunidad #4]
+12:29:47 | INFO     | Google search: idealista sala de prensa alquiler madrid
+12:30:16 | WARNING  | Google no surface enlace CCAA, navegando directo: https://www.idealista.com/sala-de-prensa/informes-precio-vivienda/alquiler/madrid/historico/
+12:30:26 | INFO     | Ya en página de histórico: https://www.idealista.com/sala-de-prensa/informes-precio-vivienda/alquiler/madrid/historico/
+12:30:48 | WARNING  | Timeout esperando tabla de histórico
+12:30:48 | INFO     |   -> Sin datos para Madrid
+12:30:48 | INFO     | [6/15] Procesando: Navarra
+12:30:48 | INFO     | Pausa entre comunidades: 9.5s [comunidad #5]
+12:31:17 | INFO     | Google search: idealista precio alquiler navarra informe
+12:31:45 | WARNING  | Google no surface enlace CCAA, navegando directo: https://www.idealista.com/sala-de-prensa/informes-precio-vivienda/alquiler/navarra/historico/
+12:31:57 | INFO     | Ya en página de histórico: https://www.idealista.com/sala-de-prensa/informes-precio-vivienda/alquiler/navarra/historico/
+12:32:07 | INFO     | Tabla de histórico cargada correctamente
+12:32:15 | INFO     | Página obtenida: 131,576 chars
+12:32:15 | INFO     | Tabla parseada: 243 filas para Navarra
+12:32:19 | INFO     |   -> 243 registros extraídos de Navarra
+12:32:19 | INFO     | [7/15] Procesando: Baleares
+12:32:19 | INFO     | Pausa entre comunidades: 7.9s [comunidad #6]
+12:32:46 | INFO     | Google search: idealista precio alquiler baleares informe
+12:33:14 | WARNING  | Google no surface enlace CCAA, navegando directo: https://www.idealista.com/sala-de-prensa/informes-precio-vivienda/alquiler/baleares/historico/
+12:33:26 | INFO     | Ya en página de histórico: https://www.idealista.com/sala-de-prensa/informes-precio-vivienda/alquiler/baleares/historico/
+12:33:36 | INFO     | Tabla de histórico cargada correctamente
+12:33:44 | INFO     | Página obtenida: 135,544 chars
+12:33:44 | INFO     | Tabla parseada: 243 filas para Baleares
+12:33:48 | INFO     |   -> 243 registros extraídos de Baleares
+12:33:48 | INFO     | [8/15] Procesando: Ceuta
+12:33:48 | INFO     | Pausa entre comunidades: 5.4s [comunidad #7]
+12:34:08 | WARNING  | Error en búsqueda/navegación: string index out of range
+12:34:08 | INFO     |   -> Sin datos para Ceuta
+12:34:08 | INFO     | [9/15] Procesando: Cataluña
+12:34:08 | INFO     | Pausa entre comunidades: 6.8s [comunidad #8]
+12:34:30 | INFO     | Google search: idealista alquiler Cataluña report
+12:34:58 | WARNING  | Google no surface enlace CCAA, navegando directo: https://www.idealista.com/sala-de-prensa/informes-precio-vivienda/alquiler/cataluna/historico/
+12:35:08 | INFO     | Ya en página de histórico: https://www.idealista.com/sala-de-prensa/informes-precio-vivienda/alquiler/cataluna/historico/
+12:35:18 | INFO     | Tabla de histórico cargada correctamente
+12:35:26 | INFO     | Página obtenida: 136,121 chars
+12:35:26 | INFO     | Tabla parseada: 243 filas para Cataluña
+12:35:30 | INFO     |   -> 243 registros extraídos de Cataluña
+12:35:30 | INFO     | [10/15] Procesando: Andalucía
+12:35:30 | INFO     | Pausa entre comunidades: 5.7s [comunidad #9]
+12:35:54 | INFO     | Google search: informe alquiler andalucía idealista sala prensa
+12:36:21 | WARNING  | Google no surface enlace CCAA, navegando directo: https://www.idealista.com/sala-de-prensa/informes-precio-vivienda/alquiler/andalucia/historico/
+12:36:31 | INFO     | Ya en página de histórico: https://www.idealista.com/sala-de-prensa/informes-precio-vivienda/alquiler/andalucia/historico/
+12:36:42 | INFO     | Tabla de histórico cargada correctamente
+12:36:51 | INFO     | Página obtenida: 136,564 chars
+12:36:51 | INFO     | Tabla parseada: 243 filas para Andalucía
+12:36:54 | INFO     |   -> 243 registros extraídos de Andalucía
+12:36:54 | INFO     | Navegador cerrado.
+12:36:54 | INFO     | === Sesión 2/2 (5 comunidades) ===
+12:36:54 | INFO     | Pausa entre sesiones: 63s (1.1 min)
+12:37:58 | INFO     | Navegador iniciado (nodriver) — viewport 2560x1440
+12:37:58 | INFO     | [11/15] Procesando: Castilla-La Mancha
+12:38:16 | INFO     | Google search: informe alquiler castilla-la mancha idealista sala prensa
+12:38:30 | INFO     | Click en resultado de Idealista sala-de-prensa
+12:38:38 | INFO     | Banner de cookies Didomi aceptado
+12:38:42 | INFO     | Click en 'Ver datos más antiguos' → /historico/
+12:38:49 | INFO     | Tabla de histórico cargada correctamente
+12:38:59 | INFO     | Página obtenida: 135,049 chars
+12:38:59 | INFO     | Tabla parseada: 243 filas para Castilla-La Mancha
+12:39:04 | INFO     |   -> 243 registros extraídos de Castilla-La Mancha
+12:39:04 | INFO     | [12/15] Procesando: La Rioja
+12:39:04 | INFO     | Pausa entre comunidades: 5.5s [comunidad #10]
+12:39:30 | INFO     | Google search: idealista sala de prensa alquiler La Rioja
+12:39:34 | INFO     | Click en resultado de Idealista sala-de-prensa
+12:39:44 | INFO     | Ya en página de histórico: https://www.idealista.com/sala-de-prensa/informes-precio-vivienda/alquiler/la-rioja/historico/
+12:39:54 | INFO     | Tabla de histórico cargada correctamente
+12:40:03 | INFO     | Página obtenida: 131,789 chars
+12:40:03 | INFO     | Tabla parseada: 243 filas para La Rioja
+12:40:07 | INFO     |   -> 243 registros extraídos de La Rioja
+12:40:07 | INFO     | [13/15] Procesando: Galicia
+12:40:07 | INFO     | Pausa entre comunidades: 7.3s [comunidad #11]
+12:40:32 | INFO     | Google search: idealista sala de prensa alquiler Galicia
+12:40:45 | INFO     | Click en resultado de Idealista sala-de-prensa
+12:40:59 | INFO     | Click en 'Ver datos más antiguos' → /historico/
+12:41:05 | INFO     | Tabla de histórico cargada correctamente
+12:41:15 | INFO     | Página obtenida: 135,244 chars
+12:41:15 | INFO     | Tabla parseada: 243 filas para Galicia
+12:41:19 | INFO     |   -> 243 registros extraídos de Galicia
+12:41:19 | INFO     | [14/15] Procesando: Melilla
+12:41:19 | INFO     | Pausa entre comunidades: 6.0s [comunidad #12]
+12:41:45 | INFO     | Google search: idealista informe precio alquiler Melilla
+12:41:59 | INFO     | Click en resultado de Idealista sala-de-prensa
+12:42:13 | INFO     | Click en 'Ver datos más antiguos' → /historico/
+12:42:20 | INFO     | Tabla de histórico cargada correctamente
+12:42:27 | INFO     | Página obtenida: 128,179 chars
+12:42:27 | INFO     | Tabla parseada: 243 filas para Melilla
+12:42:30 | INFO     |   -> 243 registros extraídos de Melilla
+12:42:30 | INFO     | [15/15] Procesando: Aragón
+12:42:30 | INFO     | Pausa entre comunidades: 9.5s [comunidad #13]
+12:42:57 | INFO     | Google search: idealista sala de prensa alquiler aragón
+12:43:10 | INFO     | Click en resultado de Idealista sala-de-prensa
+12:43:24 | INFO     | Click en 'Ver datos más antiguos' → /historico/
+12:43:32 | INFO     | Tabla de histórico cargada correctamente
+12:43:42 | INFO     | Página obtenida: 134,040 chars
+12:43:42 | INFO     | Tabla parseada: 243 filas para Aragón
+12:43:46 | INFO     |   -> 243 registros extraídos de Aragón
+12:43:46 | INFO     | Navegador cerrado.
+12:43:46 | INFO     | Dataset consolidado guardado: /Users/cristiancpv/Desktop/TRABAJO/OBSERVATORIO/CANARIAS EN DATOS/Vivienda/fuentes/scrapings/alquiler_historico_ccaa/data/raw/consolidado_20260422_124346.json
+12:43:46 | INFO     | Extracción completada: 2673 registros totales | 11 comunidades con datos | 4 sin datos | 0 fallidas
+12:43:46 | INFO     | Pipeline completado en 0:20:06.250365
+Loop <_UnixSelectorEventLoop running=False closed=True debug=False> that handles pid 28707 is closed
+successfully removed temp profile /var/folders/8p/dhxngyy16_q03bsbkhdh285c0000gn/T/uc_06zvxmmm
+successfully removed temp profile /var/folders/8p/dhxngyy16_q03bsbkhdh285c0000gn/T/uc_r1p2sgrc
+Exception ignored in: <function BaseSubprocessTransport.__del__ at 0x1062f0540>
+Traceback (most recent call last):
+  File "/Users/cristiancpv/.pyenv/versions/3.12.3/lib/python3.12/asyncio/base_subprocess.py", line 126, in __del__
+    self.close()
+  File "/Users/cristiancpv/.pyenv/versions/3.12.3/lib/python3.12/asyncio/base_subprocess.py", line 104, in close
+    proto.pipe.close()
+  File "/Users/cristiancpv/.pyenv/versions/3.12.3/lib/python3.12/asyncio/unix_events.py", line 767, in close
+    self.write_eof()
+  File "/Users/cristiancpv/.pyenv/versions/3.12.3/lib/python3.12/asyncio/unix_events.py", line 753, in write_eof
+    self._loop.call_soon(self._call_connection_lost, None)
+  File "/Users/cristiancpv/.pyenv/versions/3.12.3/lib/python3.12/asyncio/base_events.py", line 795, in call_soon
+    self._check_closed()
+  File "/Users/cristiancpv/.pyenv/versions/3.12.3/lib/python3.12/asyncio/base_events.py", line 541, in _check_closed
+    raise RuntimeError('Event loop is closed')
+RuntimeError: Event loop is closed

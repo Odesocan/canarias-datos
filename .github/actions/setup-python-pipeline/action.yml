@@ -1,0 +1,72 @@
+name: "Setup Python pipeline"
+description: "Python + dependencias de sistema + requirements/paquetes del área de Canarias en Datos"
+
+# Uso desde un workflow de área (requiere actions/checkout previo, porque es una
+# composite action local):
+#
+#   - uses: ./.github/actions/setup-python-pipeline
+#     with:
+#       python-version: "3.11"
+#       requirements: "Empleo/1_extraccion/requirements.txt"
+#       system-deps: "ghostscript python3-tk"      # camelot, en Presupuestos
+#       extra-packages: "pdfplumber pandas pyarrow"
+#
+# No hay lista núcleo de paquetes pip: a diferencia de R, cada área ya declara
+# sus dependencias en su propio requirements.txt (Educación, Empleo, Vivienda,
+# Presupuestos). Lo que esta action centraliza es el bloque de setup repetido:
+# versión de Python, apt, actualización de pip y la instalación en sí.
+#
+# Todas las rutas se citan en el shell: hay áreas con espacios y tildes en el
+# nombre de carpeta ("Salud mental", "Educación").
+
+inputs:
+  python-version:
+    description: "Versión de Python"
+    required: false
+    default: "3.12"
+  requirements:
+    description: "Ruta a un requirements.txt, relativa a la raíz del repo (vacío = ninguno)"
+    required: false
+    default: ""
+  extra-packages:
+    description: "Paquetes pip adicionales, separados por espacios (p. ej. 'pdfplumber pandas pyarrow')"
+    required: false
+    default: ""
+  system-deps:
+    description: "Paquetes apt adicionales, separados por espacios (p. ej. 'ghostscript python3-tk')"
+    required: false
+    default: ""
+
+runs:
+  using: "composite"
+  steps:
+    - uses: actions/setup-python@v5
+      with:
+        python-version: ${{ inputs.python-version }}
+
+    - name: Dependencias de sistema
+      if: inputs.system-deps != ''
+      shell: bash
+      env:
+        CED_SYSTEM_DEPS: ${{ inputs.system-deps }}
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y $CED_SYSTEM_DEPS
+
+    - name: Actualizar pip
+      shell: bash
+      run: python3 -m pip install --upgrade pip
+
+    - name: Instalar requirements del área
+      if: inputs.requirements != ''
+      shell: bash
+      env:
+        CED_REQUIREMENTS: ${{ inputs.requirements }}
+      run: python3 -m pip install -r "$CED_REQUIREMENTS"
+
+    - name: Paquetes pip adicionales
+      if: inputs.extra-packages != ''
+      shell: bash
+      env:
+        CED_EXTRA_PACKAGES: ${{ inputs.extra-packages }}
+      run: python3 -m pip install $CED_EXTRA_PACKAGES

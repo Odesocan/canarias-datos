@@ -1,0 +1,56 @@
+defaults:
+  user_agent: "ODESOCAN-smoke/0.1"
+  retries: 1
+  timeout_s: 5
+
+can:
+  nombre: smoke
+  regimen: comun
+  ejercicios:
+    2024:
+      smoke_can:
+        tipo: csv
+        url: "file:///Users/cristiancpv/Desktop/TRABAJO/OBSERVATORIO/CANARIAS EN DATOS/Presupuestos/fuentes/raw/can/2024/smoke_can.csv"
+        capa: autonomica
+        consolidacion: consolidado
+    2025:
+      smoke_can:
+        tipo: csv
+        url: "file:///Users/cristiancpv/Desktop/TRABAJO/OBSERVATORIO/CANARIAS EN DATOS/Presupuestos/fuentes/raw/can/2025/smoke_can.csv"
+        capa: autonomica
+        consolidacion: consolidado
+and:
+  nombre: smoke
+  regimen: comun
+  ejercicios:
+    2024:
+      smoke_and:
+        tipo: csv
+        url: "file:///Users/cristiancpv/Desktop/TRABAJO/OBSERVATORIO/CANARIAS EN DATOS/Presupuestos/fuentes/raw/and/2024/smoke_and.csv"
+        capa: autonomica
+        consolidacion: consolidado
+    2025:
+      smoke_and:
+        tipo: csv
+        url: "file:///Users/cristiancpv/Desktop/TRABAJO/OBSERVATORIO/CANARIAS EN DATOS/Presupuestos/fuentes/raw/and/2025/smoke_and.csv"
+        capa: autonomica
+        consolidacion: consolidado
+cat:
+  nombre: smoke
+  regimen: comun
+  ejercicios:
+    2024:
+      smoke_cat:
+        tipo: csv
+        url: "file:///Users/cristiancpv/Desktop/TRABAJO/OBSERVATORIO/CANARIAS EN DATOS/Presupuestos/fuentes/raw/cat/2024/smoke_cat.csv"
+        capa: autonomica
+        consolidacion: consolidado
+hacienda:
+  nombre: "Min Hacienda (smoke)"
+  ejercicios:
+    2024:
+      consulta_web:
+        tipo: html
+        url: "file:///Users/cristiancpv/Desktop/TRABAJO/OBSERVATORIO/CANARIAS EN DATOS/Presupuestos/fuentes/raw/hacienda/2024/consulta_web.html"
+        capa: hacienda
+        consolidacion: consolidado

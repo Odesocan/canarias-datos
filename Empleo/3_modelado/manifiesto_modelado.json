@@ -1,0 +1,25 @@
+{
+  "seccion": "Empleo",
+  "fase": "3_modelado",
+  "horizonte_anyo": 2026,
+  "n_series": 507,
+  "filas_reales": 29505,
+  "filas_proyeccion": 1452,
+  "algoritmo_global_ref": "AutoTheta",
+  "reparto_modelos_ganadores": {
+    "Naive": 93,
+    "Prophet": 89,
+    "AutoTheta": 82,
+    "SeasonalNaive": 66,
+    "WindowAverage": 56,
+    "AutoARIMA": 41,
+    "AutoETS": 35,
+    "RWD": 29,
+    "HistoricAverage": 16
+  },
+  "series_con_parsimonia": 104,
+  "cv_folds": {
+    "trimestral": 4,
+    "anual": 3
+  }
+}

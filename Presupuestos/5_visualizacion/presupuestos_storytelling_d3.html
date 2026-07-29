@@ -1,0 +1,685 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>CED · Presupuestos sociales · Canarias en Datos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+</head>
+<body>
+
+<div id="ced-presupuestos-d3"
+     class="ced-presupuestos-d3"
+     data-supabase-url="https://kdpsjutsgvghdtzoskkg.supabase.co"
+     data-supabase-key="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImtkcHNqdXRzZ3ZnaGR0em9za2tnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjUxOTE3MzEsImV4cCI6MjA4MDc2NzczMX0.1W2H42tPmOSvVWPd65jS3m13k_M3gH_X1ifysTKppPo"
+     data-supabase-schema="canendatos"
+     data-supabase-table="ced_presupuestos_global"
+     data-geo-schema="geodesocan"
+     data-geo-table="ccaa"
+     data-geo-name-col="name"
+     data-geo-geom-col="geom"
+     data-geojson-url="https://gisco-services.ec.europa.eu/distribution/v2/nuts/geojson/NUTS_RG_01M_2021_4326_LEVL_2.geojson">
+  <style>
+    /* ================================================================
+       CED · Presupuestos — identidad ODESOCAN (teal / navy · acento
+       Canarias en ámbar). Space Grotesk (titulares) + Inter (cuerpo).
+       ================================================================ */
+    #ced-presupuestos-d3 {
+      --ced-bg:#f2f7f8; --ced-surface:#fff; --ced-ink:#16202e; --ced-muted:#6b8ca5;
+      --ced-line:#e0eaf0; --ced-soft:#eef4f7;
+      --ced-teal:#00c8b4; --ced-teal-dark:#009e8e; --ced-teal-deep:#0b6f66;
+      --ced-navy:#0d1b2a; --ced-navy-mid:#1a2f45; --ced-navy-deep:#0f3460;
+      --ced-can:#ea7a17; --ced-can-soft:#ffe9d2; --ced-red:#ff4757;
+      --ced-shadow:0 16px 40px rgba(13,27,42,.10);
+      --ced-serif:"Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+      width:100%; max-width:100%; overflow-x:hidden; color:var(--ced-ink);
+      font-family:Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+      letter-spacing:0; background:var(--ced-bg); padding:24px 18px 36px;
+    }
+    #ced-presupuestos-d3, #ced-presupuestos-d3 * { box-sizing:border-box; }
+    #ced-presupuestos-d3 button, #ced-presupuestos-d3 select { font:inherit; }
+    #ced-presupuestos-d3 .ced-header { background:var(--ced-surface); border:1px solid var(--ced-line); border-radius:12px; overflow:hidden; }
+    #ced-presupuestos-d3 .ced-header-inner { padding:24px 26px 20px; display:grid; grid-template-columns:minmax(0,1fr) auto; gap:18px; align-items:end; }
+    #ced-presupuestos-d3 .ced-eyebrow { color:var(--ced-teal-dark); font-family:var(--ced-serif); font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.11em; }
+    #ced-presupuestos-d3 h2 { font-family:var(--ced-serif); margin:7px 0 8px; font-size:clamp(27px,3.5vw,44px); line-height:1.06; font-weight:700; letter-spacing:-.01em; color:var(--ced-navy); padding:0; }
+    #ced-presupuestos-d3 h2 em { font-style:normal; color:var(--ced-teal-dark); }
+    #ced-presupuestos-d3 .ced-lead { max-width:820px; color:var(--ced-muted); font-size:15px; line-height:1.58; }
+    #ced-presupuestos-d3 .ced-lead strong { color:var(--ced-navy-mid); font-weight:600; }
+    #ced-presupuestos-d3 .ced-actions { display:flex; gap:10px; align-items:center; justify-content:flex-end; flex-wrap:wrap; }
+    #ced-presupuestos-d3 .ced-btn { font-family:var(--ced-serif); border:1px solid var(--ced-line); background:var(--ced-surface); color:var(--ced-navy); min-height:38px; padding:0 15px; border-radius:9px; cursor:pointer; display:inline-flex; align-items:center; gap:8px; white-space:nowrap; font-weight:700; font-size:13px; transition:transform .12s, box-shadow .12s; }
+    #ced-presupuestos-d3 .ced-btn.is-primary { background:var(--ced-teal); border-color:var(--ced-teal); color:var(--ced-navy); }
+    #ced-presupuestos-d3 .ced-btn:hover { transform:translateY(-1px); box-shadow:0 4px 14px rgba(0,158,142,.22); }
+    #ced-presupuestos-d3 .ced-toolbar { padding:14px 26px; display:flex; gap:16px; flex-wrap:wrap; align-items:center; border-top:1px solid var(--ced-line); background:#fafdfd; }
+    #ced-presupuestos-d3 .ced-control { display:grid; gap:5px; }
+    #ced-presupuestos-d3 .ced-control[hidden] { display:none; }
+    #ced-presupuestos-d3 .ced-control label { color:var(--ced-muted); font-family:var(--ced-serif); font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:.09em; }
+    #ced-presupuestos-d3 select { min-height:38px; border:1px solid var(--ced-line); border-radius:9px; background:var(--ced-surface); color:var(--ced-navy); padding:0 30px 0 12px; min-width:210px; font-weight:500; }
+    #ced-presupuestos-d3 .ced-main { padding:20px 0 0; display:grid; grid-template-columns:300px minmax(0,1fr); gap:20px; }
+    #ced-presupuestos-d3 .ced-story-nav { display:grid; gap:10px; align-self:start; position:sticky; top:12px; }
+    #ced-presupuestos-d3 .ced-story-step { border:1px solid var(--ced-line); border-left:4px solid transparent; background:var(--ced-surface); border-radius:10px; text-align:left; padding:14px 15px; cursor:pointer; color:var(--ced-navy); font-family:inherit; transition:box-shadow .12s, border-color .12s; }
+    #ced-presupuestos-d3 .ced-story-step:hover { border-left-color:var(--ced-teal); }
+    #ced-presupuestos-d3 .ced-story-step.is-active { border-left-color:var(--ced-can); box-shadow:var(--ced-shadow); }
+    #ced-presupuestos-d3 .ced-story-step strong { font-family:var(--ced-serif); display:block; font-size:14px; margin-bottom:4px; }
+    #ced-presupuestos-d3 .ced-story-step span { display:block; color:var(--ced-muted); font-size:12.5px; line-height:1.45; }
+    #ced-presupuestos-d3 .ced-stage { min-width:0; display:grid; gap:16px; }
+    #ced-presupuestos-d3 .ced-kpi-row { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:10px; }
+    #ced-presupuestos-d3 .ced-kpi { background:var(--ced-surface); border:1px solid var(--ced-line); border-radius:10px; padding:14px 15px; }
+    #ced-presupuestos-d3 .ced-kpi-label { color:var(--ced-muted); font-size:11px; line-height:1.25; min-height:30px; text-transform:uppercase; letter-spacing:.04em; font-weight:600; }
+    #ced-presupuestos-d3 .ced-kpi-value { font-family:var(--ced-serif); margin-top:8px; font-size:25px; line-height:1; font-weight:700; color:var(--ced-teal-deep); }
+    #ced-presupuestos-d3 .ced-kpi-note { margin-top:6px; color:var(--ced-muted); font-size:12px; }
+    #ced-presupuestos-d3 .ced-kpi.is-canarias .ced-kpi-value { color:var(--ced-can); }
+    #ced-presupuestos-d3 .ced-panel { background:var(--ced-surface); border:1px solid var(--ced-line); border-radius:12px; box-shadow:var(--ced-shadow); overflow:hidden; }
+    #ced-presupuestos-d3 .ced-panel-head { padding:17px 19px 11px; display:flex; justify-content:space-between; gap:14px; align-items:flex-start; border-bottom:1px solid var(--ced-line); }
+    #ced-presupuestos-d3 .ced-panel-title { font-family:var(--ced-serif); font-size:18px; font-weight:700; margin:0 0 4px; color:var(--ced-navy); }
+    #ced-presupuestos-d3 .ced-panel-sub { color:var(--ced-muted); font-size:13px; line-height:1.45; }
+    #ced-presupuestos-d3 .ced-badge { font-family:var(--ced-serif); color:var(--ced-teal-dark); background:var(--ced-soft); border:1px solid var(--ced-line); border-radius:999px; padding:5px 11px; font-size:11px; font-weight:700; white-space:nowrap; text-transform:uppercase; letter-spacing:.03em; }
+    #ced-presupuestos-d3 .ced-chart-wrap { min-height:470px; padding:14px 16px 18px; }
+    #ced-presupuestos-d3 .ced-method-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; padding:16px; }
+    #ced-presupuestos-d3 .ced-method-grid[hidden] { display:none; }
+    #ced-presupuestos-d3 .ced-method-item { border:1px solid var(--ced-line); border-radius:10px; padding:14px; background:#fafdfd; }
+    #ced-presupuestos-d3 .ced-method-item h3 { font-family:var(--ced-serif); margin:0 0 6px; font-size:14px; color:var(--ced-teal-deep); }
+    #ced-presupuestos-d3 .ced-method-item p { margin:0; color:var(--ced-muted); font-size:13px; line-height:1.5; }
+    #ced-presupuestos-d3 .ced-method-item code { background:var(--ced-soft); padding:1px 5px; border-radius:4px; font-size:12px; }
+    #ced-presupuestos-d3 .ced-source-strip { border-top:1px solid var(--ced-line); padding:12px 16px; color:var(--ced-muted); font-size:12px; display:flex; flex-wrap:wrap; gap:8px 18px; justify-content:space-between; background:#fafdfd; }
+    #ced-presupuestos-d3 .ced-axis text { fill:var(--ced-muted); font-size:11.5px; }
+    #ced-presupuestos-d3 .ced-axis path, #ced-presupuestos-d3 .ced-axis line { stroke:var(--ced-line); }
+    #ced-presupuestos-d3 .ced-grid line { stroke:var(--ced-soft); }
+    #ced-presupuestos-d3 svg { width:100%; height:auto; display:block; overflow:visible; }
+    #ced-presupuestos-d3 .ced-map-region { transition:fill .15s ease, stroke-width .15s ease; cursor:pointer; }
+    #ced-presupuestos-d3 .ced-map-region:hover { stroke:var(--ced-navy); stroke-width:2px; }
+    #ced-presupuestos-d3 .ced-tm-cell { cursor:pointer; transition:opacity .12s; }
+    #ced-presupuestos-d3 .ced-tm-cell:hover { opacity:.88; }
+    #ced-presupuestos-d3 .ced-tooltip { position:fixed; z-index:999999; pointer-events:none; background:rgba(13,27,42,.97); color:white; padding:11px 13px; border-radius:9px; font-size:12px; line-height:1.45; opacity:0; transform:translate(-50%, calc(-100% - 10px)); min-width:170px; box-shadow:0 10px 30px rgba(0,0,0,.28); border:1px solid rgba(0,200,180,.25); }
+    #ced-presupuestos-d3 .ced-tooltip strong { font-family:var(--ced-serif); display:block; font-size:13px; margin-bottom:3px; color:#fff; }
+    #ced-presupuestos-d3 .ced-tooltip-metric { display:block; margin:1px 0 4px; color:var(--ced-teal); font-size:11px; line-height:1.25; font-weight:600; }
+    #ced-presupuestos-d3 .ced-tooltip-value { font-family:var(--ced-serif); display:block; margin:5px 0 4px; color:#fff; font-size:20px; line-height:1.1; font-weight:700; text-align:center; }
+    #ced-presupuestos-d3 .ced-tooltip-extra { display:block; color:#9fe6dd; font-size:11px; margin-top:4px; }
+    #ced-presupuestos-d3 .ced-loading { color:var(--ced-muted); padding:26px; font-size:14px; }
+    #ced-presupuestos-d3 .ced-legend { display:flex; gap:14px; align-items:center; flex-wrap:wrap; padding:8px 2px 0; font-size:12px; color:var(--ced-muted); }
+    #ced-presupuestos-d3 .ced-legend-swatch { display:inline-block; width:14px; height:14px; border-radius:3px; margin-right:6px; vertical-align:middle; }
+    #ced-presupuestos-d3 .ced-note-strip { background:var(--ced-soft); border:1px solid var(--ced-teal); color:var(--ced-teal-deep); padding:10px 14px; border-radius:9px; font-size:13px; line-height:1.5; margin-bottom:12px; }
+    @media (max-width:980px) {
+      #ced-presupuestos-d3 .ced-header-inner, #ced-presupuestos-d3 .ced-main { grid-template-columns:1fr; }
+      #ced-presupuestos-d3 .ced-story-nav { position:static; grid-template-columns:repeat(2,minmax(0,1fr)); }
+      #ced-presupuestos-d3 .ced-kpi-row, #ced-presupuestos-d3 .ced-method-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+    }
+    @media (max-width:640px) {
+      #ced-presupuestos-d3 .ced-kpi-row, #ced-presupuestos-d3 .ced-method-grid { grid-template-columns:1fr; }
+    }
+  </style>
+
+  <section class="ced-header">
+    <div class="ced-header-inner">
+      <div>
+        <div class="ced-eyebrow">Canarias en Datos · Presupuestos sociales autonómicos</div>
+        <h2>¿En qué se traducen los derechos sociales cuando se convierten en <em>presupuesto</em>?</h2>
+        <div class="ced-lead">Pieza D3 conectada al pipeline del Observatorio. El gasto de las <strong>17 comunidades autónomas</strong> desagregado en <strong>13 conceptos de política social</strong> —sanidad, educación, dependencia, vivienda, salud mental…— serie <strong>2015–2026</strong> en <strong>euros constantes</strong> (deflactados). Compara el <strong>volumen</strong>, el <strong>esfuerzo</strong> (peso sobre el PIB regional) y las <strong>prioridades</strong> (cómo se reparte cada euro social), con Canarias siempre resaltada.</div>
+      </div>
+      <div class="ced-actions">
+        <button class="ced-btn" type="button" data-ced-method>Metodología</button>
+        <button class="ced-btn is-primary" type="button" data-ced-download>Descargar CSV</button>
+      </div>
+    </div>
+    <div class="ced-toolbar">
+      <div class="ced-control" data-ced-ctrl="concept"><label>Concepto social</label><select data-ced-concept></select></div>
+      <div class="ced-control" data-ced-ctrl="metric"><label>Métrica</label><select data-ced-metric></select></div>
+      <div class="ced-control" data-ced-ctrl="ccaa" hidden><label>Comunidad autónoma</label><select data-ced-ccaa></select></div>
+      <div class="ced-control" data-ced-ctrl="period"><label>Ejercicio</label><select data-ced-period></select></div>
+    </div>
+  </section>
+
+  <div class="ced-main">
+    <nav class="ced-story-nav" aria-label="Capítulos narrativos">
+      <button class="ced-story-step is-active" data-ced-step="context" type="button"><strong>1. Situar Canarias</strong><span>Mapa de las comunidades para el concepto, métrica y ejercicio elegidos. El esfuerzo (% del PIB regional) neutraliza el tamaño.</span></button>
+      <button class="ced-story-step" data-ced-step="evolution" type="button"><strong>2. Evolución</strong><span>Serie anual 2015–2026 del concepto seleccionado. Canarias frente al resto y a la media de comunidades.</span></button>
+      <button class="ced-story-step" data-ced-step="composition" type="button"><strong>3. Análisis espacial de los presupuestos</strong><span>Elige una comunidad y observa cómo reparte su gasto social entre los 12 conceptos sociales, y qué prioriza frente a la media estatal.</span></button>
+      <button class="ced-story-step" data-ced-step="method" type="button"><strong>4. Cómo se construye</strong><span>Extracción por CCAA, deflación a € constantes, conciliación con Hacienda y límites del dato.</span></button>
+    </nav>
+    <section class="ced-stage">
+      <div class="ced-kpi-row" data-ced-kpis></div>
+      <section class="ced-panel">
+        <div class="ced-panel-head">
+          <div>
+            <div class="ced-panel-title" data-ced-title>Situar Canarias</div>
+            <div class="ced-panel-sub" data-ced-sub>Cargando datos…</div>
+          </div>
+          <div class="ced-badge" data-ced-badge>Pipeline</div>
+        </div>
+        <div class="ced-chart-wrap" data-ced-chart>
+          <div class="ced-loading">Cargando ced_presupuestos_global…</div>
+        </div>
+        <div class="ced-method-grid" data-ced-method-grid hidden>
+          <div class="ced-method-item">
+            <h3>Fuentes de datos</h3>
+            <p>Presupuestos generales de las <strong>17 CCAA</strong> (leyes y tomos oficiales de cada comunidad, resúmenes por programa) para la <strong>capa autonómica</strong>, y la serie homogénea <strong>SGCIEF</strong> del Ministerio de Hacienda para la <strong>capa de contraste</strong>. Extracción automatizada por comunidad, un sub-pipeline por CCAA.</p>
+          </div>
+          <div class="ced-method-item">
+            <h3>Los conceptos sociales</h3>
+            <p>Cada programa se mapea a uno de trece conceptos mediante tablas de correspondencia por comunidad. Uno de ellos, <strong>dirección</strong>, es un residual que agrupa <strong>deuda pública, administración general y transferencias entre administraciones</strong>: no es gasto social estricto, así que se <strong>excluye del reparto</strong> (treemap y «gasto social total»), aunque sigue explorable en el mapa y la evolución.</p>
+          </div>
+          <div class="ced-method-item">
+            <h3>Euros constantes</h3>
+            <p>Todas las cifras están <strong>deflactadas a euros constantes</strong> para que la serie 2015–2026 sea comparable en el tiempo (elimina el efecto de la inflación). Por eso una cifra de 2015 aquí es mayor que su valor nominal de entonces.</p>
+          </div>
+          <div class="ced-method-item">
+            <h3>Tres métricas, tres preguntas</h3>
+            <p><strong>Gasto total</strong> (€ constantes) responde «cuánto»; <strong>% del PIB regional</strong> responde «cuánto esfuerzo» relativo a la economía de cada comunidad (comparación justa entre territorios de tamaño muy distinto); <strong>variación interanual</strong> responde «hacia dónde».</p>
+          </div>
+          <div class="ced-method-item">
+            <h3>Conciliación con Hacienda</h3>
+            <p>La capa autonómica se contrasta con el total homogéneo de Hacienda (SGCIEF). En Canarias la cobertura es del <strong>~90 %</strong>: el resumen por programa del tomo excluye por diseño la amortización de deuda (capítulo 9) y difiere en el perímetro de consolidación de entes. No afecta a los conceptos sociales.</p>
+          </div>
+          <div class="ced-method-item">
+            <h3>Notas y límites</h3>
+            <p>Los ejercicios <strong>2025–2026</strong> incluyen prórrogas presupuestarias en varias comunidades (mismos importes que el año previo). El <strong>gasto por habitante</strong> queda pendiente de una revisión del cruce con población y no se muestra en esta versión. Cada comunidad cambia de formato cada año: revisa la ficha metodológica para el detalle.</p>
+          </div>
+        </div>
+        <div class="ced-source-strip">
+          <span>Fuente: Presupuestos Generales de las CCAA + SGCIEF (Ministerio de Hacienda) · Cuaderno metodológico Presupuestos · ODESOCAN</span>
+          <span data-ced-coverage>Cobertura: cargando…</span>
+        </div>
+      </section>
+    </section>
+  </div>
+  <div class="ced-tooltip" data-ced-tooltip></div>
+
+<script>
+(function(){
+  "use strict";
+  const root = document.getElementById("ced-presupuestos-d3");
+  if (!root) return;
+
+  // -------- Paleta ODESOCAN --------
+  const MAP_PALETTE = ["#e4f6f3", "#b6ebe3", "#83ddd0", "#46ccbb", "#00c8b4", "#009e8e", "#0b6f66"];
+  const CAN_COLOR = "#ea7a17";     // Canarias (ámbar spotlight)
+  const OTHER_COLOR = "#009e8e";   // resto de CCAA (teal)
+  const INK = "#16202e";
+
+  // -------- 13 conceptos sociales (etiqueta + color para el treemap) --------
+  const CONCEPTS = {
+    sanidad:      { label:"Sanidad",              color:"#00c8b4" },
+    educacion:    { label:"Educación",            color:"#0f3460" },
+    dependencia:  { label:"Dependencia",          color:"#3b82f6" },
+    discapacidad: { label:"Discapacidad",         color:"#7c6bf0" },
+    salud_mental: { label:"Salud mental",         color:"#10b981" },
+    vivienda:     { label:"Vivienda",             color:"#e0a400" },
+    empleo:       { label:"Empleo",               color:"#ff4757" },
+    igualdad:     { label:"Igualdad",             color:"#ec4899" },
+    diversidad:   { label:"Diversidad",           color:"#a855f7" },
+    soberania:    { label:"Soberanía alimentaria",color:"#84cc16" },
+    direccion:    { label:"Dirección y gobierno",  color:"#6b8ca5" },
+    idi:          { label:"I+D+i",                color:"#06b6d4" },
+    turismo:      { label:"Turismo",              color:"#f97316" }
+  };
+  const CONCEPT_KEYS = Object.keys(CONCEPTS);
+  // "direccion" es un cajón no-social (deuda pública + administración general + transferencias
+  // inter-administrativas). Se excluye del "gasto social estricto" y del reparto (treemap),
+  // igual que la tabla resumen oficial. Sigue explorable en mapa/evolución.
+  const SOCIAL_KEYS = CONCEPT_KEYS.filter(k => k !== "direccion");
+
+  // Formateadores es-ES
+  const nf1 = new Intl.NumberFormat("es-ES", { minimumFractionDigits:1, maximumFractionDigits:1 });
+  const nf2 = new Intl.NumberFormat("es-ES", { minimumFractionDigits:2, maximumFractionDigits:2 });
+  const nf0 = new Intl.NumberFormat("es-ES", { maximumFractionDigits:0 });
+  function fmtEur(v) {
+    if (v == null || Number.isNaN(v)) return "—";
+    if (Math.abs(v) >= 1e9) return nf2.format(v/1e9) + " B€";
+    if (Math.abs(v) >= 1e6) return nf0.format(v/1e6) + " M€";
+    return nf0.format(v) + " €";
+  }
+
+  // -------- Métricas (familia de columnas) --------
+  const METRICS = {
+    imp:    { label:"Gasto total (€ constantes)", short:"Gasto",    prefix:"imp",    unit:"€ constantes",
+              fmt:v => fmtEur(v), fmtAxis:v => Math.abs(v)>=1e9 ? nf1.format(v/1e9)+"B" : nf0.format(v/1e6)+"M", min:0 },
+    pibreg: { label:"% del PIB regional (esfuerzo)", short:"% PIB reg.", prefix:"pibreg", unit:"% del PIB de la comunidad",
+              fmt:v => v==null?"—":nf2.format(v)+" %", fmtAxis:v => nf1.format(v)+"%", min:0 },
+    varint: { label:"Variación interanual", short:"Variación", prefix:"var", unit:"% respecto al año anterior",
+              fmt:v => v==null?"—":(v>=0?"+":"")+nf1.format(v)+" %", fmtAxis:v => nf0.format(v)+"%", diverging:true }
+  };
+
+  const NUTS_FOR_CCAA = {
+    "Andalucía":"ES61","Aragón":"ES24","Principado de Asturias":"ES12","Islas Baleares":"ES53",
+    "Canarias":"ES70","Cantabria":"ES13","Castilla y León":"ES41","Castilla-La Mancha":"ES42",
+    "Cataluña":"ES51","Comunidad Valenciana":"ES52","Extremadura":"ES43","Galicia":"ES11",
+    "Comunidad de Madrid":"ES30","Región de Murcia":"ES62","Comunidad Foral de Navarra":"ES22",
+    "País Vasco":"ES21","La Rioja":"ES23","Ceuta":"ES63","Melilla":"ES64"
+  };
+
+  const state = { concept:"sanidad", metric:"pibreg", ccaa:"Canarias", period:null, step:"context", rows:[], hacienda:[], geo:null };
+  // Qué filtros interactúan con cada figura (el resto se oculta)
+  const STEP_CONTROLS = { context:["concept","metric","period"], evolution:["concept","metric"], composition:["ccaa","period"], method:[] };
+
+  const $ = s => root.querySelector(s);
+  const $$ = s => Array.from(root.querySelectorAll(s));
+  const tooltip = $("[data-ced-tooltip]");
+  function showTip(html, evt){ tooltip.innerHTML=html; tooltip.style.left=evt.clientX+"px"; tooltip.style.top=evt.clientY+"px"; tooltip.style.opacity=1; }
+  function moveTip(evt){ tooltip.style.left=evt.clientX+"px"; tooltip.style.top=evt.clientY+"px"; }
+  function hideTip(){ tooltip.style.opacity=0; }
+
+  function periodKey(v){ if(v==null) return null; const m=String(v).trim().match(/^(\d{4})/); return m?m[1]:null; }
+  function periodToDate(k){ return new Date(Date.UTC(+k,0,1)); }
+
+  // Valor del concepto+métrica en una fila
+  function col(concept, metric){ return METRICS[metric].prefix + "_" + concept; }
+  function valueOf(row, concept, metric){ const v = row[col(concept, metric)]; return (v==null||Number.isNaN(v))?null:v; }
+  // Reparto: share (%) del concepto sobre el gasto social total de esa CCAA-año
+  function socialTotal(row){ return SOCIAL_KEYS.reduce((s,k)=>{ const v=row["imp_"+k]; return s+(v==null||Number.isNaN(v)?0:v); },0); }
+  function shareOf(row, concept){ if(!SOCIAL_KEYS.includes(concept)) return null; const t=socialTotal(row); const v=row["imp_"+concept]; return (t>0 && v!=null)? (v/t*100) : null; }
+
+  function fmtMetric(metric, v){ return METRICS[metric].fmt(v); }
+
+  function parseRow(d){
+    const out = { ccaa:d.ccaa, capa:d.capa||"autonomica", es_prorroga:(d.es_prorroga===true||d.es_prorroga==="true"), periodo:periodKey(d.periodo) };
+    out.pib_regional_eur = (d.pib_regional_eur==null||d.pib_regional_eur==="")?null:+d.pib_regional_eur;
+    CONCEPT_KEYS.concat("total").forEach(c=>{
+      ["imp","pibreg","var","pc"].forEach(pfx=>{
+        const key = pfx+"_"+c, raw = d[key];
+        out[key] = (raw==null||raw===""||raw==="NA")?null:+String(raw).replace(",",".");
+      });
+    });
+    return out;
+  }
+
+  async function fetchSupabase(table){
+    const url=root.dataset.supabaseUrl, key=root.dataset.supabaseKey, schema=root.dataset.supabaseSchema||"canendatos";
+    if(!url||!key) throw new Error("Supabase no configurado");
+    const pageSize=1000, all=[];
+    for(let offset=0;;offset+=pageSize){
+      const resp=await fetch(`${url}/rest/v1/${encodeURIComponent(table)}?select=*&limit=${pageSize}&offset=${offset}`,
+        { cache:"no-store", headers:{ apikey:key, Authorization:`Bearer ${key}`, "Accept-Profile":schema } });
+      if(!resp.ok) throw new Error(`Supabase ${resp.status} en ${table}`);
+      const page=await resp.json(); all.push(...page);
+      if(page.length<pageSize) break;
+    }
+    return all.map(parseRow);
+  }
+
+  function canonicalCcaaName(raw){
+    if(!raw) return null;
+    const map={ "Asturias":"Principado de Asturias","Baleares":"Islas Baleares","Illes Balears":"Islas Baleares","Balears, Illes":"Islas Baleares",
+      "Castilla - La Mancha":"Castilla-La Mancha","Catalunya":"Cataluña","Comunitat Valenciana":"Comunidad Valenciana","Valencia":"Comunidad Valenciana",
+      "Madrid":"Comunidad de Madrid","Madrid, Comunidad de":"Comunidad de Madrid","Murcia":"Región de Murcia","Murcia, Región de":"Región de Murcia",
+      "Navarra":"Comunidad Foral de Navarra","Navarra, Comunidad Foral de":"Comunidad Foral de Navarra","Rioja, La":"La Rioja",
+      "Andalucia":"Andalucía","Aragon":"Aragón","Castilla y Leon":"Castilla y León","Pais Vasco":"País Vasco" };
+    return map[raw]||raw;
+  }
+
+  async function loadGeo(){
+    const sbUrl=root.dataset.supabaseUrl, sbKey=root.dataset.supabaseKey;
+    const geoSchema=root.dataset.geoSchema||"geodesocan", geoTable=root.dataset.geoTable||"ccaa";
+    const nameCol=root.dataset.geoNameCol||"name", geomCol=root.dataset.geoGeomCol||"geom";
+    if(sbUrl&&sbKey){
+      try{
+        const url=`${sbUrl}/rest/v1/${encodeURIComponent(geoTable)}?select=${encodeURIComponent(nameCol)},${encodeURIComponent(geomCol)}`;
+        const resp=await fetch(url,{ headers:{ apikey:sbKey, Authorization:`Bearer ${sbKey}`, "Accept-Profile":geoSchema } });
+        if(resp.ok){
+          const rows=await resp.json();
+          const features=rows.map(r=>{ const geometry=typeof r[geomCol]==="string"?JSON.parse(r[geomCol]):r[geomCol];
+            const canon=canonicalCcaaName(r[nameCol]);
+            return geometry?{ type:"Feature", properties:{ CCAA_CANON:canon }, geometry }:null; }).filter(Boolean);
+          if(features.length>0) return { type:"FeatureCollection", features, source:"geodesocan" };
+        }
+      }catch(err){ console.warn("CED Presupuestos: geodesocan falló, fallback Eurostat", err); }
+    }
+    try{
+      const geo=await d3.json(root.getAttribute("data-geojson-url"));
+      geo.features=(geo.features||[]).filter(f=>/^ES\d{2}$/.test(f.properties.NUTS_ID||f.properties.id))
+        .map(f=>({ ...f, properties:{ ...f.properties, CCAA_CANON:canonicalCcaaName(
+          Object.keys(NUTS_FOR_CCAA).find(k=>NUTS_FOR_CCAA[k]===(f.properties.NUTS_ID||f.properties.id))) || null }}));
+      geo.source="eurostat-nuts"; return geo;
+    }catch{ return null; }
+  }
+
+  // -------- Toolbar --------
+  function initToolbar(){
+    const cSel=$("[data-ced-concept]");
+    CONCEPT_KEYS.forEach(k=>{ const o=document.createElement("option"); o.value=k; o.textContent=CONCEPTS[k].label; cSel.appendChild(o); });
+    cSel.value=state.concept;
+    cSel.addEventListener("change",()=>{ state.concept=cSel.value; render(); });
+    const mSel=$("[data-ced-metric]");
+    Object.entries(METRICS).forEach(([k,v])=>{ const o=document.createElement("option"); o.value=k; o.textContent=v.label; mSel.appendChild(o); });
+    mSel.value=state.metric;
+    mSel.addEventListener("change",()=>{ state.metric=mSel.value; render(); });
+    $$("[data-ced-step]").forEach(btn=>btn.addEventListener("click",()=>{
+      state.step=btn.dataset.cedStep;
+      $$("[data-ced-step]").forEach(b=>b.classList.toggle("is-active", b===btn));
+      render();
+    }));
+    $("[data-ced-method]").addEventListener("click",()=>{
+      state.step="method";
+      $$("[data-ced-step]").forEach(b=>b.classList.toggle("is-active", b.dataset.cedStep==="method"));
+      render();
+    });
+    $("[data-ced-download]").addEventListener("click",downloadCsv);
+  }
+  function allPeriods(){ return Array.from(new Set(state.rows.map(r=>r.periodo).filter(Boolean))).sort(); }
+  function initPeriodSelector(){
+    const periods=allPeriods(), sel=$("[data-ced-period]"); sel.innerHTML="";
+    periods.forEach(p=>{ const o=document.createElement("option"); o.value=p; o.textContent=p; sel.appendChild(o); });
+    state.period = periods[periods.length-1] || null;
+    // por defecto, último ejercicio con dato real (no prórroga) si existe
+    const reals=periods.filter(p=>!state.rows.some(r=>r.periodo===p && r.es_prorroga));
+    if(reals.length) state.period=reals[reals.length-1];
+    sel.value=state.period;
+    sel.addEventListener("change",()=>{ state.period=sel.value; render(); });
+  }
+  function initCcaaSelector(){
+    const sel=$("[data-ced-ccaa]"); sel.innerHTML="";
+    const names=Array.from(new Set(state.rows.map(r=>r.ccaa))).sort((a,b)=>a.localeCompare(b,"es"));
+    names.forEach(n=>{ const o=document.createElement("option"); o.value=n; o.textContent=n; sel.appendChild(o); });
+    state.ccaa = names.includes("Canarias") ? "Canarias" : names[0];
+    sel.value=state.ccaa;
+    sel.addEventListener("change",()=>{ state.ccaa=sel.value; render(); });
+  }
+  function updateControls(){
+    const active=STEP_CONTROLS[state.step]||[];
+    $$("[data-ced-ctrl]").forEach(el=>{ el.hidden = !active.includes(el.dataset.cedCtrl); });
+  }
+
+  function ccaaRows(period){ return state.rows.filter(r=>r.capa==="autonomica" && r.periodo===period); }
+  function stateMean(concept, metric, period){
+    const rs=ccaaRows(period).map(r=>valueOf(r,concept,metric)).filter(v=>v!=null);
+    return rs.length? d3.mean(rs):null;
+  }
+
+  // -------- KPIs --------
+  function renderKpis(){
+    const m=state.metric, c=state.concept, cfg=METRICS[m];
+    const rows=ccaaRows(state.period).filter(r=>valueOf(r,c,m)!=null);
+    const nat=stateMean(c,m,state.period);
+    const can=rows.find(r=>r.ccaa==="Canarias");
+    const sorted=rows.slice().sort((a,b)=>d3.ascending(valueOf(a,c,m),valueOf(b,c,m)));
+    const lo=sorted[0], hi=sorted[sorted.length-1];
+    const canV=can?valueOf(can,c,m):null;
+    const delta = (canV!=null&&nat!=null)? canV-nat : null;
+    const cards=[
+      { label:`Media de comunidades · ${state.period}`, value:fmtMetric(m,nat), note:`${cfg.short} · ${CONCEPTS[c].label}` },
+      { label:`Canarias · ${state.period}`, value:fmtMetric(m,canV), can:true,
+        note: delta!=null? `${delta>=0?"+":""}${cfg.fmt(delta).replace("+","")} vs media` : "" },
+      { label:"Mínimo comunidad", value: lo?fmtMetric(m,valueOf(lo,c,m)):"—", note: lo?lo.ccaa:"" },
+      { label:"Máximo comunidad", value: hi?fmtMetric(m,valueOf(hi,c,m)):"—", note: hi?hi.ccaa:"" }
+    ];
+    $("[data-ced-kpis]").innerHTML=cards.map(c=>`
+      <div class="ced-kpi${c.can?" is-canarias":""}"><div class="ced-kpi-label">${c.label}</div>
+      <div class="ced-kpi-value">${c.value}</div><div class="ced-kpi-note">${c.note||""}</div></div>`).join("");
+  }
+
+  // KPIs del análisis espacial (composición de una comunidad)
+  function renderKpisComposition(){
+    const tCcaa=state.ccaa||"Canarias";
+    const row=ccaaRows(state.period).find(r=>r.ccaa===tCcaa);
+    if(!row){ $("[data-ced-kpis]").innerHTML=""; return; }
+    const total=socialTotal(row);
+    const items=SOCIAL_KEYS.map(k=>({ label:CONCEPTS[k].label, v:(row["imp_"+k]==null?0:row["imp_"+k]) })).filter(d=>d.v>0).sort((a,b)=>b.v-a.v);
+    const top=items[0], top3=items.slice(0,3).reduce((s,d)=>s+d.v,0);
+    const sanEdu=(row["imp_sanidad"]||0)+(row["imp_educacion"]||0);
+    const cards=[
+      { label:`Gasto social total · ${tCcaa} · ${state.period}`, value:fmtEur(total), can:tCcaa==="Canarias", note:`${items.length} conceptos con gasto` },
+      { label:"Concepto principal", value: top&&total>0?nf1.format(top.v/total*100)+" %":"—", note: top?top.label:"" },
+      { label:"Concentración top-3", value: total>0?nf1.format(top3/total*100)+" %":"—", note:"peso de los 3 mayores" },
+      { label:"Sanidad + Educación", value: total>0?nf1.format(sanEdu/total*100)+" %":"—", note:"núcleo del bienestar" }
+    ];
+    $("[data-ced-kpis]").innerHTML=cards.map(c=>`
+      <div class="ced-kpi${c.can?" is-canarias":""}"><div class="ced-kpi-label">${c.label}</div>
+      <div class="ced-kpi-value">${c.value}</div><div class="ced-kpi-note">${c.note||""}</div></div>`).join("");
+  }
+
+  // -------- 1 · Mapa --------
+  function renderMap(){
+    const m=state.metric, c=state.concept, cfg=METRICS[m];
+    const wrap=$("[data-ced-chart]"); wrap.innerHTML="";
+    if(!state.geo){ wrap.innerHTML=`<div class="ced-loading">No se pudo cargar la geometría; mostrando ranking.</div>`; renderRanking(wrap); return; }
+    const w=wrap.clientWidth||720, h=490, margin={top:14,right:20,bottom:60,left:20};
+    const svg=d3.select(wrap).append("svg").attr("viewBox",`0 0 ${w} ${h}`);
+    const periodRows=ccaaRows(state.period).filter(r=>valueOf(r,c,m)!=null);
+    const byCcaa=new Map(periodRows.map(r=>[canonicalCcaaName(r.ccaa),r]));
+    const getCcaa=f=>f.properties.CCAA_CANON||canonicalCcaaName(f.properties.NAME_LATN||f.properties.NUTS_NAME);
+    const mainlandFeatures=state.geo.features.filter(f=>getCcaa(f)!=="Canarias"&&getCcaa(f));
+    const canFeature=state.geo.features.find(f=>getCcaa(f)==="Canarias");
+    const mainland={ type:"FeatureCollection", features:mainlandFeatures };
+    const projection=d3.geoMercator().fitExtent([[margin.left,margin.top],[w-margin.right,h-margin.bottom]],mainland);
+    const path=d3.geoPath(projection);
+    const values=periodRows.map(r=>valueOf(r,c,m)).filter(Number.isFinite);
+    const extent=d3.extent(values), uniq=Array.from(new Set(values));
+    const color=uniq.length>1 ? d3.scaleQuantile().domain(values).range(MAP_PALETTE) : ()=>MAP_PALETTE[3];
+    const fillFor=ccaa=>{ const r=byCcaa.get(ccaa); return r?color(valueOf(r,c,m)):"#eef2f5"; };
+    function tip(ccaa,evt){ const r=byCcaa.get(ccaa); const v=r?valueOf(r,c,m):null;
+      showTip(`<strong>${ccaa}</strong><span class="ced-tooltip-metric">${CONCEPTS[c].label} · ${cfg.short} · ${state.period}</span>
+        <span class="ced-tooltip-value">${fmtMetric(m,v)}</span>
+        ${r&&m!=="varint"?`<span class="ced-tooltip-extra">${fmtEur(r["imp_"+c])}${shareOf(r,c)!=null?` · ${nf1.format(shareOf(r,c))}% del gasto social`:""}</span>`:""}`,evt); }
+    const mainlandPaths=svg.append("g").selectAll("path").data(mainlandFeatures).join("path")
+      .attr("class","ced-map-region").attr("d",path).attr("fill",d=>fillFor(getCcaa(d)))
+      .attr("stroke","#fff").attr("stroke-width",0.7)
+      .on("mousemove",(evt,d)=>{ const cc=getCcaa(d); if(cc) tip(cc,evt); }).on("mouseleave",hideTip);
+    let canRegion=null;
+    if(canFeature){
+      const b=path.bounds(canFeature), cW=Math.max(1,b[1][0]-b[0][0]), cH=Math.max(1,b[1][1]-b[0][1]);
+      const desiredW=Math.min(150,Math.max(94,w*0.15)), cScale=desiredW/cW;
+      const tX=margin.left+w*0.04, tY=h-margin.bottom-Math.max(80,cH*cScale*0.7);
+      const canG=svg.append("g").attr("transform",`translate(${tX-b[0][0]*cScale},${tY-b[0][1]*cScale}) scale(${cScale})`);
+      canRegion=canG.append("path").datum(canFeature).attr("class","ced-map-region").attr("d",path)
+        .attr("fill",fillFor("Canarias")).attr("stroke",CAN_COLOR).attr("stroke-width",1.9/cScale)
+        .on("mousemove",evt=>tip("Canarias",evt)).on("mouseleave",hideTip);
+      svg.append("text").attr("x",tX+desiredW/2).attr("y",tY-8).attr("text-anchor","middle")
+        .attr("fill",CAN_COLOR).attr("font-size",12).attr("font-weight",800).attr("font-family","var(--ced-serif)").text("Canarias");
+    }
+    // Resaltado de comunidades desde la leyenda
+    function highlightMembers(names){
+      const set=new Set(names);
+      mainlandPaths.attr("opacity",d=>set.has(getCcaa(d))?1:0.16)
+        .attr("stroke",d=>set.has(getCcaa(d))?INK:"#fff").attr("stroke-width",d=>set.has(getCcaa(d))?1.8:0.7);
+      if(canRegion) canRegion.attr("opacity",set.has("Canarias")?1:0.16).attr("stroke",set.has("Canarias")?INK:CAN_COLOR);
+    }
+    function resetHighlight(){
+      mainlandPaths.attr("opacity",1).attr("stroke","#fff").attr("stroke-width",0.7);
+      if(canRegion) canRegion.attr("opacity",1).attr("stroke",CAN_COLOR);
+    }
+    // Leyenda INTERACTIVA (cuantiles): al pasar el ratón por un tramo resalta sus comunidades
+    const legendW=Math.min(360,w-70), legendX=w-legendW-20, legendY=h-38;
+    const legColors=uniq.length>1?MAP_PALETTE:[MAP_PALETTE[3]];
+    const segW=legendW/legColors.length;
+    const bins=legColors.map((col,i)=>{
+      const range=(uniq.length>1 && color.invertExtent)?color.invertExtent(col):extent;
+      const members=periodRows.filter(r=>color(valueOf(r,c,m))===col).sort((a,b)=>d3.descending(valueOf(a,c,m),valueOf(b,c,m))).map(r=>r.ccaa);
+      return { col, index:i, min:range[0]??extent[0], max:range[1]??extent[1], members };
+    });
+    svg.append("g").selectAll("rect").data(bins).join("rect")
+      .attr("x",(d,i)=>legendX+i*segW).attr("y",legendY).attr("width",Math.ceil(segW)).attr("height",12)
+      .attr("rx",(d,i)=>i===0||i===bins.length-1?4:0).attr("fill",d=>d.col).attr("cursor","pointer")
+      .on("mousemove",function(evt,d){
+        highlightMembers(d.members); d3.select(this).attr("stroke",INK).attr("stroke-width",1.4);
+        showTip(`<strong>Tramo ${d.index+1} / ${bins.length}</strong>
+          <span class="ced-tooltip-metric">${cfg.short} · ${CONCEPTS[c].label} · ${state.period}</span>
+          <span class="ced-tooltip-value">${cfg.fmt(d.min)} – ${cfg.fmt(d.max)}</span>
+          <span class="ced-tooltip-extra">${d.members.length?d.members.join(", "):"Sin comunidades en este tramo"}</span>`,evt);
+      })
+      .on("mouseleave",function(){ d3.select(this).attr("stroke",null).attr("stroke-width",null); resetHighlight(); hideTip(); });
+    svg.append("text").attr("x",legendX).attr("y",legendY-7).attr("font-size",11).attr("fill","#6b8ca5").text(`${cfg.short} · ${CONCEPTS[c].label}`);
+    svg.append("text").attr("x",legendX+legendW).attr("y",legendY-7).attr("text-anchor","end").attr("font-size",10).attr("fill","#6b8ca5").text(uniq.length>1?"cuantiles · pasa el ratón":"valor único");
+    svg.append("text").attr("x",legendX).attr("y",legendY+26).attr("font-size",10).attr("fill","#6b8ca5").text(cfg.fmt(extent[0]));
+    svg.append("text").attr("x",legendX+legendW).attr("y",legendY+26).attr("text-anchor","end").attr("font-size",10).attr("fill","#6b8ca5").text(cfg.fmt(extent[1]));
+  }
+
+  function renderRanking(wrap){
+    const m=state.metric, c=state.concept, cfg=METRICS[m];
+    const rows=ccaaRows(state.period).filter(r=>valueOf(r,c,m)!=null).sort((a,b)=>d3.descending(valueOf(a,c,m),valueOf(b,c,m)));
+    const w=wrap.clientWidth||720, h=Math.max(360,rows.length*24+40), mg={top:14,right:90,bottom:14,left:170};
+    const svg=d3.select(wrap).append("svg").attr("viewBox",`0 0 ${w} ${h}`);
+    const x=d3.scaleLinear().domain([Math.min(0,d3.min(rows,r=>valueOf(r,c,m))),d3.max(rows,r=>valueOf(r,c,m))]).nice().range([mg.left,w-mg.right]);
+    const y=d3.scaleBand().domain(rows.map(r=>r.ccaa)).range([mg.top,h-mg.bottom]).padding(0.18);
+    svg.append("g").selectAll("rect").data(rows).join("rect").attr("x",x(Math.max(0,x.domain()[0]))).attr("y",r=>y(r.ccaa)).attr("height",y.bandwidth())
+      .attr("width",r=>Math.abs(x(valueOf(r,c,m))-x(0))).attr("x",r=>Math.min(x(0),x(valueOf(r,c,m))))
+      .attr("fill",r=>r.ccaa==="Canarias"?CAN_COLOR:OTHER_COLOR);
+    svg.append("g").attr("transform",`translate(${mg.left},0)`).call(d3.axisLeft(y).tickSize(0)).attr("class","ced-axis").call(g=>g.select(".domain").remove());
+    svg.append("g").selectAll("text.v").data(rows).join("text").attr("x",r=>x(valueOf(r,c,m))+(valueOf(r,c,m)>=0?6:-6)).attr("y",r=>y(r.ccaa)+y.bandwidth()/2+4)
+      .attr("text-anchor",r=>valueOf(r,c,m)>=0?"start":"end").attr("font-size",11.5).attr("fill",INK).text(r=>cfg.fmt(valueOf(r,c,m)));
+  }
+
+  // -------- 2 · Evolución --------
+  function renderEvolution(){
+    const m=state.metric, c=state.concept, cfg=METRICS[m];
+    const wrap=$("[data-ced-chart]"); wrap.innerHTML="";
+    const w=wrap.clientWidth||720, h=470, mg={top:24,right:150,bottom:42,left:66};
+    const all=state.rows.filter(r=>r.capa==="autonomica" && valueOf(r,c,m)!=null);
+    if(all.length===0){ wrap.innerHTML=`<div class="ced-loading">No hay datos para este concepto/métrica.</div>`; return; }
+    const series=Array.from(d3.group(all,r=>r.ccaa),([ccaa,vals])=>({ ccaa, values:vals.slice().sort((a,b)=>a.periodo.localeCompare(b.periodo)) }));
+    const stateLine=allPeriods().map(p=>({ periodo:p, value:stateMean(c,m,p) })).filter(d=>d.value!=null);
+    const svg=d3.select(wrap).append("svg").attr("viewBox",`0 0 ${w} ${h}`);
+    const x=d3.scaleTime().domain(d3.extent(all,r=>periodToDate(r.periodo))).range([mg.left,w-mg.right]);
+    const yMin=cfg.diverging? d3.min(all,r=>valueOf(r,c,m)) : 0;
+    const y=d3.scaleLinear().domain([Math.min(0,yMin),d3.max(all,r=>valueOf(r,c,m))]).nice().range([h-mg.bottom,mg.top]);
+    const line=d3.line().defined(d=>valueOf(d,c,m)!=null).x(d=>x(periodToDate(d.periodo))).y(d=>y(valueOf(d,c,m)));
+    const stateLineGen=d3.line().x(d=>x(periodToDate(d.periodo))).y(d=>y(d.value));
+    svg.append("g").attr("class","ced-grid").attr("transform",`translate(${mg.left},0)`)
+      .call(d3.axisLeft(y).ticks(5).tickSize(-(w-mg.left-mg.right)).tickFormat("")).call(g=>g.select(".domain").remove());
+    svg.append("g").attr("class","ced-axis").attr("transform",`translate(0,${h-mg.bottom})`).call(d3.axisBottom(x).ticks(8).tickFormat(d3.timeFormat("%Y")));
+    svg.append("g").attr("class","ced-axis").attr("transform",`translate(${mg.left},0)`).call(d3.axisLeft(y).ticks(5).tickFormat(cfg.fmtAxis));
+    svg.append("text").attr("x",mg.left).attr("y",14).attr("fill","#6b8ca5").attr("font-size",12).text(`${cfg.short} · ${CONCEPTS[c].label} (${cfg.unit})`);
+    if(cfg.diverging){ svg.append("line").attr("x1",mg.left).attr("x2",w-mg.right).attr("y1",y(0)).attr("y2",y(0)).attr("stroke","#c3d0d8").attr("stroke-width",1); }
+    const lineLayer=svg.append("g"), stateLayer=svg.append("g"), labelLayer=svg.append("g"), hitLayer=svg.append("g");
+    if(stateLine.length>1){ stateLayer.append("path").datum(stateLine).attr("d",stateLineGen).attr("fill","none").attr("stroke",INK).attr("stroke-width",1.6).attr("stroke-dasharray","4 3"); }
+    series.forEach(s=>{ const isCan=s.ccaa==="Canarias";
+      lineLayer.append("path").datum(s.values).attr("class","ced-series").attr("data-ccaa",s.ccaa)
+        .attr("d",line).attr("fill","none").attr("stroke",isCan?CAN_COLOR:OTHER_COLOR).attr("stroke-width",isCan?3:1.4).attr("opacity",isCan?1:0.32); });
+    function highlight(name,event){
+      lineLayer.selectAll("path.ced-series").attr("opacity",function(){ return this.dataset.ccaa===name?1:0.08; })
+        .attr("stroke-width",function(){ const isCan=this.dataset.ccaa==="Canarias"; return this.dataset.ccaa===name?(isCan?3.6:3):(isCan?3:1); })
+        .attr("stroke",function(){ if(this.dataset.ccaa===name) return CAN_COLOR; return this.dataset.ccaa==="Canarias"?CAN_COLOR:"#a9d9d2"; });
+      labelLayer.selectAll("*").remove();
+      const sel=series.find(d=>d.ccaa===name); if(!sel) return;
+      const last=sel.values.filter(d=>valueOf(d,c,m)!=null).slice(-1)[0]; if(!last) return;
+      labelLayer.append("text").attr("x",x(periodToDate(last.periodo))+8).attr("y",y(valueOf(last,c,m))).attr("dy","0.35em")
+        .attr("fill",CAN_COLOR).attr("font-size",13).attr("font-weight",800).attr("font-family","var(--ced-serif)").text(name);
+      const [mx]=d3.pointer(event,wrap.querySelector("svg"));
+      const near=d3.least(sel.values.filter(d=>valueOf(d,c,m)!=null),d=>Math.abs(x(periodToDate(d.periodo))-mx));
+      if(near) showTip(`<strong>${name} · ${near.periodo}${near.es_prorroga?" (prórroga)":""}</strong>
+        <span class="ced-tooltip-metric">${CONCEPTS[c].label} · ${cfg.short}</span>
+        <span class="ced-tooltip-value">${fmtMetric(m,valueOf(near,c,m))}</span>`,event);
+    }
+    function reset(){
+      lineLayer.selectAll("path.ced-series").attr("opacity",function(){ return this.dataset.ccaa==="Canarias"?1:0.32; })
+        .attr("stroke-width",function(){ return this.dataset.ccaa==="Canarias"?3:1.4; })
+        .attr("stroke",function(){ return this.dataset.ccaa==="Canarias"?CAN_COLOR:OTHER_COLOR; });
+      labelLayer.selectAll("*").remove();
+      const can=series.find(d=>d.ccaa==="Canarias");
+      if(can){ const last=can.values.filter(d=>valueOf(d,c,m)!=null).slice(-1)[0];
+        if(last) labelLayer.append("text").attr("x",x(periodToDate(last.periodo))+8).attr("y",y(valueOf(last,c,m))).attr("dy","0.35em")
+          .attr("fill",CAN_COLOR).attr("font-size",13).attr("font-weight",800).attr("font-family","var(--ced-serif)").text("Canarias"); }
+      hideTip();
+    }
+    hitLayer.selectAll("path").data(series).join("path").attr("d",d=>line(d.values)).attr("fill","none").attr("stroke","transparent").attr("stroke-width",14)
+      .style("cursor","pointer").on("mousemove",(e,d)=>highlight(d.ccaa,e)).on("mouseleave",reset);
+    reset();
+    d3.select(wrap).append("div").attr("class","ced-legend").html(`
+      <span><span class="ced-legend-swatch" style="background:${CAN_COLOR}"></span>Canarias</span>
+      <span><span class="ced-legend-swatch" style="background:${INK}"></span>Media de comunidades (--)</span>
+      <span><span class="ced-legend-swatch" style="background:${OTHER_COLOR};opacity:.32"></span>Otras CCAA</span>
+      <span style="color:#6b8ca5">Pasa el ratón por una línea para aislarla</span>`);
+  }
+
+  // -------- 3 · Análisis espacial (treemap por comunidad + comparación con la media) --------
+  function renderComposition(){
+    const wrap=$("[data-ced-chart]"); wrap.innerHTML="";
+    const tCcaa=state.ccaa||"Canarias";
+    const cRow=ccaaRows(state.period).find(r=>r.ccaa===tCcaa);
+    if(!cRow){ wrap.innerHTML=`<div class="ced-loading">No hay datos de ${tCcaa} para ${state.period}.</div>`; return; }
+    const total=socialTotal(cRow);
+    const items=SOCIAL_KEYS.map(k=>({ key:k, label:CONCEPTS[k].label, color:CONCEPTS[k].color,
+      value:(cRow["imp_"+k]==null?0:cRow["imp_"+k]),
+      canShare:shareOf(cRow,k),
+      natShare:d3.mean(ccaaRows(state.period).map(r=>shareOf(r,k)).filter(v=>v!=null)) }))
+      .filter(d=>d.value>0).sort((a,b)=>b.value-a.value);
+
+    const note=document.createElement("div"); note.className="ced-note-strip";
+    note.innerHTML=`<strong>Cómo reparte ${tCcaa} su euro social en ${state.period}.</strong> El tamaño de cada bloque es el gasto en ese concepto; la etiqueta, su peso sobre el gasto social total (${fmtEur(total)}). El triángulo ▲/▼ compara con la media de comunidades: ▲ ${tCcaa} prioriza más ese concepto, ▼ menos. Se excluye <em>dirección</em> (deuda pública + administración + transferencias), que no es gasto social estricto.`;
+    wrap.appendChild(note);
+
+    const w=wrap.clientWidth||720, h=440;
+    const svg=d3.select(wrap).append("svg").attr("viewBox",`0 0 ${w} ${h}`);
+    const rootH=d3.hierarchy({children:items}).sum(d=>d.value).sort((a,b)=>b.value-a.value);
+    d3.treemap().size([w,h]).paddingInner(3).round(true)(rootH);
+    const cell=svg.selectAll("g").data(rootH.leaves()).join("g").attr("transform",d=>`translate(${d.x0},${d.y0})`).attr("class","ced-tm-cell");
+    cell.append("rect").attr("width",d=>d.x1-d.x0).attr("height",d=>d.y1-d.y0).attr("rx",5).attr("fill",d=>d.data.color).attr("opacity",0.92);
+    cell.on("mousemove",(evt,d)=>{ const dd=d.data; const gap=(dd.canShare!=null&&dd.natShare!=null)?dd.canShare-dd.natShare:null;
+      showTip(`<strong>${dd.label} · ${state.period}</strong>
+        <span class="ced-tooltip-metric">Gasto y peso en el presupuesto social de ${tCcaa}</span>
+        <span class="ced-tooltip-value">${fmtEur(dd.value)}</span>
+        <span class="ced-tooltip-extra">${nf1.format(dd.canShare||0)}% del gasto social · media CCAA ${nf1.format(dd.natShare||0)}%</span>
+        ${gap!=null?`<span class="ced-tooltip-extra">${gap>=0?"▲ prioriza más":"▼ prioriza menos"} (${gap>=0?"+":""}${nf1.format(gap)} pp)</span>`:""}`,evt); })
+      .on("mouseleave",hideTip);
+    cell.each(function(d){
+      const bw=d.x1-d.x0, bh=d.y1-d.y0; if(bw<46||bh<26) return;
+      const g=d3.select(this), gap=(d.data.canShare!=null&&d.data.natShare!=null)?d.data.canShare-d.data.natShare:null;
+      g.append("text").attr("x",7).attr("y",17).attr("fill","#fff").attr("font-size",Math.min(13,bw/7)).attr("font-weight",700)
+        .attr("font-family","var(--ced-serif)").text(d.data.label.length*7>bw-10?d.data.label.slice(0,Math.max(3,Math.floor((bw-10)/7))): d.data.label);
+      if(bh>42) g.append("text").attr("x",7).attr("y",34).attr("fill","rgba(255,255,255,.92)").attr("font-size",11.5).attr("font-weight",600)
+        .text(`${nf1.format(d.data.canShare||0)}%${gap!=null?(gap>=0?"  ▲":"  ▼"):""}`);
+    });
+  }
+
+  function renderMethod(){ $("[data-ced-chart]").innerHTML=""; $("[data-ced-method-grid]").hidden=false; }
+
+  function downloadCsv(){
+    const cols=["ccaa","periodo","capa","es_prorroga","imp_"+state.concept,"pibreg_"+state.concept,"var_"+state.concept];
+    const rows=state.rows.filter(r=>r.capa==="autonomica");
+    const head=["ccaa","periodo","capa","es_prorroga",`imp_${state.concept}_eur`,`pibreg_${state.concept}_pct`,`var_${state.concept}_pct`];
+    const body=rows.map(r=>cols.map(c=>r[c]==null?"":r[c]).join(";")).join("\n");
+    const blob=new Blob([head.join(";")+"\n"+body],{type:"text/csv;charset=utf-8"});
+    const a=document.createElement("a"); a.href=URL.createObjectURL(blob); a.download=`ced_presupuestos_${state.concept}.csv`;
+    document.body.appendChild(a); a.click(); a.remove();
+  }
+
+  function render(){
+    updateControls();
+    const m=state.metric, c=state.concept, cfg=METRICS[m];
+    const titles={
+      context:{ t:"Situar Canarias", s:`Mapa · ${CONCEPTS[c].label} · ${cfg.label} · ${state.period}` },
+      evolution:{ t:"Evolución anual", s:`${CONCEPTS[c].label} · ${cfg.label} · 2015–2026` },
+      composition:{ t:"Análisis espacial de los presupuestos", s:`Reparto del gasto social entre los 12 conceptos sociales · ${state.ccaa} · ${state.period}` },
+      method:{ t:"Cómo se construye", s:"Extracción por CCAA · deflación a € constantes · conciliación con Hacienda (SGCIEF)" }
+    };
+    $("[data-ced-title]").textContent=titles[state.step].t;
+    $("[data-ced-sub]").textContent=titles[state.step].s;
+    const src=root.dataset.cedSource==="supabase"?" · Supabase":"";
+    const refCcaa=state.step==="composition"?state.ccaa:"Canarias";
+    const refRow=ccaaRows(state.period).find(r=>r.ccaa===refCcaa);
+    const proj=refRow&&refRow.es_prorroga;
+    $("[data-ced-badge]").textContent=state.step==="method"?"Documentación":`${state.period}${proj?" · prórroga":""}${src}`;
+    $("[data-ced-method-grid]").hidden=state.step!=="method";
+    const periods=allPeriods();
+    if(periods.length){ const n=new Set(state.rows.filter(r=>r.capa==="autonomica").map(r=>r.ccaa)).size;
+      $("[data-ced-coverage]").textContent=`Cobertura: ${n} CCAA · ${periods[0]}–${periods[periods.length-1]} · € constantes`; }
+    if(state.step==="composition") renderKpisComposition(); else renderKpis();
+    if(state.step==="context") renderMap();
+    else if(state.step==="evolution") renderEvolution();
+    else if(state.step==="composition") renderComposition();
+    else if(state.step==="method") renderMethod();
+  }
+
+  document.addEventListener("mousemove",moveTip);
+  initToolbar();
+  Promise.all([
+    fetchSupabase(root.dataset.supabaseTable||"ced_presupuestos_global"),
+    loadGeo()
+  ]).then(([rows,geo])=>{
+    state.rows=rows.filter(r=>r.capa==="autonomica");
+    state.hacienda=rows.filter(r=>r.capa==="hacienda");
+    state.geo=geo;
+    root.dataset.cedSource="supabase";
+    if(state.rows.length===0){ $("[data-ced-chart]").innerHTML=`<div class="ced-loading">La vista <code>canendatos.ced_presupuestos_global</code> aún no devuelve filas. Créala en Supabase (ver instrucciones) y recarga.</div>`; return; }
+    initPeriodSelector();
+    initCcaaSelector();
+    render();
+  }).catch(err=>{
+    console.error("CED Presupuestos: bootstrap falló", err);
+    $("[data-ced-chart]").innerHTML=`<div class="ced-loading">No se pudo cargar los datos (${err.message}). Comprueba que existe la vista <code>canendatos.ced_presupuestos_global</code> y que el anon tiene <code>SELECT</code>.</div>`;
+  });
+})();
+</script>
+</div>
+</body>
+</html>

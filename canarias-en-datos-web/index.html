@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Canarias en Datos · Observatorio ODESOCAN</title>
+    <meta name="description" content="Panel interactivo de indicadores sociales de Canarias: vivienda, sanidad, salud mental, presupuestos y más." />
+    <link rel="stylesheet" href="./core/styles.css" />
+  </head>
+  <body>
+    <nav class="ced-topic-nav" aria-label="Temáticas" id="ced-topic-nav">
+      <span class="ced-topic-brand">Canarias en Datos</span>
+    </nav>
+
+    <main id="ced-root">
+      <div class="ced-loading" style="padding:40px 24px;">Cargando temática…</div>
+    </main>
+
+    <script type="module">
+      import { renderTopic } from "./core/engine.js";
+
+      // Orden alfabético. `ready: true` indica que el archivo topics/<slug>.js ya está implementado.
+      const MANIFEST = [
+        { slug: "comunicacion",  label: "Comunicación",  ready: false },
+        { slug: "dependencia",   label: "Dependencia",   ready: true  },
+        { slug: "educacion",     label: "Educación",     ready: true  },
+        { slug: "empleo",        label: "Empleo",        ready: true  },
+        { slug: "migraciones",   label: "Migraciones",   ready: false },
+        { slug: "presupuestos",  label: "Presupuestos",  ready: true  },
+        { slug: "salud-mental",  label: "Salud mental",  ready: false },
+        { slug: "sanidad",       label: "Sanidad",       ready: true  },
+        { slug: "vivienda",      label: "Vivienda",      ready: true  },
+      ];
+
+      const nav = document.getElementById("ced-topic-nav");
+      const root = document.getElementById("ced-root");
+      const buttons = new Map();
+
+      for (const entry of MANIFEST) {
+        const btn = document.createElement("button");
+        btn.className = "ced-topic-btn";
+        btn.textContent = entry.label;
+        btn.dataset.topic = entry.slug;
+        btn.disabled = !entry.ready;
+        if (entry.ready) {
+          btn.addEventListener("click", () => selectTopic(entry.slug, { pushState: true }));
+        } else {
+          btn.title = "Próximamente — pendiente de cargar datos";
+        }
+        nav.appendChild(btn);
+        buttons.set(entry.slug, btn);
+      }
+
+      function setActiveButton(slug) {
+        for (const [s, btn] of buttons) btn.classList.toggle("is-active", s === slug);
+      }
+
+      async function selectTopic(slug, { pushState = false } = {}) {
+        const entry = MANIFEST.find(m => m.slug === slug);
+        if (!entry || !entry.ready) {
+          console.warn(`[CED] Temática "${slug}" no disponible`);
+          return;
+        }
+        setActiveButton(slug);
+        root.innerHTML = `<div class="ced-loading" style="padding:40px 24px;">Cargando <strong>${entry.label}</strong>…</div>`;
+        if (pushState) {
+          const url = new URL(window.location.href);
+          url.searchParams.set("tematica", slug);
+          history.pushState({ slug }, "", url);
+        }
+        try {
+          const module = await import(`./topics/${slug}.js`);
+          await renderTopic(root, module.TOPIC);
+        } catch (error) {
+          console.error(`[CED] Error al cargar la temática "${slug}":`, error);
+          root.innerHTML = `<div class="ced-loading" style="padding:40px 24px;">No se pudo cargar la temática <strong>${entry.label}</strong>. Revisa la consola.</div>`;
+        }
+      }
+
+      function initialTopic() {
+        const param = new URLSearchParams(window.location.search).get("tematica");
+        if (param && MANIFEST.some(m => m.slug === param && m.ready)) return param;
+        return "vivienda";
+      }
+
+      window.addEventListener("popstate", () => selectTopic(initialTopic()));
+
+      selectTopic(initialTopic());
+    </script>
+  </body>
+</html>

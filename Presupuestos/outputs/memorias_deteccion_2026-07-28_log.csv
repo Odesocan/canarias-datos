@@ -1,0 +1,205 @@
+ccaa,anio,estado,url,fichero,paginas,marcas,nota
+and,2015,ROJO,,,,,tomo12 no accesible por patrón; sospecha: archivo histórico CEHAP (web antigua economiayhacienda)
+and,2016,ROJO,,,,,tomo12 no accesible por patrón; sospecha: archivo histórico CEHAP (web antigua economiayhacienda)
+and,2017,VERDE_REPO,(en repo),fuentes/raw/and/2017/memoria_programas.pdf,766,886,tomo12-5b: fichas OE/OO/ACT+indicadores (verif. sidecar completo)
+and,2018,VERDE_REPO,(en repo),fuentes/raw/and/2018/memoria_programas.pdf,852,1148,tomo12-5b: fichas OE/OO/ACT+indicadores (verif. sidecar completo)
+and,2019,VERDE_REPO,(en repo),fuentes/raw/and/2019/memoria_programas.pdf,858,1151,tomo12-5b: fichas OE/OO/ACT+indicadores (verif. sidecar completo)
+and,2020,ROJO,,,,,tomo12 no accesible por patrón; sospecha: archivo histórico CEHAP (web antigua economiayhacienda)
+and,2021,ROJO,,,,,tomo12 no accesible por patrón; sospecha: archivo histórico CEHAP (web antigua economiayhacienda)
+and,2022,VERDE_REPO,(en repo),fuentes/raw/and/2022/memoria_programas.pdf,905,1355,tomo12-5b: fichas OE/OO/ACT+indicadores (verif. sidecar completo)
+and,2023,VERDE_REPO,(en repo),fuentes/raw/and/2023/memoria_programas.pdf,827,1572,tomo12-5b: fichas OE/OO/ACT+indicadores (verif. sidecar completo)
+and,2024,VERDE_REPO,(en repo),fuentes/raw/and/2024/memoria_programas.pdf,847,1622,tomo12-5b: fichas OE/OO/ACT+indicadores (verif. sidecar completo)
+and,2025,VERDE_REPO,(en repo),fuentes/raw/and/2025/memoria_programas.pdf,879,1542,tomo12-5b: fichas OE/OO/ACT+indicadores (verif. sidecar completo)
+and,2026,VERDE_REPO,(en repo),fuentes/raw/and/2026/memoria_programas.pdf,910,1594,tomo12-5b: fichas OE/OO/ACT+indicadores (verif. sidecar completo)
+ara,2015,ROJO,,,,,aragon.es slugs opacos (?download); memorias de programas no enlazadas estáticamente
+ara,2016,ROJO,,,,,aragon.es slugs opacos (?download); memorias de programas no enlazadas estáticamente
+ara,2017,ROJO,,,,,aragon.es slugs opacos (?download); memorias de programas no enlazadas estáticamente
+ara,2018,ROJO,,,,,aragon.es slugs opacos (?download); memorias de programas no enlazadas estáticamente
+ara,2019,ROJO,,,,,aragon.es slugs opacos (?download); memorias de programas no enlazadas estáticamente
+ara,2020,ROJO,,,,,aragon.es slugs opacos (?download); memorias de programas no enlazadas estáticamente
+ara,2021,ROJO,,,,,aragon.es slugs opacos (?download); memorias de programas no enlazadas estáticamente
+ara,2022,ROJO,,,,,aragon.es slugs opacos (?download); memorias de programas no enlazadas estáticamente
+ara,2023,ROJO,,,,,aragon.es slugs opacos (?download); memorias de programas no enlazadas estáticamente
+ara,2024,ROJO,,,,,aragon.es slugs opacos (?download); memorias de programas no enlazadas estáticamente
+ara,2025,ROJO,,,,,aragon.es slugs opacos (?download); memorias de programas no enlazadas estáticamente
+ara,2026,ROJO,,,,,aragon.es slugs opacos (?download); memorias de programas no enlazadas estáticamente
+ast,2015,ROJO,,,,,Liferay exige uuid; tomo_III localizado solo donde el folder resuelve por nombre
+ast,2016,ROJO,,,,,Liferay exige uuid; tomo_III localizado solo donde el folder resuelve por nombre
+ast,2017,ROJO,,,,,Liferay exige uuid; tomo_III localizado solo donde el folder resuelve por nombre
+ast,2018,ROJO,,,,,Liferay exige uuid; tomo_III localizado solo donde el folder resuelve por nombre
+ast,2019,ROJO,,,,,Liferay exige uuid; tomo_III localizado solo donde el folder resuelve por nombre
+ast,2020,VERDE,https://transparencia.asturias.es/documents/2213862/2215811/tomo_III.pdf,fuentes/raw/ast/2020/memoria/tomoIII_2020.pdf,189,13,verificada (muestreo denso)
+ast,2021,ROJO,,,,,Liferay exige uuid; tomo_III localizado solo donde el folder resuelve por nombre
+ast,2022,ROJO,,,,,Liferay exige uuid; tomo_III localizado solo donde el folder resuelve por nombre
+ast,2023,ROJO,,,,,Liferay exige uuid; tomo_III localizado solo donde el folder resuelve por nombre
+ast,2024,ROJO,,,,,Liferay exige uuid; tomo_III localizado solo donde el folder resuelve por nombre
+ast,2025,ROJO,,,,,Liferay exige uuid; tomo_III localizado solo donde el folder resuelve por nombre
+ast,2026,ROJO,,,,,Liferay exige uuid; tomo_III localizado solo donde el folder resuelve por nombre
+bal,2015,ROJO,,,,,frameset sin sección de memòries localizable estáticamente
+bal,2016,ROJO,,,,,frameset sin sección de memòries localizable estáticamente
+bal,2017,ROJO,,,,,frameset sin sección de memòries localizable estáticamente
+bal,2018,ROJO,,,,,frameset sin sección de memòries localizable estáticamente
+bal,2019,ROJO,,,,,frameset sin sección de memòries localizable estáticamente
+bal,2020,ROJO,,,,,frameset sin sección de memòries localizable estáticamente
+bal,2021,ROJO,,,,,frameset sin sección de memòries localizable estáticamente
+bal,2022,ROJO,,,,,frameset sin sección de memòries localizable estáticamente
+bal,2023,ROJO,,,,,frameset sin sección de memòries localizable estáticamente
+bal,2024,ROJO,,,,,frameset sin sección de memòries localizable estáticamente
+bal,2025,ROJO,,,,,frameset sin sección de memòries localizable estáticamente
+bal,2026,ROJO,,,,,frameset sin sección de memòries localizable estáticamente
+can,2015,ROJO,,,,,TOMO-4 Memorias no localizado en galería del año
+can,2016,ROJO,,,,,TOMO-4 Memorias no localizado en galería del año
+can,2017,ROJO,,,,,TOMO-4 Memorias no localizado en galería del año
+can,2018,VERDE,https://www.gobiernodecanarias.org/cmsgob1/export/sites/hacienda/planificacionypresupuesto/galeria/Presupuestos/2018/ley/TOMO-4-Informe-Economico-y-Financiero-y-Memorias-explicativas.pdf,fuentes/raw/can/2018/memoria/TOMO-4-Memorias_2018.pdf,210,16,verificada (narrativa+año)
+can,2019,VERDE,https://www.gobiernodecanarias.org/cmsgob1/export/sites/hacienda/planificacionypresupuesto/galeria/Presupuestos/2019/ley/TOMO-4-Informe-Economico-y-Financiero-y-Memorias-explicativas.pdf,fuentes/raw/can/2019/memoria/TOMO-4-Memorias_2019.pdf,201,22,verificada (narrativa+año)
+can,2020,ROJO,,,,,TOMO-4 Memorias no localizado en galería del año
+can,2021,VERDE,https://www.gobiernodecanarias.org/cmsgob1/export/sites/hacienda/planificacionypresupuesto/galeria/Presupuestos/2021/ley/TOMO-4-Informe-Economico-y-Financiero-y-Memorias-explicativas.pdf,fuentes/raw/can/2021/memoria/TOMO-4-Memorias_2021.pdf,209,27,verificada (narrativa+año)
+can,2022,VERDE,https://www.gobiernodecanarias.org/cmsgob1/export/sites/hacienda/planificacionypresupuesto/galeria/Presupuestos/2022/ley/TOMO-4-Informe-Economico-y-Financiero-y-Memorias-explicativas.pdf,fuentes/raw/can/2022/memoria/TOMO-4-Memorias_2022.pdf,235,15,verificada (narrativa+año)
+can,2023,VERDE,https://www.gobiernodecanarias.org/cmsgob1/export/sites/hacienda/planificacionypresupuesto/galeria/Presupuestos/2023/ley/TOMO-4-Informe-Economico-y-Financiero-y-Memorias-explicativas.pdf,fuentes/raw/can/2023/memoria/TOMO-4-Memorias_2023.pdf,230,25,verificada (narrativa+año)
+can,2024,VERDE,https://www.gobiernodecanarias.org/cmsgob1/export/sites/hacienda/planificacionypresupuesto/galeria/Presupuestos/2024/ley/TOMO-4-Informe-Economico-y-Financiero-y-Memorias-explicativas.pdf,fuentes/raw/can/2024/memoria/TOMO-4-Memorias_2024.pdf,231,15,verificada (narrativa+año)
+can,2025,VERDE,https://www.gobiernodecanarias.org/cmsgob1/export/sites/hacienda/planificacionypresupuesto/galeria/Presupuestos/2025/ley/TOMO-4-Informe-Economico-y-Financiero-y-Memorias-explicativas.pdf,fuentes/raw/can/2025/memoria/TOMO-4-Memorias_2025.pdf,236,29,verificada (narrativa+año)
+can,2026,VERDE,https://www.gobiernodecanarias.org/cmsgob1/export/sites/hacienda/planificacionypresupuesto/galeria/Presupuestos/2026/ley/TOMO-4-Informe-Economico-y-Financiero-y-Memorias-explicativas.pdf,fuentes/raw/can/2026/memoria/memoria_portal_2026.pdf,257,22,verificada (muestreo denso)
+cat,2015,VERDE,https://aplicacions.economia.gencat.cat/wpres/AppPHP/2015/pdf/VOL_P_MEM.pdf,fuentes/raw/cat/2015/memoria/VOL_P_MEM_2015.pdf,839,49,verificada (muestreo denso)
+cat,2016,VERDE,https://aplicacions.economia.gencat.cat/wpres/AppPHP/2016/pdf/VOL_P_MEM.pdf,fuentes/raw/cat/2016/memoria/VOL_P_MEM_2016.pdf,889,52,verificada (muestreo denso)
+cat,2017,VERDE,https://aplicacions.economia.gencat.cat/wpres/AppPHP/2017/pdf/VOL_P_MEM.pdf,fuentes/raw/cat/2017/memoria/VOL_P_MEM_2017.pdf,867,64,verificada (muestreo denso)
+cat,2018,ROJO,,,,,probar índice wpres/AppPHP/2018
+cat,2019,VERDE,https://aplicacions.economia.gencat.cat/wpres/AppPHP/2019/pdf/VOL_P_MEM.pdf,fuentes/raw/cat/2019/memoria/VOL_P_MEM_2019.pdf,887,66,verificada (muestreo denso)
+cat,2020,VERDE,https://aplicacions.economia.gencat.cat/wpres/AppPHP/2020/pdf/VOL_P_MEM.pdf,fuentes/raw/cat/2020/memoria/VOL_P_MEM_2020.pdf,919,75,verificada (muestreo denso)
+cat,2021,ROJO,,,,,probar índice wpres/AppPHP/2021
+cat,2022,VERDE,https://aplicacions.economia.gencat.cat/wpres/AppPHP/2022/pdf/VOL_P_MEM.pdf,fuentes/raw/cat/2022/memoria/VOL_P_MEM_2022.pdf,987,67,verificada (muestreo denso)
+cat,2023,VERDE,https://aplicacions.economia.gencat.cat/wpres/AppPHP/2023/pdf/VOL_P_MEM.pdf,fuentes/raw/cat/2023/memoria/VOL_P_MEM_2023.pdf,955,70,verificada (muestreo denso)
+cat,2024,VERDE,https://aplicacions.economia.gencat.cat/wpres/AppPHP/2024/pdf/VOL_P_MEM.pdf,fuentes/raw/cat/2024/memoria/VOL_P_MEM_2024.pdf,963,58,verificada (muestreo denso)
+cat,2025,VERDE,https://aplicacions.economia.gencat.cat/wpres/AppPHP/2024/pdf/VOL_P_MEM.pdf,fuentes/raw/cat/2025/memoria/VOL_P_MEM_2024.pdf,963,58,prórroga: doc del ejercicio 2024 (no hubo presupuesto propio)
+cat,2026,VERDE,https://aplicacions.economia.gencat.cat/wpres/AppPHP/2024/pdf/VOL_P_MEM.pdf,fuentes/raw/cat/2026/memoria/VOL_P_MEM_2024.pdf,963,58,prórroga: doc del ejercicio 2024 (no hubo presupuesto propio)
+clm,2015,ROJO,,,,,actuacion/ de transparencia sin adjuntos estáticos (Drupal); sospecha: página Consejería Hacienda (castillalamancha.es) con tomos del proyecto
+clm,2016,ROJO,,,,,actuacion/ de transparencia sin adjuntos estáticos (Drupal); sospecha: página Consejería Hacienda (castillalamancha.es) con tomos del proyecto
+clm,2017,ROJO,,,,,actuacion/ de transparencia sin adjuntos estáticos (Drupal); sospecha: página Consejería Hacienda (castillalamancha.es) con tomos del proyecto
+clm,2018,ROJO,,,,,actuacion/ de transparencia sin adjuntos estáticos (Drupal); sospecha: página Consejería Hacienda (castillalamancha.es) con tomos del proyecto
+clm,2019,ROJO,,,,,actuacion/ de transparencia sin adjuntos estáticos (Drupal); sospecha: página Consejería Hacienda (castillalamancha.es) con tomos del proyecto
+clm,2020,ROJO,,,,,actuacion/ de transparencia sin adjuntos estáticos (Drupal); sospecha: página Consejería Hacienda (castillalamancha.es) con tomos del proyecto
+clm,2021,ROJO,,,,,actuacion/ de transparencia sin adjuntos estáticos (Drupal); sospecha: página Consejería Hacienda (castillalamancha.es) con tomos del proyecto
+clm,2022,ROJO,,,,,actuacion/ de transparencia sin adjuntos estáticos (Drupal); sospecha: página Consejería Hacienda (castillalamancha.es) con tomos del proyecto
+clm,2023,ROJO,,,,,actuacion/ de transparencia sin adjuntos estáticos (Drupal); sospecha: página Consejería Hacienda (castillalamancha.es) con tomos del proyecto
+clm,2024,ROJO,,,,,actuacion/ de transparencia sin adjuntos estáticos (Drupal); sospecha: página Consejería Hacienda (castillalamancha.es) con tomos del proyecto
+clm,2025,ROJO,,,,,actuacion/ de transparencia sin adjuntos estáticos (Drupal); sospecha: página Consejería Hacienda (castillalamancha.es) con tomos del proyecto
+clm,2026,ROJO,,,,,actuacion/ de transparencia sin adjuntos estáticos (Drupal); sospecha: página Consejería Hacienda (castillalamancha.es) con tomos del proyecto
+cnt,2015,ROJO,,,,,solo existe 'Memoria de Beneficios Fiscales' (falso positivo eliminado); Cantabria no publica memoria de objetivos por programas en cantabria.es
+cnt,2016,ROJO,,,,,solo existe 'Memoria de Beneficios Fiscales' (falso positivo eliminado); Cantabria no publica memoria de objetivos por programas en cantabria.es
+cnt,2017,ROJO,,,,,solo existe 'Memoria de Beneficios Fiscales' (falso positivo eliminado); Cantabria no publica memoria de objetivos por programas en cantabria.es
+cnt,2018,ROJO,,,,,solo existe 'Memoria de Beneficios Fiscales' (falso positivo eliminado); Cantabria no publica memoria de objetivos por programas en cantabria.es
+cnt,2019,ROJO,,,,,solo existe 'Memoria de Beneficios Fiscales' (falso positivo eliminado); Cantabria no publica memoria de objetivos por programas en cantabria.es
+cnt,2020,ROJO,,,,,solo existe 'Memoria de Beneficios Fiscales' (falso positivo eliminado); Cantabria no publica memoria de objetivos por programas en cantabria.es
+cnt,2021,ROJO,,,,,solo existe 'Memoria de Beneficios Fiscales' (falso positivo eliminado); Cantabria no publica memoria de objetivos por programas en cantabria.es
+cnt,2022,ROJO,,,,,solo existe 'Memoria de Beneficios Fiscales' (falso positivo eliminado); Cantabria no publica memoria de objetivos por programas en cantabria.es
+cnt,2023,ROJO,,,,,solo existe 'Memoria de Beneficios Fiscales' (falso positivo eliminado); Cantabria no publica memoria de objetivos por programas en cantabria.es
+cnt,2024,ROJO,,,,,solo existe 'Memoria de Beneficios Fiscales' (falso positivo eliminado); Cantabria no publica memoria de objetivos por programas en cantabria.es
+cnt,2025,ROJO,,,,,solo existe 'Memoria de Beneficios Fiscales' (falso positivo eliminado); Cantabria no publica memoria de objetivos por programas en cantabria.es
+cnt,2026,ROJO,,,,,solo existe 'Memoria de Beneficios Fiscales' (falso positivo eliminado); Cantabria no publica memoria de objetivos por programas en cantabria.es
+cym,2015,ROJO,,,,,páginas jcyl solo estados consolidados; memoria de programas no publicada ahí
+cym,2016,ROJO,,,,,páginas jcyl solo estados consolidados; memoria de programas no publicada ahí
+cym,2017,ROJO,,,,,páginas jcyl solo estados consolidados; memoria de programas no publicada ahí
+cym,2018,ROJO,,,,,páginas jcyl solo estados consolidados; memoria de programas no publicada ahí
+cym,2019,ROJO,,,,,páginas jcyl solo estados consolidados; memoria de programas no publicada ahí
+cym,2020,ROJO,,,,,páginas jcyl solo estados consolidados; memoria de programas no publicada ahí
+cym,2021,ROJO,,,,,páginas jcyl solo estados consolidados; memoria de programas no publicada ahí
+cym,2022,ROJO,,,,,páginas jcyl solo estados consolidados; memoria de programas no publicada ahí
+cym,2023,ROJO,,,,,páginas jcyl solo estados consolidados; memoria de programas no publicada ahí
+cym,2024,ROJO,,,,,páginas jcyl solo estados consolidados; memoria de programas no publicada ahí
+cym,2025,ROJO,,,,,páginas jcyl solo estados consolidados; memoria de programas no publicada ahí
+cym,2026,ROJO,,,,,páginas jcyl solo estados consolidados; memoria de programas no publicada ahí
+ext,2015,ROJO,,,,,asambleaex sin listado (403); sospecha: tomos PLP junto al Tomo02_EIG
+ext,2016,ROJO,,,,,asambleaex sin listado (403); sospecha: tomos PLP junto al Tomo02_EIG
+ext,2017,ROJO,,,,,asambleaex sin listado (403); sospecha: tomos PLP junto al Tomo02_EIG
+ext,2018,ROJO,,,,,asambleaex sin listado (403); sospecha: tomos PLP junto al Tomo02_EIG
+ext,2019,ROJO,,,,,asambleaex sin listado (403); sospecha: tomos PLP junto al Tomo02_EIG
+ext,2020,ROJO,,,,,asambleaex sin listado (403); sospecha: tomos PLP junto al Tomo02_EIG
+ext,2021,ROJO,,,,,asambleaex sin listado (403); sospecha: tomos PLP junto al Tomo02_EIG
+ext,2022,ROJO,,,,,asambleaex sin listado (403); sospecha: tomos PLP junto al Tomo02_EIG
+ext,2023,ROJO,,,,,asambleaex sin listado (403); sospecha: tomos PLP junto al Tomo02_EIG
+ext,2024,ROJO,,,,,asambleaex sin listado (403); sospecha: tomos PLP junto al Tomo02_EIG
+ext,2025,ROJO,,,,,asambleaex sin listado (403); sospecha: tomos PLP junto al Tomo02_EIG
+ext,2026,ROJO,,,,,asambleaex sin listado (403); sospecha: tomos PLP junto al Tomo02_EIG
+gal,2015,VERDE,https://www.conselleriadefacenda.gal/orzamentos/2015/DE/MEMORIA_II.PDF,fuentes/raw/gal/2015/memoria/MEMORIA_II_2015.pdf,636,55,verificada (muestreo denso)
+gal,2016,VERDE,https://www.conselleriadefacenda.gal/orzamentos/2016/DE/MEMORIA_II.PDF,fuentes/raw/gal/2016/memoria/MEMORIA_II_2016.pdf,592,84,verificada (muestreo denso)
+gal,2017,VERDE,https://www.conselleriadefacenda.gal/orzamentos/2017/DE/MEMORIA_II.PDF,fuentes/raw/gal/2017/memoria/MEMORIA_II_2017.pdf,426,59,verificada (muestreo denso)
+gal,2018,VERDE,https://orzamentos.xunta.gal/orzamentos/2018/DE/MEMORIA_II.PDF,fuentes/raw/gal/2018/memoria/MEMORIA_II_2018.pdf,458,91,verificada (muestreo denso)
+gal,2019,VERDE,https://orzamentos.xunta.gal/orzamentos/2019/DE/MEMORIA_II.PDF,fuentes/raw/gal/2019/memoria/MEMORIA_II_2019.pdf,482,62,verificada (muestreo denso)
+gal,2020,VERDE,https://orzamentos.xunta.gal/orzamentos/2020/DE/MEMORIA_II.PDF,fuentes/raw/gal/2020/memoria/MEMORIA_II_2020.pdf,498,62,verificada (muestreo denso)
+gal,2021,VERDE,https://orzamentos.xunta.gal/orzamentos/2021/DE/MEMORIA_II.PDF,fuentes/raw/gal/2021/memoria/MEMORIA_II_2021.pdf,478,69,verificada (muestreo denso)
+gal,2022,VERDE,https://orzamentos.xunta.gal/orzamentos/2022/DE/MEMORIA_I.pdf,fuentes/raw/gal/2022/memoria/MEMORIA_I_2022.pdf,326,22,verificada (muestreo denso)
+gal,2023,VERDE,https://orzamentos.xunta.gal/orzamentos/2023/DE/MEMORIA_I.PDF,fuentes/raw/gal/2023/memoria/MEMORIA_I_2023.pdf,318,23,verificada (muestreo denso)
+gal,2024,VERDE,https://orzamentos.xunta.gal/orzamentos/2024/DE/MEMORIA_I.PDF,fuentes/raw/gal/2024/memoria/MEMORIA_I_2024.pdf,284,36,verificada (muestreo denso)
+gal,2025,VERDE,https://orzamentos.xunta.gal/orzamentos/2025/DE/LIBROS/MEMORIA_I.PDF,fuentes/raw/gal/2025/memoria/MEMORIA_I_2025.pdf,290,37,verificada (muestreo denso)
+gal,2026,VERDE,https://orzamentos.xunta.gal/orzamentos/2026/DE/LIBROS/MEMORIA_I.PDF,fuentes/raw/gal/2026/memoria/MEMORIA_I_2026.pdf,298,24,verificada (muestreo denso)
+lar,2015,ROJO,,,,,portal larioja.org por idMmedia opaco; memoria no enlazada de forma estable
+lar,2016,ROJO,,,,,portal larioja.org por idMmedia opaco; memoria no enlazada de forma estable
+lar,2017,ROJO,,,,,portal larioja.org por idMmedia opaco; memoria no enlazada de forma estable
+lar,2018,ROJO,,,,,portal larioja.org por idMmedia opaco; memoria no enlazada de forma estable
+lar,2019,ROJO,,,,,portal larioja.org por idMmedia opaco; memoria no enlazada de forma estable
+lar,2020,ROJO,,,,,portal larioja.org por idMmedia opaco; memoria no enlazada de forma estable
+lar,2021,ROJO,,,,,portal larioja.org por idMmedia opaco; memoria no enlazada de forma estable
+lar,2022,ROJO,,,,,portal larioja.org por idMmedia opaco; memoria no enlazada de forma estable
+lar,2023,ROJO,,,,,portal larioja.org por idMmedia opaco; memoria no enlazada de forma estable
+lar,2024,ROJO,,,,,portal larioja.org por idMmedia opaco; memoria no enlazada de forma estable
+lar,2025,ROJO,,,,,portal larioja.org por idMmedia opaco; memoria no enlazada de forma estable
+lar,2026,ROJO,,,,,portal larioja.org por idMmedia opaco; memoria no enlazada de forma estable
+mad,2015,ROJO,,,,,Libro 04 sin URL estable (blocker conocido)
+mad,2016,ROJO,,,,,Libro 04 sin URL estable (blocker conocido)
+mad,2017,ROJO,,,,,Libro 04 sin URL estable (blocker conocido)
+mad,2018,ROJO,,,,,Libro 04 sin URL estable (blocker conocido)
+mad,2019,ROJO,,,,,Libro 04 sin URL estable (blocker conocido)
+mad,2020,ROJO,,,,,Libro 04 sin URL estable (blocker conocido)
+mad,2021,ROJO,,,,,Libro 04 sin URL estable (blocker conocido)
+mad,2022,ROJO,,,,,Libro 04 sin URL estable (blocker conocido)
+mad,2023,ROJO,,,,,Libro 04 sin URL estable (blocker conocido)
+mad,2024,ROJO,,,,,Libro 04 sin URL estable (blocker conocido)
+mad,2025,ROJO,,,,,Libro 04 sin URL estable (blocker conocido)
+mad,2026,ROJO,,,,,Libro 04 sin URL estable (blocker conocido)
+mur,2015,AMARILLO_LOC,,,,,carm.es/chac protegido por captcha Radware — no automatizable; memoria probable junto al articulado en chac/presupuestos<año> (descarga manual)
+mur,2016,AMARILLO_LOC,,,,,carm.es/chac protegido por captcha Radware — no automatizable; memoria probable junto al articulado en chac/presupuestos<año> (descarga manual)
+mur,2017,AMARILLO_LOC,,,,,carm.es/chac protegido por captcha Radware — no automatizable; memoria probable junto al articulado en chac/presupuestos<año> (descarga manual)
+mur,2018,AMARILLO_LOC,,,,,carm.es/chac protegido por captcha Radware — no automatizable; memoria probable junto al articulado en chac/presupuestos<año> (descarga manual)
+mur,2019,AMARILLO_LOC,,,,,carm.es/chac protegido por captcha Radware — no automatizable; memoria probable junto al articulado en chac/presupuestos<año> (descarga manual)
+mur,2020,AMARILLO_LOC,,,,,carm.es/chac protegido por captcha Radware — no automatizable; memoria probable junto al articulado en chac/presupuestos<año> (descarga manual)
+mur,2021,AMARILLO_LOC,,,,,carm.es/chac protegido por captcha Radware — no automatizable; memoria probable junto al articulado en chac/presupuestos<año> (descarga manual)
+mur,2022,AMARILLO_LOC,,,,,carm.es/chac protegido por captcha Radware — no automatizable; memoria probable junto al articulado en chac/presupuestos<año> (descarga manual)
+mur,2023,AMARILLO_LOC,,,,,carm.es/chac protegido por captcha Radware — no automatizable; memoria probable junto al articulado en chac/presupuestos<año> (descarga manual)
+mur,2024,AMARILLO_LOC,,,,,carm.es/chac protegido por captcha Radware — no automatizable; memoria probable junto al articulado en chac/presupuestos<año> (descarga manual)
+mur,2025,AMARILLO_LOC,,,,,carm.es/chac protegido por captcha Radware — no automatizable; memoria probable junto al articulado en chac/presupuestos<año> (descarga manual)
+mur,2026,AMARILLO_LOC,,,,,carm.es/chac protegido por captcha Radware — no automatizable; memoria probable junto al articulado en chac/presupuestos<año> (descarga manual)
+nav,2015,ROJO,,,,,CKAN sin memorias PDF; visor presupuesto.navarra.es no publica memoria descargable
+nav,2016,ROJO,,,,,CKAN sin memorias PDF; visor presupuesto.navarra.es no publica memoria descargable
+nav,2017,ROJO,,,,,CKAN sin memorias PDF; visor presupuesto.navarra.es no publica memoria descargable
+nav,2018,ROJO,,,,,CKAN sin memorias PDF; visor presupuesto.navarra.es no publica memoria descargable
+nav,2019,ROJO,,,,,CKAN sin memorias PDF; visor presupuesto.navarra.es no publica memoria descargable
+nav,2020,ROJO,,,,,CKAN sin memorias PDF; visor presupuesto.navarra.es no publica memoria descargable
+nav,2021,ROJO,,,,,CKAN sin memorias PDF; visor presupuesto.navarra.es no publica memoria descargable
+nav,2022,ROJO,,,,,CKAN sin memorias PDF; visor presupuesto.navarra.es no publica memoria descargable
+nav,2023,ROJO,,,,,CKAN sin memorias PDF; visor presupuesto.navarra.es no publica memoria descargable
+nav,2024,ROJO,,,,,CKAN sin memorias PDF; visor presupuesto.navarra.es no publica memoria descargable
+nav,2025,ROJO,,,,,CKAN sin memorias PDF; visor presupuesto.navarra.es no publica memoria descargable
+nav,2026,ROJO,,,,,CKAN sin memorias PDF; visor presupuesto.navarra.es no publica memoria descargable
+pvc,2015,ROJO,,,,,adjuntos/ opaco; memorias por sección en aurrekontuak.euskadi.eus (multi-fichero)
+pvc,2016,ROJO,,,,,adjuntos/ opaco; memorias por sección en aurrekontuak.euskadi.eus (multi-fichero)
+pvc,2017,ROJO,,,,,adjuntos/ opaco; memorias por sección en aurrekontuak.euskadi.eus (multi-fichero)
+pvc,2018,ROJO,,,,,adjuntos/ opaco; memorias por sección en aurrekontuak.euskadi.eus (multi-fichero)
+pvc,2019,ROJO,,,,,adjuntos/ opaco; memorias por sección en aurrekontuak.euskadi.eus (multi-fichero)
+pvc,2020,ROJO,,,,,adjuntos/ opaco; memorias por sección en aurrekontuak.euskadi.eus (multi-fichero)
+pvc,2021,ROJO,,,,,adjuntos/ opaco; memorias por sección en aurrekontuak.euskadi.eus (multi-fichero)
+pvc,2022,ROJO,,,,,adjuntos/ opaco; memorias por sección en aurrekontuak.euskadi.eus (multi-fichero)
+pvc,2023,ROJO,,,,,adjuntos/ opaco; memorias por sección en aurrekontuak.euskadi.eus (multi-fichero)
+pvc,2024,ROJO,,,,,adjuntos/ opaco; memorias por sección en aurrekontuak.euskadi.eus (multi-fichero)
+pvc,2025,ROJO,,,,,adjuntos/ opaco; memorias por sección en aurrekontuak.euskadi.eus (multi-fichero)
+pvc,2026,ROJO,,,,,adjuntos/ opaco; memorias por sección en aurrekontuak.euskadi.eus (multi-fichero)
+val,2015,AMARILLO_LOC,,,,,"árbol hisenda.gva.es/auto/presupuestos/2015/ con T1-T7; memorias FP4 por programa embebidas en fichas por sección (multi-fichero, requiere crawl dedicado)"
+val,2016,AMARILLO_LOC,,,,,"árbol hisenda.gva.es/auto/presupuestos/2016/ con T1-T7; memorias FP4 por programa embebidas en fichas por sección (multi-fichero, requiere crawl dedicado)"
+val,2017,AMARILLO_LOC,,,,,"árbol hisenda.gva.es/auto/presupuestos/2017/ con T1-T7; memorias FP4 por programa embebidas en fichas por sección (multi-fichero, requiere crawl dedicado)"
+val,2018,AMARILLO_LOC,,,,,"árbol hisenda.gva.es/auto/presupuestos/2018/ con T1-T7; memorias FP4 por programa embebidas en fichas por sección (multi-fichero, requiere crawl dedicado)"
+val,2019,AMARILLO_LOC,,,,,"árbol hisenda.gva.es/auto/presupuestos/2019/ con T1-T7; memorias FP4 por programa embebidas en fichas por sección (multi-fichero, requiere crawl dedicado)"
+val,2020,AMARILLO_LOC,,,,,"árbol hisenda.gva.es/auto/presupuestos/2020/ con T1-T7; memorias FP4 por programa embebidas en fichas por sección (multi-fichero, requiere crawl dedicado)"
+val,2021,AMARILLO_LOC,,,,,"árbol hisenda.gva.es/auto/presupuestos/2021/ con T1-T7; memorias FP4 por programa embebidas en fichas por sección (multi-fichero, requiere crawl dedicado)"
+val,2022,AMARILLO_LOC,,,,,"árbol hisenda.gva.es/auto/presupuestos/2022/ con T1-T7; memorias FP4 por programa embebidas en fichas por sección (multi-fichero, requiere crawl dedicado)"
+val,2023,AMARILLO_LOC,,,,,"árbol hisenda.gva.es/auto/presupuestos/2023/ con T1-T7; memorias FP4 por programa embebidas en fichas por sección (multi-fichero, requiere crawl dedicado)"
+val,2024,AMARILLO_LOC,,,,,"árbol hisenda.gva.es/auto/presupuestos/2024/ con T1-T7; memorias FP4 por programa embebidas en fichas por sección (multi-fichero, requiere crawl dedicado)"
+val,2025,AMARILLO_LOC,,,,,"árbol hisenda.gva.es/auto/presupuestos/2025/ con T1-T7; memorias FP4 por programa embebidas en fichas por sección (multi-fichero, requiere crawl dedicado)"
+val,2026,AMARILLO_LOC,,,,,"árbol hisenda.gva.es/auto/presupuestos/2026/ con T1-T7; memorias FP4 por programa embebidas en fichas por sección (multi-fichero, requiere crawl dedicado)"

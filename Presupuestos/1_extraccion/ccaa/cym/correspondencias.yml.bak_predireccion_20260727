@@ -1,0 +1,235 @@
+conceptos:
+  sanidad:
+    codigos:
+    - 311A01      # Dir.y Serv.Gen.de Sanidad
+    - 311B01      # Adm.G.Gerencia Reg.Salud
+    - 312A01      # Atención primaria
+    - 312A02      # Atención especializada
+    - 312A03      # Formac. internos residentes (MIR)
+    - 312A04      # Emergencias sanitarias
+    - 313A01      # Planificación y desarrollo (sanidad)
+    - 313B01      # Salud pública
+    - '311*'
+    - '312*'
+    - '313A*'
+    - '313B*'
+    keywords:
+    - sanidad
+    - salud publica
+    - atencion sanitaria
+    - atención primaria
+    - atención especializada
+    - sacyl
+  educacion:
+    codigos:
+    - 321A01      # Dir.y Serv.Gen. Educación
+    - 322A01      # Educ. infantil y primaria
+    - 322A02      # Educ.secundaria F.P. ed.especial
+    - 322A03      # Educ.comp.permanente y a distancia
+    - 322A04      # Servicios complementarios enseñanza
+    - 322A05      # Mejora calidad enseñanza
+    - 322B01      # Enseñanzas universitarias
+    - 322C01      # Enseñanza agraria
+    - '321*'
+    - '322*'
+    - '323*'
+    keywords:
+    - educacion
+    - educación
+    - enseñanza
+    - escolar
+    - universitari
+    - formación profesional
+  soberania:
+    codigos:
+    - 411A01      # Adm.General Agraria
+    - 411A02      # Adm.y Serv.Gen.I.T.A.
+    - 412A01      # Apoyo empresa agraria
+    - 412B01      # FEAGA Reg. mercados
+    - 412B02      # Gest.ayudas agrar.FEAGA
+    - 412C01      # Producción agraria
+    - 413A01      # Comerc.indust.y cont.calidad agroalim
+    - 414A01      # Reforma agraria
+    - '411*'
+    - '412*'
+    - '413*'
+    - '414*'
+    keywords:
+    - agraria
+    - agropecuari
+    - agricultura
+    - ganadería
+    - pesca
+    - alimentaria
+    - feaga
+  direccion:
+    codigos:
+    - 011A01      # Amort.y g.fin.deuda Comun
+    - 111A01      # Dir.y Serv. Gen. Justicia
+    - 131A01      # P.Civil, Pol. Loc. e Int.
+    - 231A01      # Dir.y Serv.G.Familia I.O.
+    - 231B01      # Adm.Gen.serv.sociales
+    - 241A01      # Dir.y Serv.G.Ind.Com.Empl
+    - 321A01      # Dir.y Serv.Gen. Educación  (también en educacion -- precedencia: aquí no, exact wins por orden de carga)
+    - 331A01      # Dir.y Serv.G.Cult.Tur.Dep
+    - 421A02      # Adm.y Serv.Gen.de ICE
+    - 451A02      # Dir.y Serv.G.Movil.y T.D.
+    - 451B01      # Dir.y Serv.G.M.A,Viv.O.T.
+    - 911A01      # Actividad legislativa (Cortes CyL)
+    - 911B01      # Control externo S.Público
+    - 911C01      # Dir.y Serv.G.Instit.Comun
+    - 911D01      # Procurador del Común
+    - 911E01      # Alto asesoram. Comunidad
+    - 911F01      # Asesoramiento mat.socioecon
+    - 912A01      # Presidencia de la Junta
+    - 912C01      # Información y comunicación
+    - 912D02      # Relaciones institucionales
+    - 912E01      # Análisis y planif. acción Gob.
+    - 921A01      # Dir.y Serv.G.Presidencia
+    - 921A02      # Inst.y cobert.servicios
+    - 921A03      # Atención al ciudadano
+    - 921A04      # Asesoramiento y defensa interna
+    - 921B01      # Dir.y Adm.Función Pública
+    - 921B02      # Formación y perfecc. personal
+    - 923A01      # Gest.Patrim.y edif.adm.
+    - 923B01      # Estadística
+    - 923C01      # Dir.y Serv.Gen.E.Hacienda
+    - 923C02      # Gestión de la Tesorería
+    - 924A01      # Elecciones
+    - 931A02      # Presup. y seguim. F.Europ.
+    - 931A03      # Control int.y Contab.Púb.
+    - 932A01      # Tributos y financ. autonómica
+    - 941A01      # Deleg.y transf.comp.E.L.
+    - 941A02      # Cooperación Económica Local
+    - '011*'
+    - '111*'
+    - '131*'
+    - '911*'
+    - '912*'
+    - '921*'
+    - '923*'
+    - '924*'
+    - '931*'
+    - '932*'
+    - '941*'
+    keywords:
+    - presidencia
+    - alta dirección
+    - cortes
+    - junta de castilla
+    - dir.y serv
+    - función pública
+    - hacienda
+    - tributos
+    - patrimonio
+    - presupuestos
+  vivienda:
+    codigos:
+    - 261A01      # Arquitectura
+    - 261A02      # Vivienda
+    - 261B01      # Ord.territ.y urbanismo
+    - '261*'
+    - '431*'
+    - '451*'
+    keywords:
+    - vivienda
+    - habitatge
+    - urbanismo
+  empleo:
+    codigos:
+    - 241B01      # Gestión del empleo
+    - 241B02      # Formación ocupacional
+    - 241B03      # Empleo y formación pers.discap.
+    - 241B04      # Intermediación laboral
+    - 241C01      # Economía social y pers.discap
+    - 241C02      # Seg.y salud lab.y rel.lab
+    - '241*'
+    - '322C*'
+    keywords:
+    - empleo
+    - ocupacional
+    - intermediación laboral
+    - economía social
+    - relaciones laborales
+    - autoocupación
+  idi:
+    codigos:
+    - 467B01      # Investigación aplicada y desarrollo sectorial
+    - 467B02      # Eficiencia energética y energías renovables
+    - 467B04      # Investigación científica orientada y no orientada
+    - 467B05      # Innovación
+    - 491A01      # Tec. inf. y comun. Adm.Reg
+    - 491A02      # Promo. telecom. y soc. información
+    - '463*'
+    - '467*'
+    - '491*'
+    - '541*'
+    - '542*'
+    keywords:
+    - investigacion
+    - investigación
+    - innovacion
+    - innovación
+    - i+d+i
+    - desarrollo tecnologico
+    - desarrollo tecnológico
+    - tecnología
+  dependencia:
+    codigos:
+    - 212A01      # Pensiones y otras prestaciones económicas
+    - 231B02      # Servicios sociales básicos e inclusión social
+    - 231B04      # Atención personas mayores
+    - 231B06      # Promoción y apoyo familia
+    keywords:
+    - dependencia
+    - personas mayores
+    - servicios sociales
+    - pensiones
+    - prestaciones
+  discapacidad:
+    codigos:
+    - 231B03      # Atención personas con discapacidad
+    keywords:
+    - discapacidad
+    - diversidad funcional
+    - discapacitat
+  salud_mental:
+    codigos:
+    - 231B07      # Intervención en drogodependencias
+    keywords:
+    - salud mental
+    - drogodepend
+    - addicc
+  diversidad:
+    codigos:
+    - 231B05      # Atención a la infancia
+    - 231B08      # Migraciones y cooperación al desarrollo
+    - 232A02      # Promoción y servicios juventud
+    keywords:
+    - lgtbi
+    - lgbti
+    - migracion
+    - migración
+    - cooperación al desarrollo
+    - infancia
+    - juventud
+  turismo:
+    codigos:
+    - 432A01      # Ordenación, promoción y gestión turismo
+    - '432*'
+    - '751*'
+    - '761*'
+    - '730*'
+    keywords:
+    - turismo
+    - turisme
+  igualdad:
+    codigos:
+    - 232A01      # Promoción y apoyo mujer
+    - '232*'
+    - '323*'
+    - '920*'
+    keywords:
+    - igualdad
+    - mujer
+    - violencia de genero

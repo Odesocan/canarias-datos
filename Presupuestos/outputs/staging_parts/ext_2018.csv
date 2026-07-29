@@ -1,0 +1,78 @@
+ccaa_id3,anio,concepto,importe_eur,codigo,denominacion
+ext,2018,direccion,13729940.0,111A,Actividad legislativa
+ext,2018,direccion,935232.0,111B,Actividad consultiva
+ext,2018,direccion,6242477.0,112A,Dirección y administración de Presidencia
+ext,2018,direccion,8239406.0,113A,Dirección de Administración y Hacienda Públicas
+ext,2018,direccion,5051073.0,113B,"Planificación, programación y presupuestación"
+ext,2018,direccion,6441621.0,113C,Administración tributaria
+ext,2018,direccion,1468474.0,113D,Administración del patrimonio
+ext,2018,direccion,6522841.0,113E,Control interno y contabilidad pública
+ext,2018,direccion,6228579.0,114A,Dirección y organización de la Función Pública
+ext,2018,direccion,2229445.0,114B,Evaluación y calidad de los servicios
+ext,2018,direccion,2043866.0,114C,Formación del personal de la Administración Pública
+ext,2018,direccion,2901447.0,114D,Asesoramiento y defensa de intereses de la Admón
+ext,2018,direccion,27494493.0,115A,Relaciones institucionales e informativas
+ext,2018,direccion,45118094.0,115B,Relaciones con la administración local
+ext,2018,direccion,8455623.0,116A,Protección civil e interior
+ext,2018,direccion,385964586.0,121A,Amortizac. y gastos financ. delendeudam. público
+ext,2018,direccion,5000000.0,131B,Fondo de contingencia
+ext,2018,sanidad,54034222.0,211A,Dirección y administración de Sanidad
+ext,2018,sanidad,32053256.0,211B,"Formación, inspección y calidad sanitarias"
+ext,2018,sanidad,3671039.0,212A,Planificación y ordenación sanitarias
+ext,2018,sanidad,626794918.0,212B,Atención primaria de salud
+ext,2018,sanidad,879988025.0,212C,Atención especializada de salud
+ext,2018,sanidad,7419544.0,212D,Salud pública
+ext,2018,educacion,17073354.0,221A,Dirección y administración de Educación
+ext,2018,educacion,7410637.0,221B,Formación del profesorado de Educación
+ext,2018,educacion,373301090.0,222A,Educación infantil y primaria
+ext,2018,educacion,377448621.0,222B,Educación secundaria y formación profesional
+ext,2018,educacion,58124795.0,222C,"Educación especial, enseñanzas artísticas e idiomas"
+ext,2018,educacion,105050968.0,222D,Enseñanzas universitarias
+ext,2018,educacion,23025269.0,222E,Educación permanente y a distancia no universitaria
+ext,2018,educacion,10898933.0,222F,Enseñanza agraria
+ext,2018,educacion,68989071.0,222G,Actividades complementar. y ayudas a la enseñanza
+ext,2018,dependencia,4066007.0,231A,Dirección y administración de Dependencia
+ext,2018,dependencia,313930572.0,232A,Atención a la dependencia
+ext,2018,empleo,14056754.0,241A,Dirección y administración de Empleo
+ext,2018,empleo,173401054.0,242A,Fomento y calidad en el empleo
+ext,2018,empleo,112363738.0,242B,Formación para el empleo
+ext,2018,diversidad,40851883.0,252A,Atención a la infancia y a las familias
+ext,2018,diversidad,90746417.0,252B,Inclusión social
+ext,2018,diversidad,14578938.0,252C,Cooperación al desarrollo y acción exterior
+ext,2018,igualdad,8777536.0,253A,Igualdad de oportunidades
+ext,2018,diversidad,6653923.0,253B,Promoción y servicios a la juventud
+ext,2018,diversidad,843492.0,253C,Acciones en materia de emigración
+ext,2018,vivienda,40016671.0,261A,Promoción y ayudas para el acceso a la vivienda
+ext,2018,vivienda,10294994.0,262A,"Urbanismo, arquitectura y ordenación del territorio"
+ext,2018,diversidad,3583142.0,271A,Dirección y administración de Cultura
+ext,2018,diversidad,9124618.0,272A,Protección del patrimonio histórico-artístico
+ext,2018,diversidad,5170894.0,272B,Bibliotecas
+ext,2018,diversidad,6926708.0,272C,Museos y artes plásticas
+ext,2018,diversidad,9951871.0,273A,Promoción y cooperación cultural
+ext,2018,diversidad,7197676.0,273B,"Teatro, música y cine"
+ext,2018,diversidad,19725427.0,274A,Fomento y apoyo de las actividades deportivas
+ext,2018,soberania,30333806.0,311A,Dirección y administración de Agricultura
+ext,2018,soberania,35473153.0,312A,Sanidad vegetal y animal
+ext,2018,soberania,31686314.0,312B,ganadera
+ext,2018,soberania,596403638.0,313A,Regulación de producciones
+ext,2018,soberania,29582708.0,314A,Desarrollo del medio rural
+ext,2018,idi,16047998.0,321A,Dir. y admón. de Empresa e Innovación
+ext,2018,,5807544.0,322A,Ordenación industrial y desarrollo energético
+ext,2018,,28335358.0,323A,Desarrollo empresarial
+ext,2018,soberania,28988028.0,323C,Empresa agroalimentaria
+ext,2018,,4740933.0,324A,Consumo
+ext,2018,empleo,7718017.0,325A,Relaciones laborales y condiciones de trabajo
+ext,2018,idi,5551410.0,331A,Investigación y experimentación agraria
+ext,2018,idi,55574007.0,331B,"Investigación, desarrollo tecnológico e innovación"
+ext,2018,direccion,1394444.0,331C,Estudios estadísticos y económicos
+ext,2018,idi,32781213.0,332A,Tecnologías de la información y las comunicaciones
+ext,2018,,13432358.0,333A,Energía renovable y eficiencia energética
+ext,2018,,19224760.0,341A,Comercio de calidad y artesanía extremeña
+ext,2018,turismo,23083317.0,342A,Ordenación y promoción del turismo
+ext,2018,soberania,165759462.0,353A,Infraestructuras agrarias
+ext,2018,,57037541.0,353B,Infraestructuras de carreteras
+ext,2018,,43085730.0,353C,Ordenación e inspección del transporte
+ext,2018,,27507442.0,354A,Medio natural y calidad ambiental
+ext,2018,,42396331.0,354B,Protección y defensa contra los incendios
+ext,2018,,34850665.0,354C,"Conservación, protección y mejora de los montes"
+ext,2018,,25566475.0,354D,Saneamiento y abastecimiento de aguas

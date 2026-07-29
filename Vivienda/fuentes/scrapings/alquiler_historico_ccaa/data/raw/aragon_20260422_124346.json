@@ -1,0 +1,2437 @@
+{
+  "comunidad": "aragon",
+  "fecha_extraccion": "2026-04-22T11:43:46.188845+00:00",
+  "total_registros": 243,
+  "registros": [
+    {
+      "mes_raw": "Marzo 2026",
+      "precio_m2_raw": "10,7 €/m2",
+      "variacion_mensual_raw": "+ 1,0 %",
+      "variacion_trimestral_raw": "+ 2,6 %",
+      "variacion_anual_raw": "+ 8,1 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Febrero 2026",
+      "precio_m2_raw": "10,5 €/m2",
+      "variacion_mensual_raw": "0,0 %",
+      "variacion_trimestral_raw": "+ 3,6 %",
+      "variacion_anual_raw": "+ 7,9 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Enero 2026",
+      "precio_m2_raw": "10,5 €/m2",
+      "variacion_mensual_raw": "+ 1,7 %",
+      "variacion_trimestral_raw": "+ 4,7 %",
+      "variacion_anual_raw": "+ 10,5 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Diciembre 2025",
+      "precio_m2_raw": "10,4 €/m2",
+      "variacion_mensual_raw": "+ 1,9 %",
+      "variacion_trimestral_raw": "+ 3,7 %",
+      "variacion_anual_raw": "+ 9,9 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Noviembre 2025",
+      "precio_m2_raw": "10,2 €/m2",
+      "variacion_mensual_raw": "+ 1,0 %",
+      "variacion_trimestral_raw": "0,0 %",
+      "variacion_anual_raw": "+ 8,5 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Octubre 2025",
+      "precio_m2_raw": "10,1 €/m2",
+      "variacion_mensual_raw": "+ 0,8 %",
+      "variacion_trimestral_raw": "- 0,4 %",
+      "variacion_anual_raw": "+ 8,5 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Septiembre 2025",
+      "precio_m2_raw": "10,0 €/m2",
+      "variacion_mensual_raw": "- 1,7 %",
+      "variacion_trimestral_raw": "- 0,4 %",
+      "variacion_anual_raw": "+ 8,1 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Agosto 2025",
+      "precio_m2_raw": "10,2 €/m2",
+      "variacion_mensual_raw": "+ 0,6 %",
+      "variacion_trimestral_raw": "+ 1,1 %",
+      "variacion_anual_raw": "+ 9,5 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Julio 2025",
+      "precio_m2_raw": "10,1 €/m2",
+      "variacion_mensual_raw": "+ 0,8 %",
+      "variacion_trimestral_raw": "+ 2,0 %",
+      "variacion_anual_raw": "+ 8,9 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Junio 2025",
+      "precio_m2_raw": "10,0 €/m2",
+      "variacion_mensual_raw": "- 0,2 %",
+      "variacion_trimestral_raw": "+ 1,9 %",
+      "variacion_anual_raw": "+ 9,3 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Mayo 2025",
+      "precio_m2_raw": "10,1 €/m2",
+      "variacion_mensual_raw": "+ 1,4 %",
+      "variacion_trimestral_raw": "+ 2,9 %",
+      "variacion_anual_raw": "+ 10,9 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Abril 2025",
+      "precio_m2_raw": "9,9 €/m2",
+      "variacion_mensual_raw": "+ 0,7 %",
+      "variacion_trimestral_raw": "+ 3,9 %",
+      "variacion_anual_raw": "+ 11,8 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Marzo 2025",
+      "precio_m2_raw": "9,9 €/m2",
+      "variacion_mensual_raw": "+ 0,7 %",
+      "variacion_trimestral_raw": "+ 4,3 %",
+      "variacion_anual_raw": "+ 11,8 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Febrero 2025",
+      "precio_m2_raw": "9,8 €/m2",
+      "variacion_mensual_raw": "+ 2,4 %",
+      "variacion_trimestral_raw": "+ 4,3 %",
+      "variacion_anual_raw": "+ 12,5 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Enero 2025",
+      "precio_m2_raw": "9,5 €/m2",
+      "variacion_mensual_raw": "+ 1,1 %",
+      "variacion_trimestral_raw": "+ 2,8 %",
+      "variacion_anual_raw": "+ 9,5 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Diciembre 2024",
+      "precio_m2_raw": "9,4 €/m2",
+      "variacion_mensual_raw": "+ 0,7 %",
+      "variacion_trimestral_raw": "+ 2,1 %",
+      "variacion_anual_raw": "+ 8,6 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Noviembre 2024",
+      "precio_m2_raw": "9,4 €/m2",
+      "variacion_mensual_raw": "+ 1,0 %",
+      "variacion_trimestral_raw": "+ 0,9 %",
+      "variacion_anual_raw": "+ 8,9 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Octubre 2024",
+      "precio_m2_raw": "9,3 €/m2",
+      "variacion_mensual_raw": "+ 0,4 %",
+      "variacion_trimestral_raw": "- 0,1 %",
+      "variacion_anual_raw": "+ 8,9 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Septiembre 2024",
+      "precio_m2_raw": "9,3 €/m2",
+      "variacion_mensual_raw": "- 0,5 %",
+      "variacion_trimestral_raw": "+ 0,7 %",
+      "variacion_anual_raw": "+ 8,6 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Agosto 2024",
+      "precio_m2_raw": "9,3 €/m2",
+      "variacion_mensual_raw": "0,0 %",
+      "variacion_trimestral_raw": "+ 2,5 %",
+      "variacion_anual_raw": "+ 8,8 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Julio 2024",
+      "precio_m2_raw": "9,3 €/m2",
+      "variacion_mensual_raw": "+ 1,2 %",
+      "variacion_trimestral_raw": "+ 4,7 %",
+      "variacion_anual_raw": "+ 8,8 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Junio 2024",
+      "precio_m2_raw": "9,2 €/m2",
+      "variacion_mensual_raw": "+ 1,3 %",
+      "variacion_trimestral_raw": "+ 4,3 %",
+      "variacion_anual_raw": "+ 7,9 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Mayo 2024",
+      "precio_m2_raw": "9,1 €/m2",
+      "variacion_mensual_raw": "+ 2,2 %",
+      "variacion_trimestral_raw": "+ 4,3 %",
+      "variacion_anual_raw": "+ 8,2 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Abril 2024",
+      "precio_m2_raw": "8,9 €/m2",
+      "variacion_mensual_raw": "+ 0,7 %",
+      "variacion_trimestral_raw": "+ 1,8 %",
+      "variacion_anual_raw": "+ 6,5 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Marzo 2024",
+      "precio_m2_raw": "8,8 €/m2",
+      "variacion_mensual_raw": "+ 1,3 %",
+      "variacion_trimestral_raw": "+ 1,3 %",
+      "variacion_anual_raw": "+ 5,4 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Febrero 2024",
+      "precio_m2_raw": "8,7 €/m2",
+      "variacion_mensual_raw": "- 0,2 %",
+      "variacion_trimestral_raw": "+ 1,0 %",
+      "variacion_anual_raw": "+ 4,9 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Enero 2024",
+      "precio_m2_raw": "8,7 €/m2",
+      "variacion_mensual_raw": "+ 0,2 %",
+      "variacion_trimestral_raw": "+ 2,2 %",
+      "variacion_anual_raw": "+ 6,0 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Diciembre 2023",
+      "precio_m2_raw": "8,7 €/m2",
+      "variacion_mensual_raw": "+ 1,0 %",
+      "variacion_trimestral_raw": "+ 2,1 %",
+      "variacion_anual_raw": "+ 5,7 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Noviembre 2023",
+      "precio_m2_raw": "8,6 €/m2",
+      "variacion_mensual_raw": "+ 1,0 %",
+      "variacion_trimestral_raw": "+ 0,7 %",
+      "variacion_anual_raw": "+ 4,5 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Octubre 2023",
+      "precio_m2_raw": "8,5 €/m2",
+      "variacion_mensual_raw": "+ 0,1 %",
+      "variacion_trimestral_raw": "- 0,2 %",
+      "variacion_anual_raw": "+ 4,1 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Septiembre 2023",
+      "precio_m2_raw": "8,5 €/m2",
+      "variacion_mensual_raw": "- 0,3 %",
+      "variacion_trimestral_raw": "+ 0,1 %",
+      "variacion_anual_raw": "+ 3,6 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Agosto 2023",
+      "precio_m2_raw": "8,5 €/m2",
+      "variacion_mensual_raw": "0,0 %",
+      "variacion_trimestral_raw": "+ 1,9 %",
+      "variacion_anual_raw": "+ 3,8 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Julio 2023",
+      "precio_m2_raw": "8,5 €/m2",
+      "variacion_mensual_raw": "+ 0,4 %",
+      "variacion_trimestral_raw": "+ 2,5 %",
+      "variacion_anual_raw": "+ 3,7 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Junio 2023",
+      "precio_m2_raw": "8,5 €/m2",
+      "variacion_mensual_raw": "+ 1,5 %",
+      "variacion_trimestral_raw": "+ 1,8 %",
+      "variacion_anual_raw": "+ 4,2 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Mayo 2023",
+      "precio_m2_raw": "8,4 €/m2",
+      "variacion_mensual_raw": "+ 0,7 %",
+      "variacion_trimestral_raw": "+ 1,2 %",
+      "variacion_anual_raw": "+ 3,6 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Abril 2023",
+      "precio_m2_raw": "8,3 €/m2",
+      "variacion_mensual_raw": "- 0,3 %",
+      "variacion_trimestral_raw": "+ 1,3 %",
+      "variacion_anual_raw": "+ 4,2 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Marzo 2023",
+      "precio_m2_raw": "8,4 €/m2",
+      "variacion_mensual_raw": "+ 0,9 %",
+      "variacion_trimestral_raw": "+ 1,7 %",
+      "variacion_anual_raw": "+ 4,6 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Febrero 2023",
+      "precio_m2_raw": "8,3 €/m2",
+      "variacion_mensual_raw": "+ 0,8 %",
+      "variacion_trimestral_raw": "+ 0,6 %",
+      "variacion_anual_raw": "+ 4,3 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Enero 2023",
+      "precio_m2_raw": "8,2 €/m2",
+      "variacion_mensual_raw": "0,0 %",
+      "variacion_trimestral_raw": "+ 0,4 %",
+      "variacion_anual_raw": "+ 4,5 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Diciembre 2022",
+      "precio_m2_raw": "8,2 €/m2",
+      "variacion_mensual_raw": "- 0,2 %",
+      "variacion_trimestral_raw": "0,0 %",
+      "variacion_anual_raw": "+ 4,4 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Noviembre 2022",
+      "precio_m2_raw": "8,2 €/m2",
+      "variacion_mensual_raw": "+ 0,6 %",
+      "variacion_trimestral_raw": "+ 0,1 %",
+      "variacion_anual_raw": "+ 4,5 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Octubre 2022",
+      "precio_m2_raw": "8,2 €/m2",
+      "variacion_mensual_raw": "- 0,4 %",
+      "variacion_trimestral_raw": "- 0,5 %",
+      "variacion_anual_raw": "+ 4,7 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Septiembre 2022",
+      "precio_m2_raw": "8,2 €/m2",
+      "variacion_mensual_raw": "- 0,1 %",
+      "variacion_trimestral_raw": "+ 0,7 %",
+      "variacion_anual_raw": "+ 4,9 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Agosto 2022",
+      "precio_m2_raw": "8,2 €/m2",
+      "variacion_mensual_raw": "- 0,1 %",
+      "variacion_trimestral_raw": "+ 1,6 %",
+      "variacion_anual_raw": "+ 4,4 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Julio 2022",
+      "precio_m2_raw": "8,2 €/m2",
+      "variacion_mensual_raw": "+ 0,8 %",
+      "variacion_trimestral_raw": "+ 3,0 %",
+      "variacion_anual_raw": "+ 4,4 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Junio 2022",
+      "precio_m2_raw": "8,2 €/m2",
+      "variacion_mensual_raw": "+ 0,9 %",
+      "variacion_trimestral_raw": "+ 2,2 %",
+      "variacion_anual_raw": "+ 3,5 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Mayo 2022",
+      "precio_m2_raw": "8,1 €/m2",
+      "variacion_mensual_raw": "+ 1,3 %",
+      "variacion_trimestral_raw": "+ 2,0 %",
+      "variacion_anual_raw": "+ 2,4 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Abril 2022",
+      "precio_m2_raw": "8,0 €/m2",
+      "variacion_mensual_raw": "+ 0,1 %",
+      "variacion_trimestral_raw": "+ 1,6 %",
+      "variacion_anual_raw": "+ 0,7 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Marzo 2022",
+      "precio_m2_raw": "8,0 €/m2",
+      "variacion_mensual_raw": "+ 0,6 %",
+      "variacion_trimestral_raw": "+ 1,4 %",
+      "variacion_anual_raw": "+ 1,5 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Febrero 2022",
+      "precio_m2_raw": "7,9 €/m2",
+      "variacion_mensual_raw": "+ 0,9 %",
+      "variacion_trimestral_raw": "+ 0,7 %",
+      "variacion_anual_raw": "+ 1,4 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Enero 2022",
+      "precio_m2_raw": "7,9 €/m2",
+      "variacion_mensual_raw": "- 0,1 %",
+      "variacion_trimestral_raw": "+ 0,6 %",
+      "variacion_anual_raw": "+ 0,8 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Diciembre 2021",
+      "precio_m2_raw": "7,9 €/m2",
+      "variacion_mensual_raw": "- 0,1 %",
+      "variacion_trimestral_raw": "+ 0,6 %",
+      "variacion_anual_raw": "+ 0,6 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Noviembre 2021",
+      "precio_m2_raw": "7,9 €/m2",
+      "variacion_mensual_raw": "+ 0,8 %",
+      "variacion_trimestral_raw": "0,0 %",
+      "variacion_anual_raw": "+ 1,9 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Octubre 2021",
+      "precio_m2_raw": "7,8 €/m2",
+      "variacion_mensual_raw": "- 0,1 %",
+      "variacion_trimestral_raw": "- 0,8 %",
+      "variacion_anual_raw": "+ 0,8 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Septiembre 2021",
+      "precio_m2_raw": "7,8 €/m2",
+      "variacion_mensual_raw": "- 0,6 %",
+      "variacion_trimestral_raw": "- 0,7 %",
+      "variacion_anual_raw": "+ 0,6 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Agosto 2021",
+      "precio_m2_raw": "7,9 €/m2",
+      "variacion_mensual_raw": "- 0,1 %",
+      "variacion_trimestral_raw": "- 0,2 %",
+      "variacion_anual_raw": "+ 0,8 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Julio 2021",
+      "precio_m2_raw": "7,9 €/m2",
+      "variacion_mensual_raw": "0,0 %",
+      "variacion_trimestral_raw": "- 0,6 %",
+      "variacion_anual_raw": "+ 0,9 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Junio 2021",
+      "precio_m2_raw": "7,9 €/m2",
+      "variacion_mensual_raw": "- 0,2 %",
+      "variacion_trimestral_raw": "+ 0,3 %",
+      "variacion_anual_raw": "+ 1,2 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Mayo 2021",
+      "precio_m2_raw": "7,9 €/m2",
+      "variacion_mensual_raw": "- 0,5 %",
+      "variacion_trimestral_raw": "+ 1,0 %",
+      "variacion_anual_raw": "+ 3,0 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Abril 2021",
+      "precio_m2_raw": "7,9 €/m2",
+      "variacion_mensual_raw": "+ 1,0 %",
+      "variacion_trimestral_raw": "+ 1,7 %",
+      "variacion_anual_raw": "+ 3,7 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Marzo 2021",
+      "precio_m2_raw": "7,9 €/m2",
+      "variacion_mensual_raw": "+ 0,5 %",
+      "variacion_trimestral_raw": "+ 0,4 %",
+      "variacion_anual_raw": "+ 2,5 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Febrero 2021",
+      "precio_m2_raw": "7,8 €/m2",
+      "variacion_mensual_raw": "+ 0,3 %",
+      "variacion_trimestral_raw": "+ 1,1 %",
+      "variacion_anual_raw": "+ 2,6 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Enero 2021",
+      "precio_m2_raw": "7,8 €/m2",
+      "variacion_mensual_raw": "- 0,3 %",
+      "variacion_trimestral_raw": "+ 0,6 %",
+      "variacion_anual_raw": "+ 2,3 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Diciembre 2020",
+      "precio_m2_raw": "7,8 €/m2",
+      "variacion_mensual_raw": "+ 1,2 %",
+      "variacion_trimestral_raw": "+ 0,6 %",
+      "variacion_anual_raw": "+ 1,7 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Noviembre 2020",
+      "precio_m2_raw": "7,7 €/m2",
+      "variacion_mensual_raw": "- 0,3 %",
+      "variacion_trimestral_raw": "- 1,1 %",
+      "variacion_anual_raw": "+ 0,7 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Octubre 2020",
+      "precio_m2_raw": "7,8 €/m2",
+      "variacion_mensual_raw": "- 0,3 %",
+      "variacion_trimestral_raw": "- 0,8 %",
+      "variacion_anual_raw": "+ 2,4 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Septiembre 2020",
+      "precio_m2_raw": "7,8 €/m2",
+      "variacion_mensual_raw": "- 0,5 %",
+      "variacion_trimestral_raw": "- 0,2 %",
+      "variacion_anual_raw": "+ 3,3 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Agosto 2020",
+      "precio_m2_raw": "7,8 €/m2",
+      "variacion_mensual_raw": "0,0 %",
+      "variacion_trimestral_raw": "+ 1,9 %",
+      "variacion_anual_raw": "+ 3,6 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Julio 2020",
+      "precio_m2_raw": "7,8 €/m2",
+      "variacion_mensual_raw": "+ 0,3 %",
+      "variacion_trimestral_raw": "+ 2,1 %",
+      "variacion_anual_raw": "+ 4,5 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Junio 2020",
+      "precio_m2_raw": "7,8 €/m2",
+      "variacion_mensual_raw": "+ 1,6 %",
+      "variacion_trimestral_raw": "+ 1,6 %",
+      "variacion_anual_raw": "+ 4,8 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Mayo 2020",
+      "precio_m2_raw": "7,7 €/m2",
+      "variacion_mensual_raw": "+ 0,2 %",
+      "variacion_trimestral_raw": "+ 0,6 %",
+      "variacion_anual_raw": "+ 5,3 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Abril 2020",
+      "precio_m2_raw": "7,7 €/m2",
+      "variacion_mensual_raw": "- 0,2 %",
+      "variacion_trimestral_raw": "+ 0,4 %",
+      "variacion_anual_raw": "+ 5,3 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Marzo 2020",
+      "precio_m2_raw": "7,7 €/m2",
+      "variacion_mensual_raw": "+ 0,6 %",
+      "variacion_trimestral_raw": "- 0,4 %",
+      "variacion_anual_raw": "+ 6,9 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Febrero 2020",
+      "precio_m2_raw": "7,6 €/m2",
+      "variacion_mensual_raw": "0,0 %",
+      "variacion_trimestral_raw": "- 0,7 %",
+      "variacion_anual_raw": "+ 7,3 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Enero 2020",
+      "precio_m2_raw": "7,6 €/m2",
+      "variacion_mensual_raw": "- 1,0 %",
+      "variacion_trimestral_raw": "+ 0,7 %",
+      "variacion_anual_raw": "+ 7,2 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Diciembre 2019",
+      "precio_m2_raw": "7,7 €/m2",
+      "variacion_mensual_raw": "+ 0,2 %",
+      "variacion_trimestral_raw": "+ 2,2 %",
+      "variacion_anual_raw": "+ 7,5 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Noviembre 2019",
+      "precio_m2_raw": "7,7 €/m2",
+      "variacion_mensual_raw": "+ 1,4 %",
+      "variacion_trimestral_raw": "+ 1,8 %",
+      "variacion_anual_raw": "+ 8,1 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Octubre 2019",
+      "precio_m2_raw": "7,6 €/m2",
+      "variacion_mensual_raw": "+ 0,6 %",
+      "variacion_trimestral_raw": "+ 1,2 %",
+      "variacion_anual_raw": "+ 6,9 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Septiembre 2019",
+      "precio_m2_raw": "7,5 €/m2",
+      "variacion_mensual_raw": "- 0,2 %",
+      "variacion_trimestral_raw": "+ 1,3 %",
+      "variacion_anual_raw": "+ 6,3 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Agosto 2019",
+      "precio_m2_raw": "7,6 €/m2",
+      "variacion_mensual_raw": "+ 0,8 %",
+      "variacion_trimestral_raw": "+ 3,5 %",
+      "variacion_anual_raw": "+ 6,0 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Julio 2019",
+      "precio_m2_raw": "7,5 €/m2",
+      "variacion_mensual_raw": "+ 0,7 %",
+      "variacion_trimestral_raw": "+ 2,9 %",
+      "variacion_anual_raw": "+ 3,8 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Junio 2019",
+      "precio_m2_raw": "7,4 €/m2",
+      "variacion_mensual_raw": "+ 2,0 %",
+      "variacion_trimestral_raw": "+ 3,6 %",
+      "variacion_anual_raw": "+ 4,8 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Mayo 2019",
+      "precio_m2_raw": "7,3 €/m2",
+      "variacion_mensual_raw": "+ 0,2 %",
+      "variacion_trimestral_raw": "+ 2,5 %",
+      "variacion_anual_raw": "+ 3,7 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Abril 2019",
+      "precio_m2_raw": "7,3 €/m2",
+      "variacion_mensual_raw": "+ 1,4 %",
+      "variacion_trimestral_raw": "+ 2,2 %",
+      "variacion_anual_raw": "+ 4,8 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Marzo 2019",
+      "precio_m2_raw": "7,2 €/m2",
+      "variacion_mensual_raw": "+ 0,9 %",
+      "variacion_trimestral_raw": "+ 0,2 %",
+      "variacion_anual_raw": "+ 4,6 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Febrero 2019",
+      "precio_m2_raw": "7,1 €/m2",
+      "variacion_mensual_raw": "- 0,1 %",
+      "variacion_trimestral_raw": "0,0 %",
+      "variacion_anual_raw": "+ 4,3 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Enero 2019",
+      "precio_m2_raw": "7,1 €/m2",
+      "variacion_mensual_raw": "- 0,6 %",
+      "variacion_trimestral_raw": "+ 0,5 %",
+      "variacion_anual_raw": "+ 4,4 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Diciembre 2018",
+      "precio_m2_raw": "7,2 €/m2",
+      "variacion_mensual_raw": "+ 0,8 %",
+      "variacion_trimestral_raw": "+ 1,1 %",
+      "variacion_anual_raw": "+ 5,8 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Noviembre 2018",
+      "precio_m2_raw": "7,1 €/m2",
+      "variacion_mensual_raw": "+ 0,3 %",
+      "variacion_trimestral_raw": "- 0,2 %",
+      "variacion_anual_raw": "+ 6,1 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Octubre 2018",
+      "precio_m2_raw": "7,1 €/m2",
+      "variacion_mensual_raw": "0,0 %",
+      "variacion_trimestral_raw": "- 1,7 %",
+      "variacion_anual_raw": "+ 6,0 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Septiembre 2018",
+      "precio_m2_raw": "7,1 €/m2",
+      "variacion_mensual_raw": "- 0,5 %",
+      "variacion_trimestral_raw": "- 0,1 %",
+      "variacion_anual_raw": "+ 6,3 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Agosto 2018",
+      "precio_m2_raw": "7,1 €/m2",
+      "variacion_mensual_raw": "- 1,2 %",
+      "variacion_trimestral_raw": "+ 1,3 %",
+      "variacion_anual_raw": "+ 7,0 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Julio 2018",
+      "precio_m2_raw": "7,2 €/m2",
+      "variacion_mensual_raw": "+ 1,6 %",
+      "variacion_trimestral_raw": "+ 3,9 %",
+      "variacion_anual_raw": "+ 9,2 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Junio 2018",
+      "precio_m2_raw": "7,1 €/m2",
+      "variacion_mensual_raw": "+ 1,0 %",
+      "variacion_trimestral_raw": "+ 3,5 %",
+      "variacion_anual_raw": "+ 8,8 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Mayo 2018",
+      "precio_m2_raw": "7,0 €/m2",
+      "variacion_mensual_raw": "+ 1,3 %",
+      "variacion_trimestral_raw": "+ 3,1 %",
+      "variacion_anual_raw": "+ 9,1 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Abril 2018",
+      "precio_m2_raw": "6,9 €/m2",
+      "variacion_mensual_raw": "+ 1,2 %",
+      "variacion_trimestral_raw": "+ 1,8 %",
+      "variacion_anual_raw": "+ 9,0 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Marzo 2018",
+      "precio_m2_raw": "6,9 €/m2",
+      "variacion_mensual_raw": "+ 0,7 %",
+      "variacion_trimestral_raw": "+ 1,3 %",
+      "variacion_anual_raw": "+ 8,0 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Febrero 2018",
+      "precio_m2_raw": "6,8 €/m2",
+      "variacion_mensual_raw": "0,0 %",
+      "variacion_trimestral_raw": "+ 1,8 %",
+      "variacion_anual_raw": "+ 6,8 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Enero 2018",
+      "precio_m2_raw": "6,8 €/m2",
+      "variacion_mensual_raw": "+ 0,7 %",
+      "variacion_trimestral_raw": "+ 2,0 %",
+      "variacion_anual_raw": "+ 6,6 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Diciembre 2017",
+      "precio_m2_raw": "6,8 €/m2",
+      "variacion_mensual_raw": "+ 1,1 %",
+      "variacion_trimestral_raw": "+ 1,5 %",
+      "variacion_anual_raw": "+ 6,5 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Noviembre 2017",
+      "precio_m2_raw": "6,7 €/m2",
+      "variacion_mensual_raw": "+ 0,2 %",
+      "variacion_trimestral_raw": "+ 0,6 %",
+      "variacion_anual_raw": "+ 5,0 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Octubre 2017",
+      "precio_m2_raw": "6,7 €/m2",
+      "variacion_mensual_raw": "+ 0,2 %",
+      "variacion_trimestral_raw": "+ 1,3 %",
+      "variacion_anual_raw": "+ 4,8 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Septiembre 2017",
+      "precio_m2_raw": "6,7 €/m2",
+      "variacion_mensual_raw": "+ 0,2 %",
+      "variacion_trimestral_raw": "+ 2,2 %",
+      "variacion_anual_raw": "+ 5,1 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Agosto 2017",
+      "precio_m2_raw": "6,7 €/m2",
+      "variacion_mensual_raw": "+ 0,8 %",
+      "variacion_trimestral_raw": "+ 3,4 %",
+      "variacion_anual_raw": "+ 5,5 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Julio 2017",
+      "precio_m2_raw": "6,6 €/m2",
+      "variacion_mensual_raw": "+ 1,2 %",
+      "variacion_trimestral_raw": "+ 3,7 %",
+      "variacion_anual_raw": "+ 5,3 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Junio 2017",
+      "precio_m2_raw": "6,5 €/m2",
+      "variacion_mensual_raw": "+ 1,3 %",
+      "variacion_trimestral_raw": "+ 2,7 %",
+      "variacion_anual_raw": "+ 5,1 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Mayo 2017",
+      "precio_m2_raw": "6,4 €/m2",
+      "variacion_mensual_raw": "+ 1,2 %",
+      "variacion_trimestral_raw": "+ 0,9 %",
+      "variacion_anual_raw": "+ 4,5 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Abril 2017",
+      "precio_m2_raw": "6,4 €/m2",
+      "variacion_mensual_raw": "+ 0,2 %",
+      "variacion_trimestral_raw": "- 0,4 %",
+      "variacion_anual_raw": "+ 3,7 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Marzo 2017",
+      "precio_m2_raw": "6,4 €/m2",
+      "variacion_mensual_raw": "- 0,5 %",
+      "variacion_trimestral_raw": "- 0,1 %",
+      "variacion_anual_raw": "+ 3,7 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Febrero 2017",
+      "precio_m2_raw": "6,4 €/m2",
+      "variacion_mensual_raw": "- 0,2 %",
+      "variacion_trimestral_raw": "+ 0,1 %",
+      "variacion_anual_raw": "+ 4,2 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Enero 2017",
+      "precio_m2_raw": "6,4 €/m2",
+      "variacion_mensual_raw": "+ 0,6 %",
+      "variacion_trimestral_raw": "+ 0,2 %",
+      "variacion_anual_raw": "+ 4,7 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Diciembre 2016",
+      "precio_m2_raw": "6,4 €/m2",
+      "variacion_mensual_raw": "- 0,3 %",
+      "variacion_trimestral_raw": "+ 0,2 %",
+      "variacion_anual_raw": "+ 4,5 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Noviembre 2016",
+      "precio_m2_raw": "6,4 €/m2",
+      "variacion_mensual_raw": "- 0,1 %",
+      "variacion_trimestral_raw": "+ 1,1 %",
+      "variacion_anual_raw": "+ 6,8 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Octubre 2016",
+      "precio_m2_raw": "6,4 €/m2",
+      "variacion_mensual_raw": "+ 0,6 %",
+      "variacion_trimestral_raw": "+ 1,7 %",
+      "variacion_anual_raw": "+ 6,6 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Septiembre 2016",
+      "precio_m2_raw": "6,3 €/m2",
+      "variacion_mensual_raw": "+ 0,5 %",
+      "variacion_trimestral_raw": "+ 2,2 %",
+      "variacion_anual_raw": "+ 6,2 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Agosto 2016",
+      "precio_m2_raw": "6,3 €/m2",
+      "variacion_mensual_raw": "+ 0,6 %",
+      "variacion_trimestral_raw": "+ 2,4 %",
+      "variacion_anual_raw": "+ 4,9 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Julio 2016",
+      "precio_m2_raw": "6,3 €/m2",
+      "variacion_mensual_raw": "+ 1,0 %",
+      "variacion_trimestral_raw": "+ 2,2 %",
+      "variacion_anual_raw": "+ 5,1 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Junio 2016",
+      "precio_m2_raw": "6,2 €/m2",
+      "variacion_mensual_raw": "+ 0,8 %",
+      "variacion_trimestral_raw": "+ 1,3 %",
+      "variacion_anual_raw": "+ 5,8 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Mayo 2016",
+      "precio_m2_raw": "6,2 €/m2",
+      "variacion_mensual_raw": "+ 0,4 %",
+      "variacion_trimestral_raw": "+ 0,6 %",
+      "variacion_anual_raw": "+ 4,7 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Abril 2016",
+      "precio_m2_raw": "6,1 €/m2",
+      "variacion_mensual_raw": "+ 0,2 %",
+      "variacion_trimestral_raw": "+ 0,5 %",
+      "variacion_anual_raw": "+ 4,3 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Marzo 2016",
+      "precio_m2_raw": "6,1 €/m2",
+      "variacion_mensual_raw": "0,0 %",
+      "variacion_trimestral_raw": "+ 0,7 %",
+      "variacion_anual_raw": "+ 4,4 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Febrero 2016",
+      "precio_m2_raw": "6,1 €/m2",
+      "variacion_mensual_raw": "+ 0,3 %",
+      "variacion_trimestral_raw": "+ 2,6 %",
+      "variacion_anual_raw": "+ 4,0 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Enero 2016",
+      "precio_m2_raw": "6,1 €/m2",
+      "variacion_mensual_raw": "+ 0,4 %",
+      "variacion_trimestral_raw": "+ 2,0 %",
+      "variacion_anual_raw": "+ 3,7 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Diciembre 2015",
+      "precio_m2_raw": "6,1 €/m2",
+      "variacion_mensual_raw": "+ 1,9 %",
+      "variacion_trimestral_raw": "+ 1,8 %",
+      "variacion_anual_raw": "+ 4,4 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Noviembre 2015",
+      "precio_m2_raw": "6,0 €/m2",
+      "variacion_mensual_raw": "- 0,3 %",
+      "variacion_trimestral_raw": "- 0,7 %",
+      "variacion_anual_raw": "+ 2,2 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Octubre 2015",
+      "precio_m2_raw": "6,0 €/m2",
+      "variacion_mensual_raw": "+ 0,2 %",
+      "variacion_trimestral_raw": "+ 0,3 %",
+      "variacion_anual_raw": "+ 2,9 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Septiembre 2015",
+      "precio_m2_raw": "6,0 €/m2",
+      "variacion_mensual_raw": "- 0,7 %",
+      "variacion_trimestral_raw": "+ 1,8 %",
+      "variacion_anual_raw": "+ 2,6 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Agosto 2015",
+      "precio_m2_raw": "6,0 €/m2",
+      "variacion_mensual_raw": "+ 0,8 %",
+      "variacion_trimestral_raw": "+ 2,2 %",
+      "variacion_anual_raw": "+ 3,1 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Julio 2015",
+      "precio_m2_raw": "6,0 €/m2",
+      "variacion_mensual_raw": "+ 1,8 %",
+      "variacion_trimestral_raw": "+ 1,4 %",
+      "variacion_anual_raw": "+ 2,4 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Junio 2015",
+      "precio_m2_raw": "5,9 €/m2",
+      "variacion_mensual_raw": "- 0,3 %",
+      "variacion_trimestral_raw": "- 0,1 %",
+      "variacion_anual_raw": "+ 0,7 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Mayo 2015",
+      "precio_m2_raw": "5,9 €/m2",
+      "variacion_mensual_raw": "0,0 %",
+      "variacion_trimestral_raw": "- 0,1 %",
+      "variacion_anual_raw": "+ 1,0 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Abril 2015",
+      "precio_m2_raw": "5,9 €/m2",
+      "variacion_mensual_raw": "+ 0,2 %",
+      "variacion_trimestral_raw": "- 0,1 %",
+      "variacion_anual_raw": "+ 0,3 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Marzo 2015",
+      "precio_m2_raw": "5,9 €/m2",
+      "variacion_mensual_raw": "- 0,4 %",
+      "variacion_trimestral_raw": "+ 0,7 %",
+      "variacion_anual_raw": "- 0,7 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Febrero 2015",
+      "precio_m2_raw": "5,9 €/m2",
+      "variacion_mensual_raw": "0,0 %",
+      "variacion_trimestral_raw": "+ 0,8 %",
+      "variacion_anual_raw": "- 0,8 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Enero 2015",
+      "precio_m2_raw": "5,9 €/m2",
+      "variacion_mensual_raw": "+ 1,1 %",
+      "variacion_trimestral_raw": "+ 1,2 %",
+      "variacion_anual_raw": "- 1,1 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Diciembre 2014",
+      "precio_m2_raw": "5,8 €/m2",
+      "variacion_mensual_raw": "- 0,2 %",
+      "variacion_trimestral_raw": "+ 0,1 %",
+      "variacion_anual_raw": "- 3,0 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Noviembre 2014",
+      "precio_m2_raw": "5,8 €/m2",
+      "variacion_mensual_raw": "+ 0,4 %",
+      "variacion_trimestral_raw": "+ 0,1 %",
+      "variacion_anual_raw": "- 3,6 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Octubre 2014",
+      "precio_m2_raw": "5,8 €/m2",
+      "variacion_mensual_raw": "0,0 %",
+      "variacion_trimestral_raw": "- 0,1 %",
+      "variacion_anual_raw": "- 4,4 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Septiembre 2014",
+      "precio_m2_raw": "5,8 €/m2",
+      "variacion_mensual_raw": "- 0,3 %",
+      "variacion_trimestral_raw": "- 0,1 %",
+      "variacion_anual_raw": "- 4,7 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Agosto 2014",
+      "precio_m2_raw": "5,8 €/m2",
+      "variacion_mensual_raw": "+ 0,1 %",
+      "variacion_trimestral_raw": "+ 0,2 %",
+      "variacion_anual_raw": "- 4,5 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Julio 2014",
+      "precio_m2_raw": "5,8 €/m2",
+      "variacion_mensual_raw": "0,0 %",
+      "variacion_trimestral_raw": "- 0,7 %",
+      "variacion_anual_raw": "- 4,7 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Junio 2014",
+      "precio_m2_raw": "5,8 €/m2",
+      "variacion_mensual_raw": "+ 0,1 %",
+      "variacion_trimestral_raw": "- 1,4 %",
+      "variacion_anual_raw": "- 4,4 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Mayo 2014",
+      "precio_m2_raw": "5,8 €/m2",
+      "variacion_mensual_raw": "- 0,7 %",
+      "variacion_trimestral_raw": "- 1,9 %",
+      "variacion_anual_raw": "- 4,0 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Abril 2014",
+      "precio_m2_raw": "5,9 €/m2",
+      "variacion_mensual_raw": "- 0,7 %",
+      "variacion_trimestral_raw": "- 1,4 %",
+      "variacion_anual_raw": "- 4,4 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Marzo 2014",
+      "precio_m2_raw": "5,9 €/m2",
+      "variacion_mensual_raw": "- 0,4 %",
+      "variacion_trimestral_raw": "- 1,6 %",
+      "variacion_anual_raw": "- 4,1 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Febrero 2014",
+      "precio_m2_raw": "5,9 €/m2",
+      "variacion_mensual_raw": "- 0,3 %",
+      "variacion_trimestral_raw": "- 2,0 %",
+      "variacion_anual_raw": "- 5,2 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Enero 2014",
+      "precio_m2_raw": "6,0 €/m2",
+      "variacion_mensual_raw": "- 0,9 %",
+      "variacion_trimestral_raw": "- 2,2 %",
+      "variacion_anual_raw": "- 5,5 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Diciembre 2013",
+      "precio_m2_raw": "6,0 €/m2",
+      "variacion_mensual_raw": "- 0,8 %",
+      "variacion_trimestral_raw": "- 1,7 %",
+      "variacion_anual_raw": "- 4,8 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Noviembre 2013",
+      "precio_m2_raw": "6,1 €/m2",
+      "variacion_mensual_raw": "- 0,5 %",
+      "variacion_trimestral_raw": "- 0,9 %",
+      "variacion_anual_raw": "- 4,6 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Octubre 2013",
+      "precio_m2_raw": "6,1 €/m2",
+      "variacion_mensual_raw": "- 0,4 %",
+      "variacion_trimestral_raw": "- 0,5 %",
+      "variacion_anual_raw": "- 5,4 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Septiembre 2013",
+      "precio_m2_raw": "6,1 €/m2",
+      "variacion_mensual_raw": "0,0 %",
+      "variacion_trimestral_raw": "+ 0,2 %",
+      "variacion_anual_raw": "- 6,3 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Agosto 2013",
+      "precio_m2_raw": "6,1 €/m2",
+      "variacion_mensual_raw": "- 0,1 %",
+      "variacion_trimestral_raw": "+ 0,7 %",
+      "variacion_anual_raw": "- 6,4 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Julio 2013",
+      "precio_m2_raw": "6,1 €/m2",
+      "variacion_mensual_raw": "+ 0,3 %",
+      "variacion_trimestral_raw": "- 0,3 %",
+      "variacion_anual_raw": "- 6,7 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Junio 2013",
+      "precio_m2_raw": "6,1 €/m2",
+      "variacion_mensual_raw": "+ 0,5 %",
+      "variacion_trimestral_raw": "- 1,1 %",
+      "variacion_anual_raw": "- 7,7 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Mayo 2013",
+      "precio_m2_raw": "6,1 €/m2",
+      "variacion_mensual_raw": "- 1,1 %",
+      "variacion_trimestral_raw": "- 3,1 %",
+      "variacion_anual_raw": "- 10,3 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Abril 2013",
+      "precio_m2_raw": "6,1 €/m2",
+      "variacion_mensual_raw": "- 0,5 %",
+      "variacion_trimestral_raw": "- 2,6 %",
+      "variacion_anual_raw": "- 10,0 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Marzo 2013",
+      "precio_m2_raw": "6,2 €/m2",
+      "variacion_mensual_raw": "- 1,5 %",
+      "variacion_trimestral_raw": "- 2,3 %",
+      "variacion_anual_raw": "- 10,0 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Febrero 2013",
+      "precio_m2_raw": "6,3 €/m2",
+      "variacion_mensual_raw": "- 0,5 %",
+      "variacion_trimestral_raw": "- 1,4 %",
+      "variacion_anual_raw": "- 9,9 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Enero 2013",
+      "precio_m2_raw": "6,3 €/m2",
+      "variacion_mensual_raw": "- 0,2 %",
+      "variacion_trimestral_raw": "- 2,2 %",
+      "variacion_anual_raw": "- 10,2 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Diciembre 2012",
+      "precio_m2_raw": "6,3 €/m2",
+      "variacion_mensual_raw": "- 0,7 %",
+      "variacion_trimestral_raw": "- 3,2 %",
+      "variacion_anual_raw": "- 9,6 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Noviembre 2012",
+      "precio_m2_raw": "6,4 €/m2",
+      "variacion_mensual_raw": "- 1,3 %",
+      "variacion_trimestral_raw": "- 2,7 %",
+      "variacion_anual_raw": "- 9,5 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Octubre 2012",
+      "precio_m2_raw": "6,4 €/m2",
+      "variacion_mensual_raw": "- 1,2 %",
+      "variacion_trimestral_raw": "- 1,8 %",
+      "variacion_anual_raw": "- 8,4 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Septiembre 2012",
+      "precio_m2_raw": "6,5 €/m2",
+      "variacion_mensual_raw": "- 0,2 %",
+      "variacion_trimestral_raw": "- 1,4 %",
+      "variacion_anual_raw": "- 7,4 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Agosto 2012",
+      "precio_m2_raw": "6,5 €/m2",
+      "variacion_mensual_raw": "- 0,4 %",
+      "variacion_trimestral_raw": "- 3,5 %",
+      "variacion_anual_raw": "- 7,2 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Julio 2012",
+      "precio_m2_raw": "6,6 €/m2",
+      "variacion_mensual_raw": "- 0,8 %",
+      "variacion_trimestral_raw": "- 3,8 %",
+      "variacion_anual_raw": "- 6,3 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Junio 2012",
+      "precio_m2_raw": "6,6 €/m2",
+      "variacion_mensual_raw": "- 2,3 %",
+      "variacion_trimestral_raw": "- 3,5 %",
+      "variacion_anual_raw": "- 4,5 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Mayo 2012",
+      "precio_m2_raw": "6,8 €/m2",
+      "variacion_mensual_raw": "- 0,7 %",
+      "variacion_trimestral_raw": "- 2,7 %",
+      "variacion_anual_raw": "- 2,2 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Abril 2012",
+      "precio_m2_raw": "6,8 €/m2",
+      "variacion_mensual_raw": "- 0,5 %",
+      "variacion_trimestral_raw": "- 2,8 %",
+      "variacion_anual_raw": "- 0,9 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Marzo 2012",
+      "precio_m2_raw": "6,9 €/m2",
+      "variacion_mensual_raw": "- 1,4 %",
+      "variacion_trimestral_raw": "- 1,9 %",
+      "variacion_anual_raw": "+ 0,1 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Febrero 2012",
+      "precio_m2_raw": "7,0 €/m2",
+      "variacion_mensual_raw": "- 0,9 %",
+      "variacion_trimestral_raw": "- 1,0 %",
+      "variacion_anual_raw": "+ 2,1 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Enero 2012",
+      "precio_m2_raw": "7,0 €/m2",
+      "variacion_mensual_raw": "+ 0,4 %",
+      "variacion_trimestral_raw": "- 0,3 %",
+      "variacion_anual_raw": "+ 2,1 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Diciembre 2011",
+      "precio_m2_raw": "7,0 €/m2",
+      "variacion_mensual_raw": "- 0,5 %",
+      "variacion_trimestral_raw": "- 0,8 %",
+      "variacion_anual_raw": "+ 3,6 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Noviembre 2011",
+      "precio_m2_raw": "7,0 €/m2",
+      "variacion_mensual_raw": "- 0,2 %",
+      "variacion_trimestral_raw": "- 0,2 %",
+      "variacion_anual_raw": "+ 3,2 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Octubre 2011",
+      "precio_m2_raw": "7,0 €/m2",
+      "variacion_mensual_raw": "- 0,1 %",
+      "variacion_trimestral_raw": "+ 0,5 %",
+      "variacion_anual_raw": "+ 2,8 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Septiembre 2011",
+      "precio_m2_raw": "7,0 €/m2",
+      "variacion_mensual_raw": "0,0 %",
+      "variacion_trimestral_raw": "+ 1,7 %",
+      "variacion_anual_raw": "+ 3,9 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Agosto 2011",
+      "precio_m2_raw": "7,0 €/m2",
+      "variacion_mensual_raw": "+ 0,5 %",
+      "variacion_trimestral_raw": "+ 1,7 %",
+      "variacion_anual_raw": "+ 2,4 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Julio 2011",
+      "precio_m2_raw": "7,0 €/m2",
+      "variacion_mensual_raw": "+ 1,2 %",
+      "variacion_trimestral_raw": "+ 1,8 %",
+      "variacion_anual_raw": "+ 0,1 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Junio 2011",
+      "precio_m2_raw": "6,9 €/m2",
+      "variacion_mensual_raw": "0,0 %",
+      "variacion_trimestral_raw": "+ 1,1 %",
+      "variacion_anual_raw": "- 1,2 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Mayo 2011",
+      "precio_m2_raw": "6,9 €/m2",
+      "variacion_mensual_raw": "+ 0,6 %",
+      "variacion_trimestral_raw": "+ 1,6 %",
+      "variacion_anual_raw": "- 2,9 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Abril 2011",
+      "precio_m2_raw": "6,9 €/m2",
+      "variacion_mensual_raw": "+ 0,5 %",
+      "variacion_trimestral_raw": "+ 0,1 %",
+      "variacion_anual_raw": "- 2,3 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Marzo 2011",
+      "precio_m2_raw": "6,8 €/m2",
+      "variacion_mensual_raw": "+ 0,5 %",
+      "variacion_trimestral_raw": "+ 1,5 %",
+      "variacion_anual_raw": "- 1,0 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Febrero 2011",
+      "precio_m2_raw": "6,8 €/m2",
+      "variacion_mensual_raw": "- 0,9 %",
+      "variacion_trimestral_raw": "+ 0,1 %",
+      "variacion_anual_raw": "- 2,0 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Enero 2011",
+      "precio_m2_raw": "6,9 €/m2",
+      "variacion_mensual_raw": "+ 1,9 %",
+      "variacion_trimestral_raw": "+ 0,4 %",
+      "variacion_anual_raw": "+ 0,6 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Diciembre 2010",
+      "precio_m2_raw": "6,7 €/m2",
+      "variacion_mensual_raw": "- 0,9 %",
+      "variacion_trimestral_raw": "- 0,5 %",
+      "variacion_anual_raw": "- 2,6 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Noviembre 2010",
+      "precio_m2_raw": "6,8 €/m2",
+      "variacion_mensual_raw": "- 0,6 %",
+      "variacion_trimestral_raw": "- 1,0 %",
+      "variacion_anual_raw": "- 4,3 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Octubre 2010",
+      "precio_m2_raw": "6,8 €/m2",
+      "variacion_mensual_raw": "+ 0,9 %",
+      "variacion_trimestral_raw": "- 2,2 %",
+      "variacion_anual_raw": "- 2,0 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Septiembre 2010",
+      "precio_m2_raw": "6,8 €/m2",
+      "variacion_mensual_raw": "- 1,3 %",
+      "variacion_trimestral_raw": "- 3,3 %",
+      "variacion_anual_raw": "- 4,0 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Agosto 2010",
+      "precio_m2_raw": "6,9 €/m2",
+      "variacion_mensual_raw": "- 1,8 %",
+      "variacion_trimestral_raw": "- 3,7 %",
+      "variacion_anual_raw": "- 3,9 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Julio 2010",
+      "precio_m2_raw": "7,0 €/m2",
+      "variacion_mensual_raw": "- 0,1 %",
+      "variacion_trimestral_raw": "- 0,6 %",
+      "variacion_anual_raw": "- 0,6 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Junio 2010",
+      "precio_m2_raw": "7,0 €/m2",
+      "variacion_mensual_raw": "- 1,7 %",
+      "variacion_trimestral_raw": "+ 1,4 %",
+      "variacion_anual_raw": "- 7,1 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Mayo 2010",
+      "precio_m2_raw": "7,1 €/m2",
+      "variacion_mensual_raw": "+ 1,3 %",
+      "variacion_trimestral_raw": "+ 2,6 %",
+      "variacion_anual_raw": "- 8,1 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Abril 2010",
+      "precio_m2_raw": "7,0 €/m2",
+      "variacion_mensual_raw": "+ 1,9 %",
+      "variacion_trimestral_raw": "+ 3,0 %",
+      "variacion_anual_raw": "- 7,5 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Marzo 2010",
+      "precio_m2_raw": "6,9 €/m2",
+      "variacion_mensual_raw": "- 0,5 %",
+      "variacion_trimestral_raw": "- 0,2 %",
+      "variacion_anual_raw": "- 11,4 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Febrero 2010",
+      "precio_m2_raw": "7,0 €/m2",
+      "variacion_mensual_raw": "+ 1,7 %",
+      "variacion_trimestral_raw": "- 2,3 %",
+      "variacion_anual_raw": "- 8,0 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Enero 2010",
+      "precio_m2_raw": "6,8 €/m2",
+      "variacion_mensual_raw": "- 1,3 %",
+      "variacion_trimestral_raw": "- 2,1 %",
+      "variacion_anual_raw": "- 9,0 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Diciembre 2009",
+      "precio_m2_raw": "6,9 €/m2",
+      "variacion_mensual_raw": "- 2,6 %",
+      "variacion_trimestral_raw": "- 1,9 %",
+      "variacion_anual_raw": "- 8,9 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Noviembre 2009",
+      "precio_m2_raw": "7,1 €/m2",
+      "variacion_mensual_raw": "+ 1,9 %",
+      "variacion_trimestral_raw": "- 0,5 %",
+      "variacion_anual_raw": "- 6,3 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Octubre 2009",
+      "precio_m2_raw": "7,0 €/m2",
+      "variacion_mensual_raw": "- 1,1 %",
+      "variacion_trimestral_raw": "- 0,9 %",
+      "variacion_anual_raw": "- 9,5 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Septiembre 2009",
+      "precio_m2_raw": "7,1 €/m2",
+      "variacion_mensual_raw": "- 1,2 %",
+      "variacion_trimestral_raw": "- 6,4 %",
+      "variacion_anual_raw": "- 10,1 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Agosto 2009",
+      "precio_m2_raw": "7,2 €/m2",
+      "variacion_mensual_raw": "+ 1,5 %",
+      "variacion_trimestral_raw": "- 7,9 %",
+      "variacion_anual_raw": "- 8,4 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Julio 2009",
+      "precio_m2_raw": "7,0 €/m2",
+      "variacion_mensual_raw": "- 6,7 %",
+      "variacion_trimestral_raw": "- 7,5 %",
+      "variacion_anual_raw": "- 11,0 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Junio 2009",
+      "precio_m2_raw": "7,5 €/m2",
+      "variacion_mensual_raw": "- 2,8 %",
+      "variacion_trimestral_raw": "- 3,2 %",
+      "variacion_anual_raw": "- 6,4 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Mayo 2009",
+      "precio_m2_raw": "7,8 €/m2",
+      "variacion_mensual_raw": "+ 2,0 %",
+      "variacion_trimestral_raw": "+ 2,8 %",
+      "variacion_anual_raw": "- 1,2 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Abril 2009",
+      "precio_m2_raw": "7,6 €/m2",
+      "variacion_mensual_raw": "- 2,4 %",
+      "variacion_trimestral_raw": "+ 1,4 %",
+      "variacion_anual_raw": "- 11,2 %",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Marzo 2009",
+      "precio_m2_raw": "7,8 €/m2",
+      "variacion_mensual_raw": "+ 3,3 %",
+      "variacion_trimestral_raw": "+ 2,6 %",
+      "variacion_anual_raw": "n.d.",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Febrero 2009",
+      "precio_m2_raw": "7,6 €/m2",
+      "variacion_mensual_raw": "+ 0,6 %",
+      "variacion_trimestral_raw": "- 0,5 %",
+      "variacion_anual_raw": "n.d.",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Enero 2009",
+      "precio_m2_raw": "7,5 €/m2",
+      "variacion_mensual_raw": "- 1,2 %",
+      "variacion_trimestral_raw": "- 2,7 %",
+      "variacion_anual_raw": "n.d.",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Diciembre 2008",
+      "precio_m2_raw": "7,6 €/m2",
+      "variacion_mensual_raw": "+ 0,2 %",
+      "variacion_trimestral_raw": "- 3,2 %",
+      "variacion_anual_raw": "n.d.",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Noviembre 2008",
+      "precio_m2_raw": "7,6 €/m2",
+      "variacion_mensual_raw": "- 1,6 %",
+      "variacion_trimestral_raw": "- 2,8 %",
+      "variacion_anual_raw": "n.d.",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Octubre 2008",
+      "precio_m2_raw": "7,7 €/m2",
+      "variacion_mensual_raw": "- 1,8 %",
+      "variacion_trimestral_raw": "- 2,5 %",
+      "variacion_anual_raw": "n.d.",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Septiembre 2008",
+      "precio_m2_raw": "7,9 €/m2",
+      "variacion_mensual_raw": "+ 0,7 %",
+      "variacion_trimestral_raw": "- 2,6 %",
+      "variacion_anual_raw": "n.d.",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Agosto 2008",
+      "precio_m2_raw": "7,8 €/m2",
+      "variacion_mensual_raw": "- 1,4 %",
+      "variacion_trimestral_raw": "- 0,6 %",
+      "variacion_anual_raw": "n.d.",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Julio 2008",
+      "precio_m2_raw": "7,9 €/m2",
+      "variacion_mensual_raw": "- 1,9 %",
+      "variacion_trimestral_raw": "- 7,7 %",
+      "variacion_anual_raw": "n.d.",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Junio 2008",
+      "precio_m2_raw": "8,1 €/m2",
+      "variacion_mensual_raw": "+ 2,7 %",
+      "variacion_trimestral_raw": "n.d.",
+      "variacion_anual_raw": "n.d.",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Mayo 2008",
+      "precio_m2_raw": "7,9 €/m2",
+      "variacion_mensual_raw": "- 8,3 %",
+      "variacion_trimestral_raw": "n.d.",
+      "variacion_anual_raw": "n.d.",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Abril 2008",
+      "precio_m2_raw": "8,6 €/m2",
+      "variacion_mensual_raw": "n.d.",
+      "variacion_trimestral_raw": "n.d.",
+      "variacion_anual_raw": "n.d.",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Marzo 2008",
+      "precio_m2_raw": "n.d.",
+      "variacion_mensual_raw": "n.d.",
+      "variacion_trimestral_raw": "n.d.",
+      "variacion_anual_raw": "n.d.",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Febrero 2008",
+      "precio_m2_raw": "n.d.",
+      "variacion_mensual_raw": "n.d.",
+      "variacion_trimestral_raw": "n.d.",
+      "variacion_anual_raw": "n.d.",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Enero 2008",
+      "precio_m2_raw": "n.d.",
+      "variacion_mensual_raw": "n.d.",
+      "variacion_trimestral_raw": "n.d.",
+      "variacion_anual_raw": "n.d.",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Diciembre 2007",
+      "precio_m2_raw": "n.d.",
+      "variacion_mensual_raw": "n.d.",
+      "variacion_trimestral_raw": "n.d.",
+      "variacion_anual_raw": "n.d.",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Noviembre 2007",
+      "precio_m2_raw": "n.d.",
+      "variacion_mensual_raw": "n.d.",
+      "variacion_trimestral_raw": "n.d.",
+      "variacion_anual_raw": "n.d.",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Octubre 2007",
+      "precio_m2_raw": "n.d.",
+      "variacion_mensual_raw": "n.d.",
+      "variacion_trimestral_raw": "n.d.",
+      "variacion_anual_raw": "n.d.",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Septiembre 2007",
+      "precio_m2_raw": "n.d.",
+      "variacion_mensual_raw": "n.d.",
+      "variacion_trimestral_raw": "n.d.",
+      "variacion_anual_raw": "n.d.",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Agosto 2007",
+      "precio_m2_raw": "n.d.",
+      "variacion_mensual_raw": "n.d.",
+      "variacion_trimestral_raw": "n.d.",
+      "variacion_anual_raw": "n.d.",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Julio 2007",
+      "precio_m2_raw": "n.d.",
+      "variacion_mensual_raw": "n.d.",
+      "variacion_trimestral_raw": "n.d.",
+      "variacion_anual_raw": "n.d.",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Junio 2007",
+      "precio_m2_raw": "n.d.",
+      "variacion_mensual_raw": "n.d.",
+      "variacion_trimestral_raw": "n.d.",
+      "variacion_anual_raw": "n.d.",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Mayo 2007",
+      "precio_m2_raw": "n.d.",
+      "variacion_mensual_raw": "n.d.",
+      "variacion_trimestral_raw": "n.d.",
+      "variacion_anual_raw": "n.d.",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Abril 2007",
+      "precio_m2_raw": "n.d.",
+      "variacion_mensual_raw": "n.d.",
+      "variacion_trimestral_raw": "n.d.",
+      "variacion_anual_raw": "n.d.",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Marzo 2007",
+      "precio_m2_raw": "n.d.",
+      "variacion_mensual_raw": "n.d.",
+      "variacion_trimestral_raw": "n.d.",
+      "variacion_anual_raw": "n.d.",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Febrero 2007",
+      "precio_m2_raw": "n.d.",
+      "variacion_mensual_raw": "n.d.",
+      "variacion_trimestral_raw": "n.d.",
+      "variacion_anual_raw": "n.d.",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Enero 2007",
+      "precio_m2_raw": "n.d.",
+      "variacion_mensual_raw": "n.d.",
+      "variacion_trimestral_raw": "n.d.",
+      "variacion_anual_raw": "n.d.",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Diciembre 2006",
+      "precio_m2_raw": "n.d.",
+      "variacion_mensual_raw": "n.d.",
+      "variacion_trimestral_raw": "n.d.",
+      "variacion_anual_raw": "n.d.",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Noviembre 2006",
+      "precio_m2_raw": "n.d.",
+      "variacion_mensual_raw": "n.d.",
+      "variacion_trimestral_raw": "n.d.",
+      "variacion_anual_raw": "n.d.",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Octubre 2006",
+      "precio_m2_raw": "n.d.",
+      "variacion_mensual_raw": "n.d.",
+      "variacion_trimestral_raw": "n.d.",
+      "variacion_anual_raw": "n.d.",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Septiembre 2006",
+      "precio_m2_raw": "n.d.",
+      "variacion_mensual_raw": "n.d.",
+      "variacion_trimestral_raw": "n.d.",
+      "variacion_anual_raw": "n.d.",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Agosto 2006",
+      "precio_m2_raw": "n.d.",
+      "variacion_mensual_raw": "n.d.",
+      "variacion_trimestral_raw": "n.d.",
+      "variacion_anual_raw": "n.d.",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Julio 2006",
+      "precio_m2_raw": "n.d.",
+      "variacion_mensual_raw": "n.d.",
+      "variacion_trimestral_raw": "n.d.",
+      "variacion_anual_raw": "n.d.",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Junio 2006",
+      "precio_m2_raw": "n.d.",
+      "variacion_mensual_raw": "n.d.",
+      "variacion_trimestral_raw": "n.d.",
+      "variacion_anual_raw": "n.d.",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Mayo 2006",
+      "precio_m2_raw": "n.d.",
+      "variacion_mensual_raw": "n.d.",
+      "variacion_trimestral_raw": "n.d.",
+      "variacion_anual_raw": "n.d.",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Abril 2006",
+      "precio_m2_raw": "n.d.",
+      "variacion_mensual_raw": "n.d.",
+      "variacion_trimestral_raw": "n.d.",
+      "variacion_anual_raw": "n.d.",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Marzo 2006",
+      "precio_m2_raw": "n.d.",
+      "variacion_mensual_raw": "n.d.",
+      "variacion_trimestral_raw": "n.d.",
+      "variacion_anual_raw": "n.d.",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Febrero 2006",
+      "precio_m2_raw": "n.d.",
+      "variacion_mensual_raw": "n.d.",
+      "variacion_trimestral_raw": "n.d.",
+      "variacion_anual_raw": "n.d.",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    },
+    {
+      "mes_raw": "Enero 2006",
+      "precio_m2_raw": "n.d.",
+      "variacion_mensual_raw": "n.d.",
+      "variacion_trimestral_raw": "n.d.",
+      "variacion_anual_raw": "n.d.",
+      "comunidad": "Aragón",
+      "codigo_ccaa": "02",
+      "fecha_extraccion": "2026-04-22T11:43:42.481226+00:00"
+    }
+  ]
+}

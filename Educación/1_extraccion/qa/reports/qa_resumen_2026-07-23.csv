@@ -1,0 +1,11 @@
+indicador,bloque,estado,n_filas,n_ccaa,anios,sexos,na,fuera_rango,duplicados
+abandono_temprano,A,extraido,620,20,2015-2025,hombres/mujeres/total,0,0,0
+nivel_superior_25_34,A,extraido,660,20,2015-2025,hombres/mujeres/total,0,0,0
+nivel_bajo_25_64,A,extraido,660,20,2015-2025,hombres/mujeres/total,0,0,0
+formacion_adultos_25_64,A,extraido,660,20,2015-2025,hombres/mujeres/total,0,0,0
+neet_15_29,B,extraido,659,20,2015-2025,hombres/mujeres/total,0,0,0
+idoneidad_15,C,extraido,1980,20,1992-2024,hombres/mujeres/total,0,0,0
+graduacion_eso,C,extraido,1500,20,1999-2023,hombres/mujeres/total,0,0,0
+escolarizacion_0_2,C,extraido,2040,20,1991-2024,hombres/mujeres/total,21,0,0
+gasto_edu_pib,D,extraido,204,17,2015-2026,total,0,16,0
+gasto_por_alumno,D,extraido,162,18,2015-2023,total,0,0,0

@@ -1,0 +1,239 @@
+conceptos:
+  sanidad:
+    codigos:
+    - 411A00      # Dirección y Servicios Generales (Sanidad)
+    - 411B00      # Administración Económico Financiera
+    - 411C00      # Administración de Recursos Humanos
+    - 411D00      # Escuela Valenciana de Estudios para la Salud
+    - 411E00      # Investigación en Ciencias de la Salud
+    - 411F00      # Planificación y Atención al Paciente
+    - 411G00      # Inspección
+    - 411H00      # Servicios Generales SA Planificación
+    - 412A00      # Centros de Salud Pública
+    - 412B21      # Atención Primaria
+    - 412B22      # Atención Hospitalaria
+    - 412B23      # Prestaciones Farmacéuticas
+    - 412B24      # Prestaciones Externas
+    - 412B25      # Servicios Generales
+    - 412B26      # Personal Sanitario Residente
+    - 412B27      # Prestaciones Externas
+    - 412B28      # Atención Sanitaria Media/Larga
+    - 412B29      # Información para la Salud
+    - 412M00      # MRR. Asistencia Sanitaria
+    - 413A00      # Salud Pública
+    - 413M00      # MRR Salud Pública
+    - '411*'
+    - '412*'
+    - '413*'
+    keywords:
+    - sanidad
+    - sanitaria
+    - salud publica
+    - salud pública
+    - atencion sanitaria
+    - asistencia sanitaria
+  educacion:
+    codigos:
+    - 421A00      # Dirección y Servicios Generales (Educación)
+    - 421B00      # Administración de Personal
+    - 421C00      # Ordenación Educativa
+    - 421D00      # Administración Educativa
+    - 421E00      # Evaluación, Innovación y Calidad Educativa
+    - 421F00      # Formación del Profesorado
+    - 421G00      # Administración General Enseñanza
+    - 421H00      # Innovación Tecnológica Educativa
+    - 422A00      # Enseñanza Primaria
+    - 422B00      # Enseñanza Secundaria
+    - 422C00      # Formación Profesional
+    - 422D00      # Promoción del Valenciano
+    - 422E00      # Universidad y Estudios Superiores
+    - 422F00      # Consejo Escolar
+    - 422G00      # Instituto Superior de Enseñanzas
+    - 422H00      # Inclusión Educativa
+    - 422I00      # Infraestructuras Educativas
+    - 422M00      # MRR Educación y Formación
+    - '421*'
+    - '422*'
+    - '423*'
+    keywords:
+    - educacion
+    - educación
+    - educativa
+    - educativo
+    - ensenyament
+    - enseñanza
+    - escolar
+    - universitari
+    - profesorado
+    - formación profesional
+  soberania:
+    codigos:
+    - 531A00      # Estructuras Agrarias
+    - 714A00      # Ordenación Mejora Producción Pesquera
+    - 714B00      # Ordenación Mejora Producción Agraria
+    - 714C00      # Política Agraria Común
+    - 714D00      # Agricultura y Ganadería
+    - 714F00      # Industria y Cadena Agroalimentaria
+    - 711A00      # Dirección Servicios Generales (Agricultura)
+    - '714*'
+    - '711*'
+    keywords:
+    - agricultura
+    - agraria
+    - ganaderia
+    - ganadería
+    - pesca
+    - pesquera
+    - alimentacion
+    - alimentaria
+    - agroalimentaria
+    - agropecuari
+  direccion:
+    # REDEFINIDO 2026-07-27 — Direccion politica (altos cargos del ejecutivo).
+    # Antes era un cajon de sastre: deuda, justicia, tributos, transferencias a
+    # entes locales, informatica, medios y parlamentos. Referencia: programa 912A
+    # de Canarias 'Direccion Politica y Gobierno', replicado en cada consejeria.
+    # Perimetro: ejecutivo estricto (presidencia, vicepresidencia, gabinetes, alta
+    # direccion). EXCLUIDOS parlamento, control externo, defensorias, consejos
+    # consultivos y transparencia. Keywords VACIAS a proposito: mapeo por codigo
+    # exacto para que no vuelva a capturar por texto. Ver logs/progreso.md.
+    # 121B00 Alta Direccion y Servicios (2024-2026) y su codigo legacy '121.2'
+    # (2015-2023). Juntos dan 12/12. Sale de direccion el 011A00 Servicio de la Deuda
+    # (7.948 M), que era el 80 % del concepto. '121.2' ENTRECOMILLADO obligatoriamente.
+    codigos:
+    - '121B00'
+    - '121.2'
+    keywords: []
+  vivienda:
+    codigos:
+    - 431H00      # Vivienda y calidad e innovación
+    - 431I00      # Función social de la vivienda
+    - '431*'
+    - '432*'
+    - '451*'
+    keywords:
+    - vivienda
+    - habitatge
+  empleo:
+    codigos:
+    - 315A00      # Condiciones de Trabajo y Relaciones Laborales
+    - 322A00      # Labora Servicio Valenciano de Empleo
+    - 322B00      # Impulso del Ecosistema Emprendedor
+    - 322D00      # Promoción del Cooperativismo
+    - '315*'
+    - '322*'
+    - '241*'
+    keywords:
+    - empleo
+    - laborales
+    - relaciones laborales
+    - emprendedor
+    - cooperativismo
+    - economía social
+  idi:
+    codigos:
+    - 541A00      # Investigación y Normalización
+    - 542B00      # Desarrollo Rural Calidad I+D+i
+    - 542C00      # Investigación, Desarrollo
+    - 542D00      # Desarrollo Tecnológico e Innovación
+    - 542E00      # Transferencia de Tecnología I+D+i
+    - 542F00      # Agencia Valenciana de la Innovación
+    - 542M00      # MRR Transformación Digital y Tecnológica
+    - '541*'
+    - '542*'
+    - '463*'
+    - '467*'
+    keywords:
+    - investigacion
+    - investigación
+    - innovacion
+    - innovación
+    - i+d+i
+    - desarrollo tecnologico
+    - desarrollo tecnológico
+    - tecnológica
+  dependencia:
+    codigos:
+    - 313F00      # Personas Mayores
+    - 313G00      # Atención primaria y Dependencia
+    - 313I00      # Gestión y Organización del Sistema (servicios sociales)
+    - 313J00      # Planificación y Coordinación de servicios sociales
+    - '313.60'    # legacy ≤2023: Gestión de Centros y Programas (≡313I00) — FIX 2026-07-02
+    - '313.70'    # legacy ≤2023: Ordenación y Prestaciones (≡313J00) — FIX 2026-07-02
+    # FIX 2026-07-20 · continuación del seam legacy→moderno. En 2020 la GVA
+    # segregó de 313.60 dos programas nuevos numerados en el grupo 311, y en
+    # 2024 los renumeró al grupo 313 con el MISMO nombre y magnitud:
+    #   311.20 «Gestión y Organización del Sistema»  ≡ 313I00 (623 M 2023 → 685 M 2024)
+    #   311.30 «Planificación y Coordinación de …»   ≡ 313J00 (405 M 2023 → 410 M 2024)
+    # El comodín '311*' de `direccion` los capturaba en 2020-2023, rompiendo
+    # la serie dos veces (caída 2020, salto 2024). Se anclan aquí.
+    - '311.20'
+    - '311.30'
+    keywords:
+    - dependencia
+    - personas mayores
+    - atencion a la dependencia
+    - servicios sociales
+  discapacidad:
+    codigos:
+    - 313D00      # Personas con Discapacidad
+    - 231C
+    - 232C
+    - 313C
+    - 313G
+    - '314*'
+    keywords:
+    - discapacidad
+    - diversidad funcional
+    - discapacitat
+  salud_mental:
+    codigos:
+    - 313B00      # Salud Mental y Adicciones
+    - '313.20'    # legacy ≤2023: Drogodependencias (≡313B00 adicciones) — FIX 2026-07-02
+    keywords:
+    - salud mental
+    - salut mental
+    - adicciones
+  diversidad:
+    # REDEFINIDO 2026-07-27 — Diversidad (LGTBI, migraciones, etnias), per Cuaderno
+    # Metodologico tablas 4/14. Antes cajon de sastre: inclusion social
+    # generica, infancia/familia, cooperacion al desarrollo, deporte, cultura,
+    # patrimonio, idioma. Ver logs/progreso.md.
+    # Retirados 313C00 (Familia/Infancia, 73 M), 313E00 (Inclusion Social, 348 M), 313K00
+    # ('Instituto Valenciano de...', denominacion truncada en origen, no identificable con
+    # certeza), 313M00 (MRR, fondos europeos de recuperacion, no diversidad), '313.30'
+    # (legacy de 313C00), 134A00 (Cooperacion Internacional: ayuda al desarrollo, no
+    # migracion de personas). Se queda 313H00 'Diversidad' (18-22 M/anio, explicito).
+    codigos:
+    - '313H00'
+    keywords:
+    - 'lgtbi'
+    - 'lgbti'
+    - 'migracion'
+    - 'migración'
+    - 'interculturalidad'
+  turismo:
+    codigos:
+    - 751A00      # Ordenación y Promoción del Turismo
+    - '432A'
+    - '751*'
+    - '761*'
+    - '730*'
+    keywords:
+    - turismo
+    - turisme
+    - turistic
+  igualdad:
+    codigos:
+    - 323A00      # Igualdad de oportunidades
+    - 323B00      # Lucha contra la Violencia sobre la mujer
+    - 323M00      # MRR Mecanismo
+    - '323*'
+    - '232*'
+    - '920*'
+    keywords:
+    - igualdad
+    - igualtat
+    - mujer
+    - violencia de genero
+    - violencia sobre

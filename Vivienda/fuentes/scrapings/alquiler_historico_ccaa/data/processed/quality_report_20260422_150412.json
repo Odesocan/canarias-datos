@@ -1,0 +1,89 @@
+{
+  "timestamp": "2026-04-22T15:04:12.712664",
+  "registros_totales": 3888,
+  "cobertura": {
+    "comunidades_con_datos": 16,
+    "registros_por_comunidad": {
+      "Andalucía": 243,
+      "Aragón": 243,
+      "Asturias": 243,
+      "Baleares": 243,
+      "Canarias": 243,
+      "Cantabria": 243,
+      "Castilla y León": 243,
+      "Castilla-La Mancha": 243,
+      "Cataluña": 243,
+      "Ceuta": 243,
+      "Comunidad Valenciana": 243,
+      "Extremadura": 243,
+      "Galicia": 243,
+      "La Rioja": 243,
+      "Melilla": 243,
+      "Navarra": 243
+    }
+  },
+  "completitud": {
+    "comunidad": 100.0,
+    "codigo_ccaa": 100.0,
+    "mes": 100.0,
+    "periodo": 100.0,
+    "mes_nombre": 100.0,
+    "precio_m2": 86.0,
+    "variacion_mensual": 85.3,
+    "variacion_trimestral": 84.3,
+    "variacion_anual": 80.3,
+    "fecha_extraccion": 100.0
+  },
+  "rangos": {
+    "precio_m2": {
+      "min": 4.22,
+      "max": 20.22,
+      "media": 8.05,
+      "mediana": 7.42
+    },
+    "variacion_mensual": {
+      "min": -23.2,
+      "max": 17.4,
+      "media": 0.14
+    },
+    "variacion_trimestral": {
+      "min": -23.3,
+      "max": 33.7,
+      "media": 0.45
+    },
+    "variacion_anual": {
+      "min": -32.5,
+      "max": 27.3,
+      "media": 1.89
+    }
+  },
+  "temporal": {
+    "anio_min": 2006,
+    "anio_max": 2026,
+    "anios_cubiertos": 21,
+    "registros_por_anio": {
+      "2006": 192,
+      "2007": 192,
+      "2008": 192,
+      "2009": 192,
+      "2010": 192,
+      "2011": 192,
+      "2012": 192,
+      "2013": 192,
+      "2014": 192,
+      "2015": 192,
+      "2016": 192,
+      "2017": 192,
+      "2018": 192,
+      "2019": 192,
+      "2020": 192,
+      "2021": 192,
+      "2022": 192,
+      "2023": 192,
+      "2024": 192,
+      "2025": 192,
+      "2026": 48
+    }
+  },
+  "status": "ok"
+}

@@ -1,0 +1,4 @@
+# Fase 1 · Extracción — sección Empleo (Canarias en Datos)
+# Solo librería estándar para la descarga (urllib); pandas/pyarrow para tidy+parquet.
+pandas>=2.0
+pyarrow>=12.0

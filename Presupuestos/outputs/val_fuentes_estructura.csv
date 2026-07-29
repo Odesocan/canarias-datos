@@ -1,0 +1,12 @@
+id3,CCAA,anio,documento,tipo,capa,estado,url,nota
+val,C. Valenciana,2016,tomo_II,html,autonomica,VERDE_PRAGM,https://hisenda.gva.es/auto/presupuestos/2016/index_cas.html,"Esquema legacy index_cas → T2/EUR/RGPC<NN>.pdf (2026-06-29). VERDE_PRAGM 78.3%, 12 conceptos. 2015 y anteriores no están en el portal (404)."
+val,C. Valenciana,2017,tomo_II,html,autonomica,VERDE_PRAGM,https://hisenda.gva.es/auto/presupuestos/2017/index_cas.html,"Esquema legacy index_cas → T2/EUR/RGPC<NN>.pdf (2026-06-29). VERDE_PRAGM 78.9%, 12 conceptos."
+val,C. Valenciana,2018,tomo_II,html,autonomica,VERDE,https://hisenda.gva.es/auto/presupuestos/2018/index_cas.html,"Esquema legacy index_cas → T2/EUR/RGPC<NN>.pdf (2026-06-29). VERDE 81.2%, 12 conceptos."
+val,C. Valenciana,2019,tomo_II,html,autonomica,VERDE,https://hisenda.gva.es/auto/presupuestos/2019/index_cas.html,"Esquema legacy index_cas → T2/EUR/RGPC<NN>.pdf (2026-06-29). VERDE 81.7%, 12 conceptos."
+val,C. Valenciana,2020,tomo_II,html,autonomica,VERDE,https://hisenda.gva.es/auto/presupuestos/2020/index_cas.html,"Esquema legacy index_cas → T2/EUR/RGPC<NN>.pdf (2026-06-29). VERDE 83.7%, 12 conceptos."
+val,C. Valenciana,2021,tomo_II,html,autonomica,VERDE,https://hisenda.gva.es/auto/presupuestos/2021/index_cas.html,"Esquema legacy index_cas → T2/menu_epp → EUR/RGPC<NN>.pdf. Raws en secciones/sec<NN>_RPC.pdf (2026-06-29). VERDE 85.1%, 12 conceptos."
+val,C. Valenciana,2022,tomo_II,html,autonomica,VERDE,https://hisenda.gva.es/auto/presupuestos/2022/T2_ES.html,RPC por sección (raw ya descargado N5)
+val,C. Valenciana,2023,tomo_II,html,autonomica,VERDE,https://hisenda.gva.es/auto/presupuestos/2023/T2_ES.html,RPC por sección (raw ya descargado N5)
+val,C. Valenciana,2024,tomo_II,html,autonomica,VERDE,https://hisenda.gva.es/auto/presupuestos/2024/T2_ES.html,RPC por sección (raw ya descargado N5)
+val,C. Valenciana,2025,tomo_II,html,autonomica,VERDE,https://hisenda.gva.es/auto/presupuestos/2025/T2_ES.html,Resumen general por programa y capítulos de cada sección
+val,C. Valenciana,2026,tomo_II,html,autonomica,VERDE,https://hisenda.gva.es/auto/presupuestos/2026/T2_ES.html,RPC por sección (sec*_RPC.pdf); raw descargado N12. Las secciones inexistentes quedan como stubs HTML .pdf (mount no permite borrar); el extractor las salta por cabecera %PDF

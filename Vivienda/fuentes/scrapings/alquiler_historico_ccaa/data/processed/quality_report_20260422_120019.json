@@ -1,0 +1,77 @@
+{
+  "timestamp": "2026-04-22T12:00:19.820981",
+  "registros_totales": 972,
+  "cobertura": {
+    "comunidades_con_datos": 4,
+    "registros_por_comunidad": {
+      "Canarias": 243,
+      "Cantabria": 243,
+      "Castilla y León": 243,
+      "País Vasco": 243
+    }
+  },
+  "completitud": {
+    "comunidad": 100.0,
+    "codigo_ccaa": 100.0,
+    "mes": 100.0,
+    "periodo": 100.0,
+    "mes_nombre": 100.0,
+    "precio_m2": 88.5,
+    "variacion_mensual": 88.1,
+    "variacion_trimestral": 87.2,
+    "variacion_anual": 83.5,
+    "fecha_extraccion": 100.0
+  },
+  "rangos": {
+    "precio_m2": {
+      "min": 5.12,
+      "max": 15.62,
+      "media": 8.72,
+      "mediana": 8.22
+    },
+    "variacion_mensual": {
+      "min": -7.6,
+      "max": 13.4,
+      "media": 0.16
+    },
+    "variacion_trimestral": {
+      "min": -13.3,
+      "max": 16.7,
+      "media": 0.48
+    },
+    "variacion_anual": {
+      "min": -26.7,
+      "max": 18.7,
+      "media": 2.06
+    }
+  },
+  "temporal": {
+    "anio_min": 2006,
+    "anio_max": 2026,
+    "anios_cubiertos": 21,
+    "registros_por_anio": {
+      "2006": 48,
+      "2007": 48,
+      "2008": 48,
+      "2009": 48,
+      "2010": 48,
+      "2011": 48,
+      "2012": 48,
+      "2013": 48,
+      "2014": 48,
+      "2015": 48,
+      "2016": 48,
+      "2017": 48,
+      "2018": 48,
+      "2019": 48,
+      "2020": 48,
+      "2021": 48,
+      "2022": 48,
+      "2023": 48,
+      "2024": 48,
+      "2025": 48,
+      "2026": 12
+    }
+  },
+  "status": "warning"
+}

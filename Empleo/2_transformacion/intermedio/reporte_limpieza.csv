@@ -1,0 +1,10 @@
+slug,filas,missing,missing_fuera_ceuta_melilla,outliers,fuera_de_rango,submuestra_cm,territorios,anyos_parciales
+epa_tasa_paro,15600,15,0.0,2.0,0,1560.0,20,
+epa_tasa_actividad,15600,0,0.0,26.0,0,1560.0,20,
+epa_tasa_empleo,15600,2,0.0,0.0,0,1560.0,20,
+epa_tiempo_busqueda,31200,304,10.0,21.0,0,3120.0,20,
+epa_tipo_contrato,23400,0,0.0,25.0,0,2340.0,20,
+epa_tipo_jornada,23400,0,0.0,0.0,0,2340.0,20,
+etcl_tiempo_trabajo,70200,0,0.0,423.0,0,0.0,18,
+eaes_ganancia_ccaa,4860,0,0.0,17.0,0,0.0,18,
+alquiler_ccaa_anual,315,0,,,0,,19,32.0

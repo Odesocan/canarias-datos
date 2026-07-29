@@ -1,0 +1,126 @@
+dimension,codigo,indicador,continuidad,tramo_continuo,primer_anio,ultimo_anio,canarias_continua
+1. Población y estado de salud,1000,Esperanza de vida al nacer,Continua 2015→último,1991–2023,1991,2023,Sí
+1. Población y estado de salud,1010,Esperanza de vida a los 65 años,Continua 2015→último,1991–2023,1991,2023,Sí
+1. Población y estado de salud,1020,Limitación para la realización de actividades relacionadas con el hogar en 65 y más años,Salpicada (oleadas),—,2014,2023,No/huecos
+1. Población y estado de salud,1030,Dificultad para la movilidad en 65 y más años,Salpicada (oleadas),—,2014,2023,No/huecos
+1. Población y estado de salud,1040,Años de vida saludable al nacer,Continua 2015→último,2006–2023,2006,2023,Sí
+1. Población y estado de salud,1050,Años de vida saludable a los 65 años,Continua 2015→último,2006–2023,2006,2023,Sí
+1. Población y estado de salud,1060,Porcentaje de población con valoración positiva de su estado de salud,Salpicada (oleadas),—,1993,2023,No/huecos
+1. Población y estado de salud,1070,Porcentaje de población de 65 años y más años con valoración positiva de su estado de salud,Salpicada (oleadas),—,1993,2023,No/huecos
+1. Población y estado de salud,1080,Porcentaje de población adulta en riesgo de mala salud mental,Salpicada (oleadas),—,2006,2017,No/huecos
+1. Población y estado de salud,1090,Índice de calidad de vida infantil relacionada con la salud,Salpicada (oleadas),—,2006,2023,No/huecos
+1. Población y estado de salud,1100,Deterioro cognitivo en 65 y más años,Salpicada (oleadas),—,2017,2023,No/huecos
+2. Mortalidad,1130,Tasa de mortalidad ajustada por edad por cardiopatía isquémica por 100 000 hab.,Continua 2015→último,1990–2024,1990,2024,Sí
+2. Mortalidad,1140,"Tasa de mortalidad ajustada por edad, por enfermedad cerebrovascular por 100 000 hab.",Continua 2015→último,1990–2024,1990,2024,Sí
+2. Mortalidad,1150,"Tasa de mortalidad ajustada por edad por cáncer, por 100 000 hab.",Continua 2015→último,1990–2024,1990,2024,Sí
+2. Mortalidad,1160,"Tasa de mortalidad ajustada por edad por enfermedad pulmonar obstructiva crónica, por 100 000 hab.",Continua 2015→último,1990–2024,1990,2024,Sí
+2. Mortalidad,1170,"Tasa de mortalidad ajustada por edad por neumonía e influenza, por 100 000 hab.",Continua 2015→último,1990–2024,1990,2024,Sí
+2. Mortalidad,1180,"Tasa de mortalidad ajustada por edad por enfermedad crónica del hígado, por 100 000 hab.",Continua 2015→último,1990–2024,1990,2024,Sí
+2. Mortalidad,1190,"Tasa de mortalidad ajustada por edad por diabetes mellitus, por 100 000 hab.",Continua 2015→último,1990–2024,1990,2024,Sí
+2. Mortalidad,1210,"Tasa de mortalidad ajustada por edad por suicidio, por 100 000 hab.",Continua 2015→último,1990–2024,1990,2024,Sí
+2. Mortalidad,1240,"Tasa de mortalidad prematura por cáncer, ajustada por edad, por 100 000 hab",Continua 2015→último,1990–2024,1990,2024,Sí
+2. Mortalidad,1250,"Tasa de mortalidad prematura por cardiopatía isquémica, ajustada por edad, por 100 000 hab.",Continua 2015→último,1990–2024,1990,2024,Sí
+2. Mortalidad,1260,"Tasa de mortalidad prematura por diabetes mellitus, ajustada por edad, por 100 000 hab.",Continua 2015→último,1990–2024,1990,2024,Sí
+2. Mortalidad,1270,"Tasa de mortalidad prematura por enfermedad vascular cerebral, ajustada por edad, por 100 000 hab.",Continua 2015→último,1990–2024,1990,2024,Sí
+2. Mortalidad,1280,"Tasa de mortalidad prematura por EPOC, ajustada por edad, por 100 000 hab.",Continua 2015→último,1990–2024,1990,2024,Sí
+2. Mortalidad,1290,Tasa de mortalidad infantil por 1000 nacidos vivos,Continua 2015→último,2013–2024,2013,2024,Sí
+3. Morbilidad,1310,Prevalencia registrada de cardiopatía isquémica en población de 40 y más años,Continua 2015→último,2013–2023,2013,2023,Sí
+3. Morbilidad,1320,Incidencia de tuberculosis por 100 000 hab.,Salpicada (oleadas),—,2023,2024,No/huecos
+3. Morbilidad,1330,Incidencia de nuevos diagnósticos de VIH,Continua 2015→último,2003–2024,2003,2024,Sí
+3. Morbilidad,1340,Prevalencia registrada de hipertensión arterial en población general,Continua 2015→último,2013–2023,2013,2023,Sí
+3. Morbilidad,1355,Prevalencia registrada de diabetes mellitus en población general,Continua 2015→último,2013–2023,2013,2023,Sí
+3. Morbilidad,1365,Prevalencia registrada de trastornos mentales en población general,Continua 2015→último,2013–2023,2013,2023,Sí
+3. Morbilidad,1385,Prevalencia registrada de EPOC en población de 40 y más años,Continua 2015→último,2013–2023,2013,2023,Sí
+3. Morbilidad,1390,Prevalencia registrada de síndromes dolorosos de columna vertebral en población general,Continua 2015→último,2013–2023,2013,2023,Sí
+3. Morbilidad,1400,"Tasa ajustada de hospitalización por infarto agudo de miocardio, por 10 000 hab.",Continua 2015→último,2010–2024,2010,2024,Sí
+3. Morbilidad,1410,"Tasa ajustada de hospitalización por enfermedades cerebrovasculares, por 10 000 hab.",Continua 2015→último,2010–2024,2010,2024,Sí
+3. Morbilidad,1420,"Tasa ajustada de hospitalización por asma, por 10 000 hab.",Continua 2015→último,2010–2024,2010,2024,Sí
+3. Morbilidad,1430,Tasa ajustada de hospitalización por EPOC por 10 000 hab.,Continua 2015→último,2010–2024,2010,2024,Sí
+3. Morbilidad,1440,Tasa ajustada de hospitalización por diabetes mellitus por 10 000 hab.,Continua 2015→último,2010–2024,2010,2024,Sí
+3. Morbilidad,1450,Tasa ajustada de hospitalización por enfermedad hipertensiva por 10 000 hab,Continua 2015→último,2010–2024,2010,2024,Sí
+3. Morbilidad,1460,Tasa ajustada de hospitalización por Insuficiencia cardíaca congestiva por 10 000 hab,Continua 2015→último,2010–2024,2010,2024,Sí
+3. Morbilidad,1470,"Tasa bruta de hospitalización por infarto agudo de miocardio, por 10 000 hab.",Continua 2015→último,2010–2024,2010,2024,Sí
+3. Morbilidad,1480,"Tasa bruta de hospitalización por enfermedades cerebrovasculares, por 10 000 hab.",Continua 2015→último,2010–2024,2010,2024,Sí
+3. Morbilidad,1970,Incidencia de accidentes de trabajo,Continua 2015→último,2013–2024,2013,2024,No/huecos
+4. Estilos de vida,2000,Consumo intensivo de alcohol al menos una vez al mes en los últimos 12 meses en jóvenes,Salpicada (oleadas),—,2014,2023,No/huecos
+4. Estilos de vida,2010,Prevalencia de consumo de tabaco en población adulta,Salpicada (oleadas),—,1993,2023,No/huecos
+4. Estilos de vida,2020,Prevalencia de consumo diario de tabaco en jóvenes,Salpicada (oleadas),—,2006,2023,No/huecos
+4. Estilos de vida,2030,Porcentaje de bebedores de riesgo de alcohol,Salpicada (oleadas),—,2006,2023,No/huecos
+4. Estilos de vida,2100,Porcentaje de consumidores de cánnabis en escolares adolescentes de 14 a 18 años,Salpicada (oleadas),—,1994,2025,No/huecos
+4. Estilos de vida,2180,Prevalencia de obesidad en población de 18 y mas años,Salpicada (oleadas),—,1993,2023,No/huecos
+4. Estilos de vida,2190,Prevalencia de obesidad en población infantil,Salpicada (oleadas),—,2003,2023,No/huecos
+4. Estilos de vida,2200,Prevalencia de sedentarismo en población adulta,Salpicada (oleadas),—,1993,2023,No/huecos
+4. Estilos de vida,2210,Prevalencia de sedentarismo en jóvenes,Salpicada (oleadas),—,2011,2023,No/huecos
+4. Estilos de vida,2240,Consumo diario de frutas y/o verduras en adultos,Salpicada (oleadas),—,2003,2023,No/huecos
+4. Estilos de vida,2250,Consumo diario de frutas y/o verduras en jóvenes,Salpicada (oleadas),—,2003,2023,No/huecos
+5. Determinantes socioeconómicos,0030,Tasa de desempleo total,Continua 2015→último,2006–2025,2006,2025,Sí
+5. Determinantes socioeconómicos,0040,Tasa de desempleo en menores de 25 años,Continua 2015→último,2006–2025,2006,2025,Sí
+5. Determinantes socioeconómicos,0070,Ingresos medios por persona en menores de 16 años (euros) (infantiles),Continua 2015→último,2008–2025,2008,2025,Sí
+5. Determinantes socioeconómicos,0080,Ingresos medios por persona en 16 y más años (euros) (adultos),Continua 2015→último,2008–2025,2008,2025,Sí
+5. Determinantes socioeconómicos,0090,Tasa de riesgo de pobreza o exclusión social en menores de 16 años (AROPE infantil) ,Continua 2015→último,2014–2025,2014,2025,Sí
+5. Determinantes socioeconómicos,0110,Tasa de riesgo de pobreza o exclusión social en 16 y más años (AROPE adultos) ,Continua 2015→último,2014–2025,2014,2025,Sí
+5. Determinantes socioeconómicos,2310,Proporción de población de 25 a 64 años con nivel de estudios de 1º Etapa de educación secundaria o inferior,Continua 2015→último,1992–2025,1992,2025,Sí
+5. Determinantes socioeconómicos,2320,Porcentaje de población de clase social baja,Salpicada (oleadas),—,2003,2023,No/huecos
+6. Determinantes medioambientales,2410,Porcentaje de la población que declara que el ruido procedente del exterior de su vivienda es molesto,Salpicada (oleadas),—,2006,2023,No/huecos
+6. Determinantes medioambientales,2420,Porcentaje de la población que declara escasez de zonas verdes en el entorno de su vivienda,Salpicada (oleadas),—,2006,2023,No/huecos
+7. Recursos del sistema sanitario,4240,Tasa de angioplastia coronaria por 10 000 hab. en el Sistema Nacional de Salud,Continua 2015→último,2010–2024,2010,2024,Sí
+7. Recursos del sistema sanitario,4250,Tasa de cirugía de sustitución de rodilla (prótesis) por 10 000 hab. en el Sistema Nacional de Salud,Continua 2015→último,2010–2024,2010,2024,Sí
+7. Recursos del sistema sanitario,5000,Frecuentación en medicina de atención primaria por persona asignada/año,Continua 2015→último,2007–2024,2007,2024,Sí
+7. Recursos del sistema sanitario,5030,Frecuentación en enfermería de atención primaria por persona asignada/año,Continua 2015→último,2007–2024,2007,2024,Sí
+7. Recursos del sistema sanitario,5760,Porcentaje de cirugía ambulatoria en el SNS (Hospitales SNS),Continua 2015→último,2004–2024,2004,2024,Sí
+8. Gasto sanitario,6110,Gasto medio anual de consumo por persona en bienes y servicios sanitarios (euros),Continua 2015→último,2006–2024,2006,2024,No/huecos
+9. Accesibilidad y uso de servicios,8500,Porcentaje de personas de 50 a 69 años con prueba de sangre oculta en heces realizada con la frecuencia recomendada (cada 2 años),Salpicada (oleadas),—,2009,2023,No/huecos
+9. Accesibilidad y uso de servicios,8520,Accesibilidad a atención primaria en 24-48 horas desde la solicitud de la cita,Continua reciente,2022–2025,2018,2025,No/huecos
+10. Seguridad del paciente y calidad,4270,Porcentaje de pacientes polimedicados en personas de 75 y más años,Continua reciente,2016–2023,2016,2023,Reciente
+10. Seguridad del paciente y calidad,7200,Tasa de fracturas de cadera en pacientes ingresados (Hospitales SNS),Continua 2015→último,1997–2024,1997,2024,Sí
+10. Seguridad del paciente y calidad,7220,Tasa de notificación de sospechas de reacciones adversas graves a medicamentos,Continua 2015→último,1992–2025,1992,2025,Sí
+10. Seguridad del paciente y calidad,7240,Mortalidad intrahospitalaria global por cada 100 altas hospitalarias (SNS),Continua 2015→último,1997–2024,1997,2024,Sí
+10. Seguridad del paciente y calidad,7260,Mortalidad intrahospitalaria tras angioplastia coronaria por cada 100 altas con dicho procedimiento (hospitales SNS),Continua 2015→último,1997–2024,1997,2024,Sí
+10. Seguridad del paciente y calidad,7270,Mortalidad intrahospitalaria tras fractura de cadera por cada 100 altas por dicho diagnóstico (SNS),Continua 2015→último,1997–2024,1997,2024,Sí
+10. Seguridad del paciente y calidad,7280,Mortalidad intrahospitalaria postinfarto por cada 100 altas por infarto (SNS),Continua 2015→último,1997–2024,1997,2024,Sí
+10. Seguridad del paciente y calidad,7310,Mortalidad intrahospitalaria de pacientes con neumonía por cada 100 altas por neumonía (SNS),Continua 2015→último,1997–2024,1997,2024,Sí
+10. Seguridad del paciente y calidad,7320,Utilización de AINEs en personas con enfermedad cardiovascular,Continua 2015→último,2014–2023,2014,2023,Sí
+10. Seguridad del paciente y calidad,7330,Tasa de amputaciones miembro inferior en personas diabéticas (Hospitales SNS),Continua 2015→último,1997–2024,1997,2024,Sí
+10. Seguridad del paciente y calidad,7340,Utilización de hipolipemiantes en personas de 75 y más años sin enfermedad cardiovascular,Continua 2015→último,2014–2023,2014,2023,Sí
+10. Seguridad del paciente y calidad,7420,Utilización de benzodiacepinas de vida media larga en personas de 65 y más años,Continua 2015→último,2014–2023,2014,2023,Sí
+10. Seguridad del paciente y calidad,7430,Tasa de sepsis postquirúrgica en cirugía abdominopélvica en el Sistema Nacional de Salud,Continua 2015→último,2010–2024,2010,2024,Sí
+10. Seguridad del paciente y calidad,7480,Utilización de ácido acetilsalicílico en personas sin enfermedad cardiovascular,Continua 2015→último,2014–2023,2014,2023,Sí
+11. Resultados / efectividad,5870,Tasa de colecistectomía por 10 000 hab (Hospitales SNS),Continua 2015→último,1997–2024,1997,2024,Sí
+11. Resultados / efectividad,7000,Control de PAS y PAD en pacientes con registro de hipertensión arterial,Continua reciente,2017–2023,2017,2023,Reciente
+11. Resultados / efectividad,7010,"Pacientes con fibrilación auricular anticoagulados de 65 y más años con INR entre 1,8 y 3,4",Continua reciente,2016–2023,2016,2023,Reciente
+11. Resultados / efectividad,7020,Porcentaje de colecistectomía por laparoscopia (Hospitales SNS),Continua 2015→último,1997–2024,1997,2024,Sí
+11. Resultados / efectividad,7070,Porcentaje de pacientes con fractura de cadera intervenidos en las primeras 48 horas (Hospitales SNS),Continua 2015→último,1997–2024,1997,2024,Sí
+11. Resultados / efectividad,7080,"Pacientes con diabetes mellitus con hemoglobina glicosilada <7,5%",Continua 2015→último,2013–2023,2013,2023,Sí
+11. Resultados / efectividad,7140,Porcentaje de reingresos urgentes psiquiátricos (Hospitales SNS),Continua 2015→último,1997–2024,1997,2024,Sí
+11. Resultados / efectividad,7160,Tasa de hospitalización por complicaciones agudas en pacientes diabéticos en el Sistema Nacional de Salud,Continua 2015→último,2010–2024,2010,2024,Sí
+11. Resultados / efectividad,7170,Mortalidad intrahospitalaria. Accidente cerebrovascular hemorrágico en el Sistema Nacional de Salud,Continua 2015→último,2010–2024,2010,2024,Sí
+11. Resultados / efectividad,7180,Mortalidad intrahospitalaria. Accidente cerebrovascular isquémico en el Sistema Nacional de Salud,Continua 2015→último,2010–2024,2010,2024,Sí
+12. Opinión de la ciudadanía,7350,Grado de satisfacción de los ciudadanos con el funcionamiento del sistema sanitario público,Continua reciente,2022–2025,2005,2025,No/huecos
+12. Opinión de la ciudadanía,7370,Satisfacción media de los ciudadano con la información recibida en la consulta del médico especialista sobre su problema de salud,Continua reciente,2022–2025,1999,2025,No/huecos
+12. Opinión de la ciudadanía,8400,Satisfacción media de los ciudadanos con la información recibida en la consulta del médico de familia sobre su problema de salud,Continua reciente,2022–2025,2013,2025,No/huecos
+12. Opinión de la ciudadanía,8410,Valoración positiva de la atención recibida en las consultas del médico de familia de la sanidad pública,Continua reciente,2022–2025,2013,2025,No/huecos
+12. Opinión de la ciudadanía,8420,Valoración positiva de la atención recibida en las consultas del médico especialista de la sanidad pública,Continua reciente,2022–2025,2013,2025,No/huecos
+12. Opinión de la ciudadanía,8430,Participación en las decisiones sobre su problema de salud y su tratamiento en Atención Primaria,Continua reciente,2022–2025,2013,2025,No/huecos
+12. Opinión de la ciudadanía,8440,Participación en las decisiones sobre su problema de salud y su tratamiento en Atención Especializada,Continua reciente,2022–2025,2013,2025,No/huecos
+12. Opinión de la ciudadanía,8450,Inaccesibilidad declarada a la atención dental por motivos económicos,Salpicada (oleadas),—,2014,2023,No/huecos
+12. Opinión de la ciudadanía,8460,Inaccesibilidad declarada a los medicamentos recetados por motivos económicos (en los últimos 12 meses),Continua reciente,2022–2025,2013,2025,No/huecos
+12. Opinión de la ciudadanía,8470,Valoración positiva de la coordinación entre los distintos profesionales del sistema sanitario público,Continua reciente,2022–2025,2017,2025,No/huecos
+13. Serie poblacional (denominadores),9000,Población total,Continua 2015→último,1990–2025,1990,2025,Sí
+13. Serie poblacional (denominadores),9010,Población de 0-4 años,Continua 2015→último,1990–2025,1990,2025,Sí
+13. Serie poblacional (denominadores),9020,Población de 5-9 años,Continua 2015→último,1990–2025,1990,2025,Sí
+13. Serie poblacional (denominadores),9030,Población de 10-14 años,Continua 2015→último,1990–2025,1990,2025,Sí
+13. Serie poblacional (denominadores),9040,Población de 15-19 años,Continua 2015→último,1990–2025,1990,2025,Sí
+13. Serie poblacional (denominadores),9050,Población de 20-24 años,Continua 2015→último,1990–2025,1990,2025,Sí
+13. Serie poblacional (denominadores),9060,Población de 25-29 años,Continua 2015→último,1990–2025,1990,2025,Sí
+13. Serie poblacional (denominadores),9070,Población de 30-34 años,Continua 2015→último,1990–2025,1990,2025,Sí
+13. Serie poblacional (denominadores),9080,Población de 35-39 años,Continua 2015→último,1990–2025,1990,2025,Sí
+13. Serie poblacional (denominadores),9090,Población de 40-44 años,Continua 2015→último,1990–2025,1990,2025,Sí
+13. Serie poblacional (denominadores),9100,Población de 45-49 años,Continua 2015→último,1990–2025,1990,2025,Sí
+13. Serie poblacional (denominadores),9110,Población de 50-54 años,Continua 2015→último,1990–2025,1990,2025,Sí
+13. Serie poblacional (denominadores),9120,Población de 55-59 años,Continua 2015→último,1990–2025,1990,2025,Sí
+13. Serie poblacional (denominadores),9130,Población de 60-64 años,Continua 2015→último,1990–2025,1990,2025,Sí
+13. Serie poblacional (denominadores),9140,Población de 65-69 años,Continua 2015→último,1990–2025,1990,2025,Sí
+13. Serie poblacional (denominadores),9150,Población de 70-74 años,Continua 2015→último,1990–2025,1990,2025,Sí
+13. Serie poblacional (denominadores),9160,Población de 75-79 años,Continua 2015→último,1990–2025,1990,2025,Sí
+13. Serie poblacional (denominadores),9170,Población de 80-84 años,Continua 2015→último,1990–2025,1990,2025,Sí
+13. Serie poblacional (denominadores),9180,Población de 85 y más años,Continua 2015→último,1990–2025,1990,2025,Sí

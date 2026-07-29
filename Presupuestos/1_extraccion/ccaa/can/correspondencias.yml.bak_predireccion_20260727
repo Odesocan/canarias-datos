@@ -1,0 +1,389 @@
+conceptos:
+  sanidad:
+    codigos:
+    - '311'
+    - '312'
+    - '411'
+    - '412'
+    - '510'
+    - 311A
+    - 311B
+    - 312A
+    - 312B
+    - 312C
+    - 312F
+    - 311*
+    - 312*
+    keywords:
+    - sanidad
+    - sanitario
+    - sanitaria
+    - sanitarios
+    - servicio canario de salud
+    - servicio canario salud
+    - asistencia sanitaria
+    - hemodonación
+    - hemodonacion
+    - hemoterapia
+    - atención primaria
+    - atencion primaria
+    - atención especializada
+    - atencion especializada
+    - formación sanitaria
+    - formacion sanitaria
+    - salud pública
+    - salud publica
+    - salud
+    - hospital
+  educacion:
+    codigos:
+    - '321'
+    - '322'
+    - '323'
+    - '324'
+    - '421'
+    - '422'
+    - '423'
+    - 321A
+    - 321B
+    - 321C
+    - 322A
+    - 322B
+    - 322C
+    - 322D
+    - 322F
+    - 322H
+    - 322J
+    - 322K
+    - 323A
+    - 324C
+    - 321*
+    - 322*
+    - 323*
+    - 324*
+    keywords:
+    - educación
+    - educacion
+    - educativo
+    - educativa
+    - enseñanza
+    - enseñanzas
+    - ensenanza
+    - escolar
+    - escolarización
+    - escolarizacion
+    - profesorado
+    - formación profesional
+    - formacion profesional
+    - universidad
+    - universidades
+    - universitario
+    - universitaria
+    - becas
+  soberania:
+    codigos:
+    - '411'
+    - '412'
+    - '413'
+    - '415'
+    - '531'
+    - '710'
+    - '711'
+    - '712'
+    - 411A
+    - 411B
+    - 412A
+    - 412B
+    - 412C
+    - 413A
+    - 415A
+    - 415B
+    - 415C
+    - 411*
+    - 412*
+    - 413*
+    - 415*
+    keywords:
+    - agricultura
+    - ganadería
+    - ganaderia
+    - ganadero
+    - pesca
+    - pesquero
+    - pesquera
+    - agroalimentaria
+    - agroalimentario
+    - agrario
+    - agraria
+    - desarrollo rural
+    - medio rural
+    - feaga
+    - feader
+    - alimentación
+    - alimentacion
+  direccion:
+    codigos:
+    - '010'
+    - '111'
+    - '112'
+    - '142'
+    - '143'
+    - '911'
+    - '912'
+    - '921'
+    - '923'
+    - '929'
+    - '931'
+    - 112A
+    - 112B
+    - 112C
+    - 142A
+    - 143A
+    - 239A
+    - 911A
+    - 911B
+    - 911E
+    - 911F
+    - 911G
+    - 911J
+    - 911O
+    - 911P
+    - 912A
+    - 912C
+    - 921A
+    - 921G
+    - 921J
+    - 923A
+    - 923B
+    - 929A
+    - 931A
+    - 932A
+    - 11*
+    - 14*
+    - 911*
+    - 912*
+    - 921*
+    - 923*
+    - 929*
+    - 931*
+    - 932*
+    keywords:
+    - actividad legislativa
+    - parlamento
+    - cortes
+    - alta dirección
+    - alta direccion
+    - presidencia
+    - vicepresidencia
+    - gobierno
+    - dirección política
+    - direccion politica
+    - dirección administrativa
+    - direccion administrativa
+    - servicios generales
+    - función pública
+    - funcion publica
+    - control externo
+    - transparencia
+    - relaciones informativas
+    - medios de comunicación
+    - medios de comunicacion
+    - tribunales de justicia
+    - ministerio fiscal
+    - administración de justicia
+    - administracion de justicia
+    - acción de la comunidad
+    - accion de la comunidad
+    - cooperación al desarrollo
+    - cooperacion al desarrollo
+    - diputado del común
+    - diputado del comun
+    - junta electoral
+    - acción consultiva
+    - accion consultiva
+    - comisionado de la transparencia
+    - gestión tributaria
+    - gestion tributaria
+    - control interno
+    - contabilidad pública
+    - contabilidad publica
+    - gestión patrimonial
+    - gestion patrimonial
+    - contratación pública
+    - contratacion publica
+    - gastos imprevistos
+  vivienda:
+    codigos:
+    - '261'
+    - '431'
+    - '451'
+    - 261A
+    - 261B
+    - 261C
+    - 261D
+    - 261E
+    - 261*
+    keywords:
+    - vivienda
+    - viviendas
+    - habitatge
+    - etxebizitza
+    - ordenación del territorio
+    - ordenacion del territorio
+    - rehabilitación
+    - rehabilitacion
+  empleo:
+    codigos:
+    - '241'
+    - '230'
+    - 241C
+    - 241E
+    - 241H
+    - 241J
+    - 241K
+    - 241L
+    - 241M
+    - 241*
+    keywords:
+    - empleo
+    - fomento del empleo
+    - servicio canario de empleo
+    - sce
+    - inserción laboral
+    - insercion laboral
+    - reinserción ocupacional
+    - reinsercion ocupacional
+    - estabilidad en empleo
+    - capacidad empresarial
+    - integración laboral
+    - integracion laboral
+  idi:
+    codigos:
+    - '463'
+    - '467'
+    - '542'
+    - '561'
+    - '720'
+    - 463A
+    - 463B
+    - 465A
+    - 467A
+    - 467B
+    - 463*
+    - 465*
+    - 467*
+    keywords:
+    - investigación
+    - investigacion
+    - innovación
+    - innovacion
+    - i+d
+    - i d i
+    - desarrollo tecnológico
+    - desarrollo tecnologico
+    - capital humano investigador
+  dependencia:
+    codigos:
+    - 231D
+    - 231M
+    - 232D
+    - 232G
+    - 313D
+    - 252D
+    keywords:
+    - dependencia
+    - autonomía personal
+    - autonomia personal
+    - personas mayores
+    - atención a la dependencia
+    - atencion a la dependencia
+    - personas en situación de dependencia
+    - personas en situacion de dependencia
+    - mayores
+  discapacidad:
+    codigos:
+    - 231C
+    - 231N
+    - 232C
+    - 313C
+    - 313G
+    - '314'
+    keywords:
+    - discapacidad
+    - diversidad funcional
+    - personas con discapacidad
+  salud_mental:
+    codigos:
+    # 313A "Salud Pública" RETIRADO (FIX 2026-07-16): es salud pública (sanidad),
+    # no salud mental; era el 100 % del salud_mental reportado (0,3 M en 2019-21,
+    # fabricado). El gasto real de salud mental canario va dentro del programa del
+    # SCS (412*) sin desagregar → NULL estructural mientras el Tomo 3 no lo separe.
+    - 313E
+    - '414'
+    - '514'
+    - 312D
+    - 412I
+    - 231A
+    keywords:
+    - salud mental
+    - drogodependencias
+    - adicciones
+    - drogas
+  diversidad:
+    codigos:
+    - 232C
+    - 313B
+    - '234'
+    - '266'
+    - 231I
+    - 231P
+    keywords:
+    - lgtbi
+    - lgbti
+    - migración
+    - migracion
+    - interculturalidad
+    - gitano
+    - inclusión social
+    - inclusion social
+    - canarios en el exterior
+    - diversidad
+  turismo:
+    codigos:
+    - '432'
+    - 322A
+    - 432A
+    - 432F
+    - '751'
+    - '761'
+    - '730'
+    - 432*
+    keywords:
+    - turismo
+    - turístico
+    - turistico
+    - turística
+    - turistica
+    - hostelería
+    - hosteleria
+    - productos turísticos
+    - productos turisticos
+  igualdad:
+    codigos:
+    - '232'
+    - 232A
+    - 232B
+    - '920'
+    keywords:
+    - igualdad
+    - igualdad de oportunidades
+    - mujer
+    - mujeres
+    - violencia de género
+    - violencia de genero
+    - promoción de la igualdad
+    - promocion de la igualdad
+    - instituto de la mujer
+    - jóvenes
+    - jovenes
+    - juventud

@@ -1,0 +1,667 @@
+﻿comunidades_autónomas,periodo,género,hipno,antidep,trastornos,benzodiacepinas
+01 Andalucía,2010,total,"30,29428892","55,0138206",,
+01 Andalucía,2011,total,"31,28677036","57,19012032",,
+01 Andalucía,2012,total,"31,96396692","58,40987193",,
+01 Andalucía,2013,total,"32,60214907","61,15529224",,
+01 Andalucía,2014,total,"33,50054111","64,21475682",,
+01 Andalucía,2015,hombres,,,"6,464",
+01 Andalucía,2015,mujeres,,,"13,493",
+01 Andalucía,2015,total,"33,65817548","65,75438875","10,041",
+01 Andalucía,2016,hombres,,,"5,556",
+01 Andalucía,2016,mujeres,,,"11,853",
+01 Andalucía,2016,total,"34,68009521","67,96439453","8,761",
+01 Andalucía,2017,hombres,,,"5,948",
+01 Andalucía,2017,mujeres,,,"12,434",
+01 Andalucía,2017,total,"34,8083235","69,81174513","9,248",
+01 Andalucía,2018,hombres,,,"6,06","10,202"
+01 Andalucía,2018,mujeres,,,"12,584","18,443"
+01 Andalucía,2018,total,"35,66902879","72,90784888","9,38","14,861"
+01 Andalucía,2019,hombres,,,"6,127","12,823"
+01 Andalucía,2019,mujeres,,,"12,715","22,676"
+01 Andalucía,2019,total,"36,56921081","76,45085853","9,478","18,386"
+01 Andalucía,2020,hombres,,,"6,084","12,207"
+01 Andalucía,2020,mujeres,,,"12,684","21,677"
+01 Andalucía,2020,total,"38,8067156","80,43543595","9,441","17,545"
+01 Andalucía,2021,hombres,,,"5,233","12,496"
+01 Andalucía,2021,mujeres,,,"10,275","22,216"
+01 Andalucía,2021,total,"39,91549899","85,99342804","7,796","17,962"
+01 Andalucía,2022,hombres,,,"5,379395132","12,52606207"
+01 Andalucía,2022,mujeres,,,"10,70327612","21,71491452"
+01 Andalucía,2022,total,"40,28460469","92,21779082","8,086952496","17,68878407"
+01 Andalucía,2023,hombres,,,"5,615977461","11,95900934"
+01 Andalucía,2023,mujeres,,,"11,01175989","20,81635348"
+01 Andalucía,2023,total,"39,44696061","95,3764909","8,362374653","16,92802042"
+02 Aragón,2010,total,"30,11998916","67,36942716",,
+02 Aragón,2011,total,"30,98632223","70,92494653",,
+02 Aragón,2012,total,"30,86758887","70,78789635",,
+02 Aragón,2013,hombres,,,"6,292",
+02 Aragón,2013,mujeres,,,"14,391",
+02 Aragón,2013,total,"30,98771902","71,62408042","10,404",
+02 Aragón,2014,hombres,,,"6,485","3,472"
+02 Aragón,2014,mujeres,,,"14,679","7,505"
+02 Aragón,2014,total,"32,74764851","75,55636911","10,645","5,751"
+02 Aragón,2015,hombres,,,"6,648","3,347"
+02 Aragón,2015,mujeres,,,"14,848","7,36"
+02 Aragón,2015,total,"33,35962969","77,40756489","10,811","5,614"
+02 Aragón,2016,hombres,,,"6,766","3,504"
+02 Aragón,2016,mujeres,,,"15,102","7,359"
+02 Aragón,2016,total,"35,64655973","81,90276747","10,999","5,684"
+02 Aragón,2017,hombres,,,"7,133","4,921"
+02 Aragón,2017,mujeres,,,"15,612","8,814"
+02 Aragón,2017,total,"36,09642493","83,10944767","11,44","7,121"
+02 Aragón,2018,hombres,,,"7,801","4,772"
+02 Aragón,2018,mujeres,,,"16,631","8,769"
+02 Aragón,2018,total,"36,92875733","85,88591738","12,284","7,029"
+02 Aragón,2019,hombres,,,"8,307","4,897"
+02 Aragón,2019,mujeres,,,"17,325","9,001"
+02 Aragón,2019,total,"37,55550361","88,73889157","12,883","7,214"
+02 Aragón,2020,hombres,,,"8,42","4,565"
+02 Aragón,2020,mujeres,,,"17,487","8,953"
+02 Aragón,2020,total,"39,59123335","91,2591071","13,019","7,038"
+02 Aragón,2021,hombres,,,"8,84","5,451"
+02 Aragón,2021,mujeres,,,"18,14","10,463"
+02 Aragón,2021,total,"40,10381199","96,15515283","13,548","8,271"
+02 Aragón,2022,hombres,,,"8,753322754","5,642392348"
+02 Aragón,2022,mujeres,,,"18,00595663","10,38565322"
+02 Aragón,2022,total,"40,44848828","101,606399","13,44210534","8,308641628"
+02 Aragón,2023,hombres,,,"8,990591126","5,610615953"
+02 Aragón,2023,mujeres,,,"18,48100194","10,00819629"
+02 Aragón,2023,total,"40,03998131","104,0586202","13,80096087","8,079834577"
+03 Principado de Asturias,2010,total,"26,86243473","92,54641317",,
+03 Principado de Asturias,2011,total,"27,31666389","97,78930353",,
+03 Principado de Asturias,2012,total,"27,55519133","97,1549296",,
+03 Principado de Asturias,2013,hombres,,,"9,418",
+03 Principado de Asturias,2013,mujeres,,,"19,736",
+03 Principado de Asturias,2013,total,"28,12690669","100,5928043","14,802",
+03 Principado de Asturias,2014,hombres,,,"9,87","10,745"
+03 Principado de Asturias,2014,mujeres,,,"20,461","19,572"
+03 Principado de Asturias,2014,total,"29,07737146","105,5780388","15,401","15,937"
+03 Principado de Asturias,2015,hombres,,,"10,133","9,642"
+03 Principado de Asturias,2015,mujeres,,,"20,934","17,417"
+03 Principado de Asturias,2015,total,"29,9321989","109,6984268","15,771","14,202"
+03 Principado de Asturias,2016,hombres,,,"10,301","10,799"
+03 Principado de Asturias,2016,mujeres,,,"21,068","19,534"
+03 Principado de Asturias,2016,total,"31,61395731","113,8081735","15,922","15,912"
+03 Principado de Asturias,2017,hombres,,,"10,663","9,799"
+03 Principado de Asturias,2017,mujeres,,,"21,468","17,973"
+03 Principado de Asturias,2017,total,"32,65005677","116,556914","16,305","14,571"
+03 Principado de Asturias,2018,hombres,,,"10,887","10,24"
+03 Principado de Asturias,2018,mujeres,,,"21,972","19,193"
+03 Principado de Asturias,2018,total,"33,56045073","120,0293863","16,675","15,456"
+03 Principado de Asturias,2019,hombres,,,"11,274","10,238"
+03 Principado de Asturias,2019,mujeres,,,"22,325","18,826"
+03 Principado de Asturias,2019,total,"34,62887502","124,952203","17,056","15,233"
+03 Principado de Asturias,2020,hombres,,,"11,393","9,431"
+03 Principado de Asturias,2020,mujeres,,,"22,726","18,014"
+03 Principado de Asturias,2020,total,"37,03348791","129,7486042","17,327","14,417"
+03 Principado de Asturias,2021,hombres,,,"11,613","9,713"
+03 Principado de Asturias,2021,mujeres,,,"23,197","18,68"
+03 Principado de Asturias,2021,total,"38,51491199","136,0814546","17,676","14,911"
+03 Principado de Asturias,2022,hombres,,,"13,53091995","9,845777838"
+03 Principado de Asturias,2022,mujeres,,,"26,56315469","18,40690026"
+03 Principado de Asturias,2022,total,"39,69768074","144,5738158","20,35794056","14,79650298"
+03 Principado de Asturias,2023,hombres,,,"13,75264374","9,23194985"
+03 Principado de Asturias,2023,mujeres,,,"26,8229575","17,97144731"
+03 Principado de Asturias,2023,total,"40,57100165","149,9719147","20,60032884","14,27594448"
+04 Islas Baleares,2010,total,"22,53674644","67,1301478",,
+04 Islas Baleares,2011,total,"22,80050558","70,31229849",,
+04 Islas Baleares,2012,total,"22,66363464","69,04590304",,
+04 Islas Baleares,2013,hombres,,,"12,92",
+04 Islas Baleares,2013,mujeres,,,"24,584",
+04 Islas Baleares,2013,total,"22,85532321","71,0043299","18,832",
+04 Islas Baleares,2014,hombres,,,"13,256",
+04 Islas Baleares,2014,mujeres,,,"24,898",
+04 Islas Baleares,2014,total,"23,37392635","73,09587945","19,156",
+04 Islas Baleares,2015,hombres,,,"14,685",
+04 Islas Baleares,2015,mujeres,,,"27,165",
+04 Islas Baleares,2015,total,"23,18513885","73,78600962","21,004",
+04 Islas Baleares,2016,hombres,,,"15,847",
+04 Islas Baleares,2016,mujeres,,,"28,636",
+04 Islas Baleares,2016,total,"24,07478115","75,91992556","22,317",
+04 Islas Baleares,2017,hombres,,,"15,215","6,202"
+04 Islas Baleares,2017,mujeres,,,"26,876","11,138"
+04 Islas Baleares,2017,total,"23,73568117","76,67095734","21,108","8,951"
+04 Islas Baleares,2018,hombres,,,"16,141","6,071"
+04 Islas Baleares,2018,mujeres,,,"28,521","10,622"
+04 Islas Baleares,2018,total,"23,53536043","78,59130619","22,39","8,604"
+04 Islas Baleares,2019,hombres,,,"17,059","6,113"
+04 Islas Baleares,2019,mujeres,,,"29,949","10,844"
+04 Islas Baleares,2019,total,"23,80756025","81,62881518","23,559","8,745"
+04 Islas Baleares,2020,hombres,,,"17,639","5,911"
+04 Islas Baleares,2020,mujeres,,,"31,135","10,584"
+04 Islas Baleares,2020,total,"24,7067487","84,59258871","24,442","8,512"
+04 Islas Baleares,2021,hombres,,,"17,458","6,014"
+04 Islas Baleares,2021,mujeres,,,"30,167","11,256"
+04 Islas Baleares,2021,total,"25,39991653","90,14639153","23,857","8,935"
+04 Islas Baleares,2022,hombres,,,"17,52394445","6,144377732"
+04 Islas Baleares,2022,mujeres,,,"29,86912757","11,16028383"
+04 Islas Baleares,2022,total,"25,47727195","96,26147841","23,74607718","8,942050642"
+04 Islas Baleares,2023,hombres,,,"17,74030697","6,171155891"
+04 Islas Baleares,2023,mujeres,,,"30,29997401","10,83615597"
+04 Islas Baleares,2023,total,"24,90392253","97,77878011","24,06453669","8,772191191"
+05 Canarias,2010,total,"36,21479055","56,58843949",,
+05 Canarias,2011,total,"36,69830783","57,6970849",,
+05 Canarias,2012,total,"37,92916633","58,01804126",,
+05 Canarias,2013,hombres,,,"11,245",
+05 Canarias,2013,mujeres,,,"20,497",
+05 Canarias,2013,total,"40,09564756","61,63076803","15,931",
+05 Canarias,2014,hombres,,,"12,129","8,905"
+05 Canarias,2014,mujeres,,,"22,017","16,103"
+05 Canarias,2014,total,"42,04370648","65,00632485","17,138","12,941"
+05 Canarias,2015,hombres,,,"13,122","8,503"
+05 Canarias,2015,mujeres,,,"23,559","15,455"
+05 Canarias,2015,total,"42,89640376","67,25409418","18,409","12,39"
+05 Canarias,2016,hombres,,,"14,041","7,959"
+05 Canarias,2016,mujeres,,,"24,941","15,206"
+05 Canarias,2016,total,"44,77561706","70,51339994","19,564","12,006"
+05 Canarias,2017,hombres,,,"15,01","8,119"
+05 Canarias,2017,mujeres,,,"26,097","14,54"
+05 Canarias,2017,total,"45,41353415","73,32920918","20,63","11,696"
+05 Canarias,2018,hombres,,,"15,782","7,841"
+05 Canarias,2018,mujeres,,,"27,162","14,546"
+05 Canarias,2018,total,"44,532491","76,50923868","21,551","11,57"
+05 Canarias,2019,hombres,,,"17,131","8,604"
+05 Canarias,2019,mujeres,,,"28,954","15,765"
+05 Canarias,2019,total,"43,79676924","80,03008185","23,137","12,581"
+05 Canarias,2020,hombres,,,"18,725","8,251"
+05 Canarias,2020,mujeres,,,"31,034","15,489"
+05 Canarias,2020,total,"44,64356942","85,7440687","24,975","12,264"
+05 Canarias,2021,hombres,,,"20,145","8,244"
+05 Canarias,2021,mujeres,,,"33,045","14,863"
+05 Canarias,2021,total,"46,78883007","92,71506074","26,695","11,912"
+05 Canarias,2022,hombres,,,"21,03778897","7,98097482"
+05 Canarias,2022,mujeres,,,"34,68438694","14,5323128"
+05 Canarias,2022,total,"47,79443224","99,34852698","27,97613027","11,60617595"
+05 Canarias,2023,hombres,,,"22,32143276","7,263875266"
+05 Canarias,2023,mujeres,,,"36,37687677","13,67288712"
+05 Canarias,2023,total,"46,83464604","104,0890206","29,46730036","10,80482066"
+06 Cantabria,2010,total,"41,88253137","64,29435653",,
+06 Cantabria,2011,total,"43,6025899","67,96839683",,
+06 Cantabria,2012,total,"44,93365338","68,91896243",,
+06 Cantabria,2013,hombres,,,"5,945",
+06 Cantabria,2013,mujeres,,,"12,909",
+06 Cantabria,2013,total,"46,16692664","71,59650408","9,529",
+06 Cantabria,2014,hombres,,,"6,403",
+06 Cantabria,2014,mujeres,,,"13,673",
+06 Cantabria,2014,total,"47,50563291","74,25203015","10,141",
+06 Cantabria,2015,hombres,,,"6,729",
+06 Cantabria,2015,mujeres,,,"14,269",
+06 Cantabria,2015,total,"49,42642135","77,06562525","10,607",
+06 Cantabria,2016,hombres,,,"6,82","5,087"
+06 Cantabria,2016,mujeres,,,"14,496","13,049"
+06 Cantabria,2016,total,"52,32395143","80,83493605","10,768","9,666"
+06 Cantabria,2017,hombres,,,"7,102","5,649"
+06 Cantabria,2017,mujeres,,,"14,888","14,241"
+06 Cantabria,2017,total,"53,74306225","82,86329902","11,106","10,579"
+06 Cantabria,2018,hombres,,,"7,375","5,64"
+06 Cantabria,2018,mujeres,,,"15,286","14,475"
+06 Cantabria,2018,total,"56,1431229","87,62528448","11,447","10,709"
+06 Cantabria,2019,hombres,,,"7,788","6,085"
+06 Cantabria,2019,mujeres,,,"16,28","15,148"
+06 Cantabria,2019,total,"58,31022606","92,29257077","12,159","11,284"
+06 Cantabria,2020,hombres,,,"8,297","6,334"
+06 Cantabria,2020,mujeres,,,"16,993","15,918"
+06 Cantabria,2020,total,"61,41568997","98,18111896","12,775","11,815"
+06 Cantabria,2021,hombres,,,"8,746","6,767"
+06 Cantabria,2021,mujeres,,,"17,792","16,829"
+06 Cantabria,2021,total,"63,06720189","104,6798367","13,405","12,506"
+06 Cantabria,2022,hombres,,,"9,101427738","7,865326609"
+06 Cantabria,2022,mujeres,,,"18,55331448","17,72495686"
+06 Cantabria,2022,total,"64,34279479","112,1157398","13,97311263","13,47733356"
+06 Cantabria,2023,hombres,,,"9,613740803","7,634118008"
+06 Cantabria,2023,mujeres,,,"19,43837542","17,02812564"
+06 Cantabria,2023,total,"65,59577855","118,1691388","14,68132949","12,96488608"
+08 Castilla-La Mancha,2010,total,"21,43992235","65,91228294",,
+08 Castilla-La Mancha,2011,total,"21,57003198","67,69841583",,
+08 Castilla-La Mancha,2012,total,"22,23254529","69,07271129",,
+08 Castilla-La Mancha,2013,hombres,,,"2,197",
+08 Castilla-La Mancha,2013,mujeres,,,"4,261",
+08 Castilla-La Mancha,2013,total,"22,84729175","71,88701565","3,233",
+08 Castilla-La Mancha,2014,hombres,,,"3,634","4,633"
+08 Castilla-La Mancha,2014,mujeres,,,"7,128","9,572"
+08 Castilla-La Mancha,2014,total,"23,58322916","75,21316718","5,388","7,398"
+08 Castilla-La Mancha,2015,hombres,,,"3,65","4,789"
+08 Castilla-La Mancha,2015,mujeres,,,"7,18","9,528"
+08 Castilla-La Mancha,2015,total,"23,88141916","77,13249391","5,422","7,438"
+08 Castilla-La Mancha,2016,hombres,,,"3,739","4,522"
+08 Castilla-La Mancha,2016,mujeres,,,"7,106","9,762"
+08 Castilla-La Mancha,2016,total,"25,46923523","81,12108955","5,429","7,45"
+08 Castilla-La Mancha,2017,hombres,,,"3,924","6,258"
+08 Castilla-La Mancha,2017,mujeres,,,"7,425","11,846"
+08 Castilla-La Mancha,2017,total,"25,92920414","83,0580782","5,68","9,376"
+08 Castilla-La Mancha,2018,hombres,,,"3,834","6,217"
+08 Castilla-La Mancha,2018,mujeres,,,"7,073","11,832"
+08 Castilla-La Mancha,2018,total,"26,32574226","86,30862456","5,458","9,343"
+08 Castilla-La Mancha,2019,hombres,,,"4,079","5,784"
+08 Castilla-La Mancha,2019,mujeres,,,"7,367","12,031"
+08 Castilla-La Mancha,2019,total,"27,09044766","90,04660153","5,727","9,257"
+08 Castilla-La Mancha,2020,hombres,,,"3,71","5,535"
+08 Castilla-La Mancha,2020,mujeres,,,"7,231","11,777"
+08 Castilla-La Mancha,2020,total,"29,25012598","95,38916921","5,475","9,004"
+08 Castilla-La Mancha,2021,hombres,,,"3,681","6,298"
+08 Castilla-La Mancha,2021,mujeres,,,"8,529","13,395"
+08 Castilla-La Mancha,2021,total,"29,51278239","99,67877006","6,109","10,236"
+08 Castilla-La Mancha,2022,hombres,,,"4,106103058","6,181312234"
+08 Castilla-La Mancha,2022,mujeres,,,"9,503349095","12,8263815"
+08 Castilla-La Mancha,2022,total,"28,77358305","103,476003","6,809684239","9,861695377"
+08 Castilla-La Mancha,2023,hombres,,,"4,168668922","5,91418767"
+08 Castilla-La Mancha,2023,mujeres,,,"9,280427774","12,31248315"
+08 Castilla-La Mancha,2023,total,"28,48903279","106,2307163","6,731017027","9,446873271"
+07 Castilla y León,2010,total,"27,14243858","66,30942523",,
+07 Castilla y León,2011,total,"28,53012323","70,06847205",,
+07 Castilla y León,2012,total,"28,75042757","67,74792178",,
+07 Castilla y León,2013,hombres,,,"7,883",
+07 Castilla y León,2013,mujeres,,,"16,065",
+07 Castilla y León,2013,total,"30,30469862","70,33952783","12,042",
+07 Castilla y León,2014,hombres,,,"8,515",
+07 Castilla y León,2014,mujeres,,,"16,939",
+07 Castilla y León,2014,total,"31,89189777","73,00343659","12,796",
+07 Castilla y León,2015,hombres,,,"8,949",
+07 Castilla y León,2015,mujeres,,,"17,571",
+07 Castilla y León,2015,total,"32,65465622","74,62557603","13,331",
+07 Castilla y León,2016,hombres,,,"9,004",
+07 Castilla y León,2016,mujeres,,,"17,482",
+07 Castilla y León,2016,total,"34,90822681","77,28170645","13,312",
+07 Castilla y León,2017,hombres,,,"11,704","5,863"
+07 Castilla y León,2017,mujeres,,,"22,627","11,402"
+07 Castilla y León,2017,total,"36,02557521","79,7192603","17,255","8,965"
+07 Castilla y León,2018,hombres,,,"12,391","5,991"
+07 Castilla y León,2018,mujeres,,,"23,688","11,171"
+07 Castilla y León,2018,total,"37,22506314","83,09201209","18,134","8,883"
+07 Castilla y León,2019,hombres,,,"13,251","5,716"
+07 Castilla y León,2019,mujeres,,,"24,962","10,909"
+07 Castilla y León,2019,total,"38,36679473","87,36423923","19,217","8,608"
+07 Castilla y León,2020,hombres,,,"13,794","5,516"
+07 Castilla y León,2020,mujeres,,,"25,633","10,528"
+07 Castilla y León,2020,total,"40,57472453","91,8988583","19,827","8,302"
+07 Castilla y León,2021,hombres,,,"14,206","5,642"
+07 Castilla y León,2021,mujeres,,,"26,622","11,221"
+07 Castilla y León,2021,total,"41,62050029","97,22520315","20,531","8,736"
+07 Castilla y León,2022,hombres,,,"15,144463","5,712166943"
+07 Castilla y León,2022,mujeres,,,"27,89127874","11,21012677"
+07 Castilla y León,2022,total,"42,13689698","103,2958605","21,64008132","8,755267525"
+07 Castilla y León,2023,hombres,,,"15,6172165","5,786215848"
+07 Castilla y León,2023,mujeres,,,"28,56924667","10,86251422"
+07 Castilla y León,2023,total,"42,33054803","106,9281007","22,22222031","8,589616159"
+09 Cataluña,2010,total,"28,7976362","74,30655155",,
+09 Cataluña,2011,total,"29,81341148","77,90930961",,
+09 Cataluña,2012,total,"29,07869129","74,71949295",,
+09 Cataluña,2013,hombres,,,"4,014",
+09 Cataluña,2013,mujeres,,,"8,318",
+09 Cataluña,2013,total,"29,4760964","75,05719891","6,2",
+09 Cataluña,2014,hombres,,,"4,378",
+09 Cataluña,2014,mujeres,,,"9,178",
+09 Cataluña,2014,total,"30,00416564","76,91761018","6,817",
+09 Cataluña,2015,hombres,,,"4,499",
+09 Cataluña,2015,mujeres,,,"9,232",
+09 Cataluña,2015,total,"29,60680957","77,58811041","6,907",
+09 Cataluña,2016,hombres,,,"4,504",
+09 Cataluña,2016,mujeres,,,"9,463",
+09 Cataluña,2016,total,"28,93839004","78,19943356","7,028",
+09 Cataluña,2017,hombres,,,"5,941",
+09 Cataluña,2017,mujeres,,,"12,674",
+09 Cataluña,2017,total,"28,57277845","79,10603895","9,368",
+09 Cataluña,2018,hombres,,,"5,167",
+09 Cataluña,2018,mujeres,,,"10,521",
+09 Cataluña,2018,total,"28,15947996","80,53079134","7,892",
+09 Cataluña,2019,hombres,,,"15,789","5,454"
+09 Cataluña,2019,mujeres,,,"27,854","10,368"
+09 Cataluña,2019,total,"28,27105957","83,19487802","21,923","8,255"
+09 Cataluña,2020,hombres,,,"16,69","4,887"
+09 Cataluña,2020,mujeres,,,"29,213","9,656"
+09 Cataluña,2020,total,"28,7552259","85,58799633","23,055","7,604"
+09 Cataluña,2021,hombres,,,"17,294","5,389"
+09 Cataluña,2021,mujeres,,,"30,437","9,98"
+09 Cataluña,2021,total,"29,21332721","91,58176272","23,954","8,007"
+09 Cataluña,2022,hombres,,,"17,50679823","4,874212841"
+09 Cataluña,2022,mujeres,,,"30,58023429","8,918821872"
+09 Cataluña,2022,total,"28,79807496","97,76024221","24,13895731","7,179175478"
+09 Cataluña,2023,hombres,,,"18,62504831","4,684573215"
+09 Cataluña,2023,mujeres,,,"32,12584146","8,620992689"
+09 Cataluña,2023,total,"27,83986577","101,1832702","25,46846056","6,925305541"
+18 Ceuta,2010,total,"26,24282237","39,86634194",,
+18 Ceuta,2011,total,"26,7840121","40,87471926",,
+18 Ceuta,2012,total,"27,26053941","42,02169291",,
+18 Ceuta,2013,total,"28,11882779","44,33765717",,
+18 Ceuta,2014,total,"30,67637255","46,19463064",,
+18 Ceuta,2015,total,"32,04417233","48,7840409",,
+18 Ceuta,2016,total,"34,68626848","51,70796609",,
+18 Ceuta,2017,total,"35,3216185","53,8116431",,
+18 Ceuta,2018,total,"35,93640315","54,36088872",,
+18 Ceuta,2019,total,"37,27268384","56,58107997",,
+18 Ceuta,2020,total,"38,72369498","58,21850765",,
+18 Ceuta,2021,total,"40,60459688","61,68976448",,
+18 Ceuta,2022,total,"41,30540164","66,56533403",,
+18 Ceuta,2023,total,"40,10065478","68,81051789",,
+10 Comunidad Valenciana,2010,total,"25,28979067","58,24178303",,
+10 Comunidad Valenciana,2011,total,"25,38797184","60,54044189",,
+10 Comunidad Valenciana,2012,total,"24,76403254","59,03666821",,
+10 Comunidad Valenciana,2013,hombres,,,"15,994",
+10 Comunidad Valenciana,2013,mujeres,,,"30,102",
+10 Comunidad Valenciana,2013,total,"25,27291342","60,39773215","23,16",
+10 Comunidad Valenciana,2014,hombres,,,"17,37",
+10 Comunidad Valenciana,2014,mujeres,,,"31,896",
+10 Comunidad Valenciana,2014,total,"26,74054553","64,59672203","24,758",
+10 Comunidad Valenciana,2015,hombres,,,"18,587",
+10 Comunidad Valenciana,2015,mujeres,,,"33,463",
+10 Comunidad Valenciana,2015,total,"27,17865941","66,93443522","26,145",
+10 Comunidad Valenciana,2016,hombres,,,"19,89",
+10 Comunidad Valenciana,2016,mujeres,,,"35,126",
+10 Comunidad Valenciana,2016,total,"28,69160037","71,59171188","27,632",
+10 Comunidad Valenciana,2017,hombres,,,"20,986",
+10 Comunidad Valenciana,2017,mujeres,,,"36,568",
+10 Comunidad Valenciana,2017,total,"29,25570631","73,92269479","28,905",
+10 Comunidad Valenciana,2018,hombres,,,"21,751",
+10 Comunidad Valenciana,2018,mujeres,,,"37,534",
+10 Comunidad Valenciana,2018,total,"29,99908946","77,25376951","29,778",
+10 Comunidad Valenciana,2019,hombres,,,"22,247","7,227"
+10 Comunidad Valenciana,2019,mujeres,,,"38,28","14,986"
+10 Comunidad Valenciana,2019,total,"30,52242256","80,6663968","30,404","11,602"
+10 Comunidad Valenciana,2020,hombres,,,"22,819","7,323"
+10 Comunidad Valenciana,2020,mujeres,,,"39,092","15,251"
+10 Comunidad Valenciana,2020,total,"31,29068186","82,41713223","31,102","11,791"
+10 Comunidad Valenciana,2021,hombres,,,"23,586","7,458"
+10 Comunidad Valenciana,2021,mujeres,,,"40,083","15,565"
+10 Comunidad Valenciana,2021,total,"32,3691615","88,51639312","31,982","12,025"
+10 Comunidad Valenciana,2022,hombres,,,"24,20391294","7,719573033"
+10 Comunidad Valenciana,2022,mujeres,,,"40,6900326","16,08070043"
+10 Comunidad Valenciana,2022,total,"32,58870361","94,86197667","32,60013987","12,42780892"
+10 Comunidad Valenciana,2023,hombres,,,"24,66383025","7,179351982"
+10 Comunidad Valenciana,2023,mujeres,,,"41,0914545","15,35911396"
+10 Comunidad Valenciana,2023,total,"32,35155178","97,70203805","33,03172157","11,78013685"
+00 Media Estatal,2010,total,"27,89449273","63,99363026",,
+00 Media Estatal,2011,total,"28,68047777","66,86433815",,
+00 Media Estatal,2012,total,"28,79081659","66,21727949",,
+00 Media Estatal,2013,hombres,,,"7,287",
+00 Media Estatal,2013,mujeres,,,"14,717",
+00 Media Estatal,2013,total,"29,54028536","68,28366978","11,081",
+00 Media Estatal,2014,hombres,,,"7,75","7,403"
+00 Media Estatal,2014,mujeres,,,"15,47","14,571"
+00 Media Estatal,2014,total,"30,59620891","71,29769008","11,694","11,527"
+00 Media Estatal,2015,hombres,,,"7,929","7,375"
+00 Media Estatal,2015,mujeres,,,"15,714","14,494"
+00 Media Estatal,2015,total,"30,89711516","73,06563156","11,903","11,464"
+00 Media Estatal,2016,hombres,,,"8,097","6,124"
+00 Media Estatal,2016,mujeres,,,"15,933","12,66"
+00 Media Estatal,2016,total,"32,07493358","75,96009142","12,096","9,874"
+00 Media Estatal,2017,hombres,,,"8,774","6,133"
+00 Media Estatal,2017,mujeres,,,"17,094","12,142"
+00 Media Estatal,2017,total,"32,26457909","77,69440608","13,02","9,561"
+00 Media Estatal,2018,hombres,,,"8,931","7,417"
+00 Media Estatal,2018,mujeres,,,"17,091","14,252"
+00 Media Estatal,2018,total,"32,54837327","80,42859191","13,095","11,301"
+00 Media Estatal,2019,hombres,,,"11,049","7,586"
+00 Media Estatal,2019,mujeres,,,"20,505","14,557"
+00 Media Estatal,2019,total,"32,93453442","83,63466212","15,876","11,542"
+00 Media Estatal,2020,hombres,,,"11,447","7,202"
+00 Media Estatal,2020,mujeres,,,"21,134","14,078"
+00 Media Estatal,2020,total,"34,23248567","86,87148098","16,391","11,101"
+00 Media Estatal,2021,hombres,,,"11,702","7,558"
+00 Media Estatal,2021,mujeres,,,"21,438","14,588"
+00 Media Estatal,2021,total,"35,09730274","92,69202932","16,668","11,542"
+00 Media Estatal,2022,hombres,,,"12,09195733","7,500357252"
+00 Media Estatal,2022,mujeres,,,"22,04941958","14,26467003"
+00 Media Estatal,2022,total,"35,20560227","98,81099888","17,17443462","11,32903471"
+00 Media Estatal,2023,hombres,,,"12,66632146","7,169468668"
+00 Media Estatal,2023,mujeres,,,"22,83712034","13,71139032"
+00 Media Estatal,2023,total,"34,65611724","102,1552799","17,8597505","10,8667791"
+11 Extremadura,2010,total,"25,40944342","85,47350982",,
+11 Extremadura,2011,total,"25,83264288","88,3915254",,
+11 Extremadura,2012,total,"26,2851696","90,37097461",,
+11 Extremadura,2013,hombres,,,"1,33",
+11 Extremadura,2013,mujeres,,,"3,581",
+11 Extremadura,2013,total,"27,10676328","95,09750981","2,467",
+11 Extremadura,2014,hombres,,,"1,577","6,295"
+11 Extremadura,2014,mujeres,,,"4,014","12,35"
+11 Extremadura,2014,total,"28,21306473","99,67962427","2,808","9,75"
+11 Extremadura,2015,hombres,,,"1,832","6,764"
+11 Extremadura,2015,mujeres,,,"4,589","13,016"
+11 Extremadura,2015,total,"28,71476073","102,9785828","3,224","10,327"
+11 Extremadura,2016,hombres,,,"2,035","7,194"
+11 Extremadura,2016,mujeres,,,"5,017","13,25"
+11 Extremadura,2016,total,"30,23984609","107,9210503","3,54","10,635"
+11 Extremadura,2017,hombres,,,"2,324","7,221"
+11 Extremadura,2017,mujeres,,,"5,682","13,229"
+11 Extremadura,2017,total,"30,01971085","109,3603499","4,019","10,62"
+11 Extremadura,2018,hombres,,,"2,595","7,089"
+11 Extremadura,2018,mujeres,,,"5,931","12,746"
+11 Extremadura,2018,total,"30,88347187","112,7639492","4,279","10,277"
+11 Extremadura,2019,hombres,,,"2,698","7,185"
+11 Extremadura,2019,mujeres,,,"6,245","12,796"
+11 Extremadura,2019,total,"31,87166311","116,8237507","4,493","10,336"
+11 Extremadura,2020,hombres,,,"2,883","6,764"
+11 Extremadura,2020,mujeres,,,"6,689","13,558"
+11 Extremadura,2020,total,"33,92457674","123,2587282","4,81","10,57"
+11 Extremadura,2021,hombres,,,"3,015","7,298"
+11 Extremadura,2021,mujeres,,,"6,868","13,74"
+11 Extremadura,2021,total,"35,02998257","129,6710588","4,966","10,891"
+11 Extremadura,2022,hombres,,,"3,295458205","7,542832931"
+11 Extremadura,2022,mujeres,,,"7,982856219","13,9585356"
+11 Extremadura,2022,total,"35,70151334","136,2911295","5,669588807","11,10604191"
+11 Extremadura,2023,hombres,,,"3,746083357","7,236375362"
+11 Extremadura,2023,mujeres,,,"8,825843947","13,61485905"
+11 Extremadura,2023,total,"36,17894372","141,1370621","6,322467843","10,76584551"
+12 Galicia,2010,total,"28,82576687","92,06591637",,
+12 Galicia,2011,total,"29,41852539","95,93145352",,
+12 Galicia,2012,total,"28,85063008","92,6146179",,
+12 Galicia,2013,hombres,,,"4,53",
+12 Galicia,2013,mujeres,,,"10,655",
+12 Galicia,2013,total,"31,3194597","99,53440044","7,701",
+12 Galicia,2014,hombres,,,"5,108","6,749"
+12 Galicia,2014,mujeres,,,"11,843","12,108"
+12 Galicia,2014,total,"32,25600496","102,6650554","8,593","9,843"
+12 Galicia,2015,hombres,,,"5,69","7,1"
+12 Galicia,2015,mujeres,,,"12,894","12,379"
+12 Galicia,2015,total,"32,9161034","105,5989948","9,417","10,143"
+12 Galicia,2016,hombres,,,"6,171","6,804"
+12 Galicia,2016,mujeres,,,"13,908","12,602"
+12 Galicia,2016,total,"35,49691685","111,2676515","10,175","10,142"
+12 Galicia,2017,hombres,,,"6,614","6,833"
+12 Galicia,2017,mujeres,,,"14,619","12,592"
+12 Galicia,2017,total,"36,37356104","114,2575057","10,757","10,141"
+12 Galicia,2018,hombres,,,"7,03","7,019"
+12 Galicia,2018,mujeres,,,"15,344","12,938"
+12 Galicia,2018,total,"37,50411014","118,8332476","11,333","10,414"
+12 Galicia,2019,hombres,,,"7,44","6,889"
+12 Galicia,2019,mujeres,,,"16,223","12,935"
+12 Galicia,2019,total,"39,03949883","124,5565215","11,995","10,352"
+12 Galicia,2020,hombres,,,"7,845","6,792"
+12 Galicia,2020,mujeres,,,"16,836","12,351"
+12 Galicia,2020,total,"41,19496374","130,7070077","12,509","9,97"
+12 Galicia,2021,hombres,,,"8,222","7,304"
+12 Galicia,2021,mujeres,,,"17,755","13,053"
+12 Galicia,2021,total,"42,54446271","139,9101471","13,169","10,59"
+12 Galicia,2022,hombres,,,"9,452815845","7,500691761"
+12 Galicia,2022,mujeres,,,"19,82942686","13,39576242"
+12 Galicia,2022,total,"42,31516072","146,7841167","14,83994082","10,86573156"
+12 Galicia,2023,hombres,,,"9,931216328","7,257458558"
+12 Galicia,2023,mujeres,,,"20,58732836","13,15044445"
+12 Galicia,2023,total,"41,8563232","152,1584385","15,47579101","10,62176091"
+17 La Rioja,2010,total,"34,39779999","61,77399674",,
+17 La Rioja,2011,total,"35,64893111","65,25546373",,
+17 La Rioja,2012,total,"36,16700367","64,14976218",,
+17 La Rioja,2013,total,"36,86991549","65,41970459",,
+17 La Rioja,2014,total,"38,33700361","67,98277813",,
+17 La Rioja,2015,total,"39,45419171","69,84670361",,
+17 La Rioja,2016,hombres,,,"5,623",
+17 La Rioja,2016,mujeres,,,"11,966",
+17 La Rioja,2016,total,"42,63602193","73,24294647","8,836",
+17 La Rioja,2017,hombres,,,"5,784",
+17 La Rioja,2017,mujeres,,,"12,143",
+17 La Rioja,2017,total,"44,01787998","75,39554811","9,003",
+17 La Rioja,2018,hombres,,,"6,154","6,37"
+17 La Rioja,2018,mujeres,,,"12,701","12,369"
+17 La Rioja,2018,total,"46,03912749","77,54400816","9,47","9,705"
+17 La Rioja,2019,hombres,,,"6,241","5,66"
+17 La Rioja,2019,mujeres,,,"12,882","11,479"
+17 La Rioja,2019,total,"46,87188696","79,70439818","9,603","8,889"
+17 La Rioja,2020,hombres,,,"6,585","5,258"
+17 La Rioja,2020,mujeres,,,"13,291","10,811"
+17 La Rioja,2020,total,"47,96859099","82,15616253","9,98","8,339"
+17 La Rioja,2021,hombres,,,"6,928","5,466"
+17 La Rioja,2021,mujeres,,,"14,036","10,944"
+17 La Rioja,2021,total,"48,71169831","86,12567158","10,526","8,502"
+17 La Rioja,2022,hombres,,,"7,148453646","4,808988265"
+17 La Rioja,2022,mujeres,,,"14,51550587","10,05043996"
+17 La Rioja,2022,total,"48,60996878","91,20734902","10,87907471","7,709249395"
+17 La Rioja,2023,hombres,,,"7,441102492","4,331608095"
+17 La Rioja,2023,mujeres,,,"14,95761059","9,666036878"
+17 La Rioja,2023,total,"48,51396374","94,52530212","11,25004461","7,283799237"
+13 Comunidad de Madrid,2010,total,"20,72261883","50,528461",,
+13 Comunidad de Madrid,2011,total,"21,67381846","53,44300532",,
+13 Comunidad de Madrid,2012,total,"21,99124528","53,94803032",,
+13 Comunidad de Madrid,2013,hombres,,,"5,183",
+13 Comunidad de Madrid,2013,mujeres,,,"11,513",
+13 Comunidad de Madrid,2013,total,"22,24028434","54,63780866","8,479",
+13 Comunidad de Madrid,2014,hombres,,,"5,238","9,258"
+13 Comunidad de Madrid,2014,mujeres,,,"11,528","18,971"
+13 Comunidad de Madrid,2014,total,"23,33208696","58,08514043","8,512","14,948"
+13 Comunidad de Madrid,2015,hombres,,,"5,554","9,175"
+13 Comunidad de Madrid,2015,mujeres,,,"12,122","19,069"
+13 Comunidad de Madrid,2015,total,"23,7193102","60,03193436","8,971","14,962"
+13 Comunidad de Madrid,2016,hombres,,,"5,847","5,435"
+13 Comunidad de Madrid,2016,mujeres,,,"12,616","12,848"
+13 Comunidad de Madrid,2016,total,"24,78298184","62,83032582","9,366","9,764"
+13 Comunidad de Madrid,2017,hombres,,,"5,772","5,9"
+13 Comunidad de Madrid,2017,mujeres,,,"12,384","13,462"
+13 Comunidad de Madrid,2017,total,"24,49420656","64,45762783","9,208","10,311"
+13 Comunidad de Madrid,2018,hombres,,,"5,615","7,718"
+13 Comunidad de Madrid,2018,mujeres,,,"11,819","16,403"
+13 Comunidad de Madrid,2018,total,"23,82960227","66,85561859","8,838","12,777"
+13 Comunidad de Madrid,2019,hombres,,,"6,045","7,988"
+13 Comunidad de Madrid,2019,mujeres,,,"12,676","16,872"
+13 Comunidad de Madrid,2019,total,"23,2252677","68,80742646","9,49","13,161"
+13 Comunidad de Madrid,2020,hombres,,,"6,31","7,383"
+13 Comunidad de Madrid,2020,mujeres,,,"13,107","16,078"
+13 Comunidad de Madrid,2020,total,"23,52787076","69,80861245","9,838","12,451"
+13 Comunidad de Madrid,2021,hombres,,,"6,523","7,572"
+13 Comunidad de Madrid,2021,mujeres,,,"13,45","16,46"
+13 Comunidad de Madrid,2021,total,"23,85791139","74,81083106","10,123","12,756"
+13 Comunidad de Madrid,2022,hombres,,,"6,46944507","7,309707346"
+13 Comunidad de Madrid,2022,mujeres,,,"13,19797809","15,64991298"
+13 Comunidad de Madrid,2022,total,"23,67819662","81,06047296","9,969483219","12,1706013"
+13 Comunidad de Madrid,2023,hombres,,,"6,962065925","6,706023506"
+13 Comunidad de Madrid,2023,mujeres,,,"14,07421626","14,4766124"
+13 Comunidad de Madrid,2023,total,"22,90050665","83,48282253","10,66419596","11,22779294"
+19 Melilla,2010,total,"17,04703988","33,192427",,
+19 Melilla,2011,total,"16,95022508","33,1504645",,
+19 Melilla,2012,total,"17,13847311","31,67711389",,
+19 Melilla,2013,total,"17,34059723","32,8652261",,
+19 Melilla,2014,total,"17,53108634","34,30788599",,
+19 Melilla,2015,total,"17,74073419","35,76482344",,
+19 Melilla,2016,total,"18,05791935","37,91183943",,
+19 Melilla,2017,total,"19,02084416","38,73282947",,
+19 Melilla,2018,total,"19,10186098","40,69553168",,
+19 Melilla,2019,total,"19,17253612","43,87765129",,
+19 Melilla,2020,total,"18,57466933","45,84898643",,
+19 Melilla,2021,total,"18,50256947","49,21599412",,
+19 Melilla,2022,total,"19,0758245","54,18164856",,
+19 Melilla,2023,total,"19,62033431","56,77500585",,
+14 Región de Murcia,2010,total,"24,38992468","63,03992839",,
+14 Región de Murcia,2011,total,"25,18378482","66,47551185",,
+14 Región de Murcia,2012,total,"25,62123303","66,89727736",,
+14 Región de Murcia,2013,hombres,,,"8,062",
+14 Región de Murcia,2013,mujeres,,,"16,814",
+14 Región de Murcia,2013,total,"26,63332144","69,90459547","12,455",
+14 Región de Murcia,2014,hombres,,,"8,543",
+14 Región de Murcia,2014,mujeres,,,"17,798",
+14 Región de Murcia,2014,total,"27,67555906","73,50055385","13,179",
+14 Región de Murcia,2015,hombres,,,"8,917",
+14 Región de Murcia,2015,mujeres,,,"18,365",
+14 Región de Murcia,2015,total,"28,02338939","75,80748716","13,643",
+14 Región de Murcia,2016,hombres,,,"9,105",
+14 Región de Murcia,2016,mujeres,,,"18,798",
+14 Región de Murcia,2016,total,"29,92281287","79,90849862","13,947",
+14 Región de Murcia,2017,hombres,,,"9,336",
+14 Región de Murcia,2017,mujeres,,,"18,975",
+14 Región de Murcia,2017,total,"30,69048302","82,14428384","14,145",
+14 Región de Murcia,2018,hombres,,,"9,613","8,6"
+14 Región de Murcia,2018,mujeres,,,"19,185","17,842"
+14 Región de Murcia,2018,total,"31,42828421","86,0623826","14,388","13,793"
+14 Región de Murcia,2019,hombres,,,"9,749","10,028"
+14 Región de Murcia,2019,mujeres,,,"19,363","19,941"
+14 Región de Murcia,2019,total,"32,50157749","90,56704616","14,54","15,587"
+14 Región de Murcia,2020,hombres,,,"9,94","8,58"
+14 Región de Murcia,2020,mujeres,,,"19,702","18,36"
+14 Región de Murcia,2020,total,"34,64750127","95,53535242","14,811","14,068"
+14 Región de Murcia,2021,hombres,,,"10,088","9,531"
+14 Región de Murcia,2021,mujeres,,,"19,953","18,974"
+14 Región de Murcia,2021,total,"36,67897609","104,1965312","15,007","14,818"
+14 Región de Murcia,2022,hombres,,,"9,794512584","9,127298405"
+14 Región de Murcia,2022,mujeres,,,"19,37355144","18,44738958"
+14 Región de Murcia,2022,total,"37,81481813","112,2215659","14,56897279","14,33376349"
+14 Región de Murcia,2023,hombres,,,"10,03930123","8,553789699"
+14 Región de Murcia,2023,mujeres,,,"19,64222671","17,92608576"
+14 Región de Murcia,2023,total,"38,11464245","117,7746936","14,83120118","13,77925958"
+15 Comunidad Foral de Navarra,2010,total,"43,54968241","67,19101501",,
+15 Comunidad Foral de Navarra,2011,total,"43,49635589","70,30000153",,
+15 Comunidad Foral de Navarra,2012,total,"43,169774","68,82584463",,
+15 Comunidad Foral de Navarra,2013,hombres,,,"8,445",
+15 Comunidad Foral de Navarra,2013,mujeres,,,"17,527",
+15 Comunidad Foral de Navarra,2013,total,"42,68864953","70,06109944","13,023",
+15 Comunidad Foral de Navarra,2014,hombres,,,"9,267","4,599"
+15 Comunidad Foral de Navarra,2014,mujeres,,,"18,602","8,866"
+15 Comunidad Foral de Navarra,2014,total,"43,21148565","72,75171201","13,975","6,989"
+15 Comunidad Foral de Navarra,2015,hombres,,,"9,769","4,603"
+15 Comunidad Foral de Navarra,2015,mujeres,,,"19,343","9,413"
+15 Comunidad Foral de Navarra,2015,total,"43,08692137","74,40273067","14,601","7,295"
+15 Comunidad Foral de Navarra,2016,hombres,,,"10,475","4,495"
+15 Comunidad Foral de Navarra,2016,mujeres,,,"20,592","9,311"
+15 Comunidad Foral de Navarra,2016,total,"44,47004039","77,84845854","15,585","7,187"
+15 Comunidad Foral de Navarra,2017,hombres,,,"10,642","4,941"
+15 Comunidad Foral de Navarra,2017,mujeres,,,"20,896","9,657"
+15 Comunidad Foral de Navarra,2017,total,"42,92682072","77,5603619","15,83","7,578"
+15 Comunidad Foral de Navarra,2018,hombres,,,"10,995","4,732"
+15 Comunidad Foral de Navarra,2018,mujeres,,,"21,069","9,174"
+15 Comunidad Foral de Navarra,2018,total,"42,62748953","79,72690024","16,095","7,21"
+15 Comunidad Foral de Navarra,2019,hombres,,,"11,203","5,495"
+15 Comunidad Foral de Navarra,2019,mujeres,,,"21,425","10,416"
+15 Comunidad Foral de Navarra,2019,total,"42,27317895","81,20479956","16,371","8,235"
+15 Comunidad Foral de Navarra,2020,hombres,,,"11,406","4,894"
+15 Comunidad Foral de Navarra,2020,mujeres,,,"21,736","9,615"
+15 Comunidad Foral de Navarra,2020,total,"43,32822936","83,11028912","16,634","7,519"
+15 Comunidad Foral de Navarra,2021,hombres,,,"11,643","5,158"
+15 Comunidad Foral de Navarra,2021,mujeres,,,"22,264","10,103"
+15 Comunidad Foral de Navarra,2021,total,"42,98776269","88,19571674","17,013","7,909"
+15 Comunidad Foral de Navarra,2022,hombres,,,"11,66797","5,100123913"
+15 Comunidad Foral de Navarra,2022,mujeres,,,"22,36778228","9,603934055"
+15 Comunidad Foral de Navarra,2022,total,"42,06847158","91,75957211","17,08640989","7,605349149"
+15 Comunidad Foral de Navarra,2023,hombres,,,"11,79548037","5,08851845"
+15 Comunidad Foral de Navarra,2023,mujeres,,,"22,4650474","8,955482032"
+15 Comunidad Foral de Navarra,2023,total,"40,692612","93,68334745","17,19907796","7,233709654"
+16 País Vasco,2010,total,"37,31751819","56,04409556",,
+16 País Vasco,2011,total,"38,66427835","58,78422003",,
+16 País Vasco,2012,total,"39,28262208","58,88925399",,
+16 País Vasco,2013,hombres,,,"8,592",
+16 País Vasco,2013,mujeres,,,"17,108",
+16 País Vasco,2013,total,"40,10545382","59,90781612","12,937",
+16 País Vasco,2014,hombres,,,"7,284",
+16 País Vasco,2014,mujeres,,,"14,724",
+16 País Vasco,2014,total,"41,16936364","60,27955325","11,082",
+16 País Vasco,2015,hombres,,,"7,929",
+16 País Vasco,2015,mujeres,,,"15,533",
+16 País Vasco,2015,total,"41,47577398","61,32073365","11,811",
+16 País Vasco,2016,hombres,,,"8,651",
+16 País Vasco,2016,mujeres,,,"16,648",
+16 País Vasco,2016,total,"43,02137766","63,57524103","12,735",
+16 País Vasco,2017,hombres,,,"9,217","3,345"
+16 País Vasco,2017,mujeres,,,"17,409","6,699"
+16 País Vasco,2017,total,"43,02207112","64,39608581","13,402","5,264"
+16 País Vasco,2018,hombres,,,"9,865","3,365"
+16 País Vasco,2018,mujeres,,,"18,411","6,911"
+16 País Vasco,2018,total,"42,96009507","65,69579431","14,232","5,391"
+16 País Vasco,2019,hombres,,,"11,545","3,629"
+16 País Vasco,2019,mujeres,,,"20,688","7,221"
+16 País Vasco,2019,total,"42,42214187","67,25568155","16,22","5,68"
+16 País Vasco,2020,hombres,,,"11,789","3,606"
+16 País Vasco,2020,mujeres,,,"21,252","7,275"
+16 País Vasco,2020,total,"43,46516436","69,74251629","16,628","5,699"
+16 País Vasco,2021,hombres,,,"12,645","3,939"
+16 País Vasco,2021,mujeres,,,"22,748","7,641"
+16 País Vasco,2021,total,"43,65798195","73,27370085","17,81","6,048"
+16 País Vasco,2022,hombres,,,"13,22258699","3,87725059"
+16 País Vasco,2022,mujeres,,,"24,00747207","7,646107603"
+16 País Vasco,2022,total,"43,60919467","77,42314252","18,73792615","6,020743648"
+16 País Vasco,2023,hombres,,,"14,0886117","4,200175222"
+16 País Vasco,2023,mujeres,,,"25,21046581","8,114179178"
+16 País Vasco,2023,total,"43,4422445","80,93355762","19,77780221","6,423128353"

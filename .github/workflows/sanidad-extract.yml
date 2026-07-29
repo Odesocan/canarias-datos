@@ -1,0 +1,45 @@
+name: sanidad-extract
+
+# Descarga y transforma sin tocar producción (§4.2).
+# La §5 dejaba la cadencia "a fijar": el INCLASNS republica su serie anual con
+# retraso variable, así que se sondea una vez al mes en lugar de estimar la
+# fecha. Día 15 para no coincidir con Educación (10) ni Empleo (20).
+#
+# OJO con --with-db en esta área: el maestro de Sanidad lo detecta por PRESENCIA
+#   if (any(grepl("^--with-db", args))) cfg$with_db <- TRUE
+# así que `--with-db=false` —el idioma de Dependencia y Vivienda— activaría la
+# carga a producción. Aquí el flag se OMITE; solo sanidad-deploy.yml lo pasa.
+
+on:
+  schedule:
+    - cron: "0 5 15 * *"       # día 15, 05:00 UTC
+  workflow_dispatch:
+
+jobs:
+  extract:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: ./.github/actions/setup-r-pipeline
+        with:
+          extra-packages: "forecast httr httr2 jsonlite"
+
+      - name: Extracción + transformación (sin base de datos)
+        working-directory: Sanidad
+        run: Rscript 00_maestro.R --steps=extraccion,transformacion
+
+      - name: Subir salidas para inspección
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: sanidad-raw
+          path: |
+            Sanidad/1_extraccion/*.rds
+            Sanidad/1_extraccion/qa/**
+            Sanidad/2_transformacion/*.rds
+            Sanidad/2_transformacion/*.csv
+            Sanidad/2_transformacion/qa/**
+          if-no-files-found: warn

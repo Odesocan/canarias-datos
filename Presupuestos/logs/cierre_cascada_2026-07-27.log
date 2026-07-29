@@ -1,0 +1,285 @@
+TRUNCATE TABLE
+
+NOTICE:  column "var_discapacidad" of relation "ced_presupuestos" already exists, skipping
+
+NOTICE:  column "var_diversidad" of relation "ced_presupuestos" already exists, skipping
+
+NOTICE:  column "var_educacion" of relation "ced_presupuestos" already exists, skipping
+
+NOTICE:  column "var_empleo" of relation "ced_presupuestos" already exists, skipping
+
+NOTICE:  column "var_idi" of relation "ced_presupuestos" already exists, skipping
+
+NOTICE:  column "var_igualdad" of relation "ced_presupuestos" already exists, skipping
+
+NOTICE:  column "var_salud_mental" of relation "ced_presupuestos" already exists, skipping
+
+NOTICE:  column "var_sanidad" of relation "ced_presupuestos" already exists, skipping
+
+NOTICE:  column "var_soberania" of relation "ced_presupuestos" already exists, skipping
+
+NOTICE:  column "var_total" of relation "ced_presupuestos" already exists, skipping
+
+NOTICE:  column "var_turismo" of relation "ced_presupuestos" already exists, skipping
+
+NOTICE:  column "var_vivienda" of relation "ced_presupuestos" already exists, skipping
+
+NOTICE:  column "var_direccion" of relation "ced_presupuestos" already exists, skipping
+
+NOTICE:  relation "ced_presupuestos_key_idx" already exists, skipping
+
+[2026-07-27 13:18:31] [DB     ] Carga en Supabase completada
+[2026-07-27 13:18:31] [OK     ] Carga completada
+[2026-07-27 13:18:31] [STEP   ] Fin carga
+[2026-07-27 13:18:31] [DONE   ] Pipeline completado en 18.38 minutos
+Avisos:
+1: In system2(cfg$python_bin, args = c("-m", "ccaa", "--input", shQuote(src),  :
+  el comando ejecutado ''python3' -m ccaa --input '/Users/cristiancpv/Desktop/TRABAJO/OBSERVATORIO/CANARIAS EN DATOS/Presupuestos/fuentes/raw/can/2025/datos_abiertos.csv' --output '/Users/cristiancpv/Desktop/TRABAJO/OBSERVATORIO/CANARIAS EN DATOS/Presupuestos/1_extraccion/_pdf_cache/can/2025_datos_abiertos.csv' --ccaa can --anio 2025 2>&1' tiene el estatus 1
+2: One or more parsing issues, call `problems()` on your data frame for details,
+e.g.:
+  dat <- vroom(...)
+  problems(dat) 
+    capa    | filas | ccaas | anio_min | anio_max 
+------------+-------+-------+----------+----------
+ autonomica |   204 |    17 |     2015 |     2026
+ hacienda   |   187 |    17 |     2015 |     2025
+(2 filas)
+
+            ccaa            | periodo |    capa    | sanidad_b 
+----------------------------+---------+------------+-----------
+ Andalucía                  |    2015 | autonomica |      8.39
+ Andalucía                  |    2016 | autonomica |      8.66
+ Andalucía                  |    2017 | autonomica |      9.13
+ Andalucía                  |    2018 | autonomica |      9.63
+ Andalucía                  |    2019 | autonomica |      9.61
+ Andalucía                  |    2020 | autonomica |     10.77
+ Andalucía                  |    2021 | autonomica |     11.45
+ Andalucía                  |    2022 | autonomica |     12.21
+ Andalucía                  |    2023 | autonomica |     13.64
+ Andalucía                  |    2024 | autonomica |     14.06
+ Andalucía                  |    2025 | autonomica |     15.04
+ Andalucía                  |    2026 | autonomica |     15.95
+ Aragón                     |    2015 | autonomica |      3.06
+ Aragón                     |    2016 | autonomica |      1.81
+ Aragón                     |    2017 | autonomica |      1.90
+ Aragón                     |    2018 | autonomica |      2.01
+ Aragón                     |    2019 | autonomica |      2.01
+ Aragón                     |    2020 | autonomica |      2.08
+ Aragón                     |    2021 | autonomica |      2.37
+ Aragón                     |    2022 | autonomica |      2.25
+ Aragón                     |    2023 | autonomica |      2.56
+ Aragón                     |    2024 | autonomica |      2.77
+ Aragón                     |    2025 | autonomica |      2.77
+ Aragón                     |    2026 | autonomica |      2.77
+ Canarias                   |    2015 | autonomica |      2.46
+ Canarias                   |    2016 | autonomica |      2.50
+ Canarias                   |    2017 | autonomica |      2.56
+ Canarias                   |    2018 | autonomica |      2.74
+ Canarias                   |    2019 | autonomica |      2.83
+ Canarias                   |    2020 | autonomica |      2.97
+ Canarias                   |    2021 | autonomica |      3.09
+ Canarias                   |    2022 | autonomica |      3.23
+ Canarias                   |    2023 | autonomica |      3.58
+ Canarias                   |    2024 | autonomica |      4.11
+ Canarias                   |    2025 | autonomica |      4.31
+ Canarias                   |    2026 | autonomica |      4.54
+ Cantabria                  |    2015 | autonomica |      0.81
+ Cantabria                  |    2016 | autonomica |      0.83
+ Cantabria                  |    2017 | autonomica |      0.85
+ Cantabria                  |    2018 | autonomica |      0.87
+ Cantabria                  |    2019 | autonomica |      0.89
+ Cantabria                  |    2020 | autonomica |      0.95
+ Cantabria                  |    2021 | autonomica |      1.03
+ Cantabria                  |    2022 | autonomica |      1.04
+ Cantabria                  |    2023 | autonomica |      1.10
+ Cantabria                  |    2024 | autonomica |      1.17
+ Cantabria                  |    2025 | autonomica |      1.24
+ Cantabria                  |    2026 | autonomica |      1.34
+ Castilla y León            |    2015 | autonomica |      3.25
+ Castilla y León            |    2016 | autonomica |      3.29
+ Castilla y León            |    2017 | autonomica |      3.45
+ Castilla y León            |    2018 | autonomica |      3.54
+ Castilla y León            |    2019 | autonomica |      3.54
+ Castilla y León            |    2020 | autonomica |      3.54
+ Castilla y León            |    2021 | autonomica |      4.32
+ Castilla y León            |    2022 | autonomica |      4.32
+ Castilla y León            |    2023 | autonomica |      4.69
+ Castilla y León            |    2024 | autonomica |      4.81
+ Castilla y León            |    2025 | autonomica |      4.81
+ Castilla y León            |    2026 | autonomica |      4.81
+ Castilla-La Mancha         |    2015 | autonomica |      2.44
+ Castilla-La Mancha         |    2016 | autonomica |      2.65
+ Castilla-La Mancha         |    2017 | autonomica |      2.75
+ Castilla-La Mancha         |    2018 | autonomica |      2.83
+ Castilla-La Mancha         |    2019 | autonomica |      2.83
+ Castilla-La Mancha         |    2020 | autonomica |      3.06
+ Castilla-La Mancha         |    2021 | autonomica |      3.74
+ Castilla-La Mancha         |    2022 | autonomica |      3.70
+ Castilla-La Mancha         |    2023 | autonomica |      3.70
+ Castilla-La Mancha         |    2024 | autonomica |      3.93
+ Castilla-La Mancha         |    2025 | autonomica |      3.86
+ Castilla-La Mancha         |    2026 | autonomica |      4.15
+ Cataluña                   |    2015 | autonomica |      8.31
+ Cataluña                   |    2016 | autonomica |      8.61
+ Cataluña                   |    2017 | autonomica |      8.74
+ Cataluña                   |    2018 | autonomica |      8.74
+ Cataluña                   |    2019 | autonomica |      9.27
+ Cataluña                   |    2020 | autonomica |      9.64
+ Cataluña                   |    2021 | autonomica |      9.64
+ Cataluña                   |    2022 | autonomica |     10.57
+ Cataluña                   |    2023 | autonomica |     11.54
+ Cataluña                   |    2024 | autonomica |     11.96
+ Cataluña                   |    2025 | autonomica |     11.96
+ Cataluña                   |    2026 | autonomica |     13.27
+ Comunidad de Madrid        |    2015 | autonomica |      7.19
+ Comunidad de Madrid        |    2016 | autonomica |      7.42
+ Comunidad de Madrid        |    2017 | autonomica |      7.60
+ Comunidad de Madrid        |    2018 | autonomica |      7.83
+ Comunidad de Madrid        |    2019 | autonomica |      8.07
+ Comunidad de Madrid        |    2020 | autonomica |      8.07
+ Comunidad de Madrid        |    2021 | autonomica |      8.07
+ Comunidad de Madrid        |    2022 | autonomica |      8.76
+ Comunidad de Madrid        |    2023 | autonomica |      8.76
+ Comunidad de Madrid        |    2024 | autonomica |     10.21
+ Comunidad de Madrid        |    2025 | autonomica |     10.54
+ Comunidad de Madrid        |    2026 | autonomica |     11.09
+ Comunidad Foral de Navarra |    2015 | autonomica |      0.90
+ Comunidad Foral de Navarra |    2016 | autonomica |      0.95
+ Comunidad Foral de Navarra |    2017 | autonomica |      1.01
+ Comunidad Foral de Navarra |    2018 | autonomica |      1.02
+ Comunidad Foral de Navarra |    2019 | autonomica |      1.05
+ Comunidad Foral de Navarra |    2020 | autonomica |      1.12
+ Comunidad Foral de Navarra |    2021 | autonomica |      1.21
+ Comunidad Foral de Navarra |    2022 | autonomica |      1.22
+ Comunidad Foral de Navarra |    2023 | autonomica |      1.29
+ Comunidad Foral de Navarra |    2024 | autonomica |      1.42
+ Comunidad Foral de Navarra |    2025 | autonomica |      1.46
+ Comunidad Foral de Navarra |    2026 | autonomica |      1.51
+ Comunidad Valenciana       |    2015 | autonomica |      5.44
+ Comunidad Valenciana       |    2016 | autonomica |      5.85
+ Comunidad Valenciana       |    2017 | autonomica |      6.03
+ Comunidad Valenciana       |    2018 | autonomica |      6.35
+ Comunidad Valenciana       |    2019 | autonomica |      6.60
+ Comunidad Valenciana       |    2020 | autonomica |      6.74
+ Comunidad Valenciana       |    2021 | autonomica |      7.50
+ Comunidad Valenciana       |    2022 | autonomica |      7.80
+ Comunidad Valenciana       |    2023 | autonomica |      8.21
+ Comunidad Valenciana       |    2024 | autonomica |      8.43
+ Comunidad Valenciana       |    2025 | autonomica |      9.08
+ Comunidad Valenciana       |    2026 | autonomica |      9.29
+ Extremadura                |    2015 | autonomica |      1.38
+ Extremadura                |    2016 | autonomica |      1.55
+ Extremadura                |    2017 | autonomica |      1.54
+ Extremadura                |    2018 | autonomica |      1.60
+ Extremadura                |    2019 | autonomica |      1.69
+ Extremadura                |    2020 | autonomica |      1.74
+ Extremadura                |    2021 | autonomica |      1.88
+ Extremadura                |    2022 | autonomica |      2.01
+ Extremadura                |    2023 | autonomica |      2.20
+ Extremadura                |    2024 | autonomica |      2.28
+ Extremadura                |    2025 | autonomica |      2.28
+ Extremadura                |    2026 | autonomica |      2.28
+ Galicia                    |    2015 | autonomica |      3.37
+ Galicia                    |    2016 | autonomica |      3.54
+ Galicia                    |    2017 | autonomica |      3.65
+ Galicia                    |    2018 | autonomica |      3.92
+ Galicia                    |    2019 | autonomica |      4.06
+ Galicia                    |    2020 | autonomica |      4.19
+ Galicia                    |    2021 | autonomica |      4.71
+ Galicia                    |    2022 | autonomica |      4.71
+ Galicia                    |    2023 | autonomica |      5.17
+ Galicia                    |    2024 | autonomica |      5.38
+ Galicia                    |    2025 | autonomica |      5.68
+ Galicia                    |    2026 | autonomica |      5.84
+ Islas Baleares             |    2015 | autonomica |      1.29
+ Islas Baleares             |    2016 | autonomica |      1.37
+ Islas Baleares             |    2017 | autonomica |      1.47
+ Islas Baleares             |    2018 | autonomica |      1.56
+ Islas Baleares             |    2019 | autonomica |      1.71
+ Islas Baleares             |    2020 | autonomica |      1.71
+ Islas Baleares             |    2021 | autonomica |      1.76
+ Islas Baleares             |    2022 | autonomica |      1.94
+ Islas Baleares             |    2023 | autonomica |      2.20
+ Islas Baleares             |    2024 | autonomica |      2.27
+ Islas Baleares             |    2025 | autonomica |      2.39
+ Islas Baleares             |    2026 | autonomica |      2.43
+ La Rioja                   |    2015 | autonomica |      0.40
+ La Rioja                   |    2016 | autonomica |      0.41
+ La Rioja                   |    2017 | autonomica |      0.41
+ La Rioja                   |    2018 | autonomica |      0.43
+ La Rioja                   |    2019 | autonomica |      0.44
+ La Rioja                   |    2020 | autonomica |      0.45
+ La Rioja                   |    2021 | autonomica |      0.53
+ La Rioja                   |    2022 | autonomica |      0.52
+ La Rioja                   |    2023 | autonomica |      0.55
+ La Rioja                   |    2024 | autonomica |      0.59
+ La Rioja                   |    2025 | autonomica |      0.64
+ La Rioja                   |    2026 | autonomica |      0.64
+ País Vasco                 |    2015 | autonomica |      3.39
+ País Vasco                 |    2016 | autonomica |      3.42
+ País Vasco                 |    2017 | autonomica |      3.54
+ País Vasco                 |    2018 | autonomica |      3.68
+ País Vasco                 |    2019 | autonomica |      3.80
+ País Vasco                 |    2020 | autonomica |      3.94
+ País Vasco                 |    2021 | autonomica |      3.99
+ País Vasco                 |    2022 | autonomica |      4.19
+ País Vasco                 |    2023 | autonomica |      4.63
+ País Vasco                 |    2024 | autonomica |      4.89
+ País Vasco                 |    2025 | autonomica |      5.11
+ País Vasco                 |    2026 | autonomica |      5.32
+ Principado de Asturias     |    2015 | autonomica |      1.49
+ Principado de Asturias     |    2016 | autonomica |      1.64
+ Principado de Asturias     |    2017 | autonomica |      1.67
+ Principado de Asturias     |    2018 | autonomica |      1.70
+ Principado de Asturias     |    2019 | autonomica |      1.75
+ Principado de Asturias     |    2020 | autonomica |      1.80
+ Principado de Asturias     |    2021 | autonomica |      1.95
+ Principado de Asturias     |    2022 | autonomica |      1.99
+ Principado de Asturias     |    2023 | autonomica |      2.12
+ Principado de Asturias     |    2024 | autonomica |      2.33
+ Principado de Asturias     |    2025 | autonomica |      2.45
+ Principado de Asturias     |    2026 | autonomica |      2.55
+ Región de Murcia           |    2015 | autonomica |      1.86
+ Región de Murcia           |    2016 | autonomica |      1.96
+ Región de Murcia           |    2017 | autonomica |      2.00
+ Región de Murcia           |    2018 | autonomica |      2.12
+ Región de Murcia           |    2019 | autonomica |      2.19
+ Región de Murcia           |    2020 | autonomica |      2.20
+ Región de Murcia           |    2021 | autonomica |      2.49
+ Región de Murcia           |    2022 | autonomica |      2.53
+ Región de Murcia           |    2023 | autonomica |      2.66
+ Región de Murcia           |    2024 | autonomica |      2.85
+ Región de Murcia           |    2025 | autonomica |      2.97
+ Región de Murcia           |    2026 | autonomica |      2.97
+(204 filas)
+
+== TEST 2 · PLAUSIBILIDAD (sanidad €/hab; banda 900-2300) ==
+  Aragón         1/12 fuera (ALTO→doble conteo): 2015:2301
+  Asturias       2/12 fuera (ALTO→doble conteo): 2025:2422 2026:2524
+  País Vasco     2/12 fuera (ALTO→doble conteo): 2025:2311 2026:2406
+
+== TEST 1 · CONTINUIDAD (salto sanidad/total año-a-año > ±40%) ==
+  Aragón         2015→2016 san×0.59
+
+== TEST 3 · CONTINUIDAD POR CONCEPTO (AVISO, no bloquea; salto > ±60% en concepto ≥ 20 M€) ==
+  Andalucía      2015→2016 empleo×0.55 | 2016→2017 igualdad×27.76 | 2019→2020 empleo×2.16 | 2019→2020 salud_mental×0.21 | 2020→2021 idi×0.61 | 2020→2021 salud_mental×4.02  (+2 más)
+  Aragón         2015→2016 turismo×1.81 | 2015→2016 sanidad×0.59 | 2015→2016 empleo×0.62 | 2015→2016 vivienda×0.25 | 2016→2017 vivienda×1.90 | 2021→2022 turismo×2.17  (+4 más)
+  Asturias       2022→2023 turismo×2.36 | 2022→2023 vivienda×2.01
+  Baleares       2017→2018 turismo×2.21 | 2017→2018 idi×1.88 | 2018→2019 turismo×0.41 | 2019→2020 empleo×0.19 | 2019→2020 salud_mental×14.01 | 2020→2021 empleo×4.83  (+10 más)
+  C. Valenciana  2015→2016 vivienda×1.99 | 2018→2019 vivienda×1.66 | 2019→2020 discapacidad×0.18 | 2021→2022 idi×1.71 | 2021→2022 vivienda×1.76 | 2024→2025 salud_mental×9.56
+  Cantabria      2015→2016 idi×0.58 | 2019→2020 idi×2.09 | 2021→2022 vivienda×0.60
+  Cast-La Mancha 2015→2016 direccion×0.59 | 2020→2021 turismo×2.29 | 2020→2021 vivienda×1.87 | 2022→2023 vivienda×2.10
+  Cast. y León   2015→2016 turismo×0.58 | 2022→2023 turismo×2.85
+  Cataluña       2016→2017 salud_mental×1.65 | 2021→2022 diversidad×2.17 | 2021→2022 vivienda×2.71 | 2025→2026 igualdad×1.75
+  Extremadura    2021→2022 igualdad×1.67
+  Galicia        2018→2019 igualdad×1.70 | 2020→2021 turismo×1.73
+  La Rioja       2015→2016 empleo×0.43 | 2016→2017 dependencia×0.52 | 2016→2017 direccion×0.09 | 2017→2018 dependencia×0.17 | 2021→2022 turismo×0.61
+  Madrid         2015→2016 turismo×1.94 | 2015→2016 idi×0.03 | 2015→2016 empleo×2.22 | 2017→2018 idi×7.72 | 2021→2022 turismo×1.97 | 2021→2022 soberania×1.81  (+1 más)
+  Murcia         2015→2016 turismo×0.62 | 2015→2016 vivienda×1.61 | 2018→2019 turismo×0.55 | 2019→2020 idi×0.62 | 2019→2020 vivienda×0.52 | 2019→2020 salud_mental×0.47  (+2 más)
+  Navarra        2022→2023 turismo×2.32
+  País Vasco     2025→2026 empleo×0.50
+   (80 avisos — revísalos; NO cuentan como anomalía bloqueante)
+
+== RESULTADO: 6 anomalías (excl. seams documentados) ==
+  (revisa las alertas conocidas: ast/pvc 2025-2026 €/hab por techo de banda; no bloqueantes)
+OK · cierre verde-DB completado.

@@ -1,0 +1,182 @@
+conceptos:
+  sanidad:
+    codigos:
+    - 311*       # planificación e ordenación sanitaria
+    - 312*       # atención primaria + especializada
+    - 411*       # planificación sanitaria
+    - 412*       # asistencia sanitaria
+    - 413*       # salud pública
+    - 510*       # legacy mapping otras CCAA
+    - 412A
+    - 412B
+    - 412C
+    keywords:
+    - sanidad
+    - salud publica
+    - servicio murciano salud
+    - servicio canario salud
+    - servicio andaluz salud
+    - atencion primaria
+    - atencion especializada
+    - sanitaria
+    - osasun
+    - salud
+  educacion:
+    codigos:
+    - 321*       # admin educativa
+    - 322*       # formación profesional → empleo casi siempre
+    - 421*       # ed. infantil/primaria
+    - 422*       # ed. secundaria + universitaria
+    - 423*       # universidades
+    - 421A
+    - 422F
+    keywords:
+    - educacion
+    - ensenanza
+    - ensenyament
+    - hezkuntza
+  soberania:
+    codigos:
+    - 412*       # agricultura/ganadería en algunas CCAA
+    - 531*       # estructuras agrarias
+    - 710*       # política agroalimentaria
+    - 711*
+    - 712*
+    - 713*
+    - 714*
+    keywords:
+    - agricultura
+    - ganaderia
+    - pesca
+    - alimentacion
+    - nekazaritza
+    - soberania alimentaria
+  direccion:
+    # REDEFINIDO 2026-07-27 — Direccion politica (altos cargos del ejecutivo).
+    # Antes era un cajon de sastre: deuda, justicia, tributos, transferencias a
+    # entes locales, informatica, medios y parlamentos. Referencia: programa 912A
+    # de Canarias 'Direccion Politica y Gobierno', replicado en cada consejeria.
+    # Perimetro: ejecutivo estricto (presidencia, vicepresidencia, gabinetes, alta
+    # direccion). EXCLUIDOS parlamento, control externo, defensorias, consejos
+    # consultivos y transparencia. Keywords VACIAS a proposito: mapeo por codigo
+    # exacto para que no vuelva a capturar por texto. Ver logs/progreso.md.
+    # 112E SERVICIOS GRALES SECRETARIA GRAL DE LA PRESIDENCIA (2020-2026, 0,5-0,7 M).
+    # 2015-2019 quedan NULL: antes de 2020 Murcia solo publica 112A DIRECCION Y SERVICIOS
+    # GENERALES, cuya serie es inestable (64,4 M en 2015, 6,5 M en 2017).
+    codigos:
+    - '112E'
+    keywords: []
+  vivienda:
+    codigos:
+    - 261*       # urbanismo + vivienda
+    - 431*
+    - 451*
+    - 431A
+    keywords:
+    - vivienda
+    - habitatge
+    - etxebizitza
+  empleo:
+    codigos:
+    - 241*       # fomento del empleo
+    - 322*       # formación/empleo
+    - 230*
+    keywords:
+    - empleo
+    - ocupacio
+    - enplegua
+    - fomento del empleo
+  idi:
+    codigos:
+    - 463*       # I+D+i sanitaria
+    - 467*       # I+D
+    - 542*
+    - 561*
+    - 720*
+    - 542A
+    keywords:
+    - investigacion
+    - innovacion
+    - i d i
+    - desarrollo tecnologico
+  dependencia:
+    codigos:
+    - 231D
+    - 232D
+    - 232G
+    - 313D
+    - 313G       # personas mayores (Murcia IMAS 51.03)
+    - 252D
+    keywords:
+    - dependencia
+    - mendekotasun
+    - atencion a la dependencia
+    - personas mayores
+    - mayores
+  discapacidad:
+    codigos:
+    - 231C
+    - 232C
+    - 313C
+    - '314'
+    - 313F
+    keywords:
+    - discapacidad
+    - diversidad funcional
+    - discapacitat
+  salud_mental:
+    # FIX 2026-07-27: 313B AÑADIDO — "PERSONAS CON TRASTORNO MENTAL Y OTROS
+    # COLECTIVOS" (16-20 M€/año, 2015-2019), mal asignado a `diversidad` por
+    # error de transcripción pese a que su propia denominación dice
+    # literalmente "trastorno mental". Ver logs/progreso.md 2026-07-27.
+    codigos:
+    - 313A
+    - 313B
+    - 313E
+    - 414*
+    - 514*
+    - 312D
+    - 412I
+    - 412B
+    keywords:
+    - salud mental
+    - salut mental
+    - buru osasun
+    - drogodependencia
+  diversidad:
+    # FIX 2026-07-27: 313B RETIRADO (mal asignado; es salud mental →
+    # movido arriba). Ver logs/progreso.md.
+    codigos:
+    - 232B
+    - '234'
+    - 266*
+    keywords:
+    - lgtbi
+    - lgbti
+    - migracion
+    - interculturalidad
+    - gitano
+  turismo:
+    codigos:
+    - 432*       # turismo + cultura ligado
+    - 432A
+    - 751*       # promoción turística
+    - 761*
+    - 730*
+    keywords:
+    - turismo
+    - turisme
+    - turismoa
+  igualdad:
+    codigos:
+    - 232*       # igualdad + violencia de género
+    - 323*
+    - 920*
+    - 323A
+    keywords:
+    - igualdad
+    - mujer
+    - violencia de genero
+    - berdintasun
+    - emakume
+    - instituto de la mujer

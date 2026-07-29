@@ -1,0 +1,191 @@
+conceptos:
+  sanidad:
+    codigos:
+    - 311A01      # Dir.y Serv.Gen.de Sanidad
+    - 311B01      # Adm.G.Gerencia Reg.Salud
+    - 312A01      # Atención primaria
+    - 312A02      # Atención especializada
+    - 312A03      # Formac. internos residentes (MIR)
+    - 312A04      # Emergencias sanitarias
+    - 313A01      # Planificación y desarrollo (sanidad)
+    - 313B01      # Salud pública
+    - '311*'
+    - '312*'
+    - '313A*'
+    - '313B*'
+    keywords:
+    - sanidad
+    - salud publica
+    - atencion sanitaria
+    - atención primaria
+    - atención especializada
+    - sacyl
+  educacion:
+    codigos:
+    - 321A01      # Dir.y Serv.Gen. Educación
+    - 322A01      # Educ. infantil y primaria
+    - 322A02      # Educ.secundaria F.P. ed.especial
+    - 322A03      # Educ.comp.permanente y a distancia
+    - 322A04      # Servicios complementarios enseñanza
+    - 322A05      # Mejora calidad enseñanza
+    - 322B01      # Enseñanzas universitarias
+    - 322C01      # Enseñanza agraria
+    - '321*'
+    - '322*'
+    - '323*'
+    keywords:
+    - educacion
+    - educación
+    - enseñanza
+    - escolar
+    - universitari
+    - formación profesional
+  soberania:
+    codigos:
+    - 411A01      # Adm.General Agraria
+    - 411A02      # Adm.y Serv.Gen.I.T.A.
+    - 412A01      # Apoyo empresa agraria
+    - 412B01      # FEAGA Reg. mercados
+    - 412B02      # Gest.ayudas agrar.FEAGA
+    - 412C01      # Producción agraria
+    - 413A01      # Comerc.indust.y cont.calidad agroalim
+    - 414A01      # Reforma agraria
+    - '411*'
+    - '412*'
+    - '413*'
+    - '414*'
+    keywords:
+    - agraria
+    - agropecuari
+    - agricultura
+    - ganadería
+    - pesca
+    - alimentaria
+    - feaga
+  direccion:
+    # REDEFINIDO 2026-07-27 — Direccion politica (altos cargos del ejecutivo).
+    # Antes era un cajon de sastre: deuda, justicia, tributos, transferencias a
+    # entes locales, informatica, medios y parlamentos. Referencia: programa 912A
+    # de Canarias 'Direccion Politica y Gobierno', replicado en cada consejeria.
+    # Perimetro: ejecutivo estricto (presidencia, vicepresidencia, gabinetes, alta
+    # direccion). EXCLUIDOS parlamento, control externo, defensorias, consejos
+    # consultivos y transparencia. Keywords VACIAS a proposito: mapeo por codigo
+    # exacto para que no vuelva a capturar por texto. Ver logs/progreso.md.
+    # 912A01 PRESIDENCIA DE LA JUNTA (12/12, 1,0-1,8 M) y 912A02 VICEPRESIDENCIA
+    # (2023-2024). DESVIACION deliberada respecto del borrador, que proponia 921A01 Dir.y
+    # Serv.G.Presidencia (13-22 M): 921A01 es la D.S.G. del departamento, mas ancha que el
+    # perimetro acordado. 912A01/02 es el equivalente estricto.
+    codigos:
+    - '912A01'
+    - '912A02'
+    keywords: []
+  vivienda:
+    codigos:
+    - 261A01      # Arquitectura
+    - 261A02      # Vivienda
+    - 261B01      # Ord.territ.y urbanismo
+    - '261*'
+    - '431*'
+    - '451*'
+    keywords:
+    - vivienda
+    - habitatge
+    - urbanismo
+  empleo:
+    codigos:
+    - 241B01      # Gestión del empleo
+    - 241B02      # Formación ocupacional
+    - 241B03      # Empleo y formación pers.discap.
+    - 241B04      # Intermediación laboral
+    - 241C01      # Economía social y pers.discap
+    - 241C02      # Seg.y salud lab.y rel.lab
+    - '241*'
+    - '322C*'
+    keywords:
+    - empleo
+    - ocupacional
+    - intermediación laboral
+    - economía social
+    - relaciones laborales
+    - autoocupación
+  idi:
+    codigos:
+    - 467B01      # Investigación aplicada y desarrollo sectorial
+    - 467B02      # Eficiencia energética y energías renovables
+    - 467B04      # Investigación científica orientada y no orientada
+    - 467B05      # Innovación
+    - 491A01      # Tec. inf. y comun. Adm.Reg
+    - 491A02      # Promo. telecom. y soc. información
+    - '463*'
+    - '467*'
+    - '491*'
+    - '541*'
+    - '542*'
+    keywords:
+    - investigacion
+    - investigación
+    - innovacion
+    - innovación
+    - i+d+i
+    - desarrollo tecnologico
+    - desarrollo tecnológico
+    - tecnología
+  dependencia:
+    codigos:
+    - 212A01      # Pensiones y otras prestaciones económicas
+    - 231B02      # Servicios sociales básicos e inclusión social
+    - 231B04      # Atención personas mayores
+    - 231B06      # Promoción y apoyo familia
+    keywords:
+    - dependencia
+    - personas mayores
+    - servicios sociales
+    - pensiones
+    - prestaciones
+  discapacidad:
+    codigos:
+    - 231B03      # Atención personas con discapacidad
+    keywords:
+    - discapacidad
+    - diversidad funcional
+    - discapacitat
+  salud_mental:
+    codigos:
+    - 231B07      # Intervención en drogodependencias
+    keywords:
+    - salud mental
+    - drogodepend
+    - addicc
+  diversidad:
+    codigos:
+    - 231B05      # Atención a la infancia
+    - 231B08      # Migraciones y cooperación al desarrollo
+    - 232A02      # Promoción y servicios juventud
+    keywords:
+    - lgtbi
+    - lgbti
+    - migracion
+    - migración
+    - cooperación al desarrollo
+    - infancia
+    - juventud
+  turismo:
+    codigos:
+    - 432A01      # Ordenación, promoción y gestión turismo
+    - '432*'
+    - '751*'
+    - '761*'
+    - '730*'
+    keywords:
+    - turismo
+    - turisme
+  igualdad:
+    codigos:
+    - 232A01      # Promoción y apoyo mujer
+    - '232*'
+    - '323*'
+    - '920*'
+    keywords:
+    - igualdad
+    - mujer
+    - violencia de genero

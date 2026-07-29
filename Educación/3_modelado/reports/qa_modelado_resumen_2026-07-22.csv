@@ -1,0 +1,11 @@
+indicador,mape,mae,n
+abandono_temprano,0.1385,1.6833,51
+escolarizacion_0_2,0.0853,3.44,51
+formacion_adultos_25_64,0.0773,1.1333,51
+gasto_edu_pib,0.058,0.2263,17
+gasto_por_alumno,0.0277,203.7042,17
+graduacion_eso,0.0181,1.5326,51
+idoneidad_15,0.0191,1.46,51
+neet_15_29,0.123,1.6159,51
+nivel_bajo_25_64,0.033,1.1135,51
+nivel_superior_25_34,0.045,2.3333,51

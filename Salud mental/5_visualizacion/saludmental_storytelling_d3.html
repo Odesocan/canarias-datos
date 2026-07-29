@@ -1,0 +1,1001 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>CED · Salud mental · Canarias en Datos</title>
+<script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+</head>
+<body>
+
+<div id="ced-saludmental-d3"
+     class="ced-saludmental-d3"
+     data-supabase-url="https://kdpsjutsgvghdtzoskkg.supabase.co"
+     data-supabase-key="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImtkcHNqdXRzZ3ZnaGR0em9za2tnIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc2NTE5MTczMSwiZXhwIjoyMDgwNzY3NzMxfQ.rOOF4L206z0LiJ5mq6QQxHZ3HV6ZDjhSN_WQ-PRw72s"
+     data-supabase-schema="canendatos"
+     data-supabase-table="ced_saludmental"
+     data-csv="../4_carga/ced_saludmental.csv"
+     data-geojson-url="https://gisco-services.ec.europa.eu/distribution/v2/nuts/geojson/NUTS_RG_01M_2021_4326_LEVL_2.geojson">
+  <style>
+    /* ================================================================
+       Paleta complementaria a #0de67d (verde mint)
+       - Principal:   #0de67d
+       - Verde profundo (texto/acento): #074d2a
+       - Verde oscuro (líneas/CCAA destacadas): #0a8a4d
+       - Verde claro (bg suave):        #e8fbf0
+       - Complementario magenta:        #e60d76
+       - Tinta neutra:                  #142019
+       ================================================================ */
+    #ced-saludmental-d3 {
+      --ced-bg:#f5fbf7; --ced-surface:#fff; --ced-ink:#142019; --ced-muted:#5a7666;
+      --ced-line:#cfe6d8; --ced-soft:#e8fbf0;
+      --ced-green:#0de67d; --ced-green-dark:#0a8a4d; --ced-green-deep:#074d2a;
+      --ced-magenta:#e60d76; --ced-magenta-soft:#fce4ef;
+      --ced-shadow:0 16px 40px rgba(7,77,42,.10);
+      width:100%; max-width:100%; overflow-x:hidden; color:var(--ced-ink);
+      font-family:Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      letter-spacing:0; background:var(--ced-bg); padding:24px 18px 36px;
+    }
+    #ced-saludmental-d3, #ced-saludmental-d3 * { box-sizing:border-box; }
+    #ced-saludmental-d3 button, #ced-saludmental-d3 select { font:inherit; }
+    #ced-saludmental-d3 .ced-header { background:var(--ced-surface); border:1px solid var(--ced-line); border-radius:10px; overflow:hidden; }
+    #ced-saludmental-d3 .ced-header-inner { padding:22px 24px 18px; display:grid; grid-template-columns:minmax(0,1fr) auto; gap:18px; align-items:end; }
+    #ced-saludmental-d3 .ced-eyebrow { color:var(--ced-green-dark); font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.06em; }
+    #ced-saludmental-d3 h2 { margin:5px 0 6px; font-size:clamp(28px,3.6vw,46px); line-height:1.05; font-weight:760; color:var(--ced-ink); padding:0; }
+    #ced-saludmental-d3 .ced-lead { max-width:790px; color:var(--ced-muted); font-size:15px; line-height:1.55; }
+    #ced-saludmental-d3 .ced-actions { display:flex; gap:10px; align-items:center; justify-content:flex-end; flex-wrap:wrap; }
+    #ced-saludmental-d3 .ced-btn { border:1px solid var(--ced-line); background:var(--ced-surface); color:var(--ced-ink); min-height:38px; padding:0 14px; border-radius:7px; cursor:pointer; display:inline-flex; align-items:center; gap:8px; white-space:nowrap; font-weight:600; }
+    #ced-saludmental-d3 .ced-btn.is-primary { background:var(--ced-green); border-color:var(--ced-green); color:var(--ced-green-deep); }
+    #ced-saludmental-d3 .ced-btn:hover { box-shadow:0 4px 10px rgba(10,138,77,.18); }
+    #ced-saludmental-d3 .ced-toolbar { padding:14px 24px; display:flex; gap:14px; flex-wrap:wrap; align-items:center; border-top:1px solid var(--ced-line); }
+    #ced-saludmental-d3 .ced-control { display:grid; gap:5px; }
+    #ced-saludmental-d3 .ced-control label { color:var(--ced-muted); font-size:11px; font-weight:650; text-transform:uppercase; letter-spacing:.05em; }
+    #ced-saludmental-d3 select { min-height:38px; border:1px solid var(--ced-line); border-radius:7px; background:var(--ced-surface); color:var(--ced-ink); padding:0 30px 0 10px; min-width:200px; }
+    #ced-saludmental-d3 .ced-main { padding:20px 0 0; display:grid; grid-template-columns:300px minmax(0,1fr); gap:20px; }
+    #ced-saludmental-d3 .ced-story-nav { display:grid; gap:10px; align-self:start; position:sticky; top:12px; }
+    #ced-saludmental-d3 .ced-story-step { border:1px solid var(--ced-line); border-left:4px solid transparent; background:var(--ced-surface); border-radius:8px; text-align:left; padding:14px; cursor:pointer; color:var(--ced-ink); font-family:inherit; }
+    #ced-saludmental-d3 .ced-story-step.is-active { border-left-color:var(--ced-green); box-shadow:var(--ced-shadow); }
+    #ced-saludmental-d3 .ced-story-step strong { display:block; font-size:14px; margin-bottom:4px; }
+    #ced-saludmental-d3 .ced-story-step span { display:block; color:var(--ced-muted); font-size:12.5px; line-height:1.45; }
+    #ced-saludmental-d3 .ced-stage { min-width:0; display:grid; gap:16px; }
+    #ced-saludmental-d3 .ced-kpi-row { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:10px; }
+    #ced-saludmental-d3 .ced-kpi { background:var(--ced-surface); border:1px solid var(--ced-line); border-radius:8px; padding:13px 14px; }
+    #ced-saludmental-d3 .ced-kpi-label { color:var(--ced-muted); font-size:11px; line-height:1.25; min-height:30px; text-transform:uppercase; letter-spacing:.04em; font-weight:650; }
+    #ced-saludmental-d3 .ced-kpi-value { margin-top:8px; font-size:24px; line-height:1; font-weight:760; color:var(--ced-green-deep); }
+    #ced-saludmental-d3 .ced-kpi-note { margin-top:6px; color:var(--ced-muted); font-size:12px; }
+    #ced-saludmental-d3 .ced-panel { background:var(--ced-surface); border:1px solid var(--ced-line); border-radius:10px; box-shadow:var(--ced-shadow); overflow:hidden; }
+    #ced-saludmental-d3 .ced-panel-head { padding:16px 18px 10px; display:flex; justify-content:space-between; gap:14px; align-items:flex-start; border-bottom:1px solid var(--ced-line); }
+    #ced-saludmental-d3 .ced-panel-title { font-size:18px; font-weight:760; margin:0 0 4px; }
+    #ced-saludmental-d3 .ced-panel-sub { color:var(--ced-muted); font-size:13px; line-height:1.45; }
+    #ced-saludmental-d3 .ced-badge { color:var(--ced-green-deep); background:var(--ced-soft); border:1px solid var(--ced-green); border-radius:999px; padding:5px 9px; font-size:11px; font-weight:700; white-space:nowrap; text-transform:uppercase; letter-spacing:.03em; }
+    #ced-saludmental-d3 .ced-chart-wrap { min-height:460px; padding:14px 16px 18px; }
+    #ced-saludmental-d3 .ced-method-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; padding:16px; }
+    #ced-saludmental-d3 .ced-method-grid[hidden] { display:none; }
+    #ced-saludmental-d3 .ced-method-item { border:1px solid var(--ced-line); border-radius:8px; padding:13px; background:#fbfefc; }
+    #ced-saludmental-d3 .ced-method-item h3 { margin:0 0 6px; font-size:14px; color:var(--ced-green-deep); }
+    #ced-saludmental-d3 .ced-method-item p { margin:0; color:var(--ced-muted); font-size:13px; line-height:1.5; }
+    #ced-saludmental-d3 .ced-source-strip { border-top:1px solid var(--ced-line); padding:12px 16px; color:var(--ced-muted); font-size:12px; display:flex; flex-wrap:wrap; gap:8px 18px; justify-content:space-between; background:#fbfefc; }
+    #ced-saludmental-d3 .ced-axis text { fill:var(--ced-muted); font-size:11.5px; }
+    #ced-saludmental-d3 .ced-axis path, #ced-saludmental-d3 .ced-axis line { stroke:var(--ced-line); }
+    #ced-saludmental-d3 .ced-grid line { stroke:var(--ced-soft); }
+    #ced-saludmental-d3 svg { width:100%; height:auto; display:block; overflow:visible; }
+    #ced-saludmental-d3 .ced-map-region { transition:fill .15s ease, stroke-width .15s ease; cursor:pointer; }
+    #ced-saludmental-d3 .ced-map-region:hover { stroke:var(--ced-ink); stroke-width:2px; }
+    #ced-saludmental-d3 .ced-tooltip { position:fixed; z-index:999999; pointer-events:none; background:rgba(20,32,25,.96); color:white; padding:10px 12px; border-radius:7px; font-size:12px; line-height:1.45; opacity:0; transform:translate(-50%, calc(-100% - 10px)); min-width:160px; box-shadow:0 10px 30px rgba(0,0,0,.25); }
+    #ced-saludmental-d3 .ced-tooltip strong { display:block; font-size:13px; margin-bottom:3px; color:white; }
+    #ced-saludmental-d3 .ced-tooltip-metric { display:block; margin:1px 0 4px; color:#a8e6c5; font-size:11px; line-height:1.25; font-weight:600; }
+    #ced-saludmental-d3 .ced-tooltip-value { display:block; margin:5px 0 4px; color:white; font-size:20px; line-height:1.1; font-weight:800; text-align:center; }
+    #ced-saludmental-d3 .ced-tooltip-extra { display:block; color:#cfe6d8; font-size:11px; margin-top:4px; }
+    #ced-saludmental-d3 .ced-loading { color:var(--ced-muted); padding:24px; }
+    #ced-saludmental-d3 .ced-legend { display:flex; gap:14px; align-items:center; flex-wrap:wrap; padding:6px 0 0; font-size:12px; color:var(--ced-muted); }
+    #ced-saludmental-d3 .ced-legend-swatch { display:inline-block; width:14px; height:14px; border-radius:3px; margin-right:6px; vertical-align:middle; }
+    #ced-saludmental-d3 .ced-line-canarias { stroke:var(--ced-magenta); stroke-width:2.6px; fill:none; }
+    #ced-saludmental-d3 .ced-line-other { stroke:var(--ced-green-dark); stroke-width:1.1px; fill:none; opacity:.35; }
+    #ced-saludmental-d3 .ced-line-state { stroke:var(--ced-ink); stroke-width:1.6px; stroke-dasharray:4 3; fill:none; }
+    #ced-saludmental-d3 .ced-bar-h { fill:var(--ced-green); }
+    #ced-saludmental-d3 .ced-bar-m { fill:var(--ced-magenta); }
+    @media (max-width:980px) {
+      #ced-saludmental-d3 .ced-header-inner, #ced-saludmental-d3 .ced-main { grid-template-columns:1fr; }
+      #ced-saludmental-d3 .ced-story-nav { position:static; grid-template-columns:repeat(2,minmax(0,1fr)); }
+      #ced-saludmental-d3 .ced-kpi-row, #ced-saludmental-d3 .ced-method-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+    }
+    @media (max-width:640px) {
+      #ced-saludmental-d3 .ced-kpi-row, #ced-saludmental-d3 .ced-method-grid { grid-template-columns:1fr; }
+    }
+  </style>
+
+  <section class="ced-header">
+    <div class="ced-header-inner">
+      <div>
+        <div class="ced-eyebrow">Canarias en Datos · CED-01 Salud mental</div>
+        <h2>Salud mental: prevalencia, fármacos y suicidios contados como ejes estructurales del bienestar.</h2>
+        <div class="ced-lead">Pieza D3 conectada al pipeline ETL del Observatorio: prevalencia de trastornos mentales, consumo de antidepresivos y hipnosedantes (DHD) y mortalidad por suicidio. Variables visibles más etiquetas con población absoluta para cada CCAA, con horizonte proyectado hasta 2026.</div>
+      </div>
+      <div class="ced-actions">
+        <button class="ced-btn" type="button" data-ced-method>Metodología</button>
+        <button class="ced-btn is-primary" type="button" data-ced-download>Descargar CSV</button>
+      </div>
+    </div>
+    <div class="ced-toolbar">
+      <div class="ced-control"><label>Indicador</label><select data-ced-metric></select></div>
+      <div class="ced-control"><label>Periodo</label><select data-ced-year></select></div>
+      <div class="ced-control"><label>Género</label><select data-ced-gender>
+        <option value="total">Total</option>
+        <option value="hombres">Hombres</option>
+        <option value="mujeres">Mujeres</option>
+      </select></div>
+    </div>
+  </section>
+
+  <div class="ced-main">
+    <nav class="ced-story-nav" aria-label="Capítulos narrativos">
+      <button class="ced-story-step is-active" data-ced-step="context" type="button"><strong>1. Situar Canarias</strong><span>Mapa coroplético para comparar Canarias con el resto de comunidades.</span></button>
+      <button class="ced-story-step" data-ced-step="evolution" type="button"><strong>2. Evolución</strong><span>Serie temporal: real hasta el último año disponible y proyección hasta 2026.</span></button>
+      <button class="ced-story-step" data-ced-step="gender" type="button"><strong>3. Brecha de género</strong><span>Comparación hombres-mujeres por comunidad para el indicador seleccionado.</span></button>
+      <button class="ced-story-step" data-ced-step="method" type="button"><strong>4. Cómo se construye</strong><span>Fuentes, imputación de género, modelado y proyección.</span></button>
+    </nav>
+    <section class="ced-stage">
+      <div class="ced-kpi-row" data-ced-kpis></div>
+      <section class="ced-panel">
+        <div class="ced-panel-head">
+          <div>
+            <div class="ced-panel-title" data-ced-title>Situar Canarias</div>
+            <div class="ced-panel-sub" data-ced-sub>Cargando datos…</div>
+          </div>
+          <div class="ced-badge" data-ced-badge>Pipeline ETL</div>
+        </div>
+        <div class="ced-chart-wrap" data-ced-chart>
+          <div class="ced-loading">Cargando ced_saludmental.csv…</div>
+        </div>
+        <div class="ced-method-grid" data-ced-method-grid hidden>
+          <div class="ced-method-item">
+            <h3>Fuentes de datos</h3>
+            <p>API <strong>INCLASNS</strong> (Indicadores Clave del SNS) para prevalencia de trastornos mentales y DHD de antidepresivos e hipnosedantes. <strong>INE 46688</strong> (mortalidad por suicidio) e <strong>INE 56940</strong> (censo trimestral).</p>
+          </div>
+          <div class="ced-method-item">
+            <h3>Imputación de género</h3>
+            <p>El portal del SNS solo publica el agregado total para los DHD. Reconstruimos hombres y mujeres aplicando la brecha relativa observada en la prevalencia de trastornos mentales por género para cada CCAA y año.</p>
+          </div>
+          <div class="ced-method-item">
+            <h3>Variables-etiqueta</h3>
+            <p>Multiplicamos las tasas por el censo anual (media de los cuatro trimestres) para mostrar valores absolutos en los tooltips: personas con trastornos mentales, dosis anuales totales y muertes por suicidio.</p>
+          </div>
+          <div class="ced-method-item">
+            <h3>Modelado y proyección</h3>
+            <p>El pipeline compara <strong>ARIMA · ETS · Prophet · Random Forest · XGBoost</strong> con validación cruzada temporal (3 folds, NMAE) y aplica el algoritmo con menor error global. Proyección hasta <strong>2026</strong>.</p>
+          </div>
+          <div class="ced-method-item">
+            <h3>Actualización</h3>
+            <p>Anual. La extracción consume APIs públicas, normaliza códigos CCAA, integra el censo trimestral por edades y persiste un único dataset homogeneizado en Supabase (<code>canendatos.ced_saludmental</code>).</p>
+          </div>
+          <div class="ced-method-item">
+            <h3>Origen de cada fila</h3>
+            <p>Cada fila lleva la marca <code>origen = real | proyeccion</code>. Si al menos una variable es proyectada, la fila se marca como proyección para no mezclar evidencia con extrapolación en los KPIs.</p>
+          </div>
+        </div>
+        <div class="ced-source-strip">
+          <span>Fuentes: Ministerio de Sanidad (INCLASNS) · INE</span>
+          <span>Última actualización: 2026 (proyección 2025-2026)</span>
+        </div>
+      </section>
+    </section>
+  </div>
+  <div class="ced-tooltip" data-ced-tooltip></div>
+
+<script>
+(function(){
+  "use strict";
+  const root = document.getElementById("ced-saludmental-d3");
+  if (!root) return;
+
+  // Paleta secuencial discretizada (6 pasos) coherente con la línea visual del CED
+  const MAP_PALETTE = ["#e8fbf0", "#bde8d2", "#7ddca8", "#3cc880", "#0a8a4d", "#063a20"];
+
+  // -------------------- Configuración de variables --------------------
+  const VARIABLES = {
+    t_mental: {
+      label: "Prevalencia de trastornos mentales",
+      short: "Trastornos mentales",
+      unit: "% población",
+      format: d3.format(".1f"),
+      suffix: " %",
+      labelExtra: row => row.n_personas_tm
+        ? `≈ ${d3.format(",.0f")(row.n_personas_tm).replace(/,/g,".")} personas`
+        : null
+    },
+    antidep_ajustado: {
+      label: "Consumo de antidepresivos (DHD)",
+      short: "Antidepresivos",
+      unit: "DHD",
+      format: d3.format(".1f"),
+      suffix: " DHD",
+      labelExtra: row => row.antidep_anual_total
+        ? `≈ ${d3.format(",.0f")(row.antidep_anual_total).replace(/,/g,".")} dosis/año`
+        : null
+    },
+    hipno_ajustado: {
+      label: "Consumo de hipnosedantes (DHD)",
+      short: "Hipnosedantes",
+      unit: "DHD",
+      format: d3.format(".1f"),
+      suffix: " DHD",
+      labelExtra: row => row.hipno_anual_total
+        ? `≈ ${d3.format(",.0f")(row.hipno_anual_total).replace(/,/g,".")} dosis/año`
+        : null
+    },
+    suicidios: {
+      label: "Tasa de suicidio",
+      short: "Suicidios",
+      unit: "/100.000 hab.",
+      format: d3.format(".2f"),
+      suffix: " /100k",
+      labelExtra: row => row.n_suicidios
+        ? `≈ ${d3.format(",.0f")(row.n_suicidios).replace(/,/g,".")} muertes`
+        : null
+    }
+  };
+
+  // Mapeo CCAA → código NUTS-2 (para el GeoJSON de Eurostat)
+  const NUTS_FOR_CCAA = {
+    "Andalucía": "ES61",
+    "Aragón": "ES24",
+    "Principado de Asturias": "ES12",
+    "Islas Baleares": "ES53",
+    "Canarias": "ES70",
+    "Cantabria": "ES13",
+    "Castilla y León": "ES41",
+    "Castilla-La Mancha": "ES42",
+    "Cataluña": "ES51",
+    "Comunidad Valenciana": "ES52",
+    "Extremadura": "ES43",
+    "Galicia": "ES11",
+    "Comunidad de Madrid": "ES30",
+    "Región de Murcia": "ES62",
+    "Comunidad Foral de Navarra": "ES22",
+    "País Vasco": "ES21",
+    "La Rioja": "ES23"
+  };
+
+  // -------------------- Estado --------------------
+  const state = {
+    metric: "t_mental",
+    gender: "total",
+    year: null,
+    step: "context",
+    rows: [],
+    geo: null
+  };
+
+  // -------------------- Helpers DOM --------------------
+  const $ = sel => root.querySelector(sel);
+  const $$ = sel => Array.from(root.querySelectorAll(sel));
+  const tooltip = $("[data-ced-tooltip]");
+
+  function showTip(html, evt) {
+    tooltip.innerHTML = html;
+    tooltip.style.left = evt.clientX + "px";
+    tooltip.style.top  = evt.clientY + "px";
+    tooltip.style.opacity = 1;
+  }
+  function moveTip(evt) {
+    tooltip.style.left = evt.clientX + "px";
+    tooltip.style.top  = evt.clientY + "px";
+  }
+  function hideTip() { tooltip.style.opacity = 0; }
+
+  // -------------------- Carga de datos --------------------
+  // Precarga: los datos se descargan una sola vez al iniciar y se cachean en
+  // state.rows. Los selectores (indicador, periodo, género, capítulo) solo
+  // filtran en memoria — no hay consultas en tiempo real a Supabase.
+  const NUMERIC_FIELDS = [
+    "t_mental","antidep_ajustado","hipno_ajustado","suicidios","brecha_rel","censo",
+    "n_personas_tm","antidep_anual_total","hipno_anual_total","n_suicidios"
+  ];
+
+  function parseCsvRow(d) {
+    const out = { ccaa: d.ccaa, genero: d.genero, origen: d.origen, periodo: +d.periodo };
+    NUMERIC_FIELDS.forEach(k => {
+      const v = d[k];
+      if (v == null || v === "" || v === "NA") out[k] = null;
+      else out[k] = +String(v).replace(",", ".");
+    });
+    return out;
+  }
+
+  function parseApiRow(d) {
+    const out = { ccaa: d.ccaa, genero: d.genero, origen: d.origen, periodo: +d.periodo };
+    NUMERIC_FIELDS.forEach(k => {
+      const v = d[k];
+      out[k] = (v == null) ? null : +v;
+    });
+    return out;
+  }
+
+  async function loadDataFromSupabase() {
+    const url = root.dataset.supabaseUrl;
+    const key = root.dataset.supabaseKey;
+    const schema = root.dataset.supabaseSchema || "canendatos";
+    const table = root.dataset.supabaseTable || "ced_saludmental";
+    if (!url || !key) throw new Error("Supabase no configurado");
+
+    const pageSize = 1000;
+    const all = [];
+    for (let offset = 0; ; offset += pageSize) {
+      const resp = await fetch(
+        `${url}/rest/v1/${encodeURIComponent(table)}?select=*&limit=${pageSize}&offset=${offset}`,
+        { headers: {
+            apikey: key,
+            Authorization: `Bearer ${key}`,
+            "Accept-Profile": schema
+          } }
+      );
+      if (!resp.ok) {
+        const txt = await resp.text();
+        throw new Error(`Supabase ${resp.status}: ${txt}`);
+      }
+      const page = await resp.json();
+      all.push(...page);
+      if (page.length < pageSize) break;
+    }
+    return all.map(parseApiRow);
+  }
+
+  async function loadDataFromCsv() {
+    const csvUrl = root.getAttribute("data-csv");
+    return d3.dsv(";", csvUrl, parseCsvRow);
+  }
+
+  async function loadData() {
+    if (root.dataset.supabaseUrl && root.dataset.supabaseKey) {
+      try {
+        const rows = await loadDataFromSupabase();
+        if (rows.length > 0) {
+          root.dataset.cedSource = "supabase";
+          return rows;
+        }
+        console.warn("CED Salud mental: Supabase devolvió 0 filas, fallback a CSV");
+      } catch (err) {
+        console.warn("CED Salud mental: Supabase falló, fallback a CSV", err);
+      }
+    }
+    try {
+      const rows = await loadDataFromCsv();
+      root.dataset.cedSource = "csv";
+      return rows;
+    } catch (err) {
+      $("[data-ced-chart]").innerHTML =
+        `<div class="ced-loading">No se pudo cargar los datos. ${err}</div>`;
+      throw err;
+    }
+  }
+
+  function loadGeo() {
+    const url = root.getAttribute("data-geojson-url");
+    return d3.json(url).then(geo => {
+      // Filtrar a NUTS-2 españolas (códigos ES**) para reducir geometría
+      geo.features = geo.features.filter(f => /^ES\d{2}$/.test(f.properties.NUTS_ID || f.properties.id));
+      return geo;
+    }).catch(() => null);
+  }
+
+  // -------------------- Inicialización UI --------------------
+  function initToolbar() {
+    const sel = $("[data-ced-metric]");
+    Object.entries(VARIABLES).forEach(([k, v]) => {
+      const opt = document.createElement("option");
+      opt.value = k; opt.textContent = v.label;
+      sel.appendChild(opt);
+    });
+    sel.value = state.metric;
+    sel.addEventListener("change", () => { state.metric = sel.value; render(); });
+
+    $("[data-ced-gender]").addEventListener("change", e => {
+      state.gender = e.target.value; render();
+    });
+
+    $$("[data-ced-step]").forEach(btn => {
+      btn.addEventListener("click", () => {
+        state.step = btn.dataset.cedStep;
+        $$("[data-ced-step]").forEach(b => b.classList.remove("is-active"));
+        btn.classList.add("is-active");
+        render();
+      });
+    });
+
+    $("[data-ced-method]").addEventListener("click", () => {
+      state.step = "method";
+      $$("[data-ced-step]").forEach(b => b.classList.toggle("is-active", b.dataset.cedStep === "method"));
+      render();
+    });
+
+    $("[data-ced-download]").addEventListener("click", downloadCsv);
+  }
+
+  function initYearSelector() {
+    const years = Array.from(new Set(state.rows.map(r => r.periodo))).sort((a,b)=>a-b);
+    const sel = $("[data-ced-year]");
+    sel.innerHTML = "";
+    years.forEach(y => {
+      const opt = document.createElement("option");
+      opt.value = y; opt.textContent = y;
+      sel.appendChild(opt);
+    });
+    state.year = years[years.length - 1];
+    sel.value = state.year;
+    sel.addEventListener("change", () => { state.year = +sel.value; render(); });
+  }
+
+  // -------------------- Filtros --------------------
+  function rowsForView() {
+    return state.rows.filter(r => r.genero === state.gender);
+  }
+
+  // Media estatal calculada solo a partir de las CCAA (ponderada por censo)
+  function stateMean(metric, year, gender) {
+    const rs = state.rows.filter(r =>
+      r.periodo === year && r.genero === gender &&
+      r.ccaa !== "Media Estatal" && r[metric] != null
+    );
+    if (rs.length === 0) return null;
+    const w = d3.sum(rs, r => r.censo || 0);
+    if (w > 0) return d3.sum(rs, r => r[metric] * (r.censo || 0)) / w;
+    return d3.mean(rs, r => r[metric]);
+  }
+
+  function stateSeries(metric, gender) {
+    const years = Array.from(new Set(state.rows.map(r => r.periodo))).sort(d3.ascending);
+    return years
+      .map(y => ({ periodo: y, value: stateMean(metric, y, gender) }))
+      .filter(d => d.value != null);
+  }
+
+  function nearestPointAt(values, event, xScale, container) {
+    const svg = container.querySelector("svg");
+    const [mx] = d3.pointer(event, svg);
+    return d3.least(values, d => Math.abs(xScale(d.periodo) - mx)) || values[values.length - 1];
+  }
+
+  // -------------------- KPIs --------------------
+  function renderKpis() {
+    const cfg = VARIABLES[state.metric];
+    const rows = rowsForView().filter(r => r.periodo === state.year && r[state.metric] != null);
+    const natValue = stateMean(state.metric, state.year, state.gender);
+    const can = rows.find(r => r.ccaa === "Canarias");
+    const ccaaOnly = rows.filter(r => r.ccaa !== "Media Estatal");
+    const sorted = ccaaOnly.slice().sort((a,b) => d3.ascending(a[state.metric], b[state.metric]));
+    const lo = sorted[0]; const hi = sorted[sorted.length - 1];
+    const fmt = v => v == null ? "—" : cfg.format(v) + cfg.suffix;
+
+    const cards = [
+      {
+        label: `Media estatal · ${state.year}`,
+        value: fmt(natValue),
+        note: `${cfg.unit} · ponderada por censo`
+      },
+      {
+        label: `Canarias · ${state.year}`,
+        value: fmt(can ? can[state.metric] : null),
+        note: can && natValue != null && can[state.metric] != null
+          ? `${can[state.metric] >= natValue ? "+" : ""}${cfg.format(can[state.metric] - natValue)} vs media estatal`
+          : ""
+      },
+      {
+        label: "Mínimo CCAA",
+        value: lo ? fmt(lo[state.metric]) : "—",
+        note: lo ? lo.ccaa : ""
+      },
+      {
+        label: "Máximo CCAA",
+        value: hi ? fmt(hi[state.metric]) : "—",
+        note: hi ? hi.ccaa : ""
+      }
+    ];
+
+    const cont = $("[data-ced-kpis]");
+    cont.innerHTML = cards.map(c => `
+      <div class="ced-kpi">
+        <div class="ced-kpi-label">${c.label}</div>
+        <div class="ced-kpi-value">${c.value}</div>
+        <div class="ced-kpi-note">${c.note || ""}</div>
+      </div>`).join("");
+  }
+
+  // -------------------- Mapa coroplético --------------------
+  function renderMap() {
+    const cfg = VARIABLES[state.metric];
+    const wrap = $("[data-ced-chart]");
+    wrap.innerHTML = "";
+
+    if (!state.geo) {
+      wrap.innerHTML = `<div class="ced-loading">No se pudo cargar la geometría. Mostrando ranking.</div>`;
+      renderRanking(wrap);
+      return;
+    }
+
+    const w = wrap.clientWidth || 720;
+    const h = 480;
+    const margin = { top: 14, right: 20, bottom: 58, left: 20 };
+    const svg = d3.select(wrap).append("svg").attr("viewBox", `0 0 ${w} ${h}`);
+
+    const yearRows = rowsForView().filter(r => r.periodo === state.year && r[state.metric] != null);
+    const valueByCcaa = new Map(yearRows.map(r => [r.ccaa, r]));
+
+    const getCcaa = f => Object.keys(NUTS_FOR_CCAA).find(k => NUTS_FOR_CCAA[k] === (f.properties.NUTS_ID || f.properties.id));
+
+    const mainlandFeatures = state.geo.features.filter(f => getCcaa(f) !== "Canarias");
+    const canFeature = state.geo.features.find(f => getCcaa(f) === "Canarias");
+    const mainland = { type: "FeatureCollection", features: mainlandFeatures };
+
+    const projection = d3.geoMercator()
+      .fitExtent([[margin.left, margin.top], [w - margin.right, h - margin.bottom]], mainland);
+    const path = d3.geoPath(projection);
+
+    // Escala por cuantiles (5 tramos) — más legible que el gradiente continuo
+    const values = yearRows.map(r => r[state.metric]).filter(Number.isFinite);
+    const extent = d3.extent(values);
+    const uniqueValues = Array.from(new Set(values));
+    const color = uniqueValues.length > 1
+      ? d3.scaleQuantile().domain(values).range(MAP_PALETTE)
+      : () => MAP_PALETTE[Math.floor(MAP_PALETTE.length / 2)];
+
+    function fillFor(ccaa) {
+      const row = valueByCcaa.get(ccaa);
+      return row ? color(row[state.metric]) : "#eef3f0";
+    }
+
+    function tooltipFor(ccaa, evt) {
+      const row = valueByCcaa.get(ccaa);
+      const v = row ? row[state.metric] : null;
+      const extra = row && cfg.labelExtra ? cfg.labelExtra(row) : null;
+      const html = `
+        <strong>${ccaa}</strong>
+        <span class="ced-tooltip-metric">${cfg.short} · ${state.year}</span>
+        <span class="ced-tooltip-value">${v != null ? cfg.format(v) + cfg.suffix : "—"}</span>
+        ${extra ? `<span class="ced-tooltip-extra">${extra}</span>` : ""}
+        ${row ? `<span class="ced-tooltip-extra">${row.origen === "proyeccion" ? "Proyección" : "Dato real"}</span>` : ""}
+      `;
+      showTip(html, evt);
+    }
+
+    const mainlandPaths = svg.append("g").selectAll("path")
+      .data(mainlandFeatures)
+      .join("path")
+      .attr("class", "ced-map-region")
+      .attr("data-ccaa", d => getCcaa(d) || "")
+      .attr("d", path)
+      .attr("fill", d => fillFor(getCcaa(d)))
+      .attr("stroke", "#fff")
+      .attr("stroke-width", 0.7)
+      .on("mousemove", function(evt, d) {
+        const ccaa = getCcaa(d);
+        if (ccaa) tooltipFor(ccaa, evt);
+      })
+      .on("mouseleave", hideTip);
+
+    let canRegion = null;
+    if (canFeature) {
+      const canBounds = path.bounds(canFeature);
+      const canW = Math.max(1, canBounds[1][0] - canBounds[0][0]);
+      const canH = Math.max(1, canBounds[1][1] - canBounds[0][1]);
+      const desiredW = Math.min(150, Math.max(92, w * 0.15));
+      const canScale = desiredW / canW;
+      const targetX = margin.left + w * 0.04;
+      const targetY = h - margin.bottom - Math.max(78, canH * canScale * 0.7);
+      const tx = targetX - canBounds[0][0] * canScale;
+      const ty = targetY - canBounds[0][1] * canScale;
+      const canG = svg.append("g").attr("transform", `translate(${tx},${ty}) scale(${canScale})`);
+      canRegion = canG.append("path")
+        .datum(canFeature)
+        .attr("class", "ced-map-region")
+        .attr("data-ccaa", "Canarias")
+        .attr("d", path)
+        .attr("fill", fillFor("Canarias"))
+        .attr("stroke", "#e60d76")
+        .attr("stroke-width", 1.6 / canScale)
+        .on("mousemove", evt => tooltipFor("Canarias", evt))
+        .on("mouseleave", hideTip);
+      svg.append("text")
+        .attr("x", targetX + desiredW / 2)
+        .attr("y", targetY - 8)
+        .attr("text-anchor", "middle")
+        .attr("fill", "#074d2a")
+        .attr("font-size", 12)
+        .attr("font-weight", 800)
+        .text("Canarias");
+    }
+
+    function highlightMembers(names) {
+      const sel = new Set(names);
+      mainlandPaths
+        .attr("opacity", d => sel.has(getCcaa(d)) ? 1 : 0.16)
+        .attr("stroke", d => sel.has(getCcaa(d)) ? "#142019" : "#fff")
+        .attr("stroke-width", d => sel.has(getCcaa(d)) ? 1.8 : 0.7);
+      if (canRegion) {
+        canRegion
+          .attr("opacity", sel.has("Canarias") ? 1 : 0.16)
+          .attr("stroke", sel.has("Canarias") ? "#142019" : "#e60d76");
+      }
+    }
+
+    function resetHighlight() {
+      mainlandPaths.attr("opacity", 1).attr("stroke", "#fff").attr("stroke-width", 0.7);
+      if (canRegion) canRegion.attr("opacity", 1).attr("stroke", "#e60d76");
+    }
+
+    // Leyenda segmentada por cuantiles + interactividad por tramo
+    const legendW = Math.min(360, w - 70);
+    const legendX = w - legendW - 20;
+    const legendY = h - 36;
+    const legendColors = uniqueValues.length > 1 ? MAP_PALETTE : [MAP_PALETTE[Math.floor(MAP_PALETTE.length / 2)]];
+    const bins = legendColors.map((c, i) => {
+      const range = color.invertExtent ? color.invertExtent(c) : extent;
+      const members = yearRows
+        .filter(r => color(r[state.metric]) === c)
+        .sort((a, b) => d3.descending(a[state.metric], b[state.metric]));
+      return {
+        color: c,
+        index: i,
+        min: range[0] ?? extent[0],
+        max: range[1] ?? extent[1],
+        members
+      };
+    });
+
+    const segW = legendW / legendColors.length;
+    svg.append("g").selectAll("rect.ced-legend-seg")
+      .data(bins).join("rect")
+      .attr("class", "ced-legend-seg")
+      .attr("x", (d, i) => legendX + i * segW)
+      .attr("y", legendY)
+      .attr("width", Math.ceil(segW))
+      .attr("height", 12)
+      .attr("rx", (d, i) => i === 0 || i === bins.length - 1 ? 4 : 0)
+      .attr("fill", d => d.color)
+      .attr("cursor", "pointer")
+      .on("mousemove", function(evt, d) {
+        const names = d.members.map(r => r.ccaa);
+        highlightMembers(names);
+        d3.select(this).attr("stroke", "#142019").attr("stroke-width", 1.4);
+        const list = names.length ? names.join(", ") : "Sin comunidades en este tramo";
+        const html = `
+          <strong>Tramo ${d.index + 1} / ${bins.length}</strong>
+          <span class="ced-tooltip-metric">${cfg.short} · ${state.year}</span>
+          <span class="ced-tooltip-value">${cfg.format(d.min)}${cfg.suffix} – ${cfg.format(d.max)}${cfg.suffix}</span>
+          <span class="ced-tooltip-extra">${list}</span>
+        `;
+        showTip(html, evt);
+      })
+      .on("mouseleave", function() {
+        d3.select(this).attr("stroke", null).attr("stroke-width", null);
+        resetHighlight();
+        hideTip();
+      });
+
+    svg.append("text").attr("x", legendX).attr("y", legendY - 7)
+      .attr("font-size", 11).attr("fill", "#5a7666")
+      .text(`${cfg.short} (${cfg.unit})`);
+    svg.append("text").attr("x", legendX + legendW).attr("y", legendY - 7)
+      .attr("text-anchor", "end").attr("font-size", 10).attr("fill", "#5a7666")
+      .text(uniqueValues.length > 1 ? "cuantiles" : "valor único");
+    svg.append("text").attr("x", legendX).attr("y", legendY + 26)
+      .attr("font-size", 10).attr("fill", "#5a7666")
+      .text(extent[0] != null ? cfg.format(extent[0]) + cfg.suffix : "");
+    svg.append("text").attr("x", legendX + legendW).attr("y", legendY + 26)
+      .attr("text-anchor", "end").attr("font-size", 10).attr("fill", "#5a7666")
+      .text(extent[1] != null ? cfg.format(extent[1]) + cfg.suffix : "");
+  }
+
+  function renderRanking(wrap) {
+    const cfg = VARIABLES[state.metric];
+    const rows = rowsForView()
+      .filter(r => r.periodo === state.year && r.ccaa !== "Media Estatal" && r[state.metric] != null)
+      .sort((a,b) => d3.descending(a[state.metric], b[state.metric]));
+    const w = wrap.clientWidth || 720;
+    const h = Math.max(360, rows.length * 24 + 40);
+    const m = {top:14, right:80, bottom:14, left:160};
+    const svg = d3.select(wrap).append("svg").attr("viewBox", `0 0 ${w} ${h}`);
+    const x = d3.scaleLinear().domain([0, d3.max(rows, r => r[state.metric])]).nice().range([m.left, w - m.right]);
+    const y = d3.scaleBand().domain(rows.map(r => r.ccaa)).range([m.top, h - m.bottom]).padding(0.18);
+
+    svg.append("g")
+      .selectAll("rect")
+      .data(rows)
+      .join("rect")
+      .attr("x", x(0))
+      .attr("y", r => y(r.ccaa))
+      .attr("height", y.bandwidth())
+      .attr("width", r => x(r[state.metric]) - x(0))
+      .attr("fill", r => r.ccaa === "Canarias" ? "#e60d76" : "#0de67d")
+      .attr("opacity", r => r.origen === "proyeccion" ? 0.6 : 1);
+    svg.append("g").attr("transform", `translate(${m.left},0)`).call(d3.axisLeft(y).tickSize(0)).attr("class","ced-axis");
+    svg.append("g").selectAll("text.value")
+      .data(rows).join("text")
+      .attr("class","value")
+      .attr("x", r => x(r[state.metric]) + 6)
+      .attr("y", r => y(r.ccaa) + y.bandwidth()/2 + 4)
+      .attr("font-size", 11.5).attr("fill", "#142019")
+      .text(r => cfg.format(r[state.metric]) + cfg.suffix);
+  }
+
+  // -------------------- Evolución temporal --------------------
+  function renderEvolution() {
+    const cfg = VARIABLES[state.metric];
+    const wrap = $("[data-ced-chart]");
+    wrap.innerHTML = "";
+    const w = wrap.clientWidth || 720;
+    const h = 460;
+    const m = { top: 24, right: 150, bottom: 42, left: 58 };
+    const all = rowsForView().filter(r => r[state.metric] != null && r.ccaa !== "Media Estatal");
+    if (all.length === 0) {
+      wrap.innerHTML = `<div class="ced-loading">No hay datos disponibles para este indicador.</div>`;
+      return;
+    }
+    const series = Array.from(d3.group(all, r => r.ccaa), ([ccaa, vals]) => ({
+      ccaa, values: vals.slice().sort((a,b) => a.periodo - b.periodo)
+    }));
+    const stateLine = stateSeries(state.metric, state.gender);
+
+    const svg = d3.select(wrap).append("svg").attr("viewBox", `0 0 ${w} ${h}`);
+    const x = d3.scaleLinear().domain(d3.extent(all, r => r.periodo)).range([m.left, w - m.right]);
+    const y = d3.scaleLinear().domain([0, d3.max(all, r => r[state.metric])]).nice().range([h - m.bottom, m.top]);
+    const line = d3.line().defined(d => d[state.metric] != null)
+      .x(d => x(d.periodo)).y(d => y(d[state.metric]));
+    const stateLineGen = d3.line().x(d => x(d.periodo)).y(d => y(d.value));
+
+    svg.append("g").attr("class","ced-grid").attr("transform", `translate(${m.left},0)`)
+      .call(d3.axisLeft(y).ticks(5).tickSize(-(w - m.left - m.right)).tickFormat(""))
+      .call(g => g.select(".domain").remove());
+    svg.append("g").attr("class","ced-axis").attr("transform", `translate(0,${h-m.bottom})`)
+      .call(d3.axisBottom(x).ticks(8).tickFormat(d3.format("d")));
+    svg.append("g").attr("class","ced-axis").attr("transform", `translate(${m.left},0)`)
+      .call(d3.axisLeft(y).ticks(5).tickFormat(d => cfg.format(d)));
+    svg.append("text").attr("x", m.left).attr("y", 14)
+      .attr("fill", "#5a7666").attr("font-size", 12).text(`${cfg.short} (${cfg.unit})`);
+
+    const lineLayer = svg.append("g");
+    const stateLayer = svg.append("g");
+    const labelLayer = svg.append("g");
+    const hitLayer = svg.append("g");
+
+    if (stateLine.length > 1) {
+      stateLayer.append("path")
+        .datum(stateLine)
+        .attr("class", "ced-line-state")
+        .attr("d", stateLineGen);
+    }
+
+    const paths = lineLayer.selectAll("path.ced-series").data(series).join("path")
+      .attr("class", "ced-series ced-muted-line")
+      .attr("d", d => line(d.values))
+      .attr("fill", "none")
+      .attr("stroke", d => d.ccaa === "Canarias" ? "#e60d76" : "#0a8a4d")
+      .attr("stroke-width", d => d.ccaa === "Canarias" ? 3 : 1.4)
+      .attr("opacity", d => d.ccaa === "Canarias" ? 1 : 0.4);
+
+    function highlight(name, event) {
+      paths.attr("opacity", d => d.ccaa === name ? 1 : 0.1)
+        .attr("stroke-width", d => d.ccaa === name ? 3.6 : 1)
+        .attr("stroke", d => d.ccaa === name ? "#e60d76" : "#cfe6d8");
+      labelLayer.selectAll("*").remove();
+      const selected = series.find(d => d.ccaa === name);
+      if (!selected) return;
+      const last = selected.values[selected.values.length - 1];
+      labelLayer.append("text")
+        .attr("x", x(last.periodo) + 8).attr("y", y(last[state.metric]))
+        .attr("dy", "0.35em").attr("text-anchor", "start")
+        .attr("fill", "#e60d76").attr("font-size", 13).attr("font-weight", 800)
+        .text(name);
+      selected.values.forEach(d => {
+        labelLayer.append("circle")
+          .attr("cx", x(d.periodo)).attr("cy", y(d[state.metric])).attr("r", 4)
+          .attr("fill", d.origen === "proyeccion" ? "#fff" : "#e60d76")
+          .attr("stroke", "#e60d76").attr("stroke-width", 1.6);
+      });
+      const nearest = nearestPointAt(selected.values, event, x, wrap);
+      const extra = cfg.labelExtra ? cfg.labelExtra(nearest) : null;
+      showTip(`
+        <strong>${name} · ${nearest.periodo}</strong>
+        <span class="ced-tooltip-metric">${cfg.short} (${nearest.origen === "proyeccion" ? "proyección" : "real"})</span>
+        <span class="ced-tooltip-value">${cfg.format(nearest[state.metric])}${cfg.suffix}</span>
+        ${extra ? `<span class="ced-tooltip-extra">${extra}</span>` : ""}
+      `, event);
+    }
+
+    function reset() {
+      paths.attr("opacity", d => d.ccaa === "Canarias" ? 1 : 0.4)
+        .attr("stroke-width", d => d.ccaa === "Canarias" ? 3 : 1.4)
+        .attr("stroke", d => d.ccaa === "Canarias" ? "#e60d76" : "#0a8a4d");
+      labelLayer.selectAll("*").remove();
+      const can = series.find(d => d.ccaa === "Canarias");
+      if (can) {
+        const last = can.values[can.values.length - 1];
+        labelLayer.append("text")
+          .attr("x", x(last.periodo) + 8).attr("y", y(last[state.metric]))
+          .attr("dy", "0.35em").attr("text-anchor", "start")
+          .attr("fill", "#e60d76").attr("font-size", 13).attr("font-weight", 800)
+          .text("Canarias");
+      }
+      hideTip();
+    }
+
+    hitLayer.selectAll("path.ced-line-hit").data(series).join("path")
+      .attr("class", "ced-line-hit")
+      .attr("d", d => line(d.values))
+      .attr("fill", "none")
+      .attr("stroke", "transparent")
+      .attr("stroke-width", 14)
+      .style("cursor", "pointer")
+      .on("mousemove", (event, d) => highlight(d.ccaa, event))
+      .on("mouseleave", reset);
+
+    reset();
+
+    const lg = d3.select(wrap).append("div").attr("class","ced-legend");
+    lg.html(`
+      <span><span class="ced-legend-swatch" style="background:#e60d76"></span>Canarias</span>
+      <span><span class="ced-legend-swatch" style="background:#142019"></span>Media estatal calculada (--)</span>
+      <span><span class="ced-legend-swatch" style="background:#0a8a4d;opacity:.4"></span>Otras CCAA</span>
+      <span style="color:#5a7666">Pasa el ratón por una línea para aislarla</span>
+    `);
+  }
+
+  // -------------------- Brecha de género (dumbbell) --------------------
+  function renderGender() {
+    const cfg = VARIABLES[state.metric];
+    const wrap = $("[data-ced-chart]");
+    wrap.innerHTML = "";
+    const yr = state.year;
+    const all = state.rows.filter(r => r.periodo === yr && r.ccaa !== "Media Estatal" && r[state.metric] != null);
+    const byCcaa = d3.group(all, r => r.ccaa);
+    const rows = Array.from(byCcaa, ([ccaa, vs]) => {
+      const hRow = vs.find(r => r.genero === "hombres");
+      const mRow = vs.find(r => r.genero === "mujeres");
+      if (!hRow || !mRow) return null;
+      return { ccaa, men: hRow[state.metric], women: mRow[state.metric], gap: mRow[state.metric] - hRow[state.metric] };
+    }).filter(Boolean).sort((a,b) => d3.descending(Math.abs(a.gap), Math.abs(b.gap)));
+
+    if (rows.length === 0) {
+      wrap.innerHTML = `<div class="ced-loading">No hay datos por género para ${cfg.label} en ${yr}.</div>`;
+      return;
+    }
+
+    const w = wrap.clientWidth || 720;
+    const h = Math.max(460, rows.length * 30 + 80);
+    const m = { top: 38, right: 118, bottom: 42, left: 170 };
+    const svg = d3.select(wrap).append("svg").attr("viewBox", `0 0 ${w} ${h}`);
+    const ext = d3.extent(rows.flatMap(r => [r.men, r.women]));
+    const x = d3.scaleLinear().domain(ext).nice().range([m.left, w - m.right]);
+    const y = d3.scaleBand().domain(rows.map(r => r.ccaa)).range([m.top, h - m.bottom]).padding(0.36);
+
+    svg.append("g").attr("class","ced-grid").attr("transform", `translate(0,${h-m.bottom})`)
+      .call(d3.axisBottom(x).ticks(5).tickSize(-(h - m.top - m.bottom)).tickFormat(""))
+      .call(g => g.select(".domain").remove());
+    svg.append("g").attr("class","ced-axis").attr("transform", `translate(0,${h-m.bottom})`)
+      .call(d3.axisBottom(x).ticks(5));
+    svg.append("g").attr("class","ced-axis").attr("transform", `translate(${m.left},0)`)
+      .call(d3.axisLeft(y).tickSize(0))
+      .call(g => g.select(".domain").remove());
+
+    const rowLayer = svg.append("g");
+    const rowGroups = rowLayer.selectAll("g.ced-gender-row").data(rows).join("g")
+      .attr("class", "ced-gender-row").attr("cursor", "pointer");
+
+    rowGroups.append("line")
+      .attr("x1", r => x(r.men)).attr("x2", r => x(r.women))
+      .attr("y1", r => y(r.ccaa) + y.bandwidth()/2)
+      .attr("y2", r => y(r.ccaa) + y.bandwidth()/2)
+      .attr("stroke", r => r.ccaa === "Canarias" ? "#142019" : "#cfe6d8")
+      .attr("stroke-width", r => r.ccaa === "Canarias" ? 2.6 : 1.7);
+
+    rowGroups.append("circle").attr("class","ced-men-dot")
+      .attr("cx", r => x(r.men))
+      .attr("cy", r => y(r.ccaa) + y.bandwidth()/2)
+      .attr("r", r => r.ccaa === "Canarias" ? 5.5 : 4.2)
+      .attr("fill", "#0a8a4d");
+    rowGroups.append("circle").attr("class","ced-women-dot")
+      .attr("cx", r => x(r.women))
+      .attr("cy", r => y(r.ccaa) + y.bandwidth()/2)
+      .attr("r", r => r.ccaa === "Canarias" ? 5.5 : 4.2)
+      .attr("fill", "#e60d76");
+
+    rowGroups.append("text")
+      .attr("x", w - m.right + 12)
+      .attr("y", r => y(r.ccaa) + y.bandwidth()/2)
+      .attr("dy", "0.35em")
+      .attr("fill", r => r.ccaa === "Canarias" ? "#074d2a" : "#5a7666")
+      .attr("font-weight", r => r.ccaa === "Canarias" ? 800 : 500)
+      .attr("font-size", 12)
+      .text(r => `${r.gap >= 0 ? "+" : ""}${cfg.format(r.gap)}${cfg.suffix}`);
+
+    rowGroups.append("rect")
+      .attr("x", m.left).attr("y", r => y(r.ccaa) - 4)
+      .attr("width", w - m.left - m.right + 100)
+      .attr("height", y.bandwidth() + 8)
+      .attr("fill", "transparent")
+      .on("mousemove", function(evt, d) {
+        rowGroups.attr("opacity", r => r.ccaa === d.ccaa ? 1 : 0.22);
+        const g = d3.select(this.parentNode);
+        g.raise();
+        g.select("line").attr("stroke", "#e60d76").attr("stroke-width", 3.2);
+        g.selectAll("circle").attr("r", 6);
+        const html = `
+          <strong>${d.ccaa}</strong>
+          <span class="ced-tooltip-metric">${cfg.short} · ${yr}</span>
+          <span class="ced-tooltip-value">Brecha ${d.gap >= 0 ? "+" : ""}${cfg.format(d.gap)}${cfg.suffix}</span>
+          <span class="ced-tooltip-extra">Mujeres: ${cfg.format(d.women)}${cfg.suffix}</span>
+          <span class="ced-tooltip-extra">Hombres: ${cfg.format(d.men)}${cfg.suffix}</span>
+        `;
+        showTip(html, evt);
+      })
+      .on("mouseleave", function() {
+        rowGroups.attr("opacity", 1);
+        rowGroups.select("line")
+          .attr("stroke", r => r.ccaa === "Canarias" ? "#142019" : "#cfe6d8")
+          .attr("stroke-width", r => r.ccaa === "Canarias" ? 2.6 : 1.7);
+        rowGroups.select(".ced-men-dot").attr("r", r => r.ccaa === "Canarias" ? 5.5 : 4.2);
+        rowGroups.select(".ced-women-dot").attr("r", r => r.ccaa === "Canarias" ? 5.5 : 4.2);
+        hideTip();
+      });
+
+    // Leyenda
+    svg.append("circle").attr("cx", m.left).attr("cy", 18).attr("r", 4).attr("fill", "#0a8a4d");
+    svg.append("text").attr("x", m.left + 9).attr("y", 22).attr("font-size", 12).attr("fill", "#5a7666").text("Hombres");
+    svg.append("circle").attr("cx", m.left + 90).attr("cy", 18).attr("r", 4).attr("fill", "#e60d76");
+    svg.append("text").attr("x", m.left + 99).attr("y", 22).attr("font-size", 12).attr("fill", "#5a7666").text("Mujeres");
+  }
+
+  // -------------------- Metodología --------------------
+  function renderMethod() {
+    const wrap = $("[data-ced-chart]");
+    wrap.innerHTML = "";
+    $("[data-ced-method-grid]").hidden = false;
+  }
+
+  // -------------------- Descarga CSV --------------------
+  function downloadCsv() {
+    const url = root.getAttribute("data-csv");
+    const a = document.createElement("a");
+    a.href = url; a.download = "ced_saludmental.csv";
+    document.body.appendChild(a); a.click(); a.remove();
+  }
+
+  // -------------------- Render principal --------------------
+  function render() {
+    const cfg = VARIABLES[state.metric];
+    const titles = {
+      context:  { t:"Situar Canarias", s:`Mapa coroplético · ${cfg.label} · ${state.year} · género: ${state.gender}` },
+      evolution:{ t:"Evolución",        s:`Serie temporal de ${cfg.label} · género: ${state.gender}` },
+      gender:   { t:"Brecha de género", s:`${cfg.label} por CCAA · ${state.year} (hombres vs mujeres)` },
+      method:   { t:"Cómo se construye",s:"Pipeline ETL · API INCLASNS + INE · CV temporal multi-algoritmo" }
+    };
+    $("[data-ced-title]").textContent = titles[state.step].t;
+    $("[data-ced-sub]").textContent   = titles[state.step].s;
+    const sourceBadge = root.dataset.cedSource === "supabase" ? " · Supabase" : root.dataset.cedSource === "csv" ? " · CSV" : "";
+    $("[data-ced-badge]").textContent = state.step === "method" ? "Documentación" : (state.year ? `Periodo ${state.year}${sourceBadge}` : "");
+    $("[data-ced-method-grid]").hidden = state.step !== "method";
+
+    renderKpis();
+    if (state.step === "context")   renderMap();
+    if (state.step === "evolution") renderEvolution();
+    if (state.step === "gender")    renderGender();
+    if (state.step === "method")    renderMethod();
+  }
+
+  document.addEventListener("mousemove", moveTip);
+
+  // -------------------- Bootstrap --------------------
+  initToolbar();
+  Promise.all([loadData(), loadGeo()]).then(([rows, geo]) => {
+    state.rows = rows;
+    state.geo = geo;
+    initYearSelector();
+    render();
+  }).catch(err => {
+    console.error("CED Salud mental: bootstrap falló", err);
+  });
+
+})();
+</script>
+</div>
+</body>
+</html>

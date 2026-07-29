@@ -1,0 +1,246 @@
+- generic [ref=e2]:
+  - generic [ref=e3]:
+    - generic [ref=e4]:
+      - generic [ref=e5]:
+        - generic [ref=e6]: Canarias en Datos · CED Dependencia
+        - 'heading "Dependencia: solicitudes, dictámenes y prestaciones contadas como una cadena de acceso a derechos." [level=2] [ref=e7]'
+        - generic [ref=e8]: "Pieza D3 conectada al pipeline SAAD/IMSERSO del Observatorio: solicitudes, personas beneficiarias, prestaciones, grados reconocidos y composición de servicios para situar Canarias en el sistema autonómico de dependencia."
+      - generic [ref=e9]:
+        - button "Metodología" [ref=e10] [cursor=pointer]
+        - button "Descargar CSV" [ref=e11] [cursor=pointer]
+    - generic [ref=e12]:
+      - generic [ref=e13]:
+        - generic [ref=e14]: Indicador
+        - combobox [ref=e15]:
+          - option "Solicitudes al SAAD"
+          - option "Personas beneficiarias con prestaciones" [selected]
+          - option "Prestaciones reconocidas"
+          - option "Ratio de prestaciones por persona"
+          - option "Personas con derecho a prestación"
+          - option "Peso del Grado III"
+      - generic [ref=e16]:
+        - generic [ref=e17]: Periodo
+        - combobox [ref=e18]:
+          - option "01/2012"
+          - option "02/2012"
+          - option "03/2012"
+          - option "04/2012"
+          - option "05/2012"
+          - option "06/2012"
+          - option "07/2012"
+          - option "08/2012"
+          - option "09/2012"
+          - option "10/2012"
+          - option "12/2012"
+          - option "01/2013"
+          - option "02/2013"
+          - option "03/2013"
+          - option "05/2013"
+          - option "06/2013"
+          - option "07/2013"
+          - option "08/2013"
+          - option "09/2013"
+          - option "10/2013"
+          - option "11/2013"
+          - option "12/2013"
+          - option "01/2014"
+          - option "02/2014"
+          - option "03/2014"
+          - option "04/2014"
+          - option "05/2014"
+          - option "06/2014"
+          - option "07/2014"
+          - option "08/2014"
+          - option "09/2014"
+          - option "10/2014"
+          - option "11/2014"
+          - option "12/2014"
+          - option "01/2015"
+          - option "02/2015"
+          - option "04/2015"
+          - option "05/2015"
+          - option "06/2015"
+          - option "07/2015"
+          - option "08/2015"
+          - option "09/2015"
+          - option "10/2015"
+          - option "11/2015"
+          - option "12/2015"
+          - option "01/2016"
+          - option "02/2016"
+          - option "03/2016"
+          - option "04/2016"
+          - option "05/2016"
+          - option "06/2016"
+          - option "07/2016"
+          - option "08/2016"
+          - option "09/2016"
+          - option "10/2016"
+          - option "11/2016"
+          - option "12/2016"
+          - option "01/2017"
+          - option "02/2017"
+          - option "03/2017"
+          - option "04/2017"
+          - option "05/2017"
+          - option "06/2017"
+          - option "07/2017"
+          - option "08/2017"
+          - option "09/2017"
+          - option "10/2017"
+          - option "11/2017"
+          - option "12/2017"
+          - option "01/2018"
+          - option "02/2018"
+          - option "03/2018"
+          - option "04/2018"
+          - option "05/2018"
+          - option "06/2018"
+          - option "07/2018"
+          - option "08/2018"
+          - option "09/2018"
+          - option "10/2018"
+          - option "11/2018"
+          - option "12/2018"
+          - option "01/2019"
+          - option "02/2019"
+          - option "03/2019"
+          - option "04/2019"
+          - option "05/2019"
+          - option "06/2019"
+          - option "07/2019"
+          - option "08/2019"
+          - option "09/2019"
+          - option "10/2019"
+          - option "11/2019"
+          - option "12/2019"
+          - option "01/2020"
+          - option "02/2020"
+          - option "03/2020"
+          - option "04/2020"
+          - option "05/2020"
+          - option "06/2020"
+          - option "07/2020"
+          - option "08/2020"
+          - option "09/2020"
+          - option "10/2020"
+          - option "11/2020"
+          - option "12/2020"
+          - option "01/2021"
+          - option "02/2021"
+          - option "03/2021"
+          - option "04/2021"
+          - option "05/2021"
+          - option "06/2021"
+          - option "07/2021"
+          - option "08/2021"
+          - option "09/2021"
+          - option "10/2021"
+          - option "11/2021"
+          - option "12/2021"
+          - option "01/2022"
+          - option "02/2022"
+          - option "03/2022"
+          - option "04/2022"
+          - option "05/2022"
+          - option "06/2022"
+          - option "07/2022"
+          - option "08/2022"
+          - option "09/2022"
+          - option "10/2022"
+          - option "11/2022"
+          - option "12/2022"
+          - option "01/2023"
+          - option "02/2023"
+          - option "03/2023"
+          - option "04/2023"
+          - option "05/2023"
+          - option "06/2023"
+          - option "07/2023"
+          - option "08/2023"
+          - option "09/2023"
+          - option "10/2023"
+          - option "11/2023"
+          - option "12/2023"
+          - option "01/2024"
+          - option "02/2024"
+          - option "03/2024"
+          - option "04/2024"
+          - option "05/2024"
+          - option "06/2024"
+          - option "07/2024"
+          - option "08/2024"
+          - option "09/2024"
+          - option "10/2024"
+          - option "11/2024"
+          - option "12/2024"
+          - option "01/2025"
+          - option "02/2025"
+          - option "03/2025"
+          - option "04/2025"
+          - option "05/2025"
+          - option "06/2025"
+          - option "07/2025"
+          - option "08/2025"
+          - option "09/2025"
+          - option "10/2025"
+          - option "11/2025"
+          - option "12/2025"
+          - option "01/2026"
+          - option "02/2026" [selected]
+      - generic [ref=e19]:
+        - generic [ref=e20]: Lectura
+        - combobox [ref=e21]:
+          - option "Mapa" [selected]
+          - option "Evolución"
+          - option "Prestaciones"
+          - option "Metodología"
+  - generic [ref=e22]:
+    - navigation "Capítulos narrativos" [ref=e23]:
+      - button "1. Situar Canarias Mapa coroplético para comparar Canarias con el resto de comunidades." [ref=e24] [cursor=pointer]:
+        - strong [ref=e25]: 1. Situar Canarias
+        - generic [ref=e26]: Mapa coroplético para comparar Canarias con el resto de comunidades.
+      - button "2. Evolución Serie temporal mensual del indicador seleccionado." [ref=e27] [cursor=pointer]:
+        - strong [ref=e28]: 2. Evolución
+        - generic [ref=e29]: Serie temporal mensual del indicador seleccionado.
+      - button "3. Prestaciones Composición de la cartera SAAD por comunidad en el periodo elegido." [ref=e30] [cursor=pointer]:
+        - strong [ref=e31]: 3. Prestaciones
+        - generic [ref=e32]: Composición de la cartera SAAD por comunidad en el periodo elegido.
+      - button "4. Cómo se construye Fuentes, normalización, modelado, exportación y actualización mensual." [ref=e33] [cursor=pointer]:
+        - strong [ref=e34]: 4. Cómo se construye
+        - generic [ref=e35]: Fuentes, normalización, modelado, exportación y actualización mensual.
+    - generic [ref=e36]:
+      - generic [ref=e37]:
+        - generic [ref=e38]:
+          - generic [ref=e39]: Media CCAA · 02/2026
+          - generic [ref=e40]: "96.787"
+          - generic [ref=e41]: personas
+        - generic [ref=e42]:
+          - generic [ref=e43]: Canarias · 02/2026
+          - generic [ref=e44]: "52.381"
+          - generic [ref=e45]: −44.406 vs media
+        - generic [ref=e46]:
+          - generic [ref=e47]: Mínimo CCAA
+          - generic [ref=e48]: "9.321"
+          - generic [ref=e49]: La Rioja
+        - generic [ref=e50]:
+          - generic [ref=e51]: Máximo CCAA
+          - generic [ref=e52]: "323.339"
+          - generic [ref=e53]: Andalucía
+      - generic [ref=e54]:
+        - generic [ref=e55]:
+          - generic [ref=e56]:
+            - generic [ref=e57]: Situar Canarias
+            - generic [ref=e58]: Mapa coroplético · Personas beneficiarias con prestaciones · 02/2026
+          - generic [ref=e59]: 02/2026 · CSV
+        - img [ref=e61]:
+          - generic [ref=e83]: Canarias
+          - generic [ref=e84]:
+            - generic [ref=e91]: Menor
+            - generic [ref=e92]: Mayor
+        - generic [ref=e93]:
+          - generic [ref=e94]: "Fuente: IMSERSO · Sistema para la Autonomía y Atención a la Dependencia"
+          - generic [ref=e95]:
+            - text: "Tabla:"
+            - code [ref=e96]: ced_dependencia
+            - text: · Pipeline Dependencia

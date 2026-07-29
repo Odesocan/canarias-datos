@@ -1,0 +1,20 @@
+# Secretos: .Renviron contiene la contraseña de Postgres y la service_role key.
+.Renviron
+.env
+.env.local
+
+# Artefactos y cachés
+__pycache__/
+*.pyc
+.RData
+.Ruserdata
+.DS_Store
+
+# Salidas de datos regenerables (se producen ejecutando el pipeline)
+*/data/raw/
+*/data/_simulacro/
+2_transformacion/data/
+3_modelado/data/
+4_carga/data/
+*/logs/
+*/data/logs/

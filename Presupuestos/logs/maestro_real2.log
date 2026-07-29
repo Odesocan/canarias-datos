@@ -1,0 +1,15 @@
+[2026-05-11 16:07:45] [INFO   ] Proyecto: /Users/cristiancpv/Desktop/TRABAJO/OBSERVATORIO/CANARIAS EN DATOS/Presupuestos
+[2026-05-11 16:07:45] [INFO   ] Pasos: extraccion -> transformacion -> modelado -> carga
+[2026-05-11 16:07:45] [INFO   ] with-db=TRUE | projection=FALSE | dry-run=FALSE
+[2026-05-11 16:07:45] [STEP   ] Inicio extraccion
+[2026-05-11 16:07:45] [INFO   ] Iniciando extracción
+[2026-05-11 16:07:45] [CACHE  ] Reutilizado raw local consulta_web.html
+[2026-05-11 16:07:45] [INFO   ] Parseando capa Hacienda desde SGCIEF_2024.xlsx
+[2026-05-11 16:07:45] [WARN   ] extract_hacienda.py exit=2 para SGCIEF_2024.xlsx — stdout: usage: extract_hacienda.py [-h] --mode {parse,download} --anio ANIO |                            [--input INPUT] [--output OUTPUT] |                            [--out_dir OUT_DIR] | extract_hacienda.py: error: argument --anio: invalid int value: '2002-2026'
+[2026-05-11 16:07:45] [WARN   ] Sin filas tras parseo hacienda/2002-2026/consulta_web
+[2026-05-11 16:07:45] [CACHE  ] Reutilizado raw local memoria_programas.pdf
+[2026-05-11 16:08:41] [WARN   ] extract_pdf.py exit=2 para memoria_programas.pdf
+[2026-05-11 16:08:41] [WARN   ] Sin filas tras parseo and/2026/memoria_programas
+[2026-05-11 16:08:41] [CACHE  ] Reutilizado raw local gastos_csv.csv
+[2026-05-11 16:08:41] [WARN   ] Sin filas tras parseo and/2015/gastos_csv
+[2026-05-11 16:08:41] [CACHE  ] Reutilizado raw local ingresos_gastos.pdf

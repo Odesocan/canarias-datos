@@ -1,0 +1,194 @@
+conceptos:
+  sanidad:
+    # 2026-07-01: '4131' "Protección y promoción de la salud" RETIRADO — es la
+    # transferencia interna del Departamento (sec 16) al Servicio Aragonés de Salud
+    # (sec 52) y duplicaba la entrega 4121 (~2×, 3247 €/hab vs ~1600). Se excluye en
+    # extract.py (_ARA_TRANSFER_SALUD); aquí se quita por coherencia. Sanidad = 4121
+    # (SALUD, entrega) + 4111/4132/4134 (Departamento) + 4124 (banco de sangre).
+    codigos:
+    - '311'
+    - '312'
+    - '411'
+    - '412'
+    - '510'
+    # 2026-06-05: '4133' (programa "SALUD MENTAL") movido a salud_mental —
+    # estaba absorbido por sanidad y ocultaba el concepto canónico propio.
+    - '41'
+    # FIX 2026-07-02: exactos que la ficha declara sanidad pero el keyword no
+    # casaba (van a NULL). NO usar prefijo 41* aquí: reabsorbería 4133 salud_mental.
+    - '4124'  # producción componentes sanguíneos (banco de sangre)
+    - '4132'  # servicios de atención al usuario
+    keywords:
+    - sanidad
+    - salud publica
+    - servicio canario salud
+    - servicio andaluz salud
+    - atencion primaria
+    - atencion especializada
+    - sanitaria
+    - osasun
+    - salud
+  educacion:
+    codigos:
+    - '321'
+    - '322'
+    - '421'
+    - '422'
+    - '423'
+    - '4221'
+    - '4225'
+    - '42'
+    # 2026-05-26: añadidos códigos funcionales ARA 4 dígitos
+    - '4211'  # servicios generales educación, cultura y deporte
+    - '4229'  # evaluación calidad enseñanza superior
+    # FIX 2026-07-02: prefijos 4 díg. — los exactos de 3 díg. de arriba NUNCA
+    # casan (el código emitido es 4 díg.) y el mapeo dependía del keyword, que
+    # falla con la abreviatura "EDUC SECUNDARIA" (4222, 526 M/año → NULL desde
+    # 2020) y con FP (4220/4226/4227). 421*+422* cubren toda la función educación.
+    - '421*'  # servicios generales + gestión de personal educación
+    - '422*'  # centros: infantil/primaria, secundaria, especial, artísticas, FP, universitaria
+    - '4232'  # equidad (apoyo educativo)
+    keywords:
+    - educacion
+    - ensenanza
+    - ensenyament
+    - hezkuntza
+  soberania:
+    codigos:
+    - '412'
+    - '5311'  # FIX 2026-07-02: mejora estructuras agrarias (exacto; 53* invadiría
+              # medio ambiente/carreteras). El keyword "agrarias" no casaba.
+    - '71*'   # FIX 2026-07-02: función 71 completa = agricultura/ganadería/pesca/
+              # alimentación (7121 agroalimentario, 7123 producción agraria 465 M/año,
+              # 7161 seg. alimentaria) — antes NULL por keyword-miss ("AGRARIA"≠"agricultura").
+    keywords:
+    - agricultura
+    - ganaderia
+    - pesca
+    - alimentacion
+    - nekazaritza
+    - soberania alimentaria
+  direccion:
+    # REDEFINIDO 2026-07-27 — Direccion politica (altos cargos del ejecutivo).
+    # Antes era un cajon de sastre: deuda, justicia, tributos, transferencias a
+    # entes locales, informatica, medios y parlamentos. Referencia: programa 912A
+    # de Canarias 'Direccion Politica y Gobierno', replicado en cada consejeria.
+    # Perimetro: ejecutivo estricto (presidencia, vicepresidencia, gabinetes, alta
+    # direccion). EXCLUIDOS parlamento, control externo, defensorias, consejos
+    # consultivos y transparencia. Keywords VACIAS a proposito: mapeo por codigo
+    # exacto para que no vuelva a capturar por texto. Ver logs/progreso.md.
+    # 1121 PRESIDENCIA Y ORGANOS DE LA PRESIDENCIA (12/12 anios, 2,2-3,0 M). Se excluye
+    # 1211 Servicios Generales de Presidencia (D.S.G. de departamento).
+    codigos:
+    - '1121'
+    keywords: []
+  vivienda:
+    codigos:
+    - '261'
+    - '431'
+    - '451'
+    - '43'
+    keywords:
+    - vivienda
+    - habitatge
+    - etxebizitza
+  empleo:
+    codigos:
+    - '241'
+    - '322'
+    - '230'
+    keywords:
+    - empleo
+    - ocupacio
+    - enplegua
+    - fomento del empleo
+  idi:
+    codigos:
+    - '463'
+    - '467'
+    - '542'
+    - '561'
+    - '720'
+    - '5421'
+    - '5422'
+    - '54'
+    keywords:
+    - investigacion
+    - innovacion
+    - i d i
+    - desarrollo tecnologico
+  dependencia:
+    codigos:
+    - 231D
+    - 232D
+    - 232G
+    - 313D
+    - 252D
+    keywords:
+    - dependencia
+    - mendekotasun
+    - atencion a la dependencia
+  discapacidad:
+    codigos:
+    - 231C
+    - 232C
+    - 313C
+    - 313G
+    - '314'
+    keywords:
+    - discapacidad
+    - diversidad funcional
+    - discapacitat
+  salud_mental:
+    codigos:
+    - 313A
+    - 313E
+    - '414'
+    - '514'
+    - 312D
+    - 412I
+    # 2026-06-05: código funcional ARA real (programa "SALUD MENTAL",
+    # visto en ingresos_gastos.pdf 2024; match exacto gana al prefijo 41).
+    - '4133'
+    keywords:
+    - salud mental
+    - salut mental
+    - buru osasun
+  diversidad:
+    codigos:
+    - 232B
+    - '234'
+    - 313B
+    - '266'
+    # 2026-06-05: código funcional ARA real ("APOYO A LA INMIGRACIÓN").
+    - '3241'
+    keywords:
+    - lgtbi
+    - lgbti
+    - migracion
+    - interculturalidad
+    - gitano
+  turismo:
+    codigos:
+    - '432'
+    - 432A
+    - '751'
+    - '761'
+    - '730'
+    keywords:
+    - turismo
+    - turisme
+    - turismoa
+  igualdad:
+    # REDEFINIDO 2026-07-27 — Igualdad: Instituto de la Mujer / programa
+    # Igualdad-VG, per Cuaderno Metodologico tablas 4/14. El keyword 'igualdad'
+    # (substring, sin frontera de palabra en el matcher Python) tambien
+    # capturaba 3133 'Politica Integral de Apoyo a las Familias y de Igualdad'
+    # (5,9 M): programa mixto cuyo eje principal es apoyo a familias, no
+    # igualdad especificamente — mismo criterio que el override ya aplicado
+    # en la raiz. Se queda 3232 'Promocion de la Mujer' y 3137 'Igualdad de
+    # Oportunidades', por codigo exacto (no por keyword). Ver logs/progreso.md.
+    codigos:
+    - '3232'
+    - '3137'
+    keywords: []

@@ -1,0 +1,99 @@
+ccaa_id3,anio,concepto,importe_eur,codigo,denominacion
+clm,2017,,546380.0,612E,Economía y gestión de fondos europeos
+clm,2017,,9054090.0,612D,Administración del patrimonio
+clm,2017,,7907990.0,612C,Control interno y contabilidad pública
+clm,2017,,963740.0,612B,Programación y control presupuestario
+clm,2017,,13890500.0,613A,Gestión tributaria
+clm,2017,,19224200.0,611A,Dirección y S.G. de hacienda y administraciones públicas
+clm,2017,,1293550.0,631A,Gestión financiera
+clm,2017,,8430000.0,633B,Fondo de contingencia de ejecución presupuestaria
+clm,2017,,235895000.0,011A,Deuda pública
+clm,2017,,9690710.0,221A,Protección ciudadana
+clm,2017,,3147350.0,443B,"Protección,formación y defensa de los consumidores"
+clm,2017,,100430180.0,442B,Ordenación y conservación del medio natural
+clm,2017,,6638190.0,442C,Gestión y protección de espacios naturales
+clm,2017,,1556250.0,442F,Evaluación ambiental y cambio climático
+clm,2017,,797530.0,441B,Coordinación hidrológica
+clm,2017,,17250560.0,442D,Calidad ambiental
+clm,2017,educacion,1417880.0,442E,Promoción y educación ambiental
+clm,2017,,8523190.0,457A,"Infraestructura, fomento y apoyo al deporte"
+clm,2017,,12217230.0,458A,Patrimonio artístico y museos
+clm,2017,,14601270.0,452A,"Libros, archivos y bibliotecas"
+clm,2017,,5089880.0,455A,Gestión cultural
+clm,2017,educacion,129221340.0,422D,Atención a la diversidad
+clm,2017,educacion,22295270.0,422F,Educación permanente de adultos
+clm,2017,educacion,566455010.0,422A,Educación infantil y primaria
+clm,2017,educacion,626029930.0,422B,"Educación secundaria, F.P. y educación de régimen especial"
+clm,2017,educacion,151501830.0,422C,Enseñanza universitaria
+clm,2017,educacion,37834690.0,421A,"Dirección y S.G. de educación, cultura y deportes"
+clm,2017,educacion,42983530.0,423A,Promoción educativa
+clm,2017,educacion,1228780.0,421B,Formación P. profesorado e innovación educativa
+clm,2017,vivienda,4397800.0,432A,Gestión del urbanismo
+clm,2017,vivienda,40242270.0,431A,Promoción de la vivienda
+clm,2017,vivienda,766080.0,432B,Planificación territorial y sostenibilidad
+clm,2017,sanidad,18784170.0,411B,Gestión y administración sanitaria
+clm,2017,sanidad,9265100.0,411A,Direccion y servicios generales de sanidad
+clm,2017,sanidad,54128520.0,412C,Selección y formación del personal sanitario
+clm,2017,sanidad,20578950.0,413A,Epidemiología y promoción de la salud
+clm,2017,sanidad,28324020.0,413B,Sanidad ambiental e higiene de los alimentos
+clm,2017,sanidad,3678150.0,413C,Inspección sanitaria
+clm,2017,sanidad,2476070.0,413D,Calidad y humanización de la asistencia sanitaria
+clm,2017,sanidad,17495030.0,412E,"planificación, atención a la salud e I. sanitarias"
+clm,2017,sanidad,2536673570.0,412D,Atención integrada de la salud
+clm,2017,turismo,450000.0,751E,Ordenación y promoción del comercio
+clm,2017,turismo,532600.0,751D,Ordenación y promoción de la artesanía
+clm,2017,turismo,6070190.0,751C,Ordenación y promoción del turismo
+clm,2017,turismo,3789850.0,751B,Promoción exterior
+clm,2017,,11343580.0,722A,Política industrial y energética
+clm,2017,,16679320.0,724A,Competitividad empresarial
+clm,2017,soberania,83127930.0,711A,"Dirección y S.G. de agricultura, medio ambiente y desarrollo rural"
+clm,2017,soberania,52446050.0,717A,Promoción y desarrollo rural
+clm,2017,soberania,15388050.0,713A,Producción vegetal
+clm,2017,soberania,909689550.0,718A,Política agraria comunitaria
+clm,2017,soberania,16444670.0,713B,Producción animal
+clm,2017,soberania,143791800.0,716A,Industrias y calidad agroalimentaria
+clm,2017,direccion,9594000.0,111A,Actividad legislativa
+clm,2017,direccion,13400260.0,112A,Dirección y servicios generales de la presidencia
+clm,2017,direccion,1445030.0,112B,Alto asesoramiento de la comunidad autónoma
+clm,2017,direccion,854000.0,131A,Coordinación de asuntos europeos
+clm,2017,direccion,4534330.0,121B,Administración de la función pública
+clm,2017,direccion,7689670.0,121C,Relación con las corporaciones locales
+clm,2017,direccion,3835380.0,121D,Selección y formación del personal de la admón.
+clm,2017,direccion,41196180.0,126C,Medios de comunicación
+clm,2017,direccion,191250.0,126B,Servicio de publicaciones
+clm,2017,direccion,491050.0,126A,Diario oficial de Castilla-La Mancha
+clm,2017,direccion,1174280.0,126F,Transparencia
+clm,2017,direccion,325220.0,126E,Ordenación del juego
+clm,2017,direccion,2714890.0,126D,Calidad de los servicios
+clm,2017,sanidad,4205770.0,541E,Investigación sanitaria
+clm,2017,idi,3500000.0,541F,Fomento de la innovación tecnólogica
+clm,2017,idi,10922250.0,541B,"Investigación, innovación y desarrollo tecnológico"
+clm,2017,idi,2313630.0,541C,Investigación y experimentación agraria
+clm,2017,idi,6834150.0,541H,Investigación agroalimentaria y forestal
+clm,2017,,1017850.0,541I,Cartografía
+clm,2017,diversidad,37265590.0,313E,Atención y acompañamiento al menor
+clm,2017,dependencia,279790040.0,313D,Atención a las personas mayores
+clm,2017,,1330930.0,315A,Seguridad laboral
+clm,2017,,2892600.0,313F,Cooperación al desarrollo
+clm,2017,,77533850.0,313A,Programas sociales básicos
+clm,2017,discapacidad,104891360.0,313C,Atención a las personas con discapacidad
+clm,2017,diversidad,7113590.0,313B,Prevención y apoyo a las familias
+clm,2017,dependencia,119044330.0,313H,Atención a la dependencia
+clm,2017,sanidad,29360240.0,312A,Pensiones y prestaciones asistenciales
+clm,2017,,20035260.0,311A,Dirección y S.G. bienestar social
+clm,2017,,16676020.0,513C,Ordenación e inspección del transporte
+clm,2017,direccion,16074400.0,511A,Dirección y servicios generales de fomento
+clm,2017,,44493310.0,513B,Conservación y explotación de carreteras
+clm,2017,,84254330.0,513A,Creación de infraestructuras de carreteras
+clm,2017,,32019590.0,512A,Creación de infraestructuras hidráulicas
+clm,2017,,47683570.0,531A,Regadíos y explotaciones agrarias
+clm,2017,,77947030.0,521B,Desarrollo de la sociedad de la información
+clm,2017,,2811900.0,521A,Telecomunicaciones
+clm,2017,igualdad,17467220.0,323B,Promoción de la mujer
+clm,2017,igualdad,3270290.0,323A,Promoción y servicios de la juventud
+clm,2017,educacion,13593560.0,321A,"Dirección y S.G. de economía, empresas y empleo"
+clm,2017,empleo,21921030.0,324B,Programas mixtos de formación y empleo
+clm,2017,empleo,54361530.0,324A,Formación profesional para el empleo
+clm,2017,educacion,1390720.0,322A,Relaciones laborales
+clm,2017,educacion,10734320.0,322C,Orientación e intermediación en mercado de trabajo
+clm,2017,educacion,113322320.0,322B,Fomento y gestión del empleo

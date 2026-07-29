@@ -1,0 +1,2 @@
+and/2015  ERROR        filas=0     pct=0.0    conc=0   motor=
+          nota: pdfplumber.utils.exceptions.PdfminerException: No /Root object! - Is this really a PDF?

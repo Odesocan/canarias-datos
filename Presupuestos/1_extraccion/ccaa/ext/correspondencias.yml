@@ -1,0 +1,75 @@
+# ext/correspondencias.yml — Extremadura.
+# Reescrito 2026-06-30 contra el catálogo REAL de programas del Estado de Gastos
+# (Tomo II EIG / estado_ing_gasto). El anterior era un template genérico con
+# códigos equivocados (p.ej. 313A "Regulación de Producciones" = agricultura, iba
+# a salud_mental; turismo=432A cuando Extremadura usa 342A). Estructura funcional:
+#   21x sanidad · 22x educación · 23x dependencia · 24x/325 empleo ·
+#   252/253 social · 26x vivienda · 27x cultura/deporte · 31x agricultura ·
+#   33x idi/industria · 342 turismo · 35x infraestruturas/medio ambiente.
+# Prefijos de 3 dígitos llevan '*' (el helper Python sólo hace prefix-match si
+# el código termina en '*'); los de 4 caracteres son match exacto.
+conceptos:
+  sanidad:
+    codigos: ['211*', '212*']
+    keywords: [sanidad, sanitaria, sanitarias, salud publica, atencion primaria,
+               atencion especializada]
+  educacion:
+    codigos: ['221*', '222*']
+    keywords: [educacion, ensenanza, profesorado, universitarias, educativa]
+  dependencia:
+    codigos: ['231*', '232*']
+    keywords: [dependencia, atencion a la dependencia]
+  empleo:
+    codigos: ['241*', '242*', '325A']
+    keywords: [empleo, relaciones laborales, formacion para el empleo]
+  igualdad:
+    codigos: [253A, 253D]
+    keywords: [igualdad de genero, violencia, mujer]
+  vivienda:
+    codigos: ['261*', '262*']
+    keywords: [vivienda, urbanismo, ordenacion del territorio]
+  soberania:
+    codigos: ['311*', '312*', '313*', '314A', '323C', '353A']
+    keywords: [agricultura, agraria, ganaderia, producciones, medio rural,
+               agroalimentaria, infraestructuras agrarias]
+  idi:
+    codigos: [331A, 331B, '332A']
+    keywords: [investigacion, desarrollo tecnologico, innovacion,
+               tecnologias de la informacion]
+  turismo:
+    codigos: ['342*']
+    keywords: [turismo]
+  diversidad:
+    # REDEFINIDO 2026-07-27 — Diversidad (LGTBI, migraciones, etnias), per
+    # Cuaderno Metodologico tablas 4/14. El FIX 2026-07-02 (ver historial)
+    # convirtio esto en cajon de sastre: 252A/252B (infancia/inclusion social),
+    # 271*-274* (cultura, patrimonio, bibliotecas, museos, teatro, deporte) no
+    # son diversidad — eran 268 M de los 285 M del concepto (94%). Coincide con
+    # el override YA aplicado en la raiz (correspondencias.yml ccaa.Extremadura)
+    # que este fichero local anulaba por tener mayor prioridad (python_local=78
+    # gana a los codigos NO listados en la raiz, que caian a NULL o global).
+    # Se queda solo 253C 'Acciones en materia de Emigracion' (0,9 M/anio).
+    # Ver logs/progreso.md 2026-07-27.
+    codigos: ['253C']
+    keywords: [lgtbi, migracion, interculturalidad, gitano, emigracion]
+  direccion:
+    # REDEFINIDO 2026-07-27 — Direccion politica (altos cargos del ejecutivo).
+    # Antes era un cajon de sastre: deuda, justicia, tributos, transferencias a
+    # entes locales, informatica, medios y parlamentos. Referencia: programa 912A
+    # de Canarias 'Direccion Politica y Gobierno', replicado en cada consejeria.
+    # Perimetro: ejecutivo estricto (presidencia, vicepresidencia, gabinetes, alta
+    # direccion). EXCLUIDOS parlamento, control externo, defensorias, consejos
+    # consultivos y transparencia. Keywords VACIAS a proposito: mapeo por codigo
+    # exacto para que no vuelva a capturar por texto. Ver logs/progreso.md.
+    # 112A DIRECCION Y ADMINISTRACION DE PRESIDENCIA (12/12, 5,8-11,7 M). Sale de
+    # direccion el 121A AMORTIZACION Y GASTOS FINANCIEROS DE LA DEUDA (960 M), que era el
+    # 82 % del concepto.
+    codigos:
+    - '112A'
+    keywords: []
+  discapacidad:
+    codigos: []
+    keywords: [discapacidad, diversidad funcional]
+  salud_mental:
+    codigos: []
+    keywords: [salud mental]

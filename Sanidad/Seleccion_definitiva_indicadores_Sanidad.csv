@@ -1,0 +1,8 @@
+Dimensión,Indicadores núcleo (código INCLASNS / fuente),Unidad / uso analítico,Desagregable por género,Continuidad de la serie
+Estado de salud,Años de vida saludable a los 65 años (1050),Años,Sí,Continua (2006–2023)
+Mortalidad evitable,"Índice ODESOCAN = mortalidad prematura por cáncer (1240), cardiopatía isquémica (1250), diabetes (1260), ictus (1270) y EPOC (1280)",Índice sintético 0–100 (reescalado; mayor = peor),Sí,Continua (componentes 1990–2024)
+Recursos,Médicos AE (4050) y AP (4060); enfermería AE (4070) y AP (4080); camas (4090),Ratios por 1.000 hab.,No (territorial),Continua
+Gasto,Gasto sanitario autonómico sobre PIB (Presupuestos · pct_pib_sanidad); % del gasto en farmacia (6060),% del PIB y %,No (territorial),Continua (2015–2026)
+Accesibilidad,Tiempo de espera quirúrgica no urgente (8200); tiempo de espera 1ª consulta en AE (8290),Nº de días,No (territorial),Continua
+Resultados,Reingresos urgentes psiquiátricos (7140),% sobre altas psiquiátricas (CMBD),Sí,Continua (1997–2024)
+Denominadores,Población por grupos de edad y género (9000+) y cifras de población del INE,Nº de personas,Sí,Continua (1990–2025)

@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//Users/cristiancpv/Downloads/**)",
+      "Bash(awk 'NR>=140 && NR<=160 {print NR\": \"length\\($0\\)}' \"/Users/cristiancpv/Desktop/TRABAJO/OBSERVATORIO/CANARIAS EN DATOS/Vivienda/vivienda_storytelling_d3_divi.html\")"
+    ]
+  }
+}

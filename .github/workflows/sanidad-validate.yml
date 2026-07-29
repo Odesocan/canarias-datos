@@ -1,0 +1,53 @@
+name: sanidad-validate
+
+# Gate previo a producción (§4.2): recorre el pipeline entero sin escribir en
+# Supabase. Sanidad tiene QA propio en cada etapa (qa_extraccion.R,
+# qa_transformacion.R, qa_modelado.R), que el maestro ejecuta dentro de cada paso.
+#
+# CRÍTICO: aquí NO se pasa --with-db. El maestro de Sanidad lo detecta por
+# presencia del prefijo, no por su valor:
+#   if (any(grepl("^--with-db", args))) cfg$with_db <- TRUE
+# de modo que escribir `--with-db=false` —como hacen Dependencia, Vivienda y
+# Presupuestos— convertiría esta validación en una carga a producción.
+# Sin el flag, cfg$with_db toma su valor por defecto (CED_WITH_DB, "false").
+
+on:
+  pull_request:
+    paths:
+      - "Sanidad/**"
+      - ".github/workflows/sanidad-validate.yml"
+  push:
+    branches: [main]
+    paths: ["Sanidad/**"]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+
+    env:
+      CED_WITH_DB: "false"     # explícito, aunque ya es el valor por defecto
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: ./.github/actions/setup-r-pipeline
+        with:
+          extra-packages: "forecast httr httr2 jsonlite"
+
+      - name: Pipeline completo sin base de datos
+        working-directory: Sanidad
+        run: Rscript 00_maestro.R --steps=extraccion,transformacion,modelado,carga
+
+      - name: Subir QA y salidas de la validación
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: sanidad-validate
+          path: |
+            Sanidad/1_extraccion/qa/**
+            Sanidad/2_transformacion/qa/**
+            Sanidad/3_modelado/qa/**
+            Sanidad/4_carga/global_sanidad.csv
+            Sanidad/4_carga/gen_sanidad.csv
+          if-no-files-found: warn

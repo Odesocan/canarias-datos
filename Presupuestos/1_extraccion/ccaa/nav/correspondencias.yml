@@ -1,0 +1,216 @@
+# Correspondencias para Navarra.  Los códigos son <funcion>.<programa> con
+# función de 2 dígitos (e.g. 31 = Sanidad) y programa de 4 caracteres (4
+# dígitos o 3 dígitos + letra).  E.g. 31.3122 = Atención primaria de salud.
+conceptos:
+  sanidad:
+    codigos:
+    - 31.*
+    keywords:
+    - sanidad
+    - sanitario
+    - sanitaria
+    - sanitarios
+    - asistencia sanitaria
+    - atención primaria
+    - atencion primaria
+    - atención especializada
+    - atencion especializada
+    - hospital
+    - centros sanitarios
+    - formación sanitaria
+    - formacion sanitaria
+    - oferta y uso racional de medicamentos
+    - salud pública
+    - salud publica
+    - salud
+  educacion:
+    codigos:
+    - 32.*
+    keywords:
+    - educación
+    - educacion
+    - educativo
+    - educativa
+    - educativas
+    - enseñanza
+    - enseñanzas
+    - ensenanza
+    - escolar
+    - profesorado
+    - formación profesional
+    - formacion profesional
+    - universidad
+    - universidades
+    - universitario
+    - universitaria
+    - universitarias
+    - bachillerato
+    - becas
+  soberania:
+    codigos:
+    - 41.*
+    keywords:
+    - agricultura
+    - ganadería
+    - ganaderia
+    - ganadero
+    - pesca
+    - pesquero
+    - pesquera
+    - agroalimentaria
+    - agroalimentario
+    - agrario
+    - agraria
+    - producción agrícola
+    - produccion agricola
+    - producción ganadera
+    - produccion ganadera
+    - desarrollo rural
+    - medio rural
+    - regadío
+    - regadio
+  direccion:
+    # REDEFINIDO 2026-07-27 — Direccion politica (altos cargos del ejecutivo).
+    # Antes era un cajon de sastre: deuda, justicia, tributos, transferencias a
+    # entes locales, informatica, medios y parlamentos. Referencia: programa 912A
+    # de Canarias 'Direccion Politica y Gobierno', replicado en cada consejeria.
+    # Perimetro: ejecutivo estricto (presidencia, vicepresidencia, gabinetes, alta
+    # direccion). EXCLUIDOS parlamento, control externo, defensorias, consejos
+    # consultivos y transparencia. Keywords VACIAS a proposito: mapeo por codigo
+    # exacto para que no vuelva a capturar por texto. Ver logs/progreso.md.
+    # 91.9121 Alta direccion / Gobierno de Navarra (12/12, 0,4-0,6 M). Se excluyen 91.9112
+    # actividad legislativa, 91.9113 control externo y 91.9122 alto asesoramiento.
+    codigos:
+    - '91.9121'
+    keywords: []
+  vivienda:
+    codigos:
+    - 26.*
+    keywords:
+    - vivienda
+    - viviendas
+    - rehabilitación
+    - rehabilitacion
+    - infraestructura urbana
+    - urbanismo
+  empleo:
+    codigos:
+    - 24.*
+    - 49.4941
+    keywords:
+    - empleo
+    - mercado de trabajo
+    - inserción y estabilidad laboral
+    - insercion y estabilidad laboral
+    - formación profesional ocupacional
+    - formacion profesional ocupacional
+    - escuelas taller
+    - talleres de empleo
+    - economía social
+    - economia social
+    - relaciones laborales
+    - condiciones de trabajo
+  idi:
+    codigos:
+    - 46.*
+    keywords:
+    - investigación
+    - investigacion
+    - innovación
+    - innovacion
+    - i+d
+    - i d i
+    - desarrollo tecnológico
+    - desarrollo tecnologico
+    - sociedad de la información
+    - sociedad de la informacion
+  dependencia:
+    codigos:
+    - 23.231B
+    - 23.2314
+    keywords:
+    - dependencia
+    - autonomía personal
+    - autonomia personal
+    - personas mayores
+    - servicios sociales a personas mayores
+    - mayores
+  discapacidad:
+    codigos:
+    - 23.2313
+    keywords:
+    - discapacidad
+    - diversidad funcional
+    - personas con discapacidad
+    - servicios sociales a personas con discapacidad
+  salud_mental:
+    codigos:
+    - 31.3124
+    keywords:
+    - salud mental
+    - asistencia psiquiátrica
+    - asistencia psiquiatrica
+    - drogodependencias
+    - adicciones
+  diversidad:
+    # REDEFINIDO 2026-07-27 — Diversidad (LGTBI, migraciones, etnias), per Cuaderno
+    # Metodologico tablas 4/14. Antes cajon de sastre: inclusion social
+    # generica, infancia/familia, cooperacion al desarrollo, deporte, cultura,
+    # patrimonio, idioma. Ver logs/progreso.md.
+    # Retirados 23.2315 (Proteccion a la familia, 194 M), 23.2317 (Atencion a la infancia,
+    # 46 M), 23.2310 (Programacion general, 20 M), 23.2316 (Reinsercion social, 12 M),
+    # 23.2331 (Direccion y servicios, 10 M), 23.2325 (Memoria y convivencia, 8 M) y sus
+    # keywords genericos ('proteccion a la familia', 'servicios sociales', 'reinsercion
+    # social', 'memoria y convivencia', etc.): eran el 98% del concepto, servicios
+    # sociales generales sin relacion con diversidad. Se queda 23.2319 'Integracion de los
+    # inmigrantes' (6-7 M/anio).
+    codigos:
+    - '23.2319'
+    keywords:
+    - 'lgtbi'
+    - 'lgbti'
+    - 'migración'
+    - 'migracion'
+    - 'inmigrantes'
+    - 'integración de los inmigrantes'
+    - 'integracion de los inmigrantes'
+    - 'interculturalidad'
+    - 'gitano'
+  turismo:
+    codigos:
+    - 43.4321
+    - 43.4323
+    keywords:
+    - turismo
+    - turístico
+    - turistico
+    - turística
+    - turistica
+    - hostelería
+    - hosteleria
+    - complejos turísticos
+    - complejos turisticos
+    - promoción hotelera
+    - promocion hotelera
+  igualdad:
+    # REDEFINIDO 2026-07-27 — Igualdad: Instituto de la Mujer / programa Igualdad-VG, per
+    # Cuaderno Metodologico tablas 4/14. Antes capturaba programas de JUVENTUD
+    # (mismo prefijo 232/323 que igualdad en el esquema funcional de varias
+    # CCAA, pero '...A' es juventud y '...B' es mujer/igualdad). Ver logs/progreso.md.
+    # Retirado 23.2321 'Promocion y servicios a la juventud' (3,8 M, el 36% del concepto):
+    # es juventud — estaba EXPLICITO en codigos y ADEMAS en los keywords ('juventud',
+    # 'servicios a la juventud'...). Se queda 23.2322 'Igualdad de oportunidades entre
+    # mujeres y hombres' y 23.2323 'Actuaciones para la prevision integral de la violencia
+    # de genero'.
+    codigos:
+    - '23.2322'
+    - '23.2323'
+    keywords:
+    - 'lgtbi'
+    - 'igualdad'
+    - 'igualdad de oportunidades'
+    - 'mujer'
+    - 'mujeres'
+    - 'mujeres y hombres'
+    - 'violencia de género'
+    - 'violencia de genero'

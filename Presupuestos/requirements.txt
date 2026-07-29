@@ -1,0 +1,23 @@
+# Python deps del pipeline Presupuestos
+# ODESOCAN — Canarias en Datos · 2026-05-11
+
+# Core
+pandas>=2.2,<3
+pyarrow>=15,<22
+PyYAML>=6.0
+requests>=2.31
+
+# PDF extraction (memorias de programas)
+pdfplumber>=0.11
+camelot-py[base]>=0.11   # requiere ghostscript + python3-tk en el sistema
+
+# HTML / portales JS (Liferay, SGCIEF, etc.)
+beautifulsoup4>=4.12
+lxml>=5.0
+playwright>=1.44         # opcional: necesario solo para el visor SGCIEF;
+                         # tras pip install ejecutar: python -m playwright install chromium
+openpyxl>=3.1            # lectura xlsx de Hacienda
+xlrd>=2.0.1              # lectura .xls legacy (cym-jcyl-xls: gastos consolidado JCyL)
+
+# Word → YAML (Tablas_Correspondencias_CCAA)
+python-docx>=1.1

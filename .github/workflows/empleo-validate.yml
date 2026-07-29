@@ -1,0 +1,48 @@
+name: empleo-validate
+
+# Gate previo a producción (§4.2).
+#
+# A diferencia de Educación, Empleo SÍ versiona sus salidas intermedias y las
+# de 5_visualizacion, así que la validación no necesita re-extraer del INE ni
+# re-entrenar la competición de algoritmos: valida el contrato de datos que
+# realmente se va a cargar, partiendo de lo que hay en el repositorio.
+#
+# `cargar_supabase.py --dry-run` valida y cuenta filas sin abrir conexión: sale
+# antes de leer SUPABASE_DB_URL. Por eso este workflow no necesita ningún secreto,
+# y puede ejecutarse con seguridad sobre pull requests.
+
+on:
+  pull_request:
+    paths:
+      - "Empleo/**"
+      - ".github/workflows/empleo-validate.yml"
+  push:
+    branches: [main]
+    paths: ["Empleo/**"]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: ./.github/actions/setup-python-pipeline
+        with:
+          python-version: "3.12"
+          requirements: "Empleo/4_carga/requirements.txt"
+          extra-packages: "pyarrow"
+
+      - name: QA del consolidado
+        working-directory: "Empleo/2_transformacion"
+        run: python validacion.py
+
+      - name: QA del modelado
+        working-directory: "Empleo/3_modelado"
+        run: python validacion.py
+
+      # Sin escribir: valida columnas y cuenta filas de los CSV que carga deploy.
+      - name: Carga en seco
+        working-directory: "Empleo/4_carga"
+        run: python cargar_supabase.py --no-prep --dry-run

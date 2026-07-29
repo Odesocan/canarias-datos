@@ -1,0 +1,65 @@
+name: presupuestos-extract
+
+on:
+  schedule:
+    - cron: "0 4 28 * *"          # cada día 28 a las 04:00 UTC
+  workflow_dispatch:
+    inputs:
+      ccaa: { description: "Código CCAA (vacío = todas)", required: false, default: "" }
+      anio: { description: "Ejercicio (vacío = todos)",   required: false, default: "" }
+
+jobs:
+  extract:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: r-lib/actions/setup-r@v2
+        with: { r-version: "4.4" }
+
+      - uses: r-lib/actions/setup-r-dependencies@v2
+        with:
+          working-directory: Presupuestos
+          extra-packages: |
+            glue here yaml httr fs digest dplyr tidyr tibble readr readxl
+            jsonlite stringi stringdist purrr writexl httr2
+
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+
+      - name: System deps for camelot
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ghostscript python3-tk
+
+      - name: Python deps
+        run: |
+          pip install --upgrade pip
+          pip install pdfplumber "camelot-py[base]" pandas pyarrow
+
+      - name: Run extraction + transform
+        env:
+          CED_PYTHON_BIN: python3
+        working-directory: Presupuestos
+        run: Rscript 00_maestro.R --steps=extraccion,transformacion --with-db=false
+
+      - name: Upload staging artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: presupuestos-staging
+          path: |
+            Presupuestos/logs/manifest.jsonl
+            Presupuestos/1_extraccion/*.rds
+            Presupuestos/2_transformacion/*.rds
+
+      - name: Open PR with new manifest
+        uses: peter-evans/create-pull-request@v6
+        with:
+          add-paths: |
+            Presupuestos/logs/manifest.jsonl
+          commit-message: "data: refresh presupuestos manifest"
+          branch: bot/presupuestos-refresh-${{ github.run_id }}
+          title: "Presupuestos · refresh manifest"
+          body: "Refresh automático del manifiesto de presupuestos."
+          labels: data,presupuestos

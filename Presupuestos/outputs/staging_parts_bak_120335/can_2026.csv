@@ -1,0 +1,144 @@
+ccaa_id3,anio,concepto,importe_eur,codigo,denominacion
+can,2026,direccion,203277271.0,112A,Tribunales de Justicia
+can,2026,direccion,8307111.0,112B,Relaciones con la Administración de Justicia
+can,2026,direccion,5177457.0,112C,Ministerio Fiscal
+can,2026,,35514095.0,132A,Seguridad y Emergencia
+can,2026,,26171191.0,132B,Seguridad ciudadana
+can,2026,,4587036.0,132C,"Estudios, form. e investig. en Seguridad Pública"
+can,2026,direccion,1958192.0,142A,Acción de la Comunidad Autónoma en el Exterior
+can,2026,direccion,10973371.0,143A,Cooperación economica y al desarrollo
+can,2026,,53915251.0,231B,Coordinación y Planificación de Políticas Sociales
+can,2026,discapacidad,18401602.0,231C,Planificación y Apoyo a los Servicios Sociales
+can,2026,dependencia,16167596.0,231D,Atención a personas mayores 0
+can,2026,,542500.0,231G,Prestaciones y otras Ayudas Sociales
+can,2026,,66186074.0,231H,Prevenc. e Interv. en área del Menor y la Familia
+can,2026,diversidad,130289458.0,231I,Fomento de la Inclusión Social
+can,2026,,40290100.0,231K,Ejecución Medidas Judiciales Menores Infractores
+can,2026,dependencia,396004122.0,231M,Atención a Personas en situación de Dependencia
+can,2026,discapacidad,67741406.0,231N,Atención a Personas con Discapacidad
+can,2026,diversidad,6210270.0,231P,Acciones a favor de los canarios en el exterior
+can,2026,igualdad,7314547.0,232A,Promoc. y Fomento Calidad de Vida personas jóvenes
+can,2026,igualdad,14672962.0,232B,Promoción Igualdad de Oportunidades para Mujeres
+can,2026,diversidad,701000.0,232C,Planificación y Promoción de la Diversidad
+can,2026,direccion,21160549.0,239A,Dirección Administrativa y Servicios Generales
+can,2026,empleo,92350760.0,241C,Fomento del Empleo
+can,2026,empleo,65163.0,241E,Dirección y Gestión Administrativa del SCE
+can,2026,empleo,4195000.0,241K,Refuerzo de la Capacidad Empresarial
+can,2026,vivienda,161955034.0,261A,"Dirección, Promoción y Gestión en mat. de Vivienda"
+can,2026,vivienda,1000000.0,261B,Promoción y Rehabilit. Parque Públ. de Viviendas
+can,2026,vivienda,8278052.0,261E,Ordenación del territorio
+can,2026,sanidad,4814223.0,311A,Dirección Administrativa y Servicios Generales
+can,2026,sanidad,476204.0,311B,Formación Sanitaria y Social
+can,2026,sanidad,4536754790.0,312A,Asistencia Sanitaria
+can,2026,educacion,266198375.0,321A,Dirección Administrativa y Servicios Generales
+can,2026,educacion,3202150.0,321B,Form. Permanente del Profesorado e Innov. Educat
+can,2026,educacion,1453944.0,321C,Calidad y Evaluac del Sistema Educativo Canario
+can,2026,turismo,8399747.0,322A,Formación Profesional Turística
+can,2026,educacion,860633561.0,322B,"Educación Infantil, Primaria y 1ª Ciclo de E.S.O"
+can,2026,educacion,990687589.0,322C,Enseñanza Secundaria y Formación Profesional
+can,2026,educacion,8610897.0,322D,Formación Profesional Específica
+can,2026,educacion,281903688.0,322F,Financiación de las Universidades Canarias
+can,2026,educacion,7202809.0,322H,Mejora de la Capacitación Agraria y Form. Profes
+can,2026,educacion,6765404.0,322J,Formación Profesional Marítimo Pesquera
+can,2026,educacion,59255067.0,322K,Enseñanzas Régimen Especial y Educación de Adultos
+can,2026,educacion,12877071.0,323A,Apoyo a los Estudios Universitarios
+can,2026,educacion,102180749.0,324C,Servicios Complem. a la Enseñanza no Universitaria
+can,2026,direccion,2944756.0,331A,Dirección Administrativa y Servicios Generales
+can,2026,,5984561.0,332A,Servicios bibliotecarios y archivisticos
+can,2026,,25849760.0,334A,Promoción Cultural
+can,2026,,394544.0,334D,Promoción del libro y publicaciones culturales
+can,2026,,26165256.0,336A,Deportes
+can,2026,,11396671.0,337A,Patrimonio Cultural
+can,2026,soberania,14201872.0,411A,Dirección Administrativa y Servicios Generales
+can,2026,soberania,18480987.0,411B,Gestión ayudas FEAGA/FEADER
+can,2026,soberania,34861085.0,412A,Mejora de Estructuras Agrarias y del Medio Rural
+can,2026,soberania,10718021.0,412B,Ordenación y mejora de la producción agrícola
+can,2026,soberania,9514381.0,412C,Desarrollo ganadero
+can,2026,soberania,7588858.0,413A,Calidad Agroalimentaria
+can,2026,soberania,20254273.0,415A,Desarrollo Pesquero
+can,2026,soberania,12535744.0,415B,Estructuras Pesqueras
+can,2026,soberania,2524640.0,415C,Ordenación e Inspección Pesquera
+can,2026,direccion,4752347.0,421A,Dirección Administrativa y Servicios Generales
+can,2026,,603049.0,421B,Seguridad Industrial y Minera
+can,2026,,285827844.0,425A,Desarrollo Energético
+can,2026,,4747087.0,431A,Promoción Exterior
+can,2026,,16109181.0,431B,Comercio Interior
+can,2026,turismo,6258318.0,432A,Dirección Administrativa y Servicios Generales
+can,2026,turismo,22146080.0,432B,Infraestr. Turíst. y Gest. Integral Núcleos Turíst
+can,2026,turismo,75000.0,432C,Plan Sect. de Infraestr. y Calidad Turíst. de Can. 0
+can,2026,turismo,4194704.0,432F,Productos Turísticos y Calidad Turística
+can,2026,turismo,50650222.0,432G,Promoción y Apoyo a la Comercialización
+can,2026,turismo,63073132.0,432H,Planificación Turistíca y Sistema de Información
+can,2026,,11764741.0,433A,Apoyo a PYMES Industriales
+can,2026,,1085432.0,433B,Desarrollo Artesanal
+can,2026,,35381863.0,433C,Promoción Económica
+can,2026,,5872875.0,433D,Desarrollo industrial
+can,2026,,75017623.0,441D,Movilidad Interior
+can,2026,,33622160.0,441E,Cohesión Interinsular
+can,2026,direccion,8257993.0,451A,Dirección Administrativa y Servicios Generales
+can,2026,,3585877.0,451C,Calidad de las Construcciones
+can,2026,,6608297.0,451D,Planificación y Programación de Infraestructuras
+can,2026,,1292000.0,451E,Ordenación y Apoyo Plan Estratég. Ttes de Canarios
+can,2026,,7590244.0,452A,Incremento de Recursos Hidráulicos
+can,2026,,36590941.0,452B,Mejora de la Calidad del Agua
+can,2026,,6366751.0,452D,"Estudios, Investig. y Gestión en materia de Aguas"
+can,2026,,12479715.0,453A,Desarrollo de Infraestructura de Carreteras
+can,2026,,319000.0,453C,Plan Cofinanciado Mejora de la Red Viaria 0
+can,2026,,214920000.0,453D,Convenio de Carreteras con Ministerio de Fomento
+can,2026,,11504327.0,456A,Disciplina Urbanística y Medioambiental
+can,2026,,8538006.0,456C,Apoyo a moderniz. de gestión y elab. del planeam
+can,2026,,24554113.0,456D,Coordinación y Planificación Medioambiental
+can,2026,diversidad,13283978.0,456E,Biodiversidad
+can,2026,,16461614.0,456F,Medio Natural
+can,2026,,18634415.0,456G,Calidad Ambiental
+can,2026,,3476919.0,456H,Infraestructura de Costas
+can,2026,,65752464.0,456J,Desarrollo Sostenible y Cambio Climático
+can,2026,direccion,10775129.0,456K,Dirección Administrativa y Servicios Generales
+can,2026,,16354649.0,456L,Parques Nacionales
+can,2026,direccion,5533618.0,461A,Dirección Administrativa y Servicios Generales
+can,2026,,6452041.0,462A,"Estadística, analítica de datos e intelig. de gob"
+can,2026,idi,16100602.0,463B,Capital Humano Investigador e Innovador
+can,2026,idi,27173117.0,463C,Apoyo a la Investigación Básica y Aplicada
+can,2026,idi,9758177.0,467A,Investigación y Desarrollo Tecnológico Agrario
+can,2026,idi,14655825.0,467B,Apoyo a la Innovación Empresarial
+can,2026,idi,12011203.0,467C,Apoyo al Despliegue de Sociedad de la Información
+can,2026,,99867877.0,491A,Infraestruct. y Serv. de Comunicac. e Informática
+can,2026,,2868479.0,492A,Defensa de los Consumidores y Usuarios
+can,2026,,11063298.0,494A,Admón de Relac. Laborales y Condiciones de Trabajo
+can,2026,,2907990.0,494B,Promoc. de Prev. de Riesgos Lab. y Asesor. Técnico
+can,2026,direccion,301387.0,911G,Alta Representación de la Comunidad Autónoma
+can,2026,direccion,2445958.0,911J,Consejo Económico y Social
+can,2026,direccion,33601026.0,912A,Dirección Política y Gobierno
+can,2026,direccion,6883829.0,912B,Dirección Admva y Servicios Generales Presidencia
+can,2026,direccion,78051.0,912C,Dirección Admva y Servicios Grales. Vicepresid
+can,2026,direccion,15849863.0,912D,Asistencia Técnica y Política al Presidente
+can,2026,direccion,4879932.0,912E,Asistencia Técnica y Política al Vicepresidente
+can,2026,direccion,309025.0,912G,Relaciones con el Parlamento
+can,2026,direccion,300306.0,912H,Gestión y mant. Oficina del Gob. de Can. en Madrid
+can,2026,direccion,41103378.0,912L,Palamento y Entes de relevancia Estatutaria
+can,2026,direccion,7445264.0,921A,Dirección Administrativa y Servicios Generales
+can,2026,direccion,3028036.0,921B,Servicio Jurídico
+can,2026,direccion,179395.0,921C,Dirección Administrativa y Servicios Generales
+can,2026,direccion,4594837.0,921D,Relaciones Informativas
+can,2026,direccion,16545442.0,921F,Función Pública
+can,2026,direccion,2213032.0,921G,Formación y Perfeccionamiento Personal de AA.PP
+can,2026,direccion,7991735.0,921H,Mejora organiz. admva. e impulso calidad servicios
+can,2026,direccion,60906807.0,921J,Medios de Comunic. Social y Relaciones Informativ
+can,2026,direccion,1677441.0,921K,"Transparencia, Participación y Colabor. Ciudadana"
+can,2026,direccion,3362480.0,922A,Administraciones Públicas y Gobierno abierto
+can,2026,direccion,101662084.0,923B,Gestión Patrimonial y contratación pública
+can,2026,direccion,8005006.0,923C,Gestión del Tesoro y Política Financiera
+can,2026,direccion,14510370.0,923D,Dirección Administrativa y Servicios Generales
+can,2026,direccion,11976887.0,923E,Apoyo Informático a los Servicios de Hacienda
+can,2026,direccion,69784288.0,929A,Gastos imprevistos y funciones no clasificadas
+can,2026,direccion,53302130.0,929B,Reconstrucción y recuperac econ-social de La Palma
+can,2026,direccion,13615727.0,931A,Control interno y Contabilidad Pública
+can,2026,direccion,2258686.0,931B,Asuntos Economicos con la Union Europea
+can,2026,direccion,9445077.0,931C,Planificación y Presupuesto
+can,2026,direccion,83057336.0,932A,Gestion Tributaria
+can,2026,direccion,697354.0,932B,Resolución de reclamaciones económico-admvas
+can,2026,,451958006.0,942A,Transferencias a Cabildos traspaso de competencias
+can,2026,,465289201.0,942C,Fondo Canario de Financiación Municipal
+can,2026,,67791339.0,942D,Otras Transferencias a Corporaciones Locales
+can,2026,,163356772.0,943A,Fondo de desarrollo de Canarias
+can,2026,,104556413.0,951M,Amortiz y gtos fros deuda pública moneda nacional

@@ -1,0 +1,173 @@
+ccaa_id3,anio,concepto,importe_eur,codigo,denominacion
+nav,2018,educacion,13613127.0,32.3211,Educación / Dirección y servicios generales de educación
+nav,2018,educacion,379273599.0,32.3220,Educación / Dirección y servicios generales de enseñanza
+nav,2018,educacion,117000.0,32.3242,Educación / Apoyo a otras actividades educativas
+nav,2018,educacion,21940949.0,32.3251,"Educación / Construcción, equipamiento y material didáctico"
+nav,2018,educacion,48859887.0,32.322D,Educación / Educación primaria
+nav,2018,educacion,4484104.0,32.3231,Educación / Becas y ayudas a estudiantes
+nav,2018,educacion,27862126.0,32.3221,Educación / Educación infantil
+nav,2018,educacion,36753475.0,32.3222,Educación / Educación secundaria
+nav,2018,educacion,7247064.0,32.3224,Educación / Educación especial
+nav,2018,educacion,9656045.0,32.322C,Educación / Bachillerato
+nav,2018,educacion,11218913.0,32.322E,Educación / Formación profesional
+nav,2018,educacion,17850010.0,32.3241,Educación / Servicios complementarios de la enseñanza
+nav,2018,educacion,1358464.0,32.3212,Educación / Formación permanente del profesorado de Educación
+nav,2018,educacion,7418811.0,32.322A,Educación / Nuevas tecnologías aplicadas a la educación
+nav,2018,educacion,2654962.0,32.3229,"Educación / Otras enseñanzas (idiomas, especiales y otros)"
+nav,2018,educacion,3180513.0,32.3225,Educación / Enseñanzas artísticas
+nav,2018,educacion,86080.0,32.3227,Educación / Educación compensatoria y de adultos
+nav,2018,educacion,60787878.0,32.3223,Educación / Enseñanzas universitarias
+nav,2018,educacion,175000.0,32.322G,Educación / Deporte en edad escolar y en la universidad
+nav,2018,diversidad,24173065.0,23.2317,Servicios sociales y promoción social / Atención a la infancia
+nav,2018,diversidad,5854415.0,23.2331,Servicios sociales y promoción social / Dirección y servicios generales de protección social
+nav,2018,diversidad,13142677.0,23.2310,Servicios sociales y promoción social / Programación general de protección y promoción social
+nav,2018,diversidad,9763303.0,23.2316,Servicios sociales y promoción social / Reinserción social
+nav,2018,diversidad,116381272.0,23.2315,Servicios sociales y promoción social / Protección a la familia
+nav,2018,diversidad,656900.0,23.2319,Servicios sociales y promoción social / Integración de los inmigrantes
+nav,2018,dependencia,148809127.0,23.231B,Servicios sociales y promoción social / Autonomía personal y atención a la dependencia
+nav,2018,discapacidad,1511000.0,23.2313,Servicios sociales y promoción social / Servicios sociales a personas con discapacidad
+nav,2018,dependencia,150000.0,23.2314,Servicios sociales y promoción social / Servicios sociales a personas mayores
+nav,2018,igualdad,2344300.0,23.2322,Servicios sociales y promoción social / Igualdad de oportunidades entre mujeres y hombres
+nav,2018,igualdad,1822638.0,23.2323,Servicios sociales y promoción social / Actuaciones para la previsión integral de la violencia de género
+nav,2018,igualdad,2088117.0,23.2321,Servicios sociales y promoción social / Promoción y servicios a la juventud
+nav,2018,diversidad,1856939.0,23.2325,Servicios sociales y promoción social / Memoria y convivencia
+nav,2018,empleo,10693587.0,24.2421,Fomento del empleo / Formación profesional ocupacional
+nav,2018,empleo,11142822.0,24.2413,Fomento del empleo / Actuaciones en el mercado de trabajo
+nav,2018,empleo,22191129.0,24.2411,Fomento del empleo / Fomento de la inserción y estabilidad laboral
+nav,2018,empleo,6772000.0,24.2412,Fomento del empleo / Desarrollo de la economía social y de la responsabilidad social de las empresas
+nav,2018,empleo,5000000.0,24.2422,"Fomento del empleo / Escuelas taller, casas de oficios y talleres de empleo"
+nav,2018,,13963674.0,33.3341,Cultura / Promoción y cooperación cultural
+nav,2018,,19574251.0,33.3361,Cultura / Fomento y apoyo de las actividades deportivas
+nav,2018,direccion,4347374.0,33.3311,Cultura / Dirección y servicios generales de cultura
+nav,2018,,4738423.0,33.3371,"Cultura / Administración, conservación y restauración del patrimonio histórico"
+nav,2018,,603172.0,33.3374,Cultura / Arqueología
+nav,2018,,5680625.0,33.3351,Cultura / Música y danza
+nav,2018,,4703457.0,33.3331,Cultura / Museos
+nav,2018,,4780161.0,33.3322,Cultura / Bibliotecas
+nav,2018,,2386313.0,33.3321,Cultura / Archivos
+nav,2018,,43713.0,33.3342,Cultura / Promoción del libro y publicaciones culturales
+nav,2018,direccion,6114212.0,45.4512,Infraestructuras / Dirección y servicios generales de obras públicas
+nav,2018,,36641289.0,45.4533,Infraestructuras / Conservación y explotación de carreteras
+nav,2018,,78962845.0,45.4532,Infraestructuras / Creación de infraestructura de carreteras
+nav,2018,,1578059.0,45.4511,Infraestructuras / Estudios y servicios de asistencia técnica en obras públicas
+nav,2018,,11399357.0,45.4562,Infraestructuras / Protección y mejora del medio ambiente
+nav,2018,,1847125.0,45.4521,Infraestructuras / Gestión e infraestructuras de recursos hidráulicos
+nav,2018,,1000010.0,45.4531,Infraestructuras / Infraestructura del transporte ferroviario
+nav,2018,,6004509.0,45.4563,Infraestructuras / Protección y mejora del medio natural
+nav,2018,direccion,202320.0,45.4514,Infraestructuras / Dirección y servicios generales del transporte
+nav,2018,,3750.0,45.4534,Infraestructuras / Ordenación e inspección del transporte terrestre
+nav,2018,direccion,257000.0,45.4513,Infraestructuras / Dirección y servicios generales de medio ambiente
+nav,2018,,463367.0,45.4566,Infraestructuras / Creación y mejora de comunales y pastos
+nav,2018,,8739110.0,45.4567,Infraestructuras / Conservación y mejora de masas forestales
+nav,2018,direccion,132000.0,45.4565,Infraestructuras / Prevención y extinción de incendios
+nav,2018,,15804559.0,45.4561,Infraestructuras / Calidad del agua
+nav,2018,,1347030.0,45.4591,Infraestructuras / Electrificación y alumbrado
+nav,2018,,1974936.0,45.45A2,Infraestructuras / Creación y conservación de caminos rurales
+nav,2018,,5358.0,45.45B1,Infraestructuras / Otros servicios del bienestar comunitario
+nav,2018,,4816420.0,45.4581,Infraestructuras / Infraestructura industrial
+nav,2018,,145000.0,45.4569,Infraestructuras / Actuaciones para la prevención de la contaminación y el cambio climático
+nav,2018,,95250.0,45.45A1,Infraestructuras / Protección y conservación de vías pecuarias
+nav,2018,,500000.0,45.4523,Infraestructuras / Estabilización de márgenes fluviales
+nav,2018,direccion,1435631.0,45.4516,Infraestructuras / Dirección y servicios generales de urbanismo
+nav,2018,vivienda,1151093.0,26.2611,Acceso a la vivienda y fomento de la edificación / Dirección y servicios generales de vivienda
+nav,2018,vivienda,2033000.0,26.2617,Acceso a la vivienda y fomento de la edificación / Urbanismo y política del suelo
+nav,2018,vivienda,100000.0,26.2612,Acceso a la vivienda y fomento de la edificación / Promoción y administración de viviendas
+nav,2018,vivienda,167000.0,26.2615,Acceso a la vivienda y fomento de la edificación / Mantenimiento y mejora del patrimonio inmobiliario
+nav,2018,vivienda,42470000.0,26.2614,"Acceso a la vivienda y fomento de la edificación / Ayudas para rehabilitación, construcción y acceso a la vivienda"
+nav,2018,vivienda,15511670.0,26.2616,Acceso a la vivienda y fomento de la edificación / Mantenimiento y mejora de la infraestructura urbana en el ámbito municipal
+nav,2018,,825000.0,49.4951,Otras actuaciones de carácter económico / Desarrollo y aplicación de la información geográfica
+nav,2018,,928261.0,49.4923,Otras actuaciones de carácter económico / Protección y promoción de los derechos de los consumidores y usuarios
+nav,2018,idi,1831000.0,49.4911,"Otras actuaciones de carácter económico / Ordenación, administración y promoción de las telecomunicaciones y de la sociedad de la información"
+nav,2018,,957039.0,49.4933,Otras actuaciones de carácter económico / Regulación contable y de auditorías
+nav,2018,empleo,4740427.0,49.4941,Otras actuaciones de carácter económico / Administración de las relaciones laborales y condiciones de trabajo
+nav,2018,,3198967.0,49.4913,Otras actuaciones de carácter económico / Mantenimiento y ampliación de la red telefónica y radiotelefónica
+nav,2018,,1750000.0,49.4914,Otras actuaciones de carácter económico / Mantenimiento y ampliación de la red de televisión
+nav,2018,,27337836.0,44.4411,Subvenciones al transporte / Subvenciones y apoyo al transporte terrestre
+nav,2018,direccion,14423528.0,91.9112,Alta dirección / Actividad legislativa
+nav,2018,direccion,2585024.0,91.9113,Alta dirección / Control externo del sector público
+nav,2018,direccion,599212.0,91.9121,Alta dirección / Gobierno de Navarra
+nav,2018,direccion,696986.0,91.9123,Alta dirección / Relaciones con el Parlamento
+nav,2018,direccion,446310.0,91.9122,Alta dirección / Alto asesoramiento de la Comunidad Foral de Navarra
+nav,2018,,14858080.0,21.2121,Pensiones / Pensiones no contributivas y prestaciones asistenciales
+nav,2018,,93376270.0,21.2111,Pensiones / Pensiones contributivas
+nav,2018,direccion,8313188.0,14.1431,Política exterior / Cooperación para el desarrollo
+nav,2018,direccion,307546.0,14.1441,"Política exterior / Cooperación, promoción y difusión cultural en el exterior"
+nav,2018,direccion,1211151.0,14.1451,Política exterior / Relaciones con la Unión Europea
+nav,2018,direccion,1281605.0,14.1461,Política exterior / Relaciones con el exterior
+nav,2018,,213374.0,42.4213,"Industria y energía / Calidad, competitividad y seguridad industrial"
+nav,2018,direccion,1411783.0,42.4211,Industria y energía / Dirección y servicios generales de industria y energía
+nav,2018,,2931382.0,42.4252,Industria y energía / Incentivos sobre medidas energéticas
+nav,2018,,23949217.0,42.4222,Industria y energía / Desarrollo industrial
+nav,2018,,22000.0,42.4223,Industria y energía / Reconversión y reindustrialización de empresas
+nav,2018,direccion,22331062.0,92.9234,Servicios de carácter general / Dirección y servicios generales de economía y hacienda
+nav,2018,direccion,6813876.0,92.9211,"Servicios de carácter general / Dirección, organización y servicios generales de la Administración Pública"
+nav,2018,direccion,1315590.0,92.921B,Servicios de carácter general / Coordinación de servicios generales
+nav,2018,direccion,476529.0,92.9216,Servicios de carácter general / Edición y confección de boletines oficiales
+nav,2018,direccion,667932.0,92.9217,Servicios de carácter general / Asesoramiento y defensa
+nav,2018,direccion,858746.0,92.921A,Servicios de carácter general / Tramitación y resolución de recursos administrativos
+nav,2018,direccion,29079285.0,92.9214,"Servicios de carácter general / Administración, gestión y control de personal"
+nav,2018,direccion,1839530.0,92.9213,"Servicios de carácter general / Selección, formación, promoción y representación del personal"
+nav,2018,direccion,1707455.0,92.9218,"Servicios de carácter general / Conservación y mantenimiento de vehículos, maquinaria, instalaciones y otros"
+nav,2018,direccion,601721.0,92.9219,Servicios de carácter general / Impresos y publicaciones
+nav,2018,direccion,3350737.0,92.9215,Servicios de carácter general / Cobertura informativa
+nav,2018,direccion,367629.0,92.9221,Servicios de carácter general / Dirección y servicios generales de Política Territorial
+nav,2018,direccion,77919.0,92.9222,Servicios de carácter general / Coordinación y relaciones financieras con entidades locales
+nav,2018,direccion,981974.0,92.9224,"Servicios de carácter general / Apoyo en aspectos técnicos, jurídicos o económicos"
+nav,2018,direccion,1341.0,92.9223,Servicios de carácter general / Régimen jurídico y de personal de la administración local
+nav,2018,direccion,2555201.0,92.9239,Servicios de carácter general / Servicios de apoyo a economía y hacienda
+nav,2018,direccion,149176.0,92.9237,Servicios de carácter general / Gestión de tesorería
+nav,2018,direccion,4987592.0,92.9231,Servicios de carácter general / Gestión del patrimonio
+nav,2018,direccion,1207038.0,92.9233,Servicios de carácter general / Elaboración y difusión estadística
+nav,2018,direccion,1545121.0,92.9249,Servicios de carácter general / Otras formas de participación ciudadana
+nav,2018,direccion,22370692.0,92.921C,Servicios de carácter general / Informática
+nav,2018,idi,38874994.0,46.4673,"Investigación, desarrollo e innovación / Investigación y desarrollo tecnológico-industrial"
+nav,2018,idi,617470.0,46.4677,"Investigación, desarrollo e innovación / Investigación y desarrollo de la sociedad de la información"
+nav,2018,idi,7008757.0,46.4679,"Investigación, desarrollo e innovación / Innovación tecnológica de las telecomunicaciones"
+nav,2018,idi,4770788.0,46.4651,"Investigación, desarrollo e innovación / Investigación sanitaria"
+nav,2018,idi,715327.0,46.4681,"Investigación, desarrollo e innovación / Estudios técnicos en el sector agrario"
+nav,2018,idi,1855440.0,46.4674,"Investigación, desarrollo e innovación / Investigación y experimentación agraria y forestal"
+nav,2018,direccion,55411827.0,13.1321,Seguridad ciudadana e instituciones penitenciarias / Seguridad ciudadana
+nav,2018,direccion,5172463.0,13.1311,Seguridad ciudadana e instituciones penitenciarias / Dirección y servicios generales de seguridad y protección civil
+nav,2018,direccion,123000.0,13.1322,Seguridad ciudadana e instituciones penitenciarias / Seguridad vial
+nav,2018,direccion,26253015.0,13.1342,Seguridad ciudadana e instituciones penitenciarias / Prevención y extinción de incendios y salvamento
+nav,2018,direccion,4641169.0,13.1341,Seguridad ciudadana e instituciones penitenciarias / Protección civil
+nav,2018,direccion,2173989.0,11.1112,Justicia / Dirección y servicios generales de justicia
+nav,2018,direccion,28299712.0,11.1121,Justicia / Órganos judiciales
+nav,2018,,2593010.0,22.2241,Otras prestaciones económicas / Otras prestaciones económicas
+nav,2018,direccion,14762178.0,94.9423,Transferencias a otras administraciones públicas / Otras transferencias
+nav,2018,direccion,403425.0,94.9424,Transferencias a otras administraciones públicas / Transferencias a entidades locales para cooperar en obras y servicios
+nav,2018,direccion,542071743.0,94.9411,Transferencias a otras administraciones públicas / Convenio económico con el Estado
+nav,2018,direccion,219915434.0,94.9421,Transferencias a otras administraciones públicas / Participación en los tributos de la Hacienda Pública de Navarra
+nav,2018,sanidad,105825263.0,31.3111,Sanidad / Dirección y servicios generales de sanidad y política social
+nav,2018,sanidad,22890675.0,31.3139,Sanidad / Otras acciones públicas de protección de la salud
+nav,2018,sanidad,864504.0,31.3112,Sanidad / Formación sanitaria
+nav,2018,sanidad,151130.0,31.3132,Sanidad / Salud pública y sanidad exterior
+nav,2018,sanidad,33206833.0,31.3128,Sanidad / Infraestructura y equipamiento de centros sanitarios
+nav,2018,salud_mental,30662441.0,31.3124,Sanidad / Asistencia psiquiátrica y psíquica
+nav,2018,sanidad,558301638.0,31.3123,Sanidad / Atención especializada de salud
+nav,2018,sanidad,144645268.0,31.3122,Sanidad / Atención primaria de salud
+nav,2018,sanidad,153030998.0,31.3131,Sanidad / Oferta y uso racional de medicamentos y productos sanitarios
+nav,2018,sanidad,5686544.0,31.3127,Sanidad / Servicios auxiliares de centros sanitarios
+nav,2018,turismo,8251496.0,43.4321,"Comercio, Turismo y Pymes / Coordinación y promoción del turismo"
+nav,2018,turismo,1660000.0,43.4314,"Comercio, Turismo y Pymes / Ordenación y modernización de las estructuras comerciales"
+nav,2018,turismo,1050000.0,43.4313,"Comercio, Turismo y Pymes / Ordenación y promoción del comercio exterior"
+nav,2018,direccion,113866.0,43.4312,"Comercio, Turismo y Pymes / Dirección y servicios generales de comercio y turismo"
+nav,2018,soberania,14627165.0,41.4111,"Agricultura, ganadería y alimentación / Dirección y servicios generales de agricultura, ganadería y alimentación"
+nav,2018,soberania,21490715.0,41.4121,"Agricultura, ganadería y alimentación / Competitividad, calidad y defensa de la producción agrícola"
+nav,2018,soberania,17270796.0,41.4142,"Agricultura, ganadería y alimentación / Desarrollo sostenible del medio rural"
+nav,2018,soberania,466764.0,41.4123,"Agricultura, ganadería y alimentación / Regulación de los mercados agrarios"
+nav,2018,soberania,6641139.0,41.4122,"Agricultura, ganadería y alimentación / Competitividad, calidad y defensa de la producción ganadera"
+nav,2018,soberania,3503562.0,41.4143,"Agricultura, ganadería y alimentación / Reordenación de la propiedad y concentración parcelaria"
+nav,2018,soberania,29711865.0,41.4141,"Agricultura, ganadería y alimentación / Gestión de los recursos hídricos para el regadío"
+nav,2018,soberania,11073356.0,41.4131,"Agricultura, ganadería y alimentación / Competitividad de la industria agroalimentaria y calidad alimentaria"
+nav,2018,soberania,265233.0,41.4144,"Agricultura, ganadería y alimentación / Fomento y mejora de las infraestructuras agrarias"
+nav,2018,direccion,447772.0,93.9323,Administración financiera y tributaria / Resolución de reclamaciones económico-administrativas
+nav,2018,direccion,252134.0,93.9312,Administración financiera y tributaria / Política presupuestaria
+nav,2018,direccion,161411.0,93.9315,Administración financiera y tributaria / Política financiera y de créditos
+nav,2018,direccion,821737.0,93.9314,Administración financiera y tributaria / Control interno y contabilidad pública
+nav,2018,direccion,901687.0,93.9311,Administración financiera y tributaria / Previsión y política económica
+nav,2018,direccion,12513383.0,93.9321,Administración financiera y tributaria / Aplicación del sistema tributario
+nav,2018,direccion,1766720.0,93.9324,Administración financiera y tributaria / Inspección fiscal
+nav,2018,direccion,2165466.0,93.9322,Administración financiera y tributaria / Gestión del catastro inmobiliario
+nav,2018,direccion,2928469.0,93.9313,Administración financiera y tributaria / Política tributaria
+nav,2018,direccion,88695736.0,95.9511,Deuda pública / Amortización y gastos financieros de la deuda pública en moneda nacional

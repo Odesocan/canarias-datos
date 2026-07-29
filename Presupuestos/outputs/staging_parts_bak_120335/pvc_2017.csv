@@ -1,0 +1,109 @@
+ccaa_id3,anio,concepto,importe_eur,codigo,denominacion
+pvc,2017,,1036266604.0,0111,Zor Publikoa
+pvc,2017,direccion,29400000.0,1111,Legebiltzarra
+pvc,2017,direccion,7414312.0,1112,Herri Kontuen Euskal Epaitegia
+pvc,2017,direccion,1365012.0,1113,Datuak Babesteko Euskal Bulegoa
+pvc,2017,direccion,10603420.0,1121,Lehendakaritza. Egitura eta Laguntza
+pvc,2017,direccion,1362853.0,1124,Euskadiko Ekonomia eta Gizarte Arazoet. Batzordea
+pvc,2017,direccion,1083726.0,1125,Euskadiko Aholku Batzorde Juridikoa
+pvc,2017,direccion,10679641.0,1211,Gobernantza Publikoa eta Aut. Egitura eta Laguntz
+pvc,2017,direccion,22246797.0,1212,Zerbitzu Orokorrak
+pvc,2017,direccion,12689533.0,1213,"F. Publikoa, Langileen Hautaketa eta Prestakuntza"
+pvc,2017,direccion,31083876.0,1214,Informatika eta Telekomunikazioak
+pvc,2017,direccion,13926094.0,1215,Berrikuntza eta Administrazio Elektronikoa
+pvc,2017,direccion,8385417.0,1216,Adm. Publikoko Langileen Hautaketa eta Prestak.
+pvc,2017,direccion,2641271.0,1217,Erakundeen Harremanak
+pvc,2017,direccion,3613479.0,1218,Araubide Juridikoa
+pvc,2017,direccion,62814200.0,1221,Hainbat Sail
+pvc,2017,direccion,1863770.0,1222,Kreditu Orokorra
+pvc,2017,direccion,7889429.0,1311,Kanpo Harremanak
+pvc,2017,direccion,45044551.0,1312,Garapen Lankidetza
+pvc,2017,,141035786.0,1411,Justizi Administrazioa
+pvc,2017,,34137173.0,1412,Justizia
+pvc,2017,,5063955.0,2211,Segurtasuna. Egitura eta Laguntza
+pvc,2017,,12125601.0,2221,Trafikoa
+pvc,2017,,593637284.0,2223,Ertzaintza Zerbitzuan
+pvc,2017,,14500000.0,2224,Polizia eta Larrialdietako Euskal Akademia
+pvc,2017,,4596850.0,2231,Larrialdiei aurre egitea
+pvc,2017,,3184075.0,3110,Lana eta Justizia. Egitura eta Laguntza
+pvc,2017,,43737134.0,3111,Enplegua eta Gizarte Polit. Egitura eta Laguntza
+pvc,2017,,27538155.0,3112,Lana
+pvc,2017,,14030000.0,3113,Laneko Segurtasuna eta Osasunbidea
+pvc,2017,,1042413626.0,3121,Gizarteratzea
+pvc,2017,diversidad,4283087.0,3122,Inmigrazioa
+pvc,2017,,33499532.0,3123,Gizarte Zerbitzuak
+pvc,2017,,66520951.0,3124,Familia eta Komunitate Politika
+pvc,2017,,2418566.0,3131,Gizarte Solaskidetzaren Garapena
+pvc,2017,empleo,448131504.0,3211,Enplegua
+pvc,2017,empleo,4413811.0,3212,Gizarte Ekonomia
+pvc,2017,empleo,929443.0,3213,Euskadiko Kooperatiben Goren Kontseilua
+pvc,2017,igualdad,5132892.0,3221,Emakumeen Aukera Berdintasuna Sustatzea
+pvc,2017,,9073748.0,3222,Gazteria
+pvc,2017,igualdad,5810000.0,3223,Emakunde-Emakumearen Euskal Erakundea
+pvc,2017,empleo,223432418.0,3231,Prestakuntza
+pvc,2017,sanidad,17635650.0,4111,Osasuna. Egitura eta Laguntza
+pvc,2017,sanidad,2967082444.0,4112,Osasun Finantzaketa eta Kontratazioa
+pvc,2017,sanidad,41796074.0,4113,Osasun Publikoa
+pvc,2017,sanidad,8068440.0,4114,Osasun Ikerketa eta Plangintza
+pvc,2017,sanidad,503552036.0,4115,Farmazia
+pvc,2017,salud_mental,4582356.0,4116,Adikzioak
+pvc,2017,educacion,64530933.0,4211,Hezkuntza. Egitura eta Laguntza
+pvc,2017,educacion,981235948.0,4221,Haur eta Lehen Hezkuntza
+pvc,2017,educacion,959455141.0,4222,Bigarren Hezkuntza eta Lanbide Heziketa
+pvc,2017,educacion,316963796.0,4223,Unibertsitateko Irakaskuntza
+pvc,2017,educacion,54672095.0,4224,Araubide Bereziko Irakaskuntzak
+pvc,2017,educacion,46071465.0,4225,Hezkuntza Berritzea eta Irakasleak Etengabe Prest
+pvc,2017,educacion,35482237.0,4226,Etengabeko Ikaskuntza eta Helduen Hezkuntza
+pvc,2017,educacion,173916188.0,4231,Hezkuntza Sustapena
+pvc,2017,vivienda,121673061.0,4312,Etxebizitza
+pvc,2017,vivienda,3716168.0,4313,Lurralde Antolamendua
+pvc,2017,,5614512.0,4420,Ingurumena eta Lurralde Pol. Etx.Egitura eta Lag.
+pvc,2017,,25918259.0,4421,Ingurumenaren Babesa
+pvc,2017,,5626890.0,4431,Kontsumoa
+pvc,2017,,6651000.0,4432,Kontsumobide-Kontsumoko Euskal Institutua
+pvc,2017,,3575186.0,4511,Kultura/Hizk. Pol. Egitura eta Laguntza
+pvc,2017,,8732219.0,4512,Kirolak
+pvc,2017,,31894656.0,4513,Kulturaren Sustapena
+pvc,2017,,20613360.0,4514,Ondare Historiko Artistikoa
+pvc,2017,,126128738.0,4515,Gizarte Hedabideak
+pvc,2017,,5227553.0,4611,Hauteskundeak
+pvc,2017,,6080958.0,4621,Biktimak eta Giza Eskubideak
+pvc,2017,,3987750.0,4622,"Memoria, Bizikidetza eta Giza Eskubideen Instit."
+pvc,2017,,52355841.0,4711,Hizkuntza Politika
+pvc,2017,,10326583.0,4712,Administrazio Publikoaren Hizkuntza Normalkuntza
+pvc,2017,,39365000.0,4713,Helduen Alfabetatze eta Berreuskalduntzerako Erak
+pvc,2017,,11066583.0,4714,Euskalduntzea eta Hizkuntza Normalkuntza
+pvc,2017,,42368194.0,4715,Hezkuntza Sistemaren Euskalduntzea
+pvc,2017,,35100000.0,5121,Uraren Plangintza eta Administrazioa
+pvc,2017,,224620255.0,5131,Trenbideko garraioaren azpiegitura eta kudeaketa
+pvc,2017,,350530000.0,5135,EAE-KO Trenbide Sare Berria-Kudeaketa Kreditoak
+pvc,2017,,6001316.0,5141,Garraioaren plangintza
+pvc,2017,,18932486.0,5151,Portuak
+pvc,2017,idi,17721614.0,5411,Nekazaritza eta Arrantza Alorreko Iker. eta Garap
+pvc,2017,idi,44276003.0,5412,Ikerketa
+pvc,2017,idi,139885904.0,5413,Teknologia
+pvc,2017,idi,38350000.0,5414,Berrikuntzarako Funtsa
+pvc,2017,idi,21557467.0,5415,Berrikuntza Digitalaren Agenda
+pvc,2017,,11088000.0,5511,Estatistika
+pvc,2017,,3300857.0,5512,Meteorologia eta Klimatologia
+pvc,2017,,12745000.0,5513,Estatistikako Eragiketa eta Argitalpen Ofizialak
+pvc,2017,,6798492.0,6110,Ogasuna eta Ekonomia. Egitura eta Laguntza
+pvc,2017,,9455914.0,6111,Ekonomia eta Gastu Publikoa
+pvc,2017,,2565610.0,6112,Zerga-politika
+pvc,2017,,1818900.0,6113,Joko eta Ikuskizunak
+pvc,2017,,7014667.0,6114,Ondare eta Kontratazioa
+pvc,2017,,2188000.0,6115,Lehiaren Euskal Agintaritza
+pvc,2017,,10909317.0,6311,Finantza-Politika
+pvc,2017,soberania,78066641.0,7111,"Nekazaritza, eta Landaren eta Itsasertzaren gar."
+pvc,2017,soberania,15827017.0,7112,Arrantza
+pvc,2017,soberania,20210251.0,7113,Elikagaien Sustapena eta Kalitatea
+pvc,2017,,18659924.0,7211,Ekonomiaren Garapena eta Az. Egitura eta Laguntza
+pvc,2017,,103947756.0,7212,Industria Garapena eta Ekintzaileen Laguntza
+pvc,2017,,3992894.0,7213,Industria Segurtasuna
+pvc,2017,,6071718.0,7214,Berrikuntza eta Lehiakortasun Estrategia
+pvc,2017,,1065790.0,7311,Energia eta Meatze Politika eta Garapena
+pvc,2017,turismo,2142614.0,7510,"Turismo, Merkataritza, Kon. Egitura eta Laguntza"
+pvc,2017,turismo,15028190.0,7511,Turismoa
+pvc,2017,,14462306.0,7612,Barne Merkataritza
+pvc,2017,,22664967.0,7613,Nazioartekotzea
+pvc,2017,,71004240.0,9119,"Bestelako Finantza-harr.,Euskal Alor Publikoareki"

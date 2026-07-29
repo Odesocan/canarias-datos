@@ -1,0 +1,17 @@
+FICHEROS DE AFILIACIÓN A LA SEGURIDAD SOCIAL (Indicador 5)
+==========================================================
+
+Coloca aquí los ficheros Excel/CSV de afiliación media mensual que publica la
+Seguridad Social (TGSS), con distribución POR PROVINCIAS.
+
+Fuente:
+  Portal Seguridad Social → Estadísticas → Afiliación → "Afiliación Media mensual"
+  https://www.seg-social.es/wps/portal/wss/internet/EstadisticasPresupuestosEstudios/Estadisticas/EST8/EST10/EST290/EST292
+
+El lector (extraer_seg_social.py) filtra automáticamente Las Palmas (35) y
+Santa Cruz de Tenerife (38). Si el layout del Excel no se detecta solo, ajusta
+la hoja/fila de cabecera con:
+  python extraer_seg_social.py --hoja "Provincias" --fila-cabecera 5
+
+Nota: el desglose por ISLA no lo publica la Seguridad Social (sólo provincia).
+Para nivel insular habría que usar el ISTAC.

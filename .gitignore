@@ -1,0 +1,30 @@
+# Secretos: .Renviron/.env contienen contraseñas de Postgres y service_role keys.
+# Presentes en Educación, Salud mental, Dependencia, Vivienda, Sanidad.
+**/.Renviron
+**/.env
+**/.env.local
+
+# Cachés y artefactos
+**/__pycache__/
+*.pyc
+**/.RData
+**/.Ruserdata
+**/.RDataTmp
+.DS_Store
+**/.DS_Store
+
+# Datos crudos descargados. NO se versionan: son reproducibles desde el catálogo
+# de fuentes de cada área (Presupuestos/fuentes.yml, APIs de INE/IMSERSO/Eurostat)
+# y los workflows de `extract` los vuelven a descargar en cada ejecución de CI.
+# Sin esto el árbol pesa 2,3 GB y GitHub rechaza el push (límite de 100 MB/fichero:
+# Presupuestos/fuentes/raw/ara/_zip/presupuestos.zip son 103 MB).
+Presupuestos/fuentes/raw/
+Empleo/1_extraccion/raw/
+Empleo/1_extraccion/salida/
+Dependencia/1_extraccion/imserso_xls_multi/
+
+# Cachés de extracción y temporales de trabajo
+Empleo/1_extraccion/.cache_ine/
+Presupuestos/1_extraccion/_pdf_cache/
+Presupuestos/1_extraccion/_hacienda_cache/
+Presupuestos/tmp/

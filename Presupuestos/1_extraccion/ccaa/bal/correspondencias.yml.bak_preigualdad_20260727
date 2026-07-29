@@ -1,0 +1,237 @@
+conceptos:
+  sanidad:
+    codigos:
+    - 411E      # Finançament sanitari
+    - 413A      # Acreditació, docència i recerca en salut
+    - 413B      # Prevenció i vigilància en salut pública
+    - 413C      # Protecció de la salut
+    - 413D      # Coordinació de centres insulars
+    - 413F      # Planificació, control i gestió del medicament
+    - 411D      # Planificació, avaluació i cartera de serveis (sanitari)
+    - '411'
+    - '412'
+    - '511'
+    keywords:
+    - sanidad
+    - salud publica
+    - salut publica
+    - servicio canario salud
+    - atencion primaria
+    - atencion especializada
+    - sanitaria
+    - salud
+    - salut
+    - financament sanitari
+  educacion:
+    codigos:
+    - 421B      # Ordenació general del sistema educatiu
+    - 421C      # Planificació educativa
+    - 421D      # Formació del professorat
+    - 421E      # Llengües estrangeres i projectes internacionals
+    - 421F      # Política i actuacions universitàries
+    - 421G      # Formació professional
+    - 421H      # Inspecció educativa
+    - 421K      # Innovació i comunitat educativa
+    - 422A      # Educació pública
+    - '421*'
+    - '422*'
+    - '423*'
+    keywords:
+    - educacion
+    - educació
+    - ensenyament
+    - educativa
+    - escolar
+    - universitari
+    - formació professional
+  soberania:
+    codigos:
+    - 714B      # Foment del sector agropecuari
+    - 714C      # Polítiques alimentàries
+    - 718A      # Recursos marins i ordenació pesquer
+    - '714*'
+    - '715*'
+    - '716*'
+    - '717*'
+    - '718*'
+    keywords:
+    - agricultura
+    - agropecuari
+    - ramaderia
+    - ganaderia
+    - pesca
+    - pesquer
+    - alimentacio
+    - alimentació
+    - alimentaria
+    - alimentàries
+    - soberania alimentaria
+  direccion:
+    # REDEFINIDO 2026-07-27 — Direccion politica (altos cargos del ejecutivo).
+    # Antes era un cajon de sastre: deuda, justicia, tributos, transferencias a
+    # entes locales, informatica, medios y parlamentos. Referencia: programa 912A
+    # de Canarias 'Direccion Politica y Gobierno', replicado en cada consejeria.
+    # Perimetro: ejecutivo estricto (presidencia, vicepresidencia, gabinetes, alta
+    # direccion). EXCLUIDOS parlamento, control externo, defensorias, consejos
+    # consultivos y transparencia. Keywords VACIAS a proposito: mapeo por codigo
+    # exacto para que no vuelva a capturar por texto. Ver logs/progreso.md.
+    # 121A Serveis/Direccio generals de la Presidencia del Govern (12/12, 3,2-4,4 M). Se
+    # excluye 121B (D.S.G. de la Conselleria de Presidencia, 47 M) y 912A/912B, que en
+    # Baleares son soporte financiero a consells insulars y ajuntaments.
+    codigos:
+    - '121A'
+    keywords: []
+  vivienda:
+    codigos:
+    - '261'
+    - '431'
+    - '451'
+    - '43'
+    - 431A
+    - 431B
+    keywords:
+    - vivienda
+    - habitatge
+    - etxebizitza
+  empleo:
+    codigos:
+    - 322A      # Ocupació i inserció laboral específiques
+    - 322B      # Gestió relacions laborals
+    - 322D      # Foment i gestió ocupació Illes Balears
+    - 322F      # Autoocupació i economia social
+    - '322*'
+    - '241*'
+    keywords:
+    - empleo
+    - ocupació
+    - ocupacio
+    - enplegua
+    - foment de l'ocupació
+    - inserció laboral
+    - autoocupació
+    - economia social
+    - relacions laborals
+  idi:
+    codigos:
+    - 541A      # Recerca i desenvolupament
+    - 542A      # Innovació
+    - 463A
+    - '467*'
+    - '541*'
+    - '542*'
+    keywords:
+    - investigacion
+    - investigació
+    - recerca
+    - innovacion
+    - innovació
+    - i d i
+    - desarrollo tecnologico
+    - desenvolupament tecnològic
+  dependencia:
+    codigos:
+    - 313D      # Atenció a la dependència
+    - 313I      # Planificació social
+    - 313L      # Equipaments serveis socials
+    - 314A      # Pensions i prestacions econòmiques
+    - 231D
+    - 232D
+    - 232G
+    - 252D
+    keywords:
+    - dependencia
+    - mendekotasun
+    - atencion a la dependencia
+    - pensions
+    - prestacions econòmiques
+    - serveis socials
+  discapacidad:
+    # FIX 2026-07-27: 313C RETIRADO ("Mesures judicials i prevenció del
+    # delicte" — medidas judiciales, no discapacidad; llegaba vía el patrón
+    # GLOBAL, hoy también retirado en la raíz). 313B AÑADIDO ("Atenció a la
+    # discapacitat" / "Atención a la discapacidad", 10-24 M€/año en toda la
+    # serie): estaba mal asignado a `diversidad` por error de transcripción.
+    # Ver logs/progreso.md 2026-07-27.
+    codigos:
+    - 231C
+    - 232C
+    - 313B
+    - 313G
+    - 313F
+    - '314'
+    keywords:
+    - discapacidad
+    - diversidad funcional
+    - diversitat funcional
+    - discapacitat
+  salud_mental:
+    # FIX 2026-07-27: '514' RETIRADO — 514B "Gestió de les instal·lacions
+    # portuàries" es gestión portuaria, no salud mental; llegaba vía el
+    # patrón GLOBAL (código de Navarra filtrándose), hoy también retirado en
+    # la raíz. Ver logs/progreso.md 2026-07-27.
+    codigos:
+    - 413E      # Pla autonòmic d'addiccions
+    - 313A
+    - 313E
+    - '414'
+    - 312D
+    - 412I
+    keywords:
+    - salud mental
+    - salut mental
+    - buru osasun
+    - addicc
+    - drogas
+  diversidad:
+    # REDEFINIDO 2026-07-27 — Diversidad (LGTBI, migraciones, etnias), per Cuaderno
+    # Metodologico tablas 4/14. Antes cajon de sastre: inclusion social
+    # generica, infancia/familia, cooperacion al desarrollo, deporte, cultura,
+    # patrimonio, idioma. Ver logs/progreso.md.
+    # Retirado 232A 'Cooperacio internacional' (7,6 M): ayuda al desarrollo generica, no
+    # migracion de personas. Se quedan 313J 'Integracio social d'immigrants' y 316A 'Drets
+    # i diversitat'.
+    codigos:
+    - '313J'
+    - '316A'
+    - '232B'
+    - '234'
+    - '266'
+    keywords:
+    - 'lgtbi'
+    - 'lgbti'
+    - 'migracion'
+    - 'migració'
+    - 'immigrant'
+    - 'interculturalidad'
+    - 'diversitat'
+    - 'drets civils'
+  turismo:
+    codigos:
+    - 751B      # Promoció turística
+    - 751C      # Ordenació del sector turístic
+    - 432A
+    - '432*'
+    - '751*'
+    - '761*'
+    - '730*'
+    keywords:
+    - turismo
+    - turisme
+    - turistic
+    - turismoa
+  igualdad:
+    codigos:
+    - 323C      # Polítiques públiques d'igualtat
+    - '232'
+    - '323*'
+    - '920'
+    - 323A
+    keywords:
+    - igualdad
+    - igualtat
+    - mujer
+    - dona
+    - violencia de genero
+    - berdintasun
+    - emakume
+    - instituto de la mujer

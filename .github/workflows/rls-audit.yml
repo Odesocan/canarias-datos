@@ -1,0 +1,84 @@
+name: rls-audit
+
+# Gate de seguridad de la §4.2 de ESTRATEGIA_GITHUB_ACTIONS.md.
+#
+# Audita el estado REAL de Row Level Security en la Supabase de producción, no
+# en una base efímera. El motivo: una base efímera solo contiene lo que el propio
+# workflow acaba de crear, así que un chequeo de RLS ahí no dice nada sobre las
+# tablas que ya están publicadas. Las tablas expuestas están en producción, y es
+# ahí donde hay que mirar.
+#
+# El criterio y su justificación están documentados en .github/sql/rls_audit.sql.
+# La consulta es de solo lectura sobre catálogos del sistema.
+
+on:
+  schedule:
+    - cron: "0 6 * * 1"          # lunes 06:00 UTC
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "**/4_carga/**"          # cambió cómo alguna área escribe en producción
+      - ".github/sql/rls_audit.sql"
+      - ".github/workflows/rls-audit.yml"
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+
+    env:
+      PGHOST: ${{ secrets.SUPABASE_HOST }}
+      PGPORT: ${{ secrets.SUPABASE_PORT }}
+      PGDATABASE: ${{ secrets.SUPABASE_DBNAME }}
+      PGUSER: ${{ secrets.SUPABASE_USER }}
+      PGPASSWORD: ${{ secrets.SUPABASE_PASS }}
+      # Esquemas gestionados desde este repositorio, separados por comas. La
+      # Supabase del Observatorio aloja además esquemas de otros proyectos
+      # (geodesocan, medios), que no se auditan aquí porque no se gestionan
+      # desde este repo.
+      ESQUEMAS: canendatos
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Cliente de PostgreSQL
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y postgresql-client
+
+      - name: Auditar RLS y permisos de anon
+        run: |
+          set -euo pipefail
+
+          if [ -z "${PGHOST}" ] || [ -z "${PGUSER}" ] || [ -z "${PGPASSWORD}" ]; then
+            echo "::error::Faltan secretos de conexión (SUPABASE_HOST/USER/PASS)."
+            exit 1
+          fi
+
+          if ! hallazgos=$(psql -v ON_ERROR_STOP=1 -v esquemas="${ESQUEMAS}" \
+                                -t -A -F'|' -f .github/sql/rls_audit.sql); then
+            echo "::error::La consulta de auditoría no pudo ejecutarse."
+            exit 1
+          fi
+
+          if [ -z "${hallazgos}" ]; then
+            echo "OK — ninguna tabla de '${ESQUEMAS}' es accesible por anon sin RLS."
+            exit 0
+          fi
+
+          criticos=0
+          while IFS='|' read -r severidad tabla privilegios; do
+            [ -z "${severidad}" ] && continue
+            if [ "${severidad}" = "CRITICO" ]; then
+              criticos=$((criticos + 1))
+              echo "::error::${tabla} — RLS desactivado y anon puede escribir (${privilegios})"
+            else
+              echo "::warning::${tabla} — RLS desactivado, anon puede leer (${privilegios})"
+            fi
+          done <<< "${hallazgos}"
+
+          if [ "${criticos}" -gt 0 ]; then
+            echo "::error::${criticos} tabla(s) con escritura abierta a anon."
+            echo "Remediación: Empleo/4_carga/remediacion_rls_canendatos.sql"
+            exit 1
+          fi

@@ -1,0 +1,199 @@
+# Correspondencias para La Rioja.  Los códigos son del Detalle Funcional /
+# Económico, con 4 niveles G.F.SF.P (e.g. 3.1.2.1 = Sanidad / Hospitales /
+# Atención Primaria).
+conceptos:
+  sanidad:
+    codigos:
+    - 3.1.1.1
+    - 3.1.2.1
+    - 3.1.2.2
+    - 3.1.2.3
+    - 3.1.3.1
+    - 3.1.3.2
+    - 3.1.*
+    keywords:
+    - sanidad
+    - sanitario
+    - sanitaria
+    - sanitarios
+    - asistencia sanitaria
+    - atención primaria
+    - atencion primaria
+    - atención especializada
+    - atencion especializada
+    - hospitales
+    - formación del personal sanitario
+    - formacion del personal sanitario
+    - acciones de salud
+    - ordenación, control e información al consumidor
+    - salud pública
+    - salud publica
+    - salud
+  educacion:
+    codigos:
+    - 3.2.1.1
+    - 3.2.2.1
+    - 3.2.2.2
+    - 3.2.2.3
+    - 3.2.2.5
+    - 3.2.*
+    keywords:
+    - educación
+    - educacion
+    - educativo
+    - educativa
+    - enseñanza
+    - ensenanza
+    - escolar
+    - profesorado
+    - formación profesional
+    - formacion profesional
+    - universidad
+    - universidades
+    - universitario
+    - universitaria
+    - becas
+  soberania:
+    codigos:
+    - 4.1.*
+    - 4.3.*
+    keywords:
+    - agricultura
+    - ganadería
+    - ganaderia
+    - ganadero
+    - pesca
+    - pesquero
+    - pesquera
+    - agroalimentaria
+    - agroalimentario
+    - agrario
+    - agraria
+    - desarrollo rural
+    - medio rural
+  direccion:
+    # REDEFINIDO 2026-07-27 — Direccion politica (altos cargos del ejecutivo).
+    # Antes era un cajon de sastre: deuda, justicia, tributos, transferencias a
+    # entes locales, informatica, medios y parlamentos. Referencia: programa 912A
+    # de Canarias 'Direccion Politica y Gobierno', replicado en cada consejeria.
+    # Perimetro: ejecutivo estricto (presidencia, vicepresidencia, gabinetes, alta
+    # direccion). EXCLUIDOS parlamento, control externo, defensorias, consejos
+    # consultivos y transparencia. Keywords VACIAS a proposito: mapeo por codigo
+    # exacto para que no vuelva a capturar por texto. Ver logs/progreso.md.
+    # 1.8.1.1 ACTIVIDAD ALTA DIRECCION (2017-2026) y 1.1.2.1 GABINETE DEL PRESIDENTE
+    # (2015-2016, esquema funcional antiguo). Juntos dan 12/12. Codigos ENTRECOMILLADOS:
+    # sin comillas YAML los lee como float y nunca casan.
+    codigos:
+    - '1.8.1.1'
+    - '1.1.2.1'
+    keywords: []
+  vivienda:
+    codigos:
+    - 2.6.*
+    keywords:
+    - vivienda
+    - viviendas
+    - urbanismo
+    - ordenación del territorio
+    - ordenacion del territorio
+    - rehabilitación
+    - rehabilitacion
+  empleo:
+    codigos:
+    - 2.4.*
+    keywords:
+    - empleo
+    - políticas de empleo
+    - politicas de empleo
+    - formación para el empleo
+    - formacion para el empleo
+    - inserción laboral
+    - insercion laboral
+    - ocupación
+    - ocupacion
+  idi:
+    codigos:
+    - 4.6.*
+    keywords:
+    - investigación
+    - investigacion
+    - innovación
+    - innovacion
+    - i+d
+    - i d i
+    - desarrollo tecnológico
+    - desarrollo tecnologico
+    - sociedad digital
+  dependencia:
+    codigos:
+    - 2.3.2.2
+    - 3.1.4.1
+    keywords:
+    - dependencia
+    - autonomía personal
+    - autonomia personal
+    - personas mayores
+    - mayores
+    - sociosanitarias
+    - planificación sociosanitaria
+    - planificacion sociosanitaria
+  discapacidad:
+    codigos:
+    - 2.3.2.3
+    keywords:
+    - discapacidad
+    - diversidad funcional
+    - personas con discapacidad
+  salud_mental:
+    codigos:
+    - 3.1.3.3
+    keywords:
+    - salud mental
+    - acciones salud mental
+    - drogodependencias
+    - adicciones
+  diversidad:
+    # REDEFINIDO 2026-07-27 — Diversidad (LGTBI, migraciones, etnias), per Cuaderno
+    # Metodologico tablas 4/14. Antes cajon de sastre: inclusion social
+    # generica, infancia/familia, cooperacion al desarrollo, deporte, cultura,
+    # patrimonio, idioma. Ver logs/progreso.md.
+    # Retirados 2.3.2.4 (Infancia y Menores), 2.3.2.5 (PRESTACIONES DE LA DEPENDENCIA —
+    # literalmente el concepto dependencia, mal ubicado aqui) y 2.3.2.6 (Servicios
+    # Comunitarios). Se queda 2.3.2.1 'Exclusion Social e Inmigracion' (8-10 M/anio;
+    # combina exclusion social con inmigracion en el mismo programa, es el mas cercano al
+    # perimetro acordado).
+    codigos:
+    - '2.3.2.1'
+    keywords:
+    - 'lgtbi'
+    - 'lgbti'
+    - 'migración'
+    - 'migracion'
+    - 'interculturalidad'
+    - 'gitano'
+    - 'exclusión social'
+    - 'exclusion social'
+  turismo:
+    codigos:
+    - 4.3.3.*
+    - 4.5.*
+    keywords:
+    - turismo
+    - turístico
+    - turistico
+    - turística
+    - turistica
+    - hostelería
+    - hosteleria
+  igualdad:
+    codigos:
+    - 2.3.3.1
+    keywords:
+    - igualdad
+    - igualdad de oportunidades
+    - mujer
+    - mujeres
+    - violencia de género
+    - violencia de genero
+    - promoción social
+    - promocion social

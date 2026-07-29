@@ -1,0 +1,366 @@
+defaults:
+  user_agent: ODESOCAN-CanariasEnDatos/0.1 (+https://odesocan.org)
+  retries: 2
+  timeout_s: 25
+hacienda:
+  nombre: Ministerio de Hacienda — Datos presupuestarios de las CCAA
+  portal: https://serviciostelematicosext.hacienda.gob.es/SGCIEF/PublicacionPresupuestos/
+  ejercicios:
+    2002-2026:
+      consulta_web:
+        tipo: html
+        url: https://serviciostelematicosext.hacienda.gob.es/SGCIEF/PublicacionPresupuestos/aspx/inicio.aspx
+        capa: hacienda
+        nota: Series 2002-2025 definitivas; 2026 avance
+and:
+  nombre: Andalucía
+  regimen: comun
+  portal: https://www.juntadeandalucia.es/datosabiertos/portal/dataset?tags=presupuestos
+  ejercicios:
+    '2026':
+      memoria_programas:
+        tipo: pdf
+        url: https://www.juntadeandalucia.es/export/presup2026/estado/programas/tomo12-5b.pdf
+        capa: autonomica
+        consolidacion: consolidado
+    '2025':
+      memoria_programas:
+        tipo: pdf
+        url: https://www.juntadeandalucia.es/export/presup2025/estado/programas/tomo12-5b.pdf
+        capa: autonomica
+        consolidacion: consolidado
+        nota: Resumen capítulos-programas (formato funcional 2-3díg+letra). Raw ya descargado N7.
+    '2024':
+      memoria_programas:
+        tipo: pdf
+        url: https://www.juntadeandalucia.es/export/presup2024/estado/programas/tomo12-5b.pdf
+        capa: autonomica
+        consolidacion: consolidado
+        nota: Resumen capítulos-programas (formato funcional 2-3díg+letra). Raw ya descargado N7.
+    '2015':
+      gastos_csv:
+        tipo: csv
+        url: https://www.juntadeandalucia.es/datosabiertos/portal/dataset/38ce8942-1834-4a25-a347-da4b536a8b9e/resource/02f5a4d2-f03c-4a19-b91b-a56d458eeced/download/gastos_2015.csv
+        capa: autonomica
+ara:
+  nombre: Aragón
+  regimen: comun
+  portal: https://www.aragon.es/es/transparencia/economia-presupuestos/presupuestos-de-la-comunidad-autonoma-de-aragon
+  ejercicios:
+    '2024':
+      ingresos_gastos:
+        tipo: pdf
+        url: https://www.aragon.es/documents/d/guest/ingresos_gastos_24
+        capa: autonomica
+        nota: Resolver canonical_url desde Liferay; los identificadores son volátiles
+ast:
+  nombre: Principado de Asturias
+  regimen: comun
+  portal: https://transparencia.asturias.es/web/transparencia/presupuestos
+  ejercicios:
+    '2026':
+      tomo_I:
+        tipo: pdf
+        url: https://transparencia.asturias.es/documents/2213862/4017833/presupuestos_2026_tomoI_texto_articulado_y_estados_numericos.pdf
+        capa: autonomica
+    '2025':
+      tomo_I:
+        tipo: pdf
+        url: https://transparencia.asturias.es/web/transparencia/presupuestos
+        capa: autonomica
+        nota: Tomo I distribucion del gasto; raw ya descargado N10 — resolver URL canonica del documento
+    '2024':
+      tomo_I:
+        tipo: pdf
+        url: https://transparencia.asturias.es/web/transparencia/presupuestos
+        capa: autonomica
+        nota: Tomo I distribucion del gasto; raw ya descargado N10 — resolver URL canonica del documento
+bal:
+  nombre: Illes Balears
+  regimen: comun
+  portal: https://pressuposts.caib.es
+  ejercicios:
+    '2025':
+      memoria_programas:
+        tipo: html
+        url: https://pressuposts.caib.es/www/ant/pr2025bis/archivos/menu_tom3_d.html
+        capa: autonomica
+        nota: Tomo III — memoria de programas
+    '2024':
+      memoria_programas:
+        tipo: html
+        url: https://pressuposts.caib.es/www/ant/pr2024/archivos/menu_tom3_d.html
+        capa: autonomica
+        nota: Tomo III — memoria de programas (raw ya descargado N5)
+    '2023':
+      memoria_programas:
+        tipo: html
+        url: https://pressuposts.caib.es/www/ant/pr2023/archivos/menu_tom3_d.html
+        capa: autonomica
+        nota: Tomo III — memoria de programas (raw ya descargado N5)
+    '2022':
+      memoria_programas:
+        tipo: html
+        url: https://pressuposts.caib.es/www/ant/pr2022/archivos/menu_tom3_d.html
+        capa: autonomica
+        nota: Tomo III — memoria de programas (raw ya descargado N5)
+can:
+  nombre: Canarias
+  regimen: comun
+  portal: https://www.gobiernodecanarias.org/hacienda/planificacionypresupuesto/
+  ejercicios:
+    '2022':
+      memoria_programas:
+        tipo: pdf
+        url: https://www.gobiernodecanarias.org/cmsgob1/export/sites/hacienda/planificacionypresupuesto/galeria/Presupuestos/2022/ley/TOMO-3-Resumenes.pdf
+        capa: autonomica
+        nota: TOMO 3 Resúmenes — sección 2.10 RESUMEN DE GASTOS POR PROGRAMAS
+    '2023':
+      memoria_programas:
+        tipo: pdf
+        url: https://www.gobiernodecanarias.org/cmsgob1/export/sites/hacienda/planificacionypresupuesto/galeria/Presupuestos/2023/ley/TOMO-3-Resumenes.pdf
+        capa: autonomica
+        nota: TOMO 3 Resúmenes — sección 2.10 RESUMEN DE GASTOS POR PROGRAMAS
+    '2024':
+      memoria_programas:
+        tipo: pdf
+        url: https://www.gobiernodecanarias.org/cmsgob1/export/sites/hacienda/planificacionypresupuesto/galeria/Presupuestos/2024/ley/TOMO-3-Resumenes.pdf
+        capa: autonomica
+        nota: TOMO 3 Resúmenes — sección 2.10 RESUMEN DE GASTOS POR PROGRAMAS
+    '2026':
+      memoria_programas:
+        tipo: pdf
+        url: https://www.gobiernodecanarias.org/cmsgob1/export/sites/hacienda/planificacionypresupuesto/galeria/Presupuestos/2026/ley/TOMO-3-Resumenes.pdf
+        capa: autonomica
+        nota: TOMO 3 Resúmenes — sección 2.10 RESUMEN DE GASTOS POR PROGRAMAS
+    '2025':
+      memoria_programas:
+        tipo: pdf
+        url: https://www.gobiernodecanarias.org/cmsgob1/export/sites/hacienda/planificacionypresupuesto/galeria/Presupuestos/2025/ley/TOMO-3-Resumenes.pdf
+        capa: autonomica
+        nota: Resolver tomo de memoria de programas
+      datos_abiertos:
+        tipo: csv
+        url: https://datos.canarias.es/catalogos/general/dataset/?_organization_limit=0&q=&res_format=CSV&tags=presupuestos
+        capa: autonomica
+        nota: Fuente SEFLogiC en CSV
+cnt:
+  nombre: Cantabria
+  regimen: comun
+  portal: https://www.cantabria.es/web/direccion-general-presupuestos
+  ejercicios:
+    '2025':
+      ingresos_gastos:
+        tipo: pdf
+        url: https://www.cantabria.es/documents/16870/124906248/2-+2%C2%BA+INGRESOS+Y+GASTOS+DEFINITIVA.pdf
+        capa: autonomica
+cym:
+  nombre: Castilla y León
+  regimen: comun
+  portal: https://datosabiertos.jcyl.es/web/jcyl/set/es/hacienda/presupuestos/1284548037482
+  ejercicios:
+    '2026':
+      datos_abiertos_csv:
+        tipo: csv
+        url: https://datosabiertos.jcyl.es/web/jcyl/risp/es/hacienda/presupuestos/1284548037482-8.csv
+        capa: autonomica
+        nota: Resolver el endpoint CSV concreto del dataset
+clm:
+  nombre: Castilla-La Mancha
+  regimen: comun
+  portal: https://transparencia.castillalamancha.es/actuacion/ley-de-presupuestos-generales-de-castilla-la-mancha-2026
+  ejercicios:
+    '2026':
+      tomo_I:
+        tipo: pdf
+        url: https://transparencia.castillalamancha.es/sites/default/files/migrate/actuaciones/2f371878_tomo_i_v1_texto_articulado_estado_de_ingresos_y_estado_de_gastos.pdf
+        capa: autonomica
+    '2025':
+      tomo_I:
+        tipo: pdf
+        url: https://transparencia.castillalamancha.es/actuacion/ley-de-presupuestos-generales-de-castilla-la-mancha-2025
+        capa: autonomica
+        nota: Tomo I resumen por secciones; raw ya descargado N10 — resolver URL canonica del documento
+    '2024':
+      tomo_I:
+        tipo: pdf
+        url: https://transparencia.castillalamancha.es/actuacion/ley-de-presupuestos-generales-de-castilla-la-mancha-2024
+        capa: autonomica
+        nota: Tomo I resumen por secciones; raw ya descargado N10 — resolver URL canonica del documento
+cat:
+  nombre: Cataluña / Catalunya
+  regimen: comun
+  portal: https://aplicacions.economia.gencat.cat/wpres/
+  ejercicios:
+    '2026':
+      vol_p_eid:
+        tipo: pdf
+        url: https://aplicacions.economia.gencat.cat/wpres/AppPHP/2026/pdf/VOL_P_EID.pdf
+        capa: autonomica
+        nota: Estados de ingresos y de gastos por programa (Polítiques de despesa)
+    '2024':
+      vol_p_eid:
+        tipo: pdf
+        url: https://aplicacions.economia.gencat.cat/wpres/AppPHP/2024/pdf/VOL_P_EID.pdf
+        capa: autonomica
+        nota: Volumen P-EID. Raw + sidecar pagetext ya generados (N6/N7).
+    '2023':
+      vol_p_eid:
+        tipo: pdf
+        url: https://aplicacions.economia.gencat.cat/wpres/AppPHP/2023/pdf/VOL_P_EID.pdf
+        capa: autonomica
+        nota: Volumen P-EID. Raw + sidecar pagetext ya generados (N7).
+    '2022':
+      vol_p_eid:
+        tipo: pdf
+        url: https://aplicacions.economia.gencat.cat/wpres/AppPHP/2022/pdf/VOL_P_EID.pdf
+        capa: autonomica
+        nota: Volumen P-EID. Raw + sidecar pagetext ya generados (N7).
+    '2020':
+      vol_p_eid:
+        tipo: pdf
+        url: https://aplicacions.economia.gencat.cat/wpres/AppPHP/2020/pdf/VOL_P_EID.pdf
+        capa: autonomica
+        nota: Volumen P-EID. Raw + sidecar pagetext ya generados (N7).
+ext:
+  nombre: Extremadura
+  regimen: comun
+  portal: https://www.asambleaex.es/
+  ejercicios:
+    '2026':
+      tomo_II_EIG:
+        tipo: pdf
+        url: https://www.asambleaex.es/descargas/presupuestos2026/PLP26_02_Tomo02_EIG.pdf
+        capa: autonomica
+        nota: Tomo II EIG; raw ya descargado N1 — verificado N6 (73 filas, 11 conceptos)
+    '2025':
+      tomo_II_EIG:
+        tipo: pdf
+        url: https://www.asambleaex.es/descargas/presupuestos2025/PLP25_02_Tomo02_EIG.pdf
+        capa: autonomica
+      tomo_III_APG:
+        tipo: pdf
+        url: https://www.asambleaex.es/descargas/presupuestos2025/PLP25_03_Tomo03_APG.pdf
+        capa: autonomica
+gal:
+  nombre: Galicia
+  regimen: comun
+  portal: https://transparencia.xunta.gal/es/tema/informacion-economica-orzamentaria-e-estatistica/orzamentos
+  ejercicios:
+    '2026':
+      portal_index:
+        tipo: html
+        url: https://transparencia.xunta.gal/es/tema/informacion-economica-orzamentaria-e-estatistica/orzamentos
+        capa: autonomica
+        nota: Resolver tomos II y III por ejercicio
+    '2025':
+      gastos_orzamento:
+        tipo: csv
+        url: https://transparencia.xunta.gal/es/tema/informacion-economica-orzamentaria-e-estatistica/orzamentos
+        capa: autonomica
+        nota: CSV de gastos por programa (datos abertos Xunta); raw ya descargado N3 — verificado N6 (47 filas, 8 conceptos)
+lar:
+  nombre: La Rioja
+  regimen: comun
+  portal: https://www.larioja.org/hacienda/es/presupuestos-generales
+  ejercicios:
+    '2025':
+      funcional_economico:
+        tipo: pdf
+        url: https://www.larioja.org/larioja-client/cm/hacienda/images?idMmedia=1664271
+        capa: autonomica
+mad:
+  nombre: Comunidad de Madrid
+  regimen: comun
+  portal: https://www.comunidad.madrid/presupuestos/presupuestos-generales-comunidad-madrid-2026
+  ejercicios:
+    '2026':
+      libro_03:
+        tipo: pdf
+        url: https://www.comunidad.madrid/docs/assets/2025/12/26/2026-presupuesto-libro-03-ingresos-gastos.pdf?VersionId=WXBISSNa6owraojVGn8BXcCUdEH.BpJz
+        capa: autonomica
+        nota: Resolver Libro 03 (Ingresos y Gastos) y Libro 04 (Programas)
+mur:
+  nombre: Región de Murcia
+  regimen: comun
+  portal: https://www.carm.es/chac/presupuestos2025/movil/index.html
+  ejercicios:
+    '2025':
+      portal_movil:
+        tipo: html
+        url: https://www.carm.es/chac/presupuestos2025/movil/index.html
+        capa: autonomica
+        nota: Resolver PDFs específicos por sección
+nav:
+  nombre: Comunidad Foral de Navarra
+  regimen: foral
+  portal: https://presupuesto.navarra.es
+  ejercicios:
+    '2026':
+      programa_csv:
+        tipo: csv
+        url: https://presupuesto.navarra.es/es/politicas#view=functional&year=2026
+        capa: autonomica
+        nota: Descarga CSV/Excel desde el visor de políticas
+pvc:
+  nombre: Euskadi / País Vasco
+  regimen: foral
+  portal: https://www.euskadi.eus/gobierno-vasco/contenidos/informacion/presupuestos_cae_fich/es_def/index.shtml
+  ejercicios:
+    '2025':
+      csv_tidy:
+        tipo: csv
+        url: https://www.euskadi.eus/contenidos/informacion/presupuestos_cae_fich/es_def/adjuntos/2025A/Datuak_datos.csv
+        capa: autonomica
+        nota: ZIP con CSVs tidy desde 2022; antes CSVs sueltos por concepto
+    '2024':
+      csv_tidy:
+        tipo: csv
+        url: https://www.euskadi.eus/contenidos/informacion/presupuestos_cae_fich/es_def/adjuntos/2024A/Datuak_datos.csv
+        capa: autonomica
+        nota: CSV tidy bilingüe; raw ya descargado N1 — verificado N6 (118 filas, 8 conceptos, paridad con 2025)
+    '2022':
+      csv_tidy:
+        tipo: csv
+        url: https://www.euskadi.eus/contenidos/informacion/presupuestos_cae_fich/es_def/adjuntos/2022A/Datuak_datos.csv
+        capa: autonomica
+        nota: CSV tidy bilingüe; raw ya descargado N1 — verificado N6 (116 filas, 8 conceptos, paridad con 2025)
+val:
+  nombre: Comunitat Valenciana
+  regimen: comun
+  portal: https://hisenda.gva.es/auto/presupuestos/
+  ejercicios:
+    '2025':
+      tomo_II:
+        tipo: html
+        url: https://hisenda.gva.es/auto/presupuestos/2025/T2_ES.html
+        capa: autonomica
+        nota: Resumen general por programa y capítulos de cada sección
+    '2024':
+      tomo_II:
+        tipo: html
+        url: https://hisenda.gva.es/auto/presupuestos/2024/T2_ES.html
+        capa: autonomica
+        nota: RPC por sección (raw ya descargado N5)
+    '2023':
+      tomo_II:
+        tipo: html
+        url: https://hisenda.gva.es/auto/presupuestos/2023/T2_ES.html
+        capa: autonomica
+        nota: RPC por sección (raw ya descargado N5)
+    '2022':
+      tomo_II:
+        tipo: html
+        url: https://hisenda.gva.es/auto/presupuestos/2022/T2_ES.html
+        capa: autonomica
+        nota: RPC por sección (raw ya descargado N5)
+ceu:
+  nombre: Ciudad Autónoma de Ceuta
+  regimen: comun
+  portal: https://www.ceuta.es/ceuta/presupuestos
+  ejercicios: {}
+mel:
+  nombre: Ciudad Autónoma de Melilla
+  regimen: comun
+  portal: https://www.melilla.es/melillaportal/contenedor.jsp?seccion=presupuestos
+  ejercicios: {}

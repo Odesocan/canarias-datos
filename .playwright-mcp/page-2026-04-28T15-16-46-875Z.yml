@@ -1,0 +1,55 @@
+- generic [ref=e2]:
+  - generic [ref=e3]:
+    - generic [ref=e4]:
+      - generic [ref=e5]:
+        - generic [ref=e6]: Canarias en Datos · CED Dependencia
+        - 'heading "Dependencia: solicitudes, dictámenes y prestaciones contadas como una cadena de acceso a derechos." [level=2] [ref=e7]'
+        - generic [ref=e8]: "Pieza D3 conectada al pipeline SAAD/IMSERSO del Observatorio: solicitudes, personas beneficiarias, prestaciones, grados reconocidos y composición de servicios para situar Canarias en el sistema autonómico de dependencia."
+      - generic [ref=e9]:
+        - button "Metodología" [ref=e10] [cursor=pointer]
+        - button "Descargar CSV" [ref=e11] [cursor=pointer]
+    - generic [ref=e12]:
+      - generic [ref=e13]:
+        - generic [ref=e14]: Indicador
+        - combobox [ref=e15]
+      - generic [ref=e16]:
+        - generic [ref=e17]: Periodo
+        - combobox [ref=e18]
+      - generic [ref=e19]:
+        - generic [ref=e20]: Lectura
+        - combobox [ref=e21]:
+          - option "Mapa" [selected]
+          - option "Evolución"
+          - option "Prestaciones"
+          - option "Espera"
+          - option "Metodología"
+  - generic [ref=e22]:
+    - navigation "Capítulos narrativos" [ref=e23]:
+      - button "1. Situar Canarias Mapa coroplético para comparar Canarias con el resto de comunidades." [ref=e24] [cursor=pointer]:
+        - strong [ref=e25]: 1. Situar Canarias
+        - generic [ref=e26]: Mapa coroplético para comparar Canarias con el resto de comunidades.
+      - button "2. Evolución Serie temporal mensual del indicador seleccionado." [ref=e27] [cursor=pointer]:
+        - strong [ref=e28]: 2. Evolución
+        - generic [ref=e29]: Serie temporal mensual del indicador seleccionado.
+      - button "3. Prestaciones Servicios frente a prestaciones económicas en la cartera SAAD." [ref=e30] [cursor=pointer]:
+        - strong [ref=e31]: 3. Prestaciones
+        - generic [ref=e32]: Servicios frente a prestaciones económicas en la cartera SAAD.
+      - button "4. Espera Días de tramitación y personas pendientes de resolución." [ref=e33] [cursor=pointer]:
+        - strong [ref=e34]: 4. Espera
+        - generic [ref=e35]: Días de tramitación y personas pendientes de resolución.
+      - button "5. Cómo se construye Fuentes, normalización, modelado, exportación y actualización mensual." [ref=e36] [cursor=pointer]:
+        - strong [ref=e37]: 5. Cómo se construye
+        - generic [ref=e38]: Fuentes, normalización, modelado, exportación y actualización mensual.
+    - generic [ref=e40]:
+      - generic [ref=e41]:
+        - generic [ref=e42]:
+          - generic [ref=e43]: Situar Canarias
+          - generic [ref=e44]: Cargando datos...
+        - generic [ref=e45]: Pipeline ETL
+      - generic [ref=e47]: Cargando ced_dependencia.csv...
+      - generic [ref=e48]:
+        - generic [ref=e49]: "Fuente: IMSERSO · Sistema para la Autonomía y Atención a la Dependencia"
+        - generic [ref=e50]:
+          - text: "Tabla:"
+          - code [ref=e51]: ced_dependencia
+          - text: · Pipeline Dependencia

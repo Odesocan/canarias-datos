@@ -1,0 +1,61 @@
+15:12:13 | INFO     | ============================================================
+15:12:13 | INFO     | PIPELINE ETL: HISTORICO ALQUILER CCAA ESPAÑA
+15:12:13 | INFO     | Inicio: 2026-04-22T15:12:13.355179
+15:12:13 | INFO     | Etapa: extract
+15:12:13 | INFO     | ============================================================
+15:12:13 | INFO     | ============================================================
+15:12:13 | INFO     | ETAPA 1: EXTRACCIÓN
+15:12:13 | INFO     | ============================================================
+15:12:13 | WARNING  | ProxyManager sin proxies configurados. Se usará IP directa (riesgo de bloqueo).
+15:12:13 | INFO     | Filtrado por: Murcia, Madrid, País Vasco → 3 comunidades
+15:12:13 | INFO     | Iniciando extracción de 3 comunidades | rotación cada 10 comunidades
+15:12:13 | INFO     | === Sesión 1/1 (3 comunidades) ===
+15:12:14 | INFO     | Navegador iniciado (nodriver) — viewport 2560x1440
+15:12:14 | INFO     | [1/3] Procesando: País Vasco
+15:12:34 | INFO     | Google search: idealista informe precio alquiler País Vasco
+15:13:00 | INFO     | Click en resultado de Idealista sala-de-prensa
+15:13:06 | INFO     | Banner de cookies Didomi aceptado
+15:13:10 | INFO     | Click en 'Ver datos más antiguos' → /historico/
+15:13:19 | INFO     | Tabla de histórico cargada correctamente
+15:13:28 | INFO     | Página obtenida: 132,283 chars
+15:13:28 | INFO     | Tabla parseada: 243 filas para País Vasco
+15:13:32 | INFO     |   -> 243 registros extraídos de País Vasco
+15:13:32 | INFO     | [2/3] Procesando: Murcia
+15:13:32 | INFO     | Pausa entre comunidades: 7.9s [comunidad #1]
+15:13:57 | INFO     | Google search: sala de prensa idealista alquiler Murcia
+15:14:23 | INFO     | Click en resultado de Idealista sala-de-prensa
+15:14:38 | INFO     | Click en 'Ver datos más antiguos' → /historico/
+15:14:45 | INFO     | Tabla de histórico cargada correctamente
+15:14:51 | INFO     | Página obtenida: 135,377 chars
+15:14:51 | INFO     | Tabla parseada: 243 filas para Murcia
+15:14:55 | INFO     |   -> 243 registros extraídos de Murcia
+15:14:55 | INFO     | [3/3] Procesando: Madrid
+15:14:55 | INFO     | Pausa entre comunidades: 5.2s [comunidad #2]
+15:15:18 | INFO     | Google search: sala de prensa idealista alquiler Madrid
+15:15:43 | INFO     | Click en resultado de Idealista sala-de-prensa
+15:15:55 | INFO     | Ya en página de histórico: https://www.idealista.com/sala-de-prensa/informes-precio-vivienda/alquiler/madrid-comunidad/madrid-provincia/madrid/historico/
+15:16:06 | INFO     | Tabla de histórico cargada correctamente
+15:16:13 | INFO     | Página obtenida: 135,550 chars
+15:16:14 | INFO     | Tabla parseada: 243 filas para Madrid
+15:16:17 | INFO     |   -> 243 registros extraídos de Madrid
+15:16:17 | INFO     | Navegador cerrado.
+15:16:17 | INFO     | Dataset consolidado guardado: /Users/cristiancpv/Desktop/TRABAJO/OBSERVATORIO/CANARIAS EN DATOS/Vivienda/fuentes/scrapings/alquiler_historico_ccaa/data/raw/consolidado_20260422_151617.json
+15:16:17 | INFO     | Extracción completada: 729 registros totales | 3 comunidades con datos | 0 sin datos | 0 fallidas
+15:16:17 | INFO     | Pipeline completado en 0:04:03.879960
+Loop <_UnixSelectorEventLoop running=False closed=True debug=False> that handles pid 32318 is closed
+successfully removed temp profile /var/folders/8p/dhxngyy16_q03bsbkhdh285c0000gn/T/uc_no7mz9ut
+Exception ignored in: <function BaseSubprocessTransport.__del__ at 0x1060644a0>
+Traceback (most recent call last):
+  File "/Users/cristiancpv/.pyenv/versions/3.12.3/lib/python3.12/asyncio/base_subprocess.py", line 126, in __del__
+    self.close()
+  File "/Users/cristiancpv/.pyenv/versions/3.12.3/lib/python3.12/asyncio/base_subprocess.py", line 104, in close
+    proto.pipe.close()
+  File "/Users/cristiancpv/.pyenv/versions/3.12.3/lib/python3.12/asyncio/unix_events.py", line 767, in close
+    self.write_eof()
+  File "/Users/cristiancpv/.pyenv/versions/3.12.3/lib/python3.12/asyncio/unix_events.py", line 753, in write_eof
+    self._loop.call_soon(self._call_connection_lost, None)
+  File "/Users/cristiancpv/.pyenv/versions/3.12.3/lib/python3.12/asyncio/base_events.py", line 795, in call_soon
+    self._check_closed()
+  File "/Users/cristiancpv/.pyenv/versions/3.12.3/lib/python3.12/asyncio/base_events.py", line 541, in _check_closed
+    raise RuntimeError('Event loop is closed')
+RuntimeError: Event loop is closed

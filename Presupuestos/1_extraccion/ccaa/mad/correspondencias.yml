@@ -1,0 +1,140 @@
+conceptos:
+  sanidad:
+    codigos: []
+    keywords:
+    - sanidad
+    - sanitario
+    - sanitaria
+    - servicio madrileño de salud
+    - servicio madrileno de salud
+    - salud digital
+    - salud publica
+    - salud pública
+    - hospital
+  educacion:
+    codigos: []
+    keywords:
+    - educación
+    - educacion
+    - enseñanza
+    - ensenanza
+    - universidad
+    - universidades
+    - becas
+    - investigación universitaria
+    - investigacion universitaria
+  soberania:
+    codigos: []
+    keywords:
+    - agricultura
+    - ganadería
+    - ganaderia
+    - pesca
+    - desarrollo rural
+    - medio rural
+    - alimentación
+    - alimentacion
+  direccion:
+    # REDEFINIDO 2026-07-27 — Direccion politica (altos cargos del ejecutivo).
+    # Antes era un cajon de sastre: deuda, justicia, tributos, transferencias a
+    # entes locales, informatica, medios y parlamentos. Referencia: programa 912A
+    # de Canarias 'Direccion Politica y Gobierno', replicado en cada consejeria.
+    # Perimetro: ejecutivo estricto (presidencia, vicepresidencia, gabinetes, alta
+    # direccion). EXCLUIDOS parlamento, control externo, defensorias, consejos
+    # consultivos y transparencia. Keywords VACIAS a proposito: mapeo por codigo
+    # exacto para que no vuelva a capturar por texto. Ver logs/progreso.md.
+    # 3001 PRESIDENCIA DE LA COMUNIDAD DE MADRID (12/12, 1,1-1,7 M). Se excluye 11001
+    # S.G.T. de Presidencia (40-191 M), que es la secretaria general tecnica de un
+    # departamento entero. Madrid extrae por CENTRO, no por programa.
+    codigos:
+    - '3001'
+    keywords: []
+  vivienda:
+    codigos: []
+    keywords:
+    - vivienda
+    - urbanismo
+    - habitatge
+  empleo:
+    codigos: []
+    keywords:
+    - empleo
+    - inserción laboral
+    - insercion laboral
+    - fomento del empleo
+    - ocupación
+    - ocupacion
+  idi:
+    codigos: []
+    keywords:
+    - investigación
+    - investigacion
+    - innovación
+    - innovacion
+    - desarrollo tecnológico
+    - desarrollo tecnologico
+    - ciencia
+  dependencia:
+    codigos: []
+    keywords:
+    - dependencia
+    - atención al mayor
+    - atencion al mayor
+    - autonomía personal
+    - autonomia personal
+    - mayores
+    # FIX 2026-07-02: los centros madrileños se renombran por época y no casaban
+    # "mayores": "D.G. DEL MAYOR" (297M), "D.G. DE SERVICIOS SOCIALES" (393M),
+    # "SERVICIO REGIONAL DE BIENESTAR SOCIAL"/"AGENCIA MADRILEÑA DE ATENCIÓN SOCIAL"
+    # (274-515M) iban a NULL → dependencia infravalorada en años antiguos.
+    - del mayor
+    - servicios sociales
+    - bienestar social
+    - atención social
+    - atencion social
+  discapacidad:
+    codigos: []
+    keywords:
+    - discapacidad
+    - diversidad funcional
+  salud_mental:
+    codigos: []
+    keywords:
+    - salud mental
+    - drogodependencias
+    - adicciones
+  diversidad:
+    # REDEFINIDO 2026-07-27 — Diversidad (LGTBI, migraciones, etnias), per Cuaderno
+    # Metodologico tablas 4/14. Antes cajon de sastre: inclusion social
+    # generica, infancia/familia, cooperacion al desarrollo, deporte, cultura,
+    # patrimonio, idioma. Ver logs/progreso.md.
+    # Retirados los keywords 'infancia'/'familia'/'convivencia': capturaban 19017 'D.G.
+    # Infancia, Familia y Fomento de la Natalidad' (206 M) y 19001 'S.G.T.
+    # Familia,Juventud y Asuntos Sociales' (66 M) — el 100% de diversidad en Madrid era
+    # esto, ningun codigo real. Anadido codigo explicito 19015 'D.G. de Inmigracion' (solo
+    # existe en 2015, 6 M; sin sucesor identificable en anios posteriores por el
+    # proxy-centro de Madrid — ver limitaciones-mad.md). 2016+ queda NULL estructural.
+    codigos:
+    - '19015'
+    keywords:
+    - 'lgtbi'
+    - 'lgbti'
+    - 'migración'
+    - 'migracion'
+    - 'migrante'
+    - 'interculturalidad'
+    - 'gitano'
+  turismo:
+    codigos: []
+    keywords:
+    - turismo
+    - hostelería
+    - hosteleria
+  igualdad:
+    codigos: []
+    keywords:
+    - igualdad
+    - mujer
+    - violencia de género
+    - violencia de genero
+    - instituto de la mujer

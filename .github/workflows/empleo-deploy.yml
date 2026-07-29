@@ -1,0 +1,58 @@
+name: empleo-deploy
+
+# El único workflow de Empleo que escribe en la Supabase de producción (§4.2).
+# `environment: production` permite exigir revisor en GitHub antes de que se
+# escriba nada. Sin reglas de protección configuradas, no altera la ejecución.
+#
+# SECRETO ADICIONAL: a diferencia del resto de áreas, cargar_supabase.py no lee
+# SUPABASE_HOST/PORT/... sino una cadena de conexión única en SUPABASE_DB_URL.
+# Es la convención que ya documenta Empleo/4_carga/README.md; hay que darla de
+# alta como secreto del repositorio. El script no admite alternativa: aborta con
+# "Falta SUPABASE_DB_URL" si no la encuentra.
+#
+# La carga es atómica (TRUNCATE + INSERT de las dos tablas en una sola
+# transacción), así que la web nunca ve una tabla vacía o a medias. No recrea
+# las tablas, de modo que RLS, políticas y grants sobreviven a cada carga.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "Empleo/4_carga/**"
+      - "Empleo/5_visualizacion/ced_empleo_*.csv"
+      - ".github/workflows/empleo-deploy.yml"
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    environment: production
+
+    env:
+      SUPABASE_DB_URL: ${{ secrets.SUPABASE_DB_URL }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: ./.github/actions/setup-python-pipeline
+        with:
+          python-version: "3.12"
+          requirements: "Empleo/4_carga/requirements.txt"
+
+      - name: Comprobar el secreto de conexión
+        run: |
+          if [ -z "${SUPABASE_DB_URL}" ]; then
+            echo "::error::Falta el secreto SUPABASE_DB_URL (cadena de conexión Postgres)."
+            echo "Formato documentado en Empleo/4_carga/README.md."
+            exit 1
+          fi
+
+      # Primero en seco: si el contrato de datos falla, no se abre transacción.
+      - name: Validación previa
+        working-directory: "Empleo/4_carga"
+        run: python cargar_supabase.py --no-prep --dry-run
+
+      - name: Carga a Supabase
+        working-directory: "Empleo/4_carga"
+        run: python cargar_supabase.py --no-prep

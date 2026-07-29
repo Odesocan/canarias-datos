@@ -1,0 +1,3 @@
+# Fase 4 · Carga — sección Empleo (Canarias en Datos)
+pandas>=2.0
+psycopg2-binary>=2.9      # conexión Postgres (carga atómica a Supabase)

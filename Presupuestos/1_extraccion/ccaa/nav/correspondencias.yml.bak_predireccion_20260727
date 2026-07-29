@@ -1,0 +1,275 @@
+# Correspondencias para Navarra.  Los códigos son <funcion>.<programa> con
+# función de 2 dígitos (e.g. 31 = Sanidad) y programa de 4 caracteres (4
+# dígitos o 3 dígitos + letra).  E.g. 31.3122 = Atención primaria de salud.
+conceptos:
+  sanidad:
+    codigos:
+    - 31.*
+    keywords:
+    - sanidad
+    - sanitario
+    - sanitaria
+    - sanitarios
+    - asistencia sanitaria
+    - atención primaria
+    - atencion primaria
+    - atención especializada
+    - atencion especializada
+    - hospital
+    - centros sanitarios
+    - formación sanitaria
+    - formacion sanitaria
+    - oferta y uso racional de medicamentos
+    - salud pública
+    - salud publica
+    - salud
+  educacion:
+    codigos:
+    - 32.*
+    keywords:
+    - educación
+    - educacion
+    - educativo
+    - educativa
+    - educativas
+    - enseñanza
+    - enseñanzas
+    - ensenanza
+    - escolar
+    - profesorado
+    - formación profesional
+    - formacion profesional
+    - universidad
+    - universidades
+    - universitario
+    - universitaria
+    - universitarias
+    - bachillerato
+    - becas
+  soberania:
+    codigos:
+    - 41.*
+    keywords:
+    - agricultura
+    - ganadería
+    - ganaderia
+    - ganadero
+    - pesca
+    - pesquero
+    - pesquera
+    - agroalimentaria
+    - agroalimentario
+    - agrario
+    - agraria
+    - producción agrícola
+    - produccion agricola
+    - producción ganadera
+    - produccion ganadera
+    - desarrollo rural
+    - medio rural
+    - regadío
+    - regadio
+  direccion:
+    codigos:
+    - 11.*
+    - 13.*
+    - 14.*
+    - 91.*
+    - 92.*
+    - 93.*
+    - 94.*
+    - 95.*
+    keywords:
+    - actividad legislativa
+    - parlamento
+    - cortes
+    - alta dirección
+    - alta direccion
+    - presidencia
+    - vicepresidencia
+    - gobierno
+    - dirección política
+    - direccion politica
+    - dirección y servicios generales
+    - direccion y servicios generales
+    - servicios generales
+    - servicios de carácter
+    - servicios de caracter
+    - función pública
+    - funcion publica
+    - control externo
+    - transparencia
+    - administración pública
+    - administracion publica
+    - tribunales
+    - órganos judiciales
+    - organos judiciales
+    - administración de justicia
+    - administracion de justicia
+    - relaciones con el parlamento
+    - cooperación para el desarrollo
+    - cooperacion para el desarrollo
+    - relaciones con la unión europea
+    - relaciones con la union europea
+    - relaciones con el exterior
+    - seguridad ciudadana
+    - protección civil
+    - proteccion civil
+    - prevención y extinción de incendios
+    - prevencion y extincion de incendios
+    - asesoramiento jurídico
+    - asesoramiento juridico
+    - alto asesoramiento
+    - gestión de tesorería
+    - gestion de tesoreria
+    - política presupuestaria
+    - politica presupuestaria
+    - aplicación del sistema tributario
+    - aplicacion del sistema tributario
+    - convenio económico con el estado
+    - convenio economico con el estado
+    - participación en los tributos
+    - participacion en los tributos
+    - transferencias a entidades locales
+    - control interno
+    - contabilidad pública
+    - contabilidad publica
+    - administración, gestión y control de personal
+    - administracion, gestion y control de personal
+  vivienda:
+    codigos:
+    - 26.*
+    keywords:
+    - vivienda
+    - viviendas
+    - rehabilitación
+    - rehabilitacion
+    - infraestructura urbana
+    - urbanismo
+  empleo:
+    codigos:
+    - 24.*
+    - 49.4941
+    keywords:
+    - empleo
+    - mercado de trabajo
+    - inserción y estabilidad laboral
+    - insercion y estabilidad laboral
+    - formación profesional ocupacional
+    - formacion profesional ocupacional
+    - escuelas taller
+    - talleres de empleo
+    - economía social
+    - economia social
+    - relaciones laborales
+    - condiciones de trabajo
+  idi:
+    codigos:
+    - 46.*
+    keywords:
+    - investigación
+    - investigacion
+    - innovación
+    - innovacion
+    - i+d
+    - i d i
+    - desarrollo tecnológico
+    - desarrollo tecnologico
+    - sociedad de la información
+    - sociedad de la informacion
+  dependencia:
+    codigos:
+    - 23.231B
+    - 23.2314
+    keywords:
+    - dependencia
+    - autonomía personal
+    - autonomia personal
+    - personas mayores
+    - servicios sociales a personas mayores
+    - mayores
+  discapacidad:
+    codigos:
+    - 23.2313
+    keywords:
+    - discapacidad
+    - diversidad funcional
+    - personas con discapacidad
+    - servicios sociales a personas con discapacidad
+  salud_mental:
+    codigos:
+    - 31.3124
+    keywords:
+    - salud mental
+    - asistencia psiquiátrica
+    - asistencia psiquiatrica
+    - drogodependencias
+    - adicciones
+  diversidad:
+    codigos:
+    - 23.2316
+    - 23.2317
+    - 23.2319
+    - 23.231A
+    - 23.2310
+    - 23.2331
+    - 23.2315
+    - 23.2325
+    keywords:
+    - lgtbi
+    - lgbti
+    - migración
+    - migracion
+    - inmigrantes
+    - integración de los inmigrantes
+    - integracion de los inmigrantes
+    - interculturalidad
+    - gitano
+    - infancia
+    - atención a la infancia
+    - atencion a la infancia
+    - protección a la familia
+    - proteccion a la familia
+    - reinserción social
+    - reinsercion social
+    - servicios sociales
+    - ayudas a entes locales para acción social
+    - ayudas a entes locales para accion social
+    - memoria y convivencia
+    - protección social
+    - proteccion social
+    - promoción social
+    - promocion social
+  turismo:
+    codigos:
+    - 43.4321
+    - 43.4323
+    keywords:
+    - turismo
+    - turístico
+    - turistico
+    - turística
+    - turistica
+    - hostelería
+    - hosteleria
+    - complejos turísticos
+    - complejos turisticos
+    - promoción hotelera
+    - promocion hotelera
+  igualdad:
+    codigos:
+    - 23.2322
+    - 23.2323
+    - 23.2321
+    keywords:
+    - igualdad
+    - igualdad de oportunidades
+    - mujer
+    - mujeres
+    - mujeres y hombres
+    - violencia de género
+    - violencia de genero
+    - juventud
+    - servicios a la juventud
+    - promoción y servicios a la juventud
+    - promocion y servicios a la juventud

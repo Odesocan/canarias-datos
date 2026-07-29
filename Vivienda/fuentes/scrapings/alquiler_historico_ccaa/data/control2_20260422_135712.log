@@ -1,0 +1,70 @@
+13:57:13 | INFO     | ============================================================
+13:57:13 | INFO     | PIPELINE ETL: HISTORICO ALQUILER CCAA ESPAÑA
+13:57:13 | INFO     | Inicio: 2026-04-22T13:57:13.220569
+13:57:13 | INFO     | Etapa: extract
+13:57:13 | INFO     | ============================================================
+13:57:13 | INFO     | ============================================================
+13:57:13 | INFO     | ETAPA 1: EXTRACCIÓN
+13:57:13 | INFO     | ============================================================
+13:57:13 | WARNING  | ProxyManager sin proxies configurados. Se usará IP directa (riesgo de bloqueo).
+13:57:13 | INFO     | Filtrado por: Murcia, Comunidad Valenciana, Madrid, Ceuta → 4 comunidades
+13:57:13 | INFO     | Iniciando extracción de 4 comunidades | rotación cada 10 comunidades
+13:57:13 | INFO     | === Sesión 1/1 (4 comunidades) ===
+13:57:14 | INFO     | Navegador iniciado (nodriver) — viewport 1366x768
+13:57:14 | INFO     | [1/4] Procesando: Murcia
+13:57:27 | INFO     | Google search: idealista precio alquiler Murcia informe
+13:57:50 | INFO     | Click en resultado de Idealista sala-de-prensa
+13:57:56 | INFO     | Banner de cookies Didomi aceptado
+13:58:01 | INFO     | Click en 'Ver datos más antiguos' → /historico/
+13:58:08 | INFO     | Tabla de histórico cargada correctamente
+13:58:18 | INFO     | Página obtenida: 135,442 chars
+13:58:18 | INFO     | Tabla parseada: 243 filas para Murcia
+13:58:22 | INFO     |   -> 243 registros extraídos de Murcia
+13:58:22 | INFO     | [2/4] Procesando: Madrid
+13:58:22 | INFO     | Pausa entre comunidades: 7.2s [comunidad #1]
+13:58:47 | INFO     | Google search: idealista informe precio alquiler Madrid
+13:59:08 | INFO     | Click en resultado de Idealista sala-de-prensa
+13:59:20 | INFO     | Ya en página de histórico: https://www.idealista.com/sala-de-prensa/informes-precio-vivienda/alquiler/madrid-comunidad/historico/
+13:59:30 | INFO     | Tabla de histórico cargada correctamente
+13:59:40 | INFO     | Página obtenida: 135,542 chars
+13:59:40 | INFO     | Tabla parseada: 243 filas para Madrid
+13:59:44 | INFO     |   -> 243 registros extraídos de Madrid
+13:59:44 | INFO     | [3/4] Procesando: Ceuta
+13:59:44 | INFO     | Pausa entre comunidades: 6.5s [comunidad #2]
+14:00:09 | INFO     | Google search: idealista precio alquiler Ceuta informe
+14:00:13 | INFO     | Click en resultado de Idealista sala-de-prensa
+14:00:22 | INFO     | Ya en página de histórico: https://www.idealista.com/sala-de-prensa/informes-precio-vivienda/alquiler/ceuta/historico/
+14:00:32 | INFO     | Tabla de histórico cargada correctamente
+14:00:39 | INFO     | Página obtenida: 121,963 chars
+14:00:39 | INFO     | Tabla parseada: 243 filas para Ceuta
+14:00:42 | INFO     |   -> 243 registros extraídos de Ceuta
+14:00:42 | INFO     | [4/4] Procesando: Comunidad Valenciana
+14:00:42 | INFO     | Pausa entre comunidades: 8.0s [comunidad #3]
+14:01:11 | INFO     | Google search: sala de prensa idealista alquiler comunidad valenciana
+14:01:34 | INFO     | Click en resultado de Idealista sala-de-prensa
+14:01:48 | INFO     | Click en 'Ver datos más antiguos' → /historico/
+14:01:56 | INFO     | Tabla de histórico cargada correctamente
+14:02:05 | INFO     | Página obtenida: 136,982 chars
+14:02:05 | INFO     | Tabla parseada: 243 filas para Comunidad Valenciana
+14:02:09 | INFO     |   -> 243 registros extraídos de Comunidad Valenciana
+14:02:09 | INFO     | Navegador cerrado.
+14:02:09 | INFO     | Dataset consolidado guardado: /Users/cristiancpv/Desktop/TRABAJO/OBSERVATORIO/CANARIAS EN DATOS/Vivienda/fuentes/scrapings/alquiler_historico_ccaa/data/raw/consolidado_20260422_140209.json
+14:02:09 | INFO     | Extracción completada: 972 registros totales | 4 comunidades con datos | 0 sin datos | 0 fallidas
+14:02:09 | INFO     | Pipeline completado en 0:04:56.545218
+Loop <_UnixSelectorEventLoop running=False closed=True debug=False> that handles pid 30415 is closed
+successfully removed temp profile /var/folders/8p/dhxngyy16_q03bsbkhdh285c0000gn/T/uc_z25d0zo2
+Exception ignored in: <function BaseSubprocessTransport.__del__ at 0x1083984a0>
+Traceback (most recent call last):
+  File "/Users/cristiancpv/.pyenv/versions/3.12.3/lib/python3.12/asyncio/base_subprocess.py", line 126, in __del__
+    self.close()
+  File "/Users/cristiancpv/.pyenv/versions/3.12.3/lib/python3.12/asyncio/base_subprocess.py", line 104, in close
+    proto.pipe.close()
+  File "/Users/cristiancpv/.pyenv/versions/3.12.3/lib/python3.12/asyncio/unix_events.py", line 767, in close
+    self.write_eof()
+  File "/Users/cristiancpv/.pyenv/versions/3.12.3/lib/python3.12/asyncio/unix_events.py", line 753, in write_eof
+    self._loop.call_soon(self._call_connection_lost, None)
+  File "/Users/cristiancpv/.pyenv/versions/3.12.3/lib/python3.12/asyncio/base_events.py", line 795, in call_soon
+    self._check_closed()
+  File "/Users/cristiancpv/.pyenv/versions/3.12.3/lib/python3.12/asyncio/base_events.py", line 541, in _check_closed
+    raise RuntimeError('Event loop is closed')
+RuntimeError: Event loop is closed

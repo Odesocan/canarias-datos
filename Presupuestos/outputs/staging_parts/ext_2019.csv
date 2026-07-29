@@ -1,0 +1,78 @@
+ccaa_id3,anio,concepto,importe_eur,codigo,denominacion
+ext,2019,direccion,13929940.0,111A,Actividad legislativa
+ext,2019,direccion,930193.0,111B,Actividad consultiva
+ext,2019,direccion,6224536.0,112A,Dirección y administración de Presidencia
+ext,2019,direccion,10269159.0,113A,113A
+ext,2019,direccion,5095924.0,113B,"Planificación, programación y presupuestación"
+ext,2019,direccion,6970280.0,113C,Administración tributaria
+ext,2019,direccion,1455438.0,113D,Administración del patrimonio
+ext,2019,direccion,6613393.0,113E,Control interno y contabilidad pública
+ext,2019,direccion,6449608.0,114A,Dirección y organización de la Función Pública
+ext,2019,direccion,2159764.0,114B,Evaluación y calidad de los servicios
+ext,2019,direccion,2207306.0,114C,114C
+ext,2019,direccion,2953942.0,114D,114D
+ext,2019,direccion,27748287.0,115A,Relaciones institucionales e informativas
+ext,2019,direccion,44991641.0,115B,Relaciones con la administración local
+ext,2019,direccion,8074451.0,116A,Protección civil e interior
+ext,2019,direccion,535470827.0,121A,121A
+ext,2019,direccion,5000000.0,131B,Fondo de contingencia
+ext,2019,sanidad,54979123.0,211A,Dirección y administración de Sanidad
+ext,2019,sanidad,33840321.0,211B,"Formación, inspección y calidad sanitarias"
+ext,2019,sanidad,3815574.0,212A,Planificación y ordenación sanitarias
+ext,2019,sanidad,645812045.0,212B,Atención primaria de salud
+ext,2019,sanidad,943170526.0,212C,Atención especializada de salud
+ext,2019,sanidad,9501919.0,212D,Salud pública
+ext,2019,educacion,18806604.0,221A,Dirección y administración de Educación
+ext,2019,educacion,7493918.0,221B,Formación del profesorado de Educación
+ext,2019,educacion,396934942.0,222A,Educación infantil y primaria
+ext,2019,educacion,379114065.0,222B,Educación secundaria y formación profesional
+ext,2019,educacion,61609511.0,222C,222C
+ext,2019,educacion,106075204.0,222D,Enseñanzas universitarias
+ext,2019,educacion,21186504.0,222E,222E
+ext,2019,educacion,10955050.0,222F,Enseñanza agraria
+ext,2019,educacion,69801182.0,222G,222G
+ext,2019,dependencia,4195961.0,231A,Dirección y administración de Dependencia
+ext,2019,dependencia,326412426.0,232A,Atención a la dependencia
+ext,2019,empleo,14925486.0,241A,Dirección y administración de Empleo
+ext,2019,empleo,193884803.0,242A,Fomento y calidad en el empleo
+ext,2019,empleo,96666307.0,242B,Formación para el empleo
+ext,2019,diversidad,42086202.0,252A,Atención a la infancia y a las familias
+ext,2019,diversidad,87930814.0,252B,Inclusión social
+ext,2019,diversidad,15590324.0,252C,Cooperación al desarrollo y acción exterior
+ext,2019,igualdad,10834942.0,253A,253A
+ext,2019,diversidad,6735797.0,253B,Promoción y servicios a la juventud
+ext,2019,diversidad,795679.0,253C,Acciones en materia de emigración
+ext,2019,vivienda,53961713.0,261A,261A
+ext,2019,vivienda,10610268.0,262A,262A
+ext,2019,diversidad,4488694.0,271A,Dirección y administración de Cultura
+ext,2019,diversidad,9373563.0,272A,Protección del patrimonio histórico-artístico
+ext,2019,diversidad,5351382.0,272B,Bibliotecas
+ext,2019,diversidad,7158717.0,272C,Museos y artes plásticas
+ext,2019,diversidad,8350970.0,273A,Promoción y cooperación cultural
+ext,2019,diversidad,7922117.0,273B,"Teatro, música y cine"
+ext,2019,diversidad,20433728.0,274A,274A
+ext,2019,soberania,30683370.0,311A,Dirección y administración de Agricultura
+ext,2019,soberania,35340523.0,312A,Sanidad vegetal y animal
+ext,2019,soberania,35884950.0,312B,312B
+ext,2019,soberania,595131828.0,313A,Regulación de producciones
+ext,2019,soberania,30157031.0,314A,Desarrollo del medio rural
+ext,2019,idi,15900792.0,321A,Dir. y admón. de Empresa e Innovación
+ext,2019,,6995581.0,322A,Ordenación industrial y desarrollo energético
+ext,2019,,28052968.0,323A,Desarrollo empresarial
+ext,2019,soberania,28088869.0,323C,Empresa agroalimentaria
+ext,2019,,4763398.0,324A,Consumo
+ext,2019,empleo,7884518.0,325A,Relaciones laborales y condiciones de trabajo
+ext,2019,idi,5343103.0,331A,Investigación y experimentación agraria
+ext,2019,idi,63143314.0,331B,331B
+ext,2019,direccion,1538316.0,331C,Estudios estadísticos y económicos
+ext,2019,idi,36222568.0,332A,332A
+ext,2019,,12368611.0,333A,Energía renovable y eficiencia energética
+ext,2019,,20049730.0,341A,Comercio de calidad y artesanía extremeña
+ext,2019,turismo,23694251.0,342A,Ordenación y promoción del turismo
+ext,2019,soberania,185492999.0,353A,Infraestructuras agrarias
+ext,2019,,63615132.0,353B,Infraestructuras de carreteras
+ext,2019,,41362292.0,353C,Ordenación e inspección del transporte
+ext,2019,,29557825.0,354A,Medio natural y calidad ambiental
+ext,2019,,43371632.0,354B,Protección y defensa contra los incendios
+ext,2019,,41013857.0,354C,354C
+ext,2019,,34938495.0,354D,Saneamiento y abastecimiento de aguas
