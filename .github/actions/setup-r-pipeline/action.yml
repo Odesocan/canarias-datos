@@ -1,0 +1,54 @@
+name: "Setup R pipeline"
+description: "R + dependencias de sistema + paquetes núcleo comunes a todas las áreas de Canarias en Datos"
+
+# Uso desde un workflow de área (requiere actions/checkout previo, porque es una
+# composite action local):
+#
+#   - uses: ./.github/actions/setup-r-pipeline
+#     with:
+#       extra-packages: "forecast prophet ranger xgboost"
+#
+# El núcleo son los paquetes que las áreas comparten (E/S de datos, manipulación
+# y conexión a Postgres). Cada área añade en `extra-packages` solo lo que le
+# sobra sobre ese núcleo: modelado (forecast, prophet, ranger, xgboost),
+# clientes de fuente (ineapir, rvest, httr2) o utilidades propias.
+
+inputs:
+  extra-packages:
+    description: "Paquetes R adicionales, separados por espacios o saltos de línea (p. ej. 'forecast prophet ranger')"
+    required: false
+    default: ""
+
+runs:
+  using: "composite"
+  steps:
+    - uses: r-lib/actions/setup-r@v2
+      with:
+        use-public-rspm: true
+
+    - name: Dependencias de sistema
+      shell: bash
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y libcurl4-openssl-dev libssl-dev libxml2-dev libpq-dev
+
+    - name: Paquetes R (núcleo + extras del área)
+      shell: bash
+      env:
+        # Vía variable de entorno, no interpolado dentro del código R: evita que
+        # el contenido del input rompa el entrecomillado o se inyecte como código.
+        CED_EXTRA_PACKAGES: ${{ inputs.extra-packages }}
+      run: |
+        Rscript -e '
+          core <- c(
+            "DBI", "RPostgres", "dplyr", "glue", "purrr", "readr", "readxl",
+            "stringr", "tibble", "tidyr", "lubridate", "writexl"
+          )
+          extra <- strsplit(trimws(Sys.getenv("CED_EXTRA_PACKAGES")), "[[:space:]]+")[[1]]
+          extra <- extra[nzchar(extra)]
+          pkgs  <- unique(c(core, extra))
+          message("Instalando ", length(pkgs), " paquetes: ", paste(pkgs, collapse = ", "))
+          install.packages(pkgs, repos = "https://cloud.r-project.org")
+          faltan <- pkgs[!pkgs %in% rownames(installed.packages())]
+          if (length(faltan)) stop("No se instalaron: ", paste(faltan, collapse = ", "))
+        '
