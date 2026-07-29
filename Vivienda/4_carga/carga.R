@@ -81,6 +81,35 @@ write_exports <- function(cfg, global_df, gender_df) {
   writexl::write_xlsx(gender_df, file.path(cfg$load_dir, "ced_vivienda_gen.xlsx"))
 }
 
+# Row Level Security — se re-aplica tras cada carga.
+# dbWriteTable(overwrite = TRUE) hace DROP + CREATE, asi que la tabla nueva
+# nace sin RLS, sin politica y sin permisos: sin este paso, o la tabla queda
+# invisible para la web (anon no puede leer) o, si alguien concede permisos a
+# mano, queda abierta a escritura. Mismo patron que Dependencia/4_carga/carga.R.
+apply_rls <- function(con, schema, tables) {
+  # Sin USAGE sobre el esquema, PostgREST responde 401 aunque la tabla tenga
+  # GRANT SELECT y politica RLS.
+  DBI::dbExecute(con, sprintf('GRANT USAGE ON SCHEMA "%s" TO anon, authenticated', schema))
+
+  for (target in tables) {
+    policy <- paste0(target, "_select_anon")
+    DBI::dbExecute(con, sprintf(
+      'ALTER TABLE "%s"."%s" ENABLE ROW LEVEL SECURITY', schema, target
+    ))
+    DBI::dbExecute(con, sprintf(
+      'DROP POLICY IF EXISTS %s ON "%s"."%s"', policy, schema, target
+    ))
+    DBI::dbExecute(con, sprintf(
+      'CREATE POLICY %s ON "%s"."%s" FOR SELECT
+         TO anon, authenticated USING (TRUE)', policy, schema, target
+    ))
+    DBI::dbExecute(con, sprintf(
+      'GRANT SELECT ON "%s"."%s" TO anon, authenticated', schema, target
+    ))
+    log_event("DB", sprintf("RLS + politica de solo lectura aplicados a %s", target))
+  }
+}
+
 write_database <- function(cfg, global_df, gender_df) {
   con <- connect_db(cfg)
   on.exit(DBI::dbDisconnect(con), add = TRUE)
@@ -98,6 +127,8 @@ write_database <- function(cfg, global_df, gender_df) {
     gender_df,
     overwrite = TRUE
   )
+
+  apply_rls(con, cfg$db$schema, c("ced_vivienda_global", "ced_vivienda_gen"))
 }
 
 run_carga <- function(cfg) {

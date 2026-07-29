@@ -85,10 +85,44 @@ write_supabase_data <- function(cfg, data) {
   DBI::dbAppendTable(con, DBI::Id(schema = schema, table = target), data)
 }
 
+# Row Level Security — se re-aplica tras cada carga.
+# ensure_supabase_table() hace DROP + CREATE, asi que la tabla nueva nace sin
+# RLS, sin politica y sin permisos: sin este paso, o la tabla queda invisible
+# para la web (anon no puede leer) o, si alguien concede permisos a mano, queda
+# abierta a escritura. Mismo patron que Dependencia/4_carga/carga.R.
+# Solo aplica a la ruta PostgreSQL: la ruta REST (write_supabase_via_api) hace
+# DELETE + INSERT sin recrear la tabla, asi que alli el RLS sobrevive.
+apply_rls <- function(cfg, target = "ced_saludmental") {
+  con <- connect_supabase(cfg)
+  on.exit(DBI::dbDisconnect(con), add = TRUE)
+
+  schema <- cfg$db$schema
+  policy <- paste0(target, "_select_anon")
+
+  # Sin USAGE sobre el esquema, PostgREST responde 401 aunque la tabla tenga
+  # GRANT SELECT y politica RLS.
+  DBI::dbExecute(con, sprintf('GRANT USAGE ON SCHEMA "%s" TO anon, authenticated', schema))
+  DBI::dbExecute(con, sprintf(
+    'ALTER TABLE "%s"."%s" ENABLE ROW LEVEL SECURITY', schema, target
+  ))
+  DBI::dbExecute(con, sprintf(
+    'DROP POLICY IF EXISTS %s ON "%s"."%s"', policy, schema, target
+  ))
+  DBI::dbExecute(con, sprintf(
+    'CREATE POLICY %s ON "%s"."%s" FOR SELECT
+       TO anon, authenticated USING (TRUE)', policy, schema, target
+  ))
+  DBI::dbExecute(con, sprintf(
+    'GRANT SELECT ON "%s"."%s" TO anon, authenticated', schema, target
+  ))
+  log_event("DB", sprintf("RLS + politica de solo lectura aplicados a %s", target))
+}
+
 write_supabase_table <- function(cfg, data) {
   ensure_supabase_table(cfg)
   log_event("DB", "Tabla ced_saludmental creada en Supabase")
   write_supabase_data(cfg, data)
+  apply_rls(cfg)
 }
 
 # -----------------------------------------------------------------------------
