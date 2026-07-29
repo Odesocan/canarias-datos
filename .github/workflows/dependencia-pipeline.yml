@@ -11,6 +11,10 @@ on:
 jobs:
   dependencia:
     runs-on: ubuntu-latest
+    # El paso `carga` escribe en la Supabase de producción. Declarar el entorno
+    # permite exigir revisor en GitHub antes de que el cron escriba sin supervisión
+    # (§4.2). Sin reglas de protección configuradas, no altera la ejecución.
+    environment: production
 
     env:
       SUPABASE_HOST: ${{ secrets.SUPABASE_HOST }}

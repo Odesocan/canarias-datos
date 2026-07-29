@@ -11,6 +11,10 @@ jobs:
   vivienda:
     runs-on: ubuntu-latest
     timeout-minutes: 240
+    # El paso `carga` escribe en la Supabase de producción. Declarar el entorno
+    # permite exigir revisor en GitHub antes de que el cron escriba sin supervisión
+    # (§4.2). Sin reglas de protección configuradas, no altera la ejecución.
+    environment: production
 
     env:
       CED_DB_HOST: ${{ secrets.SUPABASE_HOST }}
