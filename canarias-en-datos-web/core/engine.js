@@ -987,8 +987,28 @@ export async function renderTopic(rootEl, topic) {
     return rows;
   }
 
+  // Hay dos formas de tabla en canendatos:
+  //   * dos relaciones — <area>_global (género 'total') y <area>_gen (hombres y
+  //     mujeres). Es lo que usan Dependencia, Educación, Empleo, Sanidad y Vivienda.
+  //   * una sola relación con la columna `genero` incluyendo 'total'. Es el caso
+  //     de Salud mental (ced_saludmental).
+  // Se distinguen porque en la segunda genderTable === globalTable. Sin partirla,
+  // coalesceRows(global, ["ccaa","periodo_key"]) mezclaría las filas de hombres y
+  // mujeres dentro de la serie global, en silencio y sin error visible.
+  function esFilaDeGenero(row) {
+    return ["hombre", "mujer"].includes(normalizeGender(row.genero));
+  }
+
   async function loadData() {
     const globalRows = await fetchSupabaseTable(topic.data.globalTable);
+
+    if (includeGender && topic.data.genderTable === topic.data.globalTable) {
+      return {
+        global: globalRows.filter(row => !esFilaDeGenero(row)).map(parseRow),
+        gender: globalRows.filter(esFilaDeGenero).map(parseGender),
+      };
+    }
+
     const parsedGlobal = globalRows.map(parseRow);
     let parsedGender = [];
     if (includeGender) {
