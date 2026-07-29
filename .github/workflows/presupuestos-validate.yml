@@ -4,7 +4,7 @@ on:
   pull_request:
     paths:
       - "Presupuestos/**"
-      - ".github/workflows/validate.yml"
+      - ".github/workflows/presupuestos-validate.yml"
   push:
     branches: [main]
     paths: ["Presupuestos/**"]
