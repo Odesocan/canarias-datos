@@ -1,12 +1,29 @@
 name: presupuestos-deploy
 
+# SOLO EJECUCIÓN MANUAL MIENTRAS DURE LA CUARENTENA.
+#
+# El área de Presupuestos está en cuarentena hasta resolver la asignación de
+# programas presupuestarios a conceptos, así que su carga no debe salir sola a
+# producción. El disparador por push queda retirado a propósito; con él, un
+# cambio en Presupuestos/4_carga que llegara a main cargaría en Supabase datos
+# de un área que todavía no damos por buena.
+#
+# Es la misma decisión que ya aplicamos en las otras dos superficies: séptima
+# pestaña desactivada en master/canendatos_storytelling_d3.html y ready: false
+# en el MANIFEST de canarias-en-datos-web/index.html.
+#
+# AL LEVANTAR LA CUARENTENA, restaurar:
+#
+#   on:
+#     push:
+#       branches: [main]
+#       paths:
+#         - "Presupuestos/4_carga/**"
+#         - "Presupuestos/db/**"
+#         - "Presupuestos/00_maestro.R"
+#     workflow_dispatch:
+
 on:
-  push:
-    branches: [main]
-    paths:
-      - "Presupuestos/4_carga/**"
-      - "Presupuestos/db/**"
-      - "Presupuestos/00_maestro.R"
   workflow_dispatch:
 
 jobs:
