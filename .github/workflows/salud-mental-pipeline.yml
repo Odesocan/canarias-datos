@@ -28,7 +28,12 @@ jobs:
       - name: Setup R
         uses: ./.github/actions/setup-r-pipeline
         with:
-          extra-packages: "ineapir prophet"
+          # ineapir + httr/httr2/jsonlite: clientes de las APIs de INCLASNS e INE,
+          # declarados en require_packages() de R/pipeline_utils.R.
+          # forecast/prophet/ranger/xgboost: la competición de algoritmos de
+          # 3_modelado. El workflow original solo instalaba prophet, así que el
+          # pipeline nunca habría llegado a completarse en CI.
+          extra-packages: "ineapir httr httr2 jsonlite forecast prophet ranger xgboost"
 
       - name: Run pipeline
         run: |
