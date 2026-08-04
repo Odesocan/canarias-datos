@@ -11,7 +11,7 @@ export const TOPIC = {
   label: "Empleo",
   eyebrow: "Canarias en Datos · Empleo",
   title: "El trabajo, contado como una historia de volumen, calidad, género y presión del alquiler.",
-  lead: "Pieza D3 conectada a Supabase: tasas de paro, actividad y empleo, calidad del empleo (temporalidad, parcialidad, paro de larga duración), horas en servicios, brecha salarial y peso del alquiler sobre el salario. Canarias frente a las comunidades, serie anual 2010–2026 con proyección multi-algoritmo. La perspectiva de género es dato observado de la EPA, no una estimación.",
+  lead: "Pieza D3 conectada a la base de datos del Observatorio: tasas de paro, actividad y empleo, calidad del empleo (temporalidad, parcialidad, paro de larga duración), horas en servicios, brecha salarial y peso del alquiler sobre el salario. Canarias frente a las comunidades, serie anual 2010–2026 con proyección multi-algoritmo. La perspectiva de género es dato observado de la EPA, no una estimación.",
 
   data: {
     globalTable: "ced_empleo_global",
@@ -40,11 +40,11 @@ export const TOPIC = {
     { id: "context",   type: "map",       title: "Situar Canarias",   sub: "Mapa coroplético interactivo para comparar Canarias con el resto de comunidades autónomas para el indicador y año seleccionados." },
     { id: "evolution", type: "evolution", title: "Evolución",         sub: "Serie anual 2010–2026 de todas las comunidades, con la proyección marcada en discontinuo." },
     { id: "gender",    type: "gender",    title: "Mujeres y hombres", sub: "Comparación por comunidad. Desglose oficial de la EPA (dato observado, no estimación)." },
-    { id: "method",    type: "method",    title: "Cómo se construye", sub: "Fuentes INE (EPA · ETCL · EAES), alquiler desde Supabase, proyección multi-algoritmo y descarga." },
+    { id: "method",    type: "method",    title: "Cómo se construye", sub: "Fuentes INE (EPA · ETCL · EAES), alquiler desde la base de datos, proyección multi-algoritmo y descarga." },
   ],
 
   method: [
-    { title: "Fuentes de datos", body: "Tres operaciones del INE vía API JSON (Tempus3): EPA (tasas y calidad del empleo, trimestral), ETCL (horas efectivas por sector, trimestral) y EAES (ganancia media por sexo y CCAA, anual). El precio de alquiler procede de Idealista, reutilizado desde la base de datos Supabase de la sección Vivienda. La geometría del mapa se sirve desde geodesocan." },
+    { title: "Fuentes de datos", body: "Tres operaciones del INE vía API JSON (Tempus3): EPA (tasas y calidad del empleo, trimestral), ETCL (horas efectivas por sector, trimestral) y EAES (ganancia media por sexo y CCAA, anual). El precio de alquiler procede de Idealista, reutilizado desde la base de datos de la sección Vivienda. La geometría del mapa se sirve desde geodesocan." },
     { title: "Los diez indicadores", body: "Volumen (paro, actividad, empleo, paro juvenil), calidad (temporalidad, parcialidad, paro de larga duración), intensidad (horas efectivas en servicios) y dos indicadores de condiciones de vida: brecha salarial y % del salario dedicado al alquiler. Todos por CCAA; los de la EPA, además, por género." },
     { title: "Perspectiva de género (observada)", body: "A diferencia de otras secciones, la EPA publica el desglose directo por género, sin imputación. La brecha salarial se calcula como (ganancia H − ganancia M) / ganancia H × 100 desde la EAES. El % del salario en alquiler se desagrega por el denominador salarial." },
     { title: "Eje temporal anual", body: "Para comparar indicadores de distinta cadencia, los trimestrales (EPA/ETCL) se agregan a media anual y los anuales (EAES/alquiler) se toman directos. Cada indicador marca real o proyección según su cadencia: los trimestrales son reales hasta 2025; los anuales, hasta 2024." },

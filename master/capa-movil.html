@@ -207,8 +207,14 @@
       box-shadow: 0 -6px 20px rgba(13, 27, 42, .30);
       padding: 6px 8px calc(6px + env(safe-area-inset-bottom));
     }
+    /* Hueco para que la barra fija no tape el pie de fuentes. El 74px era
+       un número a ojo y se quedaba corto en cuanto el pie iba a dos
+       líneas o el teléfono tenía barra de gestos alta: la altura real
+       depende del safe-area, que sólo conoce el dispositivo. El script
+       mide la barra y escribe --cedm-barra; el 74px queda de reserva por
+       si el script no llegara a correr. */
     html[data-cedm="movil"] body.cedm-activa {
-      padding-bottom: 74px; /* que la barra no tape el pie de fuentes */
+      padding-bottom: calc(var(--cedm-barra, 74px) + 16px);
     }
 
     /* -------------------------------------------------------------
@@ -526,6 +532,16 @@
       barra.appendChild(b);
     });
     document.body.appendChild(barra);
+
+    /* La altura real de la barra sólo se sabe una vez pintada: al padding
+       vertical se le suma el safe-area, que cambia de un teléfono a otro.
+       Se mide y se publica en una variable CSS. */
+    var mide = function () {
+      document.documentElement.style.setProperty(
+        "--cedm-barra", Math.round(barra.getBoundingClientRect().height) + "px");
+    };
+    mide();
+    if (window.ResizeObserver) new ResizeObserver(mide).observe(barra);
 
     /* El modelo marca el capítulo activo con .is-active sobre el botón
        original. Se observa esa clase en lugar de duplicar el estado, que

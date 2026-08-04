@@ -10,7 +10,7 @@ export const TOPIC = {
   label: "Dependencia",
   eyebrow: "Canarias en Datos · Dependencia",
   title: "El derecho a los cuidados, contado como una historia de cobertura, limbo y feminizacion.",
-  lead: "Pieza D3 conectable a Supabase: mapa coropletico, evolucion autonomica, brecha estimada por genero, trazabilidad metodologica y descarga directa del indicador seleccionado. Las tasas PPD se muestran como porcentaje equivalente de la PPD.",
+  lead: "Pieza D3 conectada a la base de datos del Observatorio: mapa coropletico, evolucion autonomica, brecha estimada por genero, trazabilidad metodologica y descarga directa del indicador seleccionado. Las tasas PPD se muestran como porcentaje equivalente de la PPD.",
 
   data: {
     globalTable: "ced_dependencia_global",
@@ -188,7 +188,7 @@ export const TOPIC = {
     },
     {
       title: "Actualización mensual",
-      body: "El IMSERSO publica entre 6 y 8 semanas después del cierre de mes. El pipeline se ejecuta automáticamente el día 5 de cada mes vía GitHub Actions. La carga a Supabase es atómica (staging + RENAME + reinstalación de índices únicos y RLS): el dashboard nunca lee una tabla en estado intermedio.",
+      body: "El IMSERSO publica entre 6 y 8 semanas después del cierre de mes. El pipeline se ejecuta automáticamente el día 5 de cada mes vía GitHub Actions. La carga a la base de datos es atómica (staging + RENAME + reinstalación de índices únicos y RLS): el dashboard nunca lee una tabla en estado intermedio.",
     },
     {
       title: "Proyección de 12 meses",
@@ -196,5 +196,5 @@ export const TOPIC = {
     },
   ],
 
-  sourceText: "Fuente: Supabase REST · datos en canendatos · geometría en geodesocan · cuaderno metodológico v2",
+  sourceText: "Fuente: API REST del Observatorio · datos en canendatos · geometría en geodesocan · cuaderno metodológico v2",
 };
