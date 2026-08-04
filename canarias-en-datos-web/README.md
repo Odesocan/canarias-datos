@@ -31,9 +31,26 @@ canarias-en-datos-web/
 - [~] **Fase 5 — Temática solo-global**: `topics/presupuestos.js` declara
       `genderTable: null`, pero hoy no se puede validar contra él porque el área
       está en cuarentena y su render falla (ver más abajo).
-- [ ] **Fase 6 — Deploy a GitHub Pages**: `.github/workflows/web-deploy.yml` está
-      escrito, pero **Pages no está habilitado**, así que no publica nada. Se
-      activa en Settings → Pages → Source: GitHub Actions.
+- [x] **Fase 6 — Deploy a GitHub Pages**: Pages está habilitado (Source: GitHub
+      Actions) y `.github/workflows/web-deploy.yml` publica en cada push a `main`
+      que toque la web.
+
+### Qué se sirve en cada URL
+
+La raíz del sitio **no** es este hub, sino el modelo D3 consolidado de
+`master/canendatos_storytelling_d3.html` — el que ya estaba terminado y del que
+se migraron `topics/sanidad.js` y `topics/salud-mental.js` (commit `5159c6b`).
+Trae geometría NUTS-2 de Eurostat, selector de género y las seis secciones en
+tarjetas. El workflow lo envuelve en una página completa al desplegar, porque
+el fichero es un fragmento pensado para incrustarse en Divi y sin `<head>`
+propio ni sale el charset ni se carga d3.
+
+| URL | Qué es |
+| --- | --- |
+| `/` | Modelo D3 consolidado (`master/canendatos_storytelling_d3.html`) |
+| `/hub/` | Este hub modular, la migración en curso |
+
+Mientras la migración no alcance al modelo consolidado, lo que se enseña es `/`.
 
 ### Temáticas activas
 

@@ -1,27 +1,29 @@
 name: web-deploy
 
-# Publica canarias-en-datos-web en GitHub Pages (§6).
+# Publica la web del observatorio en GitHub Pages (§6).
+#
+# QUÉ SE PUBLICA. La raíz del sitio es master/canendatos_storytelling_d3.html,
+# el modelo D3 consolidado (commit 5159c6b): seis secciones activas más
+# Presupuestos desactivada, geometría NUTS-2 de Eurostat y selector de género.
+# Es la fuente de la que se migraron los topics/*.js, así que es lo que debe
+# verse en Pages. El hub modular de canarias-en-datos-web/ — la migración en
+# curso — se sigue publicando en /hub/ para poder compararlos en producción.
 #
 # Es un flujo INDEPENDIENTE de los pipelines de datos, y a propósito: la web lee
 # Supabase en tiempo real, así que un dato nuevo se ve en la siguiente carga de
 # página sin re-desplegar. La única razón para re-desplegar es que cambie el
-# código de core/ o topics/ — de ahí el filtro por paths.
+# código de la web — de ahí el filtro por paths.
 #
-# NO SE PUBLICA NADA HASTA QUE ALGUIEN ACTIVE PAGES. Este workflow solo tiene
-# efecto cuando GitHub Pages está habilitado en los ajustes del repositorio
-# (Settings → Pages → Source: GitHub Actions). Mientras no lo esté,
-# configure-pages falla y no se despliega nada. Esa activación es manual y
-# deliberada: es el punto en que el sitio pasa a ser público.
-#
-# Antes de activarlo conviene tener presente que core/config.js expone la anon
-# key, que es pública por diseño, y que el control de acceso real lo impone RLS
-# sobre las tablas — verificado por .github/workflows/rls-audit.yml.
+# core/config.js y el modelo de master/ exponen la anon key, que es pública por
+# diseño; el control de acceso real lo impone RLS sobre las tablas — verificado
+# por .github/workflows/rls-audit.yml.
 
 on:
   push:
     branches: [main]
     paths:
       - "canarias-en-datos-web/**"
+      - "master/canendatos_storytelling_d3.html"
       - ".github/workflows/web-deploy.yml"
   workflow_dispatch:
 
@@ -65,11 +67,50 @@ jobs:
           done
           [ "$fallos" -eq 0 ]
 
+      - name: Ensamblar el sitio
+        run: |
+          set -euo pipefail
+          modelo="master/canendatos_storytelling_d3.html"
+          [ -s "$modelo" ] || { echo "::error::Falta $modelo"; exit 1; }
+
+          mkdir -p _site
+
+          # El modelo de master/ es un FRAGMENTO: empieza en <div> porque está
+          # pensado para incrustarse en Divi, y no trae <html>, <head> ni
+          # charset. Servido tal cual, el navegador asume latin-1 y los acentos
+          # salen como mojibake ("multitemÃ¡tico"). De ahí esta envoltura.
+          #
+          # El <script> de d3 tampoco es decorativo: el fragmento se lo inyecta
+          # solo en document.head, pero sin <head> propio esa inyección no
+          # ocurre y el panel se queda en "Preparando el panel multitemático…".
+          # Su ensureD3() comprueba window.d3 antes de cargar nada, así que
+          # declararlo aquí no duplica la descarga.
+          cat > _site/index.html <<'CABECERA'
+          <!doctype html>
+          <html lang="es">
+          <head>
+            <meta charset="utf-8" />
+            <meta name="viewport" content="width=device-width, initial-scale=1" />
+            <title>Canarias en Datos · Observatorio ODESOCAN</title>
+            <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+          </head>
+          <body style="margin:0">
+          CABECERA
+          cat "$modelo" >> _site/index.html
+          printf '</body>\n</html>\n' >> _site/index.html
+
+          # El hub modular conserva su URL propia. Sus rutas son relativas
+          # (./core/…, ./topics/…), así que funciona igual bajo /hub/.
+          cp -R canarias-en-datos-web _site/hub
+
+          grep -q '<meta charset="utf-8"' _site/index.html
+          echo "index.html ensamblado: $(wc -c < _site/index.html) bytes"
+
       - uses: actions/configure-pages@v5
 
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: canarias-en-datos-web
+          path: _site
 
       - id: deployment
         uses: actions/deploy-pages@v4
