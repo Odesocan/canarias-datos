@@ -12,7 +12,7 @@ export const TOPIC = {
   label: "Sanidad",
   eyebrow: "Canarias en Datos · Sanidad",
   title: "La sanidad, contada como una historia de resultados, recursos, gasto y equidad territorial.",
-  lead: "Pieza D3 conectada a Supabase: mortalidad evitable, años de vida saludable, reingresos psiquiátricos, dotación de profesionales y camas, esfuerzo de gasto sobre PIB y tiempos de espera. Canarias frente a las comunidades, serie anual con proyección por bagged ETS. La perspectiva de género es dato observado del INCLASNS en los indicadores de resultado.",
+  lead: "Pieza D3 conectada a la base de datos del Observatorio: mortalidad evitable, años de vida saludable, reingresos psiquiátricos, dotación de profesionales y camas, esfuerzo de gasto sobre PIB y tiempos de espera. Canarias frente a las comunidades, serie anual con proyección por bagged ETS. La perspectiva de género es dato observado del INCLASNS en los indicadores de resultado.",
 
   data: {
     globalTable: "global_sanidad",

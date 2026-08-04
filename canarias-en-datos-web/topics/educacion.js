@@ -7,7 +7,7 @@ export const TOPIC = {
   label: "Educación",
   eyebrow: "Canarias en Datos · Educación",
   title: "La educación en Canarias contada como una historia de abandono, nivel formativo, género y esfuerzo público.",
-  lead: "Pieza D3 conectada a Supabase: mapa coroplético, evolución autonómica, brecha de género y trazabilidad metodológica. Diez indicadores de resultado y recursos, comparables entre comunidades y proyectados a 2026.",
+  lead: "Pieza D3 conectada a la base de datos del Observatorio: mapa coroplético, evolución autonómica, brecha de género y trazabilidad metodológica. Diez indicadores de resultado y recursos, comparables entre comunidades y proyectados a 2026.",
 
   data: {
     globalTable: "ced_educacion_global",
@@ -36,7 +36,7 @@ export const TOPIC = {
     { id: "context", type: "map",       title: "Situar Canarias",   sub: "Mapa coroplético interactivo para comparar Canarias con el resto de comunidades autónomas." },
     { id: "evolution", type: "evolution", title: "Evolución",         sub: "Serie temporal de todas las comunidades para el indicador seleccionado (2015-2026, con proyección)." },
     { id: "gender",  type: "gender",    title: "Género",            sub: "Comparación mujeres-hombres por comunidad. La brecha suele estar invertida: más abandono en hombres, más titulación superior en mujeres." },
-    { id: "method",  type: "method",    title: "Cómo se construye", sub: "Fuentes, conexión Supabase, proyección a 2026 y descarga." },
+    { id: "method",  type: "method",    title: "Cómo se construye", sub: "Fuentes, conexión a la base de datos, proyección a 2026 y descarga." },
   ],
 
   method: [
@@ -45,5 +45,5 @@ export const TOPIC = {
     { title: "Proyección a 2026", body: "Cada serie (indicador × comunidad × género) compite entre estimadores simples (media, tendencia), ETS, ARIMA, Prophet, Random Forest y XGBoost mediante validación temporal rolling-origin; se elige el modelo con menor MAPE bajo una regla de parsimonia (el más simple dentro del margen del mejor). Los huecos internos se completan por interpolación y los años futuros por proyección, con la bandera `origen` distinguiendo dato real de proyectado." },
   ],
 
-  sourceText: "Fuente: Supabase REST · datos en canendatos · geometría en geodesocan",
+  sourceText: "Fuente: API REST del Observatorio · datos en canendatos · geometría en geodesocan",
 };

@@ -485,7 +485,7 @@
         { h:"Estimaciones",       p:"Para todas las variables salvo precios de Idealista, el pipeline compara <strong>ARIMA · ETS · Prophet · Random Forest · XGBoost</strong> con validación temporal y elige el modelo con menor error normalizado." },
         { h:"Brecha de género",   p:"Las series con desagregación por sexo se sirven desde <code>ced_vivienda_gen</code>; cuando la fuente no la publica se mantiene como total." },
         { h:"Origen",             p:"Cada fila lleva la marca <code>origen = real | proyeccion</code>. Si al menos una variable es proyectada, la fila se etiqueta como proyección." },
-        { h:"Almacenamiento",     p:"El pipeline persiste en Supabase (<code>canendatos.ced_vivienda_global</code> y <code>canendatos.ced_vivienda_gen</code>) y publica también CSV." }
+        { h:"Almacenamiento",     p:"El pipeline persiste en la base de datos del Observatorio (<code>canendatos.ced_vivienda_global</code> y <code>canendatos.ced_vivienda_gen</code>) y publica también CSV." }
       ],
       // Paleta para el coroplético
       mapPalette: ["#e8f2fb","#cbe1f2","#9bc4e1","#5a98c8","#1769aa","#0c3f6b"],
@@ -519,7 +519,7 @@
         { h:"Imputación género",p:"El SNS sólo publica el agregado total para los DHD: reconstruimos hombres y mujeres aplicando la brecha relativa observada en la prevalencia por género para cada CCAA y año." },
         { h:"Variables-etiqueta",p:"Multiplicamos las tasas por el censo anual (media de los cuatro trimestres) para mostrar valores absolutos en los tooltips: personas, dosis y muertes." },
         { h:"Modelado",         p:"El pipeline compara <strong>ARIMA · ETS · Prophet · Random Forest · XGBoost</strong> con validación cruzada temporal (3 folds, NMAE) y aplica el algoritmo con menor error global. Proyección hasta 2026." },
-        { h:"Actualización",    p:"Anual. La extracción consume APIs públicas, normaliza códigos CCAA, integra el censo trimestral y persiste un único dataset en Supabase (<code>canendatos.ced_saludmental</code>)." },
+        { h:"Actualización",    p:"Anual. La extracción consume APIs públicas, normaliza códigos CCAA, integra el censo trimestral y persiste un único dataset en la base de datos del Observatorio (<code>canendatos.ced_saludmental</code>)." },
         { h:"Origen",           p:"Cada fila lleva la marca <code>origen = real | proyeccion</code>. Si al menos una variable es proyectada, la fila se marca como proyección." }
       ],
       mapPalette: ["#e8fbf0","#bde8d2","#7ddca8","#3cc880","#0a8a4d","#063a20"],
@@ -554,7 +554,7 @@
         { h:"Los tres limbos",        p:"El flujo administrativo del SAAD encadena tres cuellos de botella relativizados a la PPD: <strong>limbo del grado</strong> (sin dictamen, sheet 10pendResol), <strong>limbo del PIA</strong> (con dictamen pero sin Programa Individual de Atención, sheet 10pendPrest) y <strong>limbo de las prestaciones</strong> (con PIA pero sin prestación efectiva, sheet 12BenefEfect col 5). Son fenómenos administrativos distintos, no medidas redundantes." },
         { h:"Imputación género",      p:"El IMSERSO no publica solicitudes, pendientes ni tiempos por sexo en sus hojas mensuales. Sólo el perfil del cuidador (61aperfcuidadorCCAA) cruza CCAA × género. La tabla <code>ced_dependencia_gen</code> aplica este ratio como factor de escala, marcado <code>origen_genero='estimado'</code>. <strong>Es una aproximación, no datos oficiales desagregados.</strong>" },
         { h:"Modelado",               p:"El pipeline compara <strong>ARIMA · ETS · Random Forest · XGBoost</strong> con validación cruzada temporal rolling-origin (3 folds, NMAE) y aplica el algoritmo con menor error global. Prophet se descarta por defecto al tener NMAE ~4× peor en series mensuales cortas. Horizonte de proyección: 6 meses adelante." },
-        { h:"Almacenamiento",         p:"El pipeline persiste en Supabase (<code>canendatos.ced_dependencia_global</code> y <code>canendatos.ced_dependencia_gen</code>) y publica también CSV/XLSX. Las geometrías para el mapa se sirven desde NUTS-2 de Eurostat." }
+        { h:"Almacenamiento",         p:"El pipeline persiste en la base de datos del Observatorio (<code>canendatos.ced_dependencia_global</code> y <code>canendatos.ced_dependencia_gen</code>) y publica también CSV/XLSX. Las geometrías para el mapa se sirven desde NUTS-2 de Eurostat." }
       ],
       mapPalette: ["#fbe8e0","#f6c2ad","#f29478","#e8633e","#b8472f","#6e1f1a"],
       metrics: {
@@ -591,7 +591,7 @@
         { h:"Brecha de género",  p:"Tanto la <strong>EPA</strong> como el <strong>MEFP</strong> publican el desglose <strong>directo</strong> por sexo, sin imputación (<code>ced_educacion_gen</code>). El patrón suele estar <strong>invertido</strong>: más abandono y NEET en hombres, más titulación superior, idoneidad y graduación en mujeres." },
         { h:"Eje temporal anual",p:"Serie <strong>2015-2026</strong>. Los datos del MEFP se refieren al curso académico y se asignan al año natural de inicio (2023-24 → 2023). Cada año se marca real o proyección; los indicadores tienen distinto año de cierre (p. ej. graduación y gasto por alumno terminan en 2023)." },
         { h:"Modelado",          p:"Competición por serie de <strong>ETS · ARIMA · Prophet · Random Forest · XGBoost</strong> frente a estimadores simples (media, naive, deriva, tendencia), con validación cruzada temporal rolling-origin. Se elige el de menor <strong>MAPE/MAE</strong> con regla de <strong>parsimonia</strong> (el más simple dentro del margen del mejor). Horizonte de proyección: 2026." },
-        { h:"Origen y almacenamiento", p:"Cada fila lleva la marca <code>origen = real | proyeccion</code>. El pipeline persiste en Supabase (<code>canendatos.ced_educacion_global</code> y <code>canendatos.ced_educacion_gen</code>) y publica también CSV/XLSX." }
+        { h:"Origen y almacenamiento", p:"Cada fila lleva la marca <code>origen = real | proyeccion</code>. El pipeline persiste en la base de datos del Observatorio (<code>canendatos.ced_educacion_global</code> y <code>canendatos.ced_educacion_gen</code>) y publica también CSV/XLSX." }
       ],
       mapPalette: ["#f3eefe","#e0d1fb","#c4a8f4","#9f6ee8","#7c3aed","#4c1d95"],
       metrics: {
@@ -659,12 +659,12 @@
       sourceRight: "Tablas: ced_empleo_global · ced_empleo_gen",
       hasGender: true,
       method: [
-        { h:"Fuentes",           p:"Tres operaciones del <strong>INE</strong> vía API (Tempus3): <strong>EPA</strong> (tasas y calidad del empleo, trimestral), <strong>ETCL</strong> (horas efectivas por sector) y <strong>EAES</strong> (ganancia media por género y CCAA, anual). El precio de alquiler procede de <strong>Idealista</strong>, reutilizado desde la BD Supabase de la sección Vivienda. La geometría del mapa se sirve desde NUTS-2 de Eurostat." },
+        { h:"Fuentes",           p:"Tres operaciones del <strong>INE</strong> vía API (Tempus3): <strong>EPA</strong> (tasas y calidad del empleo, trimestral), <strong>ETCL</strong> (horas efectivas por sector) y <strong>EAES</strong> (ganancia media por género y CCAA, anual). El precio de alquiler procede de <strong>Idealista</strong>, reutilizado desde la base de datos de la sección Vivienda. La geometría del mapa se sirve desde NUTS-2 de Eurostat." },
         { h:"Los diez indicadores", p:"Volumen (paro, actividad, empleo, paro juvenil), calidad (temporalidad, parcialidad, paro de larga duración), intensidad (horas efectivas en servicios) y dos indicadores de condiciones de vida: <strong>brecha salarial</strong> y <strong>% del salario dedicado al alquiler</strong>. Todos por CCAA; los de la EPA, además, por género." },
         { h:"Brecha de género",  p:"A diferencia de otras secciones, la EPA publica el desglose <strong>directo</strong> por género, sin imputación (<code>ced_empleo_gen</code>). La brecha salarial se calcula como <code>(ganancia H − ganancia M) / ganancia H × 100</code> desde la EAES y es territorial (sin desglose por sexo)." },
         { h:"Eje temporal anual",p:"Para comparar indicadores de distinta cadencia, los trimestrales (EPA/ETCL) se agregan a <strong>media anual</strong> y los anuales (EAES/alquiler) se toman directos. Cada año se marca real o proyección según la cadencia del indicador." },
         { h:"Modelado",          p:"Competición por serie de <strong>AutoARIMA · AutoETS · AutoTheta · Prophet</strong> frente a líneas base (Naive, SeasonalNaive, drift…), con validación cruzada temporal rolling-origin. Se elige el de menor <strong>MAPE/MAE</strong> con regla de <strong>parsimonia</strong> (ante empate, el más simple). Horizonte: 2026." },
-        { h:"Origen y notas",    p:"Cada fila lleva la marca <code>origen = real | proyeccion</code>. Las <strong>horas efectivas</strong> y la <strong>brecha salarial</strong> son territoriales, sin desglose por género. El % de alquiler asume una vivienda de referencia de 80 m². El pipeline persiste en Supabase (<code>canendatos.ced_empleo_global</code> y <code>canendatos.ced_empleo_gen</code>)." }
+        { h:"Origen y notas",    p:"Cada fila lleva la marca <code>origen = real | proyeccion</code>. Las <strong>horas efectivas</strong> y la <strong>brecha salarial</strong> son territoriales, sin desglose por género. El % de alquiler asume una vivienda de referencia de 80 m². El pipeline persiste en la base de datos del Observatorio (<code>canendatos.ced_empleo_global</code> y <code>canendatos.ced_empleo_gen</code>)." }
       ],
       mapPalette: ["#fdeaea","#f8c9c9","#f09b9b","#e56060","#dc2626","#8f1414"],
       metrics: {
@@ -686,6 +686,14 @@
     // Futuras secciones: copia el bloque y añade su loader.
   };
 
+  /* Recuento de lo que hay publicado, para que quien lo enseñe no tenga
+     que escribir la cifra a mano y se le quede vieja. Se publica en el
+     propio nodo raíz: así lo puede leer la capa móvil —que no ve este
+     ámbito— sin que haya que exportar nada global. */
+  root.dataset.cedIndicadores = String(
+    Object.values(SECTIONS).reduce((n, s) => n + Object.keys(s.metrics).length, 0));
+  root.dataset.cedAreas = String(Object.keys(SECTIONS).length);
+
   // Stub para secciones futuras que aparezcan grises en los tabs
   const COMING_SOON = [
     { id:"presupuestos", label:"Presupuestos", tagline:"Gasto social autonómico, por programas y sobre el PIB.",
@@ -696,7 +704,7 @@
   function supabaseFetchAll(table, schema) {
     const url = root.dataset.supabaseUrl;
     const key = root.dataset.supabaseKey;
-    if (!url || !key) return Promise.reject(new Error("Supabase no configurado"));
+    if (!url || !key) return Promise.reject(new Error("Base de datos no configurada"));
     const pageSize = 1000;
     const all = [];
     function page(offset) {
@@ -1640,6 +1648,188 @@
   }
 
   // ====== Render: serie temporal ===========================================
+  // Comunidad resaltada en la evolución móvil. Vive fuera de la función
+  // porque tiene que sobrevivir a los re-render; no se guarda en la URL
+  // porque es una ayuda de lectura, no un estado del análisis.
+  let evoSeleccion = "Canarias";
+
+  /* ====== Render móvil: evolución =========================================
+     En 375px las diecisiete series son una maraña: sin sitio para
+     etiquetas, quedaban diecisiete trazos grises indistinguibles y sólo se
+     leía el de Canarias. Aquí se cuenta lo mismo con tres elementos:
+
+     - la banda intercuartílica (p25-p75) de las comunidades, que es dónde
+       está la mitad central y ahorra dibujar quince líneas;
+     - la mediana autonómica, como referencia;
+     - Canarias, siempre trazada, y opcionalmente otra comunidad para
+       comparar de tú a tú.
+
+     El eje Y no arranca en cero: con series que se mueven en una banda
+     estrecha —esperas, tasas, precios— el cero aplasta la variación y no
+     deja ver nada. Como contrapartida, el eje va siempre rotulado con sus
+     valores y la banda enseña la dispersión real, que es lo que evita
+     leer una pendiente como si fuera un desplome.
+     ====================================================================== */
+  function renderEvolutionMobile(wrap, cfg, meta, series, stateLine) {
+    const w = wrap.clientWidth || 360;
+    const h = 400;
+    const m = { top: 26, right: 12, bottom: 34, left: 46 };
+
+    // Cuartiles por periodo, calculados entre comunidades.
+    const porPeriodo = Array.from(
+      d3.group(series.flatMap(s => s.values.map(v => ({ periodo: v.periodo, val: v[state.metric] }))
+        .filter(v => v.val != null)), d => d.periodo),
+      ([periodo, vs]) => {
+        const orden = vs.map(v => v.val).sort(d3.ascending);
+        return {
+          periodo,
+          q1: d3.quantile(orden, 0.25),
+          q3: d3.quantile(orden, 0.75),
+          mediana: d3.quantile(orden, 0.5)
+        };
+      }
+    ).sort((a, b) => a.periodo - b.periodo);
+
+    const canarias = series.find(s => s.ccaa === "Canarias");
+    // Si la comunidad elegida no existe en esta sección, se vuelve a Canarias.
+    if (!series.some(s => s.ccaa === evoSeleccion)) evoSeleccion = "Canarias";
+    const elegida = series.find(s => s.ccaa === evoSeleccion);
+    const resaltada = elegida || canarias;
+
+    // Dominio del eje Y: sólo lo que se dibuja, con un 8% de aire. Sin
+    // .nice() por abajo no habría margen para las etiquetas de datos.
+    const dibujado = []
+      .concat(porPeriodo.flatMap(p => [p.q1, p.q3, p.mediana]))
+      .concat(canarias ? canarias.values.map(v => v[state.metric]) : [])
+      .concat(elegida ? elegida.values.map(v => v[state.metric]) : [])
+      .filter(v => v != null);
+    const lo = d3.min(dibujado), hi = d3.max(dibujado);
+    const aire = (hi - lo) * 0.08 || Math.abs(hi * 0.05) || 1;
+
+    const svg = d3.select(wrap).append("svg").attr("viewBox", `0 0 ${w} ${h}`);
+    const x = d3.scaleLinear().domain(d3.extent(porPeriodo, p => p.periodo)).range([m.left, w - m.right]);
+    const y = d3.scaleLinear().domain([lo - aire, hi + aire]).nice().range([h - m.bottom, m.top]);
+
+    svg.append("g").attr("class", "ced-grid").attr("transform", `translate(${m.left},0)`)
+      .call(d3.axisLeft(y).ticks(4).tickSize(-(w - m.left - m.right)).tickFormat(""))
+      .call(g => g.select(".domain").remove());
+
+    const xTickFormat = cfg.granularity === "monthly"
+      ? (v => { const yr = Math.floor(v); const mo = Math.round((v - yr) * 12) + 1;
+                return mo === 1 ? String(yr) : MONTH_NAMES_ES_SHORT[mo - 1]; })
+      : d3.format("d");
+    svg.append("g").attr("class", "ced-axis").attr("transform", `translate(0,${h - m.bottom})`)
+      .call(d3.axisBottom(x).ticks(4).tickFormat(xTickFormat));
+    svg.append("g").attr("class", "ced-axis").attr("transform", `translate(${m.left},0)`)
+      .call(d3.axisLeft(y).ticks(4).tickFormat(d => d3.format(meta.fmt)(d)));
+    // El eje no empieza en cero, así que conviene decir qué se está midiendo.
+    svg.append("text").attr("x", m.left).attr("y", 13)
+      .attr("fill", "var(--ced-muted)").attr("font-size", 11)
+      .text(`${meta.short} (${meta.unit}) · el eje no parte de cero`);
+
+    // Banda intercuartílica
+    svg.append("path").datum(porPeriodo.filter(p => p.q1 != null))
+      .attr("fill", "var(--ced-accent)").attr("opacity", .16)
+      .attr("d", d3.area().x(p => x(p.periodo)).y0(p => y(p.q1)).y1(p => y(p.q3)));
+
+    // Mediana autonómica
+    svg.append("path").datum(porPeriodo.filter(p => p.mediana != null))
+      .attr("fill", "none").attr("stroke", "var(--ced-muted)").attr("stroke-width", 1.4)
+      .attr("stroke-dasharray", "5 4")
+      .attr("d", d3.line().x(p => x(p.periodo)).y(p => y(p.mediana)));
+
+    const linea = d3.line().defined(d => d[state.metric] != null)
+      .x(d => x(d.periodo)).y(d => y(d[state.metric]));
+
+    // Canarias, siempre. Si hay otra elegida, va en el color de acento.
+    if (canarias) {
+      svg.append("path").datum(canarias.values)
+        .attr("fill", "none").attr("stroke", "var(--ced-contrast)")
+        .attr("stroke-width", 2.8).attr("d", linea);
+    }
+    if (elegida && elegida !== canarias) {
+      svg.append("path").datum(elegida.values)
+        .attr("fill", "none").attr("stroke", "var(--ced-accent-deep)")
+        .attr("stroke-width", 2.4).attr("d", linea);
+    }
+
+    /* Rótulo con halo: el texto se pinta dos veces, primero engordado en
+       blanco y luego encima en su color. Sin eso, sobre la banda o sobre
+       una línea no hay quien lo lea. */
+    function rotula(capa, px, py, texto, color, tam, ancla) {
+      [true, false].forEach(halo => {
+        const t = capa.append("text")
+          .attr("x", px).attr("y", py).attr("dy", "0.35em")
+          .attr("text-anchor", ancla || "middle")
+          .attr("font-size", tam).attr("font-weight", 700)
+          .text(texto);
+        if (halo) t.attr("stroke", "var(--ced-surface)").attr("stroke-width", 3.5)
+                   .attr("stroke-linejoin", "round").attr("fill", "none");
+        else t.attr("fill", color);
+      });
+    }
+
+    const capaRotulos = svg.append("g");
+
+    /* Nombre de cada serie dibujada, al final de su trazo. La serie
+       resaltada lleva ahí mismo su última etiqueta de dato, así que su
+       nombre sube un piso más para no pisarla; y si al subir se sale por
+       arriba, baja al otro lado de la línea. */
+    function nombraFinal(serie, color) {
+      const vals = serie.values.filter(v => v[state.metric] != null);
+      if (!vals.length) return;
+      const ult = vals[vals.length - 1];
+      const salto = serie === resaltada ? 30 : 12;
+      const alto = y(ult[state.metric]) - salto;
+      rotula(capaRotulos, x(ult.periodo), alto < m.top + 10 ? y(ult[state.metric]) + salto : alto,
+             serie.ccaa, color, 11.5, "end");
+    }
+    if (canarias) nombraFinal(canarias, "var(--ced-contrast)");
+    if (elegida && elegida !== canarias) nombraFinal(elegida, "var(--ced-accent-deep)");
+    const ultMed = porPeriodo.filter(p => p.mediana != null).slice(-1)[0];
+    if (ultMed) rotula(capaRotulos, x(ultMed.periodo), y(ultMed.mediana) + 13, "Mediana CCAA", "var(--ced-muted)", 10.5, "end");
+
+    /* Etiquetas de datos a lo largo de la línea resaltada. No en todos los
+       puntos: en una serie mensual son cientos y se solapan. Se reparten
+       seis a lo largo y siempre entran el primero y el último, que son los
+       que se buscan. */
+    if (resaltada) {
+      const vals = resaltada.values.filter(v => v[state.metric] != null);
+      const cuantas = Math.min(6, vals.length);
+      const idx = new Set([0, vals.length - 1]);
+      for (let i = 1; i < cuantas - 1; i++) idx.add(Math.round(i * (vals.length - 1) / (cuantas - 1)));
+      const color = resaltada === canarias ? "var(--ced-contrast)" : "var(--ced-accent-deep)";
+      Array.from(idx).sort((a, b) => a - b).forEach(i => {
+        const d = vals[i];
+        svg.append("circle").attr("cx", x(d.periodo)).attr("cy", y(d[state.metric])).attr("r", 3)
+          .attr("fill", d.origen === "proyeccion" ? "var(--ced-surface)" : color)
+          .attr("stroke", color).attr("stroke-width", 1.6);
+        rotula(capaRotulos, x(d.periodo), y(d[state.metric]) - 13,
+               fmtVal(state.metric, d[state.metric]), color, 10.5,
+               i === 0 ? "start" : (i === vals.length - 1 ? "end" : "middle"));
+      });
+    }
+
+    // Selector de comunidad: en táctil no hay hover con el que aislar una
+    // línea, así que se elige explícitamente.
+    const pie = d3.select(wrap).append("div").attr("class", "ced-legend");
+    const nombres = series.map(s => s.ccaa).sort(d3.ascending);
+    pie.html(`
+      <label style="display:flex;align-items:center;gap:8px;width:100%">
+        <span style="color:var(--ced-muted);white-space:nowrap">Resaltar</span>
+        <select data-ced-evo style="flex:1;min-height:44px;font-size:16px">
+          ${nombres.map(n => `<option value="${n}"${n === evoSeleccion ? " selected" : ""}>${n}</option>`).join("")}
+        </select>
+      </label>
+      <span><span class="ced-legend-swatch" style="background:var(--ced-accent);opacity:.3"></span>Mitad central de las CCAA (p25-p75)</span>
+      <span><span class="ced-legend-swatch" style="background:var(--ced-muted)"></span>Mediana (--)</span>
+    `);
+    pie.select("[data-ced-evo]").on("change", function () {
+      evoSeleccion = this.value;
+      renderEvolution();
+    });
+  }
+
   function renderEvolution() {
     const cfg = SECTIONS[state.section];
     const meta = cfg.metrics[state.metric];
@@ -1654,6 +1844,10 @@
       ccaa, values: vals.slice().sort((a,b) => a.periodo - b.periodo)
     }));
     const stateLine = stateSeries(state.metric, state.gender);
+
+    // En vertical la maraña de diecisiete series no se lee: se cuenta con
+    // banda intercuartílica, mediana y las líneas que se resalten.
+    if (mobile) { renderEvolutionMobile(wrap, cfg, meta, series, stateLine); return; }
 
     const svg = d3.select(wrap).append("svg").attr("viewBox", `0 0 ${w} ${h}`);
     const x = d3.scaleLinear().domain(d3.extent(all, r => r.periodo)).range([m.left, w - m.right]);
@@ -1856,12 +2050,12 @@
       context:  { t:"Situar Canarias",   s:`Mapa coroplético · ${meta.label} · ${state.period} · género: ${state.gender}` },
       evolution:{ t:"Evolución",         s:`Serie temporal de ${meta.label} · género: ${state.gender}` },
       gender:   { t:"Brecha de género",  s:`${meta.label} por CCAA · ${state.period} (hombres vs mujeres)` },
-      method:   { t:"Cómo se construye", s:"Pipeline ETL del Observatorio · Supabase + R + D3" }
+      method:   { t:"Cómo se construye", s:"Pipeline ETL del Observatorio · R + D3" }
     };
     els.title.textContent = titles[state.step].t;
     els.sub.textContent   = titles[state.step].s;
     const cache = state.cache[state.section];
-    const srcBadge = cache && cache.error ? "Error" : "Supabase";
+    const srcBadge = cache && cache.error ? "Error" : "Datos en vivo";
     els.badge.textContent = state.step === "method" ? "Documentación" : (state.period ? `${cfg.label} · ${state.period} · ${srcBadge}` : cfg.label);
     const isMethod = state.step === "method";
     els.methodGrid.hidden = !isMethod;

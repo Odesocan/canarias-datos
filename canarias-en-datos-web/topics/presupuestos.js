@@ -10,7 +10,7 @@ export const TOPIC = {
   label: "Presupuestos",
   eyebrow: "Canarias en Datos · Presupuestos",
   title: "Cómo se reparten los presupuestos públicos de Canarias, por política y por territorio.",
-  lead: "Pieza D3 conectada a Supabase. Al no disponer de desagregación por género, el capítulo \"Género\" se omite automáticamente y solo se muestran contexto, evolución y metodología.",
+  lead: "Pieza D3 conectada a la base de datos del Observatorio. Al no disponer de desagregación por género, el capítulo \"Género\" se omite automáticamente y solo se muestran contexto, evolución y metodología.",
 
   data: {
     globalTable: "ced_presupuestos_global",
@@ -30,7 +30,7 @@ export const TOPIC = {
   scenes: [
     { id: "context", type: "map",       title: "Situar Canarias",   sub: "Mapa coroplético interactivo para comparar Canarias con el resto de comunidades." },
     { id: "evolution", type: "evolution", title: "Evolución",         sub: "Serie temporal de todas las comunidades para el indicador seleccionado." },
-    { id: "method",  type: "method",    title: "Cómo se construye", sub: "Fuentes, conexión Supabase y notas de cálculo." },
+    { id: "method",  type: "method",    title: "Cómo se construye", sub: "Fuentes, conexión a la base de datos y notas de cálculo." },
   ],
 
   method: [
@@ -39,5 +39,5 @@ export const TOPIC = {
     { title: "Notas", body: "Los presupuestos no incluyen desagregación por género en origen, por lo que esta temática solo dispone de lectura territorial y evolución." },
   ],
 
-  sourceText: "Fuente: Supabase REST · tabla ced_presupuestos_global en canendatos",
+  sourceText: "Fuente: API REST del Observatorio · tabla ced_presupuestos_global en canendatos",
 };
