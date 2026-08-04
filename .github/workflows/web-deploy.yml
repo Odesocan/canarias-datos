@@ -24,6 +24,8 @@ on:
     paths:
       - "canarias-en-datos-web/**"
       - "master/canendatos_storytelling_d3.html"
+      - "master/capa-movil.html"
+      - "master/geo/**"
       - ".github/workflows/web-deploy.yml"
   workflow_dispatch:
 
@@ -96,8 +98,16 @@ jobs:
           </head>
           <body style="margin:0">
           CABECERA
+          # La capa móvil va ANTES del modelo, y no es un detalle de estilo:
+          # desvía la geometría de Eurostat (18 MB sin comprimir) a la copia
+          # local de master/geo/, y ese desvío tiene que estar puesto antes de
+          # que el modelo lance su fetch, que ocurre nada más ejecutarse.
+          cat master/capa-movil.html >> _site/index.html
           cat "$modelo" >> _site/index.html
           printf '</body>\n</html>\n' >> _site/index.html
+
+          # Geometría ligera que consume la capa móvil (ruta relativa geo/…).
+          cp -R master/geo _site/geo
 
           # El hub modular conserva su URL propia. Sus rutas son relativas
           # (./core/…, ./topics/…), así que funciona igual bajo /hub/.

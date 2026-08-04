@@ -1,0 +1,544 @@
+<!-- ===================================================================
+     CAPA MÓVIL · Canarias en Datos
+     ===================================================================
+     Se pega SIEMPRE ANTES del bloque de canendatos_storytelling_d3.html.
+     El orden importa por dos motivos:
+
+     1. El desvío de la geometría tiene que estar puesto antes de que el
+        modelo lance su fetch, y el modelo lo lanza nada más ejecutarse.
+     2. El script marca <html data-cedm="movil"> de forma síncrona, antes
+        del primer pintado. Todas las reglas de abajo cuelgan de ese
+        atributo, y eso es lo que les da más especificidad que las del
+        modelo pese a ir antes en el documento. Sin el atributo, al tener
+        la misma especificidad ganaría el modelo por ir después.
+
+     No toca el modelo: sólo añade CSS y reordena nodos que ya existen. Si
+     esta capa no se carga, el modelo se comporta exactamente como hoy.
+
+     Se activa si el ancho es <= 640px —el mismo umbral que el isMobile()
+     del modelo, para que layout y render no se desincronicen— o si el
+     puntero es grueso, que es lo que de verdad distingue el dedo del
+     ratón: hay tablets anchas sin hover y portátiles táctiles.
+     =================================================================== -->
+
+<style>
+  /* ---------------------------------------------------------------
+     1. OBJETIVOS TÁCTILES
+     Los tres selectores y los dos botones miden 38px de alto. El mínimo
+     son 44px (WCAG 2.5.5 y el mínimo de facto de iOS).
+
+     La regla va duplicada a propósito, por puntero y por ancho: la
+     tablet táctil ancha sólo la cazan (pointer:coarse); el móvil cuyo
+     navegador se declara de puntero fino sólo lo caza el ancho.
+     --------------------------------------------------------------- */
+  @media (pointer: coarse) {
+    html[data-cedm="movil"] #ced-canendatos-d3 .ced-btn,
+    html[data-cedm="movil"] #ced-canendatos-d3 select {
+      min-height: 44px;
+      font-size: 16px; /* por debajo de 16px iOS hace zoom al enfocar */
+    }
+    html[data-cedm="movil"] #ced-canendatos-d3 .ced-section-btn,
+    html[data-cedm="movil"] #ced-canendatos-d3 .ced-story-step {
+      min-height: 48px;
+    }
+
+    /* Sin hover no hay nota emergente que valga. En el mapa-lista el dato
+       ya está escrito al lado de cada comunidad, así que no se pierde
+       nada. Mismo criterio que en viz-cargos-publicos. */
+    html[data-cedm="movil"] #ced-canendatos-d3 .ced-tooltip {
+      display: none !important;
+    }
+  }
+
+  @media (max-width: 640px) {
+    html[data-cedm="movil"] #ced-canendatos-d3 .ced-btn,
+    html[data-cedm="movil"] #ced-canendatos-d3 select {
+      min-height: 44px;
+      font-size: 16px;
+    }
+    html[data-cedm="movil"] #ced-canendatos-d3 .ced-section-btn {
+      min-height: 48px;
+    }
+
+    /* -------------------------------------------------------------
+       2. LA PORTADA ERA TODO CHASIS
+       Medido sobre la versión publicada a 375x812: el primer dato caía
+       en y=820px —justo debajo del pliegue— y la página entera medía
+       2149px. Entre el titular a cuatro líneas, la entradilla a cuatro,
+       dos botones a ancho completo y tres selectores apilados, había que
+       hacer scroll para ver un solo número.
+       ------------------------------------------------------------- */
+    html[data-cedm="movil"] #ced-canendatos-d3 {
+      padding: 10px 10px 22px;
+    }
+
+    /* El carrusel de temáticas pierde la descripción: cada tarjeta
+       ocupaba el 78% del ancho y tres líneas de alto para decir algo que
+       el titular de la sección repite al entrar. */
+    html[data-cedm="movil"] #ced-canendatos-d3 .ced-section-btn span {
+      display: none;
+    }
+    html[data-cedm="movil"] #ced-canendatos-d3 .ced-section-btn {
+      flex: 0 0 auto;
+      padding: 11px 15px;
+      display: flex;
+      align-items: center;
+    }
+    html[data-cedm="movil"] #ced-canendatos-d3 .ced-sections {
+      padding: 5px;
+      gap: 5px;
+    }
+
+    /* Titular y entradilla proporcionados a una columna estrecha. */
+    html[data-cedm="movil"] #ced-canendatos-d3 .ced-header-inner h2 {
+      font-size: clamp(1.15rem, 5.4vw, 1.5rem);
+      line-height: 1.2;
+    }
+    html[data-cedm="movil"] #ced-canendatos-d3 .ced-lead {
+      font-size: 13.5px;
+      line-height: 1.5;
+    }
+    /* La entradilla nace recortada a tres líneas y se despliega al
+       tocarla. El script le pone role, tabindex y aria-expanded. */
+    html[data-cedm="movil"] #ced-canendatos-d3 .ced-lead[data-cedm-clamp="si"] {
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    html[data-cedm="movil"] #ced-canendatos-d3 .ced-lead[data-cedm-clamp] {
+      cursor: pointer;
+    }
+    /* El aviso de "hay más texto" no puede ir en un ::after de la propia
+       entradilla: dentro de un -webkit-line-clamp lo recorta el clamp y no
+       se ve nunca. Va en un botón hermano. */
+    html[data-cedm="movil"] #ced-canendatos-d3 .cedm-mas {
+      display: block;
+      background: none;
+      border: 0;
+      padding: 8px 0 2px;
+      min-height: 44px;
+      font-family: inherit;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--ced-accent);
+      text-align: left;
+    }
+
+    /* -------------------------------------------------------------
+       3. LOS DATOS, PRIMERO
+       El script sube el bloque de KPIs justo debajo del carrusel, por
+       encima del titular: en vertical la primera pantalla tiene que
+       responder "¿cómo está Canarias?", no presentar la pieza.
+       ------------------------------------------------------------- */
+    html[data-cedm="movil"] #ced-canendatos-d3 .ced-kpi-row[data-cedm-subido] {
+      margin: 0 0 10px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+    }
+    html[data-cedm="movil"] #ced-canendatos-d3 .ced-kpi-label {
+      font-size: 11px;
+      letter-spacing: .04em;
+    }
+    html[data-cedm="movil"] #ced-canendatos-d3 .ced-kpi-value {
+      font-size: 21px;
+    }
+    html[data-cedm="movil"] #ced-canendatos-d3 .ced-kpi-note {
+      font-size: 11.5px;
+    }
+
+    /* -------------------------------------------------------------
+       4. FILTROS SIEMPRE A MANO
+       Los tres selectores mandan sobre todo lo que hay debajo, y debajo
+       hay dos pantallas de scroll. Pegados arriba se cambian sin tener
+       que volver al principio.
+       ------------------------------------------------------------- */
+    html[data-cedm="movil"] #ced-canendatos-d3 .ced-toolbar {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      background: var(--ced-surface);
+      border-bottom: 1px solid var(--ced-line);
+      padding: 9px 12px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px 10px;
+    }
+    /* Indicador a todo el ancho, que sus etiquetas son largas. Periodo y
+       género caben a media columna. */
+    html[data-cedm="movil"] #ced-canendatos-d3 .ced-toolbar .ced-control:first-child {
+      grid-column: 1 / -1;
+    }
+    html[data-cedm="movil"] #ced-canendatos-d3 .ced-control label {
+      font-size: 10.5px;
+    }
+
+    /* Los dos botones dejan de ocupar dos filas enteras. */
+    html[data-cedm="movil"] #ced-canendatos-d3 .ced-actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      width: 100%;
+    }
+
+    /* -------------------------------------------------------------
+       5. NAVEGACIÓN PERSISTENTE ABAJO
+       Patrón de viz-cargos-publicos: cuando las secciones son largas, la
+       navegación vive en una barra fija inferior y las pestañas de
+       arriba sobran. Aquí la barra lleva los cuatro capítulos, que es lo
+       que se cambia varias veces por visita; la temática se elige una
+       vez, al entrar, y se queda en el carrusel superior.
+       ------------------------------------------------------------- */
+    html[data-cedm="movil"] #ced-canendatos-d3 .ced-story-nav {
+      display: none;
+    }
+
+    html[data-cedm="movil"] .cedm-botnav {
+      display: flex;
+      position: fixed;
+      left: 0; right: 0; bottom: 0;
+      z-index: 200;
+      gap: 4px;
+      background: rgba(13, 27, 42, .97);
+      border-top: 1px solid rgba(255, 255, 255, .12);
+      box-shadow: 0 -6px 20px rgba(13, 27, 42, .30);
+      padding: 6px 8px calc(6px + env(safe-area-inset-bottom));
+    }
+    html[data-cedm="movil"] body.cedm-activa {
+      padding-bottom: 74px; /* que la barra no tape el pie de fuentes */
+    }
+
+    /* -------------------------------------------------------------
+       6. PANEL Y PIE
+       11px sobre fondo claro es el suelo de lo legible; las notas de
+       fuente suben a 12 y ganan interlineado.
+       ------------------------------------------------------------- */
+    html[data-cedm="movil"] #ced-canendatos-d3 .ced-panel-title { font-size: 15px; }
+    html[data-cedm="movil"] #ced-canendatos-d3 .ced-panel-sub   { font-size: 12px; }
+    html[data-cedm="movil"] #ced-canendatos-d3 .ced-mlist-name  { font-size: 13.5px; }
+    html[data-cedm="movil"] #ced-canendatos-d3 .ced-mlist-value { font-size: 13.5px; }
+    html[data-cedm="movil"] #ced-canendatos-d3 .ced-source-strip {
+      font-size: 12px;
+      line-height: 1.45;
+      gap: 4px;
+    }
+  }
+
+  /* La barra sólo existe en móvil; fuera del media query se esconde para
+     que un cambio de orientación a horizontal no la deje colgando. */
+  .cedm-botnav { display: none; }
+  .cedm-botnav-btn {
+    flex: 1 1 0;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    background: none;
+    border: 0;
+    border-radius: 11px;
+    color: rgba(255, 255, 255, .64);
+    font-family: inherit;
+    font-weight: 700;
+    font-size: 11px;
+    padding: 6px 4px;
+    min-height: 48px;
+    -webkit-tap-highlight-color: transparent;
+    transition: color .15s ease, background .15s ease;
+  }
+  .cedm-botnav-btn .cedm-lb {
+    max-width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .cedm-botnav-btn .cedm-ic { font-size: 15px; line-height: 1; }
+  /* El capítulo activo no se distingue sólo por color: además del fondo
+     lleva un filete superior y el texto en blanco. */
+  .cedm-botnav-btn.on {
+    color: #fff;
+    background: rgba(0, 200, 180, .18);
+    box-shadow: inset 0 2px 0 #00C8B4;
+  }
+  .cedm-botnav-btn:focus-visible {
+    outline: 2px solid #00C8B4;
+    outline-offset: -2px;
+  }
+
+  /* ---------------------------------------------------------------
+     7. ACCESIBILIDAD VISUAL (en cualquier ancho)
+     El modelo no declara foco visible en ningún control: con teclado o
+     con navegación por conmutador no hay forma de saber dónde estás.
+     --------------------------------------------------------------- */
+  #ced-canendatos-d3 :is(button, select, [role="button"]):focus-visible {
+    outline: 2px solid var(--ced-contrast);
+    outline-offset: 2px;
+    border-radius: 8px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    #ced-canendatos-d3 *,
+    .cedm-botnav * {
+      animation-duration: .001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: .001ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  /* Sólo para lectores de pantalla. */
+  .cedm-sr {
+    position: absolute;
+    width: 1px; height: 1px;
+    padding: 0; margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+</style>
+
+<script>
+(function () {
+  "use strict";
+
+  var mqEstrecho = window.matchMedia("(max-width: 640px)");
+  var mqTactil   = window.matchMedia("(pointer: coarse)");
+
+  function aplica() {
+    var toca = mqEstrecho.matches || mqTactil.matches;
+    document.documentElement.setAttribute("data-cedm", toca ? "movil" : "escritorio");
+    return toca;
+  }
+  // Síncrono y lo primero: si el atributo se pusiera después del primer
+  // pintado, la página aparecería un instante con el layout de escritorio.
+  aplica();
+
+  /* =================================================================
+     A. GEOMETRÍA: 18 MB -> 31 KB
+     =================================================================
+     El modelo pide a Eurostat NUTS_RG_01M_2021_4326_LEVL_2.geojson y se
+     queda con las 19 regiones que casan con /^ES\d{2}$/. Ese fichero son
+     18.077.469 bytes SIN comprimir —GISCO no sirve gzip, comprobado con
+     curl--compressed— o sea toda Europa a 1:1M para pintar España.
+
+     En móvil ni siquiera se llega a pintar: el modelo sustituye el mapa
+     por una lista de comunidades, pero la descarga se hace igual porque
+     la antesala de carga espera a la promesa de la geometría. Son 18 MB
+     de datos móviles para un mapa que no se dibuja.
+
+     Aquí se desvía a una copia local: las mismas 19 regiones a 1:10M,
+     coordenadas redondeadas a cuatro decimales (~11 m, de sobra para un
+     mapa de 350px) y sólo las dos propiedades que el modelo lee. 31 KB,
+     con las ocho islas de Canarias.
+
+     Si la copia local fallara se deja pasar la petición original: antes
+     una descarga cara que un mapa roto.
+     ================================================================= */
+  var GEO_REMOTA = /gisco-services\.ec\.europa\.eu\/.*NUTS_RG_.*LEVL_2\.geojson/;
+  var GEO_LOCAL  = "geo/ccaa-nuts2-10m.geojson";
+
+  if (mqEstrecho.matches && typeof window.fetch === "function") {
+    var fetchOriginal = window.fetch.bind(window);
+    window.fetch = function (recurso, opciones) {
+      var url = typeof recurso === "string" ? recurso : (recurso && recurso.url) || "";
+      if (!GEO_REMOTA.test(url)) return fetchOriginal(recurso, opciones);
+      return fetchOriginal(GEO_LOCAL, opciones)
+        .then(function (r) { return r.ok ? r : fetchOriginal(recurso, opciones); })
+        .catch(function () { return fetchOriginal(recurso, opciones); });
+    };
+  }
+
+  /* =================================================================
+     B. REESTRUCTURA DEL CHASIS
+     ================================================================= */
+  var CAPITULOS = [
+    { paso: "context",   ic: "◉", lb: "Situar"    },
+    { paso: "evolution", ic: "◔", lb: "Evolución" },
+    { paso: "gender",    ic: "◑", lb: "Género"    },
+    { paso: "method",    ic: "☰", lb: "Método"    }
+  ];
+
+  // Sitio original del bloque de KPIs, para poder devolverlo. Se guarda la
+  // primera vez y no se vuelve a tocar.
+  var kpisCasa = null;
+
+  function arranca() {
+    var root = document.getElementById("ced-canendatos-d3");
+    if (!root || root.dataset.cedmCapa === "puesta") return;
+    if (!mqEstrecho.matches) return;
+    root.dataset.cedmCapa = "puesta";
+    document.body.classList.add("cedm-activa");
+
+    /* --- B.1 Los KPIs, por encima del titular ---------------------
+       Se mueve el nodo, no su contenido: el modelo sigue escribiendo en
+       ese mismo elemento con innerHTML en cada render, así que el cambio
+       sobrevive a los cambios de indicador, de periodo y de sección. */
+    var kpis      = root.querySelector("[data-ced-kpis]");
+    var secciones = root.querySelector("[data-ced-sections]");
+    if (kpis && secciones && secciones.parentNode) {
+      if (!kpisCasa) kpisCasa = { padre: kpis.parentNode, siguiente: kpis.nextSibling };
+      kpis.dataset.cedmSubido = "si";
+      secciones.parentNode.insertBefore(kpis, secciones.nextSibling);
+    }
+
+    /* --- B.2 Entradilla recortada, desplegable al toque ----------- */
+    var lead = root.querySelector("[data-ced-lead]");
+    if (lead) {
+      lead.dataset.cedmClamp = "si";
+      var mas = document.querySelector(".cedm-mas");
+      if (!mas) {
+        mas = document.createElement("button");
+        mas.type = "button";
+        mas.className = "cedm-mas";
+        lead.parentNode.insertBefore(mas, lead.nextSibling);
+      }
+      var pinta = function () {
+        var plegada = lead.dataset.cedmClamp === "si";
+        mas.textContent = plegada ? "Ver más" : "Ver menos";
+        mas.setAttribute("aria-expanded", plegada ? "false" : "true");
+      };
+      var alterna = function () {
+        lead.dataset.cedmClamp = lead.dataset.cedmClamp === "si" ? "no" : "si";
+        pinta();
+      };
+      pinta();
+      mas.addEventListener("click", alterna);
+      lead.addEventListener("click", alterna);
+    }
+
+    /* --- B.3 Barra inferior fija con los cuatro capítulos ----------
+       Delega en los botones que ya existen en .ced-story-nav, ocultos
+       por CSS: el estado, el render y el historial siguen siendo los del
+       modelo. La barra sólo refleja y dispara. */
+    var pasos = root.querySelectorAll("[data-ced-step]");
+    if (!pasos.length) return;
+
+    // Se reutiliza si ya existe: al girar el móvil arriba y abajo, arranca()
+    // puede correr varias veces y no queremos una pila de rótulos ocultos.
+    var aviso = document.querySelector(".cedm-sr");
+    if (!aviso) {
+      aviso = document.createElement("p");
+      aviso.className = "cedm-sr";
+      aviso.setAttribute("role", "status");
+      aviso.setAttribute("aria-live", "polite");
+      document.body.appendChild(aviso);
+    }
+
+    var barra = document.createElement("nav");
+    barra.className = "cedm-botnav";
+    barra.setAttribute("aria-label", "Capítulos");
+
+    CAPITULOS.forEach(function (cap) {
+      var origen = root.querySelector('[data-ced-step="' + cap.paso + '"]');
+      if (!origen) return;
+      var b = document.createElement("button");
+      b.type = "button";
+      b.className = "cedm-botnav-btn";
+      b.dataset.cedmPaso = cap.paso;
+      b.innerHTML = '<span class="cedm-ic" aria-hidden="true">' + cap.ic + "</span>" +
+                    '<span class="cedm-lb">' + cap.lb + "</span>";
+      b.addEventListener("click", function () {
+        origen.click();
+        aviso.textContent = "Capítulo: " + cap.lb;
+        var panel = root.querySelector(".ced-panel");
+        if (panel) panel.scrollIntoView({ block: "start", behavior: "smooth" });
+      });
+      barra.appendChild(b);
+    });
+    document.body.appendChild(barra);
+
+    /* El modelo marca el capítulo activo con .is-active sobre el botón
+       original. Se observa esa clase en lugar de duplicar el estado, que
+       es lo que se desincronizaría al navegar con el historial. */
+    function sincroniza() {
+      barra.querySelectorAll(".cedm-botnav-btn").forEach(function (b) {
+        var origen = root.querySelector('[data-ced-step="' + b.dataset.cedmPaso + '"]');
+        var activo = !!(origen && origen.classList.contains("is-active"));
+        b.classList.toggle("on", activo);
+        b.setAttribute("aria-current", activo ? "true" : "false");
+      });
+    }
+    sincroniza();
+    var obs = new MutationObserver(sincroniza);
+    pasos.forEach(function (p) {
+      obs.observe(p, { attributes: true, attributeFilter: ["class"] });
+    });
+  }
+
+  /* Al ensanchar —girar el teléfono, un plegable que se abre, una ventana
+     que se agranda— hay que deshacer lo que se movió. El CSS deja de
+     aplicarse solo, porque cuelga de media queries, pero los nodos
+     movidos se quedarían donde los pusimos: el resultado sería el layout
+     de escritorio con los KPIs por encima del titular. */
+  function revierte() {
+    var root = document.getElementById("ced-canendatos-d3");
+    if (!root || root.dataset.cedmCapa !== "puesta") return;
+    delete root.dataset.cedmCapa;
+    document.body.classList.remove("cedm-activa");
+
+    var kpis = root.querySelector("[data-ced-kpis]");
+    if (kpis && kpisCasa && kpisCasa.padre) {
+      delete kpis.dataset.cedmSubido;
+      kpisCasa.padre.insertBefore(kpis, kpisCasa.siguiente);
+    }
+
+    var lead = root.querySelector("[data-ced-lead]");
+    if (lead) delete lead.dataset.cedmClamp;
+
+    var mas = document.querySelector(".cedm-mas");
+    if (mas) mas.remove();
+
+    var barra = document.querySelector(".cedm-botnav");
+    if (barra) barra.remove();
+  }
+
+  /* Girar el teléfono o estrechar la ventana tienen que llevar al mismo
+     sitio que entrar ya en móvil.
+
+     El reparto de trabajo va por ANCHO, no por el atributo: en una tablet
+     táctil ancha aplica() da "movil" —porque hay reglas de puntero que sí
+     valen ahí— pero el chasis tiene que ser el de escritorio. Mezclar las
+     dos condiciones dejaba el DOM a medio revertir. */
+  function alCambiar() {
+    aplica();
+    if (mqEstrecho.matches) arranca(); else revierte();
+
+    /* El modelo no escucha el resize: dibuja al cambiar de escena o de
+       filtro y se queda así. Al cruzar el umbral hay que pedirle que
+       repinte, o el mapa de escritorio se queda de lista y al revés. Se
+       hace pulsando el capítulo que ya está activo, que es su propio
+       camino de repintado. */
+    var activo = document.querySelector("#ced-canendatos-d3 [data-ced-step].is-active");
+    if (activo) activo.click();
+  }
+  /* Se escuchan las dos cosas a propósito. El evento de matchMedia es el
+     correcto, pero no todos los motores lo emiten al cambiar el viewport
+     por emulación —comprobado aquí mismo: la consulta pasaba a false y el
+     change no llegaba—, así que el resize hace de red. La guarda de estado
+     evita que la doble escucha ejecute el trabajo dos veces. */
+  var estadoUltimo = mqEstrecho.matches; // el ancho, que es lo que reparte el trabajo
+  function siCambia() {
+    var ahora = mqEstrecho.matches;
+    if (ahora === estadoUltimo) return;
+    estadoUltimo = ahora;
+    alCambiar();
+  }
+  if (mqEstrecho.addEventListener) {
+    mqEstrecho.addEventListener("change", siCambia);
+    mqTactil.addEventListener("change", siCambia);
+  }
+  var temporizador = null;
+  window.addEventListener("resize", function () {
+    clearTimeout(temporizador);
+    temporizador = setTimeout(siCambia, 180);
+  });
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", arranca);
+  } else {
+    arranca();
+  }
+})();
+</script>

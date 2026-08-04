@@ -52,6 +52,23 @@ propio ni sale el charset ni se carga d3.
 
 Mientras la migración no alcance al modelo consolidado, lo que se enseña es `/`.
 
+### Capa móvil
+
+`master/capa-movil.html` se ensambla **antes** del modelo y adapta el chasis a
+pantalla estrecha: KPIs por encima del titular, filtros pegados arriba, barra
+inferior fija con los cuatro capítulos y objetivos táctiles de 44px. El orden
+importa —el desvío de la geometría tiene que estar puesto antes de que el modelo
+lance su fetch, y su CSS cuelga de `html[data-cedm="movil"]` para ganar en
+especificidad pese a ir antes en el documento—. Si la capa no se carga, el
+modelo se comporta como siempre.
+
+Se lleva por delante la descarga más cara del sitio: el modelo pedía a Eurostat
+18.077.469 bytes **sin comprimir** de NUTS-2 europeo para quedarse con 19
+regiones, y en móvil ni siquiera se dibujaba el mapa. En su lugar sirve
+`master/geo/ccaa-nuts2-10m.geojson` — las mismas 19 regiones a 1:10M,
+coordenadas a cuatro decimales, **31 KB**. En escritorio la petición sigue yendo
+a Eurostat.
+
 ### Temáticas activas
 
 Seis, todas leyendo de Supabase: Dependencia, Educación, Empleo, Salud mental,
