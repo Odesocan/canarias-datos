@@ -1640,6 +1640,188 @@
   }
 
   // ====== Render: serie temporal ===========================================
+  // Comunidad resaltada en la evolución móvil. Vive fuera de la función
+  // porque tiene que sobrevivir a los re-render; no se guarda en la URL
+  // porque es una ayuda de lectura, no un estado del análisis.
+  let evoSeleccion = "Canarias";
+
+  /* ====== Render móvil: evolución =========================================
+     En 375px las diecisiete series son una maraña: sin sitio para
+     etiquetas, quedaban diecisiete trazos grises indistinguibles y sólo se
+     leía el de Canarias. Aquí se cuenta lo mismo con tres elementos:
+
+     - la banda intercuartílica (p25-p75) de las comunidades, que es dónde
+       está la mitad central y ahorra dibujar quince líneas;
+     - la mediana autonómica, como referencia;
+     - Canarias, siempre trazada, y opcionalmente otra comunidad para
+       comparar de tú a tú.
+
+     El eje Y no arranca en cero: con series que se mueven en una banda
+     estrecha —esperas, tasas, precios— el cero aplasta la variación y no
+     deja ver nada. Como contrapartida, el eje va siempre rotulado con sus
+     valores y la banda enseña la dispersión real, que es lo que evita
+     leer una pendiente como si fuera un desplome.
+     ====================================================================== */
+  function renderEvolutionMobile(wrap, cfg, meta, series, stateLine) {
+    const w = wrap.clientWidth || 360;
+    const h = 400;
+    const m = { top: 26, right: 12, bottom: 34, left: 46 };
+
+    // Cuartiles por periodo, calculados entre comunidades.
+    const porPeriodo = Array.from(
+      d3.group(series.flatMap(s => s.values.map(v => ({ periodo: v.periodo, val: v[state.metric] }))
+        .filter(v => v.val != null)), d => d.periodo),
+      ([periodo, vs]) => {
+        const orden = vs.map(v => v.val).sort(d3.ascending);
+        return {
+          periodo,
+          q1: d3.quantile(orden, 0.25),
+          q3: d3.quantile(orden, 0.75),
+          mediana: d3.quantile(orden, 0.5)
+        };
+      }
+    ).sort((a, b) => a.periodo - b.periodo);
+
+    const canarias = series.find(s => s.ccaa === "Canarias");
+    // Si la comunidad elegida no existe en esta sección, se vuelve a Canarias.
+    if (!series.some(s => s.ccaa === evoSeleccion)) evoSeleccion = "Canarias";
+    const elegida = series.find(s => s.ccaa === evoSeleccion);
+    const resaltada = elegida || canarias;
+
+    // Dominio del eje Y: sólo lo que se dibuja, con un 8% de aire. Sin
+    // .nice() por abajo no habría margen para las etiquetas de datos.
+    const dibujado = []
+      .concat(porPeriodo.flatMap(p => [p.q1, p.q3, p.mediana]))
+      .concat(canarias ? canarias.values.map(v => v[state.metric]) : [])
+      .concat(elegida ? elegida.values.map(v => v[state.metric]) : [])
+      .filter(v => v != null);
+    const lo = d3.min(dibujado), hi = d3.max(dibujado);
+    const aire = (hi - lo) * 0.08 || Math.abs(hi * 0.05) || 1;
+
+    const svg = d3.select(wrap).append("svg").attr("viewBox", `0 0 ${w} ${h}`);
+    const x = d3.scaleLinear().domain(d3.extent(porPeriodo, p => p.periodo)).range([m.left, w - m.right]);
+    const y = d3.scaleLinear().domain([lo - aire, hi + aire]).nice().range([h - m.bottom, m.top]);
+
+    svg.append("g").attr("class", "ced-grid").attr("transform", `translate(${m.left},0)`)
+      .call(d3.axisLeft(y).ticks(4).tickSize(-(w - m.left - m.right)).tickFormat(""))
+      .call(g => g.select(".domain").remove());
+
+    const xTickFormat = cfg.granularity === "monthly"
+      ? (v => { const yr = Math.floor(v); const mo = Math.round((v - yr) * 12) + 1;
+                return mo === 1 ? String(yr) : MONTH_NAMES_ES_SHORT[mo - 1]; })
+      : d3.format("d");
+    svg.append("g").attr("class", "ced-axis").attr("transform", `translate(0,${h - m.bottom})`)
+      .call(d3.axisBottom(x).ticks(4).tickFormat(xTickFormat));
+    svg.append("g").attr("class", "ced-axis").attr("transform", `translate(${m.left},0)`)
+      .call(d3.axisLeft(y).ticks(4).tickFormat(d => d3.format(meta.fmt)(d)));
+    // El eje no empieza en cero, así que conviene decir qué se está midiendo.
+    svg.append("text").attr("x", m.left).attr("y", 13)
+      .attr("fill", "var(--ced-muted)").attr("font-size", 11)
+      .text(`${meta.short} (${meta.unit}) · el eje no parte de cero`);
+
+    // Banda intercuartílica
+    svg.append("path").datum(porPeriodo.filter(p => p.q1 != null))
+      .attr("fill", "var(--ced-accent)").attr("opacity", .16)
+      .attr("d", d3.area().x(p => x(p.periodo)).y0(p => y(p.q1)).y1(p => y(p.q3)));
+
+    // Mediana autonómica
+    svg.append("path").datum(porPeriodo.filter(p => p.mediana != null))
+      .attr("fill", "none").attr("stroke", "var(--ced-muted)").attr("stroke-width", 1.4)
+      .attr("stroke-dasharray", "5 4")
+      .attr("d", d3.line().x(p => x(p.periodo)).y(p => y(p.mediana)));
+
+    const linea = d3.line().defined(d => d[state.metric] != null)
+      .x(d => x(d.periodo)).y(d => y(d[state.metric]));
+
+    // Canarias, siempre. Si hay otra elegida, va en el color de acento.
+    if (canarias) {
+      svg.append("path").datum(canarias.values)
+        .attr("fill", "none").attr("stroke", "var(--ced-contrast)")
+        .attr("stroke-width", 2.8).attr("d", linea);
+    }
+    if (elegida && elegida !== canarias) {
+      svg.append("path").datum(elegida.values)
+        .attr("fill", "none").attr("stroke", "var(--ced-accent-deep)")
+        .attr("stroke-width", 2.4).attr("d", linea);
+    }
+
+    /* Rótulo con halo: el texto se pinta dos veces, primero engordado en
+       blanco y luego encima en su color. Sin eso, sobre la banda o sobre
+       una línea no hay quien lo lea. */
+    function rotula(capa, px, py, texto, color, tam, ancla) {
+      [true, false].forEach(halo => {
+        const t = capa.append("text")
+          .attr("x", px).attr("y", py).attr("dy", "0.35em")
+          .attr("text-anchor", ancla || "middle")
+          .attr("font-size", tam).attr("font-weight", 700)
+          .text(texto);
+        if (halo) t.attr("stroke", "var(--ced-surface)").attr("stroke-width", 3.5)
+                   .attr("stroke-linejoin", "round").attr("fill", "none");
+        else t.attr("fill", color);
+      });
+    }
+
+    const capaRotulos = svg.append("g");
+
+    /* Nombre de cada serie dibujada, al final de su trazo. La serie
+       resaltada lleva ahí mismo su última etiqueta de dato, así que su
+       nombre sube un piso más para no pisarla; y si al subir se sale por
+       arriba, baja al otro lado de la línea. */
+    function nombraFinal(serie, color) {
+      const vals = serie.values.filter(v => v[state.metric] != null);
+      if (!vals.length) return;
+      const ult = vals[vals.length - 1];
+      const salto = serie === resaltada ? 30 : 12;
+      const alto = y(ult[state.metric]) - salto;
+      rotula(capaRotulos, x(ult.periodo), alto < m.top + 10 ? y(ult[state.metric]) + salto : alto,
+             serie.ccaa, color, 11.5, "end");
+    }
+    if (canarias) nombraFinal(canarias, "var(--ced-contrast)");
+    if (elegida && elegida !== canarias) nombraFinal(elegida, "var(--ced-accent-deep)");
+    const ultMed = porPeriodo.filter(p => p.mediana != null).slice(-1)[0];
+    if (ultMed) rotula(capaRotulos, x(ultMed.periodo), y(ultMed.mediana) + 13, "Mediana CCAA", "var(--ced-muted)", 10.5, "end");
+
+    /* Etiquetas de datos a lo largo de la línea resaltada. No en todos los
+       puntos: en una serie mensual son cientos y se solapan. Se reparten
+       seis a lo largo y siempre entran el primero y el último, que son los
+       que se buscan. */
+    if (resaltada) {
+      const vals = resaltada.values.filter(v => v[state.metric] != null);
+      const cuantas = Math.min(6, vals.length);
+      const idx = new Set([0, vals.length - 1]);
+      for (let i = 1; i < cuantas - 1; i++) idx.add(Math.round(i * (vals.length - 1) / (cuantas - 1)));
+      const color = resaltada === canarias ? "var(--ced-contrast)" : "var(--ced-accent-deep)";
+      Array.from(idx).sort((a, b) => a - b).forEach(i => {
+        const d = vals[i];
+        svg.append("circle").attr("cx", x(d.periodo)).attr("cy", y(d[state.metric])).attr("r", 3)
+          .attr("fill", d.origen === "proyeccion" ? "var(--ced-surface)" : color)
+          .attr("stroke", color).attr("stroke-width", 1.6);
+        rotula(capaRotulos, x(d.periodo), y(d[state.metric]) - 13,
+               fmtVal(state.metric, d[state.metric]), color, 10.5,
+               i === 0 ? "start" : (i === vals.length - 1 ? "end" : "middle"));
+      });
+    }
+
+    // Selector de comunidad: en táctil no hay hover con el que aislar una
+    // línea, así que se elige explícitamente.
+    const pie = d3.select(wrap).append("div").attr("class", "ced-legend");
+    const nombres = series.map(s => s.ccaa).sort(d3.ascending);
+    pie.html(`
+      <label style="display:flex;align-items:center;gap:8px;width:100%">
+        <span style="color:var(--ced-muted);white-space:nowrap">Resaltar</span>
+        <select data-ced-evo style="flex:1;min-height:44px;font-size:16px">
+          ${nombres.map(n => `<option value="${n}"${n === evoSeleccion ? " selected" : ""}>${n}</option>`).join("")}
+        </select>
+      </label>
+      <span><span class="ced-legend-swatch" style="background:var(--ced-accent);opacity:.3"></span>Mitad central de las CCAA (p25-p75)</span>
+      <span><span class="ced-legend-swatch" style="background:var(--ced-muted)"></span>Mediana (--)</span>
+    `);
+    pie.select("[data-ced-evo]").on("change", function () {
+      evoSeleccion = this.value;
+      renderEvolution();
+    });
+  }
+
   function renderEvolution() {
     const cfg = SECTIONS[state.section];
     const meta = cfg.metrics[state.metric];
@@ -1654,6 +1836,10 @@
       ccaa, values: vals.slice().sort((a,b) => a.periodo - b.periodo)
     }));
     const stateLine = stateSeries(state.metric, state.gender);
+
+    // En vertical la maraña de diecisiete series no se lee: se cuenta con
+    // banda intercuartílica, mediana y las líneas que se resalten.
+    if (mobile) { renderEvolutionMobile(wrap, cfg, meta, series, stateLine); return; }
 
     const svg = d3.select(wrap).append("svg").attr("viewBox", `0 0 ${w} ${h}`);
     const x = d3.scaleLinear().domain(d3.extent(all, r => r.periodo)).range([m.left, w - m.right]);
