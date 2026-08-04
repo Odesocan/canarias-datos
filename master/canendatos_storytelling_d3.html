@@ -686,6 +686,14 @@
     // Futuras secciones: copia el bloque y añade su loader.
   };
 
+  /* Recuento de lo que hay publicado, para que quien lo enseñe no tenga
+     que escribir la cifra a mano y se le quede vieja. Se publica en el
+     propio nodo raíz: así lo puede leer la capa móvil —que no ve este
+     ámbito— sin que haya que exportar nada global. */
+  root.dataset.cedIndicadores = String(
+    Object.values(SECTIONS).reduce((n, s) => n + Object.keys(s.metrics).length, 0));
+  root.dataset.cedAreas = String(Object.keys(SECTIONS).length);
+
   // Stub para secciones futuras que aparezcan grises en los tabs
   const COMING_SOON = [
     { id:"presupuestos", label:"Presupuestos", tagline:"Gasto social autonómico, por programas y sobre el PIB.",

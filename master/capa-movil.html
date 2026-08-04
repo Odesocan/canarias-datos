@@ -74,6 +74,80 @@
       padding: 10px 10px 22px;
     }
 
+    /* -------------------------------------------------------------
+       2.b CABEZAL
+       Identidad ODESOCAN: degradado navy con destello teal, marca,
+       titular en Space Grotesk y la cifra clave en teal, que es como
+       manda la guía destacar un número en su primer uso.
+
+       No se carga Google Fonts: el <link> de tipografías bloquea el
+       pintado —está documentado en la interfaz de Transparencia— y en
+       móvil eso es lo último que conviene. Se nombran las familias por si
+       están instaladas y se cae a la pila del sistema, que es lo que ya
+       hace el resto de la pieza.
+
+       Va compacto a propósito: cada píxel que ocupa aquí es uno que le
+       falta al gráfico en la primera pantalla.
+       ------------------------------------------------------------- */
+    html[data-cedm="movil"] .cedm-cabezal {
+      position: relative;
+      overflow: hidden;
+      margin: 0 0 10px;
+      padding: 14px 16px 16px;
+      border-radius: 16px;
+      background:
+        radial-gradient(120% 90% at 100% 0%, rgba(0, 200, 180, .25) 0%, transparent 55%),
+        linear-gradient(145deg, #0D1B2A 0%, #1A2F45 60%, #0F3460 100%);
+      color: #fff;
+    }
+    html[data-cedm="movil"] .cedm-marca {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 9px;
+    }
+    /* El modelo declara `#ced-canendatos-d3 svg { width:100% }` para que
+       los gráficos llenen su caja, y la marca, que vive dentro, heredaba
+       esa regla y salía del tamaño de media pantalla. */
+    html[data-cedm="movil"] .cedm-marca svg {
+      width: 22px;
+      height: 22px;
+      flex: 0 0 22px;
+      display: block;
+    }
+    html[data-cedm="movil"] .cedm-marca span {
+      font-family: "Space Grotesk", Inter, ui-sans-serif, system-ui, sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      color: rgba(255, 255, 255, .72);
+      line-height: 1.3;
+    }
+    html[data-cedm="movil"] .cedm-cabezal h1 {
+      margin: 0;
+      font-family: "Space Grotesk", Inter, ui-sans-serif, system-ui, sans-serif;
+      font-size: clamp(1.28rem, 6.4vw, 1.7rem);
+      font-weight: 700;
+      line-height: 1.14;
+      letter-spacing: -.01em;
+      color: #fff;
+    }
+    html[data-cedm="movil"] .cedm-cabezal h1 em {
+      font-style: normal;
+      color: #00C8B4;
+    }
+    html[data-cedm="movil"] .cedm-cabezal p {
+      margin: 7px 0 0;
+      font-size: 12.5px;
+      line-height: 1.45;
+      color: rgba(255, 255, 255, .65);
+    }
+    html[data-cedm="movil"] .cedm-cabezal p b {
+      color: #00C8B4;
+      font-weight: 700;
+    }
+
     /* El carrusel de áreas se sustituye por un desplegable. Con siete
        temáticas, un carrusel obliga a arrastrar a ciegas: no se ve cuántas
        hay ni cuál viene después. El desplegable las enseña todas de golpe
@@ -82,25 +156,29 @@
     html[data-cedm="movil"] #ced-canendatos-d3 .ced-sections {
       display: none;
     }
+    /* Etiqueta y control en la misma línea, que ahora el cabezal ya dice
+       dónde estamos y una altura de rótulo entera se puede ahorrar. */
     html[data-cedm="movil"] .cedm-area {
-      display: block;
+      display: flex;
+      align-items: center;
+      gap: 10px;
       margin: 0 0 10px;
       background: var(--ced-surface);
       border: 1px solid var(--ced-line);
       border-radius: 12px;
-      padding: 9px 12px 10px;
+      padding: 8px 12px;
     }
     html[data-cedm="movil"] .cedm-area label {
-      display: block;
       font-size: 10.5px;
       font-weight: 700;
       letter-spacing: .08em;
       text-transform: uppercase;
       color: var(--ced-muted);
-      margin-bottom: 5px;
+      white-space: nowrap;
     }
     html[data-cedm="movil"] .cedm-area select {
-      width: 100%;
+      flex: 1;
+      min-width: 0;
       min-height: 44px;
       font-size: 16px;
       font-family: inherit;
@@ -428,6 +506,48 @@
     root.dataset.cedmCapa = "puesta";
     document.body.classList.add("cedm-activa");
 
+    /* --- B.0 Cabezal ----------------------------------------------
+       La pieza entra en la web sin presentación: el modelo empieza por el
+       carrusel de áreas, y en móvil, quitada la tarjeta del titular, no
+       quedaba nada que dijera qué es esto.
+
+       La cifra de indicadores no va escrita a mano: la publica el modelo
+       en data-ced-indicadores contando las métricas declaradas, así que
+       si mañana se añade un indicador el cabezal se entera solo. Si el
+       atributo no estuviera, se omite la frase antes que enseñar un
+       número inventado. */
+    var cabezal = document.querySelector(".cedm-cabezal");
+    if (!cabezal) {
+      var nInd  = parseInt(root.dataset.cedIndicadores, 10);
+      var nArea = parseInt(root.dataset.cedAreas, 10);
+      var areasEnLetra = { 4: "cuatro", 5: "cinco", 6: "seis", 7: "siete", 8: "ocho" };
+
+      cabezal = document.createElement("header");
+      cabezal.className = "cedm-cabezal";
+      cabezal.innerHTML =
+        '<div class="cedm-marca">' +
+          '<svg width="22" height="22" viewBox="0 0 40 40" aria-hidden="true">' +
+            '<circle cx="20" cy="20" r="18" fill="none" stroke="#00C8B4" stroke-width="2.5"/>' +
+            '<circle cx="20" cy="20" r="3.4" fill="#00C8B4"/>' +
+            '<g stroke="#00C8B4" stroke-width="2.5">' +
+              '<line x1="20" y1="3" x2="20" y2="9"/><line x1="20" y1="31" x2="20" y2="37"/>' +
+              '<line x1="3" y1="20" x2="9" y2="20"/><line x1="31" y1="20" x2="37" y2="20"/>' +
+            '</g>' +
+          '</svg>' +
+          '<span>ODESOCAN · Observatorio de<br>Derechos Sociales de Canarias</span>' +
+        '</div>' +
+        '<h1>Canarias en el <em>Estado</em></h1>' +
+        (isNaN(nInd) ? "" :
+          '<p>Analiza <b>' + nInd + ' indicadores</b> distribuidos en ' +
+          (areasEnLetra[nArea] || nArea) + ' áreas que nos afectan en nuestro día a día, ' +
+          'comparando territorios, tiempo y género.</p>');
+
+      var anclaCabezal = root.querySelector("[data-ced-sections]");
+      if (anclaCabezal && anclaCabezal.parentNode) {
+        anclaCabezal.parentNode.insertBefore(cabezal, anclaCabezal);
+      }
+    }
+
     /* --- B.1 El área, en un desplegable ---------------------------
        Delega en las pestañas que el modelo ya pintó, que sólo se crean
        una vez (renderSectionTabs corre en el arranque y nadie las vuelve
@@ -618,6 +738,9 @@
 
     var area = document.querySelector(".cedm-area");
     if (area) area.remove();
+
+    var cabezal = document.querySelector(".cedm-cabezal");
+    if (cabezal) cabezal.remove();
 
     var barra = document.querySelector(".cedm-botnav");
     if (barra) barra.remove();
