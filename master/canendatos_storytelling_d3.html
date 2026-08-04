@@ -420,6 +420,13 @@
     return;
   }
 
+  // Números en español: coma decimal y punto de millares. D3 viene con el
+  // formato inglés, y así salía "15.6 €/mes" y "1,234 días" en una pieza
+  // escrita en español. Va aquí, antes del primer formateo, porque
+  // formatDefaultLocale afecta a todo lo que d3.format construya después,
+  // ejes incluidos.
+  d3.formatDefaultLocale({ decimal: ",", thousands: ".", grouping: [3], currency: ["", " €"] });
+
   // ====== Mapa CCAA → NUTS-2 (compartido) =================================
   const NUTS_FOR_CCAA = {
     "Andalucía":"ES61","Aragón":"ES24","Principado de Asturias":"ES12",
@@ -483,14 +490,14 @@
       // Paleta para el coroplético
       mapPalette: ["#e8f2fb","#cbe1f2","#9bc4e1","#5a98c8","#1769aa","#0c3f6b"],
       metrics: {
-        precio_alquiler:   { label:"Precio del alquiler",          short:"Alquiler",        unit:"€/mes",  fmt:".0f", suffix:" €/mes" },
-        precio_venta:      { label:"Precio de venta",              short:"Venta",           unit:"€/m²",   fmt:".0f", suffix:" €/m²" },
-        salario_destinado: { label:"Salario destinado al alquiler",short:"Esfuerzo",        unit:"%",      fmt:".1f", suffix:" %" },
-        gasto_elevado:     { label:"Gasto elevado en vivienda",    short:"Gasto elevado",   unit:"%",      fmt:".1f", suffix:" %" },
-        retrasos_pagos:    { label:"Retrasos en pagos",            short:"Retrasos",        unit:"%",      fmt:".1f", suffix:" %" },
-        dif_finmes:        { label:"Dificultad para llegar a fin de mes", short:"Fin de mes", unit:"%",  fmt:".1f", suffix:" %" },
-        espacio_insuf:     { label:"Espacio insuficiente",         short:"Espacio insuf.",  unit:"%",      fmt:".1f", suffix:" %" },
-        hogares_mono:      { label:"Hogares monoparentales",       short:"Monoparentales",  unit:"miles",  fmt:".1f", suffix:" mil" }
+        precio_alquiler:   { label:"Precio del alquiler",          short:"Alquiler",        unit:"€/mes",  fmt:",.1f", suffix:" €/mes" },
+        precio_venta:      { label:"Precio de venta",              short:"Venta",           unit:"€/m²",   fmt:",.1f", suffix:" €/m²" },
+        salario_destinado: { label:"Salario destinado al alquiler",short:"Esfuerzo",        unit:"%",      fmt:",.1f", suffix:" %" },
+        gasto_elevado:     { label:"Gasto elevado en vivienda",    short:"Gasto elevado",   unit:"%",      fmt:",.1f", suffix:" %" },
+        retrasos_pagos:    { label:"Retrasos en pagos",            short:"Retrasos",        unit:"%",      fmt:",.1f", suffix:" %" },
+        dif_finmes:        { label:"Dificultad para llegar a fin de mes", short:"Fin de mes", unit:"%",  fmt:",.1f", suffix:" %" },
+        espacio_insuf:     { label:"Espacio insuficiente",         short:"Espacio insuf.",  unit:"%",      fmt:",.1f", suffix:" %" },
+        hogares_mono:      { label:"Hogares monoparentales",       short:"Monoparentales",  unit:"miles",  fmt:",.1f", suffix:" mil" }
       },
       supabase: { schema:"canendatos", tables:["ced_vivienda_global","ced_vivienda_gen"] },
       csv: null,
@@ -517,13 +524,13 @@
       ],
       mapPalette: ["#e8fbf0","#bde8d2","#7ddca8","#3cc880","#0a8a4d","#063a20"],
       metrics: {
-        t_mental:         { label:"Prevalencia de trastornos mentales", short:"Trastornos mentales", unit:"% población", fmt:".1f", suffix:" %",
+        t_mental:         { label:"Prevalencia de trastornos mentales", short:"Trastornos mentales", unit:"% población", fmt:",.1f", suffix:" %",
                             extra: r => r.n_personas_tm ? `≈ ${d3.format(",.0f")(r.n_personas_tm).replace(/,/g,".")} personas` : null },
-        antidep_ajustado: { label:"Consumo de antidepresivos (DHD)",    short:"Antidepresivos",      unit:"DHD",         fmt:".1f", suffix:" DHD",
+        antidep_ajustado: { label:"Consumo de antidepresivos (DHD)",    short:"Antidepresivos",      unit:"DHD",         fmt:",.1f", suffix:" DHD",
                             extra: r => r.antidep_anual_total ? `≈ ${d3.format(",.0f")(r.antidep_anual_total).replace(/,/g,".")} dosis/año` : null },
-        hipno_ajustado:   { label:"Consumo de hipnosedantes (DHD)",     short:"Hipnosedantes",       unit:"DHD",         fmt:".1f", suffix:" DHD",
+        hipno_ajustado:   { label:"Consumo de hipnosedantes (DHD)",     short:"Hipnosedantes",       unit:"DHD",         fmt:",.1f", suffix:" DHD",
                             extra: r => r.hipno_anual_total ? `≈ ${d3.format(",.0f")(r.hipno_anual_total).replace(/,/g,".")} dosis/año` : null },
-        suicidios:        { label:"Tasa de suicidio",                   short:"Suicidios",           unit:"/100.000 hab.",fmt:".2f", suffix:" /100k",
+        suicidios:        { label:"Tasa de suicidio",                   short:"Suicidios",           unit:"/100.000 hab.",fmt:",.2f", suffix:" /100k",
                             extra: r => r.n_suicidios ? `≈ ${d3.format(",.0f")(r.n_suicidios).replace(/,/g,".")} muertes` : null }
       },
       supabase: { schema:"canendatos", tables:["ced_saludmental"] },
@@ -551,17 +558,17 @@
       ],
       mapPalette: ["#fbe8e0","#f6c2ad","#f29478","#e8633e","#b8472f","#6e1f1a"],
       metrics: {
-        cobertura_pct_ppd:          { label:"Cobertura efectiva (% PPD)",          short:"Cobertura",           unit:"% de la PPD",                fmt:".2f", suffix:" %" },
-        solicitudes_pct_ppd:        { label:"Solicitudes acumuladas (% PPD)",      short:"Solicitudes",         unit:"% de la PPD",                fmt:".2f", suffix:" %" },
-        limbo_grado_pct_ppd:        { label:"Limbo del grado (% PPD)",             short:"Limbo grado",         unit:"% de la PPD",                fmt:".2f", suffix:" %" },
-        limbo_pia_pct_ppd:          { label:"Limbo del PIA (% PPD)",               short:"Limbo PIA",           unit:"% de la PPD",                fmt:".2f", suffix:" %" },
-        limbo_prestaciones_pct_ppd: { label:"Limbo de las prestaciones (% PPD)",   short:"Limbo prestaciones",  unit:"% de la PPD",                fmt:".2f", suffix:" %" },
-        tiempo_espera_total_dias:   { label:"Tiempo de espera total (días)",       short:"Días espera",         unit:"días",                       fmt:",.0f", suffix:" días" },
-        pct_pecef:                  { label:"Cuidados familiares — PECEF (% prestaciones)", short:"% PECEF",    unit:"% sobre total prestaciones", fmt:".1f", suffix:" %" },
-        pct_atencion_residencial:   { label:"Atención residencial (% prestaciones)", short:"% residencial",    unit:"% sobre total prestaciones", fmt:".1f", suffix:" %" },
-        ratio_prest_x_benef:        { label:"Intensidad de atención",              short:"Intensidad",          unit:"prestaciones por beneficiario", fmt:".2f", suffix:"" },
-        pct_grado3:                 { label:"Gran dependencia — Grado III (% derecho a prestación)", short:"% Grado III", unit:"% sobre resoluciones de grado", fmt:".1f", suffix:" %" },
-        pct_mujeres_benef:          { label:"Mujeres en expedientes (%)",          short:"% mujeres",           unit:"% expedientes activos",      fmt:".1f", suffix:" %" }
+        cobertura_pct_ppd:          { label:"Cobertura efectiva (% PPD)",          short:"Cobertura",           unit:"% de la PPD",                fmt:",.2f", suffix:" %" },
+        solicitudes_pct_ppd:        { label:"Solicitudes acumuladas (% PPD)",      short:"Solicitudes",         unit:"% de la PPD",                fmt:",.2f", suffix:" %" },
+        limbo_grado_pct_ppd:        { label:"Limbo del grado (% PPD)",             short:"Limbo grado",         unit:"% de la PPD",                fmt:",.2f", suffix:" %" },
+        limbo_pia_pct_ppd:          { label:"Limbo del PIA (% PPD)",               short:"Limbo PIA",           unit:"% de la PPD",                fmt:",.2f", suffix:" %" },
+        limbo_prestaciones_pct_ppd: { label:"Limbo de las prestaciones (% PPD)",   short:"Limbo prestaciones",  unit:"% de la PPD",                fmt:",.2f", suffix:" %" },
+        tiempo_espera_total_dias:   { label:"Tiempo de espera total (días)",       short:"Días espera",         unit:"días",                       fmt:",.1f", suffix:" días" },
+        pct_pecef:                  { label:"Cuidados familiares — PECEF (% prestaciones)", short:"% PECEF",    unit:"% sobre total prestaciones", fmt:",.1f", suffix:" %" },
+        pct_atencion_residencial:   { label:"Atención residencial (% prestaciones)", short:"% residencial",    unit:"% sobre total prestaciones", fmt:",.1f", suffix:" %" },
+        ratio_prest_x_benef:        { label:"Intensidad de atención",              short:"Intensidad",          unit:"prestaciones por beneficiario", fmt:",.2f", suffix:"" },
+        pct_grado3:                 { label:"Gran dependencia — Grado III (% derecho a prestación)", short:"% Grado III", unit:"% sobre resoluciones de grado", fmt:",.1f", suffix:" %" },
+        pct_mujeres_benef:          { label:"Mujeres en expedientes (%)",          short:"% mujeres",           unit:"% expedientes activos",      fmt:",.1f", suffix:" %" }
       },
       supabase: { schema:"canendatos", tables:["ced_dependencia_global","ced_dependencia_gen"] },
       csv: null,
@@ -588,16 +595,16 @@
       ],
       mapPalette: ["#f3eefe","#e0d1fb","#c4a8f4","#9f6ee8","#7c3aed","#4c1d95"],
       metrics: {
-        abandono_temprano:       { label:"Abandono educativo temprano (18-24)",       short:"Abandono",            unit:"% de la población 18-24", fmt:".1f",  suffix:" %" },
-        nivel_superior_25_34:    { label:"Población con educación superior (25-34)",   short:"Titulación superior", unit:"% de la población 25-34", fmt:".1f",  suffix:" %" },
-        nivel_bajo_25_64:        { label:"Población con bajo nivel formativo (25-64)", short:"Bajo nivel",          unit:"% de la población 25-64", fmt:".1f",  suffix:" %" },
-        formacion_adultos_25_64: { label:"Formación permanente (25-64)",               short:"Formación adulta",    unit:"% de la población 25-64", fmt:".1f",  suffix:" %" },
-        neet_15_29:              { label:"Jóvenes que ni estudian ni trabajan (15-29)",short:"NEET",                unit:"% de la población 15-29", fmt:".1f",  suffix:" %" },
-        idoneidad_15:            { label:"Tasa de idoneidad a los 15 años",            short:"Idoneidad",           unit:"% del alumnado de 15 años",fmt:".1f", suffix:" %" },
-        graduacion_eso:          { label:"Tasa bruta de graduación en ESO",            short:"Graduación ESO",      unit:"% de la edad teórica",    fmt:".1f",  suffix:" %" },
-        escolarizacion_0_2:      { label:"Escolarización 0-2 años (1er ciclo Infantil)",short:"Escolarización 0-2", unit:"% de la población 0-2",   fmt:".1f",  suffix:" %" },
-        gasto_edu_pib:           { label:"Gasto en educación sobre PIB",               short:"Gasto/PIB",           unit:"% del PIB regional",      fmt:".2f",  suffix:" %" },
-        gasto_por_alumno:        { label:"Gasto público por alumno (no universitaria)",short:"Gasto/alumno",        unit:"euros por alumno",        fmt:",.0f", suffix:" €" }
+        abandono_temprano:       { label:"Abandono educativo temprano (18-24)",       short:"Abandono",            unit:"% de la población 18-24", fmt:",.1f",  suffix:" %" },
+        nivel_superior_25_34:    { label:"Población con educación superior (25-34)",   short:"Titulación superior", unit:"% de la población 25-34", fmt:",.1f",  suffix:" %" },
+        nivel_bajo_25_64:        { label:"Población con bajo nivel formativo (25-64)", short:"Bajo nivel",          unit:"% de la población 25-64", fmt:",.1f",  suffix:" %" },
+        formacion_adultos_25_64: { label:"Formación permanente (25-64)",               short:"Formación adulta",    unit:"% de la población 25-64", fmt:",.1f",  suffix:" %" },
+        neet_15_29:              { label:"Jóvenes que ni estudian ni trabajan (15-29)",short:"NEET",                unit:"% de la población 15-29", fmt:",.1f",  suffix:" %" },
+        idoneidad_15:            { label:"Tasa de idoneidad a los 15 años",            short:"Idoneidad",           unit:"% del alumnado de 15 años",fmt:",.1f", suffix:" %" },
+        graduacion_eso:          { label:"Tasa bruta de graduación en ESO",            short:"Graduación ESO",      unit:"% de la edad teórica",    fmt:",.1f",  suffix:" %" },
+        escolarizacion_0_2:      { label:"Escolarización 0-2 años (1er ciclo Infantil)",short:"Escolarización 0-2", unit:"% de la población 0-2",   fmt:",.1f",  suffix:" %" },
+        gasto_edu_pib:           { label:"Gasto en educación sobre PIB",               short:"Gasto/PIB",           unit:"% del PIB regional",      fmt:",.2f",  suffix:" %" },
+        gasto_por_alumno:        { label:"Gasto público por alumno (no universitaria)",short:"Gasto/alumno",        unit:"euros por alumno",        fmt:",.1f", suffix:" €" }
       },
       supabase: { schema:"canendatos", tables:["ced_educacion_global","ced_educacion_gen"] },
       csv: null,
@@ -624,17 +631,17 @@
       ],
       mapPalette: ["#e6f7f4","#c0ebe3","#89d8cb","#4dbfae","#0d9488","#0a5f57"],
       metrics: {
-        mort_evitable_idx_0_100: { label:"Índice de mortalidad evitable (0–100)", short:"Mort. evitable", unit:"índice 0–100 · ↑ peor", fmt:".1f", suffix:"" },
-        avs_65:             { label:"Años de vida saludable a los 65",       short:"AVS 65",           unit:"años",                   fmt:".1f", suffix:" años" },
-        reingresos_psiq:    { label:"Reingresos urgentes psiquiátricos",     short:"Reingresos psiq.", unit:"% sobre altas psiq.",    fmt:".1f", suffix:" %" },
-        pct_pib_sanidad:    { label:"Gasto sanitario sobre PIB",             short:"Gasto/PIB",        unit:"% del PIB regional",     fmt:".2f", suffix:" %" },
-        gasto_farmacia_pct: { label:"Porcentaje del gasto en farmacia",      short:"Farmacia",         unit:"% del gasto sanitario",  fmt:".1f", suffix:" %" },
-        med_ap:             { label:"Médicos de atención primaria",          short:"Médicos AP",       unit:"por 1.000 hab.",         fmt:".2f", suffix:"" },
-        med_ae:             { label:"Médicos de atención especializada",     short:"Médicos AE",       unit:"por 1.000 hab.",         fmt:".2f", suffix:"" },
-        enf_ap:             { label:"Enfermería de atención primaria",       short:"Enfermería AP",    unit:"por 1.000 hab.",         fmt:".2f", suffix:"" },
-        camas:              { label:"Camas hospitalarias",                   short:"Camas",            unit:"por 1.000 hab.",         fmt:".2f", suffix:"" },
-        espera_quir:        { label:"Espera para intervención quirúrgica",   short:"Espera cirugía",   unit:"días",                   fmt:".0f", suffix:" d" },
-        espera_ae:          { label:"Espera 1ª consulta (esp.)",             short:"Espera consulta",  unit:"días",                   fmt:".0f", suffix:" d" }
+        mort_evitable_idx_0_100: { label:"Índice de mortalidad evitable (0–100)", short:"Mort. evitable", unit:"índice 0–100 · ↑ peor", fmt:",.1f", suffix:"" },
+        avs_65:             { label:"Años de vida saludable a los 65",       short:"AVS 65",           unit:"años",                   fmt:",.1f", suffix:" años" },
+        reingresos_psiq:    { label:"Reingresos urgentes psiquiátricos",     short:"Reingresos psiq.", unit:"% sobre altas psiq.",    fmt:",.1f", suffix:" %" },
+        pct_pib_sanidad:    { label:"Gasto sanitario sobre PIB",             short:"Gasto/PIB",        unit:"% del PIB regional",     fmt:",.2f", suffix:" %" },
+        gasto_farmacia_pct: { label:"Porcentaje del gasto en farmacia",      short:"Farmacia",         unit:"% del gasto sanitario",  fmt:",.1f", suffix:" %" },
+        med_ap:             { label:"Médicos de atención primaria",          short:"Médicos AP",       unit:"por 1.000 hab.",         fmt:",.2f", suffix:"" },
+        med_ae:             { label:"Médicos de atención especializada",     short:"Médicos AE",       unit:"por 1.000 hab.",         fmt:",.2f", suffix:"" },
+        enf_ap:             { label:"Enfermería de atención primaria",       short:"Enfermería AP",    unit:"por 1.000 hab.",         fmt:",.2f", suffix:"" },
+        camas:              { label:"Camas hospitalarias",                   short:"Camas",            unit:"por 1.000 hab.",         fmt:",.2f", suffix:"" },
+        espera_quir:        { label:"Espera para intervención quirúrgica",   short:"Espera cirugía",   unit:"días",                   fmt:",.1f", suffix:" d" },
+        espera_ae:          { label:"Espera 1ª consulta (esp.)",             short:"Espera consulta",  unit:"días",                   fmt:",.1f", suffix:" d" }
       },
       supabase: { schema:"canendatos", tables:["global_sanidad","gen_sanidad"] },
       csv: null,
@@ -661,16 +668,16 @@
       ],
       mapPalette: ["#fdeaea","#f8c9c9","#f09b9b","#e56060","#dc2626","#8f1414"],
       metrics: {
-        tasa_paro:            { label:"Tasa de paro",                        short:"Paro",            unit:"% de activos",          fmt:".1f", suffix:" %" },
-        tasa_actividad:       { label:"Tasa de actividad",                   short:"Actividad",       unit:"% pob. 16+",            fmt:".1f", suffix:" %" },
-        tasa_empleo:          { label:"Tasa de empleo",                      short:"Empleo",          unit:"% pob. 16+",            fmt:".1f", suffix:" %" },
-        horas_servicios:      { label:"Horas efectivas · sector servicios",  short:"Horas servicios", unit:"horas/mes",             fmt:".1f", suffix:" h" },
-        paro_juvenil:         { label:"Tasa de paro juvenil (<25)",          short:"Paro juvenil",    unit:"% de activos <25",      fmt:".1f", suffix:" %" },
-        paro_larga_duracion:  { label:"Paro de larga duración",             short:"PLD",             unit:"% de parados ≥1 año",   fmt:".1f", suffix:" %" },
-        temporalidad:         { label:"Tasa de temporalidad",               short:"Temporalidad",    unit:"% de asalariados",      fmt:".1f", suffix:" %" },
-        parcialidad:          { label:"Tasa de parcialidad",                short:"Parcialidad",     unit:"% de ocupados",         fmt:".1f", suffix:" %" },
-        brecha_salarial:      { label:"Brecha salarial de género",          short:"Brecha salarial", unit:"% (H−M)/H",             fmt:".1f", suffix:" %" },
-        pct_alquiler_salario: { label:"% del salario dedicado al alquiler",  short:"Alquiler/salario",unit:"% del salario mensual", fmt:".1f", suffix:" %" }
+        tasa_paro:            { label:"Tasa de paro",                        short:"Paro",            unit:"% de activos",          fmt:",.1f", suffix:" %" },
+        tasa_actividad:       { label:"Tasa de actividad",                   short:"Actividad",       unit:"% pob. 16+",            fmt:",.1f", suffix:" %" },
+        tasa_empleo:          { label:"Tasa de empleo",                      short:"Empleo",          unit:"% pob. 16+",            fmt:",.1f", suffix:" %" },
+        horas_servicios:      { label:"Horas efectivas · sector servicios",  short:"Horas servicios", unit:"horas/mes",             fmt:",.1f", suffix:" h" },
+        paro_juvenil:         { label:"Tasa de paro juvenil (<25)",          short:"Paro juvenil",    unit:"% de activos <25",      fmt:",.1f", suffix:" %" },
+        paro_larga_duracion:  { label:"Paro de larga duración",             short:"PLD",             unit:"% de parados ≥1 año",   fmt:",.1f", suffix:" %" },
+        temporalidad:         { label:"Tasa de temporalidad",               short:"Temporalidad",    unit:"% de asalariados",      fmt:",.1f", suffix:" %" },
+        parcialidad:          { label:"Tasa de parcialidad",                short:"Parcialidad",     unit:"% de ocupados",         fmt:",.1f", suffix:" %" },
+        brecha_salarial:      { label:"Brecha salarial de género",          short:"Brecha salarial", unit:"% (H−M)/H",             fmt:",.1f", suffix:" %" },
+        pct_alquiler_salario: { label:"% del salario dedicado al alquiler",  short:"Alquiler/salario",unit:"% del salario mensual", fmt:",.1f", suffix:" %" }
       },
       supabase: { schema:"canendatos", tables:["ced_empleo_global","ced_empleo_gen"] },
       csv: null,

@@ -19,6 +19,11 @@
      del modelo, para que layout y render no se desincronicen— o si el
      puntero es grueso, que es lo que de verdad distingue el dedo del
      ratón: hay tablets anchas sin hover y portátiles táctiles.
+
+     El orden en vertical es: área, filtros, gráfico, insights y botones.
+     Manda lo que se mira; el filtrado va pegado encima del gráfico, y lo
+     que se toca una vez por visita —metodología, descarga— va al final.
+
      =================================================================== -->
 
 <style>
@@ -56,9 +61,6 @@
       min-height: 44px;
       font-size: 16px;
     }
-    html[data-cedm="movil"] #ced-canendatos-d3 .ced-section-btn {
-      min-height: 48px;
-    }
 
     /* -------------------------------------------------------------
        2. LA PORTADA ERA TODO CHASIS
@@ -72,67 +74,66 @@
       padding: 10px 10px 22px;
     }
 
-    /* El carrusel de temáticas pierde la descripción: cada tarjeta
-       ocupaba el 78% del ancho y tres líneas de alto para decir algo que
-       el titular de la sección repite al entrar. */
-    html[data-cedm="movil"] #ced-canendatos-d3 .ced-section-btn span {
+    /* El carrusel de áreas se sustituye por un desplegable. Con siete
+       temáticas, un carrusel obliga a arrastrar a ciegas: no se ve cuántas
+       hay ni cuál viene después. El desplegable las enseña todas de golpe
+       y lo dibuja el sistema operativo, que es lo que la usuaria ya sabe
+       manejar. */
+    html[data-cedm="movil"] #ced-canendatos-d3 .ced-sections {
       display: none;
     }
-    html[data-cedm="movil"] #ced-canendatos-d3 .ced-section-btn {
-      flex: 0 0 auto;
-      padding: 11px 15px;
-      display: flex;
-      align-items: center;
+    html[data-cedm="movil"] .cedm-area {
+      display: block;
+      margin: 0 0 10px;
+      background: var(--ced-surface);
+      border: 1px solid var(--ced-line);
+      border-radius: 12px;
+      padding: 9px 12px 10px;
     }
-    html[data-cedm="movil"] #ced-canendatos-d3 .ced-sections {
-      padding: 5px;
-      gap: 5px;
+    html[data-cedm="movil"] .cedm-area label {
+      display: block;
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--ced-muted);
+      margin-bottom: 5px;
+    }
+    html[data-cedm="movil"] .cedm-area select {
+      width: 100%;
+      min-height: 44px;
+      font-size: 16px;
+      font-family: inherit;
+      font-weight: 650;
+      color: var(--ced-accent-deep);
+      background: var(--ced-bg);
+      border: 1px solid var(--ced-line);
+      border-radius: 9px;
+      padding: 0 10px;
     }
 
-    /* Titular y entradilla proporcionados a una columna estrecha. */
-    html[data-cedm="movil"] #ced-canendatos-d3 .ced-header-inner h2 {
-      font-size: clamp(1.15rem, 5.4vw, 1.5rem);
-      line-height: 1.2;
-    }
-    html[data-cedm="movil"] #ced-canendatos-d3 .ced-lead {
-      font-size: 13.5px;
-      line-height: 1.5;
-    }
-    /* La entradilla nace recortada a tres líneas y se despliega al
-       tocarla. El script le pone role, tabindex y aria-expanded. */
-    html[data-cedm="movil"] #ced-canendatos-d3 .ced-lead[data-cedm-clamp="si"] {
-      display: -webkit-box;
-      -webkit-line-clamp: 3;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
-    }
-    html[data-cedm="movil"] #ced-canendatos-d3 .ced-lead[data-cedm-clamp] {
-      cursor: pointer;
-    }
-    /* El aviso de "hay más texto" no puede ir en un ::after de la propia
-       entradilla: dentro de un -webkit-line-clamp lo recorta el clamp y no
-       se ve nunca. Va en un botón hermano. */
-    html[data-cedm="movil"] #ced-canendatos-d3 .cedm-mas {
-      display: block;
-      background: none;
-      border: 0;
-      padding: 8px 0 2px;
-      min-height: 44px;
-      font-family: inherit;
-      font-size: 13px;
-      font-weight: 700;
-      color: var(--ced-accent);
-      text-align: left;
+    /* La tarjeta del titular no se enseña en vertical. Ocupaba 217px
+       —eyebrow, titular a tres líneas y entradilla— para contar algo que
+       en ese momento ya está dicho en otros dos sitios: el área la dice el
+       desplegable de arriba, y el indicador y el periodo los repite la
+       cabecera del panel. Ese hueco se lo queda el cuadro de filtrado.
+
+       Se oculta la <section> entera y no sólo su interior: vaciada seguía
+       pintando su propio fondo y su borde, y dejaba una franja gris entre
+       el área y los filtros. Ocultarla no estorba al revertido, que
+       devuelve cada nodo por la referencia que guardó, no por lo que se
+       vea. */
+    html[data-cedm="movil"] #ced-canendatos-d3 .ced-header {
+      display: none;
     }
 
     /* -------------------------------------------------------------
-       3. LOS DATOS, PRIMERO
-       El script sube el bloque de KPIs justo debajo del carrusel, por
-       encima del titular: en vertical la primera pantalla tiene que
-       responder "¿cómo está Canarias?", no presentar la pieza.
+       3. EL GRÁFICO PRIMERO, LO DEMÁS DEBAJO
+       El script mueve los nodos; aquí sólo se les da forma de tarjeta,
+       porque fuera de la cabecera se quedaban sin fondo ni margen.
        ------------------------------------------------------------- */
-    html[data-cedm="movil"] #ced-canendatos-d3 .ced-kpi-row[data-cedm-subido] {
-      margin: 0 0 10px;
+    html[data-cedm="movil"] #ced-canendatos-d3 .ced-kpi-row[data-cedm-orden] {
+      margin: 10px 0 0;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 8px;
     }
@@ -148,18 +149,17 @@
     }
 
     /* -------------------------------------------------------------
-       4. FILTROS SIEMPRE A MANO
-       Los tres selectores mandan sobre todo lo que hay debajo, y debajo
-       hay dos pantallas de scroll. Pegados arriba se cambian sin tener
-       que volver al principio.
+       4. EL CUADRO DE FILTRADO, EN EL HUECO DEL TITULAR
+       Justo encima del gráfico: se lee antes lo que se está mirando —qué
+       indicador, qué año, qué género— y se cambia sin bajar. Y el gráfico
+       queda a un palmo del borde superior, que era el objetivo.
        ------------------------------------------------------------- */
-    html[data-cedm="movil"] #ced-canendatos-d3 .ced-toolbar {
-      position: sticky;
-      top: 0;
-      z-index: 30;
+    html[data-cedm="movil"] #ced-canendatos-d3 .ced-toolbar[data-cedm-orden] {
+      margin: 0 0 10px;
       background: var(--ced-surface);
-      border-bottom: 1px solid var(--ced-line);
-      padding: 9px 12px;
+      border: 1px solid var(--ced-line);
+      border-radius: 12px;
+      padding: 10px 12px 12px;
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 8px 10px;
@@ -173,12 +173,15 @@
       font-size: 10.5px;
     }
 
-    /* Los dos botones dejan de ocupar dos filas enteras. */
-    html[data-cedm="movil"] #ced-canendatos-d3 .ced-actions {
+    /* Metodología y descarga, al final: se usan una vez por visita, si
+       acaso, y arriba se comían una pantalla que le hace falta al dato.
+       En dos columnas, no en dos filas. */
+    html[data-cedm="movil"] #ced-canendatos-d3 .ced-actions[data-cedm-orden] {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 8px;
       width: 100%;
+      margin: 10px 0 0;
     }
 
     /* -------------------------------------------------------------
@@ -186,8 +189,8 @@
        Patrón de viz-cargos-publicos: cuando las secciones son largas, la
        navegación vive en una barra fija inferior y las pestañas de
        arriba sobran. Aquí la barra lleva los cuatro capítulos, que es lo
-       que se cambia varias veces por visita; la temática se elige una
-       vez, al entrar, y se queda en el carrusel superior.
+       que se cambia varias veces por visita; el área se elige una vez, al
+       entrar, y para eso está el desplegable de arriba.
        ------------------------------------------------------------- */
     html[data-cedm="movil"] #ced-canendatos-d3 .ced-story-nav {
       display: none;
@@ -271,8 +274,9 @@
      El modelo no declara foco visible en ningún control: con teclado o
      con navegación por conmutador no hay forma de saber dónde estás.
      --------------------------------------------------------------- */
-  #ced-canendatos-d3 :is(button, select, [role="button"]):focus-visible {
-    outline: 2px solid var(--ced-contrast);
+  #ced-canendatos-d3 :is(button, select, [role="button"]):focus-visible,
+  .cedm-area select:focus-visible {
+    outline: 2px solid var(--ced-contrast, #00C8B4);
     outline-offset: 2px;
     border-radius: 8px;
   }
@@ -321,7 +325,7 @@
      El modelo pide a Eurostat NUTS_RG_01M_2021_4326_LEVL_2.geojson y se
      queda con las 19 regiones que casan con /^ES\d{2}$/. Ese fichero son
      18.077.469 bytes SIN comprimir —GISCO no sirve gzip, comprobado con
-     curl--compressed— o sea toda Europa a 1:1M para pintar España.
+     curl --compressed— o sea toda Europa a 1:1M para pintar España.
 
      En móvil ni siquiera se llega a pintar: el modelo sustituye el mapa
      por una lista de comunidades, pero la descarga se hace igual porque
@@ -360,9 +364,56 @@
     { paso: "method",    ic: "☰", lb: "Método"    }
   ];
 
-  // Sitio original del bloque de KPIs, para poder devolverlo. Se guarda la
-  // primera vez y no se vuelve a tocar.
-  var kpisCasa = null;
+  // Sitio original de cada nodo que se mueve, para poder devolverlo. Se
+  // guarda la primera vez y no se vuelve a tocar.
+  var casa = {};
+
+  /* =================================================================
+     CANARIAS, EN SU PUESTO
+     =================================================================
+     El modelo saca a Canarias la primera de la lista —"Canarias primero,
+     resto descendente" en renderMobileList, y lo mismo en la vista de
+     género—. La insignia sigue diciendo el puesto real, pero la primera
+     posición se lee como si lo fuera: se ve "Canarias" arriba del todo y
+     el ojo concluye que encabeza, aunque ponga 4º. Es una lectura
+     sesgada, y en una pieza que compara comunidades eso importa.
+
+     Aquí se devuelve cada fila a su sitio. Canarias se sigue
+     distinguiendo, pero por el resalte —borde y barra en naranja—, que es
+     lo que hay que usar para destacar sin alterar el orden.
+     ================================================================= */
+  function ordenaListas(root) {
+    // Mapa-lista: el puesto está escrito en la insignia, así que el orden
+    // correcto se recupera exactamente, sin releer los datos.
+    root.querySelectorAll(".ced-mlist").forEach(function (lista) {
+      var filas = Array.prototype.slice.call(lista.children).map(function (f) {
+        var ins = f.querySelector(".ced-mlist-rank");
+        return { fila: f, n: ins ? parseInt(ins.textContent, 10) : NaN };
+      });
+      if (!filas.length || filas.some(function (x) { return isNaN(x.n); })) return;
+      var ordenado = filas.every(function (x, i) { return i === 0 || filas[i - 1].n <= x.n; });
+      if (ordenado) return; // ya está bien: no tocar, o el observador se realimenta
+      filas.sort(function (a, b) { return a.n - b.n; });
+      filas.forEach(function (x) { lista.appendChild(x.fila); });
+    });
+
+    // Vista de género: aquí no hay insignia de puesto, y el criterio del
+    // modelo es la brecha absoluta de mayor a menor. Se lee del rótulo de
+    // brecha que ya está pintado; si algún rótulo no se deja interpretar,
+    // se deja la lista como está antes que reordenarla a medias.
+    root.querySelectorAll(".ced-mgender").forEach(function (lista) {
+      var filas = Array.prototype.slice.call(lista.children).map(function (f) {
+        var r = f.querySelector(".ced-mgender-gap");
+        var m = r && r.textContent.replace(",", ".").match(/-?\d+(\.\d+)?/);
+        return { fila: f, v: m ? Math.abs(parseFloat(m[0])) : NaN };
+      });
+      if (!filas.length || filas.some(function (x) { return isNaN(x.v); })) return;
+      var ordenado = filas.every(function (x, i) { return i === 0 || filas[i - 1].v >= x.v; });
+      if (ordenado) return;
+      filas.sort(function (a, b) { return b.v - a.v; });
+      filas.forEach(function (x) { lista.appendChild(x.fila); });
+    });
+  }
 
   function arranca() {
     var root = document.getElementById("ced-canendatos-d3");
@@ -371,41 +422,68 @@
     root.dataset.cedmCapa = "puesta";
     document.body.classList.add("cedm-activa");
 
-    /* --- B.1 Los KPIs, por encima del titular ---------------------
-       Se mueve el nodo, no su contenido: el modelo sigue escribiendo en
-       ese mismo elemento con innerHTML en cada render, así que el cambio
-       sobrevive a los cambios de indicador, de periodo y de sección. */
-    var kpis      = root.querySelector("[data-ced-kpis]");
+    /* --- B.1 El área, en un desplegable ---------------------------
+       Delega en las pestañas que el modelo ya pintó, que sólo se crean
+       una vez (renderSectionTabs corre en el arranque y nadie las vuelve
+       a tocar), así que basta con pulsarlas. */
     var secciones = root.querySelector("[data-ced-sections]");
-    if (kpis && secciones && secciones.parentNode) {
-      if (!kpisCasa) kpisCasa = { padre: kpis.parentNode, siguiente: kpis.nextSibling };
-      kpis.dataset.cedmSubido = "si";
-      secciones.parentNode.insertBefore(kpis, secciones.nextSibling);
+    var selArea = null;
+    if (secciones && !document.querySelector(".cedm-area")) {
+      var caja = document.createElement("div");
+      caja.className = "cedm-area";
+      var et = document.createElement("label");
+      et.textContent = "Área de análisis";
+      et.setAttribute("for", "cedm-area-sel");
+      selArea = document.createElement("select");
+      selArea.id = "cedm-area-sel";
+
+      secciones.querySelectorAll("[data-ced-section-btn]").forEach(function (btn) {
+        var o = document.createElement("option");
+        o.value = btn.dataset.cedSectionBtn;
+        var nombre = btn.querySelector("strong") ? btn.querySelector("strong").textContent : o.value;
+        // Las áreas no disponibles se listan igualmente, en gris: que no
+        // aparezcan haría pensar que no existen.
+        o.textContent = btn.dataset.coming === "true" ? nombre + " · próximamente" : nombre;
+        o.disabled = btn.dataset.coming === "true";
+        if (btn.classList.contains("is-active")) o.selected = true;
+        selArea.appendChild(o);
+      });
+
+      selArea.addEventListener("change", function () {
+        var destino = secciones.querySelector('[data-ced-section-btn="' + selArea.value + '"]');
+        if (destino) destino.click();
+      });
+
+      caja.appendChild(et);
+      caja.appendChild(selArea);
+      secciones.parentNode.insertBefore(caja, secciones);
     }
 
-    /* --- B.2 Entradilla recortada, desplegable al toque ----------- */
-    var lead = root.querySelector("[data-ced-lead]");
-    if (lead) {
-      lead.dataset.cedmClamp = "si";
-      var mas = document.querySelector(".cedm-mas");
-      if (!mas) {
-        mas = document.createElement("button");
-        mas.type = "button";
-        mas.className = "cedm-mas";
-        lead.parentNode.insertBefore(mas, lead.nextSibling);
-      }
-      var pinta = function () {
-        var plegada = lead.dataset.cedmClamp === "si";
-        mas.textContent = plegada ? "Ver más" : "Ver menos";
-        mas.setAttribute("aria-expanded", plegada ? "false" : "true");
+    /* --- B.2 El orden: gráfico, filtros, insights, botones --------
+       Se mueven los nodos, no su contenido: el modelo sigue escribiendo
+       dentro de cada uno en cada render, así que el orden sobrevive a los
+       cambios de indicador, de periodo y de área. */
+    var panel    = root.querySelector(".ced-panel");
+    var barraFil = root.querySelector(".ced-toolbar");
+    var kpis     = root.querySelector("[data-ced-kpis]");
+    var acciones = root.querySelector(".ced-actions");
+
+    if (panel && panel.parentNode) {
+      var apunta = function (clave, nodo) {
+        if (!nodo) return null;
+        if (!casa[clave]) casa[clave] = { padre: nodo.parentNode, siguiente: nodo.nextSibling };
+        nodo.dataset.cedmOrden = "si";
+        return nodo;
       };
-      var alterna = function () {
-        lead.dataset.cedmClamp = lead.dataset.cedmClamp === "si" ? "no" : "si";
-        pinta();
-      };
-      pinta();
-      mas.addEventListener("click", alterna);
-      lead.addEventListener("click", alterna);
+
+      // Los filtros, delante del gráfico, en el hueco que deja el titular.
+      if (apunta("filtros", barraFil)) panel.parentNode.insertBefore(barraFil, panel);
+
+      // Insights y botones, detrás. El orden del array ES el orden en
+      // pantalla: cada appendChild los deja al final del contenedor.
+      [["insights", kpis], ["botones", acciones]].forEach(function (par) {
+        if (apunta(par[0], par[1])) panel.parentNode.appendChild(par[1]);
+      });
     }
 
     /* --- B.3 Barra inferior fija con los cuatro capítulos ----------
@@ -442,8 +520,8 @@
       b.addEventListener("click", function () {
         origen.click();
         aviso.textContent = "Capítulo: " + cap.lb;
-        var panel = root.querySelector(".ced-panel");
-        if (panel) panel.scrollIntoView({ block: "start", behavior: "smooth" });
+        var panelAhora = root.querySelector(".ced-panel");
+        if (panelAhora) panelAhora.scrollIntoView({ block: "start", behavior: "smooth" });
       });
       barra.appendChild(b);
     });
@@ -465,30 +543,65 @@
     pasos.forEach(function (p) {
       obs.observe(p, { attributes: true, attributeFilter: ["class"] });
     });
+
+    /* Cada render del modelo vuelve a pintar la lista con Canarias
+       delante, así que hay que reordenar después de cada uno. Se vigila el
+       contenedor del gráfico, que es donde escribe. El seguro contra la
+       realimentación es doble: la bandera, y que ordenaListas() no toca
+       nada si la lista ya está en orden. */
+    var lienzo = root.querySelector("[data-ced-chart]");
+    if (lienzo) {
+      ordenaListas(root);
+      var reordenando = false;
+      new MutationObserver(function () {
+        if (reordenando) return;
+        reordenando = true;
+        ordenaListas(root);
+        reordenando = false;
+      }).observe(lienzo, { childList: true, subtree: true });
+    }
+
+    /* Mismo criterio para el desplegable de área: el modelo marca la
+       pestaña activa en switchSection(), y ahí entra también lo que
+       restaura del estado guardado al cargar. Si el desplegable no
+       escuchara eso, se quedaría enseñando un área que ya no es la que se
+       está viendo. */
+    if (selArea) {
+      var obsArea = new MutationObserver(function () {
+        var activa = secciones.querySelector(".ced-section-btn.is-active");
+        if (activa && activa.dataset.cedSectionBtn !== selArea.value) {
+          selArea.value = activa.dataset.cedSectionBtn;
+        }
+      });
+      secciones.querySelectorAll("[data-ced-section-btn]").forEach(function (b) {
+        obsArea.observe(b, { attributes: true, attributeFilter: ["class"] });
+      });
+    }
   }
 
   /* Al ensanchar —girar el teléfono, un plegable que se abre, una ventana
      que se agranda— hay que deshacer lo que se movió. El CSS deja de
      aplicarse solo, porque cuelga de media queries, pero los nodos
      movidos se quedarían donde los pusimos: el resultado sería el layout
-     de escritorio con los KPIs por encima del titular. */
+     de escritorio con los filtros y los botones al final. */
   function revierte() {
     var root = document.getElementById("ced-canendatos-d3");
     if (!root || root.dataset.cedmCapa !== "puesta") return;
     delete root.dataset.cedmCapa;
     document.body.classList.remove("cedm-activa");
 
-    var kpis = root.querySelector("[data-ced-kpis]");
-    if (kpis && kpisCasa && kpisCasa.padre) {
-      delete kpis.dataset.cedmSubido;
-      kpisCasa.padre.insertBefore(kpis, kpisCasa.siguiente);
-    }
+    // Cada nodo movido vuelve a su sitio exacto, que se guardó al moverlo.
+    [["filtros", ".ced-toolbar"], ["insights", "[data-ced-kpis]"], ["botones", ".ced-actions"]]
+      .forEach(function (par) {
+        var sitio = casa[par[0]];
+        var nodo  = root.querySelector(par[1]);
+        if (!nodo || !sitio || !sitio.padre) return;
+        delete nodo.dataset.cedmOrden;
+        sitio.padre.insertBefore(nodo, sitio.siguiente);
+      });
 
-    var lead = root.querySelector("[data-ced-lead]");
-    if (lead) delete lead.dataset.cedmClamp;
-
-    var mas = document.querySelector(".cedm-mas");
-    if (mas) mas.remove();
+    var area = document.querySelector(".cedm-area");
+    if (area) area.remove();
 
     var barra = document.querySelector(".cedm-botnav");
     if (barra) barra.remove();
@@ -513,6 +626,7 @@
     var activo = document.querySelector("#ced-canendatos-d3 [data-ced-step].is-active");
     if (activo) activo.click();
   }
+
   /* Se escuchan las dos cosas a propósito. El evento de matchMedia es el
      correcto, pero no todos los motores lo emiten al cambiar el viewport
      por emulación —comprobado aquí mismo: la consulta pasaba a false y el
