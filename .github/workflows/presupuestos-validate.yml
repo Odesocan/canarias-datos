@@ -44,7 +44,7 @@ jobs:
           working-directory: Presupuestos
           extra-packages: |
             glue here yaml httr fs digest dplyr tidyr tibble readr readxl
-            jsonlite stringi stringdist purrr writexl httr2 DBI RPostgres
+            jsonlite stringi stringdist purrr writexl httr2 DBI RPostgres prophet
 
       - uses: actions/setup-python@v5
         with: { python-version: "3.11" }
