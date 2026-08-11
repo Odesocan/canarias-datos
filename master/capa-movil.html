@@ -80,6 +80,13 @@
        titular en Space Grotesk y la cifra clave en teal, que es como
        manda la guía destacar un número en su primer uso.
 
+       El titular no es un rótulo fijo: lleva el título de la sección que
+       se está viendo, el mismo que el modelo escribe en el h2 de la
+       tarjeta que aquí se oculta. Antes decía "Canarias en el Estado"
+       para las seis áreas, así que la instrucción de cada sección —qué
+       se puede hacer con estos datos— sólo llegaba a quien entrara desde
+       escritorio.
+
        No se carga Google Fonts: el <link> de tipografías bloquea el
        pintado —está documentado en la interfaz de Transparencia— y en
        móvil eso es lo último que conviene. Se nombran las familias por si
@@ -124,14 +131,20 @@
       color: rgba(255, 255, 255, .72);
       line-height: 1.3;
     }
+    /* El cuerpo baja de 6.4vw a 5vw porque el texto ya no es un rótulo de
+       tres palabras sino una frase entera. Medido a 390px sobre los seis
+       títulos: a 6.4vw el peor caso —Salud mental— ocupaba 142px y cinco
+       líneas; a 5vw son 89px y cuatro. El interlineado sube de 1.14 a 1.2,
+       que 1.14 se lee apretado en cuanto pasa de dos líneas. */
     html[data-cedm="movil"] .cedm-cabezal h1 {
       margin: 0;
       font-family: "Space Grotesk", Inter, ui-sans-serif, system-ui, sans-serif;
-      font-size: clamp(1.28rem, 6.4vw, 1.7rem);
+      font-size: clamp(1.05rem, 5vw, 1.35rem);
       font-weight: 700;
-      line-height: 1.14;
+      line-height: 1.2;
       letter-spacing: -.01em;
       color: #fff;
+      text-wrap: balance;
     }
     html[data-cedm="movil"] .cedm-cabezal h1 em {
       font-style: normal;
@@ -195,6 +208,13 @@
        en ese momento ya está dicho en otros dos sitios: el área la dice el
        desplegable de arriba, y el indicador y el periodo los repite la
        cabecera del panel. Ese hueco se lo queda el cuadro de filtrado.
+
+       Lo que sí se rescata de esa tarjeta es el titular, que ahora lo
+       lleva el cabezal (2.b): es la frase que dice qué se puede hacer con
+       cada área, y no la repite ningún otro sitio. La entradilla se queda
+       fuera —son cuatro líneas más de instrucción genérica, idéntica en
+       las seis áreas, para una pantalla en la que el gráfico ya pelea por
+       el sitio—.
 
        Se oculta la <section> entera y no sólo su interior: vaciada seguía
        pintando su propio fondo y su borde, y dejaba una franja gris entre
@@ -452,6 +472,11 @@
   // guarda la primera vez y no se vuelve a tocar.
   var casa = {};
 
+  // Observador del titular del cabezal. Vive fuera de arranca() para poder
+  // desconectarlo al revertir: si no, al girar el teléfono a horizontal
+  // seguiría vigilando el h2 para escribir en un cabezal ya retirado.
+  var obsTitulo = null;
+
   /* =================================================================
      CANARIAS, EN SU PUESTO
      =================================================================
@@ -546,6 +571,53 @@
       if (anclaCabezal && anclaCabezal.parentNode) {
         anclaCabezal.parentNode.insertBefore(cabezal, anclaCabezal);
       }
+    }
+
+    /* --- B.0.bis El titular del cabezal, el de la sección -----------
+       El modelo escribe el título de cada área en el h2 de la tarjeta que
+       aquí se oculta —renderShellForSection, en cada cambio de sección—.
+       Se lee de ahí en vez de duplicar el catálogo de títulos: así una
+       sección nueva, o un cambio de copy, llega a móvil sin tocar esta
+       capa. Mismo criterio que el desplegable de área y que la barra
+       inferior, que también delegan en lo que el modelo ya pintó.
+
+       El nombre del área va en teal, separado por los dos puntos que ya
+       traen los títulos ("Vivienda: analiza…"). Es el destello de la guía
+       ODESOCAN y, de paso, hace que el prefijo se lea como etiqueta y no
+       como una repetición del desplegable que viene justo debajo.
+
+       Se compone con nodos, no con innerHTML: el título es dato de
+       configuración y no tiene por qué acabar interpretándose como
+       marcado. */
+    var h2Modelo = root.querySelector("[data-ced-h2]");
+    var tituloCabezal = cabezal.querySelector("h1");
+
+    function pintaTitulo() {
+      if (!h2Modelo || !tituloCabezal || !tituloCabezal.isConnected) return;
+      var texto = (h2Modelo.textContent || "").trim();
+      // "—" es el marcador de plantilla: hasta que el modelo no resuelve la
+      // sección se deja el rótulo de portada, que dice más que una raya.
+      if (!texto || texto === "—") return;
+      if (tituloCabezal.dataset.cedmTitulo === texto) return;
+      tituloCabezal.dataset.cedmTitulo = texto;
+
+      var corte = texto.indexOf(":");
+      tituloCabezal.textContent = "";
+      if (corte > 0) {
+        var destacado = document.createElement("em");
+        destacado.textContent = texto.slice(0, corte);
+        tituloCabezal.appendChild(destacado);
+        tituloCabezal.appendChild(document.createTextNode(texto.slice(corte)));
+      } else {
+        tituloCabezal.textContent = texto;
+      }
+    }
+
+    if (h2Modelo && tituloCabezal) {
+      pintaTitulo();
+      if (obsTitulo) obsTitulo.disconnect();
+      obsTitulo = new MutationObserver(pintaTitulo);
+      obsTitulo.observe(h2Modelo, { childList: true, characterData: true, subtree: true });
     }
 
     /* --- B.1 El área, en un desplegable ---------------------------
@@ -738,6 +810,8 @@
 
     var area = document.querySelector(".cedm-area");
     if (area) area.remove();
+
+    if (obsTitulo) { obsTitulo.disconnect(); obsTitulo = null; }
 
     var cabezal = document.querySelector(".cedm-cabezal");
     if (cabezal) cabezal.remove();
