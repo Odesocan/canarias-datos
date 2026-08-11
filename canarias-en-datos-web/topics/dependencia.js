@@ -9,8 +9,8 @@ export const TOPIC = {
   id: "dependencia",
   label: "Dependencia",
   eyebrow: "Canarias en Datos · Dependencia",
-  title: "El derecho a los cuidados, contado como una historia de cobertura, limbo y feminizacion.",
-  lead: "Pieza D3 conectada a la base de datos del Observatorio: mapa coropletico, evolucion autonomica, brecha estimada por genero, trazabilidad metodologica y descarga directa del indicador seleccionado. Las tasas PPD se muestran como porcentaje equivalente de la PPD.",
+  title: "Dependencia: analiza el Sistema para la Autonomía y Atención a la Dependencia",
+  lead: "Elige el indicador que más te interese analizar, vigila su evolución temporal y la brecha de género existente. Si quieres saber algo más sobre los datos que estás visualizando, acude al apartado de metodología en «Cómo se construye».",
 
   data: {
     globalTable: "ced_dependencia_global",

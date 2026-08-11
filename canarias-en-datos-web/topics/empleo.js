@@ -10,8 +10,8 @@ export const TOPIC = {
   id: "empleo",
   label: "Empleo",
   eyebrow: "Canarias en Datos · Empleo",
-  title: "El trabajo, contado como una historia de volumen, calidad, género y presión del alquiler.",
-  lead: "Pieza D3 conectada a la base de datos del Observatorio: tasas de paro, actividad y empleo, calidad del empleo (temporalidad, parcialidad, paro de larga duración), horas en servicios, brecha salarial y peso del alquiler sobre el salario. Canarias frente a las comunidades, serie anual 2010–2026 con proyección multi-algoritmo. La perspectiva de género es dato observado de la EPA, no una estimación.",
+  title: "Empleo: analiza el contexto laboral de cada territorio",
+  lead: "Elige el indicador que más te interese analizar, vigila su evolución temporal y la brecha de género existente. Si quieres saber algo más sobre los datos que estás visualizando, acude al apartado de metodología en «Cómo se construye».",
 
   data: {
     globalTable: "ced_empleo_global",
