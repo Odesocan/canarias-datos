@@ -6,8 +6,8 @@ export const TOPIC = {
   id: "educacion",
   label: "Educación",
   eyebrow: "Canarias en Datos · Educación",
-  title: "La educación en Canarias contada como una historia de abandono, nivel formativo, género y esfuerzo público.",
-  lead: "Pieza D3 conectada a la base de datos del Observatorio: mapa coroplético, evolución autonómica, brecha de género y trazabilidad metodológica. Diez indicadores de resultado y recursos, comparables entre comunidades y proyectados a 2026.",
+  title: "Educación: indaga en las condiciones educativas de Canarias en comparación con el resto del Estado",
+  lead: "Elige el indicador que más te interese analizar, vigila su evolución temporal y la brecha de género existente. Si quieres saber algo más sobre los datos que estás visualizando, acude al apartado de metodología en «Cómo se construye».",
 
   data: {
     globalTable: "ced_educacion_global",

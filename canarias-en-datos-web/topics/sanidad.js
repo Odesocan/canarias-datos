@@ -11,8 +11,8 @@ export const TOPIC = {
   id: "sanidad",
   label: "Sanidad",
   eyebrow: "Canarias en Datos · Sanidad",
-  title: "La sanidad, contada como una historia de resultados, recursos, gasto y equidad territorial.",
-  lead: "Pieza D3 conectada a la base de datos del Observatorio: mortalidad evitable, años de vida saludable, reingresos psiquiátricos, dotación de profesionales y camas, esfuerzo de gasto sobre PIB y tiempos de espera. Canarias frente a las comunidades, serie anual con proyección por bagged ETS. La perspectiva de género es dato observado del INCLASNS en los indicadores de resultado.",
+  title: "Sanidad: investiga el funcionamiento del sistema sanitario en cada comunidad autónoma",
+  lead: "Elige el indicador que más te interese analizar, vigila su evolución temporal y la brecha de género existente. Si quieres saber algo más sobre los datos que estás visualizando, acude al apartado de metodología en «Cómo se construye».",
 
   data: {
     globalTable: "global_sanidad",

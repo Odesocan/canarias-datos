@@ -13,8 +13,8 @@ export const TOPIC = {
   id: "salud-mental",
   label: "Salud mental",
   eyebrow: "Canarias en Datos · Salud mental",
-  title: "Salud mental: prevalencia, fármacos y suicidios contados como ejes estructurales del bienestar.",
-  lead: "Pieza D3 conectada a la base de datos del Observatorio: prevalencia de trastornos mentales, consumo de antidepresivos e hipnosedantes (DHD) y mortalidad por suicidio, con horizonte proyectado hasta 2026. Canarias frente al resto de comunidades.",
+  title: "Salud mental: investiga el estado de la salud mental en todo el Estado en comparación con Canarias",
+  lead: "Elige el indicador que más te interese analizar, vigila su evolución temporal y la brecha de género existente. Si quieres saber algo más sobre los datos que estás visualizando, acude al apartado de metodología en «Cómo se construye».",
 
   data: {
     globalTable: "ced_saludmental",

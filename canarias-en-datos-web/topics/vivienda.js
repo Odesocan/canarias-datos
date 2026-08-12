@@ -5,8 +5,8 @@ export const TOPIC = {
   id: "vivienda",
   label: "Vivienda",
   eyebrow: "Canarias en Datos · Vivienda",
-  title: "El acceso a la vivienda contado como una historia de presión, género y evidencia.",
-  lead: "Pieza D3 conectada a la base de datos del Observatorio: mapa coroplético, evolución autonómica, brecha de género, trazabilidad metodológica y descarga directa del indicador seleccionado.",
+  title: "Vivienda: analiza las condiciones de acceso a la vivienda en todo el Estado",
+  lead: "Elige el indicador que más te interese analizar, vigila su evolución temporal y la brecha de género existente. Si quieres saber algo más sobre los datos que estás visualizando, acude al apartado de metodología en «Cómo se construye».",
 
   data: {
     globalTable: "ced_vivienda_global",
