@@ -78,7 +78,11 @@ En **Settings → Secrets and variables → Actions**:
 | Secreto | Lo necesitan | De dónde sale el valor |
 |---|---|---|
 | `SNS_API_TOKEN` | salud-mental, sanidad-{extract,validate,deploy} | `.Renviron` local de Sanidad / Salud mental |
-| `SUPABASE_HOST` `SUPABASE_PORT` `SUPABASE_DBNAME` `SUPABASE_USER` `SUPABASE_PASS` `SUPABASE_SCHEMA` | rls-audit y todos los `*-deploy` | Supabase → Project Settings → Database |
+| `SUPABASE_HOST` `SUPABASE_PORT` `SUPABASE_DBNAME` `SUPABASE_USER` `SUPABASE_PASS` | rls-audit y todos los `*-deploy` | Supabase → Project Settings → Database |
+| `SUPABASE_SERVICE_KEY` | empleo-extract (vía de alquiler), presupuestos-deploy | Supabase → Project Settings → API → clave **service_role** |
+
+El esquema NO va como secreto: cada área lleva el suyo en su código (`saad` en
+Dependencia, `canendatos` en el resto). Ver los comentarios en los workflows.
 
 `rls-audit` falla cada lunes solo por esto.
 
@@ -177,3 +181,50 @@ mensaje claro, en vez de ejecutar el pipeline entero y dejar la carga a medias.
 
 Ese orden importa: ninguno de los tres ha completado nunca una carga en CI, y
 la primera conviene mirarla.
+
+## Sobre la exposición de esquemas en Supabase
+
+Tres capas independientes deciden si una petición del navegador llega a un dato.
+Confundirlas lleva a apagar lo que no toca.
+
+| Capa | Qué decide |
+|---|---|
+| **Exposed schemas** (PostgREST) | Si una petición HTTP puede alcanzar el esquema. No distingue lectura de escritura. |
+| **GRANT** de Postgres | Qué operaciones puede hacer el rol `anon`. **Es lo que permite escribir.** |
+| **RLS** | Sobre qué filas. Nunca concede: solo recorta. |
+
+Sin RLS no se "habilita" la escritura: se deja de filtrar lo que el GRANT ya
+permitía. Por eso `rls_audit.sql` exige **las dos** condiciones (permisos a
+`anon` **y** RLS desactivado) y no solo la segunda. Es un criterio más estricto
+—y más correcto— que el aviso automático de Supabase, que marca "RLS
+desactivado" sin mirar si hay permisos concedidos.
+
+Estado comprobado el 2026-08-26 con la consulta de `rls_audit.sql`:
+
+  * `canendatos` — 13 tablas con permisos para `anon`, **0 con escritura, 0 sin
+    RLS**. Todas con RLS y política de solo `SELECT`. Es el patrón correcto.
+  * `saad` — **0 tablas con permisos para `anon`**. Nunca fue accesible desde un
+    navegador, aunque el esquema estuviera expuesto.
+  * `geodesocan` — 5 avisos, todos `SELECT` sobre geometrías públicas
+    (municipios, provincias, países). Es lo que el mapa necesita.
+
+### Vaciar el campo tumba el API entero
+
+Dejar *Exposed schemas* en blanco hace que Supabase escriba el centinela
+`pg_pgrst_no_exposed_schemas`, que no existe. PostgREST no puede construir su
+caché y responde **503 PGRST002 a TODO**, no solo al esquema retirado. El
+síntoma en `postgres_logs` es literal:
+
+    schema "pg_pgrst_no_exposed_schemas" does not exist
+
+Un esquema simplemente no expuesto daría 406 PGRST106, no 503. La lista que
+deben tener estos proyectos, con `public` primero porque es el perfil por
+defecto:
+
+    public, canendatos, geodesocan
+
+Qué depende de cada uno: `public` sirve `v_noticias_medios` (dashboard de
+medios) y `alquiler_historico_ccaa` (empleo-extract, que la pide sin cabecera
+de perfil); `canendatos` lo pide la web con `Accept-Profile`; `geodesocan` es
+la capa de geometrías del mapa. `medios` no hace falta: se consume a través de
+una vista en `public`, que es el patrón a seguir.
