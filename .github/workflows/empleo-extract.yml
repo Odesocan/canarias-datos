@@ -17,6 +17,14 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 60
 
+    env:
+      # extraer_supabase.py (vía 2, serie de alquiler por CCAA) descarga
+      # public.alquiler_historico_ccaa por PostgREST. Esa tabla tiene RLS y
+      # ninguna política para anon, así que la clave anon devuelve 0 filas:
+      # hace falta la service_role, que salta RLS. El propio script lo dice al
+      # abortar. Sin esta variable la vía se omitía en silencio.
+      SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
+
     steps:
       - uses: actions/checkout@v4
 
@@ -24,6 +32,33 @@ jobs:
         with:
           python-version: "3.12"
           requirements: "Empleo/1_extraccion/requirements.txt"
+
+      # extraer.py omite con gracia cada vía sin prerrequisitos y termina en
+      # verde. Eso está bien por diseño, pero convierte una extracción
+      # incompleta en un run indistinguible de uno correcto. Este paso no
+      # falla —la vía es opcional— pero deja constancia visible en el resumen
+      # del run de que faltó una fuente.
+      # La comprobación va DENTRO del paso, no en un `if:`. El contexto
+      # `secrets` no está disponible en las condiciones de un paso —GitHub
+      # aborta con "Unrecognized named-value: 'secrets'"—, pero la variable
+      # de entorno del job sí lo está.
+      - name: Avisar si falta la credencial de la vía Supabase
+        run: |
+          if [ -n "${SUPABASE_SERVICE_KEY}" ]; then
+            echo "Credencial presente: la vía 2 (serie de alquiler) se ejecutará."
+            exit 0
+          fi
+          echo "::warning::SUPABASE_SERVICE_KEY no está dado de alta: la vía 2 (serie de alquiler por CCAA, indicador 11) se omitirá. Las vías del INE sí se ejecutan."
+          {
+            echo "### Extracción incompleta"
+            echo
+            echo "Falta el secreto \`SUPABASE_SERVICE_KEY\`, así que **la vía 2**"
+            echo "(serie de alquiler por CCAA) se omite y el indicador 11 no se"
+            echo "actualiza. Las vías del INE no se ven afectadas."
+            echo
+            echo "Usar la clave **service_role**: la tabla tiene RLS sin política"
+            echo "para \`anon\`, y la clave pública devuelve 0 filas."
+          } >> "${GITHUB_STEP_SUMMARY}"
 
       - name: Extracción
         working-directory: "Empleo/1_extraccion"

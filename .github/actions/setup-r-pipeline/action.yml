@@ -30,7 +30,11 @@ runs:
       shell: bash
       run: |
         sudo apt-get update
-        sudo apt-get install -y libcurl4-openssl-dev libssl-dev libxml2-dev libpq-dev
+        # libuv1-dev es la red de seguridad para 'fs': si algún paquete cae a
+        # compilación desde fuente (no hay binario para esa versión), 'fs' pide
+        # libuv y sin ella arrastra a sass, bslib, rmarkdown, htmlwidgets,
+        # dygraphs y prophet.
+        sudo apt-get install -y libcurl4-openssl-dev libssl-dev libxml2-dev libpq-dev libuv1-dev
 
     - name: Paquetes R (núcleo + extras del área)
       shell: bash
@@ -47,8 +51,22 @@ runs:
           extra <- strsplit(trimws(Sys.getenv("CED_EXTRA_PACKAGES")), "[[:space:]]+")[[1]]
           extra <- extra[nzchar(extra)]
           pkgs  <- unique(c(core, extra))
+
+          # NO fijar repos = "https://cloud.r-project.org" aquí. setup-r con
+          # use-public-rspm: true ya deja configurado el Posit Package Manager
+          # (.../cran/__linux__/noble/latest), que sirve BINARIOS para Ubuntu.
+          # Pasar CRAN explícitamente lo anulaba y forzaba compilar todo el árbol
+          # desde fuente: 16 min y, sobre todo, frágil — fs no compila sin libuv
+          # y su fallo arrastraba hasta prophet.
+          repos <- getOption("repos")
+          if (is.null(repos) || !length(repos) || !nzchar(repos[[1]]) ||
+              identical(unname(repos[[1]]), "@CRAN@")) {
+            repos <- c(CRAN = "https://cloud.r-project.org")
+          }
+          message("Repositorio: ", paste(repos, collapse = ", "))
           message("Instalando ", length(pkgs), " paquetes: ", paste(pkgs, collapse = ", "))
-          install.packages(pkgs, repos = "https://cloud.r-project.org")
+
+          install.packages(pkgs, repos = repos, Ncpus = max(1L, parallel::detectCores()))
           faltan <- pkgs[!pkgs %in% rownames(installed.packages())]
           if (length(faltan)) stop("No se instalaron: ", paste(faltan, collapse = ", "))
         '

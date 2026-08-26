@@ -2,6 +2,11 @@ name: Salud Mental Pipeline
 
 on:
   workflow_dispatch:
+    inputs:
+      escribir_produccion:
+        description: "Escribir el resultado en la Supabase de producción"
+        type: boolean
+        default: false
   schedule:
     - cron: "0 5 * * 1"
 
@@ -14,28 +19,72 @@ jobs:
     environment: production
 
     env:
+      # Ver el bloque 'case' del paso que ejecuta el pipeline.
+      CED_INPUT_ESCRIBIR: ${{ inputs.escribir_produccion }}
+      CED_CRON_ESCRIBE: ${{ vars.CED_CRON_ESCRIBE }}
+      # Token del API del INCLASNS. La extracción aborta sin él
+      # (sns_api_token() en R/pipeline_utils.R).
+      SNS_API_TOKEN: ${{ secrets.SNS_API_TOKEN }}
       SUPABASE_HOST: ${{ secrets.SUPABASE_HOST }}
       SUPABASE_PORT: ${{ secrets.SUPABASE_PORT }}
       SUPABASE_DBNAME: ${{ secrets.SUPABASE_DBNAME }}
       SUPABASE_USER: ${{ secrets.SUPABASE_USER }}
       SUPABASE_PASS: ${{ secrets.SUPABASE_PASS }}
-      SUPABASE_SCHEMA: ${{ secrets.SUPABASE_SCHEMA }}
+      # El esquema NO se pasa desde aquí a propósito. No es un secreto, y sobre
+      # todo no es el mismo para todas las áreas: Dependencia escribe en 'saad'
+      # y el resto en 'canendatos'. Un único secreto de repositorio no puede
+      # servir a ambas, y el fallo sería silencioso — los datos acabarían en el
+      # esquema equivocado sin que nada diera error. Cada área ya lleva el suyo
+      # como valor por defecto en su código, que es la fuente autoritativa:
+      #   Salud mental/R/pipeline_utils.R -> 'canendatos'
+      # Al no definir la variable aquí, ese valor por defecto es el que manda.
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
+      # Gate de secretos (§ estrategia anti-fallos): para el job en segundos si
+      # falta un valor, en vez de descubrirlo tras instalar R.
+      - uses: ./.github/actions/check-secrets
+        with:
+          required: "SNS_API_TOKEN"
+          contexto: ".Renviron del area (SNS_API_TOKEN del API del INCLASNS)"
+
       - name: Setup R
         uses: ./.github/actions/setup-r-pipeline
         with:
-          extra-packages: "ineapir prophet"
+          # ineapir + httr/httr2/jsonlite: clientes de las APIs de INCLASNS e INE,
+          # declarados en require_packages() de R/pipeline_utils.R.
+          # forecast/prophet/ranger/xgboost: la competición de algoritmos de
+          # 3_modelado. El workflow original solo instalaba prophet, así que el
+          # pipeline nunca habría llegado a completarse en CI.
+          extra-packages: "ineapir httr httr2 jsonlite forecast prophet ranger xgboost"
 
       - name: Run pipeline
         run: |
+          # La carga a producción es una DECISIÓN EXPLÍCITA, nunca un efecto
+          # colateral de que existan credenciales. Antes bastaba con que los
+          # secretos estuvieran dados de alta para que el cron empezara a
+          # escribir en producción sin que nadie lo hubiera pedido.
+          #
+          #   Ejecución manual -> lo decide el input del formulario.
+          #   Cron             -> lo decide la variable de repositorio
+          #                       CED_CRON_ESCRIBE (Settings -> Variables).
+          #                       Si no existe, el cron NO escribe: valida.
+          case "${GITHUB_EVENT_NAME}" in
+            workflow_dispatch) SOLICITADO="${CED_INPUT_ESCRIBIR:-false}" ;;
+            *)                 SOLICITADO="${CED_CRON_ESCRIBE:-false}" ;;
+          esac
+
           WITH_DB=false
-          if [ -n "${SUPABASE_HOST}" ] && [ -n "${SUPABASE_USER}" ] && [ -n "${SUPABASE_PASS}" ]; then
+          if [ "${SOLICITADO}" = "true" ]; then
+            if [ -z "${SUPABASE_HOST}" ] || [ -z "${SUPABASE_USER}" ] || [ -z "${SUPABASE_PASS}" ]; then
+              echo "::error::Se ha pedido escribir en producción, pero faltan credenciales de base de datos. No se ejecuta para no dejar la carga a medias."
+              exit 1
+            fi
             WITH_DB=true
           fi
+          echo "Evento: ${GITHUB_EVENT_NAME} · carga a producción: ${WITH_DB}"
           Rscript "Salud mental/00_maestro.R" --steps=extraccion,transformacion,modelado,carga --with-db="${WITH_DB}"
 
       - name: Upload outputs

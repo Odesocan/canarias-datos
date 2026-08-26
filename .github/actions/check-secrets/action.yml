@@ -1,0 +1,81 @@
+name: "Check secrets"
+description: "Verifica que las variables de entorno obligatorias del job llegan con valor, ANTES de gastar minutos en instalar dependencias"
+
+# Por qué existe
+# -------------
+# El patrón de fallo más caro y más repetido de este repositorio no es un bug de
+# código: es un job que instala R durante 16 minutos, o scrapea durante media
+# hora, y muere al final porque un secreto no estaba dado de alta. El coste no
+# es solo de minutos — el error real queda enterrado bajo miles de líneas de log
+# de compilación, y cuesta encontrarlo.
+#
+# Esta action mueve esa comprobación al principio del job. Falla en segundos, la
+# primera línea del log dice exactamente qué secreto falta, y NO informa uno a
+# uno: enumera todos los que faltan de golpe, para que dar de alta el juego
+# completo sea una sola visita a Settings.
+#
+# Uso (justo después de actions/checkout, y antes de cualquier setup):
+#
+#   - uses: ./.github/actions/check-secrets
+#     with:
+#       required: "SUPABASE_HOST SUPABASE_USER SUPABASE_PASS"
+#
+# Los nombres se leen del entorno del job, así que el workflow debe declararlos
+# en su bloque `env:` como de costumbre. La action no recibe NUNCA el valor del
+# secreto como input: solo comprueba presencia leyendo el entorno, y no imprime
+# valores en ningún caso.
+
+inputs:
+  required:
+    description: "Nombres de variables de entorno obligatorias, separados por espacios o saltos de línea"
+    required: true
+  contexto:
+    description: "Pista opcional sobre de dónde sale el valor (p. ej. '.Renviron del área Sanidad')"
+    required: false
+    default: ""
+
+runs:
+  using: "composite"
+  steps:
+    - name: Comprobar secretos obligatorios
+      shell: bash
+      env:
+        CED_REQUIRED: ${{ inputs.required }}
+        CED_CONTEXTO: ${{ inputs.contexto }}
+      run: |
+        set -uo pipefail
+
+        faltan=()
+        for nombre in ${CED_REQUIRED}; do
+          # Indirección: ${!nombre} es el VALOR de la variable llamada $nombre.
+          if [ -z "${!nombre:-}" ]; then
+            faltan+=("${nombre}")
+          fi
+        done
+
+        if [ ${#faltan[@]} -eq 0 ]; then
+          echo "OK — las $(echo ${CED_REQUIRED} | wc -w) variables obligatorias tienen valor."
+          exit 0
+        fi
+
+        echo "::error::Faltan ${#faltan[@]} secreto(s): ${faltan[*]}"
+        {
+          echo "### Secretos sin dar de alta"
+          echo
+          echo "Este job no puede funcionar sin estos valores:"
+          echo
+          for nombre in "${faltan[@]}"; do
+            echo "- \`${nombre}\`"
+          done
+          echo
+          if [ -n "${CED_CONTEXTO}" ]; then
+            echo "Dónde está el valor: ${CED_CONTEXTO}"
+            echo
+          fi
+          echo "Alta: **Settings → Secrets and variables → Actions → New repository secret**."
+          echo
+          echo "Se ha parado aquí a propósito, antes de instalar dependencias, para"
+          echo "no gastar minutos de runner en un job que ya se sabe que va a fallar."
+        } >> "${GITHUB_STEP_SUMMARY}"
+
+        exit 1

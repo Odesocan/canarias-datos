@@ -24,15 +24,32 @@ jobs:
     environment: production
 
     env:
+      # Token del API del INCLASNS. La extracción aborta sin él
+      # (sns_api_token() en R/pipeline_utils.R).
+      SNS_API_TOKEN: ${{ secrets.SNS_API_TOKEN }}
       SUPABASE_HOST: ${{ secrets.SUPABASE_HOST }}
       SUPABASE_PORT: ${{ secrets.SUPABASE_PORT }}
       SUPABASE_DBNAME: ${{ secrets.SUPABASE_DBNAME }}
       SUPABASE_USER: ${{ secrets.SUPABASE_USER }}
       SUPABASE_PASS: ${{ secrets.SUPABASE_PASS }}
-      SUPABASE_SCHEMA: ${{ secrets.SUPABASE_SCHEMA }}
+      # El esquema NO se pasa desde aquí a propósito. No es un secreto, y sobre
+      # todo no es el mismo para todas las áreas: Dependencia escribe en 'saad'
+      # y el resto en 'canendatos'. Un único secreto de repositorio no puede
+      # servir a ambas, y el fallo sería silencioso — los datos acabarían en el
+      # esquema equivocado sin que nada diera error. Cada área ya lleva el suyo
+      # como valor por defecto en su código, que es la fuente autoritativa:
+      #   Sanidad/R/pipeline_utils.R -> 'canendatos'
+      # Al no definir la variable aquí, ese valor por defecto es el que manda.
 
     steps:
       - uses: actions/checkout@v4
+
+      # Gate de secretos (§ estrategia anti-fallos): para el job en segundos si
+      # falta un valor, en vez de descubrirlo tras instalar R.
+      - uses: ./.github/actions/check-secrets
+        with:
+          required: "SNS_API_TOKEN SUPABASE_HOST SUPABASE_USER SUPABASE_PASS"
+          contexto: ".Renviron del area (SNS_API_TOKEN del API del INCLASNS) + credenciales de la Supabase de produccion del Observatorio"
 
       - uses: ./.github/actions/setup-r-pipeline
         with:

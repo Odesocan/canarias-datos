@@ -27,9 +27,19 @@ jobs:
 
     env:
       CED_WITH_DB: "false"     # explícito, aunque ya es el valor por defecto
+      # Token del API del INCLASNS. La extracción aborta sin él
+      # (sns_api_token() en R/pipeline_utils.R).
+      SNS_API_TOKEN: ${{ secrets.SNS_API_TOKEN }}
 
     steps:
       - uses: actions/checkout@v4
+
+      # Gate de secretos (§ estrategia anti-fallos): para el job en segundos si
+      # falta un valor, en vez de descubrirlo tras instalar R.
+      - uses: ./.github/actions/check-secrets
+        with:
+          required: "SNS_API_TOKEN"
+          contexto: ".Renviron del area (SNS_API_TOKEN del API del INCLASNS)"
 
       - uses: ./.github/actions/setup-r-pipeline
         with:
