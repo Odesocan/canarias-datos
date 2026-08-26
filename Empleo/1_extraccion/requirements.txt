@@ -1,4 +1,7 @@
 # Fase 1 · Extracción — sección Empleo (Canarias en Datos)
-# Solo librería estándar para la descarga (urllib); pandas/pyarrow para tidy+parquet.
+# La mayoría de las vías usan solo librería estándar (urllib); pandas/pyarrow
+# para tidy+parquet. extraer_supabase.py (alquiler desde bd_odesocan) usa
+# requests para llamar al API REST de Supabase/PostgREST.
 pandas>=2.0
 pyarrow>=12.0
+requests>=2.31
