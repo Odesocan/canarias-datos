@@ -137,3 +137,43 @@ El token que dispara las extracciones de `transparencia-gobcan` **caduca el
 
 Regla general: toda credencial con caducidad va a un calendario el día que se
 crea. Una credencial que expira es un fallo con fecha conocida.
+
+## La carga a producción es explícita
+
+Dependencia, Vivienda y Salud mental decidían si escribir en producción así:
+
+```bash
+if [ -n "${SUPABASE_HOST}" ] && [ -n "${SUPABASE_USER}" ] && ... ; then
+  WITH_DB=true
+fi
+```
+
+Es decir: **la mera existencia de los secretos activaba la escritura**. Dar de
+alta las credenciales para que `rls-audit` pudiera hacer su trabajo habría
+encendido, de rebote, la carga automática de tres pipelines que llevaban todo
+agosto ejecutándose en seco y que nunca han completado una carga en CI. La
+primera habría sido desatendida, un lunes a las 5:00 UTC.
+
+Ahora la decisión es explícita:
+
+| Cómo se lanza | Quién decide |
+|---|---|
+| A mano (`workflow_dispatch`) | la casilla del formulario, desmarcada por defecto |
+| Cron | la variable de repositorio `CED_CRON_ESCRIBE`; si no existe, no escribe |
+
+`CED_CRON_ESCRIBE` es una **variable**, no un secreto (Settings → Secrets and
+variables → Actions → pestaña *Variables*): su valor no es sensible y conviene
+poder consultarlo.
+
+Si se pide escribir y faltan credenciales, el job falla de inmediato con un
+mensaje claro, en vez de ejecutar el pipeline entero y dejar la carga a medias.
+
+### Cómo activarlo cuando se quiera
+
+1. Dar de alta los secretos de Supabase.
+2. Lanzar el pipeline a mano **con la casilla marcada** y comprobar el
+   resultado en la base de datos.
+3. Solo entonces crear `CED_CRON_ESCRIBE = true` para que el cron escriba solo.
+
+Ese orden importa: ninguno de los tres ha completado nunca una carga en CI, y
+la primera conviene mirarla.

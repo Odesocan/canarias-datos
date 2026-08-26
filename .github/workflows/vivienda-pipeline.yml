@@ -2,6 +2,11 @@ name: Vivienda Pipeline
 
 on:
   workflow_dispatch:
+    inputs:
+      escribir_produccion:
+        description: "Escribir el resultado en la Supabase de producción"
+        type: boolean
+        default: false
   schedule:
     # GitHub Actions usa UTC: 05:00 UTC = 05:00 en Canarias en invierno y 06:00 en verano.
     # Se ejecuta el día 5 de cada mes para dar margen a la publicación mensual de Idealista.
@@ -17,6 +22,9 @@ jobs:
     environment: production
 
     env:
+      # Ver el bloque 'case' del paso que ejecuta el pipeline.
+      CED_INPUT_ESCRIBIR: ${{ inputs.escribir_produccion }}
+      CED_CRON_ESCRIBE: ${{ vars.CED_CRON_ESCRIBE }}
       CED_DB_HOST: ${{ secrets.SUPABASE_HOST }}
       CED_DB_PORT: ${{ secrets.SUPABASE_PORT }}
       CED_DB_NAME: ${{ secrets.SUPABASE_DBNAME }}
@@ -54,10 +62,29 @@ jobs:
 
       - name: Run Vivienda pipeline
         run: |
+          # La carga a producción es una DECISIÓN EXPLÍCITA, nunca un efecto
+          # colateral de que existan credenciales. Antes bastaba con que los
+          # secretos estuvieran dados de alta para que el cron empezara a
+          # escribir en producción sin que nadie lo hubiera pedido.
+          #
+          #   Ejecución manual -> lo decide el input del formulario.
+          #   Cron             -> lo decide la variable de repositorio
+          #                       CED_CRON_ESCRIBE (Settings -> Variables).
+          #                       Si no existe, el cron NO escribe: valida.
+          case "${GITHUB_EVENT_NAME}" in
+            workflow_dispatch) SOLICITADO="${CED_INPUT_ESCRIBIR:-false}" ;;
+            *)                 SOLICITADO="${CED_CRON_ESCRIBE:-false}" ;;
+          esac
+
           WITH_DB=false
-          if [ -n "${CED_DB_HOST}" ] && [ -n "${CED_DB_USER}" ] && [ -n "${CED_DB_PASSWORD}" ] && [ -n "${CED_DB_NAME}" ]; then
+          if [ "${SOLICITADO}" = "true" ]; then
+            if [ -z "${CED_DB_HOST}" ] || [ -z "${CED_DB_USER}" ] || [ -z "${CED_DB_PASSWORD}" ] || [ -z "${CED_DB_NAME}" ]; then
+              echo "::error::Se ha pedido escribir en producción, pero faltan credenciales de base de datos. No se ejecuta para no dejar la carga a medias."
+              exit 1
+            fi
             WITH_DB=true
           fi
+          echo "Evento: ${GITHUB_EVENT_NAME} · carga a producción: ${WITH_DB}"
           Rscript "Vivienda/00_maestro.R" --steps=scraping,extraccion,transformacion,modelado,carga --run-scraping=true --with-db="${WITH_DB}"
 
       - name: Upload raw Idealista data
