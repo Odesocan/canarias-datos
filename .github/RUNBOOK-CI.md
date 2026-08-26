@@ -105,3 +105,35 @@ Las extracciones están escalonadas a propósito: ninguna comparte día.
 2. Comprobar que declara el gate de secretos si usa alguno.
 3. Comprobar que lo que el código importa está en el manifiesto que el workflow
    instala.
+
+## Dos avisos que vienen de otros repositorios del Observatorio
+
+Salieron al revisar el resto de repos el 2026-08-26 y afectan a la planificación
+de este, aunque su origen esté fuera.
+
+### GitHub no dispara los crons de forma fiable
+
+En `transparencia-gobcan` se midió el cumplimiento real de `schedule` durante
+cuatro días: **24%**, y **0%** en la franja 07:00–08:00 UTC. Ninguna hora pasaba
+del 25%, así que no era cuestión de mover el horario.
+
+La solución que ya está en producción allí: el reloj lo lleva `pg_cron` en
+Supabase, que llama al API de GitHub para lanzar el workflow por
+`workflow_dispatch` — ese camino sí se ejecuta siempre, porque la
+depriorización solo afecta a `schedule`. El cron de GitHub se queda como red de
+seguridad. Está documentado en `docs/programacion-fiable.md` de ese repositorio.
+
+Encaja con la nota del 2026-08-05 en `medios-odesocan`, que avisaba de que
+ningún cron programado se disparaba desde el 28 de julio.
+
+**Consecuencia para este repo:** si una extracción mensual se salta su día, antes
+de buscar un bug hay que comprobar si el cron llegó a dispararse. Y si el
+problema se repite, la solución no hay que diseñarla: ya está escrita.
+
+### Una credencial con fecha de caducidad
+
+El token que dispara las extracciones de `transparencia-gobcan` **caduca el
+2026-09-28**. Cuando lo haga, parará la automatización sin ningún aviso previo.
+
+Regla general: toda credencial con caducidad va a un calendario el día que se
+crea. Una credencial que expira es un fallo con fecha conocida.
