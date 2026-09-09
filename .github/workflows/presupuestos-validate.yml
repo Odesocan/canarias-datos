@@ -58,8 +58,14 @@ jobs:
       - uses: actions/setup-python@v5
         with: { python-version: "3.11" }
 
+      # openpyxl lo necesita tests/_gen_hacienda_fixture.py para escribir el
+      # XLSX sintetico de la capa Hacienda. Ya esta declarado en
+      # Presupuestos/requirements.txt, pero este paso instala una lista fija y
+      # se habia quedado fuera: sin el, el fixture no se genera, la extraccion
+      # avisa "Sin XLSX/CSV en fuentes/raw/hacienda" y el smoke test se queda
+      # en 32 filas de staging frente a las 56 que espera con Hacienda.
       - name: Python deps
-        run: pip install pdfplumber pandas pyarrow
+        run: pip install pdfplumber pandas pyarrow openpyxl
 
       - name: Apply schema
         run: |
