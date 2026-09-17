@@ -38,7 +38,8 @@ jobs:
       # como valor por defecto en su código, que es la fuente autoritativa:
       #   Vivienda/R/pipeline_utils.R -> 'canendatos'
       # Al no definir la variable aquí, ese valor por defecto es el que manda.
-      CED_PYTHON_BIN: python3
+      # CED_PYTHON_BIN se fija en el paso que ejecuta el pipeline, con ruta
+      # absoluta: aquí aún no existe el Python que instala setup-python.
       CED_PROJECTION_TARGET_YEAR: "2026"
       CED_MODEL_VALIDATION_YEARS: "3"
 
@@ -49,8 +50,18 @@ jobs:
       - name: Setup Python
         uses: ./.github/actions/setup-python-pipeline
         with:
-          python-version: "3.12"
+          # NO usar 3.12, la misma versión que trae Ubuntu 24.04. El scraper se
+          # lanza desde R, y Rscript antepone las rutas de librerías del sistema
+          # a LD_LIBRARY_PATH: el Python de setup-python cargaba entonces la
+          # libpython3.12 de Ubuntu, buscaba paquetes en las rutas de Debian y
+          # no veía lo instalado con pip (cron del 2026-09-05: "No module named
+          # 'nodriver'"). Con otra versión menor no hay libpython del sistema que
+          # pueda suplantar a la suya. Presupuestos hace lo mismo con 3.11.
+          python-version: "3.11"
           requirements: "Vivienda/fuentes/scrapings/alquiler_historico_ccaa/requirements.txt"
+          # El scraper abre Chrome con ventana (headless=False, menos detectable)
+          # y el runner no tiene pantalla: se la da xvfb-run.
+          system-deps: "xvfb"
 
       - name: Setup Chrome
         uses: browser-actions/setup-chrome@v1
@@ -85,7 +96,18 @@ jobs:
             WITH_DB=true
           fi
           echo "Evento: ${GITHUB_EVENT_NAME} · carga a producción: ${WITH_DB}"
-          Rscript "Vivienda/00_maestro.R" --steps=scraping,extraccion,transformacion,modelado,carga --run-scraping=true --with-db="${WITH_DB}"
+
+          # Ruta absoluta al Python de setup-python: así R no tiene que resolver
+          # "python3" y no depende de cómo quede el PATH dentro de Rscript.
+          export CED_PYTHON_BIN="${pythonLocation}/bin/python3"
+          "${CED_PYTHON_BIN}" -c 'import sys, nodriver; print("Python del scraper:", sys.executable, sys.version.split()[0])'
+
+          # Pantalla virtual para Chrome. El tamaño cubre el mayor viewport que
+          # sortea el scraper (2560x1440, extract/browser.py); con la pantalla
+          # por defecto de xvfb-run (640x480) la ventana no cabría y la
+          # resolución delataría al navegador.
+          xvfb-run --auto-servernum --server-args="-screen 0 2560x1440x24" \
+            Rscript "Vivienda/00_maestro.R" --steps=scraping,extraccion,transformacion,modelado,carga --run-scraping=true --with-db="${WITH_DB}"
 
       - name: Upload raw Idealista data
         if: always()
