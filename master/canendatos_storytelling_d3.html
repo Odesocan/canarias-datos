@@ -638,11 +638,11 @@
       // Mismas opciones de presentación que Vivienda (ver su bloque).
       evolutionAxis: "adaptive",
       genderFilterNotes: true,
-      genderEstimateNote: "brecha de la prevalencia de trastornos mentales aplicada al consumo",
+      genderEstimateNote: "consumo repartido según la brecha de la prevalencia de trastornos mentales",
       variablesNote: "INCLASNS: Indicadores Clave del Sistema Nacional de Salud · DHD: dosis diarias definidas por cada 1.000 habitantes al día.",
       method: [
         { h:"Fuentes",          p:"Indicadores Clave del Sistema Nacional de Salud (<strong>INCLASNS</strong>) del Ministerio de Sanidad para la prevalencia de trastornos mentales y el consumo de antidepresivos e hipnosedantes, y el <strong>INE</strong> para la mortalidad por suicidio y las cifras de población." },
-        { h:"Brecha de género estimada", p:"El Ministerio publica la prevalencia de trastornos mentales por sexo, pero el consumo de antidepresivos e hipnosedantes sólo como total. Hombres y mujeres se <strong>estiman</strong> a partir de la brecha de la prevalencia en cada comunidad y año: si la de los hombres es un 40 % inferior a la de las mujeres, su consumo estimado queda un 40 % por debajo del total y el de las mujeres, un 40 % por encima. Supone que el consumo se reparte por sexo igual que los trastornos, así que no es un dato publicado. La prevalencia y la tasa de suicidio sí llegan desagregadas por sexo." },
+        { h:"Brecha de género estimada", p:"El Ministerio publica la prevalencia de trastornos mentales por sexo, pero el consumo de antidepresivos e hipnosedantes sólo como total. Hombres y mujeres se <strong>estiman</strong> a partir de la brecha de la prevalencia en cada comunidad y año: si las mujeres registran el doble de trastornos que los hombres, se les asigna el doble de consumo por habitante, y el reparto se ajusta para que, ponderado por la población de cada sexo, dé el total publicado. Supone que el consumo se reparte por sexo igual que los trastornos, así que no es un dato publicado. La prevalencia y la tasa de suicidio sí llegan desagregadas por sexo." },
         { h:"Variables-etiqueta",p:"Multiplicamos las tasas por la población de cada año (media de los cuatro trimestres) para mostrar valores absolutos en los tooltips: personas, dosis y muertes." },
         { h:"Modelado",         p:"Se comparan <strong>ARIMA · ETS · Prophet · Random Forest · XGBoost</strong> con validación cruzada temporal y se aplica el algoritmo con menor error global para proyectar hasta 2026." },
         { h:"Actualización",    p:"Anual, según el calendario de publicación del Ministerio de Sanidad y del INE. La matriz de variables indica hasta qué año llega cada serie." },
@@ -667,7 +667,7 @@
         antidep_ajustado: { mide:"Dosis diarias definidas de antidepresivos por cada 1.000 habitantes al día (DHD).",
                             calculo:"Total publicado por comunidad. Los años sin publicar se proyectan.",
                             fuente:"Ministerio de Sanidad (INCLASNS)",
-                            sexoNota:"Hombres = total × (1 − brecha); mujeres = total × (1 + brecha), con la brecha de la prevalencia de trastornos mentales." },
+                            sexoNota:"Mujeres = hombres × (prevalencia de mujeres ÷ prevalencia de hombres); ponderados por población, suman el total publicado." },
         hipno_ajustado:   { mide:"Dosis diarias definidas de hipnóticos y sedantes por cada 1.000 habitantes al día (DHD).",
                             calculo:"Total publicado por comunidad. Los años sin publicar se proyectan.",
                             fuente:"Ministerio de Sanidad (INCLASNS)",
