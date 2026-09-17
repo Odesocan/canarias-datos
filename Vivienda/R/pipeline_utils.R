@@ -857,6 +857,10 @@ build_pipeline_config <- function(base_path, cli_args = list()) {
     scraper_script = file.path(scraping_dir, "main.py"),
     scraper_python = Sys.getenv("CED_PYTHON_BIN", "python3"),
     price_aggregation_strategy = "simple_mean",
+    # Vivienda tipo para salario_destinado: el alquiler llega en €/m² al mes y
+    # el salario en €/año. Mismos supuestos que Empleo (indicador 11).
+    superficie_ref_m2 = 80,
+    pagas_anio = 12L,
     raw_files = list(
       alquiler_historico = file.path(raw_dir, "alquiler_historico.csv"),
       alquiler_mensual = file.path(raw_dir, "alquiler_mensual.csv")

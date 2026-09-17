@@ -17,6 +17,9 @@
       /* Paleta por sección — overrides abajo */
       --ced-accent:#1769aa; --ced-accent-soft:#e8f2fb; --ced-accent-deep:#0c3f6b;
       --ced-contrast:#e60d76; --ced-contrast-soft:#fce4ef;
+      /* Color por sexo en la escena de género. Por defecto, los de la sección;
+         una sección puede fijar los suyos en su bloque de paleta. */
+      --ced-men:var(--ced-accent); --ced-women:var(--ced-contrast);
       --ced-shadow:0 16px 40px rgba(20,32,25,.08);
       width:100%; max-width:100%; overflow-x:hidden; color:var(--ced-ink);
       font-family:Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -29,6 +32,11 @@
     #ced-canendatos-d3[data-section="vivienda"] {
       --ced-accent:#1769aa; --ced-accent-soft:#e8f2fb; --ced-accent-deep:#0c3f6b;
       --ced-contrast:#e6792d; --ced-contrast-soft:#fbe7d6;
+      /* Hombres en verde apagado; mujeres conserva el naranja de la sección.
+         El verde es oscuro a propósito: verde y naranja son la pareja que peor
+         se distingue con daltonismo rojo-verde, y a esta luminosidad quedan en
+         ΔE 10,2 con protanopía (umbral 8). */
+      --ced-men:#3d7a55;
     }
     #ced-canendatos-d3[data-section="saludmental"] {
       --ced-accent:#0a8a4d; --ced-accent-soft:#e8fbf0; --ced-accent-deep:#074d2a;
@@ -211,6 +219,55 @@
     #ced-canendatos-d3 .ced-legend { display:flex; gap:14px; align-items:center; flex-wrap:wrap; padding:6px 0 0; font-size:12px; color:var(--ced-muted); }
     #ced-canendatos-d3 .ced-legend-swatch { display:inline-block; width:14px; height:14px; border-radius:3px; margin-right:6px; vertical-align:middle; }
 
+    /* Matriz de variables (Cómo se construye) -------------------------------- */
+    #ced-canendatos-d3 .ced-vm { border:1px solid var(--ced-line); border-radius:10px; background:var(--ced-surface); overflow:hidden; }
+    #ced-canendatos-d3 .ced-vm .ced-method-flow-title { margin:14px 16px 12px; }
+    #ced-canendatos-d3 .ced-vm-table { width:100%; border-collapse:collapse; font-size:13px; line-height:1.45; }
+    #ced-canendatos-d3 .ced-vm-table th { background:var(--ced-accent-deep); color:#fff; text-align:left; font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.05em; padding:9px 12px; }
+    #ced-canendatos-d3 .ced-vm-table td { padding:11px 12px; border-top:1px solid var(--ced-line); vertical-align:top; color:var(--ced-ink); }
+    #ced-canendatos-d3 .ced-vm-table tbody tr:nth-child(even) td { background:#fbfcfd; }
+    #ced-canendatos-d3 .ced-vm-name { min-width:150px; }
+    #ced-canendatos-d3 .ced-vm-name strong { display:block; font-weight:760; color:var(--ced-accent-deep); }
+    #ced-canendatos-d3 .ced-vm-sub { display:block; margin-top:3px; color:var(--ced-muted); font-size:12px; }
+    #ced-canendatos-d3 .ced-vm-pill { display:inline-block; white-space:nowrap; border:1px solid var(--ced-line); border-radius:999px; padding:2px 8px; font-size:11px; font-weight:700; background:var(--ced-soft); color:var(--ced-muted); }
+    #ced-canendatos-d3 .ced-vm-pill[data-sexo="observado"] { background:var(--ced-accent-soft); border-color:var(--ced-accent); color:var(--ced-accent-deep); }
+    #ced-canendatos-d3 .ced-vm-pill[data-sexo="estimado"] { background:var(--ced-contrast-soft); border-color:var(--ced-contrast); color:var(--ced-ink); }
+    #ced-canendatos-d3 .ced-vm-serie { white-space:nowrap; font-variant-numeric:tabular-nums; }
+    #ced-canendatos-d3 .ced-vm-foot { margin:0; padding:10px 16px 13px; border-top:1px solid var(--ced-line); color:var(--ced-muted); font-size:12px; }
+
+    /* Filtro de género: la nota «(No desagregado)» o «(Estimación)» va en
+       pequeño. Un <select> nativo no admite dos cuerpos de letra en una misma
+       opción, así que donde el navegador soporta el select personalizable se
+       usa ese; en el resto la nota sale en el mismo cuerpo, que dice lo mismo.
+       Sólo con ratón: en táctil se deja el selector del sistema. */
+    @supports (appearance: base-select) {
+      @media (hover:hover) and (pointer:fine) {
+        #ced-canendatos-d3 select[data-ced-gender],
+        #ced-canendatos-d3 select[data-ced-gender]::picker(select) { appearance:base-select; }
+        #ced-canendatos-d3 select[data-ced-gender] { display:flex; align-items:center; padding:0 12px 0 10px; }
+        /* Mismo chevrón fino que los otros dos selectores, no el triángulo
+           macizo que trae el select personalizable. */
+        #ced-canendatos-d3 select[data-ced-gender]::picker-icon {
+          content:""; width:6px; height:6px; margin:0 2px -1px auto;
+          border-right:1.5px solid currentColor; border-bottom:1.5px solid currentColor;
+          transform:translateY(-3px) rotate(45deg); transition:none;
+        }
+        #ced-canendatos-d3 select[data-ced-gender]::picker(select) {
+          border:1px solid var(--ced-line); border-radius:8px; background:var(--ced-surface);
+          box-shadow:0 10px 28px rgba(20,32,25,.14); padding:4px; margin-top:4px;
+          /* Abre hacia abajo como los otros dos selectores; por defecto el
+             navegador lo abre hacia donde haya más hueco, que suele ser arriba. */
+          position-try-order:normal;
+        }
+        #ced-canendatos-d3 select[data-ced-gender] option { padding:7px 10px; border-radius:6px; font-size:14px; color:var(--ced-ink); }
+        #ced-canendatos-d3 select[data-ced-gender] option:hover,
+        #ced-canendatos-d3 select[data-ced-gender] option:focus-visible { background:var(--ced-accent-soft); }
+        #ced-canendatos-d3 select[data-ced-gender] option:disabled { color:var(--ced-muted); background:transparent; }
+        #ced-canendatos-d3 select[data-ced-gender] option::checkmark { color:var(--ced-accent); }
+        #ced-canendatos-d3 .ced-opt-note { margin-left:.35em; font-size:11px; font-weight:500; color:var(--ced-muted); }
+      }
+    }
+
     @media (max-width:980px) {
       #ced-canendatos-d3 .ced-header-inner, #ced-canendatos-d3 .ced-main { grid-template-columns:1fr; }
       #ced-canendatos-d3 .ced-story-nav { position:static; grid-template-columns:repeat(2,minmax(0,1fr)); }
@@ -302,9 +359,28 @@
       #ced-canendatos-d3 .ced-mgender-bars .lbl { color:var(--ced-muted); }
       #ced-canendatos-d3 .ced-mgender-bars .bar { height:8px; background:var(--ced-soft); border-radius:99px; overflow:hidden; }
       #ced-canendatos-d3 .ced-mgender-bars .bar > span { display:block; height:100%; }
-      #ced-canendatos-d3 .ced-mgender-bars .bar.h > span { background:var(--ced-accent); }
-      #ced-canendatos-d3 .ced-mgender-bars .bar.m > span { background:var(--ced-contrast); }
+      #ced-canendatos-d3 .ced-mgender-bars .bar.h > span { background:var(--ced-men); }
+      #ced-canendatos-d3 .ced-mgender-bars .bar.m > span { background:var(--ced-women); }
       #ced-canendatos-d3 .ced-mgender-bars .val { font-weight:700; color:var(--ced-ink); white-space:nowrap; }
+
+      /* Matriz de variables en móvil = una ficha por indicador. Cinco columnas
+         no caben en 375px sin scroll horizontal; cada celda lleva su rótulo
+         en data-label. Los role del marcado mantienen la tabla para lectores
+         de pantalla aunque aquí deje de pintarse como tabla. */
+      #ced-canendatos-d3 .ced-vm-table thead { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); }
+      #ced-canendatos-d3 .ced-vm-table,
+      #ced-canendatos-d3 .ced-vm-table tbody,
+      #ced-canendatos-d3 .ced-vm-table tr,
+      #ced-canendatos-d3 .ced-vm-table td { display:block; width:100%; }
+      #ced-canendatos-d3 .ced-vm-table tr { border-top:1px solid var(--ced-line); padding:10px 12px; }
+      #ced-canendatos-d3 .ced-vm-table tbody tr:nth-child(even) { background:#fbfcfd; }
+      #ced-canendatos-d3 .ced-vm-table td,
+      #ced-canendatos-d3 .ced-vm-table tbody tr:nth-child(even) td { border:0; padding:3px 0; background:transparent; }
+      #ced-canendatos-d3 .ced-vm-table td[data-label]::before {
+        content:attr(data-label); display:block; margin-bottom:1px;
+        color:var(--ced-muted); font-size:10.5px; font-weight:700; text-transform:uppercase; letter-spacing:.05em;
+      }
+      #ced-canendatos-d3 .ced-vm-name { min-width:0; }
     }
   </style>
 
@@ -472,32 +548,72 @@
       id: "vivienda",
       label: "Vivienda",
       granularity: "annual",
-      tagline: "Acceso, esfuerzo y condiciones residenciales.",
+      tagline: "Acceso, renta y condiciones habitacionales.",
       eyebrow: "Canarias en Datos · Vivienda",
       title: "Vivienda: analiza las condiciones de acceso a la vivienda en todo el Estado",
       lead: "Elige el indicador que más te interese analizar, vigila su evolución temporal y la brecha de género existente. Si quieres saber algo más sobre los datos que estás visualizando, acude al apartado de metodología en «Cómo se construye».",
-      sourceLeft: "Fuentes: INE (ECV, EES) · Idealista",
-      sourceRight: "Tablas: ced_vivienda_global · ced_vivienda_gen",
+      sourceLeft: "Fuentes: INE (ECV, EAES, ECH) · Idealista",
+      sourceRight: "Elaboración: Observatorio ODESOCAN",
       hasGender: true,
+      // Opciones de presentación que, por ahora, sólo usa esta sección:
+      // - evolutionAxis "adaptive": el eje Y de la evolución se ajusta al
+      //   recorrido de la variable en lugar de arrancar en cero.
+      // - genderFilterNotes: el filtro de género avisa de si el indicador está
+      //   sin desagregar o desagregado por estimación (campo `sexo` de cada métrica).
+      evolutionAxis: "adaptive",
+      genderFilterNotes: true,
       method: [
-        { h:"Fuentes",            p:"Encuesta de Condiciones de Vida (INE), Encuesta de Estructura Salarial (INE) y portal inmobiliario Idealista. La geometría se sirve desde <code>geodesocan</code>." },
-        { h:"Actualización",      p:"Mensual para los precios de venta y alquiler de Idealista; anual para el resto, por las limitaciones de publicación de las fuentes originales del INE." },
-        { h:"Estimaciones",       p:"Para todas las variables salvo precios de Idealista, el pipeline compara <strong>ARIMA · ETS · Prophet · Random Forest · XGBoost</strong> con validación temporal y elige el modelo con menor error normalizado." },
-        { h:"Brecha de género",   p:"Las series con desagregación por sexo se sirven desde <code>ced_vivienda_gen</code>; cuando la fuente no la publica se mantiene como total." },
-        { h:"Origen",             p:"Cada fila lleva la marca <code>origen = real | proyeccion</code>. Si al menos una variable es proyectada, la fila se etiqueta como proyección." },
-        { h:"Almacenamiento",     p:"El pipeline persiste en la base de datos del Observatorio (<code>canendatos.ced_vivienda_global</code> y <code>canendatos.ced_vivienda_gen</code>) y publica también CSV." }
+        { h:"Fuentes",            p:"Encuesta de Condiciones de Vida (<strong>ECV</strong>), Encuesta Anual de Estructura Salarial (<strong>EAES</strong>) y Encuesta Continua de Hogares (<strong>ECH</strong>) del INE, y precios de oferta del portal inmobiliario <strong>Idealista</strong>. El mapa usa las regiones NUTS-2 de Eurostat." },
+        { h:"Actualización",      p:"Los precios de Idealista se incorporan a medida que se publican. Los indicadores del INE son anuales y siguen el calendario de cada encuesta. La matriz de variables indica hasta qué año llega cada serie." },
+        { h:"Salario destinado al alquiler", p:"Es la renta de una vivienda tipo de <strong>80 m²</strong> sobre el salario bruto mensual mediano. La superficie es la misma que usa la sección de Empleo; allí se divide entre el salario medio y aquí entre el mediano, que pesa menos los sueldos más altos." },
+        { h:"Brecha de género",   p:"El salario destinado al alquiler y los hogares monoparentales se publican por sexo. Para los cuatro indicadores de la ECV, el INE sólo publica la diferencia entre hombres y mujeres para el conjunto del Estado: se aplica esa diferencia a cada comunidad, así que la brecha es una <strong>estimación</strong> y en los años con dato publicado es igual en todas. Los precios no están desagregados por sexo." },
+        { h:"Estimaciones",       p:"Para los indicadores del INE se comparan <strong>ARIMA · ETS · Prophet · Random Forest · XGBoost</strong> con validación temporal y se aplica el modelo con menor error normalizado para proyectar hasta 2026. Los precios de Idealista no se proyectan." },
+        { h:"Origen",             p:"Cada dato se marca como <strong>real</strong> o <strong>proyección</strong>. En los gráficos de evolución, los puntos huecos señalan proyecciones." }
       ],
       // Paleta para el coroplético
       mapPalette: ["#e8f2fb","#cbe1f2","#9bc4e1","#5a98c8","#1769aa","#0c3f6b"],
+      // `sexo` describe cómo llega la desagregación: "observado" (la fuente la
+      // publica por comunidad), "estimado" (brecha estatal aplicada a cada
+      // comunidad) o "no" (sin desagregar).
       metrics: {
-        precio_alquiler:   { label:"Precio del alquiler",          short:"Alquiler",        unit:"€/mes",  fmt:",.1f", suffix:" €/mes" },
-        precio_venta:      { label:"Precio de venta",              short:"Venta",           unit:"€/m²",   fmt:",.1f", suffix:" €/m²" },
-        salario_destinado: { label:"Salario destinado al alquiler",short:"Esfuerzo",        unit:"%",      fmt:",.1f", suffix:" %" },
-        gasto_elevado:     { label:"Gasto elevado en vivienda",    short:"Gasto elevado",   unit:"%",      fmt:",.1f", suffix:" %" },
-        retrasos_pagos:    { label:"Retrasos en pagos",            short:"Retrasos",        unit:"%",      fmt:",.1f", suffix:" %" },
-        dif_finmes:        { label:"Dificultad para llegar a fin de mes", short:"Fin de mes", unit:"%",  fmt:",.1f", suffix:" %" },
-        espacio_insuf:     { label:"Espacio insuficiente",         short:"Espacio insuf.",  unit:"%",      fmt:",.1f", suffix:" %" },
-        hogares_mono:      { label:"Hogares monoparentales",       short:"Monoparentales",  unit:"miles",  fmt:",.1f", suffix:" mil" }
+        precio_alquiler:   { label:"Precio del alquiler por m²",   short:"Alquiler",        unit:"€/m² al mes",     fmt:",.2f", suffix:" €/m²", sexo:"no" },
+        precio_venta:      { label:"Precio de venta por m²",       short:"Venta",           unit:"€/m²",            fmt:",.0f", suffix:" €/m²", sexo:"no" },
+        salario_destinado: { label:"Salario destinado al alquiler",short:"Esfuerzo",        unit:"% del salario",   fmt:",.1f", suffix:" %",    sexo:"observado" },
+        gasto_elevado:     { label:"Gasto elevado en vivienda",    short:"Gasto elevado",   unit:"% de población",  fmt:",.1f", suffix:" %",    sexo:"estimado" },
+        retrasos_pagos:    { label:"Retrasos en pagos",            short:"Retrasos",        unit:"% de población",  fmt:",.1f", suffix:" %",    sexo:"estimado" },
+        dif_finmes:        { label:"Mucha dificultad para llegar a fin de mes", short:"Fin de mes", unit:"% de población", fmt:",.1f", suffix:" %", sexo:"estimado" },
+        espacio_insuf:     { label:"Espacio insuficiente",         short:"Espacio insuf.",  unit:"% de población",  fmt:",.1f", suffix:" %",    sexo:"estimado" },
+        hogares_mono:      { label:"Hogares monoparentales",       short:"Monoparentales",  unit:"miles de hogares",fmt:",.1f", suffix:" mil",  sexo:"observado" }
+      },
+      // Matriz de variables de «Cómo se construye». El año de inicio y fin de
+      // cada serie no se escribe aquí: se lee de los datos al pintarla.
+      variables: {
+        precio_alquiler:   { mide:"Precio medio de oferta de la vivienda en alquiler.",
+                             calculo:"Media anual de los meses publicados en cada comunidad. El último año refleja el mes más reciente. No se proyecta.",
+                             fuente:"Idealista" },
+        precio_venta:      { mide:"Precio medio de oferta de la vivienda en venta.",
+                             calculo:"Media de las provincias de cada comunidad. El último año refleja el mes más reciente disponible. No se proyecta.",
+                             fuente:"Idealista" },
+        salario_destinado: { mide:"Parte del salario mensual que se iría en alquilar una vivienda tipo de 80 m².",
+                             calculo:"(Precio del alquiler por m² × 80) ÷ (salario bruto anual mediano ÷ 12) × 100. Los años sin salario publicado usan el salario proyectado.",
+                             fuente:"Idealista · INE (EAES)",
+                             sexoNota:"Salario publicado por sexo; el alquiler es el mismo." },
+        gasto_elevado:     { mide:"Población que vive en hogares cuyo gasto en vivienda supera el 40 % de su renta disponible.",
+                             calculo:"Dato publicado por comunidad. Los años sin publicar se proyectan.",
+                             fuente:"INE (ECV)" },
+        retrasos_pagos:    { mide:"Población en hogares con retrasos en el pago de gastos de la vivienda principal (hipoteca o alquiler, recibos) o de compras a plazos en los últimos 12 meses.",
+                             calculo:"Dato publicado por comunidad. Los años sin publicar se proyectan.",
+                             fuente:"INE (ECV)" },
+        dif_finmes:        { mide:"Población en hogares que llegan a fin de mes con mucha dificultad.",
+                             calculo:"Dato publicado por comunidad. Los años sin publicar se proyectan.",
+                             fuente:"INE (ECV)" },
+        espacio_insuf:     { mide:"Población que declara falta de espacio en su vivienda.",
+                             calculo:"Dato publicado por comunidad. Los años sin publicar se proyectan.",
+                             fuente:"INE (ECV)" },
+        hogares_mono:      { mide:"Hogares formados por una madre o un padre que convive con sus hijas o hijos.",
+                             calculo:"Dato publicado por comunidad. La serie publicada termina en 2020; los años posteriores se proyectan.",
+                             fuente:"INE (ECH)",
+                             sexoNota:"Según el sexo de la persona progenitora." }
       },
       supabase: { schema:"canendatos", tables:["ced_vivienda_global","ced_vivienda_gen"] },
       csv: null,
@@ -747,8 +863,16 @@
     ]).then(([globalRows, genderRows]) => {
       const metricKeys = Object.keys(cfg.metrics);
       function flatten(rows, defaultGender) {
-        // Agregamos por (ccaa, periodo_año, genero) — si la fuente trae meses para precios,
+        // Agregamos por (ccaa, periodo_año, genero, origen) — si la fuente trae meses para precios,
         // tomamos la media anual para mantener la grilla anual del hub.
+        //
+        // El origen va en la clave porque las tablas guardan en filas distintas
+        // lo real y lo proyectado de un mismo año: en 2021, por ejemplo, los
+        // hogares monoparentales ya son proyección y los precios siguen siendo
+        // dato. Fundidas en un solo cubo, la fila heredaba el origen de la que
+        // llegara primero y el tooltip podía llamar «dato real» a una
+        // proyección. Separadas, cada métrica sólo tiene valor en su fila, y
+        // los render —que filtran por métrica no nula— leen su propio origen.
         const buckets = new Map();
         rows.forEach(d => {
           const ccaa = normalizeCcaa(d.ccaa);
@@ -757,10 +881,11 @@
           if (!periodKey) return;
           const periodNum = periodKeyToNum(periodKey, cfg.granularity);
           const gen = (d.genero || d.sexo || defaultGender || "total").toLowerCase();
-          const key = `${ccaa}|${periodKey}|${gen}`;
+          const origen = d.origen || "real";
+          const key = `${ccaa}|${periodKey}|${gen}|${origen}`;
           let bucket = buckets.get(key);
           if (!bucket) {
-            bucket = { ccaa, period: periodKey, periodo: periodNum, genero: gen, origen: d.origen || "real", _counts:{} };
+            bucket = { ccaa, period: periodKey, periodo: periodNum, genero: gen, origen, _counts:{} };
             metricKeys.forEach(k => { bucket[k] = null; bucket._counts[k] = 0; });
             buckets.set(key, bucket);
           }
@@ -1206,6 +1331,7 @@
 
     // Mostrar/ocultar selector de género según soporte de la sección
     els.genderControl.style.display = cfg.hasGender ? "" : "none";
+    syncGenderOptions();
     els.genderSel.value = state.gender;
 
     // Story steps: ocultar paso de género si no aplica
@@ -1248,7 +1374,100 @@
             <h3>${m.h}</h3>
             <p>${m.p}</p>
           </div>`).join("")}
-      </div>`;
+      </div>
+      ${renderVariableMatrix(cfg)}`;
+  }
+
+  // Primer y último año con dato de una métrica, separando lo real de lo
+  // proyectado. Se lee de las filas cargadas para que la matriz no se quede
+  // vieja cuando entra un año nuevo.
+  function seriesSpan(sectionId, metric) {
+    const cache = state.cache[sectionId];
+    const cfg = SECTIONS[sectionId];
+    if (!cache || !cache.rows || cache.rows.length === 0) return "—";
+    const rows = cache.rows.filter(r => r.genero === "total" && r[metric] != null && r.period);
+    const span = rs => {
+      if (rs.length === 0) return null;
+      const ps = rs.map(r => r.period).sort(comparePeriodKeys);
+      const a = formatPeriodLabel(ps[0], cfg.granularity), b = formatPeriodLabel(ps[ps.length - 1], cfg.granularity);
+      return a === b ? a : `${a}–${b}`;
+    };
+    const real = span(rows.filter(r => r.origen !== "proyeccion"));
+    const proj = span(rows.filter(r => r.origen === "proyeccion"));
+    if (!real && !proj) return "—";
+    return [real, proj ? `<span class="ced-vm-sub">Proyección: ${proj}</span>` : ""].filter(Boolean).join("");
+  }
+
+  const SEXO_LABELS = {
+    observado: { pill:"Sí",              nota:"Publicado por la fuente." },
+    estimado:  { pill:"Estimación",      nota:"Brecha estatal aplicada a cada comunidad." },
+    no:        { pill:"No desagregado",  nota:"" }
+  };
+
+  function renderVariableMatrix(cfg) {
+    if (!cfg.variables) return "";
+    const rows = Object.keys(cfg.metrics).filter(k => cfg.variables[k]).map(k => {
+      const meta = cfg.metrics[k], v = cfg.variables[k];
+      const sexo = SEXO_LABELS[meta.sexo] ? meta.sexo : "no";
+      const nota = v.sexoNota || SEXO_LABELS[sexo].nota;
+      return `
+        <tr role="row">
+          <td role="cell" class="ced-vm-name"><strong>${meta.label}</strong><span class="ced-vm-sub">${meta.unit}</span></td>
+          <td role="cell" data-label="Qué mide y cómo se calcula">${v.mide}<span class="ced-vm-sub">${v.calculo}</span></td>
+          <td role="cell" data-label="Fuente">${v.fuente}</td>
+          <td role="cell" data-label="Por sexo"><span class="ced-vm-pill" data-sexo="${sexo}">${SEXO_LABELS[sexo].pill}</span>${nota ? `<span class="ced-vm-sub">${nota}</span>` : ""}</td>
+          <td role="cell" data-label="Serie" class="ced-vm-serie">${seriesSpan(cfg.id, k)}</td>
+        </tr>`;
+    }).join("");
+    return `
+      <section class="ced-vm" aria-labelledby="ced-vm-title-${cfg.id}">
+        <div class="ced-method-flow-title" id="ced-vm-title-${cfg.id}">Matriz de variables</div>
+        <table class="ced-vm-table" role="table">
+          <thead role="rowgroup">
+            <tr role="row">
+              <th role="columnheader" scope="col">Indicador</th>
+              <th role="columnheader" scope="col">Qué mide y cómo se calcula</th>
+              <th role="columnheader" scope="col">Fuente</th>
+              <th role="columnheader" scope="col">Por sexo</th>
+              <th role="columnheader" scope="col">Serie</th>
+            </tr>
+          </thead>
+          <tbody role="rowgroup">${rows}</tbody>
+        </table>
+        <p class="ced-vm-foot">ECV: Encuesta de Condiciones de Vida · EAES: Encuesta Anual de Estructura Salarial · ECH: Encuesta Continua de Hogares.</p>
+      </section>`;
+  }
+
+  // ====== Opciones del filtro de género ===================================
+  // Con genderFilterNotes, cada opción de sexo dice cómo llega el dato del
+  // indicador elegido: «No desagregado» (y la opción se desactiva, porque
+  // elegirla dejaba el mapa y los KPIs en blanco) o «Estimación». La nota va
+  // en su propio <span> para poder pintarla en pequeño; en un select nativo
+  // se lee como texto seguido, «Hombres (No desagregado)».
+  const GENDER_LABELS = { total:"Total", hombres:"Hombres", mujeres:"Mujeres" };
+
+  function genderNoteFor(metric) {
+    const cfg = SECTIONS[state.section];
+    if (!cfg.genderFilterNotes || !metric) return null;
+    if (!genderAvailable(metric)) return "No desagregado";
+    const meta = cfg.metrics[metric];
+    return meta && meta.sexo === "estimado" ? "Estimación" : null;
+  }
+
+  function syncGenderOptions() {
+    const note = genderNoteFor(state.metric);
+    const blocked = note === "No desagregado";
+    Array.from(els.genderSel.options).forEach(opt => {
+      const isSex = opt.value !== "total";
+      opt.textContent = GENDER_LABELS[opt.value] || opt.value;
+      opt.disabled = isSex && blocked;
+      if (isSex && note) {
+        const span = document.createElement("span");
+        span.className = "ced-opt-note";
+        span.textContent = ` (${note})`;
+        opt.appendChild(span);
+      }
+    });
   }
 
   function rebuildPeriodSelector() {
@@ -1268,6 +1487,10 @@
   // ====== Eventos ==========================================================
   els.metricSel.addEventListener("change", () => {
     state.metric = els.metricSel.value;
+    // Si el indicador nuevo no está desagregado, la opción de sexo elegida
+    // queda desactivada: se vuelve al total en vez de enseñar una vista vacía.
+    if (genderNoteFor(state.metric) === "No desagregado") state.gender = "total";
+    syncGenderOptions();
     // Reajustar periodo al mejor disponible para la nueva metrica con el genero actual
     state.period = bestPeriodFor(state.metric, state.gender, state.period);
     rebuildPeriodSelector();
@@ -1372,9 +1595,12 @@
     const sorted = ccaaOnly.slice().sort((a,b) => d3.ascending(a[state.metric], b[state.metric]));
     const lo = sorted[0]; const hi = sorted[sorted.length-1];
     const nat = stateMean(state.metric, state.period, state.gender);
+    // stateMean sólo pondera si las filas traen población (censo); si no, es
+    // la media simple de las comunidades y la nota tiene que decirlo.
+    const ponderada = ccaaOnly.some(r => r.censo > 0);
     const periodLabel = formatPeriodLabel(state.period, cfg.granularity, { long: cfg.granularity === "monthly" });
     const cards = [
-      { label:`Media estatal · ${periodLabel}`, value: fmtVal(state.metric, nat), note:`${meta.unit} · ponderada` },
+      { label:`Media estatal · ${periodLabel}`, value: fmtVal(state.metric, nat), note:`${meta.unit} · ${ponderada ? "ponderada" : "media simple"}` },
       { label:`Canarias · ${periodLabel}`,      value: fmtVal(state.metric, can ? can[state.metric] : null),
         note: (can && nat != null && can[state.metric] != null)
           ? `${can[state.metric] >= nat ? "+" : ""}${d3.format(meta.fmt)(can[state.metric] - nat)} vs media`
@@ -1571,6 +1797,16 @@
     wrap.appendChild(list);
   }
 
+  // Vista de género sin filas que comparar. Si es porque el indicador no está
+  // desagregado, se dice eso: «no hay datos para 2025» invita a probar otro
+  // año, y no hay año en el que vaya a haberlos.
+  function genderEmptyHtml(meta, periodLabel) {
+    if (genderNoteFor(state.metric) === "No desagregado") {
+      return `<div class="ced-loading"><strong>${meta.label}</strong> no está desagregado por sexo en su fuente. Elige otro indicador para ver la brecha de género.</div>`;
+    }
+    return `<div class="ced-loading">No hay datos por género para ${meta.label} en ${periodLabel}.</div>`;
+  }
+
   // ====== Render móvil: brecha de género (cards apiladas) =================
   function renderMobileGender(wrap) {
     const cfg = SECTIONS[state.section];
@@ -1587,7 +1823,7 @@
     }).filter(Boolean).sort((a, b) => d3.descending(Math.abs(a.gap), Math.abs(b.gap)));
 
     if (rows.length === 0) {
-      wrap.innerHTML = `<div class="ced-loading">No hay datos por género para ${meta.label} en ${formatPeriodLabel(state.period, cfg.granularity, { long: cfg.granularity === "monthly" })}.</div>`;
+      wrap.innerHTML = genderEmptyHtml(meta, formatPeriodLabel(state.period, cfg.granularity, { long: cfg.granularity === "monthly" }));
       return;
     }
     const maxAbs = d3.max(rows, r => Math.max(r.men, r.women));
@@ -1670,6 +1906,16 @@
      valores y la banda enseña la dispersión real, que es lo que evita
      leer una pendiente como si fuera un desplome.
      ====================================================================== */
+  /* Dominio del eje Y ajustado al recorrido de los valores, con un margen
+     proporcional. Si los valores no bajan de cero, el eje tampoco: un
+     porcentaje o un precio con ticks negativos es un artefacto del margen,
+     no un dato. */
+  function adaptiveDomain(values, margen) {
+    const lo = d3.min(values), hi = d3.max(values);
+    const aire = (hi - lo) * margen || Math.abs(hi * 0.05) || 1;
+    return [lo >= 0 ? Math.max(0, lo - aire) : lo - aire, hi + aire];
+  }
+
   function renderEvolutionMobile(wrap, cfg, meta, series, stateLine) {
     const w = wrap.clientWidth || 360;
     const h = 400;
@@ -1703,12 +1949,10 @@
       .concat(canarias ? canarias.values.map(v => v[state.metric]) : [])
       .concat(elegida ? elegida.values.map(v => v[state.metric]) : [])
       .filter(v => v != null);
-    const lo = d3.min(dibujado), hi = d3.max(dibujado);
-    const aire = (hi - lo) * 0.08 || Math.abs(hi * 0.05) || 1;
 
     const svg = d3.select(wrap).append("svg").attr("viewBox", `0 0 ${w} ${h}`);
     const x = d3.scaleLinear().domain(d3.extent(porPeriodo, p => p.periodo)).range([m.left, w - m.right]);
-    const y = d3.scaleLinear().domain([lo - aire, hi + aire]).nice().range([h - m.bottom, m.top]);
+    const y = d3.scaleLinear().domain(adaptiveDomain(dibujado, 0.08)).nice().range([h - m.bottom, m.top]);
 
     svg.append("g").attr("class", "ced-grid").attr("transform", `translate(${m.left},0)`)
       .call(d3.axisLeft(y).ticks(4).tickSize(-(w - m.left - m.right)).tickFormat(""))
@@ -1722,10 +1966,10 @@
       .call(d3.axisBottom(x).ticks(4).tickFormat(xTickFormat));
     svg.append("g").attr("class", "ced-axis").attr("transform", `translate(${m.left},0)`)
       .call(d3.axisLeft(y).ticks(4).tickFormat(d => d3.format(meta.fmt)(d)));
-    // El eje no empieza en cero, así que conviene decir qué se está midiendo.
+    // Si el eje no empieza en cero, conviene decirlo junto a qué se mide.
     svg.append("text").attr("x", m.left).attr("y", 13)
       .attr("fill", "var(--ced-muted)").attr("font-size", 11)
-      .text(`${meta.short} (${meta.unit}) · el eje no parte de cero`);
+      .text(`${meta.short} (${meta.unit})${y.domain()[0] > 0 ? " · el eje no parte de cero" : ""}`);
 
     // Banda intercuartílica
     svg.append("path").datum(porPeriodo.filter(p => p.q1 != null))
@@ -1851,7 +2095,21 @@
 
     const svg = d3.select(wrap).append("svg").attr("viewBox", `0 0 ${w} ${h}`);
     const x = d3.scaleLinear().domain(d3.extent(all, r => r.periodo)).range([m.left, w - m.right]);
-    const y = d3.scaleLinear().domain([0, d3.max(all, r => r[state.metric])]).nice().range([h - m.bottom, m.top]);
+    // Eje Y: desde cero por defecto. Con evolutionAxis "adaptive" se ajusta al
+    // recorrido de la variable, como ya hace la vista móvil: en series que se
+    // mueven en una banda estrecha —un 8-12 % de población, un precio que va
+    // de 1.500 a 3.000 €/m²— el cero se come la mitad del alto del gráfico.
+    // Entran en el dominio también los valores de la media estatal.
+    const adaptive = cfg.evolutionAxis === "adaptive";
+    const yDomain = adaptive
+      ? adaptiveDomain(all.map(r => r[state.metric]).concat(stateLine.map(d => d.value)), 0.04)
+      : [0, d3.max(all, r => r[state.metric])];
+    const y = d3.scaleLinear().domain(yDomain).nice().range([h - m.bottom, m.top]);
+    // .nice() redondea hacia fuera al paso de los ticks. Con diecisiete series
+    // el mínimo suele quedar lejos del máximo —precio de venta: 644 frente a
+    // 6.157 €/m²— y el redondeo devolvía el suelo a cero, que es justo lo que
+    // se quería evitar. Se redondea sólo el techo.
+    if (adaptive) y.domain([yDomain[0], y.domain()[1]]);
     const line = d3.line().defined(d => d[state.metric] != null).x(d => x(d.periodo)).y(d => y(d[state.metric]));
     const stateLineGen = d3.line().x(d => x(d.periodo)).y(d => y(d.value));
 
@@ -1874,7 +2132,8 @@
     svg.append("g").attr("class","ced-axis").attr("transform", `translate(${m.left},0)`)
       .call(d3.axisLeft(y).ticks(5).tickFormat(d => d3.format(meta.fmt)(d)));
     svg.append("text").attr("x", m.left).attr("y", 14)
-      .attr("fill","var(--ced-muted)").attr("font-size", 12).text(`${meta.short} (${meta.unit})`);
+      .attr("fill","var(--ced-muted)").attr("font-size", 12)
+      .text(`${meta.short} (${meta.unit})${y.domain()[0] > 0 ? " · el eje no parte de cero" : ""}`);
 
     const stateLayer = svg.append("g");
     const lineLayer  = svg.append("g");
@@ -1972,7 +2231,7 @@
     }).filter(Boolean).sort((a,b) => d3.descending(Math.abs(a.gap), Math.abs(b.gap)));
 
     if (rows.length === 0) {
-      wrap.innerHTML = `<div class="ced-loading">No hay datos por género para ${meta.label} en ${yr}.</div>`;
+      wrap.innerHTML = genderEmptyHtml(meta, yr);
       return;
     }
     const w = wrap.clientWidth || 720;
@@ -2001,11 +2260,11 @@
     rowGroups.append("circle").attr("class","ced-men-dot")
       .attr("cx", r => x(r.men)).attr("cy", r => y(r.ccaa) + y.bandwidth()/2)
       .attr("r", r => r.ccaa === "Canarias" ? 5.5 : 4.2)
-      .attr("fill","var(--ced-accent)");
+      .attr("fill","var(--ced-men)");
     rowGroups.append("circle").attr("class","ced-women-dot")
       .attr("cx", r => x(r.women)).attr("cy", r => y(r.ccaa) + y.bandwidth()/2)
       .attr("r", r => r.ccaa === "Canarias" ? 5.5 : 4.2)
-      .attr("fill","var(--ced-contrast)");
+      .attr("fill","var(--ced-women)");
     rowGroups.append("text")
       .attr("x", w - mg.right + 12).attr("y", r => y(r.ccaa) + y.bandwidth()/2).attr("dy","0.35em")
       .attr("fill", r => r.ccaa === "Canarias" ? "var(--ced-accent-deep)" : "var(--ced-muted)")
@@ -2030,10 +2289,15 @@
         rowGroups.attr("opacity", 1); hideTip();
       });
 
-    svg.append("circle").attr("cx", mg.left).attr("cy", 18).attr("r", 4).attr("fill","var(--ced-accent)");
+    svg.append("circle").attr("cx", mg.left).attr("cy", 18).attr("r", 4).attr("fill","var(--ced-men)");
     svg.append("text").attr("x", mg.left + 9).attr("y", 22).attr("font-size", 12).attr("fill","var(--ced-muted)").text("Hombres");
-    svg.append("circle").attr("cx", mg.left + 90).attr("cy", 18).attr("r", 4).attr("fill","var(--ced-contrast)");
+    svg.append("circle").attr("cx", mg.left + 90).attr("cy", 18).attr("r", 4).attr("fill","var(--ced-women)");
     svg.append("text").attr("x", mg.left + 99).attr("y", 22).attr("font-size", 12).attr("fill","var(--ced-muted)").text("Mujeres");
+    if (meta.sexo === "estimado") {
+      svg.append("text").attr("x", w - mg.right + 100).attr("y", 22).attr("text-anchor","end")
+        .attr("font-size", 12).attr("fill","var(--ced-muted)")
+        .text("Estimación: brecha estatal aplicada a cada comunidad");
+    }
   }
 
   // ====== Render: metodología =============================================
@@ -2046,10 +2310,13 @@
   function render() {
     const cfg = SECTIONS[state.section];
     const meta = cfg.metrics[state.metric];
+    // Con desagregación estimada, el subtítulo lo avisa en cuanto se mira por sexo.
+    const estimado = meta.sexo === "estimado";
+    const generoTxt = state.gender + (estimado && state.gender !== "total" ? " (estimación)" : "");
     const titles = {
-      context:  { t:"Situar Canarias",   s:`Mapa coroplético · ${meta.label} · ${state.period} · género: ${state.gender}` },
-      evolution:{ t:"Evolución",         s:`Serie temporal de ${meta.label} · género: ${state.gender}` },
-      gender:   { t:"Brecha de género",  s:`${meta.label} por CCAA · ${state.period} (hombres vs mujeres)` },
+      context:  { t:"Situar Canarias",   s:`Mapa coroplético · ${meta.label} · ${state.period} · género: ${generoTxt}` },
+      evolution:{ t:"Evolución",         s:`Serie temporal de ${meta.label} · género: ${generoTxt}` },
+      gender:   { t:"Brecha de género",  s:`${meta.label} por CCAA · ${state.period} (hombres vs mujeres)${estimado ? " · estimación: brecha estatal aplicada a cada comunidad" : ""}` },
       method:   { t:"Cómo se construye", s:"Pipeline ETL del Observatorio · R + D3" }
     };
     els.title.textContent = titles[state.step].t;
