@@ -687,33 +687,41 @@
       tagline: "SAAD: cobertura, los tres limbos y feminización del cuidado.",
       eyebrow: "Canarias en Datos · Dependencia",
       title: "Dependencia: analiza el Sistema para la Autonomía y Atención a la Dependencia",
-      lead: "Elige el indicador que más te interese analizar, vigila su evolución temporal y la brecha de género existente. Si quieres saber algo más sobre los datos que estás visualizando, acude al apartado de metodología en «Cómo se construye».",
+      lead: "Elige el indicador que más te interese analizar, compara comunidades y vigila su evolución mes a mes. Si quieres saber algo más sobre los datos que estás visualizando, acude al apartado de metodología en «Cómo se construye».",
       sourceLeft: "Fuente: IMSERSO · Estadísticas mensuales SAAD",
-      sourceRight: "Tablas: ced_dependencia_global · ced_dependencia_gen",
+      sourceRight: "Elaboración: Observatorio ODESOCAN",
       hasGender: true,
+      // Mismas opciones de presentación que Vivienda (ver su bloque). Ningún
+      // indicador llega desagregado por sexo: el filtro lo dice y la escena
+      // de género lo explica en lugar de pintar una brecha.
+      evolutionAxis: "adaptive",
+      genderFilterNotes: true,
       method: [
-        { h:"Fuente",                 p:"Estadísticas mensuales del <strong>SAAD</strong> publicadas por el IMSERSO en formato xlsx desde 2023. El pipeline procesa varias hojas operativas: solicitudes, beneficiarios, dictámenes, pendientes de resolución, pendientes de PIA, beneficiarios efectivos, tiempos de espera y perfil del cuidador por CCAA." },
-        { h:"Denominador PPD",        p:"Los indicadores con sufijo <code>(% PPD)</code> se relativizan respecto a la <strong>Población Potencialmente Dependiente</strong> (≥65 años + 16-64 con discapacidad). Fuente primaria: <code>general.censo_ppd</code>. Fallback: hoja <code>22solcasaadpot</code>. El dato se almacena ya como porcentaje de la PPD (×100), sin transformaciones de display en el cliente." },
-        { h:"Los tres limbos",        p:"El flujo administrativo del SAAD encadena tres cuellos de botella relativizados a la PPD: <strong>limbo del grado</strong> (sin dictamen, sheet 10pendResol), <strong>limbo del PIA</strong> (con dictamen pero sin Programa Individual de Atención, sheet 10pendPrest) y <strong>limbo de las prestaciones</strong> (con PIA pero sin prestación efectiva, sheet 12BenefEfect col 5). Son fenómenos administrativos distintos, no medidas redundantes." },
-        { h:"Imputación género",      p:"El IMSERSO no publica solicitudes, pendientes ni tiempos por sexo en sus hojas mensuales. Sólo el perfil del cuidador (61aperfcuidadorCCAA) cruza CCAA × género. La tabla <code>ced_dependencia_gen</code> aplica este ratio como factor de escala, marcado <code>origen_genero='estimado'</code>. <strong>Es una aproximación, no datos oficiales desagregados.</strong>" },
-        { h:"Modelado",               p:"El pipeline compara <strong>ARIMA · ETS · Random Forest · XGBoost</strong> con validación cruzada temporal rolling-origin (3 folds, NMAE) y aplica el algoritmo con menor error global. Prophet se descarta por defecto al tener NMAE ~4× peor en series mensuales cortas. Horizonte de proyección: 6 meses adelante." },
-        { h:"Almacenamiento",         p:"El pipeline persiste en la base de datos del Observatorio (<code>canendatos.ced_dependencia_global</code> y <code>canendatos.ced_dependencia_gen</code>) y publica también CSV/XLSX. Las geometrías para el mapa se sirven desde NUTS-2 de Eurostat." }
+        { h:"Fuente",                 p:"Estadísticas mensuales del Sistema para la Autonomía y Atención a la Dependencia (<strong>SAAD</strong>) que publica el <strong>IMSERSO</strong> desde enero de 2023: solicitudes, dictámenes de grado, personas beneficiarias, prestaciones, tiempos de espera y perfil de las personas cuidadoras por comunidad." },
+        { h:"Población potencialmente dependiente", p:"Los indicadores marcados «% PPD» se expresan sobre la <strong>Población Potencialmente Dependiente</strong>: personas de 65 años o más y de 16 a 64 años con discapacidad reconocida. La PPD es anual y se aplica a todos los meses del año." },
+        { h:"Los tres limbos",        p:"El trámite del SAAD encadena tres esperas, cada una sobre la PPD: el <strong>limbo del grado</strong> (solicitud sin dictamen), el <strong>limbo del PIA</strong> (con dictamen, pero sin Programa Individual de Atención) y el <strong>limbo de las prestaciones</strong> (con PIA, pero sin prestación efectiva). Son situaciones distintas, no tres medidas de lo mismo." },
+        { h:"Perspectiva de género",  p:"El IMSERSO no publica por sexo y comunidad las solicitudes, las personas beneficiarias ni las esperas, así que <strong>ningún indicador de esta sección está desagregado por sexo</strong>. La perspectiva de género se lee en dos indicadores: el porcentaje de mujeres entre las personas cuidadoras familiares y el peso de la prestación para cuidados en el entorno familiar, un cuidado que recae sobre todo en mujeres." },
+        { h:"Modelado",               p:"Se comparan <strong>ARIMA · ETS · Random Forest · XGBoost</strong> con validación cruzada temporal y se aplica el algoritmo con menor error global para proyectar los meses siguientes al último dato publicado." },
+        { h:"Origen",                 p:"Cada dato se marca como <strong>real</strong> o <strong>proyección</strong>. En los gráficos de evolución, los puntos huecos señalan proyecciones. El mapa usa las regiones NUTS-2 de Eurostat." }
       ],
       mapPalette: ["#fbe8e0","#f6c2ad","#f29478","#e8633e","#b8472f","#6e1f1a"],
       metrics: {
-        cobertura_pct_ppd:          { label:"Cobertura efectiva (% PPD)",          short:"Cobertura",           unit:"% de la PPD",                fmt:",.2f", suffix:" %" },
-        solicitudes_pct_ppd:        { label:"Solicitudes acumuladas (% PPD)",      short:"Solicitudes",         unit:"% de la PPD",                fmt:",.2f", suffix:" %" },
-        limbo_grado_pct_ppd:        { label:"Limbo del grado (% PPD)",             short:"Limbo grado",         unit:"% de la PPD",                fmt:",.2f", suffix:" %" },
-        limbo_pia_pct_ppd:          { label:"Limbo del PIA (% PPD)",               short:"Limbo PIA",           unit:"% de la PPD",                fmt:",.2f", suffix:" %" },
-        limbo_prestaciones_pct_ppd: { label:"Limbo de las prestaciones (% PPD)",   short:"Limbo prestaciones",  unit:"% de la PPD",                fmt:",.2f", suffix:" %" },
-        tiempo_espera_total_dias:   { label:"Tiempo de espera total (días)",       short:"Días espera",         unit:"días",                       fmt:",.1f", suffix:" días" },
-        pct_pecef:                  { label:"Cuidados familiares — PECEF (% prestaciones)", short:"% PECEF",    unit:"% sobre total prestaciones", fmt:",.1f", suffix:" %" },
-        pct_atencion_residencial:   { label:"Atención residencial (% prestaciones)", short:"% residencial",    unit:"% sobre total prestaciones", fmt:",.1f", suffix:" %" },
-        ratio_prest_x_benef:        { label:"Intensidad de atención",              short:"Intensidad",          unit:"prestaciones por beneficiario", fmt:",.2f", suffix:"" },
-        pct_grado3:                 { label:"Gran dependencia — Grado III (% derecho a prestación)", short:"% Grado III", unit:"% sobre resoluciones de grado", fmt:",.1f", suffix:" %" },
-        pct_mujeres_benef:          { label:"Mujeres en expedientes (%)",          short:"% mujeres",           unit:"% expedientes activos",      fmt:",.1f", suffix:" %" }
+        cobertura_pct_ppd:          { label:"Cobertura efectiva (% PPD)",          short:"Cobertura",           unit:"% de la PPD",                fmt:",.2f", suffix:" %", sexo:"no" },
+        solicitudes_pct_ppd:        { label:"Solicitudes acumuladas (% PPD)",      short:"Solicitudes",         unit:"% de la PPD",                fmt:",.2f", suffix:" %", sexo:"no" },
+        limbo_grado_pct_ppd:        { label:"Limbo del grado (% PPD)",             short:"Limbo grado",         unit:"% de la PPD",                fmt:",.2f", suffix:" %", sexo:"no" },
+        limbo_pia_pct_ppd:          { label:"Limbo del PIA (% PPD)",               short:"Limbo PIA",           unit:"% de la PPD",                fmt:",.2f", suffix:" %", sexo:"no" },
+        limbo_prestaciones_pct_ppd: { label:"Limbo de las prestaciones (% PPD)",   short:"Limbo prestaciones",  unit:"% de la PPD",                fmt:",.2f", suffix:" %", sexo:"no" },
+        tiempo_espera_total_dias:   { label:"Tiempo de espera total (días)",       short:"Días espera",         unit:"días",                       fmt:",.1f", suffix:" días", sexo:"no" },
+        pct_pecef:                  { label:"Cuidados familiares - PECEF (% prestaciones)", short:"% PECEF",    unit:"% sobre total prestaciones", fmt:",.1f", suffix:" %", sexo:"no" },
+        pct_atencion_residencial:   { label:"Atención residencial (% prestaciones)", short:"% residencial",    unit:"% sobre total prestaciones", fmt:",.1f", suffix:" %", sexo:"no" },
+        ratio_prest_x_benef:        { label:"Intensidad de atención",              short:"Intensidad",          unit:"prestaciones por beneficiario", fmt:",.2f", suffix:"", sexo:"no" },
+        pct_grado3:                 { label:"Gran dependencia - Grado III (% derecho a prestación)", short:"% Grado III", unit:"% de personas con derecho a prestación", fmt:",.1f", suffix:" %", sexo:"no" },
+        // Sale de la hoja del perfil de la persona cuidadora: sus totales
+        // coinciden con los de la prestación para cuidados en el entorno
+        // familiar. Mide la feminización del cuidado, no la de los expedientes.
+        pct_mujeres_benef:          { label:"Mujeres entre las personas cuidadoras familiares (%)", short:"% cuidadoras", unit:"% de personas cuidadoras", fmt:",.1f", suffix:" %", sexo:"no" }
       },
-      supabase: { schema:"canendatos", tables:["ced_dependencia_global","ced_dependencia_gen"] },
+      supabase: { schema:"canendatos", tables:["ced_dependencia_global"] },
       csv: null,
       loader: loadDependencia
     },
@@ -933,41 +941,32 @@
   }
 
   // -- Dependencia ----------------------------------------------------------
-  // Granularidad MENSUAL desde 2023. Combina global + gen, normalizando los
-  // valores de genero (singular -> plural) para casar con la convencion del
-  // master ("hombres"/"mujeres"). Usa `ppd` como peso para la media estatal
-  // ponderada (campo `censo` = ppd para que stateMean lo aproveche).
+  // Granularidad MENSUAL desde 2023. Sólo se lee la tabla global. La de género
+  // repartía cobertura, solicitudes y limbos con la proporción de mujeres
+  // entre las personas CUIDADORAS familiares, que no es la de las personas
+  // dependientes; el IMSERSO no publica esa desagregación por comunidad, así
+  // que la sección la presenta como no desagregada y no la descarga. Usa `ppd`
+  // como peso para la media estatal ponderada si la tabla lo trae (campo
+  // `censo` = ppd para que stateMean lo aproveche).
   function loadDependencia(cfg) {
     const metricKeys = Object.keys(cfg.metrics);
-    function normalizeGenero(raw, fallback) {
-      const s = String(raw || fallback || "total").toLowerCase().trim();
-      if (s === "hombre" || s === "hombres" || s === "h" || s === "male")   return "hombres";
-      if (s === "mujer"  || s === "mujeres" || s === "m" || s === "female") return "mujeres";
-      return s || "total";
-    }
-    return Promise.all([
-      supabaseFetchAll("ced_dependencia_global", cfg.supabase.schema).catch(() => []),
-      supabaseFetchAll("ced_dependencia_gen",    cfg.supabase.schema).catch(() => [])
-    ]).then(([globalRows, genderRows]) => {
-      function flatten(rows, defaultGenero) {
-        return rows.map(d => {
-          const ccaa = normalizeCcaa(d.ccaa);
-          if (!ccaa) return null;
-          const periodKey = parsePeriodKey(d.fecha ?? d.periodo, "monthly");
-          if (!periodKey) return null;
-          const out = {
-            ccaa,
-            period: periodKey,
-            periodo: periodKeyToNum(periodKey, "monthly"),
-            genero: normalizeGenero(d.genero, defaultGenero),
-            origen: d.origen || "real",
-            censo: num(d.ppd) || null   // PPD como peso para stateMean ponderado
-          };
-          metricKeys.forEach(k => out[k] = num(d[k]));
-          return out;
-        }).filter(Boolean);
-      }
-      return flatten(globalRows, "total").concat(flatten(genderRows, null));
+    return supabaseFetchAll("ced_dependencia_global", cfg.supabase.schema).catch(() => []).then(rows => {
+      return rows.map(d => {
+        const ccaa = normalizeCcaa(d.ccaa);
+        if (!ccaa) return null;
+        const periodKey = parsePeriodKey(d.fecha ?? d.periodo, "monthly");
+        if (!periodKey) return null;
+        const out = {
+          ccaa,
+          period: periodKey,
+          periodo: periodKeyToNum(periodKey, "monthly"),
+          genero: "total",
+          origen: d.origen || "real",
+          censo: num(d.ppd) || null   // PPD como peso para stateMean ponderado
+        };
+        metricKeys.forEach(k => out[k] = num(d[k]));
+        return out;
+      }).filter(Boolean);
     });
   }
 
@@ -1308,6 +1307,7 @@
     let gender = saved.gender || "total";
     if (!cfg.hasGender) gender = "total";
     if (gender !== "total" && cache && cache.rows && !genderAvailable(state.metric)) gender = "total";
+    if (gender !== "total" && cfg.genderFilterNotes && cfg.metrics[state.metric].sexo === "no") gender = "total";
     state.gender = gender;
 
     // Step: si el guardado es "gender" pero la sección destino no soporta género,
@@ -1484,8 +1484,10 @@
   function genderNoteFor(metric) {
     const cfg = SECTIONS[state.section];
     if (!cfg.genderFilterNotes || !metric) return null;
-    if (!genderAvailable(metric)) return "No desagregado";
     const meta = cfg.metrics[metric];
+    // `sexo: "no"` manda aunque haya filas por sexo: una desagregación que la
+    // sección ha decidido no presentar no debe colarse por el filtro.
+    if (!genderAvailable(metric) || (meta && meta.sexo === "no")) return "No desagregado";
     return meta && meta.sexo === "estimado" ? "Estimación" : null;
   }
 
@@ -1837,7 +1839,13 @@
   // año, y no hay año en el que vaya a haberlos.
   function genderEmptyHtml(meta, periodLabel) {
     if (genderNoteFor(state.metric) === "No desagregado") {
-      return `<div class="ced-loading"><strong>${meta.label}</strong> no está desagregado por sexo en su fuente. Elige otro indicador para ver la brecha de género.</div>`;
+      // Si ningún indicador de la sección lo está, no tiene sentido mandar a
+      // buscar otro.
+      const cfg = SECTIONS[state.section];
+      const alguno = Object.keys(cfg.metrics).some(k => genderNoteFor(k) !== "No desagregado");
+      return `<div class="ced-loading"><strong>${meta.label}</strong> no está desagregado por sexo en su fuente. ${alguno
+        ? "Elige otro indicador para ver la brecha de género."
+        : "En esta sección ningún indicador lo está; «Cómo se construye» explica por qué y dónde leer la perspectiva de género."}</div>`;
     }
     return `<div class="ced-loading">No hay datos por género para ${meta.label} en ${periodLabel}.</div>`;
   }
@@ -2276,6 +2284,8 @@
     const yr = formatPeriodLabel(state.period, cfg.granularity, { long: cfg.granularity === "monthly" });
     const wrap = els.chart; wrap.innerHTML = "";
     // Variante móvil: tarjetas apiladas con barras hombres/mujeres
+    // Indicador que la sección declara sin desagregar: se explica, no se pinta.
+    if (genderNoteFor(state.metric) === "No desagregado") { wrap.innerHTML = genderEmptyHtml(meta, yr); return; }
     if (isMobile()) { renderMobileGender(wrap); return; }
     const cache = state.cache[state.section];
     const all = (cache && cache.rows ? cache.rows : []).filter(r => r.period === state.period && r.ccaa !== "Media Estatal" && r[state.metric] != null);
@@ -2370,17 +2380,20 @@
     // Con desagregación estimada, el subtítulo lo avisa en cuanto se mira por sexo.
     const estimado = meta.sexo === "estimado";
     const generoTxt = state.gender + (estimado && state.gender !== "total" ? " (estimación)" : "");
+    // En secciones mensuales la clave del periodo es «2026-11»; al público se
+    // le enseña «noviembre 2026». En las anuales no cambia nada.
+    const periodoTxt = formatPeriodLabel(state.period, cfg.granularity, { long: cfg.granularity === "monthly" });
     const titles = {
-      context:  { t:"Situar Canarias",   s:`Mapa coroplético · ${meta.label} · ${state.period} · género: ${generoTxt}` },
+      context:  { t:"Situar Canarias",   s:`Mapa coroplético · ${meta.label} · ${periodoTxt} · género: ${generoTxt}` },
       evolution:{ t:"Evolución",         s:`Serie temporal de ${meta.label} · género: ${generoTxt}` },
-      gender:   { t:"Brecha de género",  s:`${meta.label} por CCAA · ${state.period} (hombres vs mujeres)${estimado ? ` · estimación: ${cfg.genderEstimateNote || "no es un dato publicado"}` : ""}` },
+      gender:   { t:"Brecha de género",  s:`${meta.label} por CCAA · ${periodoTxt} (hombres vs mujeres)${estimado ? ` · estimación: ${cfg.genderEstimateNote || "no es un dato publicado"}` : ""}` },
       method:   { t:"Cómo se construye", s:"Pipeline ETL del Observatorio · R + D3" }
     };
     els.title.textContent = titles[state.step].t;
     els.sub.textContent   = titles[state.step].s;
     const cache = state.cache[state.section];
     const srcBadge = cache && cache.error ? "Error" : "Datos en vivo";
-    els.badge.textContent = state.step === "method" ? "Documentación" : (state.period ? `${cfg.label} · ${state.period} · ${srcBadge}` : cfg.label);
+    els.badge.textContent = state.step === "method" ? "Documentación" : (state.period ? `${cfg.label} · ${periodoTxt} · ${srcBadge}` : cfg.label);
     const isMethod = state.step === "method";
     els.methodGrid.hidden = !isMethod;
     // En metodología: ocultar el chart-wrap entero (vacío crearía un hueco) y los KPIs.
