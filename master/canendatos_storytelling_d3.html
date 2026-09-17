@@ -555,13 +555,18 @@
       sourceLeft: "Fuentes: INE (ECV, EAES, ECH) · Idealista",
       sourceRight: "Elaboración: Observatorio ODESOCAN",
       hasGender: true,
-      // Opciones de presentación que, por ahora, sólo usa esta sección:
+      // Opciones de presentación por sección (las usan Vivienda y Salud mental):
       // - evolutionAxis "adaptive": el eje Y de la evolución se ajusta al
       //   recorrido de la variable en lugar de arrancar en cero.
       // - genderFilterNotes: el filtro de género avisa de si el indicador está
       //   sin desagregar o desagregado por estimación (campo `sexo` de cada métrica).
+      // - genderEstimateNote: cómo se estima el sexo cuando `sexo` es "estimado";
+      //   sale en la matriz de variables y en la escena de género.
+      // - variables / variablesNote: filas y nota al pie de la matriz de variables.
       evolutionAxis: "adaptive",
       genderFilterNotes: true,
+      genderEstimateNote: "brecha estatal aplicada a cada comunidad",
+      variablesNote: "ECV: Encuesta de Condiciones de Vida · EAES: Encuesta Anual de Estructura Salarial · ECH: Encuesta Continua de Hogares.",
       method: [
         { h:"Fuentes",            p:"Encuesta de Condiciones de Vida (<strong>ECV</strong>), Encuesta Anual de Estructura Salarial (<strong>EAES</strong>) y Encuesta Continua de Hogares (<strong>ECH</strong>) del INE, y precios de oferta del portal inmobiliario <strong>Idealista</strong>. El mapa usa las regiones NUTS-2 de Eurostat." },
         { h:"Actualización",      p:"Los precios de Idealista se incorporan a medida que se publican. Los indicadores del INE son anuales y siguen el calendario de cada encuesta. La matriz de variables indica hasta qué año llega cada serie." },
@@ -573,8 +578,8 @@
       // Paleta para el coroplético
       mapPalette: ["#e8f2fb","#cbe1f2","#9bc4e1","#5a98c8","#1769aa","#0c3f6b"],
       // `sexo` describe cómo llega la desagregación: "observado" (la fuente la
-      // publica por comunidad), "estimado" (brecha estatal aplicada a cada
-      // comunidad) o "no" (sin desagregar).
+      // publica por comunidad), "estimado" (se reconstruye; el método va en
+      // genderEstimateNote) o "no" (sin desagregar).
       metrics: {
         precio_alquiler:   { label:"Precio del alquiler por m²",   short:"Alquiler",        unit:"€/m² al mes",     fmt:",.2f", suffix:" €/m²", sexo:"no" },
         precio_venta:      { label:"Precio de venta por m²",       short:"Venta",           unit:"€/m²",            fmt:",.0f", suffix:" €/m²", sexo:"no" },
@@ -628,26 +633,48 @@
       title: "Salud mental: investiga el estado de la salud mental en todo el Estado en comparación con Canarias",
       lead: "Elige el indicador que más te interese analizar, vigila su evolución temporal y la brecha de género existente. Si quieres saber algo más sobre los datos que estás visualizando, acude al apartado de metodología en «Cómo se construye».",
       sourceLeft: "Fuentes: Ministerio de Sanidad (INCLASNS) · INE",
-      sourceRight: "Tabla: ced_saludmental",
+      sourceRight: "Elaboración: Observatorio ODESOCAN",
       hasGender: true,
+      // Mismas opciones de presentación que Vivienda (ver su bloque).
+      evolutionAxis: "adaptive",
+      genderFilterNotes: true,
+      genderEstimateNote: "consumo repartido según la brecha de la prevalencia de trastornos mentales",
+      variablesNote: "INCLASNS: Indicadores Clave del Sistema Nacional de Salud · DHD: dosis diarias definidas por cada 1.000 habitantes al día.",
       method: [
-        { h:"Fuentes",          p:"API <strong>INCLASNS</strong> (prevalencia y DHD) y <strong>INE</strong> (mortalidad por suicidio 46688, censo trimestral 56940)." },
-        { h:"Imputación género",p:"El SNS sólo publica el agregado total para los DHD: reconstruimos hombres y mujeres aplicando la brecha relativa observada en la prevalencia por género para cada CCAA y año." },
-        { h:"Variables-etiqueta",p:"Multiplicamos las tasas por el censo anual (media de los cuatro trimestres) para mostrar valores absolutos en los tooltips: personas, dosis y muertes." },
-        { h:"Modelado",         p:"El pipeline compara <strong>ARIMA · ETS · Prophet · Random Forest · XGBoost</strong> con validación cruzada temporal (3 folds, NMAE) y aplica el algoritmo con menor error global. Proyección hasta 2026." },
-        { h:"Actualización",    p:"Anual. La extracción consume APIs públicas, normaliza códigos CCAA, integra el censo trimestral y persiste un único dataset en la base de datos del Observatorio (<code>canendatos.ced_saludmental</code>)." },
-        { h:"Origen",           p:"Cada fila lleva la marca <code>origen = real | proyeccion</code>. Si al menos una variable es proyectada, la fila se marca como proyección." }
+        { h:"Fuentes",          p:"Indicadores Clave del Sistema Nacional de Salud (<strong>INCLASNS</strong>) del Ministerio de Sanidad para la prevalencia de trastornos mentales y el consumo de antidepresivos e hipnosedantes, y el <strong>INE</strong> para la mortalidad por suicidio y las cifras de población." },
+        { h:"Brecha de género estimada", p:"El Ministerio publica la prevalencia de trastornos mentales por sexo, pero el consumo de antidepresivos e hipnosedantes sólo como total. Hombres y mujeres se <strong>estiman</strong> a partir de la brecha de la prevalencia en cada comunidad y año: si las mujeres registran el doble de trastornos que los hombres, se les asigna el doble de consumo por habitante, y el reparto se ajusta para que, ponderado por la población de cada sexo, dé el total publicado. Supone que el consumo se reparte por sexo igual que los trastornos, así que no es un dato publicado. La prevalencia y la tasa de suicidio sí llegan desagregadas por sexo." },
+        { h:"Variables-etiqueta",p:"Multiplicamos las tasas por la población de cada año (media de los cuatro trimestres) para mostrar valores absolutos en los tooltips: personas, dosis y muertes." },
+        { h:"Modelado",         p:"Se comparan <strong>ARIMA · ETS · Prophet · Random Forest · XGBoost</strong> con validación cruzada temporal y se aplica el algoritmo con menor error global para proyectar hasta 2026." },
+        { h:"Actualización",    p:"Anual, según el calendario de publicación del Ministerio de Sanidad y del INE. La matriz de variables indica hasta qué año llega cada serie." },
+        { h:"Origen",           p:"Cada dato se marca como <strong>real</strong> o <strong>proyección</strong>. En los gráficos de evolución, los puntos huecos señalan proyecciones." }
       ],
       mapPalette: ["#e8fbf0","#bde8d2","#7ddca8","#3cc880","#0a8a4d","#063a20"],
       metrics: {
-        t_mental:         { label:"Prevalencia de trastornos mentales", short:"Trastornos mentales", unit:"% población", fmt:",.1f", suffix:" %",
+        t_mental:         { label:"Prevalencia de trastornos mentales", short:"Trastornos mentales", unit:"% población", fmt:",.1f", suffix:" %", sexo:"observado",
                             extra: r => r.n_personas_tm ? `≈ ${d3.format(",.0f")(r.n_personas_tm).replace(/,/g,".")} personas` : null },
-        antidep_ajustado: { label:"Consumo de antidepresivos (DHD)",    short:"Antidepresivos",      unit:"DHD",         fmt:",.1f", suffix:" DHD",
+        antidep_ajustado: { label:"Consumo de antidepresivos (DHD)",    short:"Antidepresivos",      unit:"DHD",         fmt:",.1f", suffix:" DHD", sexo:"estimado",
                             extra: r => r.antidep_anual_total ? `≈ ${d3.format(",.0f")(r.antidep_anual_total).replace(/,/g,".")} dosis/año` : null },
-        hipno_ajustado:   { label:"Consumo de hipnosedantes (DHD)",     short:"Hipnosedantes",       unit:"DHD",         fmt:",.1f", suffix:" DHD",
+        hipno_ajustado:   { label:"Consumo de hipnosedantes (DHD)",     short:"Hipnosedantes",       unit:"DHD",         fmt:",.1f", suffix:" DHD", sexo:"estimado",
                             extra: r => r.hipno_anual_total ? `≈ ${d3.format(",.0f")(r.hipno_anual_total).replace(/,/g,".")} dosis/año` : null },
-        suicidios:        { label:"Tasa de suicidio",                   short:"Suicidios",           unit:"/100.000 hab.",fmt:",.2f", suffix:" /100k",
+        suicidios:        { label:"Tasa de suicidio",                   short:"Suicidios",           unit:"/100.000 hab.",fmt:",.2f", suffix:" /100k", sexo:"observado",
                             extra: r => r.n_suicidios ? `≈ ${d3.format(",.0f")(r.n_suicidios).replace(/,/g,".")} muertes` : null }
+      },
+      variables: {
+        t_mental:         { mide:"Porcentaje de la población con un trastorno mental registrado (prevalencia registrada).",
+                            calculo:"Publicado para hombres y mujeres. El total se calcula ponderando ambos por la población de cada comunidad y año. Los años sin publicar se proyectan.",
+                            fuente:"Ministerio de Sanidad (INCLASNS)",
+                            sexoNota:"Publicado por sexo; el total es la media ponderada por población." },
+        antidep_ajustado: { mide:"Dosis diarias definidas de antidepresivos por cada 1.000 habitantes al día (DHD).",
+                            calculo:"Total publicado por comunidad. Los años sin publicar se proyectan.",
+                            fuente:"Ministerio de Sanidad (INCLASNS)",
+                            sexoNota:"Mujeres = hombres × (prevalencia de mujeres ÷ prevalencia de hombres); ponderados por población, suman el total publicado." },
+        hipno_ajustado:   { mide:"Dosis diarias definidas de hipnóticos y sedantes por cada 1.000 habitantes al día (DHD).",
+                            calculo:"Total publicado por comunidad. Los años sin publicar se proyectan.",
+                            fuente:"Ministerio de Sanidad (INCLASNS)",
+                            sexoNota:"Mismo método que los antidepresivos." },
+        suicidios:        { mide:"Defunciones por suicidio por cada 100.000 habitantes, todas las edades.",
+                            calculo:"Dato publicado por comunidad y sexo. Los años sin publicar se proyectan.",
+                            fuente:"INE (defunciones según la causa de muerte)" }
       },
       supabase: { schema:"canendatos", tables:["ced_saludmental"] },
       csv: null,
@@ -1400,16 +1427,24 @@
 
   const SEXO_LABELS = {
     observado: { pill:"Sí",              nota:"Publicado por la fuente." },
-    estimado:  { pill:"Estimación",      nota:"Brecha estatal aplicada a cada comunidad." },
+    estimado:  { pill:"Estimación",      nota:"" },
     no:        { pill:"No desagregado",  nota:"" }
   };
+
+  // Cómo se estima el sexo cambia de una sección a otra; lo declara cada
+  // una en genderEstimateNote y se reutiliza en la matriz, el subtítulo y la
+  // leyenda de la escena de género.
+  function estimateNoteSentence(cfg) {
+    const n = cfg.genderEstimateNote;
+    return n ? n.charAt(0).toUpperCase() + n.slice(1) + "." : "";
+  }
 
   function renderVariableMatrix(cfg) {
     if (!cfg.variables) return "";
     const rows = Object.keys(cfg.metrics).filter(k => cfg.variables[k]).map(k => {
       const meta = cfg.metrics[k], v = cfg.variables[k];
       const sexo = SEXO_LABELS[meta.sexo] ? meta.sexo : "no";
-      const nota = v.sexoNota || SEXO_LABELS[sexo].nota;
+      const nota = v.sexoNota || (sexo === "estimado" ? estimateNoteSentence(cfg) : SEXO_LABELS[sexo].nota);
       return `
         <tr role="row">
           <td role="cell" class="ced-vm-name"><strong>${meta.label}</strong><span class="ced-vm-sub">${meta.unit}</span></td>
@@ -1434,7 +1469,7 @@
           </thead>
           <tbody role="rowgroup">${rows}</tbody>
         </table>
-        <p class="ced-vm-foot">ECV: Encuesta de Condiciones de Vida · EAES: Encuesta Anual de Estructura Salarial · ECH: Encuesta Continua de Hogares.</p>
+        ${cfg.variablesNote ? `<p class="ced-vm-foot">${cfg.variablesNote}</p>` : ""}
       </section>`;
   }
 
@@ -2001,7 +2036,7 @@
        blanco y luego encima en su color. Sin eso, sobre la banda o sobre
        una línea no hay quien lo lea. */
     function rotula(capa, px, py, texto, color, tam, ancla) {
-      [true, false].forEach(halo => {
+      return [true, false].map(halo => {
         const t = capa.append("text")
           .attr("x", px).attr("y", py).attr("dy", "0.35em")
           .attr("text-anchor", ancla || "middle")
@@ -2010,6 +2045,7 @@
         if (halo) t.attr("stroke", "var(--ced-surface)").attr("stroke-width", 3.5)
                    .attr("stroke-linejoin", "round").attr("fill", "none");
         else t.attr("fill", color);
+        return t.node();
       });
     }
 
@@ -2025,13 +2061,16 @@
       const ult = vals[vals.length - 1];
       const salto = serie === resaltada ? 30 : 12;
       const alto = y(ult[state.metric]) - salto;
-      rotula(capaRotulos, x(ult.periodo), alto < m.top + 10 ? y(ult[state.metric]) + salto : alto,
-             serie.ccaa, color, 11.5, "end");
+      return rotula(capaRotulos, x(ult.periodo), alto < m.top + 10 ? y(ult[state.metric]) + salto : alto,
+                    serie.ccaa, color, 11.5, "end");
     }
-    if (canarias) nombraFinal(canarias, "var(--ced-contrast)");
-    if (elegida && elegida !== canarias) nombraFinal(elegida, "var(--ced-accent-deep)");
+    const rotulosSerie = [];
+    if (canarias) rotulosSerie.push(nombraFinal(canarias, "var(--ced-contrast)"));
+    if (elegida && elegida !== canarias) rotulosSerie.push(nombraFinal(elegida, "var(--ced-accent-deep)"));
     const ultMed = porPeriodo.filter(p => p.mediana != null).slice(-1)[0];
-    if (ultMed) rotula(capaRotulos, x(ultMed.periodo), y(ultMed.mediana) + 13, "Mediana CCAA", "var(--ced-muted)", 10.5, "end");
+    if (ultMed) rotulosSerie.push(rotula(capaRotulos, x(ultMed.periodo), y(ultMed.mediana) + 13, "Mediana CCAA", "var(--ced-muted)", 10.5, "end"));
+    // Cajas de los rótulos ya puestos, para que las etiquetas de datos no los pisen.
+    const colocadas = rotulosSerie.filter(Boolean).map(nodos => nodos[1].getBBox());
 
     /* Etiquetas de datos a lo largo de la línea resaltada. No en todos los
        puntos: en una serie mensual son cientos y se solapan. Se reparten
@@ -2043,14 +2082,31 @@
       const idx = new Set([0, vals.length - 1]);
       for (let i = 1; i < cuantas - 1; i++) idx.add(Math.round(i * (vals.length - 1) / (cuantas - 1)));
       const color = resaltada === canarias ? "var(--ced-contrast)" : "var(--ced-accent-deep)";
-      Array.from(idx).sort((a, b) => a - b).forEach(i => {
+      const orden = Array.from(idx).sort((a, b) => a - b);
+      orden.forEach(i => {
         const d = vals[i];
         svg.append("circle").attr("cx", x(d.periodo)).attr("cy", y(d[state.metric])).attr("r", 3)
           .attr("fill", d.origen === "proyeccion" ? "var(--ced-surface)" : color)
           .attr("stroke", color).attr("stroke-width", 1.6);
-        rotula(capaRotulos, x(d.periodo), y(d[state.metric]) - 13,
+      });
+      /* Las etiquetas se colocan después de los puntos. El último y el
+         primero van siempre, que son los que se buscan; los intermedios, sólo
+         si no pisan otra etiqueta ni el nombre de una serie. Cuando la serie
+         se queda plana —una proyección que repite valor— dos etiquetas caían
+         a la misma altura y se leía «10,05 /1(10,05 /100k». El punto sigue
+         marcado igual. */
+      const choca = b => colocadas.some(c =>
+        b.x < c.x + c.width + 4 && c.x < b.x + b.width + 4 &&
+        b.y < c.y + c.height && c.y < b.y + b.height);
+      const extremos = new Set([orden[0], orden[orden.length - 1]]);
+      Array.from(new Set([...extremos, ...orden])).forEach(i => {
+        const d = vals[i];
+        const nodos = rotula(capaRotulos, x(d.periodo), y(d[state.metric]) - 13,
                fmtVal(state.metric, d[state.metric]), color, 10.5,
                i === 0 ? "start" : (i === vals.length - 1 ? "end" : "middle"));
+        const caja = nodos[1].getBBox();
+        if (!extremos.has(i) && choca(caja)) nodos.forEach(n => n.remove());
+        else colocadas.push(caja);
       });
     }
 
@@ -2104,12 +2160,13 @@
     const yDomain = adaptive
       ? adaptiveDomain(all.map(r => r[state.metric]).concat(stateLine.map(d => d.value)), 0.04)
       : [0, d3.max(all, r => r[state.metric])];
-    const y = d3.scaleLinear().domain(yDomain).nice().range([h - m.bottom, m.top]);
-    // .nice() redondea hacia fuera al paso de los ticks. Con diecisiete series
-    // el mínimo suele quedar lejos del máximo —precio de venta: 644 frente a
-    // 6.157 €/m²— y el redondeo devolvía el suelo a cero, que es justo lo que
-    // se quería evitar. Se redondea sólo el techo.
-    if (adaptive) y.domain([yDomain[0], y.domain()[1]]);
+    // Sin .nice() en el eje adaptativo: redondea hacia fuera al paso de los
+    // ticks y devolvía el espacio que se quería ganar. Con diecisiete series
+    // el suelo volvía a cero (precio de venta: 644 frente a 6.157 €/m²) y el
+    // techo subía de más (antidepresivos: 178 DHD a un eje de 200). Los ticks
+    // siguen cayendo en valores redondos dentro del dominio.
+    const y = d3.scaleLinear().domain(yDomain).range([h - m.bottom, m.top]);
+    if (!adaptive) y.nice();
     const line = d3.line().defined(d => d[state.metric] != null).x(d => x(d.periodo)).y(d => y(d[state.metric]));
     const stateLineGen = d3.line().x(d => x(d.periodo)).y(d => y(d.value));
 
@@ -2296,7 +2353,7 @@
     if (meta.sexo === "estimado") {
       svg.append("text").attr("x", w - mg.right + 100).attr("y", 22).attr("text-anchor","end")
         .attr("font-size", 12).attr("fill","var(--ced-muted)")
-        .text("Estimación: brecha estatal aplicada a cada comunidad");
+        .text(`Estimación: ${cfg.genderEstimateNote || "no es un dato publicado"}`);
     }
   }
 
@@ -2316,7 +2373,7 @@
     const titles = {
       context:  { t:"Situar Canarias",   s:`Mapa coroplético · ${meta.label} · ${state.period} · género: ${generoTxt}` },
       evolution:{ t:"Evolución",         s:`Serie temporal de ${meta.label} · género: ${generoTxt}` },
-      gender:   { t:"Brecha de género",  s:`${meta.label} por CCAA · ${state.period} (hombres vs mujeres)${estimado ? " · estimación: brecha estatal aplicada a cada comunidad" : ""}` },
+      gender:   { t:"Brecha de género",  s:`${meta.label} por CCAA · ${state.period} (hombres vs mujeres)${estimado ? ` · estimación: ${cfg.genderEstimateNote || "no es un dato publicado"}` : ""}` },
       method:   { t:"Cómo se construye", s:"Pipeline ETL del Observatorio · R + D3" }
     };
     els.title.textContent = titles[state.step].t;

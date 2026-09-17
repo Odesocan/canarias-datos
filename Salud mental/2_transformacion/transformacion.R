@@ -91,22 +91,62 @@ add_total_via_censo <- function(df, value_col, censo_df) {
 }
 
 # ----------------------------------------------------------------------------
-# Imputación de género para fármacos (DHD) a partir de la brecha relativa
-# observada en t_mental (estructura del cuaderno metodológico CED-01).
+# Imputación de género para fármacos (DHD) a partir de la prevalencia de
+# trastornos mentales por sexo (estructura del cuaderno metodológico CED-01).
+#
+# Supuesto: el consumo por habitante guarda entre sexos la misma razón que la
+# prevalencia, razon = t_mental mujeres / t_mental hombres, en cada CCAA y año.
+# Con la población de cada sexo como peso, el total publicado es
+#   total = (h × pob_h + m × pob_m) / (pob_h + pob_m),  con m = razon × h
+# de donde
+#   h = total × (pob_h + pob_m) / (pob_h + razon × pob_m)
+#   m = razon × h
+# Es la misma ponderación con la que se construye el total de t_mental.
+#
+# La fórmula anterior (h = total × (1 − b), m = total × (1 + b), con
+# b = (m − h) / m de la prevalencia) no conservaba la razón: la del consumo
+# salía en torno a 3 cuando la de la prevalencia era 2, así que la brecha del
+# consumo quedaba exagerada.
 # ----------------------------------------------------------------------------
 
-impute_gender_with_gap <- function(total_df, gap_df, value_col) {
+impute_gender_with_ratio <- function(total_df, t_mental_df, censo_df, value_col) {
+  razon <- t_mental_df |>
+    dplyr::filter(.data$genero %in% c("hombres", "mujeres")) |>
+    dplyr::select("ccaa", "periodo", "genero", "t_mental") |>
+    tidyr::pivot_wider(names_from = "genero", values_from = "t_mental") |>
+    dplyr::transmute(
+      ccaa = .data$ccaa,
+      periodo = .data$periodo,
+      razon = dplyr::if_else(
+        !is.na(.data$hombres) & .data$hombres > 0 & !is.na(.data$mujeres),
+        .data$mujeres / .data$hombres,
+        NA_real_
+      )
+    )
+
+  poblacion <- censo_df |>
+    dplyr::filter(.data$genero %in% c("hombres", "mujeres")) |>
+    dplyr::select("ccaa", "periodo", "genero", "censo") |>
+    tidyr::pivot_wider(names_from = "genero", values_from = "censo", names_prefix = "pob_")
+
   base <- total_df |>
     dplyr::filter(.data$genero == "total") |>
     dplyr::select("ccaa", "periodo", value_total = !!value_col) |>
-    dplyr::inner_join(gap_df, by = c("ccaa", "periodo"))
+    dplyr::inner_join(razon, by = c("ccaa", "periodo")) |>
+    dplyr::inner_join(poblacion, by = c("ccaa", "periodo")) |>
+    dplyr::filter(!is.na(.data$razon), .data$pob_hombres > 0, .data$pob_mujeres > 0) |>
+    dplyr::mutate(
+      valor_h = .data$value_total * (.data$pob_hombres + .data$pob_mujeres) /
+        (.data$pob_hombres + .data$razon * .data$pob_mujeres),
+      valor_m = .data$razon * .data$valor_h
+    )
 
   hombres <- base |>
     dplyr::transmute(
       ccaa = .data$ccaa,
       periodo = .data$periodo,
       genero = "hombres",
-      !!value_col := .data$value_total * (1 - .data$brecha_rel / 100)
+      !!value_col := .data$valor_h
     )
 
   mujeres <- base |>
@@ -114,7 +154,7 @@ impute_gender_with_gap <- function(total_df, gap_df, value_col) {
       ccaa = .data$ccaa,
       periodo = .data$periodo,
       genero = "mujeres",
-      !!value_col := .data$value_total * (1 + .data$brecha_rel / 100)
+      !!value_col := .data$valor_m
     )
 
   total_only <- total_df |>
@@ -162,8 +202,8 @@ run_transformacion <- function(cfg) {
   antidep_total <- tidy_sns_indicator(extracted$sns_antidep, "antidep_ajustado")
   hipno_total   <- tidy_sns_indicator(extracted$sns_hipno,   "hipno_ajustado")
 
-  antidep_rec <- impute_gender_with_gap(antidep_total, brecha, "antidep_ajustado")
-  hipno_rec   <- impute_gender_with_gap(hipno_total,   brecha, "hipno_ajustado")
+  antidep_rec <- impute_gender_with_ratio(antidep_total, t_mental, censo_rec, "antidep_ajustado")
+  hipno_rec   <- impute_gender_with_ratio(hipno_total,   t_mental, censo_rec, "hipno_ajustado")
 
   # ---- 4. Suicidios (INE 46688) -------------------------------------------
   suicidios_rec <- extracted$suicidios |>
