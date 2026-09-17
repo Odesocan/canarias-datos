@@ -492,6 +492,25 @@ project_series <- function(df, value_col, target_year, algorithm, min_points = 5
     dplyr::rename(!!value_col := value)
 }
 
+# Guarda de escala. Un error de unidades no rompe nada aguas abajo: la tabla se
+# carga igual y la web lo pinta. Por eso se para aquí. El umbral inferior es
+# holgado a propósito: con 80 m² ninguna comunidad baja del 25 % en la serie,
+# mientras que la división sin superficie daba valores entre 0,3 y 1.
+assert_salario_destinado_scale <- function(values) {
+  mediana <- stats::median(values, na.rm = TRUE)
+  if (!is.finite(mediana) || mediana < 5 || mediana > 300) {
+    stop(
+      sprintf(
+        "salario_destinado fuera de escala (mediana = %s %%). Revisa las unidades de precio_alquiler (€/m²) y salario_mediano (€/año).",
+        format(round(mediana, 2), decimal.mark = ",")
+      ),
+      call. = FALSE
+    )
+  }
+  log_event("INFO", sprintf("salario_destinado: mediana %.1f %% | rango %.1f-%.1f %%",
+                            mediana, min(values, na.rm = TRUE), max(values, na.rm = TRUE)))
+}
+
 run_modelado <- function(cfg) {
   log_event("INFO", "Iniciando modelado")
 
@@ -525,6 +544,14 @@ run_modelado <- function(cfg) {
     salario_mediano = project_series(transformed$salario_mediano, "salario_mediano", target_year, selected_algorithm)
   )
 
+  # Esfuerzo de alquiler: renta mensual de una vivienda tipo sobre el salario
+  # mensual mediano. Idealista publica el alquiler en €/m² al mes, así que antes
+  # de dividir hay que llevarlo a la renta de una vivienda concreta. Sin la
+  # superficie se dividían euros por metro entre euros al mes y el indicador
+  # salía por debajo del 1 %, con una brecha de género que redondeaba siempre a
+  # 0,1. La superficie y las pagas son las mismas que usa Empleo
+  # (Empleo/2_transformacion/config.py) para que las dos secciones no den
+  # lecturas distintas del mismo fenómeno.
   salario_destinado <- modeled$salario_mediano |>
     dplyr::left_join(
       dplyr::rename(modeled$precio_alquiler, origen_precio = origen),
@@ -536,10 +563,14 @@ run_modelado <- function(cfg) {
         .data$origen == "real" & .data$origen_precio == "real" ~ "real",
         TRUE ~ "proyeccion"
       ),
-      salario_destinado = (.data$precio_alquiler / (.data$salario_mediano / 12)) * 100
+      renta_mensual = .data$precio_alquiler * cfg$superficie_ref_m2,
+      salario_mensual = .data$salario_mediano / cfg$pagas_anio,
+      salario_destinado = (.data$renta_mensual / .data$salario_mensual) * 100
     ) |>
     dplyr::filter(!is.na(.data$salario_destinado)) |>
     dplyr::select("ccaa", "periodo", "genero", "origen", "salario_destinado")
+
+  assert_salario_destinado_scale(salario_destinado$salario_destinado)
 
   outputs <- c(
     modeled[c("dif_finmes", "espacio_insuf", "gasto_elevado", "hogares_mono", "precio_alquiler", "precio_venta", "retrasos_pagos")],
