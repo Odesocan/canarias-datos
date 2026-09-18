@@ -91,6 +91,13 @@ def descargar_csv_bd(path: str, file: str) -> str:
                     texto = r.content.decode("utf-8-sig")
                 except UnicodeDecodeError:
                     texto = r.content.decode("ISO-8859-15", "replace")
+                # Si la tabla ya no existe, el servidor no da 404: responde 200
+                # con su página «Página no encontrada». Tomada como datos daba
+                # 0 filas sin ningún error (sep. 2026: idoneidad_05 y escolar_05).
+                if texto.lstrip()[:200].lower().startswith(("<!doctype html", "<html")):
+                    raise RuntimeError(
+                        f"EDUCAbase devolvió una página HTML en lugar de datos para {url} "
+                        "(la tabla se ha movido o retirado; revisar path/file)")
                 logger.info("EDUCAbase %s/%s: %d bytes", path.split('/')[-1], file, len(r.content))
                 return texto
             last = f"HTTP {r.status_code}"
