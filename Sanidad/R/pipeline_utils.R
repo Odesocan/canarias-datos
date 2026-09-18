@@ -274,13 +274,17 @@ build_sanidad_config <- function(base_path) {
     mort_evitable_keys = c("mort_cancer", "mort_cardio", "mort_diabetes", "mort_ictus", "mort_epoc"),
     # Modelado (bagged ETS bootstrap): variables proyectables y años a imputar.
     # Se proyecta el índice de mortalidad evitable (no sus componentes) y el
-    # resto de indicadores anuales; población y campos de Presupuestos ya llegan
-    # a 2025 y se saltan solos ("ya cubierto por la serie observada").
-    imputar_target_years = c(2024L, 2025L),
+    # resto de indicadores anuales; las series que ya cubren un año objetivo se
+    # saltan solas ("ya cubierto por la serie observada").
+    # El horizonte llega a 2026, como el resto de áreas del hub. La población
+    # entra también: es el peso de la media estatal, y sin ella 2026 sería el
+    # único año con media simple.
+    imputar_target_years = c(2024L, 2025L, 2026L),
     imputar_variables = c("avs_65", "mort_evitable_idx",
                           "med_ae", "med_ap", "enf_ae", "enf_ap", "camas",
                           "gasto_farmacia_pct", "pct_pib_sanidad",
-                          "espera_quir", "espera_ae", "reingresos_psiq"),
+                          "espera_quir", "espera_ae", "reingresos_psiq",
+                          "poblacion_total"),
     sns_indicators = list(
       # --- Estado de salud ---
       avs_65         = list(codigo = "1050", label = "Años de vida saludable a los 65 años", grupo = "estado_salud", generos = GEN_COMPLET),

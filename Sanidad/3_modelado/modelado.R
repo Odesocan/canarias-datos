@@ -27,6 +27,18 @@ run_modelado <- function(cfg) {
   ced <- readRDS(file.path(cfg$transform_dir, "ced_sanidad.rds"))
   vars <- intersect(cfg$imputar_variables, names(ced))
 
+  # Filas vacías para los años objetivo que la transformación aún no trae (hoy,
+  # 2026: ninguna fuente llega). Sin ellas la proyección no tiene dónde
+  # escribirse y el año desaparece de las tablas.
+  faltan <- setdiff(cfg$imputar_target_years, unique(ced$periodo))
+  if (length(faltan)) {
+    ced <- dplyr::bind_rows(
+      ced,
+      tidyr::expand_grid(dplyr::distinct(ced, .data$ccaa, .data$genero), periodo = as.integer(faltan))
+    ) |> dplyr::arrange(.data$ccaa, .data$periodo, .data$genero)
+    log_event("INFO", glue("Añadidas filas para {paste(faltan, collapse = ', ')} (años objetivo sin dato de origen)"))
+  }
+
   # Panel largo de entrada: series observadas de las variables proyectables
   panel_largo <- ced |>
     dplyr::select(dplyr::all_of(c(KEYS, vars))) |>
@@ -69,6 +81,10 @@ run_modelado <- function(cfg) {
   # --- Tabla larga con bandera origen (real/proyección) por celda --------------
   ind_cols <- setdiff(names(ced_mod), c(KEYS, "origen_pib"))
   imp_key <- with(central, paste(ccaa, genero, periodo, variable))
+  # El índice 0-100 se recalcula a partir del índice proyectado: hereda su
+  # origen. Con el origen por fila no se notaba; por celda, saldría como real.
+  cen_idx <- dplyr::filter(central, .data$variable == "mort_evitable_idx")
+  imp_key <- c(imp_key, with(cen_idx, paste(ccaa, genero, periodo, "mort_evitable_idx_0_100")))
   ced_largo <- ced_mod |>
     tidyr::pivot_longer(dplyr::all_of(ind_cols), names_to = "variable", values_to = "valor") |>
     dplyr::filter(!is.na(.data$valor)) |>
