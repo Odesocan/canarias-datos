@@ -17,7 +17,7 @@
       /* Paleta por sección — overrides abajo */
       --ced-accent:#1769aa; --ced-accent-soft:#e8f2fb; --ced-accent-deep:#0c3f6b;
       --ced-contrast:#e60d76; --ced-contrast-soft:#fce4ef;
-      /* Color por sexo en la escena de género. Por defecto, los de la sección;
+      /* Color por género en la escena de género. Por defecto, los de la sección;
          una sección puede fijar los suyos en su bloque de paleta. */
       --ced-men:var(--ced-accent); --ced-women:var(--ced-contrast);
       --ced-shadow:0 16px 40px rgba(20,32,25,.08);
@@ -571,7 +571,7 @@
         { h:"Fuentes",            p:"Encuesta de Condiciones de Vida (<strong>ECV</strong>), Encuesta Anual de Estructura Salarial (<strong>EAES</strong>) y Encuesta Continua de Hogares (<strong>ECH</strong>) del INE, y precios de oferta del portal inmobiliario <strong>Idealista</strong>. El mapa usa las regiones NUTS-2 de Eurostat." },
         { h:"Actualización",      p:"Los precios de Idealista se incorporan a medida que se publican. Los indicadores del INE son anuales y siguen el calendario de cada encuesta. La matriz de variables indica hasta qué año llega cada serie." },
         { h:"Salario destinado al alquiler", p:"Es la renta de una vivienda tipo de <strong>80 m²</strong> sobre el salario bruto mensual mediano. La superficie es la misma que usa la sección de Empleo; allí se divide entre el salario medio y aquí entre el mediano, que pesa menos los sueldos más altos." },
-        { h:"Brecha de género",   p:"El salario destinado al alquiler y los hogares monoparentales se publican por sexo. Para los cuatro indicadores de la ECV, el INE sólo publica la diferencia entre hombres y mujeres para el conjunto del Estado: se aplica esa diferencia a cada comunidad, así que la brecha es una <strong>estimación</strong> y en los años con dato publicado es igual en todas. Los precios no están desagregados por sexo." },
+        { h:"Brecha de género",   p:"El salario destinado al alquiler y los hogares monoparentales se publican por género. Para los cuatro indicadores de la ECV, el INE sólo publica la diferencia entre hombres y mujeres para el conjunto del Estado: se aplica esa diferencia a cada comunidad, así que la brecha es una <strong>estimación</strong> y en los años con dato publicado es igual en todas. Los precios no están desagregados por género." },
         { h:"Estimaciones",       p:"Para los indicadores del INE se comparan <strong>ARIMA · ETS · Prophet · Random Forest · XGBoost</strong> con validación temporal y se aplica el modelo con menor error normalizado para proyectar hasta 2026. Los precios de Idealista no se proyectan." },
         { h:"Origen",             p:"Cada dato se marca como <strong>real</strong> o <strong>proyección</strong>. En los gráficos de evolución, los puntos huecos señalan proyecciones." }
       ],
@@ -602,7 +602,7 @@
         salario_destinado: { mide:"Parte del salario mensual que se iría en alquilar una vivienda tipo de 80 m².",
                              calculo:"(Precio del alquiler por m² × 80) ÷ (salario bruto anual mediano ÷ 12) × 100. Los años sin salario publicado usan el salario proyectado.",
                              fuente:"Idealista · INE (EAES)",
-                             sexoNota:"Salario publicado por sexo; el alquiler es el mismo." },
+                             sexoNota:"Salario publicado por género; el alquiler es el mismo." },
         gasto_elevado:     { mide:"Población que vive en hogares cuyo gasto en vivienda supera el 40 % de su renta disponible.",
                              calculo:"Dato publicado por comunidad. Los años sin publicar se proyectan.",
                              fuente:"INE (ECV)" },
@@ -618,7 +618,7 @@
         hogares_mono:      { mide:"Hogares formados por una madre o un padre que convive con sus hijas o hijos.",
                              calculo:"Dato publicado por comunidad. La serie publicada termina en 2020; los años posteriores se proyectan.",
                              fuente:"INE (ECH)",
-                             sexoNota:"Según el sexo de la persona progenitora." }
+                             sexoNota:"Según el género de la persona progenitora." }
       },
       supabase: { schema:"canendatos", tables:["ced_vivienda_global","ced_vivienda_gen"] },
       csv: null,
@@ -642,7 +642,7 @@
       variablesNote: "INCLASNS: Indicadores Clave del Sistema Nacional de Salud · DHD: dosis diarias definidas por cada 1.000 habitantes al día.",
       method: [
         { h:"Fuentes",          p:"Indicadores Clave del Sistema Nacional de Salud (<strong>INCLASNS</strong>) del Ministerio de Sanidad para la prevalencia de trastornos mentales y el consumo de antidepresivos e hipnosedantes, y el <strong>INE</strong> para la mortalidad por suicidio y las cifras de población." },
-        { h:"Brecha de género estimada", p:"El Ministerio publica la prevalencia de trastornos mentales por sexo, pero el consumo de antidepresivos e hipnosedantes sólo como total. Hombres y mujeres se <strong>estiman</strong> a partir de la brecha de la prevalencia en cada comunidad y año: si las mujeres registran el doble de trastornos que los hombres, se les asigna el doble de consumo por habitante, y el reparto se ajusta para que, ponderado por la población de cada sexo, dé el total publicado. Supone que el consumo se reparte por sexo igual que los trastornos, así que no es un dato publicado. La prevalencia y la tasa de suicidio sí llegan desagregadas por sexo." },
+        { h:"Brecha de género estimada", p:"El Ministerio publica la prevalencia de trastornos mentales por género, pero el consumo de antidepresivos e hipnosedantes sólo como total. Hombres y mujeres se <strong>estiman</strong> a partir de la brecha de la prevalencia en cada comunidad y año: si las mujeres registran el doble de trastornos que los hombres, se les asigna el doble de consumo por habitante, y el reparto se ajusta para que, ponderado por la población de cada género, dé el total publicado. Supone que el consumo se reparte por género igual que los trastornos, así que no es un dato publicado. La prevalencia y la tasa de suicidio sí llegan desagregadas por género." },
         { h:"Variables-etiqueta",p:"Multiplicamos las tasas por la población de cada año (media de los cuatro trimestres) para mostrar valores absolutos en los tooltips: personas, dosis y muertes." },
         { h:"Modelado",         p:"Se comparan <strong>ARIMA · ETS · Prophet · Random Forest · XGBoost</strong> con validación cruzada temporal y se aplica el algoritmo con menor error global para proyectar hasta 2026." },
         { h:"Actualización",    p:"Anual, según el calendario de publicación del Ministerio de Sanidad y del INE. La matriz de variables indica hasta qué año llega cada serie." },
@@ -663,7 +663,7 @@
         t_mental:         { mide:"Porcentaje de la población con un trastorno mental registrado (prevalencia registrada).",
                             calculo:"Publicado para hombres y mujeres. El total se calcula ponderando ambos por la población de cada comunidad y año. Los años sin publicar se proyectan.",
                             fuente:"Ministerio de Sanidad (INCLASNS)",
-                            sexoNota:"Publicado por sexo; el total es la media ponderada por población." },
+                            sexoNota:"Publicado por género; el total es la media ponderada por población." },
         antidep_ajustado: { mide:"Dosis diarias definidas de antidepresivos por cada 1.000 habitantes al día (DHD).",
                             calculo:"Total publicado por comunidad. Los años sin publicar se proyectan.",
                             fuente:"Ministerio de Sanidad (INCLASNS)",
@@ -673,7 +673,7 @@
                             fuente:"Ministerio de Sanidad (INCLASNS)",
                             sexoNota:"Mismo método que los antidepresivos." },
         suicidios:        { mide:"Defunciones por suicidio por cada 100.000 habitantes, todas las edades.",
-                            calculo:"Dato publicado por comunidad y sexo. Los años sin publicar se proyectan.",
+                            calculo:"Dato publicado por comunidad y género. Los años sin publicar se proyectan.",
                             fuente:"INE (defunciones según la causa de muerte)" }
       },
       supabase: { schema:"canendatos", tables:["ced_saludmental"] },
@@ -700,7 +700,7 @@
         { h:"Fuente",                 p:"Estadísticas mensuales del Sistema para la Autonomía y Atención a la Dependencia (<strong>SAAD</strong>) que publica el <strong>IMSERSO</strong> desde enero de 2023: solicitudes, dictámenes de grado, personas beneficiarias, prestaciones, tiempos de espera y perfil de las personas cuidadoras por comunidad." },
         { h:"Población potencialmente dependiente", p:"Los indicadores marcados «% PPD» se expresan sobre la <strong>Población Potencialmente Dependiente</strong>: personas de 65 años o más y de 16 a 64 años con discapacidad reconocida. La PPD es anual y se aplica a todos los meses del año." },
         { h:"Los tres limbos",        p:"El trámite del SAAD encadena tres esperas, cada una sobre la PPD: el <strong>limbo del grado</strong> (solicitud sin dictamen), el <strong>limbo del PIA</strong> (con dictamen, pero sin Programa Individual de Atención) y el <strong>limbo de las prestaciones</strong> (con PIA, pero sin prestación efectiva). Son situaciones distintas, no tres medidas de lo mismo." },
-        { h:"Perspectiva de género",  p:"El IMSERSO no publica por sexo y comunidad las solicitudes, las personas beneficiarias ni las esperas, así que <strong>ningún indicador de esta sección está desagregado por sexo</strong>. La perspectiva de género se lee en dos indicadores: el porcentaje de mujeres entre las personas cuidadoras familiares y el peso de la prestación para cuidados en el entorno familiar, un cuidado que recae sobre todo en mujeres." },
+        { h:"Perspectiva de género",  p:"El IMSERSO no publica por género y comunidad las solicitudes, las personas beneficiarias ni las esperas, así que <strong>ningún indicador de esta sección está desagregado por género</strong>. La perspectiva de género se lee en dos indicadores: el porcentaje de mujeres entre las personas cuidadoras familiares y el peso de la prestación para cuidados en el entorno familiar, un cuidado que recae sobre todo en mujeres." },
         { h:"Modelado",               p:"Se comparan <strong>ARIMA · ETS · Random Forest · XGBoost</strong> con validación cruzada temporal y se aplica el algoritmo con menor error global para proyectar los meses siguientes al último dato publicado." },
         { h:"Origen",                 p:"Cada dato se marca como <strong>real</strong> o <strong>proyección</strong>. En los gráficos de evolución, los puntos huecos señalan proyecciones. El mapa usa las regiones NUTS-2 de Eurostat." }
       ],
@@ -736,11 +736,9 @@
       sourceLeft: "Fuentes: INE·EPA (vía Eurostat) · MEFP (EDUCAbase, Cifras de la Educación) · Presupuestos",
       sourceRight: "Elaboración: Observatorio ODESOCAN",
       hasGender: true,
-      // Mismas opciones de presentación que Vivienda (ver su bloque). Esta
-      // sección habla de desagregación por género, no por sexo (genderTerm).
+      // Mismas opciones de presentación que Vivienda (ver su bloque).
       evolutionAxis: "adaptive",
       genderFilterNotes: true,
-      genderTerm: "género",
       variablesNote: "EPA: Encuesta de Población Activa · MEFP: Ministerio de Educación, Formación Profesional y Deportes · EDUCAbase: base de datos estadística del MEFP.",
       method: [
         { h:"Fuentes",           p:"Variables educativas de la <strong>EPA</strong> (INE) servidas a nivel autonómico (NUTS-2) por <strong>Eurostat</strong>; estadística del <strong>MEFP</strong> (EDUCAbase y anuario «Las cifras de la Educación en España»); y el área de <strong>Presupuestos</strong> de Canarias en Datos para el esfuerzo sobre el PIB regional. El mapa usa las regiones NUTS-2 de Eurostat." },
@@ -813,10 +811,9 @@
       sourceRight: "Elaboración: Observatorio ODESOCAN",
       hasGender: true,
       // Mismas opciones de presentación que Vivienda y Educación (ver sus
-      // bloques). Esta sección habla de desagregación por género.
+      // bloques).
       evolutionAxis: "adaptive",
       genderFilterNotes: true,
-      genderTerm: "género",
       variablesNote: "INCLASNS: Indicadores Clave del Sistema Nacional de Salud, del Ministerio de Sanidad.",
       method: [
         { h:"Fuentes de datos", p:"Fuente troncal: los <strong>Indicadores Clave del SNS (INCLASNS)</strong> del Ministerio de Sanidad. El esfuerzo de gasto se importa del área de <strong>Presupuestos</strong> de Canarias en Datos (gasto sanitario autonómico sobre PIB regional). Origen último: SIAP, CMBD, INE, ISCIII." },
@@ -892,10 +889,9 @@
       sourceRight: "Elaboración: Observatorio ODESOCAN",
       hasGender: true,
       // Mismas opciones de presentación que Vivienda, Educación y Sanidad (ver
-      // sus bloques). Esta sección habla de desagregación por género.
+      // sus bloques).
       evolutionAxis: "adaptive",
       genderFilterNotes: true,
-      genderTerm: "género",
       variablesNote: "EPA: Encuesta de Población Activa · ETCL: Encuesta Trimestral de Coste Laboral · EAES: Encuesta Anual de Estructura Salarial.",
       method: [
         { h:"Fuentes",           p:"Tres operaciones del <strong>INE</strong>: <strong>EPA</strong> (tasas y calidad del empleo, trimestral), <strong>ETCL</strong> (horas efectivas por sector) y <strong>EAES</strong> (ganancia media por género y CCAA, anual). El precio del alquiler procede de <strong>Idealista</strong> y es el mismo que usa la sección de Vivienda. El mapa usa las regiones NUTS-2 de Eurostat." },
@@ -1057,7 +1053,15 @@
         });
         return Array.from(buckets.values()).map(b => { delete b._counts; return b; });
       }
-      const flat = flatten(globalRows, "total").concat(flatten(genderRows, null));
+      // El total sale sólo de la tabla global. La de género también trae filas
+      // "total" y, como cada tabla se agrupa por separado, cada comunidad
+      // quedaba dos veces: la lista móvil de «Situar» la enseñaba repetida
+      // (todas salvo Canarias, que la lista coloca aparte una sola vez).
+      const genderOnly = genderRows.filter(d => {
+        const g = String(d.genero || d.sexo || "").toLowerCase().trim();
+        return g === "hombres" || g === "mujeres";
+      });
+      const flat = flatten(globalRows, "total").concat(flatten(genderOnly, null));
       return flat;
     });
   }
@@ -1571,10 +1575,6 @@
   // Cómo se estima el sexo cambia de una sección a otra; lo declara cada
   // una en genderEstimateNote y se reutiliza en la matriz, el subtítulo y la
   // leyenda de la escena de género.
-  // Cómo se nombra la desagregación en los textos de la sección: «sexo» por
-  // defecto; Educación pide «género».
-  function genderTerm(cfg) { return cfg.genderTerm || "sexo"; }
-
   function estimateNoteSentence(cfg) {
     const n = cfg.genderEstimateNote;
     return n ? n.charAt(0).toUpperCase() + n.slice(1) + "." : "";
@@ -1591,7 +1591,7 @@
           <td role="cell" class="ced-vm-name"><strong>${meta.label}</strong><span class="ced-vm-sub">${meta.unit}</span></td>
           <td role="cell" data-label="Qué mide y cómo se calcula">${v.mide}<span class="ced-vm-sub">${v.calculo}</span></td>
           <td role="cell" data-label="Fuente">${v.fuente}</td>
-          <td role="cell" data-label="Por ${genderTerm(cfg)}"><span class="ced-vm-pill" data-sexo="${sexo}">${SEXO_LABELS[sexo].pill}</span>${nota ? `<span class="ced-vm-sub">${nota}</span>` : ""}</td>
+          <td role="cell" data-label="Por género"><span class="ced-vm-pill" data-sexo="${sexo}">${SEXO_LABELS[sexo].pill}</span>${nota ? `<span class="ced-vm-sub">${nota}</span>` : ""}</td>
           <td role="cell" data-label="Serie" class="ced-vm-serie">${seriesSpan(cfg.id, k)}</td>
         </tr>`;
     }).join("");
@@ -1604,7 +1604,7 @@
               <th role="columnheader" scope="col">Indicador</th>
               <th role="columnheader" scope="col">Qué mide y cómo se calcula</th>
               <th role="columnheader" scope="col">Fuente</th>
-              <th role="columnheader" scope="col">Por ${genderTerm(cfg)}</th>
+              <th role="columnheader" scope="col">Por género</th>
               <th role="columnheader" scope="col">Serie</th>
             </tr>
           </thead>
@@ -1984,7 +1984,7 @@
       // buscar otro.
       const cfg = SECTIONS[state.section];
       const alguno = Object.keys(cfg.metrics).some(k => genderNoteFor(k) !== "No desagregado");
-      return `<div class="ced-loading"><strong>${meta.label}</strong> no está desagregado por ${genderTerm(cfg)} en su fuente. ${alguno
+      return `<div class="ced-loading"><strong>${meta.label}</strong> no está desagregado por género en su fuente. ${alguno
         ? "Elige otro indicador para ver la brecha de género."
         : "En esta sección ningún indicador lo está; «Cómo se construye» explica por qué y dónde leer la perspectiva de género."}</div>`;
     }
@@ -2525,7 +2525,8 @@
     // le enseña «noviembre 2026». En las anuales no cambia nada.
     const periodoTxt = formatPeriodLabel(state.period, cfg.granularity, { long: cfg.granularity === "monthly" });
     const titles = {
-      context:  { t:"Situar Canarias",   s:`Mapa coroplético · ${meta.label} · ${periodoTxt} · género: ${generoTxt}` },
+      // En móvil no hay mapa: renderMap pinta la lista ordenada de comunidades.
+      context:  { t:"Situar Canarias",   s:`${isMobile() ? "Comparación entre comunidades" : "Mapa coroplético"} · ${meta.label} · ${periodoTxt} · género: ${generoTxt}` },
       evolution:{ t:"Evolución",         s:`Serie temporal de ${meta.label} · género: ${generoTxt}` },
       gender:   { t:"Brecha de género",  s:`${meta.label} por CCAA · ${periodoTxt} (hombres vs mujeres)${estimado ? ` · estimación: ${cfg.genderEstimateNote || "no es un dato publicado"}` : ""}` },
       method:   { t:"Cómo se construye", s:"Pipeline ETL del Observatorio · R + D3" }
