@@ -889,28 +889,68 @@
       title: "Empleo: analiza el contexto laboral de cada territorio",
       lead: "Elige el indicador que más te interese analizar, vigila su evolución temporal y la brecha de género existente. Si quieres saber algo más sobre los datos que estás visualizando, acude al apartado de metodología en «Cómo se construye».",
       sourceLeft: "Fuentes: INE (EPA · ETCL · EAES) · Idealista",
-      sourceRight: "Tablas: ced_empleo_global · ced_empleo_gen",
+      sourceRight: "Elaboración: Observatorio ODESOCAN",
       hasGender: true,
+      // Mismas opciones de presentación que Vivienda, Educación y Sanidad (ver
+      // sus bloques). Esta sección habla de desagregación por género.
+      evolutionAxis: "adaptive",
+      genderFilterNotes: true,
+      genderTerm: "género",
+      variablesNote: "EPA: Encuesta de Población Activa · ETCL: Encuesta Trimestral de Coste Laboral · EAES: Encuesta Anual de Estructura Salarial.",
       method: [
-        { h:"Fuentes",           p:"Tres operaciones del <strong>INE</strong> vía API (Tempus3): <strong>EPA</strong> (tasas y calidad del empleo, trimestral), <strong>ETCL</strong> (horas efectivas por sector) y <strong>EAES</strong> (ganancia media por género y CCAA, anual). El precio de alquiler procede de <strong>Idealista</strong>, reutilizado desde la base de datos de la sección Vivienda. La geometría del mapa se sirve desde NUTS-2 de Eurostat." },
-        { h:"Los diez indicadores", p:"Volumen (paro, actividad, empleo, paro juvenil), calidad (temporalidad, parcialidad, paro de larga duración), intensidad (horas efectivas en servicios) y dos indicadores de condiciones de vida: <strong>brecha salarial</strong> y <strong>% del salario dedicado al alquiler</strong>. Todos por CCAA; los de la EPA, además, por género." },
-        { h:"Brecha de género",  p:"A diferencia de otras secciones, la EPA publica el desglose <strong>directo</strong> por género, sin imputación (<code>ced_empleo_gen</code>). La brecha salarial se calcula como <code>(ganancia H − ganancia M) / ganancia H × 100</code> desde la EAES y es territorial (sin desglose por sexo)." },
-        { h:"Eje temporal anual",p:"Para comparar indicadores de distinta cadencia, los trimestrales (EPA/ETCL) se agregan a <strong>media anual</strong> y los anuales (EAES/alquiler) se toman directos. Cada año se marca real o proyección según la cadencia del indicador." },
+        { h:"Fuentes",           p:"Tres operaciones del <strong>INE</strong>: <strong>EPA</strong> (tasas y calidad del empleo, trimestral), <strong>ETCL</strong> (horas efectivas por sector) y <strong>EAES</strong> (ganancia media por género y CCAA, anual). El precio del alquiler procede de <strong>Idealista</strong> y es el mismo que usa la sección de Vivienda. El mapa usa las regiones NUTS-2 de Eurostat." },
+        { h:"Los diez indicadores", p:"Volumen (paro, actividad, empleo, paro juvenil), calidad (temporalidad, parcialidad, paro de larga duración), intensidad (horas efectivas en servicios) y dos indicadores de condiciones de vida: <strong>brecha salarial</strong> y <strong>% del salario dedicado al alquiler</strong>. Todos por CCAA; los de la EPA y el de alquiler, además, por género." },
+        { h:"Brecha de género",  p:"La EPA publica el desglose <strong>directo</strong> por género, sin estimaciones, y el salario dedicado al alquiler usa la ganancia media de hombres y de mujeres de la EAES. La brecha salarial se calcula como <strong>(ganancia de los hombres − ganancia de las mujeres) ÷ ganancia de los hombres × 100</strong>: es ya una medida de género, por comunidad, sin desagregación propia. Las horas efectivas tampoco se desagregan por género." },
+        { h:"Eje temporal anual",p:"Para comparar indicadores de distinta cadencia, los trimestrales (EPA y ETCL) se agregan a <strong>media anual</strong> y los anuales (EAES y alquiler) se toman directos. Cada indicador tiene su propio año de cierre: la matriz de variables indica hasta cuándo hay dato publicado." },
         { h:"Modelado",          p:"Competición por serie de <strong>AutoARIMA · AutoETS · AutoTheta · Prophet</strong> frente a líneas base (Naive, SeasonalNaive, drift…), con validación cruzada temporal rolling-origin. Se elige el de menor <strong>MAPE/MAE</strong> con regla de <strong>parsimonia</strong> (ante empate, el más simple). Horizonte: 2026." },
-        { h:"Origen y notas",    p:"Cada fila lleva la marca <code>origen = real | proyeccion</code>. Las <strong>horas efectivas</strong> y la <strong>brecha salarial</strong> son territoriales, sin desglose por género. El % de alquiler asume una vivienda de referencia de 80 m². El pipeline persiste en la base de datos del Observatorio (<code>canendatos.ced_empleo_global</code> y <code>canendatos.ced_empleo_gen</code>)." }
+        { h:"Origen y notas",    p:"Cada dato se marca como <strong>real</strong> o <strong>proyección</strong> indicador a indicador; en la evolución, los puntos huecos señalan proyecciones. El % de alquiler asume una vivienda de referencia de 80 m²." }
       ],
       mapPalette: ["#fdeaea","#f8c9c9","#f09b9b","#e56060","#dc2626","#8f1414"],
       metrics: {
-        tasa_paro:            { label:"Tasa de paro",                        short:"Paro",            unit:"% de activos",          fmt:",.1f", suffix:" %" },
-        tasa_actividad:       { label:"Tasa de actividad",                   short:"Actividad",       unit:"% pob. 16+",            fmt:",.1f", suffix:" %" },
-        tasa_empleo:          { label:"Tasa de empleo",                      short:"Empleo",          unit:"% pob. 16+",            fmt:",.1f", suffix:" %" },
-        horas_servicios:      { label:"Horas efectivas · sector servicios",  short:"Horas servicios", unit:"horas/mes",             fmt:",.1f", suffix:" h" },
-        paro_juvenil:         { label:"Tasa de paro juvenil (<25)",          short:"Paro juvenil",    unit:"% de activos <25",      fmt:",.1f", suffix:" %" },
-        paro_larga_duracion:  { label:"Paro de larga duración",             short:"PLD",             unit:"% de parados ≥1 año",   fmt:",.1f", suffix:" %" },
-        temporalidad:         { label:"Tasa de temporalidad",               short:"Temporalidad",    unit:"% de asalariados",      fmt:",.1f", suffix:" %" },
-        parcialidad:          { label:"Tasa de parcialidad",                short:"Parcialidad",     unit:"% de ocupados",         fmt:",.1f", suffix:" %" },
-        brecha_salarial:      { label:"Brecha salarial de género",          short:"Brecha salarial", unit:"% (H−M)/H",             fmt:",.1f", suffix:" %" },
-        pct_alquiler_salario: { label:"% del salario dedicado al alquiler",  short:"Alquiler/salario",unit:"% del salario mensual", fmt:",.1f", suffix:" %" }
+        tasa_paro:            { label:"Tasa de paro",                        short:"Paro",            unit:"% de activos",          fmt:",.1f", suffix:" %", sexo:"observado" },
+        tasa_actividad:       { label:"Tasa de actividad",                   short:"Actividad",       unit:"% pob. 16+",            fmt:",.1f", suffix:" %", sexo:"observado" },
+        tasa_empleo:          { label:"Tasa de empleo",                      short:"Empleo",          unit:"% pob. 16+",            fmt:",.1f", suffix:" %", sexo:"observado" },
+        horas_servicios:      { label:"Horas efectivas · sector servicios",  short:"Horas servicios", unit:"horas/mes",             fmt:",.1f", suffix:" h", sexo:"no" },
+        paro_juvenil:         { label:"Tasa de paro juvenil (<25)",          short:"Paro juvenil",    unit:"% de activos <25",      fmt:",.1f", suffix:" %", sexo:"observado" },
+        paro_larga_duracion:  { label:"Paro de larga duración",             short:"PLD",             unit:"% de parados ≥1 año",   fmt:",.1f", suffix:" %", sexo:"observado" },
+        temporalidad:         { label:"Tasa de temporalidad",               short:"Temporalidad",    unit:"% de asalariados",      fmt:",.1f", suffix:" %", sexo:"observado" },
+        parcialidad:          { label:"Tasa de parcialidad",                short:"Parcialidad",     unit:"% de ocupados",         fmt:",.1f", suffix:" %", sexo:"observado" },
+        brecha_salarial:      { label:"Brecha salarial de género",          short:"Brecha salarial", unit:"% (H−M)/H",             fmt:",.1f", suffix:" %", sexo:"no" },
+        pct_alquiler_salario: { label:"% del salario dedicado al alquiler",  short:"Alquiler/salario",unit:"% del salario mensual", fmt:",.1f", suffix:" %", sexo:"observado" }
+      },
+      variables: {
+        tasa_paro:            { mide:"Personas en paro sobre la población activa.",
+                                calculo:"Media anual de los trimestres publicados, por comunidad y género. Los años sin publicar se proyectan.",
+                                fuente:"INE (EPA)" },
+        tasa_actividad:       { mide:"Población activa (con empleo o buscándolo) sobre la población de 16 años o más.",
+                                calculo:"Media anual de los trimestres publicados, por comunidad y género. Los años sin publicar se proyectan.",
+                                fuente:"INE (EPA)" },
+        tasa_empleo:          { mide:"Población ocupada sobre la población de 16 años o más.",
+                                calculo:"Media anual de los trimestres publicados, por comunidad y género. Los años sin publicar se proyectan.",
+                                fuente:"INE (EPA)" },
+        horas_servicios:      { mide:"Horas efectivas trabajadas por persona trabajadora y mes en el sector servicios.",
+                                calculo:"Media anual de los trimestres publicados, ambas jornadas. Sin dato para Ceuta ni Melilla. Los años sin publicar se proyectan.",
+                                fuente:"INE (ETCL)" },
+        paro_juvenil:         { mide:"Personas menores de 25 años en paro sobre la población activa de esa edad.",
+                                calculo:"Media anual de los trimestres publicados, por comunidad y género. Los años sin publicar se proyectan.",
+                                fuente:"INE (EPA)" },
+        paro_larga_duracion:  { mide:"Personas en paro que llevan un año o más buscando empleo, sobre el total de personas en paro.",
+                                calculo:"Suma de las categorías de búsqueda de un año o más; media anual, por comunidad y género. Los años sin publicar se proyectan.",
+                                fuente:"INE (EPA)" },
+        temporalidad:         { mide:"Personas asalariadas con contrato temporal sobre el total de personas asalariadas.",
+                                calculo:"Media anual de los trimestres publicados, por comunidad y género. Los años sin publicar se proyectan.",
+                                fuente:"INE (EPA)" },
+        parcialidad:          { mide:"Personas ocupadas a tiempo parcial sobre el total de personas ocupadas.",
+                                calculo:"Media anual de los trimestres publicados, por comunidad y género. Los años sin publicar se proyectan.",
+                                fuente:"INE (EPA)" },
+        brecha_salarial:      { mide:"Diferencia entre la ganancia media anual de hombres y de mujeres, en porcentaje de la de los hombres.",
+                                calculo:"(Ganancia de los hombres − ganancia de las mujeres) ÷ ganancia de los hombres × 100. Sin dato para Ceuta ni Melilla. Los años sin publicar se proyectan.",
+                                fuente:"INE (EAES)",
+                                sexoNota:"Es en sí una medida de género, por comunidad." },
+        pct_alquiler_salario: { mide:"Parte del salario mensual que se iría en alquilar una vivienda tipo de 80 m².",
+                                calculo:"(Precio del alquiler por m² × 80) ÷ (ganancia media anual ÷ 12) × 100. Sin dato para Ceuta ni Melilla. Los años sin publicar se proyectan.",
+                                fuente:"Idealista · INE (EAES)",
+                                sexoNota:"Ganancia publicada para hombres y para mujeres; el alquiler es el mismo." }
       },
       supabase: { schema:"canendatos", tables:["ced_empleo_global","ced_empleo_gen"] },
       csv: null,
@@ -1145,45 +1185,52 @@
 
   // -- Empleo ---------------------------------------------------------------
   // Granularidad ANUAL 2010-2026. `ced_empleo_global` lleva `ccaa_cod` (se
-  // ignora), un `origen` global y `_origen` por métrica para brecha_salarial y
-  // pct_alquiler_salario. `ced_empleo_gen` trae el género en SINGULAR
-  // (hombre/mujer) → se normaliza a plural (convención del master). El total
-  // sale de global (más completo, 10 métricas); de gen solo hombres/mujeres.
-  // Sin peso poblacional: la media estatal es simple.
+  // ignora), un `origen` de fila y `_origen` por métrica para brecha_salarial y
+  // pct_alquiler_salario, que cierran un año antes que la EPA. `ced_empleo_gen`
+  // trae el género en SINGULAR (hombre/mujer) → se normaliza a plural
+  // (convención del master). El total sale de global (más completo, 10
+  // métricas); de gen solo hombres/mujeres. Sin peso poblacional: la media
+  // estatal es simple.
+  //
+  // Cada fila de la tabla se parte en una fila por origen: las métricas con
+  // `_origen` propio van con el suyo y el resto con el de la fila. Antes, si
+  // una de esas dos era proyección, toda la fila lo era, y la EPA de 2025, que
+  // es dato publicado, salía como proyección.
   function loadEmpleo(cfg) {
     const metricKeys = Object.keys(cfg.metrics);
-    const PROJ_FLAGS = ["brecha_salarial_origen", "pct_alquiler_salario_origen"];
     function normalizeGenero(raw, fallback) {
       const s = String(raw || fallback || "total").toLowerCase().trim();
       if (s === "hombre" || s === "hombres" || s === "h" || s === "male")   return "hombres";
       if (s === "mujer"  || s === "mujeres" || s === "m" || s === "female") return "mujeres";
       return s || "total";
     }
-    function mapRow(d, genero) {
+    function mapRows(d, genero) {
       const ccaa = normalizeCcaa(d.ccaa);
-      if (!ccaa) return null;
+      if (!ccaa) return [];
       const periodKey = parsePeriodKey(d.periodo ?? d.anio ?? d.year, cfg.granularity);
-      if (!periodKey) return null;
-      let origen = d.origen || "real";
-      PROJ_FLAGS.forEach(f => { if (d[f] === "proyeccion") origen = "proyeccion"; });
-      const out = {
-        ccaa,
-        period: periodKey,
-        periodo: periodKeyToNum(periodKey, cfg.granularity),
-        genero,
-        origen
-      };
-      metricKeys.forEach(k => out[k] = num(d[k]));
-      return out;
+      if (!periodKey) return [];
+      const porOrigen = new Map();
+      metricKeys.forEach(k => {
+        const v = num(d[k]);
+        if (v == null) return;
+        const origen = d[`${k}_origen`] || d.origen || "real";
+        if (!porOrigen.has(origen)) {
+          const out = { ccaa, period: periodKey, periodo: periodKeyToNum(periodKey, cfg.granularity), genero, origen };
+          metricKeys.forEach(m => out[m] = null);
+          porOrigen.set(origen, out);
+        }
+        porOrigen.get(origen)[k] = v;
+      });
+      return Array.from(porOrigen.values());
     }
     return Promise.all([
       supabaseFetchAll("ced_empleo_global", cfg.supabase.schema).catch(() => []),
       supabaseFetchAll("ced_empleo_gen",    cfg.supabase.schema).catch(() => [])
     ]).then(([globalRows, genderRows]) => {
-      const total = globalRows.map(d => mapRow(d, "total")).filter(Boolean);
+      const total = globalRows.flatMap(d => mapRows(d, "total"));
       const gendered = genderRows
-        .map(d => mapRow(d, normalizeGenero(d.genero)))
-        .filter(r => r && (r.genero === "hombres" || r.genero === "mujeres"));
+        .flatMap(d => mapRows(d, normalizeGenero(d.genero)))
+        .filter(r => r.genero === "hombres" || r.genero === "mujeres");
       return total.concat(gendered);
     });
   }
