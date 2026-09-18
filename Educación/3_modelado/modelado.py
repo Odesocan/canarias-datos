@@ -238,31 +238,27 @@ def modelar(horizonte=2026):
     return {"long": long_mod, "seleccion": sel_df}
 
 
-def _origen_fila(sub):
-    """Origen a nivel de fila: 'real' si todo lo presente es real, si no 'proyeccion'."""
-    return "real" if (sub["origen"] == "real").all() else "proyeccion"
-
-
 def _exportar(long_mod, sel_df, horizonte):
+    # El origen va en la clave de las tablas anchas: un mismo año puede tener
+    # una fila con lo real y otra con lo proyectado, y cada indicador sólo tiene
+    # valor en la fila de su origen. Antes había una fila por (ccaa, periodo) y
+    # se marcaba entera como proyección en cuanto un indicador lo era: la EPA de
+    # 2024-2025, real, se publicaba como proyección porque la graduación en ESO
+    # y el gasto por persona estudiante de esos años sí lo son (220 celdas). El
+    # índice único de la carga ya era (ccaa, periodo, origen).
     # ── Wide global (genero=total, 10 indicadores) ──────────────────────────
     gt = long_mod[long_mod["genero"] == "total"]
-    glob = gt.pivot_table(index=["ccaa", "periodo"], columns="indicador",
+    glob = gt.pivot_table(index=["ccaa", "periodo", "origen"], columns="indicador",
                           values="valor", aggfunc="first").reset_index()
-    orow = (gt.groupby(["ccaa", "periodo"]).apply(_origen_fila)
-              .rename("origen").reset_index())
-    glob = glob.merge(orow, on=["ccaa", "periodo"])
     cols = ["ccaa", "periodo", "origen"] + [c for c in ORDEN if c in glob.columns]
-    glob = glob[cols].sort_values(["ccaa", "periodo"])
+    glob = glob[cols].sort_values(["ccaa", "periodo", "origen"])
 
     # ── Wide gen (8 indicadores × 3 géneros) ────────────────────────────────
     gs = long_mod[long_mod["indicador"].isin(IND_SEXO)]
-    gen = gs.pivot_table(index=["ccaa", "periodo", "genero"], columns="indicador",
+    gen = gs.pivot_table(index=["ccaa", "periodo", "genero", "origen"], columns="indicador",
                          values="valor", aggfunc="first").reset_index()
-    orow2 = (gs.groupby(["ccaa", "periodo", "genero"]).apply(_origen_fila)
-               .rename("origen").reset_index())
-    gen = gen.merge(orow2, on=["ccaa", "periodo", "genero"])
     cols2 = ["ccaa", "periodo", "genero", "origen"] + [c for c in IND_SEXO if c in gen.columns]
-    gen = gen[cols2].sort_values(["ccaa", "periodo", "genero"])
+    gen = gen[cols2].sort_values(["ccaa", "periodo", "genero", "origen"])
 
     for d, nombre in [(glob, "ced_educacion_global"), (gen, "ced_educacion_gen")]:
         d.to_csv(OUT_DIR / f"{nombre}.csv", sep=";", decimal=",", na_rep="NA", index=False)

@@ -27,7 +27,7 @@ from utils_carga import logger
 QA_DIR = BASE_DIR / "reports"
 QA_DIR.mkdir(parents=True, exist_ok=True)
 OK, WARN, FAIL = "✅", "⚠️", "❌"
-ESPERADO = {"ced_educacion_global": 204, "ced_educacion_gen": 612}
+ESPERADO = {}   # nº de filas variable: lo real y lo proyectado de un año van en filas distintas
 HORIZON_END = 2026   # último periodo esperado (horizonte de proyección)
 
 
@@ -45,6 +45,11 @@ def _check_tabla(nombre, indice):
     clave_sin_origen = [c for c in indice if c != "origen"]
     checks.append(("sin NA en clave", not df[clave_sin_origen].isna().any().any()))
     checks.append(("columna origen presente", "origen" in df.columns))
+    # Un año puede tener dos filas (real y proyección), pero cada indicador
+    # sólo puede tener valor en una de ellas.
+    ind_cols = [c for c in df.columns if c not in indice]
+    dobles = int(df.groupby(clave_sin_origen)[ind_cols].count().gt(1).sum().sum())
+    checks.append(("un valor por indicador y celda", dobles == 0))
     n_real = int((df["origen"] == "real").sum())
     n_proy = int((df["origen"] == "proyeccion").sum())
     return df, checks, (n_real, n_proy), per
