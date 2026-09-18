@@ -810,29 +810,71 @@
       title: "Sanidad: investiga el funcionamiento del sistema sanitario en cada comunidad autónoma",
       lead: "Elige el indicador que más te interese analizar, vigila su evolución temporal y la brecha de género existente. Si quieres saber algo más sobre los datos que estás visualizando, acude al apartado de metodología en «Cómo se construye».",
       sourceLeft: "Fuentes: INCLASNS (Ministerio de Sanidad) · gasto/PIB de Presupuestos",
-      sourceRight: "Tablas: global_sanidad · gen_sanidad",
+      sourceRight: "Elaboración: Observatorio ODESOCAN",
       hasGender: true,
+      // Mismas opciones de presentación que Vivienda y Educación (ver sus
+      // bloques). Esta sección habla de desagregación por género.
+      evolutionAxis: "adaptive",
+      genderFilterNotes: true,
+      genderTerm: "género",
+      variablesNote: "INCLASNS: Indicadores Clave del Sistema Nacional de Salud, del Ministerio de Sanidad.",
       method: [
-        { h:"Fuentes de datos", p:"Fuente troncal: los <strong>Indicadores Clave del SNS (INCLASNS)</strong> del Ministerio de Sanidad, vía su API REST. El esfuerzo de gasto se importa del área de <strong>Presupuestos</strong> de Canarias en Datos (gasto sanitario autonómico sobre PIB regional). Origen último: SIAP, CMBD, INE, ISCIII." },
+        { h:"Fuentes de datos", p:"Fuente troncal: los <strong>Indicadores Clave del SNS (INCLASNS)</strong> del Ministerio de Sanidad. El esfuerzo de gasto se importa del área de <strong>Presupuestos</strong> de Canarias en Datos (gasto sanitario autonómico sobre PIB regional). Origen último: SIAP, CMBD, INE, ISCIII." },
         { h:"Índice de mortalidad evitable", p:"Único índice sintético del área, construido por ODESOCAN a partir de la mortalidad prematura ajustada por edad por <strong>cáncer, cardiopatía isquémica, diabetes, ictus y EPOC</strong>. Cada componente se normaliza por su media histórica nacional y se promedia; se reescala a <strong>0–100</strong> (mayor valor, mayor mortalidad evitable)." },
-        { h:"Perspectiva de género (observada)", p:"Los indicadores de resultado (mortalidad, años de vida saludable, reingresos) traen el desglose <strong>directo</strong> por género del INCLASNS. Los indicadores de sistema (recursos, gasto, esperas) no se desagregan por género: son territoriales por naturaleza de la fuente." },
+        { h:"Perspectiva de género (observada)", p:"Los indicadores de resultado (mortalidad evitable, años de vida saludable, reingresos) traen el desglose <strong>directo</strong> por género del INCLASNS, sin estimaciones. Los indicadores de sistema (recursos, gasto, esperas) no se desagregan por género: son territoriales por naturaleza de la fuente." },
         { h:"Comparabilidad entre CCAA", p:"Las tasas de mortalidad se descargan <strong>ajustadas por edad</strong> en origen, lo que las hace comparables entre comunidades con estructuras demográficas distintas. El gasto se expresa como <strong>% del PIB</strong>, una medida de esfuerzo relativa e intercomunitaria." },
-        { h:"Modelado y proyección (bagged ETS)", p:"Las series anuales continuas (≥10 años) se proyectan con <strong>bagged ETS</strong> (Bergmeir-Hyndman-Benítez, 2016): bootstrap por bloques (STL + MBB) con 100 réplicas, un ETS por réplica y promedio de las previsiones, con IC 95 %. El horizonte proyectado se marca a nivel de fila y se distingue en los tooltips y puntos de la serie." },
-        { h:"Notas y límites", p:"Los <strong>indicadores de sistema</strong> (recursos, gasto, esperas) no tienen desglose por género. El gasto sobre PIB cubre 17 CCAA (sin Ceuta ni Melilla) y es gasto <strong>presupuestado</strong>, no liquidado. La bandera de <code>origen</code> es a nivel de fila: un año se marca proyección si contiene alguna estimación." }
+        { h:"Modelado y proyección (bagged ETS)", p:"Las series anuales continuas (≥10 años) se proyectan hasta <strong>2026</strong> con <strong>bagged ETS</strong> (Bergmeir-Hyndman-Benítez, 2016): bootstrap por bloques (STL + MBB) con 100 réplicas, un ETS por réplica y promedio de las previsiones, con IC 95 %. Sólo se proyectan los años que la fuente aún no ha publicado." },
+        { h:"Notas y límites", p:"Los <strong>indicadores de sistema</strong> (recursos, gasto, esperas) no tienen desglose por género. El gasto sobre PIB cubre 17 CCAA (sin Ceuta ni Melilla) y es gasto <strong>presupuestado</strong>, no liquidado. Cada dato se marca como <strong>real</strong> o <strong>proyección</strong> indicador a indicador; en la evolución, los puntos huecos señalan proyecciones." }
       ],
       mapPalette: ["#e6f7f4","#c0ebe3","#89d8cb","#4dbfae","#0d9488","#0a5f57"],
       metrics: {
-        mort_evitable_idx_0_100: { label:"Índice de mortalidad evitable (0–100)", short:"Mort. evitable", unit:"índice 0–100 · ↑ peor", fmt:",.1f", suffix:"" },
-        avs_65:             { label:"Años de vida saludable a los 65",       short:"AVS 65",           unit:"años",                   fmt:",.1f", suffix:" años" },
-        reingresos_psiq:    { label:"Reingresos urgentes psiquiátricos",     short:"Reingresos psiq.", unit:"% sobre altas psiq.",    fmt:",.1f", suffix:" %" },
-        pct_pib_sanidad:    { label:"Gasto sanitario sobre PIB",             short:"Gasto/PIB",        unit:"% del PIB regional",     fmt:",.2f", suffix:" %" },
-        gasto_farmacia_pct: { label:"Porcentaje del gasto en farmacia",      short:"Farmacia",         unit:"% del gasto sanitario",  fmt:",.1f", suffix:" %" },
-        med_ap:             { label:"Médicos de atención primaria",          short:"Médicos AP",       unit:"por 1.000 hab.",         fmt:",.2f", suffix:"" },
-        med_ae:             { label:"Médicos de atención especializada",     short:"Médicos AE",       unit:"por 1.000 hab.",         fmt:",.2f", suffix:"" },
-        enf_ap:             { label:"Enfermería de atención primaria",       short:"Enfermería AP",    unit:"por 1.000 hab.",         fmt:",.2f", suffix:"" },
-        camas:              { label:"Camas hospitalarias",                   short:"Camas",            unit:"por 1.000 hab.",         fmt:",.2f", suffix:"" },
-        espera_quir:        { label:"Espera para intervención quirúrgica",   short:"Espera cirugía",   unit:"días",                   fmt:",.1f", suffix:" d" },
-        espera_ae:          { label:"Espera 1ª consulta (esp.)",             short:"Espera consulta",  unit:"días",                   fmt:",.1f", suffix:" d" }
+        mort_evitable_idx_0_100: { label:"Índice de mortalidad evitable (0–100)", short:"Mort. evitable", unit:"índice 0–100 · ↑ peor", fmt:",.1f", suffix:"", sexo:"observado" },
+        avs_65:             { label:"Años de vida saludable a los 65",       short:"AVS 65",           unit:"años",                   fmt:",.1f", suffix:" años", sexo:"observado" },
+        reingresos_psiq:    { label:"Reingresos urgentes psiquiátricos",     short:"Reingresos psiq.", unit:"% sobre altas psiq.",    fmt:",.1f", suffix:" %", sexo:"observado" },
+        pct_pib_sanidad:    { label:"Gasto sanitario sobre PIB",             short:"Gasto/PIB",        unit:"% del PIB regional",     fmt:",.2f", suffix:" %", sexo:"no" },
+        gasto_farmacia_pct: { label:"Porcentaje del gasto en farmacia",      short:"Farmacia",         unit:"% del gasto sanitario",  fmt:",.1f", suffix:" %", sexo:"no" },
+        med_ap:             { label:"Médicos de atención primaria",          short:"Médicos AP",       unit:"por 1.000 hab.",         fmt:",.2f", suffix:"", sexo:"no" },
+        med_ae:             { label:"Médicos de atención especializada",     short:"Médicos AE",       unit:"por 1.000 hab.",         fmt:",.2f", suffix:"", sexo:"no" },
+        enf_ap:             { label:"Enfermería de atención primaria",       short:"Enfermería AP",    unit:"por 1.000 hab.",         fmt:",.2f", suffix:"", sexo:"no" },
+        camas:              { label:"Camas hospitalarias",                   short:"Camas",            unit:"por 1.000 hab.",         fmt:",.2f", suffix:"", sexo:"no" },
+        espera_quir:        { label:"Espera para intervención quirúrgica",   short:"Espera cirugía",   unit:"días",                   fmt:",.1f", suffix:" d", sexo:"no" },
+        espera_ae:          { label:"Espera 1ª consulta (esp.)",             short:"Espera consulta",  unit:"días",                   fmt:",.1f", suffix:" d", sexo:"no" }
+      },
+      variables: {
+        mort_evitable_idx_0_100: { mide:"Mortalidad prematura ajustada por edad por cáncer, cardiopatía isquémica, diabetes, ictus y EPOC, resumida en un índice.",
+                                   calculo:"Cada causa se divide por su media histórica nacional; se promedian las cinco y el resultado se reescala a 0-100 sobre el conjunto de comunidades, géneros y años. Índice propio de ODESOCAN.",
+                                   fuente:"Ministerio de Sanidad (INCLASNS)",
+                                   sexoNota:"Las cinco causas se publican por género; el índice se calcula igual para cada uno." },
+        avs_65:             { mide:"Años que una persona de 65 años puede esperar vivir en buena salud.",
+                              calculo:"Dato publicado por comunidad y género. Los años sin publicar se proyectan.",
+                              fuente:"Ministerio de Sanidad (INCLASNS)" },
+        reingresos_psiq:    { mide:"Porcentaje de altas psiquiátricas seguidas de un reingreso urgente.",
+                              calculo:"Dato publicado por comunidad y género. Los años sin publicar se proyectan.",
+                              fuente:"Ministerio de Sanidad (INCLASNS)" },
+        pct_pib_sanidad:    { mide:"Gasto sanitario autonómico presupuestado sobre el PIB de cada comunidad.",
+                              calculo:"Presupuesto, no gasto liquidado. Sin dato para Ceuta ni Melilla. Los años sin dato se proyectan.",
+                              fuente:"Presupuestos autonómicos (área de Presupuestos de Canarias en Datos)" },
+        gasto_farmacia_pct: { mide:"Parte del gasto sanitario público que se destina a farmacia.",
+                              calculo:"Dato publicado por comunidad. Sin dato para Ceuta ni Melilla. Los años sin publicar se proyectan.",
+                              fuente:"Ministerio de Sanidad (INCLASNS)" },
+        med_ap:             { mide:"Profesionales de medicina en atención primaria por cada 1.000 habitantes.",
+                              calculo:"Dato publicado por comunidad. Los años sin publicar se proyectan.",
+                              fuente:"Ministerio de Sanidad (INCLASNS)" },
+        med_ae:             { mide:"Profesionales de medicina en atención especializada por cada 1.000 habitantes.",
+                              calculo:"Dato publicado por comunidad. Los años sin publicar se proyectan.",
+                              fuente:"Ministerio de Sanidad (INCLASNS)" },
+        enf_ap:             { mide:"Profesionales de enfermería en atención primaria por cada 1.000 habitantes.",
+                              calculo:"Dato publicado por comunidad. Los años sin publicar se proyectan.",
+                              fuente:"Ministerio de Sanidad (INCLASNS)" },
+        camas:              { mide:"Camas hospitalarias en funcionamiento por cada 1.000 habitantes.",
+                              calculo:"Dato publicado por comunidad. Los años sin publicar se proyectan.",
+                              fuente:"Ministerio de Sanidad (INCLASNS)" },
+        espera_quir:        { mide:"Tiempo medio de espera para una intervención quirúrgica no urgente, en días.",
+                              calculo:"Dato publicado por comunidad. Los años sin publicar se proyectan.",
+                              fuente:"Ministerio de Sanidad (INCLASNS)" },
+        espera_ae:          { mide:"Tiempo medio de espera para la primera consulta en atención especializada, en días.",
+                              calculo:"Dato publicado por comunidad. Los años sin publicar se proyectan.",
+                              fuente:"Ministerio de Sanidad (INCLASNS)" }
       },
       supabase: { schema:"canendatos", tables:["global_sanidad","gen_sanidad"] },
       csv: null,
@@ -1059,6 +1101,10 @@
   // total desde global y de gen tomamos solo hombres/mujeres para no duplicar la
   // clave (ccaa, periodo, genero). `poblacion_total` -> censo, para que stateMean
   // calcule una media estatal ponderada por poblacion. Se ignora `ccaa_cod`.
+  //
+  // Un año puede traer dos filas, una con lo real y otra con lo proyectado, y
+  // la población sólo viene en la de su origen. Se reparte a la otra para que
+  // la media estatal de un indicador proyectado siga ponderada.
   function loadSanidad(cfg) {
     const metricKeys = Object.keys(cfg.metrics);
     function mapRow(d, genero) {
@@ -1089,7 +1135,11 @@
         })
         .map(d => mapRow(d, String(d.genero).toLowerCase().trim()))
         .filter(Boolean);
-      return total.concat(gendered);
+      const rows = total.concat(gendered);
+      const censoPor = new Map();
+      rows.forEach(r => { if (r.censo) censoPor.set(`${r.ccaa}|${r.period}|${r.genero}`, r.censo); });
+      rows.forEach(r => { if (!r.censo) r.censo = censoPor.get(`${r.ccaa}|${r.period}|${r.genero}`) || null; });
+      return rows;
     });
   }
 

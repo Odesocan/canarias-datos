@@ -34,7 +34,9 @@ create table if not exists canendatos.global_sanidad (
   espera_ae                double precision,           -- días de espera 1ª consulta atención especializada
   reingresos_psiq          double precision,           -- % reingresos urgentes psiquiátricos
   poblacion_total          double precision,           -- población total (denominador)
-  primary key (ccaa, periodo)
+  -- El origen va en la clave: un año puede tener una fila real y otra
+  -- proyectada, y cada indicador sólo tiene valor en la de su origen.
+  primary key (ccaa, periodo, origen)
 );
 
 -- 2) GEN — 1 fila por CCAA·año·género (solo indicadores con desglose por género)
@@ -54,7 +56,7 @@ create table if not exists canendatos.gen_sanidad (
   mort_evitable_idx_0_100  double precision,
   reingresos_psiq          double precision,
   poblacion_total          double precision,
-  primary key (ccaa, periodo, genero)
+  primary key (ccaa, periodo, genero, origen)
 );
 
 -- 3) Lectura pública para el cliente web (anon key) — SOLO SELECT

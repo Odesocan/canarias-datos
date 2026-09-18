@@ -3,8 +3,9 @@
 # Construye las tablas de distribución global_sanidad (género 'total') y
 # gen_sanidad (hombres/mujeres), exporta CSV/XLSX y, si --with-db, las carga
 # en Supabase (schema canendatos) vía REST API (DELETE + INSERT por lotes).
-# Convención de origen a nivel de fila: 'proyeccion' si el año contiene alguna
-# celda proyectada (bagged ETS), 'real' en caso contrario.
+# Convención de origen por indicador: el origen forma parte de la clave, así que
+# un año puede tener una fila con lo real y otra con lo proyectado (bagged ETS),
+# y cada indicador sólo tiene valor en la fila de su origen.
 # Entrada: 3_modelado/ced_sanidad_largo.rds. Salida: 4_carga/* (+ Supabase).
 # =============================================================================
 
@@ -29,15 +30,14 @@ build_carga_tables <- function(cfg) {
   largo <- readRDS(file.path(cfg$model_dir, "ced_sanidad_largo.rds"))
   ccaa_ok <- official_ccaa_levels(include_national = FALSE)   # 17 CCAA + Ceuta + Melilla
 
-  # origen a nivel de fila (ccaa, periodo, genero)
-  origen_row <- largo |>
-    dplyr::group_by(.data$ccaa, .data$periodo, .data$genero) |>
-    dplyr::summarise(origen = if (any(.data$origen == "proyeccion")) "proyeccion" else "real", .groups = "drop")
-
+  # El origen va en la clave. Antes había una fila por (ccaa, periodo, genero)
+  # marcada entera como proyección en cuanto un indicador lo era: las esperas,
+  # camas, personal, mortalidad y reingresos de 2024 (y las esperas y el gasto
+  # sobre PIB de 2025), que son dato publicado, salían como proyección porque
+  # otros indicadores de esos años sí se proyectan (314 celdas).
   wide <- largo |>
-    dplyr::select("ccaa", "periodo", "genero", "variable", "valor") |>
+    dplyr::select("ccaa", "periodo", "genero", "origen", "variable", "valor") |>
     tidyr::pivot_wider(names_from = "variable", values_from = "valor") |>
-    dplyr::left_join(origen_row, by = c("ccaa", "periodo", "genero")) |>
     dplyr::filter(.data$ccaa %in% ccaa_ok) |>
     dplyr::mutate(periodo = as.integer(.data$periodo), ccaa_cod = ccaa_to_cod(.data$ccaa))
 
@@ -47,16 +47,16 @@ build_carga_tables <- function(cfg) {
     dplyr::filter(.data$genero == "total") |>
     round2(GLOBAL_INDICATORS) |>
     dplyr::select("ccaa", "ccaa_cod", "periodo", "origen", dplyr::any_of(GLOBAL_INDICATORS)) |>
-    dplyr::arrange(.data$ccaa, .data$periodo)
+    dplyr::arrange(.data$ccaa, .data$periodo, .data$origen)
   assert_required_columns(global, c("ccaa", "periodo", "origen"), "global_sanidad")
-  if (anyDuplicated(global[c("ccaa", "periodo")])) stop("global_sanidad: claves (ccaa,periodo) duplicadas", call. = FALSE)
+  if (anyDuplicated(global[c("ccaa", "periodo", "origen")])) stop("global_sanidad: claves (ccaa,periodo,origen) duplicadas", call. = FALSE)
 
   gen <- wide |>
     dplyr::filter(.data$genero %in% c("hombres", "mujeres")) |>
     round2(GEN_INDICATORS) |>
     dplyr::select("ccaa", "ccaa_cod", "periodo", "genero", "origen", dplyr::any_of(GEN_INDICATORS)) |>
-    dplyr::arrange(.data$ccaa, .data$periodo, .data$genero)
-  if (anyDuplicated(gen[c("ccaa", "periodo", "genero")])) stop("gen_sanidad: claves duplicadas", call. = FALSE)
+    dplyr::arrange(.data$ccaa, .data$periodo, .data$genero, .data$origen)
+  if (anyDuplicated(gen[c("ccaa", "periodo", "genero", "origen")])) stop("gen_sanidad: claves duplicadas", call. = FALSE)
 
   list(global = global, gen = gen)
 }
@@ -128,9 +128,27 @@ write_table_via_pg <- function(cfg, data, table) {
   log_event("DB", glue("PG: {nrow(data)} filas cargadas en {cfg$db$schema}.{table}"))
 }
 
+# Cada tabla tiene que traer todos sus indicadores, con datos, para poder
+# publicarse. Si una fuente deja de servir uno, la extracción sigue sin él y la
+# carga lo borraría de la web (le pasó a Educación en septiembre de 2026).
+assert_indicadores_completos <- function(tabs) {
+  faltan <- c(
+    paste0("global_sanidad:", GLOBAL_INDICATORS[!vapply(GLOBAL_INDICATORS, function(v)
+      v %in% names(tabs$global) && any(!is.na(tabs$global[[v]])), logical(1))]),
+    paste0("gen_sanidad:", GEN_INDICATORS[!vapply(GEN_INDICATORS, function(v)
+      v %in% names(tabs$gen) && any(!is.na(tabs$gen[[v]])), logical(1))])
+  )
+  faltan <- faltan[!grepl(":$", faltan)]
+  if (length(faltan)) {
+    stop(glue("Faltan indicadores o vienen vacíos ({paste(faltan, collapse = ', ')}): ",
+              "no se carga. ¿Ha fallado su fuente en la extracción?"), call. = FALSE)
+  }
+}
+
 run_carga <- function(cfg) {
   log_event("INFO", "Iniciando carga")
   tabs <- build_carga_tables(cfg)
+  assert_indicadores_completos(tabs)
   write_exports(cfg, tabs$global, tabs$gen)
 
   if (isTRUE(cfg$with_db)) {
