@@ -20,8 +20,21 @@ import sys
 
 import pandas as pd
 
-from config_carga import TABLAS, OUT_DIR, DB, db_configurada
+from config_carga import TABLAS, OUT_DIR, DB, db_configurada, EDUCACION_DIR
 from utils_carga import logger
+
+sys.path.insert(0, str(EDUCACION_DIR / "1_extraccion"))
+from config.indicadores import INDICADORES                     # noqa: E402
+
+# Indicadores que tiene que traer cada tabla para poder publicarse. La
+# extracción captura el fallo de cada fuente y sigue sin ese indicador, y el
+# modelado exporta entonces la tabla sin la columna: publicarla lo borraría de
+# la web. Pasó en septiembre de 2026, cuando EDUCAbase retiró las tablas de
+# idoneidad y escolarización 0-2 y un despliegue automático las dejó fuera.
+INDICADORES_ESPERADOS = {
+    "ced_educacion_global": [i["key"] for i in INDICADORES if i["disponible"]],
+    "ced_educacion_gen": [i["key"] for i in INDICADORES if i["disponible"] and i["desagrega_sexo"]],
+}
 
 
 def _leer(fuente):
@@ -47,6 +60,10 @@ def _validar(nombre, df, indice):
     ncc = df["ccaa"].nunique()
     if ncc != 17:
         inc.append(f"{nombre}: {ncc}/17 CCAA")
+    for ind in INDICADORES_ESPERADOS.get(nombre, []):
+        if ind not in df.columns or df[ind].notna().sum() == 0:
+            inc.append(f"{nombre}: falta el indicador {ind} o no trae datos "
+                       "(¿ha fallado su fuente en la extracción?)")
     return inc
 
 
@@ -109,6 +126,10 @@ def main():
     if args.qa:
         import qa_carga
         qa_carga.run(with_db=args.with_db and res["cargado"])
+    # Con incidencias no se ha cargado nada; que el paso de CI salga en rojo en
+    # vez de dar por buena una carga que no ha ocurrido.
+    if res["incidencias"]:
+        sys.exit(1)
 
 
 if __name__ == "__main__":
