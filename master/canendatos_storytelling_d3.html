@@ -734,28 +734,68 @@
       title: "Educación: indaga en las condiciones educativas de Canarias en comparación con el resto del Estado",
       lead: "Elige el indicador que más te interese analizar, vigila su evolución temporal y la brecha de género existente. Si quieres saber algo más sobre los datos que estás visualizando, acude al apartado de metodología en «Cómo se construye».",
       sourceLeft: "Fuentes: INE·EPA (vía Eurostat) · MEFP (EDUCAbase, Cifras de la Educación) · Presupuestos",
-      sourceRight: "Tablas: ced_educacion_global · ced_educacion_gen",
+      sourceRight: "Elaboración: Observatorio ODESOCAN",
       hasGender: true,
+      // Mismas opciones de presentación que Vivienda (ver su bloque). Esta
+      // sección habla de desagregación por género, no por sexo (genderTerm).
+      evolutionAxis: "adaptive",
+      genderFilterNotes: true,
+      genderTerm: "género",
+      variablesNote: "EPA: Encuesta de Población Activa · MEFP: Ministerio de Educación, Formación Profesional y Deportes · EDUCAbase: base de datos estadística del MEFP.",
       method: [
-        { h:"Fuentes",           p:"Variables educativas de la <strong>EPA</strong> (INE) servidas a nivel autonómico (NUTS-2) por <strong>Eurostat</strong>; estadística del <strong>MEFP</strong> (EDUCAbase · PC-Axis y anuario «Las cifras de la Educación en España»); y el área de <strong>Presupuestos</strong> de Canarias en Datos para el esfuerzo sobre el PIB regional. La geometría del mapa se sirve desde NUTS-2 de Eurostat." },
-        { h:"Los diez indicadores", p:"Resultados de la población (abandono temprano, nivel superior 25-34, bajo nivel 25-64, formación permanente, NEET), trayectoria escolar (idoneidad a los 15, graduación en ESO, escolarización 0-2) y esfuerzo público (gasto/PIB y gasto por alumno). Los ocho primeros, por CCAA <strong>y</strong> género; los dos de gasto, sólo por CCAA." },
-        { h:"Brecha de género",  p:"Tanto la <strong>EPA</strong> como el <strong>MEFP</strong> publican el desglose <strong>directo</strong> por sexo, sin imputación (<code>ced_educacion_gen</code>). El patrón suele estar <strong>invertido</strong>: más abandono y NEET en hombres, más titulación superior, idoneidad y graduación en mujeres." },
-        { h:"Eje temporal anual",p:"Serie <strong>2015-2026</strong>. Los datos del MEFP se refieren al curso académico y se asignan al año natural de inicio (2023-24 → 2023). Cada año se marca real o proyección; los indicadores tienen distinto año de cierre (p. ej. graduación y gasto por alumno terminan en 2023)." },
+        { h:"Fuentes",           p:"Variables educativas de la <strong>EPA</strong> (INE) servidas a nivel autonómico (NUTS-2) por <strong>Eurostat</strong>; estadística del <strong>MEFP</strong> (EDUCAbase y anuario «Las cifras de la Educación en España»); y el área de <strong>Presupuestos</strong> de Canarias en Datos para el esfuerzo sobre el PIB regional. El mapa usa las regiones NUTS-2 de Eurostat." },
+        { h:"Los diez indicadores", p:"Resultados de la población (abandono temprano, nivel superior 25-34, bajo nivel 25-64, formación permanente y juventud que ni estudia ni trabaja), trayectoria escolar (idoneidad a los 15, graduación en ESO, escolarización 0-2) y esfuerzo público (gasto sobre el PIB y gasto por persona estudiante). Los ocho primeros, por comunidad <strong>y</strong> género; los dos de gasto, sólo por comunidad." },
+        { h:"Brecha de género",  p:"Tanto la <strong>EPA</strong> como el <strong>MEFP</strong> publican el desglose <strong>directo</strong> por género, sin estimaciones. El patrón suele estar <strong>invertido</strong>: más abandono y más juventud que ni estudia ni trabaja entre los hombres; más titulación superior, idoneidad y graduación entre las mujeres. Los dos indicadores de gasto no están desagregados por género." },
+        { h:"Eje temporal anual",p:"Serie <strong>2015-2026</strong>. Los datos del MEFP se refieren al curso académico y se asignan al año natural de inicio (2023-24 → 2023). Cada indicador tiene su propio año de cierre: la matriz de variables indica hasta cuándo hay dato publicado y desde cuándo es proyección." },
         { h:"Modelado",          p:"Competición por serie de <strong>ETS · ARIMA · Prophet · Random Forest · XGBoost</strong> frente a estimadores simples (media, naive, deriva, tendencia), con validación cruzada temporal rolling-origin. Se elige el de menor <strong>MAPE/MAE</strong> con regla de <strong>parsimonia</strong> (el más simple dentro del margen del mejor). Horizonte de proyección: 2026." },
-        { h:"Origen y almacenamiento", p:"Cada fila lleva la marca <code>origen = real | proyeccion</code>. El pipeline persiste en la base de datos del Observatorio (<code>canendatos.ced_educacion_global</code> y <code>canendatos.ced_educacion_gen</code>) y publica también CSV/XLSX." }
+        { h:"Origen",            p:"Cada dato se marca como <strong>real</strong> o <strong>proyección</strong>, indicador a indicador: que un año tenga algún indicador proyectado no convierte en proyección los que ya están publicados. En los gráficos de evolución, los puntos huecos señalan proyecciones." }
       ],
       mapPalette: ["#f3eefe","#e0d1fb","#c4a8f4","#9f6ee8","#7c3aed","#4c1d95"],
       metrics: {
-        abandono_temprano:       { label:"Abandono educativo temprano (18-24)",       short:"Abandono",            unit:"% de la población 18-24", fmt:",.1f",  suffix:" %" },
-        nivel_superior_25_34:    { label:"Población con educación superior (25-34)",   short:"Titulación superior", unit:"% de la población 25-34", fmt:",.1f",  suffix:" %" },
-        nivel_bajo_25_64:        { label:"Población con bajo nivel formativo (25-64)", short:"Bajo nivel",          unit:"% de la población 25-64", fmt:",.1f",  suffix:" %" },
-        formacion_adultos_25_64: { label:"Formación permanente (25-64)",               short:"Formación adulta",    unit:"% de la población 25-64", fmt:",.1f",  suffix:" %" },
-        neet_15_29:              { label:"Jóvenes que ni estudian ni trabajan (15-29)",short:"NEET",                unit:"% de la población 15-29", fmt:",.1f",  suffix:" %" },
-        idoneidad_15:            { label:"Tasa de idoneidad a los 15 años",            short:"Idoneidad",           unit:"% del alumnado de 15 años",fmt:",.1f", suffix:" %" },
-        graduacion_eso:          { label:"Tasa bruta de graduación en ESO",            short:"Graduación ESO",      unit:"% de la edad teórica",    fmt:",.1f",  suffix:" %" },
-        escolarizacion_0_2:      { label:"Escolarización 0-2 años (1er ciclo Infantil)",short:"Escolarización 0-2", unit:"% de la población 0-2",   fmt:",.1f",  suffix:" %" },
-        gasto_edu_pib:           { label:"Gasto en educación sobre PIB",               short:"Gasto/PIB",           unit:"% del PIB regional",      fmt:",.2f",  suffix:" %" },
-        gasto_por_alumno:        { label:"Gasto público por alumno (no universitaria)",short:"Gasto/alumno",        unit:"euros por alumno",        fmt:",.1f", suffix:" €" }
+        abandono_temprano:       { label:"Abandono educativo temprano (18-24)",       short:"Abandono",            unit:"% de la población 18-24", fmt:",.1f",  suffix:" %", sexo:"observado" },
+        nivel_superior_25_34:    { label:"Población con educación superior (25-34)",   short:"Titulación superior", unit:"% de la población 25-34", fmt:",.1f",  suffix:" %", sexo:"observado" },
+        nivel_bajo_25_64:        { label:"Población con bajo nivel formativo (25-64)", short:"Bajo nivel",          unit:"% de la población 25-64", fmt:",.1f",  suffix:" %", sexo:"observado" },
+        formacion_adultos_25_64: { label:"Formación permanente (25-64)",               short:"Formación adulta",    unit:"% de la población 25-64", fmt:",.1f",  suffix:" %", sexo:"observado" },
+        neet_15_29:              { label:"Juventud que ni estudia ni trabaja (15-29)", short:"Ni estudia ni trabaja", unit:"% de la población 15-29", fmt:",.1f", suffix:" %", sexo:"observado" },
+        idoneidad_15:            { label:"Tasa de idoneidad a los 15 años",            short:"Idoneidad",           unit:"% del alumnado de 15 años",fmt:",.1f", suffix:" %", sexo:"observado" },
+        graduacion_eso:          { label:"Tasa bruta de graduación en ESO",            short:"Graduación ESO",      unit:"% de la edad teórica",    fmt:",.1f",  suffix:" %", sexo:"observado" },
+        escolarizacion_0_2:      { label:"Escolarización 0-2 años (1er ciclo Infantil)",short:"Escolarización 0-2", unit:"% de la población 0-2",   fmt:",.1f",  suffix:" %", sexo:"observado" },
+        gasto_edu_pib:           { label:"Gasto en educación sobre PIB",               short:"Gasto/PIB",           unit:"% del PIB regional",      fmt:",.2f",  suffix:" %", sexo:"no" },
+        gasto_por_alumno:        { label:"Gasto público por persona estudiante (no universitaria)", short:"Gasto/estudiante", unit:"euros por persona estudiante", fmt:",.1f", suffix:" €", sexo:"no" }
+      },
+      // La clave gasto_por_alumno es el nombre de la columna en la base de
+      // datos; lo que se enseña es la etiqueta.
+      variables: {
+        abandono_temprano:       { mide:"Población de 18 a 24 años que no ha completado la segunda etapa de secundaria y no sigue ningún tipo de formación.",
+                                   calculo:"Dato publicado por comunidad y género. Los años sin publicar se proyectan.",
+                                   fuente:"INE (EPA) vía Eurostat" },
+        nivel_superior_25_34:    { mide:"Población de 25 a 34 años con educación superior (FP de grado superior o estudios universitarios).",
+                                   calculo:"Dato publicado por comunidad y género. Los años sin publicar se proyectan.",
+                                   fuente:"INE (EPA) vía Eurostat" },
+        nivel_bajo_25_64:        { mide:"Población de 25 a 64 años que, como mucho, ha completado la primera etapa de secundaria.",
+                                   calculo:"Dato publicado por comunidad y género. Los años sin publicar se proyectan.",
+                                   fuente:"INE (EPA) vía Eurostat" },
+        formacion_adultos_25_64: { mide:"Población de 25 a 64 años que ha participado en alguna actividad formativa en las cuatro semanas anteriores.",
+                                   calculo:"Dato publicado por comunidad y género. Los años sin publicar se proyectan.",
+                                   fuente:"INE (EPA) vía Eurostat" },
+        neet_15_29:              { mide:"Población de 15 a 29 años que no tiene empleo ni sigue ninguna formación.",
+                                   calculo:"Dato publicado por comunidad y género. Los años sin publicar se proyectan.",
+                                   fuente:"INE (EPA) vía Eurostat" },
+        idoneidad_15:            { mide:"Alumnado de 15 años que cursa el curso que le corresponde por edad.",
+                                   calculo:"Dato publicado por comunidad y género; el curso se asigna a su año de inicio. Los años sin publicar se proyectan.",
+                                   fuente:"MEFP (EDUCAbase)" },
+        graduacion_eso:          { mide:"Personas que obtienen el título de ESO en relación con la población de la edad teórica de terminarla.",
+                                   calculo:"Dato publicado por comunidad y género; el curso se asigna a su año de inicio. Los años sin publicar se proyectan.",
+                                   fuente:"MEFP (EDUCAbase)" },
+        escolarizacion_0_2:      { mide:"Niñas y niños de 0 a 2 años escolarizados en el primer ciclo de Educación Infantil.",
+                                   calculo:"Dato publicado por comunidad y género; el curso se asigna a su año de inicio. Los años sin publicar se proyectan.",
+                                   fuente:"MEFP (EDUCAbase)" },
+        gasto_edu_pib:           { mide:"Gasto público presupuestado en educación sobre el PIB de cada comunidad.",
+                                   calculo:"Presupuesto, no gasto liquidado. Los años sin dato consolidado toman la proyección del área de Presupuestos. Sin dato para la Comunidad de Madrid.",
+                                   fuente:"Presupuestos autonómicos (área de Presupuestos de Canarias en Datos)" },
+        gasto_por_alumno:        { mide:"Gasto público por persona estudiante en enseñanzas no universitarias de centros públicos.",
+                                   calculo:"Presupuesto liquidado. Los años sin publicar se proyectan.",
+                                   fuente:"MEFP («Las cifras de la Educación en España»)" }
       },
       supabase: { schema:"canendatos", tables:["ced_educacion_global","ced_educacion_gen"] },
       csv: null,
@@ -1434,6 +1474,10 @@
   // Cómo se estima el sexo cambia de una sección a otra; lo declara cada
   // una en genderEstimateNote y se reutiliza en la matriz, el subtítulo y la
   // leyenda de la escena de género.
+  // Cómo se nombra la desagregación en los textos de la sección: «sexo» por
+  // defecto; Educación pide «género».
+  function genderTerm(cfg) { return cfg.genderTerm || "sexo"; }
+
   function estimateNoteSentence(cfg) {
     const n = cfg.genderEstimateNote;
     return n ? n.charAt(0).toUpperCase() + n.slice(1) + "." : "";
@@ -1450,7 +1494,7 @@
           <td role="cell" class="ced-vm-name"><strong>${meta.label}</strong><span class="ced-vm-sub">${meta.unit}</span></td>
           <td role="cell" data-label="Qué mide y cómo se calcula">${v.mide}<span class="ced-vm-sub">${v.calculo}</span></td>
           <td role="cell" data-label="Fuente">${v.fuente}</td>
-          <td role="cell" data-label="Por sexo"><span class="ced-vm-pill" data-sexo="${sexo}">${SEXO_LABELS[sexo].pill}</span>${nota ? `<span class="ced-vm-sub">${nota}</span>` : ""}</td>
+          <td role="cell" data-label="Por ${genderTerm(cfg)}"><span class="ced-vm-pill" data-sexo="${sexo}">${SEXO_LABELS[sexo].pill}</span>${nota ? `<span class="ced-vm-sub">${nota}</span>` : ""}</td>
           <td role="cell" data-label="Serie" class="ced-vm-serie">${seriesSpan(cfg.id, k)}</td>
         </tr>`;
     }).join("");
@@ -1463,7 +1507,7 @@
               <th role="columnheader" scope="col">Indicador</th>
               <th role="columnheader" scope="col">Qué mide y cómo se calcula</th>
               <th role="columnheader" scope="col">Fuente</th>
-              <th role="columnheader" scope="col">Por sexo</th>
+              <th role="columnheader" scope="col">Por ${genderTerm(cfg)}</th>
               <th role="columnheader" scope="col">Serie</th>
             </tr>
           </thead>
@@ -1843,7 +1887,7 @@
       // buscar otro.
       const cfg = SECTIONS[state.section];
       const alguno = Object.keys(cfg.metrics).some(k => genderNoteFor(k) !== "No desagregado");
-      return `<div class="ced-loading"><strong>${meta.label}</strong> no está desagregado por sexo en su fuente. ${alguno
+      return `<div class="ced-loading"><strong>${meta.label}</strong> no está desagregado por ${genderTerm(cfg)} en su fuente. ${alguno
         ? "Elige otro indicador para ver la brecha de género."
         : "En esta sección ningún indicador lo está; «Cómo se construye» explica por qué y dónde leer la perspectiva de género."}</div>`;
     }
