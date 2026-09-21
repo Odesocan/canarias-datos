@@ -85,6 +85,34 @@ jobs:
             WITH_DB=true
           fi
           echo "Evento: ${GITHUB_EVENT_NAME} · carga a producción: ${WITH_DB}"
+
+          # El scraper de Idealista NO lo lanza este paso: lo lanza R, con
+          # system2(CED_PYTHON_BIN, main.py) desde Vivienda/00_maestro.R:152.
+          # Hasta ahora CED_PYTHON_BIN era el literal "python3", que el proceso
+          # hijo resuelve por PATH. En el cron del 2026-09-05 (run 33956157659)
+          # el paso "Setup Python" instaló bien 'nodriver' (Successfully
+          # installed nodriver-0.50.3 en /opt/hostedtoolcache/Python/3.12.14) y
+          # aun así el scraper murió al arrancar con:
+          #   ModuleNotFoundError: No module named 'nodriver'
+          # es decir, el intérprete que acabó ejecutando main.py no era aquel en
+          # el que pip instaló requirements.txt. Se ancla el intérprete al que
+          # preparó actions/setup-python, que es por definición el correcto, en
+          # vez de dejarlo a la resolución por PATH dentro del hijo de R.
+          if [ -n "${pythonLocation:-}" ] && [ -x "${pythonLocation}/bin/python3" ]; then
+            CED_PYTHON_BIN="${pythonLocation}/bin/python3"
+          fi
+          export CED_PYTHON_BIN
+          echo "Intérprete del scraper: ${CED_PYTHON_BIN}"
+
+          # Preflight: 'nodriver' hace de canario del intérprete. Si el que va a
+          # ejecutar main.py no puede importarlo, tampoco tendrá el resto de
+          # requirements.txt, así que se falla aquí — en segundos y con un
+          # mensaje que dice qué binario es — en vez de a mitad del pipeline.
+          if ! "${CED_PYTHON_BIN}" -c "import nodriver" 2>/dev/null; then
+            echo "::error::${CED_PYTHON_BIN} no puede importar 'nodriver'. Es el intérprete con el que R lanzará el scraper, y no es aquel en el que se instaló Vivienda/fuentes/scrapings/alquiler_historico_ccaa/requirements.txt."
+            exit 1
+          fi
+
           Rscript "Vivienda/00_maestro.R" --steps=scraping,extraccion,transformacion,modelado,carga --run-scraping=true --with-db="${WITH_DB}"
 
       - name: Upload raw Idealista data
