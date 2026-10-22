@@ -22,30 +22,28 @@ export const TOPIC = {
 
   // Indicador de portada: el "limbo de la dependencia" es el mensaje central
   // del cuaderno §1 y el mas comunicativo del bloque limbo.
-  defaultMetric: "tasa_pendiente_pia_ppd",
+  defaultMetric: "limbo_pia_pct_ppd",
 
   // Los 10 indicadores del cuaderno §4 (matriz de variables seleccionadas).
   metrics: [
     {
-      key: "tasa_cobertura_ppd",
+      key: "cobertura_pct_ppd",
       label: "Cobertura del SAAD",
       short: "Cobertura",
       unit: "% de la PPD",
       format: ".1f",
       suffix: " %",
-      displayFactor: 0.1,
       min: 0,
       hasGender: true,
       source: "IMSERSO + general.censo_ppd",
     },
     {
-      key: "tasa_solicitud_ppd",
+      key: "solicitudes_pct_ppd",
       label: "Solicitudes acumuladas",
       short: "Solicitudes",
       unit: "% de la PPD",
       format: ".1f",
       suffix: " %",
-      displayFactor: 0.1,
       min: 0,
       hasGender: true,
       source: "IMSERSO + general.censo_ppd",
@@ -63,25 +61,23 @@ export const TOPIC = {
       source: "IMSERSO · perfil del cuidador por CCAA",
     },
     {
-      key: "tasa_pendiente_pia_ppd",
+      key: "limbo_pia_pct_ppd",
       label: "Limbo de la dependencia (pendientes de PIA)",
       short: "Limbo PIA",
       unit: "% de la PPD",
       format: ".2f",
       suffix: " %",
-      displayFactor: 0.1,
       min: 0,
       hasGender: true,
       source: "IMSERSO + general.censo_ppd",
     },
     {
-      key: "tasa_pendiente_grado_ppd",
+      key: "limbo_grado_pct_ppd",
       label: "Pendientes de resolución de grado ≥6 meses",
       short: "Pend. grado",
       unit: "% de la PPD",
       format: ".2f",
       suffix: " %",
-      displayFactor: 0.1,
       min: 0,
       hasGender: true,
       source: "IMSERSO + general.censo_ppd",
