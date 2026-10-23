@@ -171,7 +171,8 @@ prepare_gen_table <- function(modeled) {
     }
     out |>
       dplyr::select(ccaa, fecha, genero, origen_genero,
-                    dplyr::any_of(c("origen", vars_to_split, "pct_mujeres_benef")))
+                    dplyr::any_of(c("origen", vars_to_split, "pct_mujeres_benef",
+                                    paste0(vars_to_split, "_origen"))))
   })
 
   long |>

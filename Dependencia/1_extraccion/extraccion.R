@@ -342,6 +342,20 @@ scrape_year <- function(yr, xls_dir, base_url) {
       dest_path = file.path(out_dir, destino)
     )
 
+  # Descarga INCREMENTAL: sin force_download solo se bajan los meses que faltan
+  # (el pmap de abajo reutiliza el fichero local si dest existe). Lo registramos
+  # de forma explicita para que quede claro que no se re-descarga todo el origen.
+  forzando <- isTRUE(getOption("dependencia.force_download", FALSE))
+  ya_cache <- fs::file_exists(cand_ok$dest_path)
+  nuevos   <- sort(cand_ok$destino[!ya_cache])
+  if (forzando) {
+    log_event("INCR", sprintf("Ano %d: force-download activo -> se re-descargan los %d meses", yr, nrow(cand_ok)))
+  } else {
+    log_event("INCR", sprintf("Ano %d: %d/%d meses ya en cache; nuevos a descargar: %d%s",
+      yr, sum(ya_cache), nrow(cand_ok), length(nuevos),
+      if (length(nuevos)) paste0(" (", paste(nuevos, collapse = ", "), ")") else " (ninguno)"))
+  }
+
   results <- pmap_dfr(
     list(cand_ok$url_abs, cand_ok$dest_path, rep(page_url, nrow(cand_ok))),
     function(u, dest, ref) {
