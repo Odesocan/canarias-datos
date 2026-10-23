@@ -119,6 +119,10 @@ ccaa_canon <- function(txt, max_dist = 2) {
     str_detect(txt_key, "pais vasco|pa[i]{1,2}s vasco") ~ "Pa\u00eds Vasco",
     str_detect(txt_key, "rioja,? la|\\bla rioja\\b") ~ "La Rioja",
     str_detect(txt_key, "ceuta y melilla") ~ "Ceuta y Melilla",
+    # Desde el informe de 2026-05 Ceuta y Melilla vienen en filas separadas;
+    # combine_ceuta_melilla() las agrega en "Ceuta y Melilla" como la base.
+    str_detect(txt_key, "^ceuta$") ~ "Ceuta",
+    str_detect(txt_key, "^melilla$") ~ "Melilla",
     TRUE ~ NA_character_
   )
 
@@ -209,12 +213,15 @@ benpresaad_target_specs <- function() {
     "centros_dia_noche",   c("centros de dia/noche", "centros de dia", "centros de noche",
                              "centros dia", "centros noche"),
     "atencion_residencial", c("atencion residencial", "servicios residenciales", "centros residenciales"),
+    # Desde 2026-05 las etiquetas llevan punto tras la E ("P.E. Cuidados
+    # Familiares") y las variantes "p.e cuidados" dejaban la columna en NA.
     "pe_vinc_serv",        c("p.e vinculada servicio", "prestacion economica vinculada servicio",
-                             "prestacion vinculada al servicio"),
+                             "prestacion vinculada al servicio", "p\\.e\\. vinculada servicio"),
     "pe_cuidados_fam",     c("p.e cuidados familiares", "prestacion economica cuidados familiares",
-                             "prestacion cuidados familiares"),
+                             "prestacion cuidados familiares", "p\\.e\\. cuidados familiares"),
     "pe_asist_pers",       c("p.e asist. personal", "p.e asistencia personal",
-                             "prestacion economica asistencia personal"),
+                             "prestacion economica asistencia personal",
+                             "p\\.e\\. asist\\. personal", "p\\.e\\. asistencia personal"),
     "total",               c("^total$", "total"),
     "ratio_prest_x_benef", c("ratio de prestaciones por persona beneficiaria",
                              "ratio de prestaciones por persona",
@@ -400,6 +407,40 @@ process_dictsaad <- function(dictsaad_list) {
   result <- purrr::map2_dfr(dictsaad_list, nms, ~ process_one_dictsaad(.x, .y))
   log_event("INFO", sprintf("dictsaad_all: %d filas", nrow(result)))
   result
+}
+
+# ===========================================================================
+# 3b. Ceuta y Melilla (incidencia 2026-10)
+# ===========================================================================
+# La base publica "Ceuta y Melilla" como una sola fila. Hasta 2026-04 el IMSERSO
+# la daba agregada; desde 2026-05 vienen separadas y se perdian (17 CCAA).
+# Si en un mes existe la fila agregada se usa esa; si no, se suman Ceuta y
+# Melilla. Las columnas que no son recuentos se recalculan (recalc) o quedan NA.
+combine_ceuta_melilla <- function(df, recalc = list()) {
+  if (!nrow(df) || !all(c("ccaa", "fecha") %in% names(df))) return(df)
+  partes <- c("Ceuta", "Melilla")
+  if (!any(df$ccaa %in% partes)) return(df)
+
+  con_agregada <- unique(df$fecha[df$ccaa == "Ceuta y Melilla"])
+  sueltas <- df |> dplyr::filter(.data$ccaa %in% partes, !.data$fecha %in% con_agregada)
+  resto <- df |> dplyr::filter(!.data$ccaa %in% partes)
+  if (!nrow(sueltas)) return(resto)
+
+  num_cols <- names(df)[vapply(df, is.numeric, logical(1))]
+  suma_cols <- setdiff(num_cols, names(recalc))
+  combinadas <- sueltas |>
+    dplyr::group_by(.data$fecha) |>
+    dplyr::summarise(
+      n_partes = dplyr::n_distinct(.data$ccaa),
+      dplyr::across(dplyr::all_of(suma_cols), ~ sum(.x)),
+      .groups = "drop"
+    ) |>
+    dplyr::filter(.data$n_partes == 2) |>
+    dplyr::select(-"n_partes") |>
+    dplyr::mutate(ccaa = "Ceuta y Melilla")
+  for (v in names(recalc)) combinadas[[v]] <- recalc[[v]](combinadas)
+
+  dplyr::bind_rows(resto, combinadas[intersect(names(df), names(combinadas))])
 }
 
 # ===========================================================================
@@ -589,14 +630,29 @@ process_pend_grado <- function(pend_resol_list, max_dist = 2) {
 # tercer limbo (limbo de las prestaciones), conceptualmente distinto del limbo
 # del PIA (10pendPrest) y del limbo del grado (10pendResol).
 #
-# Convencion IMSERSO de columnas (post-2023):
-#   1: personas con resolucion de PIA (Nº)
-#   2: prestaciones reconocidas totales (Nº)
-#   3: con prestacion efectiva (Nº)
-#   4: % efectiva sobre PIA
-#   5: pendientes de prestacion efectiva (Nº)   <- limbo de prestaciones
-#   6: % pendientes sobre PIA
-#   7+: desglose pendientes (motivo no imputable Admin / sin motivo: <6m, >=6m)
+# Las columnas se localizan por su cabecera, no por posicion. Hasta 2026-04 la
+# hoja traia una columna intermedia (prestaciones) con valores solo en algunas
+# CCAA; desde 2026-05 viene vacia y la lectura posicional tomaba porcentajes
+# (84,86) como personas con prestacion efectiva (incidencia 2026-10).
+#   personas con resolucion de PIA (Nº)
+#   personas beneficiarias con prestacion efectiva (Nº)
+#   personas con resolucion de PIA aun sin recibir prestacion (Nº)  <- contraste
+map_benefect_columns <- function(other) {
+  sigs_key <- norm_key_local(vapply(other, col_signature, FUN.VALUE = character(1)))
+  is_num <- is_number_col(sigs_key)
+  first_hit <- function(hit) {
+    idx <- which(is_num & hit)
+    if (length(idx)) idx[1] else NA_integer_
+  }
+  c(
+    pia        = first_hit(str_detect(sigs_key, "resolucion de pia") &
+                             !str_detect(sigs_key, "sin recibir|efectiva")),
+    efectiva   = first_hit(str_detect(sigs_key, "prestacion efectiva") &
+                             !str_detect(sigs_key, "sin recibir")),
+    pendientes = first_hit(str_detect(sigs_key, "sin recibir"))
+  )
+}
+
 process_benefect_full <- function(benefect_list, max_dist = 2) {
   if (!length(benefect_list)) {
     return(tibble(ccaa = character(), fecha = character(),
@@ -620,15 +676,34 @@ process_benefect_full <- function(benefect_list, max_dist = 2) {
     if (!length(keep)) return(NULL)
 
     other <- df2[, -1, drop = FALSE]
-    num_idx <- which(vapply(other, function(c) any(!is.na(parse_num_es_vec(c))), logical(1)))
-    if (length(num_idx) < 5) return(NULL)
+    cols <- map_benefect_columns(other)
+    if (anyNA(cols[c("pia", "efectiva")])) {
+      log_event("WARN", sprintf("12BenefEfect %s: no se localizan las columnas de PIA y prestacion efectiva", nm))
+      return(NULL)
+    }
+
+    pia      <- parse_num_es_vec(other[[cols[["pia"]]]][keep])
+    efectiva <- parse_num_es_vec(other[[cols[["efectiva"]]]][keep])
+    # Definicion de la base: pendientes = personas con PIA - con prestacion
+    # efectiva. La columna 'aun sin recibir prestacion' solo se usa de contraste.
+    pendientes <- pia - efectiva
+    if (!is.na(cols[["pendientes"]])) {
+      publicado <- parse_num_es_vec(other[[cols[["pendientes"]]]][keep])
+      difiere <- which(!is.na(publicado) & abs(publicado - pendientes) > 0.5)
+      if (length(difiere)) {
+        log_event("WARN", sprintf(
+          "12BenefEfect %s: PIA - efectiva no cuadra con la columna publicada en %s",
+          nm, paste(ccaa_vec[keep][difiere], collapse = ", ")
+        ))
+      }
+    }
 
     tibble(
       ccaa  = ccaa_vec[keep],
       fecha = fecha,
-      personas_con_pia          = parse_num_es_vec(other[[num_idx[1]]][keep]),
-      personas_prest_efectiva   = parse_num_es_vec(other[[num_idx[3]]][keep]),
-      pendientes_prest_efectiva = parse_num_es_vec(other[[num_idx[5]]][keep])
+      personas_con_pia          = pia,
+      personas_prest_efectiva   = efectiva,
+      pendientes_prest_efectiva = pendientes
     )
   })
 
@@ -811,10 +886,14 @@ load_ppd_from_xls <- function(ppd_xls_list, max_dist = 2) {
 
     tibble(
       ccaa        = ccaa_vec[keep],
+      fecha       = fecha,
       periodo     = yr,
       censo_total = parse_num_es_vec(other[[j_censo]][keep]),
       ppd         = parse_num_es_vec(other[[j_ppd]][keep])
-    )
+    ) |>
+      combine_ceuta_melilla() |>
+      dplyr::mutate(periodo = yr) |>
+      dplyr::select(-"fecha")
   })
 
   result <- bind_rows(rows) |>
@@ -834,7 +913,54 @@ load_ppd_from_xls <- function(ppd_xls_list, max_dist = 2) {
   result
 }
 
+# PPD anual fijada (incidencia 2026-10). La PPD de un ano es la media de los
+# informes mensuales de ese ano, asi que la del ano en curso cambia cada mes y
+# arrastra todas las tasas ya publicadas. Los anos listados en
+# ppd_anual_fijada.csv conservan el valor con el que se publicaron.
+ppd_fijada_path <- function(cfg) file.path(cfg$transform_dir, "ppd_anual_fijada.csv")
+
+apply_ppd_fijada <- function(censo_ppd, cfg) {
+  path <- ppd_fijada_path(cfg)
+  if (!file.exists(path)) return(censo_ppd)
+  fijada <- readr::read_csv2(path, show_col_types = FALSE,
+                             col_types = readr::cols(ccaa = "c", periodo = "i", ppd = "d", .default = "c"))
+  anios <- sort(unique(fijada$periodo))
+  log_event("INFO", sprintf("PPD fijada para %s (%s)", paste(anios, collapse = ", "), basename(path)))
+
+  calculada <- censo_ppd |> dplyr::filter(.data$periodo %in% anios)
+  if (nrow(calculada)) {
+    cmp <- calculada |>
+      dplyr::inner_join(fijada |> dplyr::select("ccaa", "periodo", ppd_fijada = "ppd"), by = c("ccaa", "periodo")) |>
+      dplyr::filter(abs(.data$ppd - .data$ppd_fijada) >= 1)
+    if (nrow(cmp)) {
+      log_event("WARN", sprintf(
+        "La PPD recalculada difiere de la fijada en %d CCAA-ano (p.ej. %s %d: %s calculada vs %s fijada); se usa la fijada",
+        nrow(cmp), cmp$ccaa[1], cmp$periodo[1], format(round(cmp$ppd[1])), format(cmp$ppd_fijada[1])
+      ))
+    }
+  }
+
+  censo_base <- censo_ppd |> dplyr::select("ccaa", "periodo", dplyr::any_of("censo_total"))
+  fijas <- fijada |>
+    dplyr::select("ccaa", "periodo", "ppd") |>
+    dplyr::left_join(censo_base, by = c("ccaa", "periodo")) |>
+    dplyr::mutate(
+      ppd_rel = .data$ppd / .data$censo_total,
+      ppd_pct = round(.data$ppd_rel * 100, 2),
+      tipo = "observado",
+      fuente = "ppd_anual_fijada"
+    )
+
+  dplyr::bind_rows(censo_ppd |> dplyr::filter(!.data$periodo %in% anios), fijas) |>
+    dplyr::arrange(.data$ccaa, .data$periodo)
+}
+
 load_ppd <- function(cfg, ppd_xls_list) {
+  censo_ppd <- load_ppd_sin_fijar(cfg, ppd_xls_list)
+  apply_ppd_fijada(censo_ppd, cfg)
+}
+
+load_ppd_sin_fijar <- function(cfg, ppd_xls_list) {
   ppd_db <- tryCatch(load_ppd_from_supabase(cfg), error = function(e) {
     log_event("WARN", sprintf("PPD Supabase fallo: %s", conditionMessage(e)))
     NULL
@@ -883,6 +1009,36 @@ attach_ppd_to_table <- function(df, censo_ppd) {
 # 10. INDICADORES DEL DASHBOARD (cuaderno §4) - 10 variables
 # ===========================================================================
 
+# Identidades contables del SAAD que deben cumplirse cada mes y CCAA. Si una
+# hoja cambia de maquetacion y el parser toma la columna equivocada, alguna se
+# rompe: es la alarma temprana que falto en la incidencia 2026-10.
+#   pendientes de grado = solicitudes - resoluciones de grado      (10pendResol)
+#   pendientes de PIA   = con derecho - con resolucion de PIA      (10pendPrest)
+#   con resolucion de PIA coincide en 41benpresaad y 12BenefEfect
+check_identidades_saad <- function(joined, tolerancia = 0.5) {
+  reglas <- list(
+    pendientes_grado = c("pendientes_grado_total", "solicitudes_dict", "resoluciones_grado"),
+    pendientes_pia   = c("pendientes_pia_total", "total_der_prest", "pers_benef_prest"),
+    personas_pia     = c("personas_con_pia", "pers_benef_prest")
+  )
+  for (nm in names(reglas)) {
+    cols <- reglas[[nm]]
+    if (!all(cols %in% names(joined))) next
+    esperado <- if (length(cols) == 3) joined[[cols[2]]] - joined[[cols[3]]] else joined[[cols[2]]]
+    malos <- which(!is.na(joined[[cols[1]]]) & !is.na(esperado) &
+                     abs(joined[[cols[1]]] - esperado) > tolerancia)
+    if (length(malos)) {
+      ej <- head(malos, 5)
+      log_event("WARN", sprintf(
+        "Identidad %s no cuadra en %d filas (p.ej. %s)", nm, length(malos),
+        paste(sprintf("%s %s", joined$ccaa[ej], format(as.Date(joined$fecha[ej]), "%Y-%m")), collapse = "; ")
+      ))
+    } else {
+      log_event("OK", sprintf("Identidad %s: cuadra en todas las filas", nm))
+    }
+  }
+}
+
 compute_dashboard_indicators <- function(tables, censo_ppd) {
   has_ppd <- nrow(censo_ppd) > 0
 
@@ -910,6 +1066,8 @@ compute_dashboard_indicators <- function(tables, censo_ppd) {
     ),
     keys = base_keys
   )
+
+  check_identidades_saad(joined)
 
   if (has_ppd) {
     joined <- attach_ppd_to_table(joined, censo_ppd)
@@ -1006,6 +1164,24 @@ run_transformacion <- function(cfg) {
     tiempo_espera    = tiempo_espera,
     benefect_full    = benefect_full
   )
+  na_recalc <- function(d) NA_real_
+  recalc_ceuta_melilla <- list(
+    benpresaad_all = list(ratio_prest_x_benef = function(d) d$total / d$pers_benef_prest),
+    dictsaad_all = list(
+      ratio_g3 = function(d) 100 * d$grado3 / d$resoluciones_grado,
+      ratio_g2 = function(d) 100 * d$grado2 / d$resoluciones_grado,
+      ratio_g1 = function(d) 100 * d$grado1 / d$resoluciones_grado
+    ),
+    tiempo_espera = list(tiempo_solicitud_grado = na_recalc, tiempo_grado_prestacion = na_recalc,
+                         tiempo_espera_total_dias = na_recalc)
+  )
+  for (nm in setdiff(names(to_normalize), "perf_ccaa_genero")) {
+    to_normalize[[nm]] <- combine_ceuta_melilla(to_normalize[[nm]], recalc_ceuta_melilla[[nm]] %||% list())
+  }
+  # perf_ccaa_genero queda fuera a proposito: la base nunca ha tenido
+  # "Ceuta y Melilla" en esa tabla y anadirla cambiaria meses ya publicados.
+  to_normalize$perf_ccaa_genero <- to_normalize$perf_ccaa_genero |>
+    dplyr::filter(!.data$ccaa %in% c("Ceuta", "Melilla"))
   to_normalize <- lapply(to_normalize, apply_ccaa_normalization)
   to_normalize <- lapply(to_normalize, normalize_fecha_column)
 
@@ -1020,6 +1196,10 @@ run_transformacion <- function(cfg) {
 
   # 5. Calcular los 10 indicadores del dashboard (cuaderno §4)
   dashboard_indicators <- compute_dashboard_indicators(to_normalize, censo_ppd)
+  check_freshness(
+    suppressWarnings(max(as.Date(dashboard_indicators$fecha[!is.na(dashboard_indicators$pct_pecef)]))),
+    "Extraccion IMSERSO (dashboard_indicators)"
+  )
 
   # 6. Lista final de salidas
   all_tables <- c(

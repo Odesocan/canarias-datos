@@ -242,6 +242,116 @@ norm_txt <- function(x) {
     stringr::str_replace_all("\\s+", " ")
 }
 
+# Mes (YYYY-MM-01) a partir de la fecha del nombre de fichero IMSERSO.
+# estsisaad_20260930.xlsx -> 2026-09-01. Es la fecha autoritativa: la cabecera
+# de los informes puede arrastrar la de un mes anterior (incidencia 2026-10).
+fecha_mes_from_filename <- function(file_name) {
+  m <- stringr::str_match(basename(file_name), "(20\\d{2})(\\d{2})(\\d{2})")
+  out <- rep(as.Date(NA), length(file_name))
+  ok <- !is.na(m[, 1])
+  out[ok] <- as.Date(sprintf("%s-%s-01", m[ok, 2], m[ok, 3]))
+  out
+}
+
+meses_es <- c(
+  enero = 1, febrero = 2, marzo = 3, abril = 4, mayo = 5, junio = 6, julio = 7,
+  agosto = 8, septiembre = 9, setiembre = 9, octubre = 10, noviembre = 11, diciembre = 12
+)
+
+# Primer "a DD de <mes> de YYYY" o "DD/MM/YYYY" de un texto -> YYYY-MM-01.
+fecha_mes_from_text <- function(txt) {
+  txt <- tolower(stringi::stri_trans_general(paste(txt[!is.na(txt)], collapse = " "), "Latin-ASCII"))
+  m <- stringr::str_match(txt, "\\b\\d{1,2} de (enero|febrero|marzo|abril|mayo|junio|julio|agosto|septiembre|setiembre|octubre|noviembre|diciembre) de (20\\d{2})")
+  if (!is.na(m[1, 1])) {
+    return(as.Date(sprintf("%s-%02d-01", m[1, 3], meses_es[[m[1, 2]]])))
+  }
+  m <- stringr::str_match(txt, "\\b\\d{1,2}/(\\d{1,2})/(20\\d{2})\\b")
+  if (!is.na(m[1, 1])) {
+    return(as.Date(sprintf("%s-%02d-01", m[1, 3], as.integer(m[1, 2]))))
+  }
+  as.Date(NA)
+}
+
+# ---------------------------------------------------------------------------
+# Validacion de descargas (incidencia 2026-10)
+# ---------------------------------------------------------------------------
+# imserso.es devuelve una pagina HTML de ~35 KB (403) en lugar del fichero
+# cuando la peticion no lleva cabeceras de navegador. Si esa pagina se guarda
+# con extension .xlsx queda en cache para siempre y readxl falla en silencio
+# (la hoja se lee como error y el mes desaparece). Antes de parsear se
+# comprueba la firma binaria y un tamano minimo.
+
+download_min_bytes <- 100 * 1024
+
+validate_download <- function(path, min_bytes = download_min_bytes) {
+  if (!file.exists(path)) return(list(ok = FALSE, motivo = "no existe"))
+  size <- file.info(path)$size
+  ext <- tolower(tools::file_ext(path))
+  con <- file(path, "rb")
+  magic <- readBin(con, "raw", n = 8)
+  close(con)
+  if (length(magic) < 4) return(list(ok = FALSE, motivo = "fichero vacio"))
+  # Primer byte que no es espacio/BOM: '<' delata una pagina HTML
+  primer <- magic[!magic %in% as.raw(c(0x20, 0x09, 0x0a, 0x0d, 0xef, 0xbb, 0xbf))][1]
+
+  firma_ok <- switch(
+    ext,
+    xlsx = , xlsm = , docx = identical(magic[1:4], as.raw(c(0x50, 0x4b, 0x03, 0x04))),
+    xls = , xlsb = identical(magic[1:4], as.raw(c(0xd0, 0xcf, 0x11, 0xe0))) ||
+      identical(magic[1:4], as.raw(c(0x50, 0x4b, 0x03, 0x04))),
+    pdf = identical(rawToChar(magic[1:4]), "%PDF"),
+    FALSE
+  )
+
+  if (!is.na(primer) && primer == as.raw(0x3c)) {
+    return(list(ok = FALSE, motivo = sprintf("es HTML (%d bytes), no %s", as.integer(size), ext)))
+  }
+  if (!firma_ok) {
+    return(list(ok = FALSE, motivo = sprintf("firma binaria no corresponde a %s", ext)))
+  }
+  if (size < min_bytes) {
+    return(list(ok = FALSE, motivo = sprintf("demasiado pequeno (%d bytes)", as.integer(size))))
+  }
+  list(ok = TRUE, motivo = "ok")
+}
+
+# ---------------------------------------------------------------------------
+# Antiguedad del ultimo dato real (incidencia 2026-10)
+# ---------------------------------------------------------------------------
+# El IMSERSO publica con 6-8 semanas de retraso: el dia 5 de cada mes lo normal
+# es tener el mes M-2. Mas de dos meses de distancia indica que la extraccion
+# o la carga se han parado.
+
+max_meses_sin_dato_real <- 2L
+
+meses_de_antiguedad <- function(ultimo_mes, hoy = Sys.Date()) {
+  ultimo_mes <- as.Date(ultimo_mes)
+  hoy_mes <- as.Date(format(hoy, "%Y-%m-01"))
+  (as.integer(format(hoy_mes, "%Y")) - as.integer(format(ultimo_mes, "%Y"))) * 12L +
+    as.integer(format(hoy_mes, "%m")) - as.integer(format(ultimo_mes, "%m"))
+}
+
+# Emite un aviso (y anotacion de GitHub Actions) si el ultimo mes real es
+# demasiado antiguo. Devuelve los meses de antiguedad de forma invisible.
+check_freshness <- function(ultimo_mes, contexto, max_meses = max_meses_sin_dato_real) {
+  if (length(ultimo_mes) == 0 || is.na(ultimo_mes)) {
+    log_event("WARN", sprintf("%s: no hay ningun mes con dato real", contexto))
+    return(invisible(NA_integer_))
+  }
+  meses <- meses_de_antiguedad(ultimo_mes)
+  msg <- sprintf("%s: ultimo mes real %s (%d meses de antiguedad)",
+                 contexto, format(as.Date(ultimo_mes), "%Y-%m"), meses)
+  if (meses > max_meses) {
+    log_event("WARN", paste0(msg, sprintf(" > %d: revisar extraccion o carga", max_meses)))
+    if (nzchar(Sys.getenv("GITHUB_ACTIONS"))) {
+      cat(sprintf("::warning title=Dependencia desactualizada::%s\n", msg))
+    }
+  } else {
+    log_event("OK", msg)
+  }
+  invisible(meses)
+}
+
 first_numeric_in_row <- function(row_vec) {
   nums <- suppressWarnings(
     readr::parse_number(
@@ -304,7 +414,7 @@ extract_sheet_by_pattern <- function(raw_data, pattern, year_pattern_fn = NULL) 
 
 connect_supabase <- function(cfg) {
   db_cfg <- cfg$db
-  missing <- names(db_cfg)[vapply(
+  missing <- c("host", "user", "password")[vapply(
     db_cfg[c("host", "user", "password")],
     function(x) identical(x, "") || is.na(x),
     logical(1)
@@ -515,6 +625,19 @@ build_pipeline_config <- function(base_path, cli_args = list()) {
       cli_value(cli_args, c("steps"), "extraccion,transformacion,modelado,carga")
     ),
     with_db  = parse_bool(cli_value(cli_args, c("with-db", "with_db"), FALSE)),
+    # Destino de la carga con --with-db=true (incidencia 2026-10):
+    #   staging    -> copia de las tablas publicadas en el esquema ced_staging,
+    #                 con el mismo upsert que produccion, para revisar antes.
+    #   produccion -> upsert directo sobre las tablas que consume la web.
+    # Por defecto staging: escribir en produccion tiene que pedirse.
+    db_target = match.arg(
+      tolower(cli_value(cli_args, c("db-target", "db_target"), "staging")),
+      c("staging", "produccion")
+    ),
+    # Tablas intermedias (solsaad_all, benpresaad_all...) al esquema de
+    # trabajo 'saad'. Se reemplazan enteras (DROP + RENAME), por eso son
+    # opcionales y nunca se escriben en modo staging.
+    aux_tables = parse_bool(cli_value(cli_args, c("aux-tables", "aux_tables"), TRUE)),
     force_download = parse_bool(cli_value(cli_args, c("force-download", "force_download"), FALSE)),
     forecast_horizon_end = as.Date(
       cli_value(cli_args, c("horizon-end", "horizon_end"), forecast_default)
@@ -525,7 +648,12 @@ build_pipeline_config <- function(base_path, cli_args = list()) {
       name     = Sys.getenv("SUPABASE_DBNAME", "postgres"),
       user     = Sys.getenv("SUPABASE_USER", ""),
       password = Sys.getenv("SUPABASE_PASS", ""),
-      schema   = Sys.getenv("SUPABASE_SCHEMA", "saad")
+      schema   = Sys.getenv("SUPABASE_SCHEMA", "saad"),
+      # Las tablas hub que lee la web (ced_dependencia_global/_gen) viven en la
+      # capa de publicacion 'canendatos', no en la de trabajo 'saad'. Antes se
+      # escribian todas en 'saad', donde la web no las lee (incidencia 2026-10).
+      publish_schema = Sys.getenv("SUPABASE_PUBLISH_SCHEMA", "canendatos"),
+      staging_schema = "ced_staging"
     )
   )
 

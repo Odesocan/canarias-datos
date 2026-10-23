@@ -323,7 +323,199 @@ write_supabase_tables <- function(cfg, tables) {
     })
   })
 
-  apply_indices_and_rls(con, schema)
+}
+
+# ===========================================================================
+# Tablas hub: upsert idempotente en la capa de publicacion (incidencia 2026-10)
+# ===========================================================================
+# Las tablas que lee la web se actualizan fila a fila, nunca con DROP/TRUNCATE:
+#   1. Una fila 'real' nueva sustituye a la 'proyeccion' del mismo mes.
+#   2. Filas con la misma clave y el mismo origen se actualizan (revisiones
+#      del IMSERSO de meses ya publicados).
+#   3. Una 'proyeccion' nunca pisa una fila 'real'.
+#   4. Las filas que no existian se insertan.
+#   5. Se borran solo proyecciones que el nuevo modelo ya no genera.
+# Las filas 'real' que no vienen en la carga no se tocan.
+
+publication_keys <- list(
+  ced_dependencia_global = c("ccaa", "fecha"),
+  ced_dependencia_gen    = c("ccaa", "fecha", "genero")
+)
+
+qualified_name <- function(con, schema, table) {
+  paste0(DBI::dbQuoteIdentifier(con, schema), ".", DBI::dbQuoteIdentifier(con, table))
+}
+
+table_columns <- function(con, schema, table) {
+  DBI::dbGetQuery(con, sprintf(
+    "SELECT column_name FROM information_schema.columns
+      WHERE table_schema = %s AND table_name = %s ORDER BY ordinal_position",
+    DBI::dbQuoteString(con, schema), DBI::dbQuoteString(con, table)
+  ))$column_name
+}
+
+upsert_publication_table <- function(con, schema, table, df, keys) {
+  target_cols <- table_columns(con, schema, table)
+  if (!length(target_cols)) {
+    stop(sprintf("No existe %s.%s: crea la tabla antes de cargar", schema, table), call. = FALSE)
+  }
+  sobran <- setdiff(names(df), target_cols)
+  faltan <- setdiff(target_cols, names(df))
+  if (length(sobran)) log_event("WARN", sprintf("%s: columnas no presentes en destino, no se cargan: %s", table, paste(sobran, collapse = ", ")))
+  if (length(faltan)) log_event("WARN", sprintf("%s: columnas del destino sin dato en la carga (quedan NULL en filas nuevas): %s", table, paste(faltan, collapse = ", ")))
+
+  cols <- intersect(target_cols, names(df))
+  assert_required_columns(df, c(keys, "origen"), label = table)
+  assert_unique_keys(df, keys, label = table)
+  if (any(!df$origen %in% c("real", "proyeccion"))) {
+    stop(sprintf("%s: origen solo puede ser 'real' o 'proyeccion'", table), call. = FALSE)
+  }
+
+  tgt <- qualified_name(con, schema, table)
+  tmp <- DBI::dbQuoteIdentifier(con, paste0("tmp_", table))
+  qk <- DBI::dbQuoteIdentifier(con, keys)
+  qc <- DBI::dbQuoteIdentifier(con, cols)
+  key_match <- paste(sprintf("t.%s = s.%s", qk, qk), collapse = " AND ")
+  set_cols <- setdiff(cols, c(keys, "origen"))
+  set_clause <- paste(sprintf("%s = s.%s", DBI::dbQuoteIdentifier(con, set_cols),
+                              DBI::dbQuoteIdentifier(con, set_cols)), collapse = ", ")
+  dup_sql <- sprintf("SELECT count(*) AS n FROM (SELECT 1 FROM %s GROUP BY %s HAVING count(*) > 1) d",
+                     tgt, paste(qk, collapse = ", "))
+  real_sql <- sprintf("SELECT count(*) AS n FROM %s WHERE origen = 'real'", tgt)
+
+  DBI::dbWriteTable(con, paste0("tmp_", table), to_utf8_df(df[cols]), temporary = TRUE, overwrite = TRUE)
+
+  DBI::dbBegin(con)
+  res <- tryCatch({
+    reales_antes <- DBI::dbGetQuery(con, real_sql)$n
+    n <- c(
+      proyeccion_sustituida = DBI::dbExecute(con, sprintf(
+        "DELETE FROM %s t USING %s s WHERE %s AND t.origen = 'proyeccion' AND s.origen = 'real'",
+        tgt, tmp, key_match)),
+      actualizadas = DBI::dbExecute(con, sprintf(
+        "UPDATE %s t SET %s FROM %s s WHERE %s AND t.origen = s.origen",
+        tgt, set_clause, tmp, key_match)),
+      insertadas = DBI::dbExecute(con, sprintf(
+        "INSERT INTO %s (%s) SELECT %s FROM %s s
+          WHERE NOT EXISTS (SELECT 1 FROM %s t WHERE %s)",
+        tgt, paste(qc, collapse = ", "), paste(paste0("s.", qc), collapse = ", "), tmp, tgt, key_match)),
+      proyeccion_obsoleta = DBI::dbExecute(con, sprintf(
+        "DELETE FROM %s t WHERE t.origen = 'proyeccion'
+            AND NOT EXISTS (SELECT 1 FROM %s s WHERE %s AND s.origen = 'proyeccion')",
+        tgt, tmp, key_match))
+    )
+
+    duplicadas <- DBI::dbGetQuery(con, dup_sql)$n
+    reales_despues <- DBI::dbGetQuery(con, real_sql)$n
+    if (duplicadas > 0) stop(sprintf("quedarian %d claves duplicadas (real y proyeccion conviviendo)", duplicadas))
+    if (reales_despues < reales_antes) stop(sprintf("se perderian filas reales (%d -> %d)", reales_antes, reales_despues))
+
+    DBI::dbCommit(con)
+    n
+  }, error = function(e) {
+    DBI::dbRollback(con)
+    stop(sprintf("Upsert de %s.%s revertido: %s", schema, table, conditionMessage(e)), call. = FALSE)
+  })
+  DBI::dbExecute(con, sprintf("DROP TABLE IF EXISTS %s", tmp))
+
+  log_event("DB", sprintf(
+    "%s.%s: %s", schema, table,
+    paste(sprintf("%s=%d", names(res), as.integer(res)), collapse = " | ")
+  ))
+  invisible(res)
+}
+
+# Copia las tablas publicadas en el esquema de staging (sin permisos para
+# anon/authenticated) para ensayar sobre ella exactamente el mismo upsert.
+prepare_staging_copy <- function(con, cfg, table) {
+  pub <- qualified_name(con, cfg$db$publish_schema, table)
+  stg <- qualified_name(con, cfg$db$staging_schema, table)
+  DBI::dbExecute(con, sprintf("CREATE SCHEMA IF NOT EXISTS %s", DBI::dbQuoteIdentifier(con, cfg$db$staging_schema)))
+  DBI::dbExecute(con, sprintf("DROP TABLE IF EXISTS %s", stg))
+  DBI::dbExecute(con, sprintf("CREATE TABLE %s (LIKE %s INCLUDING ALL)", stg, pub))
+  DBI::dbExecute(con, sprintf("INSERT INTO %s SELECT * FROM %s", stg, pub))
+  DBI::dbExecute(con, sprintf("ALTER TABLE %s ENABLE ROW LEVEL SECURITY", stg))
+}
+
+# Resumen de lo que cambiaria en produccion: filas por mes y origen antes y
+# despues, y diferencias en meses reales que ya estaban publicados.
+summarise_staging_diff <- function(con, cfg, table, keys) {
+  antes <- DBI::dbReadTable(con, DBI::Id(schema = cfg$db$publish_schema, table = table))
+  despues <- DBI::dbReadTable(con, DBI::Id(schema = cfg$db$staging_schema, table = table))
+
+  cuenta <- function(df, sufijo) {
+    df |>
+      dplyr::count(fecha, origen, name = "filas") |>
+      tidyr::pivot_wider(names_from = origen, values_from = filas, values_fill = 0,
+                         names_prefix = paste0(sufijo, "_"))
+  }
+  por_mes <- dplyr::full_join(cuenta(antes, "antes"), cuenta(despues, "despues"), by = "fecha") |>
+    dplyr::mutate(dplyr::across(-fecha, ~ tidyr::replace_na(.x, 0L))) |>
+    dplyr::arrange(fecha)
+
+  num_cols <- setdiff(intersect(names(antes)[vapply(antes, is.numeric, logical(1))], names(despues)), keys)
+  comunes <- dplyr::inner_join(
+    antes |> dplyr::filter(origen == "real"),
+    despues |> dplyr::filter(origen == "real"),
+    by = keys, suffix = c(".antes", ".despues")
+  )
+  revisiones <- purrr::map_dfr(num_cols, function(v) {
+    a <- comunes[[paste0(v, ".antes")]]; d <- comunes[[paste0(v, ".despues")]]
+    cambia <- (is.na(a) != is.na(d)) | (!is.na(a) & !is.na(d) & abs(a - d) > 1e-6 * pmax(1, abs(a)))
+    if (!any(cambia)) return(NULL)
+    tibble::tibble(
+      variable = v, filas_cambian = sum(cambia),
+      meses = paste(sort(unique(format(comunes$fecha[cambia], "%Y-%m"))), collapse = " "),
+      max_dif_abs = suppressWarnings(max(abs(a - d)[cambia], na.rm = TRUE))
+    )
+  })
+
+  out_dir <- file.path(cfg$load_dir, "staging")
+  ensure_dir(out_dir)
+  readr::write_csv2(por_mes, file.path(out_dir, sprintf("%s_filas_por_mes.csv", table)))
+  readr::write_csv2(revisiones, file.path(out_dir, sprintf("%s_revisiones_meses_reales.csv", table)))
+  log_event("INFO", sprintf("%s: resumen de staging en %s", table, out_dir))
+  invisible(list(por_mes = por_mes, revisiones = revisiones))
+}
+
+write_publication_tables <- function(cfg, hub_tables) {
+  require_packages(c("DBI", "RPostgres"))
+  con <- connect_supabase(cfg)
+  on.exit(DBI::dbDisconnect(con), add = TRUE)
+
+  target_schema <- if (identical(cfg$db_target, "produccion")) cfg$db$publish_schema else cfg$db$staging_schema
+  log_event("DB", sprintf("Destino de las tablas hub: %s (%s)", target_schema, cfg$db_target))
+
+  for (table in names(hub_tables)) {
+    if (identical(cfg$db_target, "staging")) prepare_staging_copy(con, cfg, table)
+    upsert_publication_table(con, target_schema, table, hub_tables[[table]], publication_keys[[table]])
+    if (identical(cfg$db_target, "staging")) {
+      summarise_staging_diff(con, cfg, table, publication_keys[[table]])
+    }
+  }
+
+  if (identical(cfg$db_target, "produccion")) apply_indices_and_rls(con, cfg$db$publish_schema)
+}
+
+# Comprobacion de solo lectura: lo que ve la web. Se ejecuta aunque el cron no
+# escriba, porque fue justo ahi donde la incidencia 2026-10 paso desapercibida:
+# la extraccion llegaba a agosto y la tabla publicada seguia en marzo.
+check_published_freshness <- function(cfg) {
+  if (!nzchar(cfg$db$host) || !nzchar(cfg$db$user) || !nzchar(cfg$db$password)) {
+    log_event("INFO", "Sin credenciales: no se comprueba la antiguedad de la tabla publicada")
+    return(invisible(NULL))
+  }
+  tryCatch({
+    con <- connect_supabase(cfg)
+    on.exit(DBI::dbDisconnect(con), add = TRUE)
+    ultimo <- DBI::dbGetQuery(con, sprintf(
+      "SELECT max(fecha) AS ultimo FROM %s WHERE origen = 'real'",
+      qualified_name(con, cfg$db$publish_schema, "ced_dependencia_global")
+    ))$ultimo
+    check_freshness(ultimo, sprintf("Tabla publicada %s.ced_dependencia_global", cfg$db$publish_schema))
+  }, error = function(e) {
+    log_event("WARN", sprintf("No se pudo comprobar la tabla publicada: %s", conditionMessage(e)))
+  })
 }
 
 # ===========================================================================
@@ -360,16 +552,24 @@ run_carga <- function(cfg) {
   exported_files <- write_outputs(cfg, ced_global, ced_gen)
   write_dataset_exports(cfg, modeled)
 
-  # 6. Carga atomica a Supabase (con --with-db=true)
+  # 6. Carga a Supabase (con --with-db=true)
+  #    Tablas hub -> upsert en canendatos (produccion) o ced_staging (staging).
+  #    Tablas intermedias -> esquema de trabajo 'saad', solo en produccion.
   if (isTRUE(cfg$with_db)) {
-    upload <- modeled
-    upload[["ced_dependencia_global"]] <- ced_global
-    if (!is.null(ced_gen)) upload[["ced_dependencia_gen"]] <- ced_gen
-    write_supabase_tables(cfg, upload)
-    log_event("DB", "Carga en Supabase completada")
+    hub <- list(ced_dependencia_global = ced_global)
+    if (!is.null(ced_gen)) hub[["ced_dependencia_gen"]] <- ced_gen
+    write_publication_tables(cfg, hub)
+
+    if (identical(cfg$db_target, "produccion") && isTRUE(cfg$aux_tables)) {
+      write_supabase_tables(cfg, modeled)
+    } else {
+      log_event("INFO", "Tablas intermedias de 'saad' no se escriben (staging o --aux-tables=false)")
+    }
+    log_event("DB", sprintf("Carga en Supabase completada (%s)", cfg$db_target))
   } else {
     log_event("INFO", "Carga a Supabase omitida (--with-db=false)")
   }
+  check_published_freshness(cfg)
 
   # 7. Verificacion
   purrr::walk(exported_files, assert_file_exists)
