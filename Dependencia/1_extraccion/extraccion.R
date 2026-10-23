@@ -69,12 +69,29 @@ is_excel_ext <- function(u) {
   stringr::str_detect(tolower(u), "\\.(xls|xlsx|xlsm|xlsb)(\\b|\\?|#|/)")
 }
 
-ua_string <- "R (httr2) - IMSERSO unified scraper"
+# imserso.es responde 403 con una pagina HTML de ~35 KB a las peticiones sin
+# User-Agent de navegador. Mandamos siempre cabeceras de navegador y, aun asi,
+# validamos cada fichero antes de parsearlo (validate_download).
+ua_string <- paste(
+  "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36",
+  "(KHTML, like Gecko) Chrome/128.0 Safari/537.36"
+)
+
+accept_for <- function(u) {
+  if (grepl("\\.pdf", tolower(u))) return("application/pdf,*/*")
+  "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel,*/*"
+}
+
+imserso_request <- function(u, referer = "https://imserso.es/") {
+  request(u) |>
+    req_user_agent(ua_string) |>
+    req_headers(Accept = accept_for(u), Referer = referer, `Accept-Language` = "es-ES,es;q=0.9")
+}
 
 validate_excel_link <- function(u) {
   safe_delay()
   r <- tryCatch(
-    request(u) |> req_user_agent(ua_string) |> req_method("HEAD") |> req_timeout(25) |> req_perform(),
+    imserso_request(u) |> req_method("HEAD") |> req_timeout(25) |> req_perform(),
     error = function(e) e
   )
   if (!inherits(r, "error") && resp_status(r) < 400) {
@@ -83,7 +100,7 @@ validate_excel_link <- function(u) {
   }
   safe_delay()
   r2 <- tryCatch(
-    request(u) |> req_user_agent(ua_string) |> req_range_bytes(0, 1024) |> req_timeout(25) |> req_perform(),
+    imserso_request(u) |> req_range_bytes(0, 1024) |> req_timeout(25) |> req_perform(),
     error = function(e) e
   )
   if (!inherits(r2, "error") && resp_status(r2) < 400) {
@@ -95,9 +112,7 @@ validate_excel_link <- function(u) {
 
 download_file <- function(u, dest, referer) {
   safe_delay()
-  req <- request(u) |>
-    req_user_agent(ua_string) |>
-    req_headers(Referer = referer, `Accept-Language` = "es-ES,es;q=0.9") |>
+  req <- imserso_request(u, referer = referer) |>
     req_timeout(seconds = 180) |>
     req_retry(max_tries = 6, backoff = ~ runif(1, 0.8, 2.2))
   r <- tryCatch(req_perform(req), error = function(e) e)
@@ -108,8 +123,13 @@ download_file <- function(u, dest, referer) {
   if (status >= 200 && status < 300) {
     raw <- resp_body_raw(r)
     writeBin(raw, dest)
-    cl <- resp_headers(r)[["content-length"]]
-    bytes <- if (!is.null(cl)) suppressWarnings(as.numeric(cl)) else fs::file_info(dest)$size
+    bytes <- fs::file_info(dest)$size
+    check <- validate_download(dest)
+    if (!check$ok) {
+      fs::file_delete(dest)
+      log_event("ERROR", sprintf("Descarga descartada %s: %s", basename(dest), check$motivo))
+      return(list(ok = FALSE, status = status, bytes = bytes, note = paste("Invalid:", check$motivo)))
+    }
     return(list(ok = TRUE, status = status, bytes = bytes, note = "Downloaded"))
   }
   list(ok = FALSE, status = status, bytes = NA_real_, note = "HTTP not OK")
@@ -180,7 +200,7 @@ resolve_page_url <- function(yr, base_url) {
   for (u in candidates) {
     safe_delay()
     resp <- tryCatch(
-      request(u) |> req_user_agent(ua_string) |> req_perform(),
+      imserso_request(u) |> req_headers(Accept = "text/html,*/*") |> req_perform(),
       error = function(e) e
     )
     if (!inherits(resp, "error") && resp_status(resp) < 400) {
@@ -273,6 +293,76 @@ read_all_sheets_any <- function(path) {
 }
 
 # ===========================================================================
+# Ficheros utilizables y auditoria de fechas (incidencia 2026-10)
+# ===========================================================================
+
+# Descarta (moviendolos a _invalidos/) los ficheros que no son Excel reales
+# -p.ej. la pagina HTML de 35 KB que devuelve imserso.es sin cabeceras- y
+# exige un unico fichero por mes. La fecha sale SIEMPRE del nombre del fichero.
+usable_files <- function(files, yr, out_dir) {
+  if (length(files) == 0) return(files)
+  checks <- purrr::map(files, validate_download)
+  ok <- purrr::map_lgl(checks, "ok")
+  if (any(!ok)) {
+    bad_dir <- file.path(out_dir, "_invalidos")
+    dir_create(bad_dir)
+    purrr::walk2(files[!ok], checks[!ok], function(f, chk) {
+      log_event("WARN", sprintf("Ano %d: %s descartado (%s)", yr, basename(f), chk$motivo))
+      fs::file_move(f, file.path(bad_dir, basename(f)))
+    })
+  }
+  files <- files[ok]
+
+  fechas <- fecha_mes_from_filename(files)
+  sin_fecha <- is.na(fechas)
+  if (any(sin_fecha)) {
+    log_event("WARN", sprintf("Ano %d: sin fecha en el nombre, se ignoran: %s",
+                              yr, paste(basename(files[sin_fecha]), collapse = ", ")))
+  }
+  otro_anio <- !sin_fecha & as.integer(format(fechas, "%Y")) != yr
+  if (any(otro_anio)) {
+    log_event("WARN", sprintf("Ano %d: ficheros de otro ano en la carpeta, se ignoran: %s",
+                              yr, paste(basename(files[otro_anio]), collapse = ", ")))
+  }
+  keep <- !sin_fecha & !otro_anio
+  files <- files[keep]
+  fechas <- fechas[keep]
+
+  dup <- fechas[duplicated(fechas)]
+  if (length(dup) > 0) {
+    stop(sprintf(
+      "Ano %d: varios ficheros para el mismo mes (%s): %s. Deja solo uno.",
+      yr, paste(format(unique(dup), "%Y-%m"), collapse = ", "),
+      paste(basename(files[fechas %in% dup]), collapse = ", ")
+    ), call. = FALSE)
+  }
+  files
+}
+
+# Compara la fecha de la cabecera ("Situacion a 30 de septiembre de 2026")
+# con la del nombre del fichero. Manda el nombre; la discrepancia solo se
+# avisa. El PDF de evolucion de septiembre de 2026 arrastraba en la cabecera
+# "a 28 de febrero de 2026": si un parser tomara esa fecha sobrescribiria meses.
+audit_header_dates <- function(file_lists) {
+  purrr::iwalk(file_lists, function(sheets, fname) {
+    fecha_nombre <- fecha_mes_from_filename(fname)
+    if (is.na(fecha_nombre) || !length(sheets)) return(invisible(NULL))
+    idx <- grep("solsaad", names(sheets), ignore.case = TRUE)[1]
+    if (is.na(idx)) idx <- 1L
+    sh <- sheets[[idx]]
+    if (!is.data.frame(sh) || ".leer_error" %in% names(sh)) return(invisible(NULL))
+    txt <- c(names(sh), unlist(utils::head(sh, 6), use.names = FALSE))
+    fecha_cab <- fecha_mes_from_text(txt[grepl("situaci", txt, ignore.case = TRUE)])
+    if (!is.na(fecha_cab) && fecha_cab != fecha_nombre) {
+      log_event("WARN", sprintf(
+        "%s: la cabecera dice %s y el nombre %s; se usa la fecha del nombre",
+        fname, format(fecha_cab, "%Y-%m"), format(fecha_nombre, "%Y-%m")
+      ))
+    }
+  })
+}
+
+# ===========================================================================
 # Scraping de un ano completo
 # ===========================================================================
 
@@ -289,8 +379,10 @@ scrape_year <- function(yr, xls_dir, base_url) {
     yr < current_year
 
   if (use_year_cache) {
+    cached_files <- usable_files(cached_files, yr, out_dir)
     log_event("CACHE", sprintf("Ano %d: usando %d archivos locales", yr, length(cached_files)))
     file_lists <- set_names(map(cached_files, read_all_sheets_any), basename(cached_files))
+    audit_header_dates(file_lists)
     fechas_arch <- extract_fecha_from(basename(cached_files))
     meses_arch  <- suppressWarnings(format(as.Date(fechas_arch, "%Y%m%d"), "%m"))
     meses_arch[is.na(meses_arch)] <- "00"
@@ -345,7 +437,9 @@ scrape_year <- function(yr, xls_dir, base_url) {
   results <- pmap_dfr(
     list(cand_ok$url_abs, cand_ok$dest_path, rep(page_url, nrow(cand_ok))),
     function(u, dest, ref) {
-      info <- if (fs::file_exists(dest) && !isTRUE(getOption("dependencia.force_download", FALSE))) {
+      reuse <- fs::file_exists(dest) && validate_download(dest)$ok &&
+        !isTRUE(getOption("dependencia.force_download", FALSE))
+      info <- if (reuse) {
         list(ok = TRUE, status = NA_integer_, bytes = fs::file_info(dest)$size, note = "Existing local file")
       } else {
         download_file(u, dest, referer = ref)
@@ -372,12 +466,14 @@ scrape_year <- function(yr, xls_dir, base_url) {
 
   xfiles <- fs::dir_ls(out_dir, regexp = "\\.(xls|xlsx|xlsm|xlsb)$", type = "file", recurse = FALSE)
   xfiles <- xfiles[!grepl("/_duplicates/", xfiles, fixed = TRUE)]
+  xfiles <- usable_files(xfiles, yr, out_dir)
   if (length(xfiles) == 0) {
     log_event("WARN", sprintf("No quedan archivos tras deduplicar en %s", out_dir))
     return(NULL)
   }
 
   file_lists <- set_names(map(xfiles, read_all_sheets_any), basename(xfiles))
+  audit_header_dates(file_lists)
 
   fechas_arch <- extract_fecha_from(basename(xfiles))
   meses_arch  <- suppressWarnings(format(as.Date(fechas_arch, "%Y%m%d"), "%m"))

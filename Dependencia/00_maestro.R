@@ -12,6 +12,10 @@
 # Opciones CLI:
 #   --steps=extraccion,transformacion,modelado,carga  (cuales ejecutar)
 #   --with-db=true/false                              (cargar a Supabase y leer PPD)
+#   --db-target=staging|produccion                    (default staging: copia de las tablas
+#                                                      hub en ced_staging + resumen de cambios;
+#                                                      produccion: upsert en canendatos)
+#   --aux-tables=true/false                           (tablas intermedias a 'saad' en produccion)
 #   --horizon-end=YYYY-MM-01                          (fecha fin forecast; default = hoy + 6 meses)
 #   --force-download=true/false                       (ignorar cache XLS)
 #   --include-prophet=true/false                      (incluir Prophet en CV; default false porque

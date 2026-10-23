@@ -55,3 +55,6 @@ logs/
 *.zip
 ~$*.docx
 ~$*.xlsx
+
+# -- Resumen del ensayo en ced_staging (--db-target=staging) -----------------
+4_carga/staging/
