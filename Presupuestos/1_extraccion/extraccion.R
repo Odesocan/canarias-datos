@@ -318,7 +318,18 @@ run_extraccion <- function(cfg) {
           # Si el dispatcher devolvió 0 filas y es CSV/XLSX, intenta el parser
           # genérico R (legado) como red de seguridad.
           if ((is.null(df_raw) || nrow(df_raw) == 0) && meta$tipo %in% c("csv","xlsx")) {
-            df_raw <- .parsear_csv_xlsx(dest, meta)
+            # La red de seguridad no puede tumbar a las demás fuentes: si el
+            # parser legado revienta (p. ej. cabeceras en latin-1, que hacen
+            # fallar a trimws), se degrada al "Sin filas tras parseo" de unas
+            # líneas más abajo, igual que cuando el dispatcher no saca nada.
+            df_raw <- tryCatch(
+              .parsear_csv_xlsx(dest, meta),
+              error = function(e) {
+                log_event("WARN", sprintf("Parser genérico legado falló en %s/%s/%s: %s",
+                                            cca, ej, alias, conditionMessage(e)))
+                NULL
+              }
+            )
           }
         }
 
