@@ -233,6 +233,10 @@
     #ced-canendatos-d3 .ced-vm-pill[data-sexo="observado"] { background:var(--ced-accent-soft); border-color:var(--ced-accent); color:var(--ced-accent-deep); }
     #ced-canendatos-d3 .ced-vm-pill[data-sexo="estimado"] { background:var(--ced-contrast-soft); border-color:var(--ced-contrast); color:var(--ced-ink); }
     #ced-canendatos-d3 .ced-vm-serie { white-space:nowrap; font-variant-numeric:tabular-nums; }
+    /* Con meses («ene 2023–sep 2026») la columna no cabe entera: se deja
+       partir tras el guion, pero nunca dentro de una fecha. */
+    #ced-canendatos-d3 .ced-vm-serie[data-granularity="monthly"] { white-space:normal; min-width:5.5em; }
+    #ced-canendatos-d3 .ced-vm-nw { white-space:nowrap; }
     #ced-canendatos-d3 .ced-vm-foot { margin:0; padding:10px 16px 13px; border-top:1px solid var(--ced-line); color:var(--ced-muted); font-size:12px; }
 
     /* Filtro de género: la nota «(No desagregado)» o «(Estimación)» va en
@@ -701,7 +705,7 @@
         { h:"Población potencialmente dependiente", p:"Los indicadores marcados «% PPD» se expresan sobre la <strong>Población Potencialmente Dependiente</strong>: personas de 65 años o más y de 16 a 64 años con discapacidad reconocida. La PPD es anual y se aplica a todos los meses del año." },
         { h:"Los tres limbos",        p:"El trámite del SAAD encadena tres esperas, cada una sobre la PPD: el <strong>limbo del grado</strong> (solicitud sin dictamen), el <strong>limbo del PIA</strong> (con dictamen, pero sin Programa Individual de Atención) y el <strong>limbo de las prestaciones</strong> (con PIA, pero sin prestación efectiva). Son situaciones distintas, no tres medidas de lo mismo." },
         { h:"Perspectiva de género",  p:"El IMSERSO no publica por género y comunidad las solicitudes, las personas beneficiarias ni las esperas, así que <strong>ningún indicador de esta sección está desagregado por género</strong>. La perspectiva de género se lee en dos indicadores: el porcentaje de mujeres entre las personas cuidadoras familiares y el peso de la prestación para cuidados en el entorno familiar, un cuidado que recae sobre todo en mujeres." },
-        { h:"Modelado",               p:"Se comparan <strong>ARIMA · ETS · Random Forest · XGBoost</strong> con validación cruzada temporal y se aplica el algoritmo con menor error global para proyectar los meses siguientes al último dato publicado." },
+        { h:"Modelado",               p:"Se comparan <strong>ARIMA · ETS · Random Forest · XGBoost</strong> con validación cruzada temporal y se aplica el algoritmo con menor error global para proyectar los meses siguientes al último dato publicado. La matriz de variables indica hasta qué mes llega cada serie." },
         { h:"Origen",                 p:"Cada dato se marca como <strong>real</strong> o <strong>proyección</strong>. En los gráficos de evolución, los puntos huecos señalan proyecciones. El mapa usa las regiones NUTS-2 de Eurostat." }
       ],
       mapPalette: ["#fbe8e0","#f6c2ad","#f29478","#e8633e","#b8472f","#6e1f1a"],
@@ -721,6 +725,44 @@
         // familiar. Mide la feminización del cuidado, no la de los expedientes.
         pct_mujeres_benef:          { label:"Mujeres entre las personas cuidadoras familiares (%)", short:"% cuidadoras", unit:"% de personas cuidadoras", fmt:",.1f", suffix:" %", sexo:"no" }
       },
+      variables: {
+        cobertura_pct_ppd:          { mide:"Personas beneficiarias con prestación efectiva sobre la población potencialmente dependiente.",
+                                      calculo:"Personas beneficiarias con prestación ÷ PPD del año × 100. Los meses sin publicar se proyectan.",
+                                      fuente:"IMSERSO (SAAD)" },
+        solicitudes_pct_ppd:        { mide:"Solicitudes de reconocimiento de la situación de dependencia registradas en el sistema, sobre la población potencialmente dependiente.",
+                                      calculo:"Solicitudes acumuladas a fin de mes ÷ PPD del año × 100. Los meses sin publicar se proyectan.",
+                                      fuente:"IMSERSO (SAAD)" },
+        limbo_grado_pct_ppd:        { mide:"Personas que han solicitado la valoración y todavía esperan el dictamen de grado.",
+                                      calculo:"Solicitudes pendientes de resolución de grado ÷ PPD del año × 100. Los meses sin publicar se proyectan.",
+                                      fuente:"IMSERSO (SAAD)" },
+        limbo_pia_pct_ppd:          { mide:"Personas con grado reconocido y derecho a prestación que todavía esperan la resolución de su Programa Individual de Atención.",
+                                      calculo:"Personas pendientes de resolución del PIA ÷ PPD del año × 100. Los meses sin publicar se proyectan.",
+                                      fuente:"IMSERSO (SAAD)" },
+        limbo_prestaciones_pct_ppd: { mide:"Personas con PIA aprobado que todavía no reciben la prestación.",
+                                      calculo:"Personas con PIA pendientes de prestación efectiva ÷ PPD del año × 100. Los meses sin publicar se proyectan.",
+                                      fuente:"IMSERSO (SAAD)" },
+        tiempo_espera_total_dias:   { mide:"Días que pasan de media desde la solicitud hasta la resolución de la prestación.",
+                                      calculo:"Tiempo medio publicado por comunidad. Sin dato para Ceuta y Melilla. Los meses sin publicar se proyectan.",
+                                      fuente:"IMSERSO (SAAD)" },
+        pct_pecef:                  { mide:"Peso de la prestación económica para cuidados en el entorno familiar sobre el total de prestaciones.",
+                                      calculo:"Prestaciones para cuidados en el entorno familiar ÷ total de prestaciones × 100. Los meses sin publicar se proyectan.",
+                                      fuente:"IMSERSO (SAAD)",
+                                      sexoNota:"Cuidado que recae sobre todo en mujeres; se lee junto al % de cuidadoras." },
+        pct_atencion_residencial:   { mide:"Peso de la atención residencial sobre el total de prestaciones.",
+                                      calculo:"Prestaciones de atención residencial ÷ total de prestaciones × 100. Los meses sin publicar se proyectan.",
+                                      fuente:"IMSERSO (SAAD)" },
+        ratio_prest_x_benef:        { mide:"Número medio de prestaciones que recibe cada persona beneficiaria.",
+                                      calculo:"Ratio publicado por el IMSERSO; si falta o es anómalo, total de prestaciones ÷ personas beneficiarias. Los meses sin publicar se proyectan.",
+                                      fuente:"IMSERSO (SAAD)" },
+        pct_grado3:                 { mide:"Personas con Grado III (gran dependencia) entre las que tienen derecho a prestación.",
+                                      calculo:"Dictámenes de Grado III ÷ total de personas con derecho a prestación × 100. Los meses sin publicar se proyectan.",
+                                      fuente:"IMSERSO (SAAD)" },
+        pct_mujeres_benef:          { mide:"Mujeres entre las personas cuidadoras familiares que constan en los expedientes con prestación para cuidados en el entorno familiar.",
+                                      calculo:"Mujeres ÷ (hombres + mujeres) × 100, del perfil de la persona cuidadora por comunidad. Sin dato para Ceuta y Melilla. Los meses sin publicar se proyectan.",
+                                      fuente:"IMSERSO (SAAD, perfil de la persona cuidadora)",
+                                      sexoNota:"Es en sí una medida de género, por comunidad." }
+      },
+      variablesNote: "IMSERSO: Instituto de Mayores y Servicios Sociales · SAAD: Sistema para la Autonomía y Atención a la Dependencia · PPD: población potencialmente dependiente · PIA: Programa Individual de Atención.",
       supabase: { schema:"canendatos", tables:["ced_dependencia_global"] },
       csv: null,
       loader: loadDependencia
@@ -1557,8 +1599,9 @@
     const span = rs => {
       if (rs.length === 0) return null;
       const ps = rs.map(r => r.period).sort(comparePeriodKeys);
-      const a = formatPeriodLabel(ps[0], cfg.granularity), b = formatPeriodLabel(ps[ps.length - 1], cfg.granularity);
-      return a === b ? a : `${a}–${b}`;
+      const nw = p => `<span class="ced-vm-nw">${formatPeriodLabel(p, cfg.granularity)}</span>`;
+      const a = nw(ps[0]), b = nw(ps[ps.length - 1]);
+      return a === b ? a : `${a}–<wbr>${b}`;
     };
     const real = span(rows.filter(r => r.origen !== "proyeccion"));
     const proj = span(rows.filter(r => r.origen === "proyeccion"));
@@ -1592,7 +1635,7 @@
           <td role="cell" data-label="Qué mide y cómo se calcula">${v.mide}<span class="ced-vm-sub">${v.calculo}</span></td>
           <td role="cell" data-label="Fuente">${v.fuente}</td>
           <td role="cell" data-label="Por género"><span class="ced-vm-pill" data-sexo="${sexo}">${SEXO_LABELS[sexo].pill}</span>${nota ? `<span class="ced-vm-sub">${nota}</span>` : ""}</td>
-          <td role="cell" data-label="Serie" class="ced-vm-serie">${seriesSpan(cfg.id, k)}</td>
+          <td role="cell" data-label="Serie" class="ced-vm-serie" data-granularity="${cfg.granularity}">${seriesSpan(cfg.id, k)}</td>
         </tr>`;
     }).join("");
     return `
