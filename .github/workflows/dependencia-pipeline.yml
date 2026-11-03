@@ -38,6 +38,8 @@ jobs:
       # como valor por defecto en su código, que es la fuente autoritativa:
       #   Dependencia/utils/pipeline_utils.R -> 'saad'
       # Al no definir la variable aquí, ese valor por defecto es el que manda.
+      # Las tablas hub (ced_dependencia_global/_gen) van a la capa de
+      # publicación 'canendatos' (SUPABASE_PUBLISH_SCHEMA, mismo criterio).
 
     steps:
       - name: Checkout
@@ -75,7 +77,9 @@ jobs:
             WITH_DB=true
           fi
           echo "Evento: ${GITHUB_EVENT_NAME} · carga a producción: ${WITH_DB}"
-          Rscript "Dependencia/00_maestro.R" --steps=extraccion,transformacion,modelado,carga --with-db="${WITH_DB}"
+          # Con carga pedida, el destino es la capa de publicación (canendatos)
+          # mediante upsert. Sin --db-target el código usa staging por defecto.
+          Rscript "Dependencia/00_maestro.R" --steps=extraccion,transformacion,modelado,carga --with-db="${WITH_DB}" --db-target=produccion
 
       - name: Upload outputs
         uses: actions/upload-artifact@v4

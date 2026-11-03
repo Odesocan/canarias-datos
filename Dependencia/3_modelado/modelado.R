@@ -503,8 +503,13 @@ run_modelado <- function(cfg) {
   log_event("INFO", glue("Proyeccion {format(last_real %m+% months(1), '%Y-%m')} -> {format(horizon_end, '%Y-%m')} con {selected_algorithm}"))
 
   # 5. Proyectar cada indicador
+  # Solo se proyecta despues del ultimo mes real del conjunto. Si una variable
+  # deja de publicarse antes (p.ej. el perfil del cuidador por sexo desde
+  # 2026-05), sus huecos dentro del periodo observado quedan en NA: imputarlos
+  # marcaria como 'proyeccion' filas que son reales (incidencia 2026-10).
   projected <- purrr::imap(primary_tables, function(df, v) {
-    out <- project_series(df, v, horizon_end, selected_algorithm, min_points = min_points)
+    out <- project_series(df, v, horizon_end, selected_algorithm, min_points = min_points) |>
+      dplyr::filter(.data$origen == "real" | .data$fecha > last_real)
     dplyr::rename(out, !!paste0(v, "_origen") := "origen")
   })
 
