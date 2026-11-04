@@ -50,6 +50,27 @@ jobs:
             stringi stringdist rvest httr2 xml2 fs digest janitor
             forecast prophet ranger xgboost
 
+      # Caché INCREMENTAL de los XLS crudos del IMSERSO. Sin esto, el runner
+      # arranca limpio en cada ejecución y la extracción re-descarga TODO el
+      # origen (2023-hoy). Con esto solo se bajan los meses nuevos (los
+      # estsisaad_* ya publicados son inmutables; ver log [INCR] y 00_maestro.R).
+      #
+      # Patrón de caché ACUMULATIVA: la clave principal es única por ejecución
+      # (run_id), así que siempre guarda una caché nueva al final; `restore-keys`
+      # restaura por prefijo la caché más reciente como base. Resultado: cada run
+      # parte de todos los meses ya descargados y añade los nuevos.
+      #
+      # Se separa restore/save (en vez de un único actions/cache) para que el
+      # paso Save corra con `if: always()`: así los meses recién descargados se
+      # conservan aunque falle un paso posterior (p. ej. `carga` a producción).
+      - name: Restaurar caché de XLS IMSERSO
+        uses: actions/cache/restore@v4
+        with:
+          path: Dependencia/1_extraccion/imserso_xls_multi
+          key: imserso-xls-${{ github.run_id }}
+          restore-keys: |
+            imserso-xls-
+
       - name: Run pipeline
         run: |
           # La carga a producción es una DECISIÓN EXPLÍCITA, nunca un efecto
@@ -76,6 +97,15 @@ jobs:
           fi
           echo "Evento: ${GITHUB_EVENT_NAME} · carga a producción: ${WITH_DB}"
           Rscript "Dependencia/00_maestro.R" --steps=extraccion,transformacion,modelado,carga --with-db="${WITH_DB}"
+
+      # Guarda la caché aunque un paso posterior falle, siempre que haya XLS que
+      # conservar (evita guardar un directorio vacío si la extracción no bajó nada).
+      - name: Guardar caché de XLS IMSERSO
+        if: always() && hashFiles('Dependencia/1_extraccion/imserso_xls_multi/**') != ''
+        uses: actions/cache/save@v4
+        with:
+          path: Dependencia/1_extraccion/imserso_xls_multi
+          key: imserso-xls-${{ github.run_id }}
 
       - name: Upload outputs
         uses: actions/upload-artifact@v4

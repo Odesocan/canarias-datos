@@ -989,7 +989,7 @@ export async function renderTopic(rootEl, topic) {
 
   // Hay dos formas de tabla en canendatos:
   //   * dos relaciones — <area>_global (género 'total') y <area>_gen (hombres y
-  //     mujeres). Es lo que usan Dependencia, Educación, Empleo, Sanidad y Vivienda.
+  //     mujeres). Es lo que usan Educación, Empleo, Sanidad y Vivienda.
   //   * una sola relación con la columna `genero` incluyendo 'total'. Es el caso
   //     de Salud mental (ced_saludmental).
   // Se distinguen porque en la segunda genderTable === globalTable. Sin partirla,

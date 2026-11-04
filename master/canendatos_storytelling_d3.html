@@ -1074,25 +1074,38 @@
   // que la sección la presenta como no desagregada y no la descarga. Usa `ppd`
   // como peso para la media estatal ponderada si la tabla lo trae (campo
   // `censo` = ppd para que stateMean lo aproveche).
+  //
+  // Como en Empleo, cada fila se parte en una fila por origen: los indicadores
+  // con `<clave>_origen` propio van con el suyo y el resto con el `origen` de
+  // la fila. El `origen` de fila es un OR conservador: basta con que una
+  // variable de cadencia lenta (el perfil de la persona cuidadora, del que
+  // salen pct_mujeres_benef y pct_pecef) esté proyectada para que la fila
+  // entera lo esté, y entonces los limbos o la cobertura de meses ya
+  // publicados saldrían como proyección. Sin columnas `_origen` en la tabla,
+  // el resultado es el de antes: una fila por (ccaa, mes).
   function loadDependencia(cfg) {
     const metricKeys = Object.keys(cfg.metrics);
     return supabaseFetchAll("ced_dependencia_global", cfg.supabase.schema).catch(() => []).then(rows => {
-      return rows.map(d => {
+      return rows.flatMap(d => {
         const ccaa = normalizeCcaa(d.ccaa);
-        if (!ccaa) return null;
+        if (!ccaa) return [];
         const periodKey = parsePeriodKey(d.fecha ?? d.periodo, "monthly");
-        if (!periodKey) return null;
-        const out = {
-          ccaa,
-          period: periodKey,
-          periodo: periodKeyToNum(periodKey, "monthly"),
-          genero: "total",
-          origen: d.origen || "real",
-          censo: num(d.ppd) || null   // PPD como peso para stateMean ponderado
-        };
-        metricKeys.forEach(k => out[k] = num(d[k]));
-        return out;
-      }).filter(Boolean);
+        if (!periodKey) return [];
+        const censo = num(d.ppd) || null;   // PPD como peso para stateMean ponderado
+        const porOrigen = new Map();
+        metricKeys.forEach(k => {
+          const v = num(d[k]);
+          if (v == null) return;
+          const origen = d[`${k}_origen`] || d.origen || "real";
+          if (!porOrigen.has(origen)) {
+            const out = { ccaa, period: periodKey, periodo: periodKeyToNum(periodKey, "monthly"), genero: "total", origen, censo };
+            metricKeys.forEach(m => out[m] = null);
+            porOrigen.set(origen, out);
+          }
+          porOrigen.get(origen)[k] = v;
+        });
+        return Array.from(porOrigen.values());
+      });
     });
   }
 

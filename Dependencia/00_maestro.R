@@ -13,7 +13,17 @@
 #   --steps=extraccion,transformacion,modelado,carga  (cuales ejecutar)
 #   --with-db=true/false                              (cargar a Supabase y leer PPD)
 #   --horizon-end=YYYY-MM-01                          (fecha fin forecast; default = hoy + 6 meses)
-#   --force-download=true/false                       (ignorar cache XLS)
+#   --force-download=true/false                       (ignorar cache XLS y re-bajar todo)
+#
+# Actualizacion INCREMENTAL (lo normal): ejecuta SIN --force-download. La
+# extraccion re-escanea la pagina del ano en curso pero solo descarga los meses
+# que aun no estan en 1_extraccion/imserso_xls_multi/ (ver log [INCR]); los anios
+# ya cacheados ni se vuelven a visitar. Usa --force-download=true solo para forzar
+# una re-descarga limpia de todo el origen.
+#   NOTA CI (GitHub Actions): el contenedor arranca sin cache de XLS, asi que sin
+#   persistirla se re-baja todo. Para que el incremental funcione en CI, cachea el
+#   directorio 1_extraccion/imserso_xls_multi/ (p. ej. actions/cache con clave por
+#   mes) entre ejecuciones.
 #   --include-prophet=true/false                      (incluir Prophet en CV; default false porque
 #                                                      con series mensuales cortas <= 40 puntos
 #                                                      tiene NMAE 4x peor que ETS/ARIMA y es lento)

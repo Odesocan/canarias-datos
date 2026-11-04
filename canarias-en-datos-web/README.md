@@ -90,8 +90,8 @@ renderizar (`renderContext`, `core/engine.js`), pendiente de diagnóstico.
 
 - Schema `canendatos`. Conviven **tres formas de tabla**, y el motor las admite
   todas:
-  - `ced_<tematica>_global` + `ced_<tematica>_gen` — Dependencia, Educación,
-    Empleo y Vivienda.
+  - `ced_<tematica>_global` + `ced_<tematica>_gen` — Educación, Empleo y
+    Vivienda.
   - `global_<tematica>` + `gen_<tematica>` — Sanidad, que no sigue el prefijo
     `ced_`.
   - **Una sola tabla** con la columna `genero` incluyendo `'total'` — Salud
@@ -99,7 +99,10 @@ renderizar (`renderContext`, `core/engine.js`), pendiente de diagnóstico.
     al mismo nombre; el motor detecta la igualdad y parte las filas. Sin eso, las
     filas de hombres y mujeres contaminarían la serie global sin dar error.
   - `genderTable: null` para temáticas sin brecha de género: el motor oculta la
-    escena "género".
+    escena "género". Es el caso de **Dependencia**: `ced_dependencia_gen` existe,
+    pero reparte los indicadores con el % de mujeres entre las personas
+    *cuidadoras*, que no es el de las personas dependientes, así que no se lee
+    (como en el modelo de `master/`).
 - Schema `geodesocan`: tabla `ccaa` con columna `geom` (geometrías CCAA).
   **Hoy devuelve HTTP 400** para todas las temáticas y el motor cae al fallback
   de `GEO_FALLBACK`; los mapas se dibujan igual. Pendiente de revisar.

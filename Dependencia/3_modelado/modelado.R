@@ -514,7 +514,15 @@ run_modelado <- function(cfg) {
     function(left, right) dplyr::full_join(left, right, by = c("ccaa", "fecha"))
   )
 
-  # 7. Origen global: "proyeccion" si alguna variable es proyectada, "real" si todas son reales
+  # 7. Origen POR VARIABLE (<var>_origen) + origen global de fila.
+  #    Conservamos las columnas <var>_origen que produce project_series: permiten
+  #    al visor marcar real/proyeccion por indicador. Es imprescindible cuando los
+  #    indicadores tienen cadencias distintas: p. ej. limbo_pia es real hasta el
+  #    ultimo mes publicado, pero pct_mujeres_benef / pct_pecef (perfil del
+  #    cuidador, fuente mas lenta) se congelan antes y se proyectan. Con un unico
+  #    origen de fila (criterio OR conservador) esos meses reales saldrian como
+  #    proyeccion. El origen de fila se mantiene para compatibilidad y para las
+  #    variables crudas auxiliares que no tienen columna propia.
   origen_cols <- paste0(vars, "_origen")
   origen_present <- intersect(origen_cols, names(ced_modelado))
   ced_modelado$origen <- apply(
@@ -525,7 +533,7 @@ run_modelado <- function(cfg) {
       else if (any(vals == "proyeccion")) "proyeccion" else "real"
     }
   )
-  ced_modelado <- ced_modelado |> dplyr::select(-dplyr::all_of(origen_present))
+  # Las columnas <var>_origen se CONSERVAN (antes se descartaban aqui).
 
   ced_modelado <- ced_modelado |>
     bound_dashboard_indicators() |>

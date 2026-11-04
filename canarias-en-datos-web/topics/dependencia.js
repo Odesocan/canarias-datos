@@ -1,20 +1,25 @@
 // Configuracion de la tematica Dependencia.
 // Alineada con el Cuaderno Metodologico v2 (29-04-2026):
 //   * 10 indicadores del dashboard (cuaderno §4)
-//   * Tablas hub: ced_dependencia_global + ced_dependencia_gen
-//   * Genero como palanca (cuaderno §6): pct_mujeres_benef es directo;
-//     en ced_dependencia_gen los demas indicadores son ESTIMACION INDICATIVA.
+//   * Tabla hub: ced_dependencia_global (sin tabla de genero, ver data).
+//   * Genero: ningun indicador llega desagregado por sexo. ced_dependencia_gen
+//     reparte cobertura, solicitudes y limbos con el % de mujeres entre las
+//     personas CUIDADORAS familiares, que no es el de las personas
+//     dependientes: la "brecha" resultante es el indicador total por una
+//     constante, no una medicion. Por eso no se usa, igual que en el modelo
+//     de master/. La perspectiva de genero se lee en pct_mujeres_benef
+//     (feminizacion del cuidado) y pct_pecef.
 
 export const TOPIC = {
   id: "dependencia",
   label: "Dependencia",
   eyebrow: "Canarias en Datos · Dependencia",
   title: "Dependencia: analiza el Sistema para la Autonomía y Atención a la Dependencia",
-  lead: "Elige el indicador que más te interese analizar, vigila su evolución temporal y la brecha de género existente. Si quieres saber algo más sobre los datos que estás visualizando, acude al apartado de metodología en «Cómo se construye».",
+  lead: "Elige el indicador que más te interese analizar, compara comunidades y vigila su evolución mes a mes. Si quieres saber algo más sobre los datos que estás visualizando, acude al apartado de metodología en «Cómo se construye».",
 
   data: {
     globalTable: "ced_dependencia_global",
-    genderTable: "ced_dependencia_gen",
+    genderTable: null,  // sin desagregacion por sexo: el motor oculta la escena "genero" (ver cabecera)
     geoTable: "ccaa",
     geoNameColumn: "ccaa",
     geoGeometryColumn: "geom",
@@ -22,39 +27,37 @@ export const TOPIC = {
 
   // Indicador de portada: el "limbo de la dependencia" es el mensaje central
   // del cuaderno §1 y el mas comunicativo del bloque limbo.
-  defaultMetric: "tasa_pendiente_pia_ppd",
+  defaultMetric: "limbo_pia_pct_ppd",
 
   // Los 10 indicadores del cuaderno §4 (matriz de variables seleccionadas).
   metrics: [
     {
-      key: "tasa_cobertura_ppd",
+      key: "cobertura_pct_ppd",
       label: "Cobertura del SAAD",
       short: "Cobertura",
       unit: "% de la PPD",
       format: ".1f",
       suffix: " %",
-      displayFactor: 0.1,
       min: 0,
-      hasGender: true,
+      hasGender: false,
       source: "IMSERSO + general.censo_ppd",
     },
     {
-      key: "tasa_solicitud_ppd",
+      key: "solicitudes_pct_ppd",
       label: "Solicitudes acumuladas",
       short: "Solicitudes",
       unit: "% de la PPD",
       format: ".1f",
       suffix: " %",
-      displayFactor: 0.1,
       min: 0,
-      hasGender: true,
+      hasGender: false,
       source: "IMSERSO + general.censo_ppd",
     },
     {
       key: "pct_mujeres_benef",
-      label: "% mujeres en expedientes",
-      short: "% mujeres",
-      unit: "% sobre total expedientes",
+      label: "Mujeres entre las personas cuidadoras familiares (%)",
+      short: "% cuidadoras",
+      unit: "% de personas cuidadoras",
       format: ".1f",
       suffix: " %",
       min: 0,
@@ -63,27 +66,25 @@ export const TOPIC = {
       source: "IMSERSO · perfil del cuidador por CCAA",
     },
     {
-      key: "tasa_pendiente_pia_ppd",
+      key: "limbo_pia_pct_ppd",
       label: "Limbo de la dependencia (pendientes de PIA)",
       short: "Limbo PIA",
       unit: "% de la PPD",
       format: ".2f",
       suffix: " %",
-      displayFactor: 0.1,
       min: 0,
-      hasGender: true,
+      hasGender: false,
       source: "IMSERSO + general.censo_ppd",
     },
     {
-      key: "tasa_pendiente_grado_ppd",
+      key: "limbo_grado_pct_ppd",
       label: "Pendientes de resolución de grado ≥6 meses",
       short: "Pend. grado",
       unit: "% de la PPD",
       format: ".2f",
       suffix: " %",
-      displayFactor: 0.1,
       min: 0,
-      hasGender: true,
+      hasGender: false,
       source: "IMSERSO + general.censo_ppd",
     },
     {
@@ -160,16 +161,10 @@ export const TOPIC = {
       sub: "Serie temporal mensual desde 2023 para el indicador seleccionado, con proyección a 12 meses marcada en discontinuo.",
     },
     {
-      id: "gender",
-      type: "gender",
-      title: "Género",
-      sub: "Comparación mujeres-hombres por comunidad. Estimación indicativa: el IMSERSO no desagrega solicitudes ni pendientes por sexo en origen (cuaderno §6.3).",
-    },
-    {
       id: "method",
       type: "method",
       title: "Cómo se construye",
-      sub: "Fuentes, denominador PPD, palanca de género, automatización mensual y descarga.",
+      sub: "Fuentes, denominador PPD, perspectiva de género, automatización mensual y descarga.",
     },
   ],
 
@@ -180,11 +175,11 @@ export const TOPIC = {
     },
     {
       title: "Denominador PPD",
-      body: "Los indicadores de cobertura (1, 2, 4, 5) se relativizan respecto a la Población Potencialmente Dependiente (PPD = población ≥65 años + 16-64 con discapacidad reconocida). Fuente primaria: tabla general.censo_ppd. Fallback automático: hoja 22solcasaadpot del propio IMSERSO. El dato se almacena como personas por cada 1.000 PPD y el D3 lo muestra como porcentaje equivalente de la PPD.",
+      body: "Los indicadores de cobertura (1, 2, 4, 5) se relativizan respecto a la Población Potencialmente Dependiente (PPD = población ≥65 años + 16-64 con discapacidad reconocida). Fuente primaria: tabla general.censo_ppd. Fallback automático: hoja 22solcasaadpot del propio IMSERSO. El dato se almacena ya como porcentaje de la PPD (columnas *_pct_ppd).",
     },
     {
       title: "Perspectiva de género",
-      body: "El IMSERSO no publica solicitudes, pendientes ni tiempos desagregados por sexo. Sólo el perfil del cuidador (61aperfcuidadorCCAA) cruza CCAA × género. La tabla ced_dependencia_gen aplica este ratio como factor de escala a las métricas absolutas, marcadas con flag origen_genero='estimado'. Es una aproximación metodológicamente útil pero no equivale a datos oficiales desagregados.",
+      body: "El IMSERSO no publica por género y comunidad las solicitudes, las personas beneficiarias ni las esperas, así que ningún indicador de esta sección está desagregado por género. Repartirlos con el porcentaje de mujeres entre las personas cuidadoras no sirve: es otra población, y la brecha resultante sería el mismo indicador multiplicado por una constante. La perspectiva de género se lee en dos indicadores: el porcentaje de mujeres entre las personas cuidadoras familiares y el peso de la prestación para cuidados en el entorno familiar (PECEF), un cuidado que recae sobre todo en mujeres.",
     },
     {
       title: "Actualización mensual",
