@@ -317,8 +317,22 @@ run_extraccion <- function(cfg) {
           df_raw <- .parsear_pdf(cfg, dest, dest_pq, cca, ej)
           # Si el dispatcher devolvió 0 filas y es CSV/XLSX, intenta el parser
           # genérico R (legado) como red de seguridad.
+          # La red de seguridad no puede tumbar la extracción de las demás
+          # fuentes: su contrato es devolver NULL cuando no sabe parsear (ver
+          # los `return(NULL)` de .parsear_csv_xlsx) y el bloque de abajo ya
+          # degrada ese NULL a "[WARN] Sin filas tras parseo" + next. Pero la
+          # rama XLSX llama a readxl::read_excel() sin proteger y la CSV solo
+          # protege read_delim(), así que un fichero corrupto o con el `tipo`
+          # mal declarado lanzaba una excepción que abortaba el bucle entero.
           if ((is.null(df_raw) || nrow(df_raw) == 0) && meta$tipo %in% c("csv","xlsx")) {
-            df_raw <- .parsear_csv_xlsx(dest, meta)
+            df_raw <- tryCatch(
+              .parsear_csv_xlsx(dest, meta),
+              error = function(e) {
+                log_event("WARN", sprintf("Parser legado R falló en %s/%s/%s: %s",
+                                           cca, ej, alias, conditionMessage(e)))
+                NULL
+              }
+            )
           }
         }
 
